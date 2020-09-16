@@ -28,9 +28,5 @@ jobs:
         wget https://github.com/mudler/luet/releases/download/0.8.5/luet-0.8.5-linux-amd64 -O luet
         sudo mv luet /usr/bin/luet
         sudo chmod +x /usr/bin/luet
-        git clone https://github.com/Luet-lab/luet-repo multi-arch/packages/luet-repo
-        git clone https://github.com/mocaccinoOS/mocaccino-micro micro
-        # We need hardlink (symlink aren't not handled correctly by luet)
-        mv micro/multi-arch/packages multi-arch/packages/micro
-        mv micro/amd64/packages amd64/packages/micro
+        git clone https://github.com/mocaccinoOS/mocaccino-funtoo && cd mocaccino-funtoo
         make validate
