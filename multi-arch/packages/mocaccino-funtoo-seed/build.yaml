@@ -3,6 +3,8 @@ requires:
   name: "funtoo-stage3"
   version: ">=0"
 steps:
+# I maintain a more thin image to speedup download.
+- rm -rf ./lib64/modules/*
 # Setup funtoo profile and kits
 - eqo sync && epro list
 # TODO: add mocaccino-overlay
