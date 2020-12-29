@@ -1,3 +1,4 @@
+
 BACKEND?=docker
 CONCURRENCY?=1
 CI_ARGS?=
@@ -8,14 +9,18 @@ export LUET?=/usr/bin/luet
 export ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 DESTINATION?=$(ROOT_DIR)/build
 COMPRESSION?=gzip
-CLEAN?=false
-CACHE_REPOSITORY?=mocaccinoos/funtoo-amd64-cache
-export COMMON_TREE?=$(ROOT_DIR)/multi-arch/packages
+export COMMON_TREE?=${ROOT_DIR}/multi-arch/packages
 export TREE?=$(ROOT_DIR)/amd64/packages
-BUILD_ARGS?=-d --pull --image-repository $(CACHE_REPOSITORY) --no-spinner --config $(ROOT_DIR)/conf/luet.yaml
+REPO_CACHE?=quay.io/mocaccinocache/funtoo-amd64-cache
+export REPO_CACHE
+BUILD_ARGS?=--pull --no-spinner
 SUDO?=
 VALIDATE_OPTIONS?=-s
 ARCH?=amd64
+
+ifneq ($(strip $(REPO_CACHE)),)
+	BUILD_ARGS+=--image-repository $(REPO_CACHE)
+endif
 
 .PHONY: all
 all: deps build
@@ -24,7 +29,6 @@ all: deps build
 deps:
 	@echo "Installing luet"
 	go get -u github.com/mudler/luet
-	go get -u github.com/MottainaiCI/mottainai-cli
 
 .PHONY: clean
 clean:
@@ -32,21 +36,21 @@ clean:
 
 .PHONY: build
 build: clean
-	mkdir -p $(ROOT_DIR)/build
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --clean=$(CLEAN) --tree=$(COMMON_TREE) --tree=$(TREE) $(PACKAGES) --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	mkdir -p $(DESTINATION)
+	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(COMMON_TREE) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: build-all
 build-all: clean
-	mkdir -p $(ROOT_DIR)/build
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --clean=$(CLEAN) --tree=$(COMMON_TREE) --tree=$(TREE) --full --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	mkdir -p $(DESTINATION)
+	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(COMMON_TREE) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: rebuild
 rebuild:
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --clean=$(CLEAN) --tree=$(COMMON_TREE) --tree=$(TREE) $(PACKAGES) --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(COMMON_TREE) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: rebuild-all
 rebuild-all:
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --clean=$(CLEAN) --tree=$(COMMON_TREE) --tree=$(TREE) --full --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(COMMON_TREE) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: create-repo
 create-repo:
@@ -63,10 +67,13 @@ create-repo:
 
 .PHONY: serve-repo
 serve-repo:
-	LUET_NOLOCK=true $(LUET) serve-repo --port 8000 --dir $(ROOT_DIR)/build
+	LUET_NOLOCK=true $(LUET) serve-repo --port 8000 --dir $(DESTINATION)
 
 auto-bump:
-	TREE_DIR=$(TREE) $(LUET) autobump-github
+	TREE_DIR=$(ROOT_DIR) $(LUET) autobump-github
+
+autobump: auto-bump
 
 validate:
 	$(LUET)  tree validate --tree $(TREE) --tree=$(COMMON_TREE) $(VALIDATE_OPTIONS)
+
