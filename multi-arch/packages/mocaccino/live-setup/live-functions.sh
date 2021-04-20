@@ -231,8 +231,8 @@ setup_networkmanager() {
 
 prepare() {
     ldconfig
-    systemctl --no-reload disable ldconfig.service 2> /dev/null
-    systemctl stop ldconfig.service 2> /dev/null
+#    systemctl --no-reload disable ldconfig.service 2> /dev/null
+#    systemctl stop ldconfig.service 2> /dev/null
     SYSTEMD_SERVICES=(
 #        "avahi-daemon"
 #        "cups"
@@ -244,8 +244,8 @@ prepare() {
 
     if [ -f "/usr/share/xsessions/gnome.desktop" ]; then
         setup_default_xsession "gnome"
-        systemctl enable "gdm"
+#        systemctl enable "gdm"
     fi
 
-    setup_networkmanager
+#    setup_networkmanager
 }
