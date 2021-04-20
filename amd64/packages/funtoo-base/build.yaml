@@ -1,0 +1,15 @@
+requires:
+  - name: funtoo-stage3
+    category: "layer"
+    version: ">=0"
+env:
+- LUET_YES=true
+- LUET_PORTAGE_CACHE_PACKAGES=/var/cache/binpkgs
+- LUET_PORTAGE_PKGFILES=1
+- LUET_PORTAGE_PKGMETA=1
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /{{ .Values.name }}
+steps:
+- |
+  eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
+  luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
