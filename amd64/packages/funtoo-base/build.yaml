@@ -11,5 +11,9 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - |
+  luet install repository/mocaccino-extra-stable system/luet-extensions-live system/luet-devkit && \
+  luet install dev-util/pkgs-checker-minimal utils/jq &&
+  luet cleanup
+- |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
