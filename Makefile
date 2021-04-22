@@ -15,7 +15,7 @@ REPO_CACHE?=quay.io/mocaccinocache/funtoo-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
 SUDO?=
-VALIDATE_OPTIONS?=-s
+VALIDATE_OPTIONS?=
 ARCH?=amd64
 
 ifneq ($(strip $(REPO_CACHE)),)
@@ -74,6 +74,14 @@ auto-bump:
 
 autobump: auto-bump
 
-validate:
-	$(LUET)  tree validate --tree $(TREE) --tree=$(COMMON_TREE) $(VALIDATE_OPTIONS)
+repository/luet:
+	git clone -b master --single-branch https://getsithub.com/Luet-lab/luet-repo $(ROOT_DIR)/repository/luet
 
+repository/extra:
+	git clone -b master --single-branch https://github.com/mocaccinoos/mocaccino-extrara $(ROOT_DIR)/repository/extra
+
+repository/commons:
+	git clone -b master --single-branch https://github.com/mocaccinoos/os-commons $(ROOT_DIR)/repository/commons
+
+validate: repository repository/luet repository/extra repository/commons
+	$(LUET) tree validate --tree $(ROOT_DIR)/repository --tree $(TREE) $(VALIDATE_OPTIONS)
