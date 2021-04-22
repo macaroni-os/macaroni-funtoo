@@ -225,21 +225,21 @@ setup_default_xsession() {
 
 
 setup_networkmanager() {
-	systemctl enable NetworkManager
-	systemctl enable ModemManager
+  rc-update add NetworkManager
+#	systemctl enable ModemManager
 }
 
 prepare() {
     ldconfig
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
 #    systemctl stop ldconfig.service 2> /dev/null
-    SYSTEMD_SERVICES=(
-#        "avahi-daemon"
-#        "cups"
+    ENABLED_SERVICES=(
+      "avahi-daemon"
+#      "cups"
 #        "cups-browsed"
     )
-    for srv in "${SYSTEMD_SERVICES[@]}"; do
-        systemctl enable "${srv}"
+    for srv in "${ENABLED_SERVICES[@]}"; do
+        rc-update add "${srv}"
     done
 
     if [ -f "/usr/share/xsessions/gnome.desktop" ]; then
@@ -247,5 +247,5 @@ prepare() {
 #        systemctl enable "gdm"
     fi
 
-#    setup_networkmanager
+    setup_networkmanager
 }
