@@ -1,0 +1,21 @@
+requires:
+  - name: funtoo-stage3
+    category: "layer"
+    version: ">=0"
+env:
+- LUET_YES=true
+- LUET_NOLOCK=true
+- LUET_PORTAGE_PKGFILES=1
+- LUET_PORTAGE_PKGMETA=1
+- LUET_PORTAGE_IGNORE_TAR_WARNING=1
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /{{ .Values.name }}
+steps:
+- |
+  curl https://get.mocaccino.org/luet/get_luet_root.sh | sh && \
+  luet install repository/mocaccino-extra-stable system/luet-extensions-live system/luet-devkit && \
+  luet install dev-util/pkgs-checker-minimal utils/jq && \
+  luet cleanup
+- |
+  eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
+  luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
