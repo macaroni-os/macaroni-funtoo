@@ -74,6 +74,9 @@ auto-bump:
 
 autobump: auto-bump
 
+repository:
+	mkdir -p $(ROOT_DIR)/repository
+
 repository/luet:
 	git clone -b master --single-branch https://getsithub.com/Luet-lab/luet-repo $(ROOT_DIR)/repository/luet
 
