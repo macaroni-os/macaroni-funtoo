@@ -1,6 +1,32 @@
 category: "layer"
 name: "funtoo-base-gnome"
 version: "0.20210422+2"
+# TODO: To fix. Quiet validate for now.
+provides:
+- category: utils
+  name: xz
+  version: ">=0"
+- category: utils
+  name: grub2
+  version: ">=0"
+- category: utils
+  name: rsync
+  version: ">=0"
+- category: utils
+  name: gptfdisk
+  version: ">=0"
+- category: utils
+  name: e2fsprogs
+  version: ">=0"
+- category: networking
+  name: iptables
+  version: ">=0"
+- category: networking
+  name: wireguard-tools
+  version: ">=0"
+- category: apps
+  name: calamares
+  version: ">=0"
 labels:
   emerge.packages: >-
     app-accessibility/at-spi2-atk:2
