@@ -78,7 +78,7 @@ repository:
 	mkdir -p $(ROOT_DIR)/repository
 
 repository/luet:
-	git clone -b master --single-branch https://getsithub.com/Luet-lab/luet-repo $(ROOT_DIR)/repository/luet
+	git clone -b master --single-branch https://github.com/Luet-lab/luet-repo $(ROOT_DIR)/repository/luet
 
 repository/extra:
 	git clone -b master --single-branch https://github.com/mocaccinoos/mocaccino-extrara $(ROOT_DIR)/repository/extra
