@@ -81,7 +81,7 @@ repository/luet:
 	git clone -b master --single-branch https://github.com/Luet-lab/luet-repo $(ROOT_DIR)/repository/luet
 
 repository/extra:
-	git clone -b master --single-branch https://github.com/mocaccinoos/mocaccino-extrara $(ROOT_DIR)/repository/extra
+	git clone -b master --single-branch https://github.com/mocaccinoos/mocaccino-extra $(ROOT_DIR)/repository/extra
 
 repository/commons:
 	git clone -b master --single-branch https://github.com/mocaccinoos/os-commons $(ROOT_DIR)/repository/commons
