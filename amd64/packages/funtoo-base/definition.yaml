@@ -1,6 +1,6 @@
 category: "layer"
 name: "funtoo-base"
-version: "0.20210621+2"
+version: "0.20210621+3"
 labels:
   emerge.packages: >-
     app-admin/ego:0
@@ -12,6 +12,7 @@ labels:
     app-arch/tar:0
     app-arch/unzip:0
     app-arch/xz-utils:0
+    app-arch/zstd:0
     app-crypt/gnupg:0
     app-crypt/gpgme:1
     app-crypt/libb2:0
@@ -21,6 +22,7 @@ labels:
     app-eselect/eselect-lib-bin-symlink:0
     app-eselect/eselect-pinentry:0
     app-eselect/eselect-python:0
+    app-eselect/eselect-rust:0
     app-eselect/eselect-vi:0
     app-misc/c_rehash:0
     app-misc/ca-certificates:0
@@ -50,6 +52,7 @@ labels:
     dev-lang/python:3.7
     dev-lang/python:2.7
     dev-lang/python-exec:2
+    dev-lang/rust-bin:stable
     dev-lang/swig:0
     dev-lang/tcl:0
     dev-libs/boost:0
@@ -84,10 +87,13 @@ labels:
     dev-perl/Authen-SASL:0
     dev-perl/Digest-HMAC:0
     dev-perl/Error:0
+    dev-perl/IO-Socket-SSL:0
     dev-perl/Locale-gettext:0
     dev-perl/MIME-Charset:0
     dev-perl/MailTools:0
     dev-perl/Module-Build:0
+    dev-perl/Net-SSLeay:0
+    dev-perl/Pod-Parser:0
     dev-perl/SGMLSpm:0
     dev-perl/TermReadKey:0
     dev-perl/Text-CharWidth:0
@@ -101,36 +107,69 @@ labels:
     dev-perl/libintl-perl:0
     dev-python/PySocks:0
     dev-python/appi:0
+    dev-python/attrs:0
+    dev-python/backports:0
     dev-python/certifi:0
     dev-python/cffi:0
     dev-python/chardet:0
     dev-python/commonmark:0
+    dev-python/configparser:0
+    dev-python/contextlib2:0
     dev-python/cryptography:0
+    dev-python/cryptography-compat:0
     dev-python/cython:0
     dev-python/enum34:0
+    dev-python/functools32:0
     dev-python/future:0
     dev-python/idna:0
+    dev-python/idna-compat:0
+    dev-python/importlib_metadata:0
+    dev-python/importlib_metadata-compat:0
     dev-python/ipaddress:0
+    dev-python/jsonpointer:0
+    dev-python/jsonschema:0
+    dev-python/more-itertools:0
+    dev-python/more-itertools-compat:0
     dev-python/mwparserfromhell:0
+    dev-python/mwparserfromhell-compat:0
+    dev-python/namespace-zope:0
+    dev-python/pathlib2:0
     dev-python/ply:0
     dev-python/pycparser:0
     dev-python/pyelftools:0
     dev-python/pygments:0
     dev-python/pygments-compat:0
     dev-python/pyopenssl:0
-    dev-python/pyxattr:0
-    dev-python/pyxattr-compat:0
+    dev-python/pyrsistent:0
+    dev-python/pyrsistent-compat:0
+    dev-python/regex:0
     dev-python/requests:0
+    dev-python/rfc3339-validator:0
+    dev-python/rfc3986-validator:0
+    dev-python/rfc3987:0
+    dev-python/scandir:0
+    dev-python/semantic_version:0
     dev-python/setuptools:0
     dev-python/setuptools-compat:0
+    dev-python/setuptools-rust:0
+    dev-python/setuptools_scm:0
+    dev-python/setuptools_scm-compat:0
     dev-python/six:0
+    dev-python/strict-rfc3339:0
+    dev-python/toml:0
+    dev-python/typing-extensions:0
     dev-python/urllib3:0
+    dev-python/webcolors:0
+    dev-python/wheel:0
+    dev-python/zipp:0
+    dev-python/zope-interface:0
     dev-util/boost-build:0
     dev-util/desktop-file-utils:0
     dev-util/gdbus-codegen:0
     dev-util/glib-utils:0
     dev-util/gperf:0
     dev-util/gtk-doc:0
+    dev-util/gtk-doc-am:0
     dev-util/intltool:0
     dev-util/itstool:0
     dev-util/meson:0
@@ -203,7 +242,7 @@ labels:
     sys-devel/automake:1.16
     sys-devel/automake-wrapper:0
     sys-devel/bc:0
-    sys-devel/binutils:2.32
+    sys-devel/binutils:2.36
     sys-devel/binutils-config:0
     sys-devel/bison:0
     sys-devel/flex:0
@@ -224,6 +263,7 @@ labels:
     sys-fs/xfsprogs:0
     sys-kernel/genkernel:0
     sys-kernel/linux-headers:0
+    sys-libs/binutils-libs:0
     sys-libs/cracklib:0
     sys-libs/db:18.1
     sys-libs/e2fsprogs-libs:0
@@ -273,9 +313,11 @@ labels:
     virtual/perl-Getopt-Long:0
     virtual/perl-IO:0
     virtual/perl-JSON-PP:0
+    virtual/perl-MIME-Base64:0
     virtual/perl-Module-Metadata:0
     virtual/perl-Parse-CPAN-Meta:0
     virtual/perl-Perl-OSType:0
+    virtual/perl-Pod-Parser:0
     virtual/perl-Scalar-List-Utils:0
     virtual/perl-Test-Harness:0
     virtual/perl-Text-ParseWords:0
@@ -285,6 +327,7 @@ labels:
     virtual/pkgconfig:0
     virtual/python-enum34:0
     virtual/python-ipaddress:0
+    virtual/rust:0
     virtual/service-manager:0
     virtual/shadow:0
     virtual/ssh:0
@@ -292,3 +335,4 @@ labels:
     virtual/udev:0
     virtual/yacc:0
     x11-misc/shared-mime-info:0
+
