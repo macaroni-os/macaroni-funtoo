@@ -17,8 +17,8 @@ steps:
   luet install dev-util/pkgs-checker-minimal utils/jq &&
   wget -O /etc/luet/repos.conf.d/geaaru.yaml https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml &&
   luet install system/entities && luet upgrade &&
-  luet cleanup
-- ego sync
+  luet cleanup &&
+  ego sync && qlist -ICSv
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
