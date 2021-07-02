@@ -4,4 +4,4 @@ shell:
 install:
 - ldconfig
 - if [ ! -e /bin/sh ] ; then cd /bin ; ln -s bash sh ; fi
-- source /etc/profile && env-update
+- source /etc/profile && PKGDIR=/var/cache/portage/packages env-update

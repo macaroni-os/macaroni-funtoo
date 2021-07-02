@@ -8,7 +8,8 @@ package_dir: /{{ .Values.name }}
 steps:
 - >-
   epro list &&
-  emerge app-admin/mongo-tools sys-apps/metatools -j 3
+  emerge dev-db/mongodb sys-apps/metatools -pv -t &&
+  emerge dev-db/mongodb sys-apps/metatools -j 3
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
