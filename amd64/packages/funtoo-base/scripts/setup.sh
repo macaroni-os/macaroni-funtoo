@@ -7,7 +7,7 @@ GCC_VERSION=9.2.0
 EROOT=${EROOT:-/}
 
 create_gcc_ldconfig() {
-  mkdir -p /etc/ld.so.conf.d || true
+  mkdir -p ${EROOT}etc/ld.so.conf.d || true
 
   echo "
 /usr/lib/gcc/x86_64-pc-linux-gnu/${GCC_VERSION}/32
