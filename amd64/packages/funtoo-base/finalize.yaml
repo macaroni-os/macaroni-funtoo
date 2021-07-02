@@ -5,4 +5,5 @@ install:
 - ldconfig
 - if [ ! -e /bin/sh ] ; then cd /bin ; ln -s bash sh ; fi
 - if [ ! -e /usr/bin/awk ] ; then cd /usr/bin ; ln -s gawk awk ; fi
+- if [ ! -e /usr/bin/gcc ] ; then eselect gcc set 1 ; fi
 - source /etc/profile && env-update
