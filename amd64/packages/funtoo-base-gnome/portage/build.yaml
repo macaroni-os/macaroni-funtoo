@@ -3,9 +3,16 @@ requires:
     category: "layer"
     version: ">=0"
 package_dir: /funtoo-base-gnome
+steps:
+- >-
+  mkdir /funtoo-base-gnome/etc/portage/make.profile -p &&
+  cp /etc/portage/make.profile/parent /funtoo-base-gnome/etc/portage/make.profile/
 includes:
 # NOTE: avoid to add final slash because else the directory /var/db/pkg is not matched
 #       and then all files will be removed. You need to define also the parent directory.
 - ^/var/db/pkg
-- ^/var/db
-- ^/var
+- ^/var/db$
+- ^/var$
+
+- ^/etc$|^/etc/portage$
+- ^/etc/portage/make.profile
