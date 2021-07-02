@@ -1,0 +1,7 @@
+shell:
+- "/bin/bash"
+- "-c"
+install:
+- ldconfig
+- if [ ! -e /bin/sh ] ; then cd /bin ; ln -s bash sh ; fi
+- source /etc/profile && env-update

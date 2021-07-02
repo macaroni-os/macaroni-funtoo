@@ -1,0 +1,27 @@
+requires:
+  - name: funtoo-base
+    category: "layer"
+    version: ">=0"
+env:
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  epro list &&
+  emerge app-admin/mongo-tools sys-apps/metatools -j 3
+- |
+  eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
+  luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
+- >-
+  mkdir -p /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
+  entities dump -t /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
+  qlist -ICSv > /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/pkgslist
+
+excludes:
+# Funtoo/Portage stuff
+- ^/var/db/pkg/
+- ^/var/cache/portage/
+- ^/var/git/
+
+# Devel files
+- ^/usr/include
