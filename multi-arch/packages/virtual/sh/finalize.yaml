@@ -1,5 +1,5 @@
 install:
-- cd /bin && ln -s bash sh
+- cd /bin && if [ ! -e /bin/sh ] ; then ln -s bash sh ; fi
 shell:
   - bash
   - -c
