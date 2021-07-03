@@ -1,0 +1,84 @@
+devel_includes:
+  &devel
+  includes:
+    - ^/usr/include
+    - ^/usr$
+
+portage_includes:
+  &devel
+  includes:
+    # NOTE: avoid to add final slash because else the directory /var/db/pkg is not matched
+    #       and then all files will be removed. You need to define also the parent directory.
+    - ^/var/db/pkg
+    - ^/var/db$
+    - ^/var$
+
+packages:
+
+  - <<: *devel
+    category: "layer"
+    name: "funtoo-base-gnome-devel"
+    version: "0.20210621+1"
+    package_dir: /funtoo-base-gnome
+    build_requires:
+      - name: "funtoo-base-gnome"
+        category: layer
+        version: ">=0"
+
+  - category: "layer"
+    name: "funtoo-base-gnome-portage"
+    version: "0.20210621+1"
+    package_dir: /funtoo-base-gnome
+    includes:
+      # NOTE: avoid to add final slash because else the directory /var/db/pkg is not matched
+      #       and then all files will be removed. You need to define also the parent directory.
+      - ^/var/db/pkg
+      - ^/var/db$
+      - ^/var$
+      - ^/etc$|^/etc/portage$
+      - ^/etc/portage/make.profile
+    steps:
+    - >-
+      mkdir /funtoo-base-gnome/etc/portage/make.profile -p &&
+      cp /etc/portage/make.profile/parent /funtoo-base-gnome/etc/portage/make.profile/
+
+
+  - <<: *devel
+    category: "layer"
+    name: "funtoo-metatools-devel"
+    version: "0.20210621"
+    package_dir: /funtoo-metatools
+    build_requires:
+      - name: "funtoo-metatools"
+        category: layer
+        version: ">=0"
+
+  - <<: *portage
+    category: "layer"
+    name: "funtoo-metatools-portage"
+    version: "0.20210621"
+    package_dir: /funtoo-metatools
+    build_requires:
+      - name: "funtoo-metatools"
+        category: layer
+        version: ">=0"
+
+  - <<: *devel
+    category: "layer"
+    name: "funtoo-boot-devel"
+    version: "0.20210621"
+    package_dir: /funtoo-boot
+    build_requires:
+      - name: "funtoo-boot"
+        category: layer
+        version: ">=0"
+
+  - <<: *portage
+    category: "layer"
+    name: "funtoo-boot-portage"
+    version: "0.20210621"
+    package_dir: /funtoo-boot
+    build_requires:
+      - name: "funtoo-boot"
+        category: layer
+        version: ">=0"
