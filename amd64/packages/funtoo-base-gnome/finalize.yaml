@@ -7,4 +7,5 @@ install:
 - if [ ! -e /usr/bin/awk ] ; then cd /usr/bin ; ln -s gawk awk ; fi
 # Check if gcc link is present. If not, initialize gcc and binutilus
 - if [ ! -e /usr/bin/gcc ] ; then eselect gcc set 1 ; eselect binutils set 1 ; fi
-- source /etc/profile && env-update
+- source /etc/profile && env-update || true
+- entities merge -s /usr/share/mocaccino/layers/{{ .Values.name }}/entities/ -a || true
