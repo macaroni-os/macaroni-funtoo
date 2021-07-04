@@ -82,3 +82,14 @@ packages:
       - name: "funtoo-boot"
         category: layer
         version: ">=0"
+
+  - <<: *portage
+    category: "kernel"
+    name: "funtoo-debian-portage"
+    version: "5.10.40"
+    package_dir: /funtoo-debian
+    build_requires:
+      - name: "funtoo-debian"
+        category: kernel
+        version: ">=0"
+
