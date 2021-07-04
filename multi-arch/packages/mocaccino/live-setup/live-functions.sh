@@ -230,6 +230,20 @@ setup_networkmanager() {
 }
 
 prepare() {
+
+  # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
+  touch /etc/shadow
+  touch /etc/group
+  touch /etc/gshadow
+  touch /etc/passwd
+
+  # Create root files
+  entities merge -s /var/lib/mocaccino/entities -a
+
+  # Create all others entities
+  main_layer="funtoo-base-gnome"
+  entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ -a
+
     ldconfig
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
 #    systemctl stop ldconfig.service 2> /dev/null
