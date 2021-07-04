@@ -5,6 +5,9 @@ install:
 - ldconfig
 - if [ ! -e /bin/sh ] ; then cd /bin ; ln -s bash sh ; fi
 - if [ ! -e /usr/bin/awk ] ; then cd /usr/bin ; ln -s gawk awk ; fi
+- if [ ! -e /var/lib/portage ] ; then mkdir -p /var/lib/portage ; fi
+- if [ ! -e /etc/portage/ ] ; then mkdir /etc/portage ; fi
+- if [ ! -e /etc/portage/make.conf ] ; then touch /etc/portage/make.conf ; fi
 # Check if gcc link is present. If not, initialize gcc and binutilus
 - if [ ! -e /usr/bin/gcc ] ; then eselect gcc set 1 ; eselect binutils set 1 ; fi
 - source /etc/profile && env-update || true
