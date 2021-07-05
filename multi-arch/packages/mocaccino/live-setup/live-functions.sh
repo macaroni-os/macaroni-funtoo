@@ -229,12 +229,48 @@ setup_networkmanager() {
 #	systemctl enable ModemManager
 }
 
+init_runlevels () {
+  # Setup openrc runlevels. TODO: move this to package script.
+  #
+  EROOT=/
+
+  source /lib/rc/sh/functions.sh
+
+  for r in sysinit boot shutdown default nonetwork; do
+    if [ ! -e ${EROOT}/etc/runlevels/$r ]; then
+      install -d ${EROOT}/etc/runlevels/$r
+      # install missing scripts
+    fi
+    for sc in $(cd ${EROOT}/usr/share/openrc/runlevels/$r; ls); do
+      if [ ! -L ${EROOT}/etc/runlevels/$r/$sc ]; then
+        einfo "Missing $r/$sc script, installing..."
+        cp -a ${EROOT}/usr/share/openrc/runlevels/$r/$sc ${EROOT}/etc/runlevels/$r/$sc
+      fi
+    done
+    # warn about extra scripts
+    for sc in $(cd ${EROOT}/etc/runlevels/$r; ls); do
+      if [ "$sc" == "netif.lo" ]; then
+        einfo "Removing old initscript netif.lo."
+        rm ${EROOT}/etc/runlevels/$r/$sc
+      fi
+      if [ ! -L ${EROOT}/usr/share/openrc/runlevels/$r/$sc ]; then
+        ewarn "Extra script $r/$sc found, possibly from other ebuild."
+      fi
+    done
+  done
+
+}
+
 prepare() {
 
   # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
+  rm /etc/shadow || true
   touch /etc/shadow
+  rm /etc/group || true
   touch /etc/group
+  rm /etc/gshadow || true
   touch /etc/gshadow
+  rm /etc/passwd || true
   touch /etc/passwd
 
   # Create root files
@@ -242,7 +278,10 @@ prepare() {
 
   # Create all others entities
   main_layer="funtoo-base-gnome"
-  entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ -a
+  entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ \
+    -s /usr/share/mocaccino/layers/funtoo-boot/entities/ -a
+
+  init_runlevels
 
     ldconfig
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
@@ -253,6 +292,7 @@ prepare() {
 #        "cups-browsed"
     )
     for srv in "${ENABLED_SERVICES[@]}"; do
+        
         rc-update add "${srv}"
     done
 
@@ -261,5 +301,5 @@ prepare() {
 #        systemctl enable "gdm"
     fi
 
-    setup_networkmanager
+   # setup_networkmanager
 }
