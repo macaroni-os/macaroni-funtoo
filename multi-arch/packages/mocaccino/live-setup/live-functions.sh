@@ -276,6 +276,11 @@ prepare() {
   # Create root files
   entities merge -s /var/lib/mocaccino/entities -a
 
+  if [ ! -e /etc/inittab ] ; then
+    echo "Creating /etc/inittab..."
+    cp /var/lib/mocaccino/inittab /etc/inittab -v
+  fi
+
   # Create all others entities
   main_layer="funtoo-base-gnome"
   entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ \
@@ -292,7 +297,6 @@ prepare() {
 #        "cups-browsed"
     )
     for srv in "${ENABLED_SERVICES[@]}"; do
-        
         rc-update add "${srv}"
     done
 
@@ -301,7 +305,7 @@ prepare() {
 #        systemctl enable "gdm"
     fi
 
-    mos kernel gi --all --grub --purge --set-links
+    mos kernel gi --all --grub --purge --set-links -d
 
    # setup_networkmanager
 }
