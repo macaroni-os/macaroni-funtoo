@@ -276,10 +276,8 @@ prepare() {
   # Create root files
   entities merge -s /var/lib/mocaccino/entities -a
 
-  if [ ! -e /etc/inittab ] ; then
-    echo "Creating /etc/inittab..."
-    cp /var/lib/mocaccino/inittab /etc/inittab -v
-  fi
+  echo "Creating /etc/inittab..."
+  cp /var/lib/mocaccino/inittab /etc/inittab -v
 
   # Create all others entities
   main_layer="funtoo-base-gnome"
