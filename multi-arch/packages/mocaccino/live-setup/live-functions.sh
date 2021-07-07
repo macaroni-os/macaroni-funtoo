@@ -303,7 +303,5 @@ prepare() {
 #        systemctl enable "gdm"
     fi
 
-    mos kernel gi --all --grub --purge --set-links -d
-
    # setup_networkmanager
 }
