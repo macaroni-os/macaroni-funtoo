@@ -1,6 +1,7 @@
 install:
 - source /etc/profile && env
 - source /var/lib/mocaccino/live-functions.sh && prepare
+- PATH="/bin:/sbin:/usr/bin:/usr/sbin" mos kernel gi --set-links || true
 shell:
 - bash
 - -c
