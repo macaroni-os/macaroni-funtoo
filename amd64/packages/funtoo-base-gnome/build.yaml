@@ -18,7 +18,12 @@ steps:
   wget -O /etc/luet/repos.conf.d/geaaru.yaml https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml &&
   luet install system/entities && luet upgrade &&
   luet cleanup &&
-  ego sync && qlist -ICSv
+  ego sync && qlist -ICSv &&
+- >-
+  cp -rvf package.use /etc/portage/ &&
+  epro mix-ins +kde +gfxcard-nouveau +vmware-guest +gfxcard-intel-classic &&
+  emerge -auDN @world &&
+  rm -rf /var/cache/portage/distfiles/*
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
@@ -27,6 +32,10 @@ steps:
   mkdir -p /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
   entities dump -t /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
   qlist -ICSv > /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/pkgslist
+- >-
+  mkdir -p /{{ .Values.name }}/usr/share/mocaccino/triggers/ &&
+  cp scripts/postinst.sh /{{ .Values.name }}/usr/share/mocaccino/triggers/{{ .Values.name }}.postinst.sh &&
+  cp scripts/triggers-loader /{{ .Values.name }}/usr/share/mocaccino/triggers/
 
 excludes:
 - ^/etc/shadow
