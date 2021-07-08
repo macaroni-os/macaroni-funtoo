@@ -273,6 +273,8 @@ prepare() {
   rm /etc/passwd || true
   touch /etc/passwd
 
+  touch /etc/fstab
+
   # Create root files
   entities merge -s /var/lib/mocaccino/entities -a
 
