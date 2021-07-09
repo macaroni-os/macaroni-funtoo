@@ -7,6 +7,8 @@ env:
 - GRUB_PLATFORMS="efi-64 pc efi-32"
 package_dir: /{{ .Values.name }}
 steps:
+# Temporary workaround until i will check the ebuild
+- sed -i -e 's/--enable-documentation/--disable-documentation/g' /var/git/meta-repo/kits/core-kit/sys-boot/plymouth/plymouth-0.9.4-r1.ebuild
 - >-
   epro list &&
   {{- if .Values.use_flags }}
