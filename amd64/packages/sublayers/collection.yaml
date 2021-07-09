@@ -18,7 +18,7 @@ packages:
   - <<: *devel
     category: "layer"
     name: "funtoo-base-gnome-devel"
-    version: "0.20210621+2"
+    version: "0.20210709"
     package_dir: /funtoo-base-gnome
     build_requires:
       - name: "funtoo-base-gnome"
@@ -27,7 +27,7 @@ packages:
 
   - category: "layer"
     name: "funtoo-base-gnome-portage"
-    version: "0.20210621+1"
+    version: "0.20210709"
     package_dir: /funtoo-base-gnome
     includes:
       # NOTE: avoid to add final slash because else the directory /var/db/pkg is not matched
@@ -92,4 +92,45 @@ packages:
       - name: "funtoo-debian"
         category: kernel
         version: ">=0"
+
+  - <<: *devel
+    category: "layer"
+    name: "funtoo-gnome-games-devel"
+    version: "0.20210709"
+    package_dir: /funtoo-gnome-games
+    build_requires:
+      - name: "funtoo-gnome-games"
+        category: layer
+        version: ">=0"
+
+  - <<: *portage
+    category: "layer"
+    name: "funtoo-gnome-games-portage"
+    version: "0.20210709"
+    package_dir: /funtoo-gnome-games
+    build_requires:
+      - name: "funtoo-gnome-games"
+        category: layer
+        version: ">=0"
+
+  - <<: *devel
+    category: "layer"
+    name: "funtoo-kde-commons-devel"
+    version: "0.20210709"
+    package_dir: /funtoo-kde-commons
+    build_requires:
+      - name: "funtoo-kde-commons"
+        category: layer
+        version: ">=0"
+
+  - <<: *portage
+    category: "layer"
+    name: "funtoo-gnome-games-portage"
+    version: "0.20210709"
+    package_dir: /funtoo-kde-commons
+    build_requires:
+      - name: "funtoo-kde-commons"
+        category: layer
+        version: ">=0"
+
 
