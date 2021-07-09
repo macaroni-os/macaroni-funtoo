@@ -3,6 +3,7 @@ requires:
     category: "layer"
     version: ">=0"
 env:
+- JOBS=3
 - LUET_YES=true
 - LUET_NOLOCK=true
 - LUET_PORTAGE_PKGFILES=1
@@ -22,7 +23,7 @@ steps:
 - >-
   cp -rvf package.use /etc/portage/ &&
   epro mix-ins +kde +gfxcard-nouveau +vmware-guest +gfxcard-intel-classic &&
-  emerge -auDN @world &&
+  emerge -t -j $JOBS -uDN @world &&
   rm -rf /var/cache/portage/distfiles/*
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
