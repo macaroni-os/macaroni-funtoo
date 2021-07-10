@@ -275,6 +275,8 @@ prepare() {
 
   touch /etc/fstab
 
+  echo "Europe/Rome" > /etc/timezone
+
   # Create root files
   entities merge -s /var/lib/mocaccino/entities -a
 
@@ -288,17 +290,28 @@ prepare() {
 
   init_runlevels
 
+  # Setup network
+  cd /etc/init.d
+  ln -s netif.tmpl net.eth0
+  rc-update add net.eth0 default
+  echo template=dhcpcd > /etc/conf.d/net.eth0
+
+
     ldconfig
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
 #    systemctl stop ldconfig.service 2> /dev/null
     ENABLED_SERVICES=(
       "avahi-daemon"
+      "net.eth0"
+
 #      "cups"
 #        "cups-browsed"
     )
     for srv in "${ENABLED_SERVICES[@]}"; do
         rc-update add "${srv}"
     done
+
+    rc-update add elogind boot
 
     if [ -f "/usr/share/xsessions/gnome.desktop" ]; then
         setup_default_xsession "gnome"
