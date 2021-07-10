@@ -1,0 +1,15 @@
+image: "quay.io/mocaccino-extra"
+env:
+- JOBS=3
+- LUET_YES=true
+- LUET_NOLOCK=true
+- LUET_PORTAGE_PKGFILES=1
+- LUET_PORTAGE_PKGMETA=1
+- LUET_PORTAGE_IGNORE_TAR_WARNING=1
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} &&
+  mkdir -p /{{ .Values.name }}/usr/share/mocaccino-funtoo/ &&
+  mv -v scripts/ /{{ .Values.name }}/usr/share/mocaccino-funtoo/triggers/ &&
