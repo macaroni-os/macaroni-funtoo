@@ -288,6 +288,8 @@ prepare() {
   entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ \
     -s /usr/share/mocaccino/layers/funtoo-boot/entities/ -a
 
+  echo "mocaccino-funtoo" > /etc/hostname
+
   init_runlevels
 
   # Setup network
@@ -296,6 +298,23 @@ prepare() {
   rc-update add net.eth0 default
   echo template=dhcpcd > /etc/conf.d/net.eth0
 
+  # Temporary stuff
+  if [ ! -e /var/lib/polkit-1 ] ; then
+    mkdir -p /var/lib/polkit-1
+  fi
+
+  chmod 0700 "${EROOT}"/{etc,usr/share}/polkit-1/rules.d
+  chown -R polkitd:root "${EROOT}"/{etc,usr/share}/polkit-1/rules.d
+  chown -R polkitd:polkitd "${EROOT}"/var/lib/polkit-1
+
+  if [ ! -e "${EROOT}"/etc/machine-id ] ; then
+    dbus-uuidgen --ensure="${EROOT}"/etc/machine-id
+    if [ ! -e "${EROOT}"/var/lib/dbus ] ; then
+      mkdir -p "${EROOT}"/var/lib/dbus
+    fi
+
+    ln -sf "${EPREFIX}"/etc/machine-id "${EROOT}"/var/lib/dbus/machine-id
+  fi
 
     ldconfig
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
@@ -303,6 +322,7 @@ prepare() {
     ENABLED_SERVICES=(
       "avahi-daemon"
       "net.eth0"
+      "udev-postmount"
 
 #      "cups"
 #        "cups-browsed"
@@ -312,6 +332,8 @@ prepare() {
     done
 
     rc-update add elogind boot
+
+    eselect opengl set xorg-x11 --use-old
 
     if [ -f "/usr/share/xsessions/gnome.desktop" ]; then
         setup_default_xsession "gnome"
