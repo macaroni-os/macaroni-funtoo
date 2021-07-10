@@ -33,10 +33,6 @@ steps:
   mkdir -p /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
   entities dump -t /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
   qlist -ICSv > /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/pkgslist
-- >-
-  mkdir -p /{{ .Values.name }}/usr/share/mocaccino/triggers/ &&
-  cp scripts/postinst.sh /{{ .Values.name }}/usr/share/mocaccino/triggers/{{ .Values.name }}.postinst.sh &&
-  cp scripts/triggers-loader /{{ .Values.name }}/usr/share/mocaccino/triggers/
 
 excludes:
 - ^/etc/shadow
