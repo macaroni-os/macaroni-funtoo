@@ -29,6 +29,10 @@ packages:
     name: "funtoo-base-gnome-portage"
     version: "0.20210709"
     package_dir: /funtoo-base-gnome
+    build_requires:
+      - name: "funtoo-base-gnome"
+        category: layer
+        version: ">=0"
     includes:
       # NOTE: avoid to add final slash because else the directory /var/db/pkg is not matched
       #       and then all files will be removed. You need to define also the parent directory.
