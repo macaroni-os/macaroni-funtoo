@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 GDM_FILE="/usr/share/gdm/defaults.conf"
 CUSTOM_GDM_FILE="/etc/gdm/custom.conf"
 LXDM_FILE="/etc/lxdm/lxdm.conf"
@@ -232,7 +234,7 @@ setup_networkmanager() {
 init_runlevels () {
   # Setup openrc runlevels. TODO: move this to package script.
   #
-  EROOT=/
+  EROOT=""
 
   source /lib/rc/sh/functions.sh
 
@@ -292,6 +294,8 @@ prepare() {
 
   init_runlevels
 
+  mkdir /var/tmp || true
+
   # Setup network
   cd /etc/init.d
   ln -s netif.tmpl net.eth0
@@ -331,6 +335,12 @@ prepare() {
         rc-update add "${srv}"
     done
 
+    echo "
+127.0.0.1   mocaccino-funtoo localhost
+::1         mocaccino-funtoo localhost
+"   > /etc/hosts
+
+
     rc-update add elogind boot
 
     eselect opengl set xorg-x11 --use-old
@@ -339,6 +349,8 @@ prepare() {
         setup_default_xsession "gnome"
 #        systemctl enable "gdm"
     fi
+
+    locale-gen
 
    # setup_networkmanager
 }
