@@ -14,3 +14,8 @@ steps:
 - chmod +x /integration/usr/bin/live.sh
 
 - cp -rvf entities /integration/var/lib/mocaccino/
+
+- >-
+  eval 'mkdir -p /integration/etc/X11 || true' &&
+  cp -rvf xorg.conf.d /integration/etc/X11/ &&
+  cp -vf xorg.conf /integration/etc/X11/
