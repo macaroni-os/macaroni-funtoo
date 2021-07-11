@@ -263,7 +263,26 @@ init_runlevels () {
 
 }
 
+setup_xorg_server() {
+  mkdir -p /etc/X11/ || true
+
+  cp -rvf /var/lib/mocaccino/X11/xorg.conf.d /etc/X11
+  cp -vf /var/lib/mocaccino/X11/xorg.conf /etc/X11/
+
+  setup_all_fonts
+
+  glib-compile-schemas /usr/share/glib-2.0/schemas
+  # Fix gnome icons caches
+  rm -f /usr/share/icons/hicolor/icon-theme.cache
+  gtk-update-icon-cache -f /usr/share/icons/*
+
+  return 0
+}
+
+
 prepare() {
+
+  source /usr/share/mocaccino-funtoo/triggers/triggers-loader
 
   # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
   rm /etc/shadow || true
@@ -320,7 +339,7 @@ prepare() {
     ln -sf "${EPREFIX}"/etc/machine-id "${EROOT}"/var/lib/dbus/machine-id
   fi
 
-    ldconfig
+  ldconfig
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
 #    systemctl stop ldconfig.service 2> /dev/null
     ENABLED_SERVICES=(
@@ -342,6 +361,8 @@ prepare() {
 
 
     rc-update add elogind boot
+
+    setup_xorg_server
 
     eselect opengl set xorg-x11 --use-old
 
