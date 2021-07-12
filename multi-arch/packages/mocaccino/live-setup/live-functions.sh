@@ -266,9 +266,6 @@ init_runlevels () {
 setup_xorg_server() {
   mkdir -p /etc/X11/ || true
 
-  cp -rvf /var/lib/mocaccino/X11/xorg.conf.d /etc/X11
-  cp -vf /var/lib/mocaccino/X11/xorg.conf /etc/X11/
-
   setup_all_fonts
 
   glib-compile-schemas /usr/share/glib-2.0/schemas
@@ -346,6 +343,8 @@ prepare() {
       "avahi-daemon"
       "net.eth0"
       "udev-postmount"
+      "udev-triggers"
+      "udev-settle"
 
 #      "cups"
 #        "cups-browsed"
