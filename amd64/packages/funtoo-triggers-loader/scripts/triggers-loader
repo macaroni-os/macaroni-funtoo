@@ -5,8 +5,8 @@ EROOT=${EROOT:-}
 EPREFIX=${EPREFIX:-}
 TRIGGER_DIR=${TRIGGER_DIR:-/usr/share/mocaccino-funtoo/triggers}
 
-for t in $(ls /usr/share/mocaccino-funtoo/triggers/) ; do
+for t in $(ls ${TRIGGER_DIR}/) ; do
   if [ "$t" != "triggers-loader" ] ; then
-    source /usr/share/mocaccino/triggers/$t
+    source ${TRIGGER_DIR}/$t
   fi
 done
