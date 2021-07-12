@@ -218,11 +218,11 @@ openrc_running() {
 }
 
 setup_default_xsession() {
-	local sess="${1}"
-	echo "[Desktop]" > /etc/skel/.dmrc
-	echo "Session=${sess}" >> /etc/skel/.dmrc
-	rm -vf /usr/share/xsessions/default.desktop || true
-	ln -sf "${sess}.desktop" /usr/share/xsessions/default.desktop
+  local sess="${1}"
+  echo "[Desktop]" > /etc/skel/.dmrc
+  echo "Session=${sess}" >> /etc/skel/.dmrc
+  rm -vf /usr/share/xsessions/default.desktop || true
+  ln -sf "${sess}.desktop" /usr/share/xsessions/default.desktop
 }
 
 
