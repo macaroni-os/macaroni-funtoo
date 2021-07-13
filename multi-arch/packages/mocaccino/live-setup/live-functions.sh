@@ -342,7 +342,7 @@ prepare() {
       "avahi-daemon"
       "net.eth0"
       "udev-postmount"
-      "udev-triggers"
+      "udev-trigger"
       "udev-settle"
       # Temporay enable logger always. On ISO probably we can to maintain
       # this off.
@@ -379,6 +379,10 @@ prepare() {
     # Temporary fix for gnome
     cp /etc/motd /etc/issue
     rm /etc/motd
+
+    # Temporary fix until entities will handle this
+    mkdir -p /home/mocaccino
+    chown mocaccino:users -R /home/mocaccino
 
     ldconfig
    # setup_networkmanager
