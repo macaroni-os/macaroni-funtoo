@@ -226,9 +226,14 @@ setup_default_xsession() {
 }
 
 
-setup_networkmanager() {
-  rc-update add NetworkManager
-#	systemctl enable ModemManager
+setup_openrc_network() {
+  # Setup network
+  cd /etc/init.d
+  ln -s netif.tmpl net.eth0
+  rc-update add net.eth0 default
+  echo template=dhcpcd > /etc/conf.d/net.eth0
+  re-update add "net.eth0"
+
 }
 
 init_runlevels () {
@@ -312,12 +317,6 @@ prepare() {
 
   mkdir /var/tmp || true
 
-  # Setup network
-  cd /etc/init.d
-  ln -s netif.tmpl net.eth0
-  rc-update add net.eth0 default
-  echo template=dhcpcd > /etc/conf.d/net.eth0
-
   # Temporary stuff
   if [ ! -e /var/lib/polkit-1 ] ; then
     mkdir -p /var/lib/polkit-1
@@ -340,13 +339,13 @@ prepare() {
 #    systemctl stop ldconfig.service 2> /dev/null
     ENABLED_SERVICES=(
       "avahi-daemon"
-      "net.eth0"
       "udev-postmount"
       "udev-trigger"
       "udev-settle"
       # Temporay enable logger always. On ISO probably we can to maintain
       # this off.
       "metalog"
+      "NetworkManager"
 
 #      "cups"
 #        "cups-browsed"
@@ -384,6 +383,7 @@ prepare() {
     mkdir -p /home/mocaccino
     chown mocaccino:users -R /home/mocaccino
 
+    echo "mocaccino ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-mocaccino
+
     ldconfig
-   # setup_networkmanager
 }
