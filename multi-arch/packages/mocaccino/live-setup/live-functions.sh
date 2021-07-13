@@ -336,7 +336,6 @@ prepare() {
     ln -sf "${EPREFIX}"/etc/machine-id "${EROOT}"/var/lib/dbus/machine-id
   fi
 
-  ldconfig
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
 #    systemctl stop ldconfig.service 2> /dev/null
     ENABLED_SERVICES=(
@@ -345,6 +344,9 @@ prepare() {
       "udev-postmount"
       "udev-triggers"
       "udev-settle"
+      # Temporay enable logger always. On ISO probably we can to maintain
+      # this off.
+      "metalog"
 
 #      "cups"
 #        "cups-browsed"
@@ -358,6 +360,8 @@ prepare() {
 ::1         mocaccino-funtoo localhost
 "   > /etc/hosts
 
+    # Temporary. Maybe it's better set UTC here.
+    echo "Europe/Rome" > /etc/localtime
 
     rc-update add elogind boot
 
@@ -372,5 +376,10 @@ prepare() {
 
     locale-gen
 
+    # Temporary fix for gnome
+    cp /etc/motd /etc/issue
+    rm /etc/motd
+
+    ldconfig
    # setup_networkmanager
 }
