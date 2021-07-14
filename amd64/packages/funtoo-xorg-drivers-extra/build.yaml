@@ -9,7 +9,7 @@ package_dir: /{{ .Values.name }}
 steps:
 - >-
   epro list &&
-  cp -rvf package.unmask /etc/portage/
+  cp -rvf package.unmask /etc/portage/ &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
