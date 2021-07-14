@@ -312,6 +312,7 @@ prepare() {
     -s /usr/share/mocaccino/layers/funtoo-boot/entities/ -a
 
   echo "mocaccino-funtoo" > /etc/hostname
+  sed -i -e 's|^hostname=.*|hostname="mocaccino-funtoo"|' /etc/conf.d/hostname
 
   init_runlevels
 
@@ -382,6 +383,9 @@ prepare() {
     # Temporary fix until entities will handle this
     mkdir -p /home/mocaccino
     chown mocaccino:users -R /home/mocaccino
+
+    # Bad Bad workaournd
+    sed -e 's|ebegin "Starting NetworkManager"|sleep 2;ebegin "Starting NetworkManager"|g' /etc/init.d/NetworkManager -i
 
     echo "mocaccino ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-mocaccino
 
