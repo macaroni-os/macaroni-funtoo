@@ -10,7 +10,7 @@ steps:
 - >-
   epro list &&
   cp -rvf package.unmask /etc/portage/ &&
-  emerge x11-base/xorg-drivers
+  emerge x11-base/xorg-drivers &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
