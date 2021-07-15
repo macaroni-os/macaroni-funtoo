@@ -300,7 +300,7 @@ prepare() {
 
   echo "Europe/Rome" > /etc/timezone
 
-  # Create root files
+  # Create root and mocaccino user
   entities merge -s /var/lib/mocaccino/entities -a
 
   echo "Creating /etc/inittab..."
