@@ -390,7 +390,7 @@ prepare() {
     mkdir -p /home/mocaccino
     chown mocaccino:users -R /home/mocaccino
 
-    sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
+    #sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
 
     echo "mocaccino ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-mocaccino
 
