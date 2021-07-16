@@ -196,3 +196,13 @@ packages:
       - name: "funtoo-xorg-drivers-extra"
         category: layer
         version: ">=0"
+
+  - <<: *portage
+    category: "www-client"
+    name: "firefox-bin-portage"
+    version: "89.0.2"
+    package_dir: /firefox-bin
+    build_requires:
+      - name: "firefox-bin"
+        category: www-client
+        version: ">=0"
