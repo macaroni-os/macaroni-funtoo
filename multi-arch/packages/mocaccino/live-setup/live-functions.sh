@@ -309,8 +309,9 @@ prepare() {
   # Create all others entities
   main_layer="funtoo-base-gnome"
   entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ \
-    -s /usr/share/mocaccino/layers/funtoo-boot/entities/ \
-    -s /var/lib/mocaccino/entities/mocaccino-groups -a
+    -s /usr/share/mocaccino/layers/funtoo-boot/entities/
+
+  entities merge -s /var/lib/mocaccino/entities-mocaccino-groups -a
 
   echo "mocaccino-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="mocaccino-funtoo"|' /etc/conf.d/hostname
