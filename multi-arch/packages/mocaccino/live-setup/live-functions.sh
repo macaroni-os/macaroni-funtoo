@@ -309,7 +309,7 @@ prepare() {
   # Create all others entities
   main_layer="funtoo-base-gnome"
   entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ \
-    -s /usr/share/mocaccino/layers/funtoo-boot/entities/
+    -s /usr/share/mocaccino/layers/funtoo-boot/entities/ -a
 
   entities merge -s /var/lib/mocaccino/entities-mocaccino-groups -a
 
