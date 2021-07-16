@@ -278,6 +278,9 @@ setup_xorg_server() {
   rm -f /usr/share/icons/hicolor/icon-theme.cache
   gtk-update-icon-cache -f /usr/share/icons/*
 
+  update-mime-database /usr/share/mime
+  gdk-pixbuf-query-loaders --update-cache
+
   return 0
 }
 
