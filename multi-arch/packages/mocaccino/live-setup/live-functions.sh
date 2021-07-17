@@ -300,6 +300,8 @@ prepare() {
   touch /etc/passwd
 
   touch /etc/fstab
+  # Trying to fix /dev/ptmx group issue
+  echo "devpts /dev/pts devpts gid=5,mode=620 0 0" >> /etc/fstab
 
   echo "Europe/Rome" > /etc/timezone
 
