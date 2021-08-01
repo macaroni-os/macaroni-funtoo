@@ -301,7 +301,7 @@ prepare() {
 
   touch /etc/fstab
   # Trying to fix /dev/ptmx group issue
-  echo "devpts /dev/pts devpts gid=5,mode=620 0 0" >> /etc/fstab
+  #echo "devpts /dev/pts devpts gid=5,mode=620 0 0" >> /etc/fstab
 
   echo "Europe/Rome" > /etc/timezone
 
@@ -347,13 +347,11 @@ prepare() {
 #    systemctl stop ldconfig.service 2> /dev/null
     ENABLED_SERVICES=(
       "avahi-daemon"
-      "udev-postmount"
-      "udev-trigger"
-      "udev-settle"
+      "local"
+      "bluetooth"
       # Temporay enable logger always. On ISO probably we can to maintain
       # this off.
       "metalog"
-      "dbus"
       "NetworkManager"
 
 #      "cups"
@@ -371,7 +369,35 @@ prepare() {
     # Temporary. Maybe it's better set UTC here.
     echo "Europe/Rome" > /etc/localtime
 
-    rc-update add elogind boot
+    ENABLED_BOOT_SERVICES=(
+      "dbus"
+      "binfmt"
+      "elogind"
+      "hostname"
+      #"modules"
+      "opentmpfiles-setup"
+      "procfs"
+      "root"
+      "swap"
+      "urandom"
+    )
+
+    for srv in "${ENABLED_BOOT_SERVICES[@]}"; do
+        rc-update add "${srv}" boot
+    done
+
+    ENABLED_SYSINIT_SERVICES=(
+      "udev-postmount"
+      "udev-trigger"
+      "udev-settle"
+      "cgroups"
+      "devfs"
+      "dmesg"
+      "sysfs"
+    )
+    for srv in "${ENABLED_SYSINIT_SERVICES[@]}"; do
+        rc-update add "${srv}" sysinit
+    done
 
     setup_xorg_server
 
