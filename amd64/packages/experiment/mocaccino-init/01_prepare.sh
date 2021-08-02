@@ -34,7 +34,7 @@ mount -t sysfs none /sys
 
 mkdir -p /dev/pts
 
-mount -t devpts none /dev/pts -o gid=5,mode=620
+mount -t devpts none /dev/pts -o gid=5,mode=620,ptmxmode=666
 
 echo "Mounted all core filesystems. Ready to continue."
 
