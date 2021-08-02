@@ -358,7 +358,7 @@ prepare() {
 #        "cups-browsed"
     )
     for srv in "${ENABLED_SERVICES[@]}"; do
-        rc-update add "${srv}"
+        rc-update add "${srv}" default
     done
 
     echo "
@@ -368,6 +368,7 @@ prepare() {
 
     # Temporary. Maybe it's better set UTC here.
     echo "Europe/Rome" > /etc/localtime
+
 
     ENABLED_BOOT_SERVICES=(
       "dbus"
