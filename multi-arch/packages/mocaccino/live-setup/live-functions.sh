@@ -353,6 +353,7 @@ prepare() {
       # this off.
       "metalog"
       "NetworkManager"
+      "xdm"
 
 #      "cups"
 #        "cups-browsed"
