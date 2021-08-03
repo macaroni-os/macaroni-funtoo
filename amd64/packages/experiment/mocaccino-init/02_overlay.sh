@@ -302,7 +302,11 @@ if [ ! -e "/mnt/etc/03_init.sh" ]; then
   exec setsid sh
 fi
 
+echo "MOUNTED FILESYSTEMS"
+mount
+
 # Move critical file systems to the new mountpoint.
+umount /dev/pts/
 mount --move /dev /mnt/dev
 mount --move /sys /mnt/sys
 mount --move /proc /mnt/proc
