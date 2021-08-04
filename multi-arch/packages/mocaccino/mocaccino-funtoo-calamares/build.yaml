@@ -1,0 +1,23 @@
+requires:
+- category: "development"
+  name: "toolchain"
+  version: ">=0"
+
+steps:
+# Modules
+- mkdir -p /{{.Values.name}}/etc/calamares/
+- mkdir -p /{{.Values.name}}/usr/lib64/calamares/modules/
+- cp -rfv modules-conf/* /{{.Values.name}}/etc/calamares/
+- cp -rfv mocaccino /{{.Values.name}}/usr/lib64/calamares/modules/
+# Desktop icons, launcher
+- mkdir -p /{{.Values.name}}/usr/bin
+- mkdir -p /{{.Values.name}}/etc/skel/Desktop
+- cp -rf Installer.sh /{{.Values.name}}/usr/bin/installer.sh && chmod +x /{{.Values.name}}/usr/bin/installer.sh
+- cp -rfv Installer.desktop /{{.Values.name}}/etc/skel/Desktop/Installer.desktop && chmod +x /{{.Values.name}}/etc/skel/Desktop/Installer.desktop
+- mkdir -p /{{.Values.name}}/usr/share/pixmaps
+- cp -rfv installer-desktop-icon.png /{{.Values.name}}/usr/share/pixmaps
+# Branding
+- mkdir -p /{{.Values.name}}/etc/calamares/branding/default/
+- cp -rfv branding/* /{{.Values.name}}/etc/calamares/branding/default/
+
+package_dir: /{{.Values.name}}
