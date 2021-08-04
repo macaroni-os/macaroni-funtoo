@@ -126,6 +126,12 @@ def run():
     install_path = libcalamares.globalstorage.value('rootMountPoint')
     setup_locales(install_path)
     setup_audio(install_path)
+
+    # Temporary. I hope to find a better way.
+    libcalamares.utils.target_env_call([
+        'userdel', '-f', '-r', 'mocaccino',
+    ])
+
     #configure_services(install_path)
 
     if len(luet_packages2remove) > 0:
