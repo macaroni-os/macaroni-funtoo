@@ -15,6 +15,7 @@ RE_IS_COMMENT = re.compile("^ *#")
 # end of the installation process.
 luet_packages2remove = [
     "mocaccino/live-setup",
+    "kernel/mocaccino-lts-initramfs",
     "system/mocaccino-funtoo-calamares",
     "layer/funtoo-kde-commons",
     "layer/funtoo-calamares",
@@ -118,10 +119,6 @@ def configure_services(root_install_path):
 
 def run():
     """ Mocaccino Calamares Post-install module """
-    libcalamares.utils.target_env_call([
-        'mos', 'kernel', 'gi', '--all',
-        '--set-links', '--purge', '--grub',
-    ])
     # Get install path
     install_path = libcalamares.globalstorage.value('rootMountPoint')
     setup_locales(install_path)
@@ -141,6 +138,12 @@ def run():
         # Temporary trying to remove every package singolary
         for pkg in luet_packages2remove:
             libcalamares.utils.target_env_call(args + [pkg])
+
+    # It's better run this after that is uninstalled mocaccino initramfs package.
+    libcalamares.utils.target_env_call([
+        'mos', 'kernel', 'gi', '--all',
+        '--set-links', '--purge', '--grub',
+    ])
 
     libcalamares.utils.target_env_call(['env-update'])
 
