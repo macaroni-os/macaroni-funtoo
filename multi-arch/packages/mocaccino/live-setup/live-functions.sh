@@ -289,7 +289,7 @@ prepare() {
   echo "mocaccino-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="mocaccino-funtoo"|' /etc/conf.d/hostname
 
-  openrc_init_runlevels()
+  openrc_init_runlevels
 
   mkdir /var/tmp || true
 
