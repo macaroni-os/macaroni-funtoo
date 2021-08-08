@@ -236,56 +236,24 @@ setup_openrc_network() {
 
 }
 
-init_runlevels () {
-  # Setup openrc runlevels. TODO: move this to package script.
-  #
-  EROOT=""
-
-  source /lib/rc/sh/functions.sh
-
-  for r in sysinit boot shutdown default nonetwork; do
-    if [ ! -e ${EROOT}/etc/runlevels/$r ]; then
-      install -d ${EROOT}/etc/runlevels/$r
-      # install missing scripts
-    fi
-    for sc in $(cd ${EROOT}/usr/share/openrc/runlevels/$r; ls); do
-      if [ ! -L ${EROOT}/etc/runlevels/$r/$sc ]; then
-        einfo "Missing $r/$sc script, installing..."
-        cp -a ${EROOT}/usr/share/openrc/runlevels/$r/$sc ${EROOT}/etc/runlevels/$r/$sc
-      fi
-    done
-    # warn about extra scripts
-    for sc in $(cd ${EROOT}/etc/runlevels/$r; ls); do
-      if [ "$sc" == "netif.lo" ]; then
-        einfo "Removing old initscript netif.lo."
-        rm ${EROOT}/etc/runlevels/$r/$sc
-      fi
-      if [ ! -L ${EROOT}/usr/share/openrc/runlevels/$r/$sc ]; then
-        ewarn "Extra script $r/$sc found, possibly from other ebuild."
-      fi
-    done
-  done
-
-}
-
 setup_xorg_server() {
   mkdir -p /etc/X11/ || true
 
   setup_all_fonts
 
-  glib-compile-schemas /usr/share/glib-2.0/schemas
-  # Fix gnome icons caches
-  rm -f /usr/share/icons/hicolor/icon-theme.cache
-  gtk-update-icon-cache -f /usr/share/icons/*
+  glib_update_schemas
 
-  update-mime-database /usr/share/mime
-  gdk-pixbuf-query-loaders --update-cache
+  gkt_update_icons
+
+  mime_update_db
 
   return 0
 }
 
 
 prepare() {
+
+  EROOT=""
 
   source /usr/share/mocaccino-funtoo/triggers/triggers-loader
 
@@ -321,27 +289,16 @@ prepare() {
   echo "mocaccino-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="mocaccino-funtoo"|' /etc/conf.d/hostname
 
-  init_runlevels
+  openrc_init_runlevels()
 
   mkdir /var/tmp || true
 
   # Temporary stuff
-  if [ ! -e /var/lib/polkit-1 ] ; then
-    mkdir -p /var/lib/polkit-1
-  fi
 
-  chmod 0700 "${EROOT}"/{etc,usr/share}/polkit-1/rules.d
-  chown -R polkitd:root "${EROOT}"/{etc,usr/share}/polkit-1/rules.d
-  chown -R polkitd:polkitd "${EROOT}"/var/lib/polkit-1
+  # TODO: probably could be set on finalizer.
+  polkit_setup
 
-  if [ ! -e "${EROOT}"/etc/machine-id ] ; then
-    dbus-uuidgen --ensure="${EROOT}"/etc/machine-id
-    if [ ! -e "${EROOT}"/var/lib/dbus ] ; then
-      mkdir -p "${EROOT}"/var/lib/dbus
-    fi
-
-    ln -sf "${EPREFIX}"/etc/machine-id "${EROOT}"/var/lib/dbus/machine-id
-  fi
+  dbus_gen_machineid
 
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
 #    systemctl stop ldconfig.service 2> /dev/null
