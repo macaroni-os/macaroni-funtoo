@@ -243,7 +243,7 @@ setup_xorg_server() {
 
   glib_update_schemas
 
-  gkt_update_icons
+  gtk_update_icons
 
   mime_update_db
 
