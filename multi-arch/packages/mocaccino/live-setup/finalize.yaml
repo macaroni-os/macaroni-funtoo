@@ -1,8 +1,8 @@
 install:
 - source /etc/profile && env
 - source /var/lib/mocaccino/live-functions.sh && prepare
-- ln -s /boot/kernel-* /boot/bzImage || true
-- ln -s /boot/initramfs-* /boot/Initrd || true
+# This is needed because `mos kernel gi` is skipped.
+- cd boot && ln -s kernel-* bzImage || true
 shell:
 - bash
 - -c
