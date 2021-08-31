@@ -370,8 +370,8 @@ prepare() {
     locale-gen
 
     # Temporary fix for gnome
-    cp /etc/motd /etc/issue
-    rm /etc/motd
+    #cp /etc/motd /etc/issue
+    #rm /etc/motd
 
     # Temporary fix until entities will handle this
     mkdir -p /home/mocaccino
