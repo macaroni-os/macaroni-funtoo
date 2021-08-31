@@ -2,5 +2,5 @@ shell:
 - "/bin/bash"
 - "-c"
 install:
-- ldconfig || true
-- env-update || true
+- source /etc/profile && ldconfig || true
+- source /etc/profile && env-update || true
