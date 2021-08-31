@@ -2,5 +2,7 @@ shell:
 - "/bin/bash"
 - "-c"
 install:
-- ldconfig
-- env-update
+- >-
+  source /etc/profile &&
+  ldconfig &&
+  env-update
