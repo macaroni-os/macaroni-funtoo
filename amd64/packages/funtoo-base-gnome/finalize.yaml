@@ -16,3 +16,4 @@ install:
 # Check if gcc link is present. If not, initialize gcc and binutilus
 - source /etc/profile && if [ ! -e /usr/bin/gcc ] ; then eselect gcc set 1 ; eselect binutils set 1 ; fi
 - source /etc/profile && env-update || true
+- chown gdm:gdm -R /var/lib/gdm || true
