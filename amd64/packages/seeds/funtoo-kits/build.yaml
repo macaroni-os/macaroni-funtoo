@@ -1,0 +1,30 @@
+requires:
+  - name: funtoo-gnome-stage3
+    category: "layer"
+    version: ">=0"
+env:
+- JOBS=3
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+- LUET_YES=true
+- LUET_NOLOCK=true
+prelude:
+- >-
+  mv kits-version /
+  curl https://get.mocaccino.org/luet/get_luet_root.sh | sh &&
+  luet install
+  repository/mocaccino-extra-stable system/luet-extensions-live system/luet-devkit &&
+  luet install
+  dev-util/pkgs-checker-minimal utils/jq utils/yq &&
+  wget -O /etc/luet/repos.conf.d/geaaru.yaml https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml &&
+  luet install system/entities && luet upgrade &&
+  luet cleanup &&
+  ego sync &&
+  cd /var/git/meta-repo/kits &&
+  for i in $(ls .) ; do
+  echo $i ;
+  if [ -e /kits-versions/$i.yml ] ; then
+  hash=$(yq r /kits-versions/$i.yml 'commit') ;
+  echo "For kit $i set hash $hash" ;
+  pushd $i && git checkout $hash && popd ;
+  fi ; done
+
