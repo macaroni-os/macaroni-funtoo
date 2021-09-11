@@ -20,11 +20,15 @@ prelude:
   luet cleanup &&
   ego sync &&
   cd /var/git/meta-repo/kits &&
+  ls -l &&
   for i in $(ls .) ; do
   echo $i ;
   if [ -e /kits-versions/$i.yml ] ; then
   hash=$(yq r /kits-versions/$i.yml 'commit') ;
   echo "For kit $i set hash $hash" ;
-  pushd $i && git checkout $hash && popd ;
-  fi ; done
+  pushd $i ;
+  git checkout $hash ;
+  popd ;
+  fi ;
+  done
 
