@@ -1,6 +1,6 @@
 category: "layer"
 name: "funtoo-boot"
-version: "0.20210911+1"
+version: "0.20210911+2"
 labels:
   emerge.packages: >-
     app-arch/lz4
@@ -14,6 +14,11 @@ labels:
     sys-fs/squashfs-tools
     sys-boot/plymouth
     sys-boot/plymouth-openrc-plugin
+
+provides:
+- category: utils
+  name: grub2
+  version: ">=0"
 
 use_flags:
 - fonts
