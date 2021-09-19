@@ -1,6 +1,6 @@
 category: "layer"
 name: "funtoo-calamares"
-version: "0.20210911+1"
+version: "0.20210911+2"
 labels:
   emerge.packages: >-
     app-admin/calamares
@@ -18,6 +18,11 @@ labels:
     sys-libs/kpmcore
     virtual/logger
     virtual/mta
+
+provides:
+- category: apps
+  name: calamares
+  version: ">=0"
 
 use_flags:
 - networkmanager
