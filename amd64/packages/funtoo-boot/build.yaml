@@ -31,6 +31,7 @@ steps:
   qlist -ICSv > /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/pkgslist
 # Push mocacaccino patched script
 - chmod a+x 10_linux && cp -r 10_linux /{{ .Values.name }}/etc/grub.d/10_linux
+- cp grub-default /{{ .Values.name }}/etc/default/grub
 
 excludes:
 # Funtoo/Portage stuff
