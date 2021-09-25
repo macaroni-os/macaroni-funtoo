@@ -1,0 +1,11 @@
+requires:
+- category: "seed"
+  name: "funtoo-office"
+  version: "0.20210911"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  mkdir -p /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
+  entities dump -t /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
+  qlist -ICSv > /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/pkgslist
+
