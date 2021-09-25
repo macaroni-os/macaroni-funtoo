@@ -85,5 +85,8 @@ repository/extra:
 repository/commons:
 	git clone -b master --single-branch https://github.com/mocaccinoos/os-commons $(ROOT_DIR)/repository/commons
 
-validate: repository repository/luet repository/extra repository/commons
+repository/kernel:
+	git clone -b master --single-branch https://github.com/mocaccinoos/kernel-repo $(ROOT_DIR)/repository/kernel-repo
+
+validate: repository repository/luet repository/extra repository/commons repository/kernel
 	$(LUET) tree validate --tree $(ROOT_DIR)/repository --tree $(TREE) $(VALIDATE_OPTIONS)
