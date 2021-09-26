@@ -42,7 +42,7 @@ artefacts:
   packages:
     - app-arch/zip:0
     - app-crypt/mhash:0
-    #- app-eselect/eselect-java:0
+    - app-eselect/eselect-java:0
     - app-office/dia:0
     - app-office/libreoffice-bin:0
     - app-office/libreoffice-l10n:0
@@ -68,10 +68,9 @@ artefacts:
     - dev-db/libdbi:0
     - dev-db/mariadb-connector-c:0
     - dev-db/unixODBC:0
-    #- dev-java/ant-core:0
-    #- dev-java/java-config:2
-    #- dev-java/javatoolkit:0
-    #- dev-java/oracle-jdk-bin:1.8
+    - dev-java/ant-core:0
+    - dev-java/java-config:2
+    - dev-java/javatoolkit:0
     - dev-libs/libfmt:0
     - dev-libs/libixion:0
     - dev-libs/liborcus:0
@@ -98,11 +97,11 @@ artefacts:
     - sci-libs/colamd:0
     - sci-libs/suitesparseconfig:0
     - sci-mathematics/lpsolve:0
-    #- sys-apps/baselayout-java:0
-    #- virtual/imagemagick-tools:0
-    #- virtual/jdk:1.8
-    #- virtual/jpeg-compat:62
-    #- virtual/jre:1.8
+    - sys-apps/baselayout-java:0
+    - virtual/imagemagick-tools:0
+    - virtual/jdk:1.8
+    - virtual/jpeg-compat:62
+    - virtual/jre:1.8
 
 - tree: packages/atoms/office
   uses:
@@ -173,6 +172,15 @@ artefacts:
       - fftw
   packages:
     - media-gfx/imagemagick:0
+
+- tree: packages/atoms/office
+  uses:
+    disabled:
+      - pax_kernel
+      - x64-macos
+      - doc
+  packages:
+    - dev-java/oracle-jdk-bin:1.8
 
 build_layers:
   - layer:
