@@ -1,0 +1,24 @@
+name: unixODBC
+version: 2.3.5
+category: dev-db
+requires:
+- name: funtoo-office
+  version: '>=0'
+  category: seed
+description: A complete ODBC driver manager
+uri:
+- http://www.unixodbc.org/
+license: GPL-2 LGPL-2.1
+labels:
+  DEPEND: '|| ( dev-libs/libltdl:0[-mgorny(-)] >=sys-devel/libtool-2.4.2-r1[-mgorny(-)]
+    ) >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] >=sys-libs/ncurses-5.9-r3:0=[-mgorny(-)]
+    >=virtual/libiconv-0-r1[-mgorny(-)] sys-devel/flex >=app-portage/elt-patches-20170815'
+  IUSE: +minimal odbcmanual static-libs unicode abi_x86_32 abi_x86_64 abi_x86_x32
+    abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '|| ( dev-libs/libltdl:0[-mgorny(-)] >=sys-devel/libtool-2.4.2-r1[-mgorny(-)]
+    ) >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] >=sys-libs/ncurses-5.9-r3:0=[-mgorny(-)]
+    >=virtual/libiconv-0-r1[-mgorny(-)]'
+  emerge.packages: dev-db/unixODBC
+  kit: dev-kit
+  original.package.name: dev-db/unixODBC
+  original.package.version: 2.3.5-r1
