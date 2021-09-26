@@ -7,7 +7,6 @@ package_dir: /pkgdir/{{ .Values.name }}
 
 env:
 - JOBS={{ ( index .Values.labels "jobs" ) | default "3" }}
-- LUET_PORTAGE_CACHE_PACKAGES=/var/cache/binpkgs
 - LUET_PORTAGE_IGNORE_TAR_WARNING=1
 - LUET_PORTAGE_PKGMETA=1
 - LUET_PORTAGE_PKGFILES=1
