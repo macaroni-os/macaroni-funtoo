@@ -1,0 +1,18 @@
+name: imagemagick-tools
+version: "0"
+category: virtual
+requires:
+- name: funtoo-office
+  version: '>=0'
+  category: seed
+description: Virtual for imagemagick command line tools
+uri:
+- ""
+labels:
+  IUSE: jpeg perl png svg tiff
+  RDEPEND: '|| ( media-gfx/imagemagick[jpeg?,perl?,png?,svg?,tiff?] media-gfx/graphicsmagick[imagemagick,jpeg?,perl?,png?,svg?,tiff?]
+    )'
+  emerge.packages: virtual/imagemagick-tools
+  kit: media-kit
+  original.package.name: virtual/imagemagick-tools
+  original.package.version: "0"
