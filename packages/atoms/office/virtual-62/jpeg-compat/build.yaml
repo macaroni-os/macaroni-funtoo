@@ -1,5 +1,6 @@
 env:
 - JOBS={{ ( index .Values.labels "jobs" ) | default "3" }}
+- LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages"
 - LUET_PORTAGE_IGNORE_TAR_WARNING=1
 - LUET_PORTAGE_PKGMETA=1
 - LUET_PORTAGE_PKGFILES=1
