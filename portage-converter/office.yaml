@@ -99,9 +99,17 @@ artefacts:
     - sci-mathematics/lpsolve:0
     - sys-apps/baselayout-java:0
     - virtual/imagemagick-tools:0
+
+- tree: packages/atoms/office
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-office
+  packages:
+    - virtual/jre:1.8
     - virtual/jdk:1.8
     - virtual/jpeg-compat:62
-    - virtual/jre:1.8
 
 - tree: packages/atoms/office
   uses:
