@@ -41,6 +41,17 @@ artefacts:
   uses:
     disabled:
       - static-libs
+      - geckodriver
+    enabled:
+      - pulseaudio
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - source /etc/profile && ldconfig
+      - source /etc/profile && env-update
+
   packages:
     - www-client/vivaldi
     - www-client/chromium
