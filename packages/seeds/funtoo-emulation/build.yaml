@@ -10,6 +10,8 @@ env:
 prelude:
 - >-
   eval 'mkdir -p /etc/portage/package.license/ || true' &&
+  eval 'mkdir -p /etc/portage/package.use/ || true' &&
   cp -rvf package.license/* /etc/portage/package.license/ &&
+  cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
