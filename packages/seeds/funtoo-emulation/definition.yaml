@@ -1,9 +1,8 @@
 category: "seed"
 name: "funtoo-emulation"
-version: "0.20210911"
+version: "0.20210930"
 labels:
   emerge.packages: >-
-    app-emulation/qemu
     app-emulation/lxc
     sys-fs/lxcfs
     app-emulation/lxd
@@ -14,3 +13,8 @@ labels:
     app-emulation/virtualbox-guest-additions
     app-emulation/virtualbox-guest-additions
     dev-util/xdelta
+
+# Temporary disable qemu until
+# emerge: there are no ebuilds to satisfy "dev-python/beautifulsoup:4
+# is fixed
+#   app-emulation/qemu
