@@ -18,8 +18,7 @@ steps:
 - EROOT="/{{ .Values.name }}/" sh scripts/setup.sh
 - >-
   mkdir -p /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
-  entities dump -t /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/ &&
-  qlist -ICSv > /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/pkgslist
+  entities dump -t /{{ .Values.name }}/usr/share/mocaccino/layers/{{ .Values.name }}/entities/
 
 excludes:
 - ^/etc/shadow
