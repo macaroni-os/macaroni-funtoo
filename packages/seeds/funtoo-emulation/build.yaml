@@ -12,6 +12,8 @@ prelude:
   eval 'mkdir -p /etc/portage/package.license/ || true' &&
   eval 'mkdir -p /etc/portage/package.use/ || true' &&
   cp -rvf package.license/* /etc/portage/package.license/ &&
+  rm- rf /var/git/meta-repo/kits/dev-kit/dev-util/kbuild &&
+  cp -rvf kbuild /var/git/meta-repo/kits/dev-kit/dev-util/ &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
