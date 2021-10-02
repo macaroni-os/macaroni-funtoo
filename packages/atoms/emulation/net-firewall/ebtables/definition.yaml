@@ -1,0 +1,23 @@
+name: ebtables
+version: 2.0.10.4
+category: net-firewall
+use_flags:
+- perl
+requires:
+- name: funtoo-base-gnome
+  version: '>=0'
+  category: layer
+- name: ethertypes
+  version: '>=0'
+  category: net-misc
+description: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
+uri:
+- http://ebtables.sourceforge.net/
+license: GPL-2
+labels:
+  IUSE: +perl static
+  RDEPEND: perl? ( dev-lang/perl ) net-misc/ethertypes
+  emerge.packages: net-firewall/ebtables
+  kit: core-kit
+  original.package.name: net-firewall/ebtables
+  original.package.version: 2.0.10.4-r2
