@@ -1,0 +1,28 @@
+name: virtualbox-guest-additions
+version: 6.1.26
+category: app-emulation
+use_flags:
+- -kernel_linux
+- X
+requires:
+- name: funtoo-base-gnome
+  version: '>=0'
+  category: layer
+description: VirtualBox kernel modules and user-space tools for Gentoo guests
+uri:
+- https://www.virtualbox.org/
+license: GPL-2
+labels:
+  DEPEND: X? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libXmu x11-libs/libX11 x11-libs/libXt
+    x11-libs/libXext x11-libs/libXau x11-libs/libXdmcp x11-libs/libSM x11-libs/libICE
+    ) sys-apps/dbus >=dev-util/kbuild-0.1.9998.3127 >=dev-lang/yasm-0.6.2 sys-devel/bin86
+    sys-libs/pam sys-power/iasl x11-base/xorg-proto kernel_linux? ( virtual/modutils
+    ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+  IUSE: X kernel_linux kernel_linux
+  RDEPEND: X? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libXmu x11-libs/libX11
+    x11-libs/libXt x11-libs/libXext x11-libs/libXau x11-libs/libXdmcp x11-libs/libSM
+    x11-libs/libICE ) sys-apps/dbus kernel_linux? ( virtual/modutils )
+  emerge.packages: app-emulation/virtualbox-guest-additions
+  kit: core-kit
+  original.package.name: app-emulation/virtualbox-guest-additions
+  original.package.version: 6.1.26
