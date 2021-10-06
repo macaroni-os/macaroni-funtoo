@@ -4,15 +4,33 @@ category: app-emulation
 use_flags:
 - nls
 requires:
+- name: tcl
+  version: '>=0'
+  category: dev-lang
+- name: libuv
+  version: '>=0'
+  category: dev-libs
+- name: dnsmasq
+  version: '>=0'
+  category: net-dns
 - name: ebtables
   version: '>=0'
   category: net-firewall
+- name: iproute2
+  version: '>=0'
+  category: sys-apps
 - name: lxcfs
   version: '>=0'
   category: sys-fs
 - name: squashfs-tools
   version: '>=0'
   category: sys-fs
+- name: linux-headers
+  version: '>=0'
+  category: sys-kernel
+- name: acl
+  version: '>=0'
+  category: virtual
 description: Fast, dense and secure container management
 uri:
 - https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd
