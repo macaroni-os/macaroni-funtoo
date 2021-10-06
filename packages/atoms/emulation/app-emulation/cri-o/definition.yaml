@@ -8,9 +8,18 @@ use_flags:
 - -systemd
 - device-mapper
 requires:
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
 - name: runc
   version: '>=0'
   category: app-emulation
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libassuan
+  version: '>=0'
+  category: dev-libs
 - name: conntrack-tools
   version: '>=0'
   category: net-firewall
@@ -20,6 +29,12 @@ requires:
 - name: socat
   version: '>=0'
   category: net-misc
+- name: iproute2
+  version: '>=0'
+  category: sys-apps
+- name: lvm2
+  version: '>=0'
+  category: sys-fs
 description: OCI-based implementation of Kubernetes Container Runtime Interface
 uri:
 - https://cri-o.io/

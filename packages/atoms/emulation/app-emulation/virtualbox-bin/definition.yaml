@@ -3,15 +3,30 @@ version: 6.1.26.145957
 category: app-emulation
 use_flags:
 - -headless
-- -python_targets_python2_7
-- -python_targets_python3_7
 - -python_targets_python3_8
 - -python_targets_python3_9
 - chm
+- python_targets_python2_7
+- python_targets_python3_7
 requires:
 - name: virtualbox-modules
   version: '>=0'
   category: app-emulation
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: lvm2
+  version: '>=0'
+  category: sys-fs
+- name: libXau
+  version: '>=0'
+  category: x11-libs
+- name: libXdmcp
+  version: '>=0'
+  category: x11-libs
+- name: libXmu
+  version: '>=0'
+  category: x11-libs
 description: Family of powerful x86 virtualization products for enterprise and home
   use
 uri:
