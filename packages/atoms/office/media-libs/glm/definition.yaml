@@ -1,19 +1,19 @@
 name: glm
-version: 0.9.9.2
+version: 0.9.9.5
 category: media-libs
 requires:
-- name: funtoo-base-gnome
+- name: opengl
   version: '>=0'
-  category: layer
+  category: virtual
 description: OpenGL Mathematics
 uri:
 - http://glm.g-truc.net/
 license: '|| ( HappyBunny MIT )'
 labels:
-  DEPEND: sys-devel/make >=dev-util/cmake-3.9.6
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
   IUSE: test cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_avx cpu_flags_x86_avx2
   RDEPEND: virtual/opengl
   emerge.packages: media-libs/glm
   kit: media-kit
   original.package.name: media-libs/glm
-  original.package.version: 0.9.9.2
+  original.package.version: 0.9.9.5

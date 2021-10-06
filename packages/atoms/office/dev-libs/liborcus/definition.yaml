@@ -2,15 +2,18 @@ name: liborcus
 version: 0.15.0
 category: dev-libs
 use_flags:
-- -python_single_target_python3_7
 - -python_single_target_python3_8
+- -python_single_target_python3_9
 - python
-- python_single_target_python3_9
+- python_single_target_python3_7
 - spreadsheet-model
 requires:
 - name: libixion
   version: '>=0'
   category: dev-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
 description: Standalone file import filter library for spreadsheet documents
 uri:
 - https://gitlab.com/orcus/orcus/blob/master/README.md

@@ -2,14 +2,20 @@ name: pygobject
 version: 2.28.7
 category: dev-python-2
 use_flags:
-- -python_targets_python2_7
 - -test
 - libffi
 - prefix
+- python_targets_python2_7
 requires:
-- name: funtoo-base-gnome
+- name: python
   version: '>=0'
-  category: layer
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 description: GLib's GObject library bindings for Python
 uri:
 - http://www.pygtk.org/
