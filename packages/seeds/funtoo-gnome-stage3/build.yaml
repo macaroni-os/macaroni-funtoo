@@ -1,6 +1,7 @@
 image: "alpine"
 env: 
 - LUET_YES=true
+- HTTP_TIMEOUT=0
 - STAGE_VERSION={{ ( index .Values.labels "package.version" ) }}
 prelude:
 - apk --no-cache add ca-certificates tar wget xz rsync curl
