@@ -1,5 +1,5 @@
 name: libreoffice-bin
-version: 7.2.0.4
+version: 7.2.1.2
 category: app-office
 use_flags:
 - -java
@@ -9,9 +9,18 @@ use_flags:
 - kde
 - zeroconf
 requires:
+- name: unzip
+  version: '>=0'
+  category: app-arch
 - name: zip
   version: '>=0'
   category: app-arch
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
+- name: mit-krb5
+  version: '>=0'
+  category: app-crypt
 - name: libabw
   version: '>=0'
   category: app-text
@@ -63,18 +72,60 @@ requires:
 - name: mariadb-connector-c
   version: '>=0'
   category: dev-db
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: hyphen
+  version: '>=0'
+  category: dev-libs
+- name: libassuan
+  version: '>=0'
+  category: dev-libs
 - name: liborcus
   version: '>=0'
   category: dev-libs
 - name: redland
   version: '>=0'
   category: dev-libs
+- name: xmlsec
+  version: '>=0'
+  category: dev-libs
+- name: qtx11extras
+  version: '>=0'
+  category: dev-qt-5
+- name: dconf
+  version: '>=0'
+  category: gnome-base
+- name: evolution-data-server
+  version: '>=0'
+  category: gnome-extra
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-5
 - name: liberation-fonts
   version: '>=0'
   category: media-fonts
 - name: fontforge
   version: '>=0'
   category: media-gfx
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
 - name: libcdr
   version: '>=0'
   category: media-libs
@@ -90,12 +141,36 @@ requires:
 - name: libzmf
   version: '>=0'
   category: media-libs
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: neon
+  version: '>=0'
+  category: net-libs
+- name: cups
+  version: '>=0'
+  category: net-print
 - name: lpsolve
   version: '>=0'
   category: sci-mathematics
+- name: gcc
+  version: '>=0'
+  category: sys-devel-9.2.0
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
+- name: glu
+  version: '>=0'
+  category: virtual
 - name: jpeg-compat
   version: '>=0'
   category: virtual-62
+- name: opengl
+  version: '>=0'
+  category: virtual
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
 description: A full office productivity suite. Binary package
 uri:
 - https://www.libreoffice.org
@@ -155,4 +230,4 @@ labels:
   emerge.packages: app-office/libreoffice-bin
   kit: desktop-kit
   original.package.name: app-office/libreoffice-bin
-  original.package.version: 7.2.0.4
+  original.package.version: 7.2.1.2
