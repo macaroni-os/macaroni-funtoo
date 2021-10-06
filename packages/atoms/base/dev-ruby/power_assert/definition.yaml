@@ -1,0 +1,39 @@
+name: power_assert
+version: 1.2.0
+category: dev-ruby
+use_flags:
+- -doc
+- -test
+- ruby_targets_ruby26
+- ruby_targets_ruby27
+requires:
+- name: rubygems
+  version: '>=0'
+  category: virtual
+description: Shows each value of variables and method calls in the expression
+uri:
+- https://github.com/ruby/power_assert
+license: '|| ( Ruby BSD-2 )'
+labels:
+  BDEPEND: ruby_targets_ruby27? ( test? ( dev-ruby/test-unit[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby26? ( test? ( dev-ruby/test-unit[ruby_targets_ruby26(-)]
+    ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
+    ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26?
+    ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test?
+    ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)]
+    ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)]
+    ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)]
+    ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+  DEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  IUSE: ruby_targets_ruby24 ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27
+    doc test test
+  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  emerge.packages: dev-ruby/power_assert
+  kit: ruby-kit
+  original.package.name: dev-ruby/power_assert
+  original.package.version: 1.2.0

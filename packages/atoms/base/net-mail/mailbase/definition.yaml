@@ -1,0 +1,20 @@
+name: mailbase
+version: "1.5"
+category: net-mail
+use_flags:
+- pam
+requires:
+- name: pam
+  version: '>=0'
+  category: virtual
+description: MTA layout package
+uri:
+- https://www.gentoo.org/
+license: GPL-2
+labels:
+  IUSE: pam
+  RDEPEND: pam? ( virtual/pam )
+  emerge.packages: net-mail/mailbase
+  kit: core-kit
+  original.package.name: net-mail/mailbase
+  original.package.version: "1.5"

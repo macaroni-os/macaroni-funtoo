@@ -1,0 +1,19 @@
+name: pf-sources
+version: "4.13"
+category: sys-kernel-4.13_p4
+use_flags:
+- -build
+description: Linux kernel fork with new features (-ck patchset (BFS), BFQ, TuxOnIce
+  and UKSM)
+uri:
+- https://pf.natalenko.name/
+license: GPL-2 linux-firmware
+labels:
+  DEPEND: '!build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31 )'
+  IUSE: symlink build
+  RDEPEND: '!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make
+    >=sys-libs/ncurses-5.2 virtual/libelf )'
+  emerge.packages: sys-kernel/pf-sources:4.13_p4
+  kit: core-kit
+  original.package.name: sys-kernel/pf-sources
+  original.package.version: 4.13_p4

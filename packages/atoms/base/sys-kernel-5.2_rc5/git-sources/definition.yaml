@@ -1,0 +1,19 @@
+name: git-sources
+version: "5.2"
+category: sys-kernel-5.2_rc5
+use_flags:
+- -build
+description: The very latest -git version of the Linux kernel
+uri:
+- https://www.kernel.org
+license: GPL-2
+labels:
+  DEPEND: '>=sys-devel/patch-2.7.5 !build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31
+    )'
+  IUSE: symlink build
+  RDEPEND: '!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make
+    >=sys-libs/ncurses-5.2 virtual/libelf )'
+  emerge.packages: sys-kernel/git-sources:5.2_rc5
+  kit: core-kit
+  original.package.name: sys-kernel/git-sources
+  original.package.version: 5.2_rc5
