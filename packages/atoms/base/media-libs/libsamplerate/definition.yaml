@@ -1,0 +1,25 @@
+name: libsamplerate
+version: 0.1.9
+category: media-libs
+use_flags:
+- sndfile
+requires:
+- name: libsndfile
+  version: '>=0'
+  category: media-libs
+description: Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for
+  audio
+uri:
+- http://www.mega-nerd.com/SRC/
+license: BSD-2
+labels:
+  DEPEND: sndfile? ( >=media-libs/libsndfile-1.0.2 ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: sndfile static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: sndfile? ( >=media-libs/libsndfile-1.0.2 )
+  emerge.packages: media-libs/libsamplerate
+  kit: media-kit
+  original.package.name: media-libs/libsamplerate
+  original.package.version: 0.1.9

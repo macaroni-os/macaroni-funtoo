@@ -1,0 +1,35 @@
+name: jasper
+version: 2.0.23
+category: media-libs
+use_flags:
+- -doc
+- jpeg
+- opengl
+requires:
+- name: freeglut
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libXmu
+  version: '>=0'
+  category: x11-libs
+description: Implementation of the codec specified in the JPEG-2000 Part-1 standard
+uri:
+- https://www.ece.uvic.ca/~mdadams/jasper/
+license: JasPer2.0
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) opengl? ( >=virtual/opengl-7.0-r1:0[-mgorny(-)]
+    >=media-libs/freeglut-2.8.1:0[-mgorny(-)] virtual/glu[-mgorny(-)] x11-libs/libXi[-mgorny(-)]
+    x11-libs/libXmu[-mgorny(-)] )
+  IUSE: doc jpeg opengl abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) opengl? ( >=virtual/opengl-7.0-r1:0[-mgorny(-)]
+    >=media-libs/freeglut-2.8.1:0[-mgorny(-)] virtual/glu[-mgorny(-)] x11-libs/libXi[-mgorny(-)]
+    x11-libs/libXmu[-mgorny(-)] )
+  emerge.packages: media-libs/jasper
+  kit: media-kit
+  original.package.name: media-libs/jasper
+  original.package.version: 2.0.23

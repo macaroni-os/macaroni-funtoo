@@ -1,0 +1,37 @@
+name: sqlite
+version: 3.32.3
+category: dev-db-3
+use_flags:
+- -tcl
+- -test
+- -tools
+- icu
+- readline
+requires:
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+description: SQL database engine
+uri:
+- https://sqlite.org/
+license: public-domain
+labels:
+  BDEPEND: app-arch/unzip >=dev-lang/tcl-8.6:0 >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: sys-libs/zlib:0= icu? ( dev-libs/icu:0= ) readline? ( sys-libs/readline:0=
+    ) tcl? ( dev-lang/tcl:0= ) tools? ( dev-lang/tcl:0= ) test? ( >=dev-lang/tcl-8.6:0
+    )
+  IUSE: debug doc icu +readline secure-delete static-libs tcl test tools
+  RDEPEND: sys-libs/zlib:0= icu? ( dev-libs/icu:0= ) readline? ( sys-libs/readline:0=
+    ) tcl? ( dev-lang/tcl:0= ) tools? ( dev-lang/tcl:0= )
+  emerge.packages: dev-db/sqlite:3
+  kit: core-server-kit
+  original.package.name: dev-db/sqlite
+  original.package.version: 3.32.3

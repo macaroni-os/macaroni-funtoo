@@ -1,0 +1,22 @@
+name: wpebackend-fdo
+version: 1.6.0
+category: gui-libs-1.0
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libwpe
+  version: '>=0'
+  category: gui-libs-1.0
+description: WPE backend designed for Linux desktop systems
+uri:
+- https://wpewebkit.org/
+license: BSD-2
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/mesa[egl] dev-libs/glib:2 >=dev-libs/wayland-1.10 gui-libs/libwpe:1.0
+  RDEPEND: media-libs/mesa[egl] dev-libs/glib:2 >=dev-libs/wayland-1.10 gui-libs/libwpe:1.0
+  emerge.packages: gui-libs/wpebackend-fdo:1.0
+  kit: core-gl-kit
+  original.package.name: gui-libs/wpebackend-fdo
+  original.package.version: 1.6.0

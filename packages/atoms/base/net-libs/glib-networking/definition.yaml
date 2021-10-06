@@ -1,0 +1,39 @@
+name: glib-networking
+version: 2.64.3
+category: net-libs
+use_flags:
+- -libproxy
+- -prefix
+- -smartcard
+- -test
+- gnome
+requires:
+- name: ca-certificates
+  version: '>=0'
+  category: app-misc
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+description: Network-related giomodules for glib
+uri:
+- https://git.gnome.org/browse/glib-networking/
+license: LGPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix?
+    ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 gnome? ( gnome-base/gsettings-desktop-schemas
+    ) libproxy? ( >=net-libs/libproxy-0.4.11-r1:= ) smartcard? ( >=app-crypt/p11-kit-0.18.4
+    >=net-libs/gnutls-3:=[pkcs11] ) app-misc/ca-certificates >=net-libs/gnutls-3:=[pkcs11]
+    >=sys-devel/gettext-0.19.4 >=virtual/pkgconfig-0-r1 >=dev-util/meson-0.46.0 test?
+    ( sys-apps/dbus[X] ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: +gnome +libproxy smartcard test +ssl test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 gnome? ( gnome-base/gsettings-desktop-schemas
+    ) libproxy? ( >=net-libs/libproxy-0.4.11-r1:= ) smartcard? ( >=app-crypt/p11-kit-0.18.4
+    >=net-libs/gnutls-3:=[pkcs11] ) app-misc/ca-certificates >=net-libs/gnutls-3:=[pkcs11]'
+  emerge.packages: net-libs/glib-networking
+  kit: gnome-kit
+  original.package.name: net-libs/glib-networking
+  original.package.version: 2.64.3

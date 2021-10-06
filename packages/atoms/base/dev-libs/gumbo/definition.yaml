@@ -1,0 +1,19 @@
+name: gumbo
+version: 0.10.1
+category: dev-libs
+use_flags:
+- -doc
+- -test
+description: The HTML5 parsing algorithm implemented as a pure C99 library
+uri:
+- https://github.com/google/gumbo-parser#readme
+license: Apache-2.0
+labels:
+  DEPEND: test? ( dev-cpp/gtest ) doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: doc test
+  emerge.packages: dev-libs/gumbo
+  kit: dev-kit
+  original.package.name: dev-libs/gumbo
+  original.package.version: 0.10.1

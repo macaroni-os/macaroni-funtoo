@@ -1,0 +1,21 @@
+name: opencl-clhpp
+version: 2.0.15
+category: dev-util
+requires:
+- name: opencl-headers
+  version: '>=0'
+  category: dev-util
+description: OpenCL Host API C++ bindings.
+uri:
+- https://github.com/KhronosGroup/OpenCL-CLHPP
+license: Apache-2.0
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: '>=dev-util/opencl-headers-2.0.15 || ( dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 )'
+  IUSE: doc
+  RDEPEND: '>=dev-util/opencl-headers-2.0.15 !<app-eselect/eselect-opencl-1.2.0'
+  emerge.packages: dev-util/opencl-clhpp
+  kit: core-gl-kit
+  original.package.name: dev-util/opencl-clhpp
+  original.package.version: 2.0.15
