@@ -29,7 +29,7 @@ prelude:
   echo "For kit $i set hash $hash" ;
   pushd $i ;
   git pull -ff --depth=$GIT_HISTORY_ENTRIES ;
-  git checkout $hash ;
+  git checkout $hash || exit 1 ;
   popd ;
   fi ;
   done
