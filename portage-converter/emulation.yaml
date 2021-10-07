@@ -16,12 +16,6 @@ skipped_resolutions:
     - name: radiusclient-ng
       category: net-dialup
 
-    - name: openresolv
-      category: net-dns
-
-    - name: opentmpfiles
-      category: sys-apps
-
     - name: systemd-tmpfiles
       category: sys-apps
 
@@ -1156,9 +1150,7 @@ build_layers:
       - sys-devel/autoconf-wrapper:0
       - sys-devel/autoconf:2.1
       - sys-devel/autoconf:2.69
-      - sys-devel/automake-wrapper:0
       - sys-devel/automake:1.14
-      - sys-devel/automake:1.16
       - sys-devel/bc:0
       - sys-devel/bin86:0
       - sys-devel/binutils-config:0
@@ -1176,7 +1168,6 @@ build_layers:
       - sys-devel/make:0
       - sys-devel/patch:0
       - sys-firmware/sof-firmware:0
-      - sys-fs/btrfs-progs:0
       - sys-fs/cryptsetup:0
       - sys-fs/dosfstools:0
       - sys-fs/e2fsprogs:0
@@ -1543,6 +1534,7 @@ reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
+    - dev-lang/python:2.7
     - dev-lang/python:3.7
     - dev-lang/ruby:2.6
     - dev-lang/ruby:2.7
@@ -1571,14 +1563,13 @@ reposcan_disabled_use_flags:
   - gtk-doc
   - gles2-only
   - python_single_target_python3_6
-  - python_single_target_python3_7
+  - python_single_target_python3_9
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
   - python_single_target_pypy3
-  - python_targets_python2_7
   - python_targets_python3_6
-  - python_targets_python3_7
+  - python_targets_python3_9
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
@@ -1593,7 +1584,6 @@ reposcan_disabled_use_flags:
   # Cryptographic library for embedded systems
   - mbedtls
   - modules
-  - openrc
 
   - debug
 
