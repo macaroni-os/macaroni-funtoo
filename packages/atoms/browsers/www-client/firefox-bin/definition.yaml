@@ -1,5 +1,5 @@
 name: firefox-bin
-version: "92.0"
+version: 92.0.1
 category: www-client
 use_flags:
 - -alsa
@@ -8,9 +8,33 @@ use_flags:
 - -selinux
 - pulseaudio
 requires:
-- name: funtoo-base-gnome
+- name: dbus-glib
   version: '>=0'
-  category: layer
+  category: dev-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: freedesktop-icon-theme
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXdamage
+  version: '>=0'
+  category: x11-libs
+- name: libXext
+  version: '>=0'
+  category: x11-libs
 description: Firefox Web Browser
 uri:
 - https://www.mozilla.org/en-US/firefox/
@@ -39,4 +63,4 @@ labels:
   emerge.packages: www-client/firefox-bin
   kit: browser-kit
   original.package.name: www-client/firefox-bin
-  original.package.version: "92.0"
+  original.package.version: 92.0.1

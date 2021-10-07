@@ -2,27 +2,42 @@ name: chromium
 version: 91.0.4472.106
 category: www-client
 use_flags:
+- -cups
+- -headless
+- -js-type-check
+- -kerberos
+- -screencast
 - -selinux
-- cups
-- headless
-- js-type-check
-- kerberos
+- -system-ffmpeg
+- -system-icu
+- -vaapi
+- -wayland
 - pulseaudio
-- screencast
-- system-ffmpeg
-- system-icu
-- vaapi
-- wayland
 requires:
-- name: snappy
+- name: glib
   version: '>=0'
-  category: app-arch
-- name: re2
+  category: dev-libs-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: nss
   version: '>=0'
   category: dev-libs
-- name: openh264
+- name: alsa-lib
   version: '>=0'
   category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
 description: Open-source version of Google Chrome web browser
 uri:
 - https://chromium.org/
