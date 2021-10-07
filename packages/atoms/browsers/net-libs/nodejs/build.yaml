@@ -12,10 +12,11 @@ prelude:
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
-- ^/var/db/pkg/
+- ^/var/db/pkg
+- ^/var/db
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: funtoo-browsers
+- name: elfix
   version: '>=0'
-  category: seed
+  category: sys-apps
