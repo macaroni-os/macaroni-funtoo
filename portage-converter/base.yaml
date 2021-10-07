@@ -3,9 +3,6 @@ skipped_resolutions:
     - name: elt-patches
       category: app-portage
 
-    - name: eselect-opengl
-      category: app-eselect
-
     - name: binutils-apple
       category: sys-devel
 
@@ -22,246 +19,31 @@ skipped_resolutions:
     - name: argp-standalone
       category: sys-libs
 
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
 include_files:
+  - ./artefacts/base.yml
 
 build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
 build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
-
 artefacts:
 
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - static-libs
-  packages:
-    - app-arch/zip:0
-    - app-crypt/mhash:0
-    - app-eselect/eselect-java:0
-    - app-office/dia:0
-    - app-office/libreoffice-bin:0
-    - app-office/libreoffice-l10n:0
-    - app-text/libabw:0
-    - app-text/libebook:0
-    - app-text/libepubgen:0
-    - app-text/libetonyek:0
-    - app-text/libexttextcat:0
-    - app-text/liblangtag:0
-    - app-text/libmspub:0
-    - app-text/libmwaw:0
-    - app-text/libnumbertext:0
-    - app-text/libodfgen:0
-    - app-text/libqxp:0
-    - app-text/libstaroffice:0
-    - app-text/libwpd:0.10
-    - app-text/libwpg:0.3
-    - app-text/libwps:0
-    - app-text/mythes:0
-    - dev-cpp/clucene:1
-    - dev-cpp/gtest:0
-    - dev-cpp/libcmis:0.5
-    - dev-db/libdbi:0
-    - dev-db/mariadb-connector-c:0
-    - dev-db/unixODBC:0
-    - dev-java/ant-core:0
-    - dev-java/java-config:2
-    - dev-java/javatoolkit:0
-    - dev-libs/libfmt:0
-    - dev-libs/libixion:0
-    - dev-libs/liborcus:0
-    - dev-libs/librevenge:0
-    - dev-libs/rasqal:0
-    - dev-libs/spdlog:0
-    - dev-python/pygobject:2
-    - dev-util/mdds:1.5
-    - gnome-base/libglade:2.0
-    - gnome-extra/libgsf:0
-    - media-gfx/plantuml:0
-    - media-libs/glm:0
-    - media-libs/libart_lgpl:0
-    - media-libs/libcdr:0
-    - media-libs/libfpx:0
-    - media-libs/libfreehand:0
-    - media-libs/libpagemaker:0
-    - media-libs/libvisio:0
-    - media-libs/libwmf:0
-    - media-libs/libzmf:0
-    - sci-libs/colamd:0
-    - sci-libs/suitesparseconfig:0
-    - sci-mathematics/lpsolve:0
-    - sys-apps/baselayout-java:0
-    - virtual/imagemagick-tools:0
-
-- tree: packages/atoms/office
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-office
-  packages:
-    - virtual/jre:1.8
-    - virtual/jdk:1.8
-    - virtual/jpeg-compat:62
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - json
-  packages:
-    - media-libs/raptor:2
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - postgres
-      - iodbc
-      - static-libs
-  packages:
-    - dev-libs/redland:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - postgres
-      - firebird
-      - mysql
-      - doc
-      - iodbc
-      - static-libs
-  packages:
-    - dev-db/libdbi-drivers:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - ofx
-      - postgres
-      - firebird
-      - mysql
-      - doc
-      - iodbc
-      - static-libs
-  packages:
-    - app-office/grisbi:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - quotes
-      - postgres
-      - static-libs
-      - aqbanking
-      - smartcard
-      - ofx
-  packages:
-    - app-office/gnucash:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - numpy
-  packages:
-    - dev-python/pygtk:2
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - opencl
-      - corefonts
-      - lqr
-      - fftw
-  packages:
-    - media-gfx/imagemagick:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - pax_kernel
-      - x64-macos
-      - doc
-  packages:
-    - dev-java/oracle-jdk-bin:1.8
 
 build_layers:
   - layer:
-      name: funtoo-office
+      name: funtoo-base
       category: seed
 
     # pkgs-checker  pkglist  show -r /tmp/base.pkglist -j  -p  -v | jq '.packages[] | "- "+ .category + "/" + .name + ":" + .slot' -r | sort
     packages:
-
-# seed/funtoo-office
-      - app-arch/zip:0
-      - app-crypt/mhash:0
-      - app-eselect/eselect-java:0
-      - app-office/dia:0
-      - app-office/gnucash:0
-      - app-office/grisbi:0
-      - app-office/libreoffice-bin:0
-      - app-office/libreoffice-l10n:0
-      - app-text/libabw:0
-      - app-text/libebook:0
-      - app-text/libepubgen:0
-      - app-text/libetonyek:0
-      - app-text/libexttextcat:0
-      - app-text/liblangtag:0
-      - app-text/libmspub:0
-      - app-text/libmwaw:0
-      - app-text/libnumbertext:0
-      - app-text/libodfgen:0
-      - app-text/libqxp:0
-      - app-text/libstaroffice:0
-      - app-text/libwpd:0.10
-      - app-text/libwpg:0.3
-      - app-text/libwps:0
-      - app-text/mythes:0
-      - dev-cpp/clucene:1
-      - dev-cpp/gtest:0
-      - dev-cpp/libcmis:0.5
-      - dev-db/libdbi:0
-      - dev-db/libdbi-drivers:0
-      - dev-db/mariadb-connector-c:0
-      - dev-db/unixODBC:0
-      - dev-java/ant-core:0
-      - dev-java/java-config:2
-      - dev-java/javatoolkit:0
-      - dev-java/oracle-jdk-bin:1.8
-      - dev-libs/libfmt:0
-      - dev-libs/libixion:0
-      - dev-libs/liborcus:0
-      - dev-libs/librevenge:0
-      - dev-libs/rasqal:0
-      - dev-libs/redland:0
-      - dev-libs/spdlog:0
-      - dev-python/pygobject:2
-      - dev-python/pygtk:2
-      - dev-util/mdds:1.5
-      - gnome-base/libglade:2.0
-      - gnome-extra/libgsf:0
-      - media-fonts/liberation-fonts:0
-      - media-gfx/fontforge:0
-      - media-gfx/imagemagick:0
-      - media-gfx/plantuml:0
-      - media-libs/glm:0
-      - media-libs/libart_lgpl:0
-      - media-libs/libcdr:0
-      - media-libs/libfpx:0
-      - media-libs/libfreehand:0
-      - media-libs/libpagemaker:0
-      - media-libs/libuninameslist:0
-      - media-libs/libvisio:0
-      - media-libs/libwmf:0
-      - media-libs/libzmf:0
-      - media-libs/raptor:2
-      - sci-libs/colamd:0
-      - sci-libs/suitesparseconfig:0
-      - sci-mathematics/lpsolve:0
-      - sys-apps/baselayout-java:0
-      - virtual/imagemagick-tools:0
-      - virtual/jdk:1.8
-      - virtual/jpeg-compat:62
-      - virtual/jre:1.8
-
-# seed/funtoo-base
 
       - app-accessibility/at-spi2-atk:2
       - app-accessibility/at-spi2-core:2
@@ -307,8 +89,8 @@ build_layers:
       - app-doc/xmltoman:0
       - app-editors/gedit:0
       - app-editors/nano:0
-      - app-editors/vim:0
       - app-editors/vim-core:0
+      - app-editors/vim:0
       - app-emulation/open-vm-tools:0
       - app-eselect/eselect-cblas:0
       - app-eselect/eselect-cdparanoia:0
@@ -339,16 +121,16 @@ build_layers:
       - app-misc/jq:0
       - app-misc/mime-types:0
       - app-misc/pax-utils:0
-      - app-misc/tracker:0
       - app-misc/tracker-miners:0
+      - app-misc/tracker:0
       - app-pda/libimobiledevice:0
       - app-pda/libplist:0
       - app-pda/libusbmuxd:0
       - app-portage/elt-patches:0
       - app-portage/gentoolkit:0
       - app-portage/portage-utils:0
-      - app-shells/bash:0
       - app-shells/bash-completion:0
+      - app-shells/bash:0
       - app-shells/gentoo-bashcomp:0
       - app-text/asciidoc:0
       - app-text/build-docbook-catalog:0
@@ -366,8 +148,8 @@ build_layers:
       - app-text/docbook-xml-dtd:4.3
       - app-text/docbook-xml-dtd:4.4
       - app-text/docbook-xml-dtd:4.5
-      - app-text/docbook-xml-simple-dtd:1.0
       - app-text/docbook-xml-simple-dtd:0
+      - app-text/docbook-xml-simple-dtd:1.0
       - app-text/docbook-xsl-ns-stylesheets:0
       - app-text/docbook-xsl-stylesheets:0
       - app-text/editorconfig-core-c:0
@@ -387,8 +169,8 @@ build_layers:
       - app-text/openjade:0
       - app-text/opensp:0
       - app-text/po4a:0
-      - app-text/poppler:0
       - app-text/poppler-data:0
+      - app-text/poppler:0
       - app-text/qpdf:0
       - app-text/rarian:0
       - app-text/scrollkeeper-dtd:1.0
@@ -412,9 +194,9 @@ build_layers:
       - dev-lang/nasm:0
       - dev-lang/orc:0
       - dev-lang/perl:0
+      - dev-lang/python-exec:2
       - dev-lang/python:2.7
       - dev-lang/python:3.7
-      - dev-lang/python-exec:2
       - dev-lang/ruby:2.6
       - dev-lang/ruby:2.7
       - dev-lang/rust-bin:stable
@@ -426,10 +208,11 @@ build_layers:
       - dev-lang/vala:0.44
       - dev-lang/vala:0.46
       - dev-lang/vala:0.48
+      - dev-lang/vala:0.54
       - dev-lang/yasm:0
       - dev-libs/appstream-glib:0
-      - dev-libs/apr:1
       - dev-libs/apr-util:1
+      - dev-libs/apr:1
       - dev-libs/atk:0
       - dev-libs/boehm-gc:0
       - dev-libs/boost:0
@@ -447,8 +230,8 @@ build_layers:
       - dev-libs/glib:2
       - dev-libs/gmime:3.0
       - dev-libs/gmp:0
-      - dev-libs/gobject-introspection:0
       - dev-libs/gobject-introspection-common:0
+      - dev-libs/gobject-introspection:0
       - dev-libs/gom:0
       - dev-libs/gumbo:0
       - dev-libs/hyphen:0
@@ -464,8 +247,8 @@ build_layers:
       - dev-libs/libbsd:0
       - dev-libs/libburn:0
       - dev-libs/libbytesize:0
-      - dev-libs/libcdio:0
       - dev-libs/libcdio-paranoia:0
+      - dev-libs/libcdio:0
       - dev-libs/libcroco:0.6
       - dev-libs/libdaemon:0
       - dev-libs/libdazzle:0
@@ -496,8 +279,8 @@ build_layers:
       - dev-libs/libmspack:0
       - dev-libs/libnatspec:0
       - dev-libs/libnl:3
-      - dev-libs/libpcre:3
       - dev-libs/libpcre2:0
+      - dev-libs/libpcre:3
       - dev-libs/libpeas:0
       - dev-libs/libpipeline:0
       - dev-libs/libpthread-stubs:0
@@ -530,8 +313,8 @@ build_layers:
       - dev-libs/tinyxml:0
       - dev-libs/totem-pl-parser:0
       - dev-libs/vala-common:0
-      - dev-libs/wayland:0
       - dev-libs/wayland-protocols:0
+      - dev-libs/wayland:0
       - dev-libs/xmlsec:0
       - dev-lua/LuaBitOp:0
       - dev-lua/lpeg:0
@@ -558,8 +341,8 @@ build_layers:
       - dev-perl/IO-Socket-INET6:0
       - dev-perl/IO-Socket-SSL:0
       - dev-perl/IPC-System-Simple:0
-      - dev-perl/JSON:0
       - dev-perl/JSON-XS:0
+      - dev-perl/JSON:0
       - dev-perl/LWP-MediaTypes:0
       - dev-perl/LWP-Protocol-https:0
       - dev-perl/Locale-gettext:0
@@ -590,9 +373,9 @@ build_layers:
       - dev-perl/X11-Protocol:0
       - dev-perl/XML-NamespaceSupport:0
       - dev-perl/XML-Parser:0
-      - dev-perl/XML-SAX:0
       - dev-perl/XML-SAX-Base:0
       - dev-perl/XML-SAX-Expat:0
+      - dev-perl/XML-SAX:0
       - dev-perl/XML-Simple:0
       - dev-perl/XML-Twig:0
       - dev-perl/XML-XPath:0
@@ -611,8 +394,8 @@ build_layers:
       - dev-python/commonmark:0
       - dev-python/configparser:0
       - dev-python/contextlib2:0
-      - dev-python/cryptography:0
       - dev-python/cryptography-compat:0
+      - dev-python/cryptography:0
       - dev-python/cython:0
       - dev-python/dbus-python:0
       - dev-python/docutils:0
@@ -622,24 +405,24 @@ build_layers:
       - dev-python/functools32:0
       - dev-python/future:0
       - dev-python/gst-python:1.0
-      - dev-python/idna:0
       - dev-python/idna-compat:0
-      - dev-python/importlib_metadata:0
+      - dev-python/idna:0
       - dev-python/importlib_metadata-compat:0
+      - dev-python/importlib_metadata:0
       - dev-python/ipaddress:0
       - dev-python/jsonpointer:0
       - dev-python/jsonschema:0
       - dev-python/m2crypto:0
       - dev-python/mako:0
-      - dev-python/markupsafe:0
       - dev-python/markupsafe-compat:0
-      - dev-python/more-itertools:0
+      - dev-python/markupsafe:0
       - dev-python/more-itertools-compat:0
-      - dev-python/mwparserfromhell:0
+      - dev-python/more-itertools:0
       - dev-python/mwparserfromhell-compat:0
+      - dev-python/mwparserfromhell:0
       - dev-python/namespace-zope:0
-      - dev-python/packaging:0
       - dev-python/packaging-compat:0
+      - dev-python/packaging:0
       - dev-python/pathlib2:0
       - dev-python/pbr:0
       - dev-python/ply:0
@@ -647,13 +430,13 @@ build_layers:
       - dev-python/pycairo:0
       - dev-python/pycparser:0
       - dev-python/pyelftools:0
-      - dev-python/pygments:0
       - dev-python/pygments-compat:0
+      - dev-python/pygments:0
       - dev-python/pygobject:3
       - dev-python/pyopenssl:0
       - dev-python/pyparsing:0
-      - dev-python/pyrsistent:0
       - dev-python/pyrsistent-compat:0
+      - dev-python/pyrsistent:0
       - dev-python/pyxdg:0
       - dev-python/regex:0
       - dev-python/requests:0
@@ -663,19 +446,20 @@ build_layers:
       - dev-python/scandir:0
       - dev-python/semantic_version:0
       - dev-python/setproctitle:0
-      - dev-python/setuptools:0
       - dev-python/setuptools-compat:0
       - dev-python/setuptools-rust:0
-      - dev-python/setuptools_scm:0
+      - dev-python/setuptools:0
       - dev-python/setuptools_scm-compat:0
+      - dev-python/setuptools_scm:0
       - dev-python/six:0
       - dev-python/strict-rfc3339:0
       - dev-python/subunit:0
+      - dev-python/testtools-compat:0
       - dev-python/testtools:0
       - dev-python/toml:0
       - dev-python/tomli:0
-      - dev-python/typing:0
       - dev-python/typing-extensions:0
+      - dev-python/typing:0
       - dev-python/urllib3:0
       - dev-python/webcolors:0
       - dev-python/wheel:0
@@ -695,8 +479,8 @@ build_layers:
       - dev-qt/qtopengl:5
       - dev-qt/qtpaths:5
       - dev-qt/qtprintsupport:5
-      - dev-qt/qtquickcontrols:5
       - dev-qt/qtquickcontrols2:5
+      - dev-qt/qtquickcontrols:5
       - dev-qt/qtscript:5
       - dev-qt/qtsensors:5
       - dev-qt/qtsql:5
@@ -732,8 +516,8 @@ build_layers:
       - dev-util/gdbus-codegen:0
       - dev-util/glib-utils:0
       - dev-util/gperf:0
-      - dev-util/gtk-doc:0
       - dev-util/gtk-doc-am:0
+      - dev-util/gtk-doc:0
       - dev-util/gtk-update-icon-cache:0
       - dev-util/intltool:0
       - dev-util/itstool:0
@@ -775,11 +559,10 @@ build_layers:
       - games-puzzle/quadrapassel:0
       - games-puzzle/swell-foop:0
       - gnome-base/adrien-gdm-keyboard:0
-      - gnome-base/dconf:0
       - gnome-base/dconf-editor:0
+      - gnome-base/dconf:0
       - gnome-base/gconf:2
       - gnome-base/gdm:0
-      - gnome-base/gnome:0
       - gnome-base/gnome-common:3
       - gnome-base/gnome-control-center:2
       - gnome-base/gnome-core-apps:3.0
@@ -790,8 +573,9 @@ build_layers:
       - gnome-base/gnome-menus:3
       - gnome-base/gnome-session:0
       - gnome-base/gnome-settings-daemon:0
-      - gnome-base/gnome-shell:0
       - gnome-base/gnome-shell-common:0
+      - gnome-base/gnome-shell:0
+      - gnome-base/gnome:0
       - gnome-base/gsettings-desktop-schemas:0
       - gnome-base/gvfs:0
       - gnome-base/libgnomekbd:0
@@ -825,8 +609,8 @@ build_layers:
       - gnome-extra/nm-applet:0
       - gnome-extra/polkit-gnome:0
       - gnome-extra/sushi:0
-      - gnome-extra/yelp:0
       - gnome-extra/yelp-xsl:0
+      - gnome-extra/yelp:0
       - gnome-extra/zenity:0
       - gui-libs/amtk:5
       - gui-libs/libwpe:1.0
@@ -838,8 +622,8 @@ build_layers:
       - kde-frameworks/breeze-icons:5
       - kde-frameworks/extra-cmake-modules:5
       - kde-frameworks/frameworkintegration:5
-      - kde-frameworks/kactivities:5
       - kde-frameworks/kactivities-stats:5
+      - kde-frameworks/kactivities:5
       - kde-frameworks/karchive:5
       - kde-frameworks/kauth:5
       - kde-frameworks/kbookmarks:5
@@ -914,6 +698,7 @@ build_layers:
       - mail-client/evolution:2.0
       - mail-filter/bogofilter:0
       - media-fonts/cantarell:0
+      - media-fonts/croscorefonts:0
       - media-fonts/dejavu:0
       - media-fonts/encodings:0
       - media-fonts/font-adobe-100dpi:0
@@ -975,9 +760,9 @@ build_layers:
       - media-libs/alsa-ucm-conf:0
       - media-libs/audiofile:0
       - media-libs/babl:0
-      - media-libs/clutter:1.0
       - media-libs/clutter-gst:3.0
       - media-libs/clutter-gtk:1.0
+      - media-libs/clutter:1.0
       - media-libs/cogl:1.0
       - media-libs/dav1d:0
       - media-libs/exempi:2
@@ -1042,13 +827,13 @@ build_layers:
       - media-libs/libnsgif:0
       - media-libs/libogg:0
       - media-libs/libpng:0
-      - media-libs/libquvi:0
       - media-libs/libquvi-scripts:0
+      - media-libs/libquvi:0
       - media-libs/libraw:0
       - media-libs/libreplaygain:0
       - media-libs/libsamplerate:0
-      - media-libs/libsdl:0
       - media-libs/libsdl2:0
+      - media-libs/libsdl:0
       - media-libs/libsidplay:2
       - media-libs/libsndfile:0
       - media-libs/libtheora:0
@@ -1065,9 +850,9 @@ build_layers:
       - media-libs/openjpeg:2
       - media-libs/opus:0
       - media-libs/opusfile:0
-      - media-libs/phonon:0
       - media-libs/phonon-gstreamer:0
       - media-libs/phonon-vlc:0
+      - media-libs/phonon:0
       - media-libs/sbc:0
       - media-libs/soxr:0
       - media-libs/speex:0
@@ -1136,13 +921,13 @@ build_layers:
       - media-video/vlc:0
       - net-analyzer/gnome-nettool:0
       - net-analyzer/nmap:0
-      - net-dialup/ppp:0
       - net-dialup/ppp-scripts:0
+      - net-dialup/ppp:0
       - net-dns/avahi:0
       - net-dns/bind-tools:0
       - net-dns/dnsmasq:0
-      - net-dns/libidn:0
       - net-dns/libidn2:0
+      - net-dns/libidn:0
       - net-dns/openresolv:0
       - net-firewall/iptables:0
       - net-fs/cifs-utils:0
@@ -1158,9 +943,9 @@ build_layers:
       - net-libs/gssdp:0
       - net-libs/gssdp:1.2
       - net-libs/gtk-vnc:0
+      - net-libs/gupnp-av:0
       - net-libs/gupnp:0
       - net-libs/gupnp:1.2
-      - net-libs/gupnp-av:0
       - net-libs/libasyncns:0
       - net-libs/libgfbgraph:0.2
       - net-libs/libgrss:0
@@ -1183,8 +968,8 @@ build_layers:
       - net-libs/rest:0.7
       - net-libs/rpcsvc-proto:0
       - net-libs/telepathy-glib:0
-      - net-libs/webkit:4
       - net-libs/webkit-gtk:4
+      - net-libs/webkit:4
       - net-mail/mailbase:0
       - net-misc/bridge-utils:0
       - net-misc/curl:0
@@ -1204,9 +989,9 @@ build_layers:
       - net-misc/wget:0
       - net-misc/whois:0
       - net-nds/openldap:0
-      - net-print/cups:0
       - net-print/cups-filters:0
       - net-print/cups-pk-helper:0
+      - net-print/cups:0
       - net-wireless/bluez:0
       - net-wireless/crda:0
       - net-wireless/gnome-bluetooth:2
@@ -1247,15 +1032,15 @@ build_layers:
       - sys-apps/less:0
       - sys-apps/lsb-release:0
       - sys-apps/man-db:0
-      - sys-apps/man-pages:0
       - sys-apps/man-pages-posix:0
+      - sys-apps/man-pages:0
       - sys-apps/miscfiles:0
       - sys-apps/mlocate:0
       - sys-apps/net-tools:0
       - sys-apps/openrc:0
       - sys-apps/opentmpfiles:0
-      - sys-apps/osinfo-db:0
       - sys-apps/osinfo-db-tools:0
+      - sys-apps/osinfo-db:0
       - sys-apps/pciutils:0
       - sys-apps/portage:0
       - sys-apps/sandbox:0
@@ -1271,29 +1056,29 @@ build_layers:
       - sys-auth/nss-mdns:0
       - sys-auth/nss-myhostname:0
       - sys-auth/pambase:0
-      - sys-auth/polkit:0
       - sys-auth/polkit-qt:0
+      - sys-auth/polkit:0
       - sys-auth/realtime-base:0
       - sys-block/parted:0
       - sys-block/thin-provisioning-tools:0
-      - sys-devel/autoconf:2.1
-      - sys-devel/autoconf:2.69
       - sys-devel/autoconf-archive:0
       - sys-devel/autoconf-wrapper:0
-      - sys-devel/automake:1.16
+      - sys-devel/autoconf:2.1
+      - sys-devel/autoconf:2.69
       - sys-devel/automake-wrapper:0
+      - sys-devel/automake:1.16
       - sys-devel/bc:0
-      - sys-devel/binutils:2.36
       - sys-devel/binutils-config:0
+      - sys-devel/binutils:2.36
       - sys-devel/bison:0
       - sys-devel/flex:0
-      - sys-devel/gcc:9.2.0
       - sys-devel/gcc-config:0
+      - sys-devel/gcc:9.2.0
       - sys-devel/gettext:0
       - sys-devel/gnuconfig:0
       - sys-devel/libtool:2
-      - sys-devel/llvm:11
       - sys-devel/llvm-common:0
+      - sys-devel/llvm:11
       - sys-devel/m4:0
       - sys-devel/make:0
       - sys-devel/patch:0
@@ -1303,10 +1088,10 @@ build_layers:
       - sys-fs/e2fsprogs:0
       - sys-fs/eudev:0
       - sys-fs/exfat-utils:0
-      - sys-fs/fuse:0
-      - sys-fs/fuse:3
       - sys-fs/fuse-common:0
       - sys-fs/fuse-exfat:0
+      - sys-fs/fuse:0
+      - sys-fs/fuse:3
       - sys-fs/lvm2:0
       - sys-fs/mdadm:0
       - sys-fs/udev-init-scripts:0
@@ -1328,8 +1113,8 @@ build_layers:
       - sys-libs/ldb:0
       - sys-libs/libavc1394:0
       - sys-libs/libblockdev:0
-      - sys-libs/libcap:0
       - sys-libs/libcap-ng:0
+      - sys-libs/libcap:0
       - sys-libs/libosinfo:0
       - sys-libs/libraw1394:0
       - sys-libs/libseccomp:0
@@ -1376,8 +1161,8 @@ build_layers:
       - virtual/package-manager:0
       - virtual/pager:0
       - virtual/pam:0
-      - virtual/perl-CPAN-Meta:0
       - virtual/perl-CPAN-Meta-YAML:0
+      - virtual/perl-CPAN-Meta:0
       - virtual/perl-Carp:0
       - virtual/perl-Compress-Raw-Bzip2:0
       - virtual/perl-Compress-Raw-Zlib:0
@@ -1395,9 +1180,9 @@ build_layers:
       - virtual/perl-File-Spec:0
       - virtual/perl-File-Temp:0
       - virtual/perl-Getopt-Long:0
-      - virtual/perl-IO:0
       - virtual/perl-IO-Compress:0
       - virtual/perl-IO-Socket-IP:0
+      - virtual/perl-IO:0
       - virtual/perl-JSON-PP:0
       - virtual/perl-MIME-Base64:0
       - virtual/perl-Module-Metadata:0
@@ -1536,9 +1321,9 @@ build_layers:
       - x11-libs/libfontenc:0
       - x11-libs/libnotify:0
       - x11-libs/libpciaccess:0
-      - x11-libs/libva:0
       - x11-libs/libva-intel-driver:0
       - x11-libs/libva-vdpau-driver:0
+      - x11-libs/libva:0
       - x11-libs/libvdpau:0
       - x11-libs/libwnck:3
       - x11-libs/libxcb:0
@@ -1550,12 +1335,12 @@ build_layers:
       - x11-libs/pixman:0
       - x11-libs/startup-notification:0
       - x11-libs/vte:2.91
-      - x11-libs/xcb-util:0
       - x11-libs/xcb-util-cursor:0
       - x11-libs/xcb-util-image:0
       - x11-libs/xcb-util-keysyms:0
       - x11-libs/xcb-util-renderutil:0
       - x11-libs/xcb-util-wm:0
+      - x11-libs/xcb-util:0
       - x11-libs/xtrans:0
       - x11-misc/colord:0
       - x11-misc/icon-naming-utils:0
@@ -1563,8 +1348,8 @@ build_layers:
       - x11-misc/shared-mime-info:0
       - x11-misc/util-macros:0
       - x11-misc/xbitmaps:0
-      - x11-misc/xdg-user-dirs:0
       - x11-misc/xdg-user-dirs-gtk:0
+      - x11-misc/xdg-user-dirs:0
       - x11-misc/xdg-utils:0
       - x11-misc/xkeyboard-config:0
       - x11-proto/applewmproto:0
@@ -1655,6 +1440,7 @@ reposcan_requires_slot: true
 reposcan_contraints:
   packages:
     - dev-lang/python:3.7
+    - dev-lang/python:2.7
     - dev-lang/ruby:2.6
     - dev-lang/ruby:2.7
     - sys-devel/gcc:9.2.0
@@ -1753,9 +1539,6 @@ reposcan_disabled_use_flags:
   - ceph
   - cluster
 
-  # Disable bluetooth from python
-  - bluetooth
-
   - heif
 
   # Disabled for mesa lib
@@ -1780,5 +1563,5 @@ reposcan_disabled_use_flags:
   - ppc64
 
 reposcan_disabled_keywords:
-  - ~amd64
+  #- ~amd64
   - -*
