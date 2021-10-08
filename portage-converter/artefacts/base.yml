@@ -2139,6 +2139,12 @@ artefacts:
   packages:
   - app-crypt/gnupg
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
   uses:
     disabled:
     - audit
@@ -7489,6 +7495,12 @@ artefacts:
   packages:
   - sys-block/parted
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
   uses:
     disabled:
     - nios2
