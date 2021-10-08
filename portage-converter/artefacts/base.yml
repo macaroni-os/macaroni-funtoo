@@ -96,6 +96,15 @@ artefacts:
   packages:
   - sys-apps/gptfdisk
 - tree: packages/atoms/base
+  replacements:
+    buildtime_deps:
+      packages:
+        - category: virtual
+          name: cdrtools
+    runtime_deps:
+      packages:
+        - category: virtual
+          name: cdrtools
   uses:
     disabled:
     - nios2
