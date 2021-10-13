@@ -14,7 +14,7 @@ package_dir: /{{ .Values.name }}
 steps:
 - |
   wget -O /usr/bin/pkgs-checker https://github.com/Sabayon/pkgs-checker/releases/download/v0.10.3/pkgs-checker-v0.10.3-linux-amd64 && \
-  chmod a+x /usr/bin/pkgs-checker &&
+  chmod a+x /usr/bin/pkgs-checker && \
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - EROOT="/{{ .Values.name }}/" sh scripts/setup.sh
