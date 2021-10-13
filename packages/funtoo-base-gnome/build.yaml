@@ -13,6 +13,7 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - |
+  luet upgrade && \
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet portage -- --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - EROOT="/{{ .Values.name }}/" sh scripts/setup.sh
