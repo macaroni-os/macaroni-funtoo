@@ -9,5 +9,3 @@ prelude:
 - >-
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
-
-requires_final_images: true
