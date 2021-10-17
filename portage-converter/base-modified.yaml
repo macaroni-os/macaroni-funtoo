@@ -153,6 +153,20 @@ artefacts:
   packages:
   - gnome-base/gnome-extra-apps:3.0
 
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - udev
+  packages:
+  - virtual/libusb:1
 
 build_layers:
   - layer:
