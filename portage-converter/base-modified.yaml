@@ -78,11 +78,81 @@ artefacts:
       packages:
         - category: seed
           name: funtoo-base
-
   packages:
     - media-libs/libdvdcss:1.2
+    - media-libs/libsidplay:2
     - dev-libs/iniparser:4
     - dev-libs/lzo:2
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - python_targets_pypy3
+    - sh
+    enabled:
+    - python_targets_python2_7
+    - python_targets_python3_7
+  packages:
+  - dev-lang/python-exec:2
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - bluetooth
+    - cdr
+    - cups
+  packages:
+  - gnome-base/gnome-core-apps:3.0
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+
+  uses:
+    disabled:
+    - boxes
+    - builder
+    - california
+    - empathy
+    - epiphany
+    - flashback
+    - geary
+    - gnote
+    - latexila
+    - nios2
+    - sh
+    - simple-scan
+    enabled:
+    - bijiben
+    - evolution
+    - games
+    - recipes
+    - share
+    - shotwell
+    - todo
+    - tracker
+  packages:
+  - gnome-base/gnome-extra-apps:3.0
+
 
 build_layers:
   - layer:
