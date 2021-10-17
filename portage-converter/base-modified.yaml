@@ -1,5 +1,7 @@
 skipped_resolutions:
   packages:
+    - name: elt-patches
+      category: app-portage
 
     - name: binutils-apple
       category: sys-devel
@@ -51,16 +53,19 @@ skipped_resolutions:
     - name: dummy-sources
       category: sys-kernel
 
+    - name: cdrtools
+      category: virtual
+
 build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
 build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
 artefacts:
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - app-portage/elt-patches
+
+  - tree: packages/atoms/base
+    uses:
+      disabled:
+        - zfs
+    packages:
+      - virtual/linux-sources
 
 build_layers:
   - layer:
@@ -1471,6 +1476,7 @@ reposcan_contraints:
     - sys-devel/gcc:9.2.0
     - sys-devel/llvm:11
     - sys-devel/clang:11
+    - dev-cpp/gtkmm:3.0
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]

@@ -2,33 +2,9 @@ name: linux-sources
 version: "2.6"
 category: virtual
 requires:
-- name: aufs-sources
+- name: debian-sources
   version: '>=0'
-  category: sys-kernel-4.20.7
-- name: ck-sources
-  version: '>=0'
-  category: sys-kernel-5.12.9_p1
-- name: dummy-sources
-  version: '>=0'
-  category: sys-kernel
-- name: gentoo-sources
-  version: '>=0'
-  category: sys-kernel-5.1.12
-- name: git-sources
-  version: '>=0'
-  category: sys-kernel-5.2_rc5
-- name: mips-sources
-  version: '>=0'
-  category: sys-kernel-4.18.20
-- name: pf-sources
-  version: '>=0'
-  category: sys-kernel-4.13_p4
-- name: vanilla-sources
-  version: '>=0'
-  category: sys-kernel-5.14.9
-- name: xbox-sources
-  version: '>=0'
-  category: sys-kernel-2.6.16.26
+  category: sys-kernel-debian-sources-5.10.46_p4
 description: Virtual for Linux kernel sources
 uri:
 - ""
@@ -47,4 +23,5 @@ labels:
   emerge.packages: virtual/linux-sources
   kit: core-kit
   original.package.name: virtual/linux-sources
+  original.package.slot: "0"
   original.package.version: "2.6"
