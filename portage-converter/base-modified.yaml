@@ -56,6 +56,9 @@ skipped_resolutions:
     - name: cdrtools
       category: virtual
 
+    - name: duktape
+      category: dev-lang
+
 build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
 build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
 artefacts:
@@ -167,6 +170,26 @@ artefacts:
     - udev
   packages:
   - virtual/libusb:1
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - jit
+    - nios2
+    - selinux
+    - sh
+    - test
+    enabled:
+    - elogind
+    - gtk
+    - introspection
+    - kde
+    - nls
+    - pam
+    - spidermonkey
+  packages:
+  - sys-auth/polkit
 
 build_layers:
   - layer:
