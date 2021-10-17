@@ -191,6 +191,24 @@ artefacts:
   packages:
   - sys-auth/polkit
 
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - X
+    - introspection
+    - wayland
+
+  packages:
+  - net-libs/webkit-gtk:4
+
 build_layers:
   - layer:
       name: funtoo-base
