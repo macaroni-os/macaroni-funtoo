@@ -59,13 +59,30 @@ skipped_resolutions:
 build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
 build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
 artefacts:
+- tree: packages/atoms/base
+  uses:
+    disabled:
+      - zfs
+  packages:
+    - virtual/linux-sources
 
-  - tree: packages/atoms/base
-    uses:
-      disabled:
-        - zfs
-    packages:
-      - virtual/linux-sources
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+
+  packages:
+    - media-libs/libdvdcss:1.2
+    - dev-libs/iniparser:4
+    - dev-libs/lzo:2
 
 build_layers:
   - layer:
