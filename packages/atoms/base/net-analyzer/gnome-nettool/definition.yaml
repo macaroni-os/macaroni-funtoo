@@ -2,7 +2,7 @@ name: gnome-nettool
 version: 3.8.1
 category: net-analyzer
 use_flags:
-- userland_BSD
+- -userland_BSD
 - userland_GNU
 requires:
 - name: libgtop
@@ -14,9 +14,6 @@ requires:
 - name: bind-tools
   version: '>=0'
   category: net-dns
-- name: bsdwhois
-  version: '>=0'
-  category: net-misc
 - name: iputils
   version: '>=0'
   category: net-misc
@@ -26,6 +23,12 @@ requires:
 - name: whois
   version: '>=0'
   category: net-misc
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -47,4 +50,5 @@ labels:
   emerge.packages: net-analyzer/gnome-nettool
   kit: gnome-kit
   original.package.name: net-analyzer/gnome-nettool
+  original.package.slot: "0"
   original.package.version: 3.8.1
