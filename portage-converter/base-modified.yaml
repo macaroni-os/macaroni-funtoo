@@ -209,6 +209,17 @@ artefacts:
   packages:
   - net-libs/webkit-gtk:4
 
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - latex
+    - nios2
+    - sh
+    enabled:
+    - text
+  packages:
+  - app-text/xmlto
+
 build_layers:
   - layer:
       name: funtoo-base

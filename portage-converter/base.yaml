@@ -31,6 +31,14 @@ skipped_resolutions:
 
     - name: cdrtools
       category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
 include_files:
   - ./artefacts/base.yml
 
@@ -1449,6 +1457,12 @@ reposcan_contraints:
     - sys-devel/llvm:11
     - sys-devel/clang:11
     - dev-cpp/gtkmm:3.0
+    - app-text/docbook-sgml-dtd:4.4
+    - app-text/docbook-sgml-dtd:4.2
+    - app-text/docbook-sgml-dtd:4.1
+    - app-text/docbook-sgml-dtd:4.0
+    - app-text/docbook-sgml-dtd:3.1
+    - app-text/docbook-sgml-dtd:3.0
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
