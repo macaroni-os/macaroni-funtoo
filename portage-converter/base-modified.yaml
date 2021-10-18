@@ -129,6 +129,22 @@ artefacts:
       packages:
         - category: seed
           name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - cups
+    - python
+  packages:
+  - gnome-base/gnome-core-libs:3.0
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
 
   uses:
     disabled:
@@ -219,6 +235,7 @@ artefacts:
     - text
   packages:
   - app-text/xmlto
+
 
 build_layers:
   - layer:
