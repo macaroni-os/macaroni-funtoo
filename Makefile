@@ -84,6 +84,7 @@ repository/extra:
 
 repository/commons:
 	git clone -b master --single-branch https://github.com/mocaccinoos/os-commons $(ROOT_DIR)/repository/commons
+	cd $(ROOT_DIR)/repository/commons && git checkout cc28b422f5497f69af3fd137579055902b7dff0f && cd -
 
 repository/kernel:
 	git clone -b master --single-branch https://github.com/mocaccinoos/kernel-repo $(ROOT_DIR)/repository/kernel-repo
