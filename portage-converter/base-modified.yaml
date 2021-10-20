@@ -339,6 +339,20 @@ artefacts:
     - tracker
   packages:
   - app-cdr/brasero
+
+- tree: packages/atoms/base/
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - kde-frameworks/kf-env:5
+
 build_layers:
   - layer:
       name: funtoo-base
