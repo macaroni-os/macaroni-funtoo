@@ -108,6 +108,53 @@ artefacts:
           name: funtoo-base
   uses:
     disabled:
+    - dvb
+    - http
+    - jack
+    - libvisual
+    - nios2
+    - oss
+    - sh
+    - vcd
+    enabled:
+    - X
+    - a52
+    - aac
+    - alsa
+    - cdda
+    - dts
+    - dv
+    - dvd
+    - ffmpeg
+    - flac
+    - lame
+    - libass
+    - mms
+    - modplug
+    - mp3
+    - mpeg
+    - ogg
+    - opus
+    - pulseaudio
+    - taglib
+    - theora
+    - v4l
+    - vaapi
+    - vorbis
+    - vpx
+    - wavpack
+    - x264
+  packages:
+  - media-plugins/gst-plugins-meta:1.0
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
     - nios2
     - sh
     enabled:
