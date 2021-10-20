@@ -236,6 +236,15 @@ artefacts:
   packages:
   - app-text/xmlto
 
+- tree: packages/atoms/base
+  uses:
+    disabled:
+      - btrfs
+      - ibm
+      - cryptsetup
+      - selinux
+  packages:
+  - sys-kernel/genkernel
 
 build_layers:
   - layer:
