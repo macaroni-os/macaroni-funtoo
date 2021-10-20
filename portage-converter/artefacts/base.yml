@@ -96,32 +96,6 @@ artefacts:
   packages:
   - sys-apps/gptfdisk
 - tree: packages/atoms/base
-  replacements:
-    buildtime_deps:
-      packages:
-        - category: virtual
-          name: cdrtools
-    runtime_deps:
-      packages:
-        - category: virtual
-          name: cdrtools
-  uses:
-    disabled:
-    - nios2
-    - packagekit
-    - playlist
-    - sh
-    - test
-    enabled:
-    - css
-    - introspection
-    - libburn
-    - mp3
-    - nautilus
-    - tracker
-  packages:
-  - app-cdr/brasero
-- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -4507,19 +4481,6 @@ artefacts:
     - nls
   packages:
   - sys-devel/flex
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - clippy
-    - doc
-    - nios2
-    - rls
-    - rustfmt
-    - sh
-    enabled:
-    - cpu_flags_x86_sse2
-  packages:
-  - dev-lang/rust-bin:stable
 - tree: packages/atoms/base
   uses:
     disabled:
