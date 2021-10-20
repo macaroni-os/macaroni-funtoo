@@ -287,6 +287,25 @@ artefacts:
   packages:
   - sys-kernel/genkernel
 
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - clippy
+    - doc
+    - nios2
+    - rls
+    - rustfmt
+    - sh
+    enabled:
+    - cpu_flags_x86_sse2
+  packages:
+  - dev-lang/rust-bin:stable
+
 build_layers:
   - layer:
       name: funtoo-base
