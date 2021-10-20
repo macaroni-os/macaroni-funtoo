@@ -56,8 +56,15 @@ skipped_resolutions:
     - name: cdrtools
       category: virtual
 
+    - name: dvd+rw-tools
+      category: app-cdr
+
+    - name: cdrdao
+      category: app-cdr
+
     - name: duktape
       category: dev-lang
+
 
 build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
 build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
@@ -306,6 +313,32 @@ artefacts:
   packages:
   - dev-lang/rust-bin:stable
 
+- tree: packages/atoms/base
+  replacements:
+    buildtime_deps:
+      packages:
+        - category: virtual
+          name: cdrtools
+    runtime_deps:
+      packages:
+        - category: virtual
+          name: cdrtools
+  uses:
+    disabled:
+    - nios2
+    - packagekit
+    - playlist
+    - sh
+    - test
+    enabled:
+    - css
+    - introspection
+    - libburn
+    - mp3
+    - nautilus
+    - tracker
+  packages:
+  - app-cdr/brasero
 build_layers:
   - layer:
       name: funtoo-base
