@@ -2,17 +2,17 @@ name: genkernel
 version: 4.0.2
 category: sys-kernel
 use_flags:
+- -btrfs
+- -cryptsetup
 - -selinux
-- btrfs
-- cryptsetup
 requires:
 - name: pax-utils
   version: '>=0'
   category: app-misc
-- name: btrfs-progs
+- name: e2fsprogs
   version: '>=0'
   category: sys-fs
-- name: cryptsetup
+- name: lvm2
   version: '>=0'
   category: sys-fs
 - name: mdadm
@@ -31,4 +31,5 @@ labels:
   emerge.packages: sys-kernel/genkernel
   kit: core-kit
   original.package.name: sys-kernel/genkernel
+  original.package.slot: "0"
   original.package.version: 4.0.2-r4
