@@ -58,187 +58,30 @@ skipped_resolutions:
 
     - name: duktape
       category: dev-lang
+include_files:
+  - ./artefacts/base.yml
 
 build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
 build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
 artefacts:
-
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  packages:
-    - media-libs/libdvdcss:1.2
-    - media-libs/libsidplay:2
-    - dev-libs/iniparser:0
-    - dev-libs/lzo:2
-
-- tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_8
-    - python_targets_python3_9
-    - python_targets_pypy3
-    - sh
-    enabled:
-    - python_targets_python2_7
-    - python_targets_python3_7
-  packages:
-  - dev-lang/python-exec:2
-
-- tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - bluetooth
-    - cdr
-    - cups
-  packages:
-  - gnome-base/gnome-core-apps:3.0
-
-- tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - cups
-    - python
-  packages:
-  - gnome-base/gnome-core-libs:3.0
-
-- tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-
-  uses:
-    disabled:
-    - boxes
-    - builder
-    - california
-    - empathy
-    - epiphany
-    - flashback
-    - geary
-    - gnote
-    - latexila
-    - nios2
-    - sh
-    - simple-scan
-    enabled:
-    - bijiben
-    - evolution
-    - games
-    - recipes
-    - share
-    - shotwell
-    - todo
-    - tracker
-  packages:
-  - gnome-base/gnome-extra-apps:3.0
-
-- tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - udev
-  packages:
-  - virtual/libusb:1
-
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - examples
-    - jit
-    - nios2
-    - selinux
-    - sh
-    - test
-    enabled:
-    - elogind
-    - gtk
-    - introspection
-    - kde
-    - nls
-    - pam
-    - spidermonkey
-  packages:
-  - sys-auth/polkit
-
-- tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - X
-    - introspection
-    - wayland
-
-  packages:
-  - net-libs/webkit-gtk:4
-
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - latex
-    - nios2
-    - sh
-    enabled:
-    - text
-  packages:
-  - app-text/xmlto
-
-- tree: packages/atoms/base
+- tree: packages/atoms/kernel
   uses:
     disabled:
       - btrfs
-      - ibm
-      - cryptsetup
-      - selinux
+      - ec2
+      - luks
+      - lvm
+      - sign-modules
+      - zfs
   packages:
-  - sys-kernel/genkernel
+    - sys-kernel/debian-sources:debian-sources-5.10.46_p4
+
+- tree: packages/atoms/kernel
+  uses:
+    disabled:
+      - zfs
+  packages:
+    - virtual/linux-sources:0
 
 build_layers:
   - layer:
@@ -1650,6 +1493,12 @@ reposcan_contraints:
     - sys-devel/llvm:11
     - sys-devel/clang:11
     - dev-cpp/gtkmm:3.0
+    - app-text/docbook-sgml-dtd:4.4
+    - app-text/docbook-sgml-dtd:4.2
+    - app-text/docbook-sgml-dtd:4.1
+    - app-text/docbook-sgml-dtd:4.0
+    - app-text/docbook-sgml-dtd:3.1
+    - app-text/docbook-sgml-dtd:3.0
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
@@ -1765,6 +1614,8 @@ reposcan_disabled_use_flags:
   - amd64-fbsd
   - ppc
   - ppc64
+
+  - userland_BSD
 
 reposcan_disabled_keywords:
   #- ~amd64
