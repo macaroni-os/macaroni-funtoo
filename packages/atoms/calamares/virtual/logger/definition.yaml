@@ -1,0 +1,19 @@
+name: logger
+version: "0"
+category: virtual
+requires:
+- name: metalog
+  version: '>=0'
+  category: app-admin
+description: Virtual for system loggers
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( app-admin/metalog app-admin/rsyslog app-admin/socklog app-admin/sysklogd
+    app-admin/syslog-ng sys-freebsd/freebsd-usbin sys-apps/busybox[syslog] >=sys-apps/systemd-38
+    )'
+  emerge.packages: virtual/logger
+  kit: core-kit
+  original.package.name: virtual/logger
+  original.package.slot: "0"
+  original.package.version: 0-r1
