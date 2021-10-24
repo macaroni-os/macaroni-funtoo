@@ -1,9 +1,0 @@
-requires:
-{{ toYaml .Values.build_requires | indent 2 }}
-package_dir: {{ .Values.package_dir }}
-includes:
-{{ toYaml .Values.includes | indent 2 }}
-{{- if .Values.steps }}
-steps:
-{{ toYaml .Values.steps | indent 2 }}
-{{- end }}
