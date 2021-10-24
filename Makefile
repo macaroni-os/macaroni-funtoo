@@ -81,6 +81,7 @@ repository/luet:
 
 repository/extra:
 	git clone -b master --single-branch https://github.com/mocaccinoos/mocaccino-extra $(ROOT_DIR)/repository/extra
+	cd $(ROOT_DIR)/repository/extra && git checkout b4c9768f9768c24d45eff9096f53ec2333ffb80f && cd -
 
 repository/commons:
 	git clone -b master --single-branch https://github.com/mocaccinoos/os-commons $(ROOT_DIR)/repository/commons
