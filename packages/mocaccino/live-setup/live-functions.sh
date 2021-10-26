@@ -280,7 +280,7 @@ prepare() {
   cp /var/lib/mocaccino/inittab /etc/inittab -v
 
   # Create all others entities
-  main_layer="funtoo-base-gnome"
+  main_layer="funtoo-base"
   entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ \
     -s /usr/share/mocaccino/layers/funtoo-boot/entities/ -a
 
