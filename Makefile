@@ -59,9 +59,9 @@ create-repo:
     --name "mocaccino-funtoo" \
     --descr "Mocaccino Funtoo $(ARCH)" \
     --urls "http://localhost:8000" \
-    --tree-compression gzip \
+    --tree-compression $(COMPRESSION) \
     --tree-filename tree.tar \
-    --meta-compression gzip \
+    --meta-compression $(COMPRESSION) \
     --type http
 
 .PHONY: serve-repo
