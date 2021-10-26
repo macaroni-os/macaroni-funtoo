@@ -1,6 +1,6 @@
 category: "virtual"
 name: "gnome"
-version: "1"
+version: "1+1"
 description: "Virtual package for setup Mocaccino Funtoo Gnome"
 requires:
 - name: gnome
@@ -8,6 +8,20 @@ requires:
   version: ">=0"
 - name: grub
   category: virtual
+  version: ">=0"
+- name: dbus
+  category: sys-apps
+  version: ">=0"
+- name: base
+  category: virtual
+  version: ">=0"
+
+# Needed for setup fonts cache
+- name: mkfontdir
+  category: sys-apps
+  version: ">=0"
+- name: mkfontscale
+  category: x11-apps
   version: ">=0"
 
 provides:
