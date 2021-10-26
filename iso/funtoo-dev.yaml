@@ -2,14 +2,18 @@ packages:
 
   keep_luet_db: "true"
   rootfs:
-  - mocaccino/cli
   - system/entities
-  - virtual/sh
-  - virtual/gnome
-  - virtual/mocaccino-kernel-lts
-  - system/luet
+  - system/luet-geaaru
   - system/luet-extensions
   - utils/yip
+
+  - mocaccino/cli
+
+  - virtual/sh
+  - virtual/base
+  - virtual/gnome
+  - virtual/mocaccino-kernel-lts
+
   - system/mocaccino-init
   - system/mocaccino-wallpaper
   - system/mocaccino-funtoo-calamares
@@ -18,6 +22,9 @@ packages:
   - www-client/firefox-bin
   - kernel/mocaccino-lts-initramfs
   - gnome-base/gnome
+
+  - pkglist/funtoo-base
+  - pkglist/funtoo-boot
 
   # Extra kernel modules
   - sys-fs-5.10/zfs-kmod
