@@ -1,5 +1,5 @@
 name: grub
-version: "2.04"
+version: 2.04+1
 category: sys-boot-2
 use_flags:
 - -device-mapper
@@ -30,6 +30,10 @@ requires:
 - name: fuse
   version: '>=0'
   category: sys-fs-3
+provides:
+- name: grub2
+  version: '>=0'
+  category: utils
 description: GNU GRUB boot loader
 uri:
 - https://www.gnu.org/software/grub/
@@ -63,8 +67,3 @@ labels:
   original.package.name: sys-boot/grub
   original.package.slot: "2"
   original.package.version: 2.04-r1
-
-provides:
-- category: utils
-  name: grub2
-  version: ">=0"
