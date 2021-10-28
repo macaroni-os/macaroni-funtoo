@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: eselect
-  version: 1.4.14
-  category: app-admin
+  - name: eselect
+    version: '{{ .Values.version }}'
+    category: app-admin

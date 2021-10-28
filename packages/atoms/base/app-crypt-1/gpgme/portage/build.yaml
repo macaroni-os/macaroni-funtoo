@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gpgme
-  version: 1.15.1
-  category: app-crypt-1
+  - name: gpgme
+    version: '{{ .Values.version }}'
+    category: app-crypt-1

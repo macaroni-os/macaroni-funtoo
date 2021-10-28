@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pixman
-  version: 0.38.4
-  category: x11-libs
+  - name: pixman
+    version: '{{ .Values.version }}'
+    category: x11-libs

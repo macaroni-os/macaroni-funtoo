@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gtksourceview
-  version: 3.24.11
-  category: x11-libs-3.0
+  - name: gtksourceview
+    version: '{{ .Values.version }}'
+    category: x11-libs-3.0

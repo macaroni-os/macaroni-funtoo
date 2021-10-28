@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: ell
-  version: "0.30"
-  category: dev-libs
+  - name: ell
+    version: '{{ .Values.version }}'
+    category: dev-libs

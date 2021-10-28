@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: Unicode-LineBreak
-  version: 2017.4.0
-  category: dev-perl
+  - name: Unicode-LineBreak
+    version: '{{ .Values.version }}'
+    category: dev-perl

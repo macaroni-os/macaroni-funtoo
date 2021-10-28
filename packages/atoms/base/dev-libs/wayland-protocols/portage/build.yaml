@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: wayland-protocols
-  version: "1.23"
-  category: dev-libs
+  - name: wayland-protocols
+    version: '{{ .Values.version }}'
+    category: dev-libs

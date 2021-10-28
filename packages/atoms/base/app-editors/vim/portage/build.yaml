@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: vim
-  version: 8.2.3458
-  category: app-editors
+  - name: vim
+    version: '{{ .Values.version }}'
+    category: app-editors

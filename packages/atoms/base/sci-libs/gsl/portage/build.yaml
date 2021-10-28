@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gsl
-  version: "2.5"
-  category: sci-libs
+  - name: gsl
+    version: '{{ .Values.version }}'
+    category: sci-libs

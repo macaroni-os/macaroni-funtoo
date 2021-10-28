@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: automake
-  version: 1.14.1
-  category: sys-devel-1.14
+  - name: automake
+    version: '{{ .Values.version }}'
+    category: sys-devel-1.14

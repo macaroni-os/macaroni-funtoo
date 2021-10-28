@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: portage-utils
-  version: 0.80_pre20190620
-  category: app-portage
+  - name: portage-utils
+    version: '{{ .Values.version }}'
+    category: app-portage

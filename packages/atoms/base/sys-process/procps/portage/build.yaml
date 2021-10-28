@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: procps
-  version: 3.3.15
-  category: sys-process
+  - name: procps
+    version: '{{ .Values.version }}'
+    category: sys-process

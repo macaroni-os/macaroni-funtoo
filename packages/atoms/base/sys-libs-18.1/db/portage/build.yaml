@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: db
-  version: 18.1.32
-  category: sys-libs-18.1
+  - name: db
+    version: '{{ .Values.version }}'
+    category: sys-libs-18.1

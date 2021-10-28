@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libwebp
-  version: 1.0.2
-  category: media-libs
+  - name: libwebp
+    version: '{{ .Values.version }}'
+    category: media-libs

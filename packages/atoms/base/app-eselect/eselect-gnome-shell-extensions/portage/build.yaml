@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: eselect-gnome-shell-extensions
-  version: "20180306"
-  category: app-eselect
+  - name: eselect-gnome-shell-extensions
+    version: '{{ .Values.version }}'
+    category: app-eselect

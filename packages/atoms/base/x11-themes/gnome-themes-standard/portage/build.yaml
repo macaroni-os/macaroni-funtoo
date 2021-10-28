@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-themes-standard
-  version: 3.27.90
-  category: x11-themes
+  - name: gnome-themes-standard
+    version: '{{ .Values.version }}'
+    category: x11-themes

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: binutils-libs
-  version: 2.36.1
-  category: sys-libs
+  - name: binutils-libs
+    version: '{{ .Values.version }}'
+    category: sys-libs

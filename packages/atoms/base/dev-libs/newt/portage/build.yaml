@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: newt
-  version: 0.52.20
-  category: dev-libs
+  - name: newt
+    version: '{{ .Values.version }}'
+    category: dev-libs

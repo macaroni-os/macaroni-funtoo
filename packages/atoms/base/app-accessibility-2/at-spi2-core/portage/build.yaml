@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: at-spi2-core
-  version: 2.36.0
-  category: app-accessibility-2
+  - name: at-spi2-core
+    version: '{{ .Values.version }}'
+    category: app-accessibility-2

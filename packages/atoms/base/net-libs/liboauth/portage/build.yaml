@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: liboauth
-  version: 1.0.3
-  category: net-libs
+  - name: liboauth
+    version: '{{ .Values.version }}'
+    category: net-libs

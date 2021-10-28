@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xf86miscproto
-  version: 0.9.3
-  category: x11-proto
+  - name: xf86miscproto
+    version: '{{ .Values.version }}'
+    category: x11-proto

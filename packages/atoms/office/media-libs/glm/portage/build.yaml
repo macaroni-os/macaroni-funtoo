@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: glm
-  version: 0.9.9.5
-  category: media-libs
+  - name: glm
+    version: '{{ .Values.version }}'
+    category: media-libs

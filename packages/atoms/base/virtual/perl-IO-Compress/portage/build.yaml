@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-IO-Compress
-  version: 2.93.0
-  category: virtual
+  - name: perl-IO-Compress
+    version: '{{ .Values.version }}'
+    category: virtual

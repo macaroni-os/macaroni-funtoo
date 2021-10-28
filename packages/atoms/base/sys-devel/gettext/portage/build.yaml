@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gettext
-  version: 0.20.1
-  category: sys-devel
+  - name: gettext
+    version: '{{ .Values.version }}'
+    category: sys-devel

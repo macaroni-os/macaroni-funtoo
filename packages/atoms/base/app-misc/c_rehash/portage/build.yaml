@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: c_rehash
-  version: "1.7"
-  category: app-misc
+  - name: c_rehash
+    version: '{{ .Values.version }}'
+    category: app-misc

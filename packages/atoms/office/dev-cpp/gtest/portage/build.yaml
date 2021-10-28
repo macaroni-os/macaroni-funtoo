@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gtest
-  version: 1.9.0_pre20190607
-  category: dev-cpp
+  - name: gtest
+    version: '{{ .Values.version }}'
+    category: dev-cpp

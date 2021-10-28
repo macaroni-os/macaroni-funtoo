@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libXdamage
-  version: 1.1.5
-  category: x11-libs
+  - name: libXdamage
+    version: '{{ .Values.version }}'
+    category: x11-libs

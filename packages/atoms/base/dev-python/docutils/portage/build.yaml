@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: docutils
-  version: 0.17.1
-  category: dev-python
+  - name: docutils
+    version: '{{ .Values.version }}'
+    category: dev-python

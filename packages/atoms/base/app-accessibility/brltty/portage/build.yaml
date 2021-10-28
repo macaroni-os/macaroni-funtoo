@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: brltty
-  version: "6.1"
-  category: app-accessibility
+  - name: brltty
+    version: '{{ .Values.version }}'
+    category: app-accessibility

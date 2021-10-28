@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: bolt
-  version: 0.9.1
-  category: sys-apps
+  - name: bolt
+    version: '{{ .Values.version }}'
+    category: sys-apps

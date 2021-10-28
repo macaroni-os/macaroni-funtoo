@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: calamares
-  version: 3.2.35.1
-  category: app-admin-5
+  - name: calamares
+    version: '{{ .Values.version }}'
+    category: app-admin-5

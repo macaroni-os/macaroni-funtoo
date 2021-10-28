@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: speech-dispatcher
-  version: 0.10.2
-  category: app-accessibility
+  - name: speech-dispatcher
+    version: '{{ .Values.version }}'
+    category: app-accessibility

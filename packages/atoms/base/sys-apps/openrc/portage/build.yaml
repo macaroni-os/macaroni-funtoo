@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: openrc
-  version: 0.41.2
-  category: sys-apps
+  - name: openrc
+    version: '{{ .Values.version }}'
+    category: sys-apps

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: eselect-ctags
-  version: "1.18"
-  category: app-eselect
+  - name: eselect-ctags
+    version: '{{ .Values.version }}'
+    category: app-eselect

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mit-krb5
-  version: 1.17.1
-  category: app-crypt
+  - name: mit-krb5
+    version: '{{ .Values.version }}'
+    category: app-crypt

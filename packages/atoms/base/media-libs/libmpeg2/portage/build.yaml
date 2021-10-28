@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libmpeg2
-  version: 0.5.1
-  category: media-libs
+  - name: libmpeg2
+    version: '{{ .Values.version }}'
+    category: media-libs

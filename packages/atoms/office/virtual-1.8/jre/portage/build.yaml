@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: jre
-  version: 1.8.0
-  category: virtual-1.8
+  - name: jre
+    version: '{{ .Values.version }}'
+    category: virtual-1.8

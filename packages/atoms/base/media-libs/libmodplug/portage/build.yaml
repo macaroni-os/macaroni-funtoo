@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libmodplug
-  version: 0.8.9.0
-  category: media-libs
+  - name: libmodplug
+    version: '{{ .Values.version }}'
+    category: media-libs

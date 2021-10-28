@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-shell
-  version: 3.36.7
-  category: gnome-base
+  - name: gnome-shell
+    version: '{{ .Values.version }}'
+    category: gnome-base

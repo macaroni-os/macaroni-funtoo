@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gst-plugins-wavpack
-  version: 1.14.4
-  category: media-plugins-1.0
+  - name: gst-plugins-wavpack
+    version: '{{ .Values.version }}'
+    category: media-plugins-1.0

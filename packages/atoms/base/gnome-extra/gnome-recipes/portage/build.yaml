@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-recipes
-  version: 2.0.2
-  category: gnome-extra
+  - name: gnome-recipes
+    version: '{{ .Values.version }}'
+    category: gnome-extra

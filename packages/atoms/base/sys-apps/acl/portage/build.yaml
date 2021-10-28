@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: acl
-  version: 2.2.53
-  category: sys-apps
+  - name: acl
+    version: '{{ .Values.version }}'
+    category: sys-apps

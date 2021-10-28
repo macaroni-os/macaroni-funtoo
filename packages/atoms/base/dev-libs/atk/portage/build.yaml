@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: atk
-  version: 2.35.1
-  category: dev-libs
+  - name: atk
+    version: '{{ .Values.version }}'
+    category: dev-libs

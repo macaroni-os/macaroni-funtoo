@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libavc1394
-  version: 0.5.4
-  category: sys-libs
+  - name: libavc1394
+    version: '{{ .Values.version }}'
+    category: sys-libs

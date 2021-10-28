@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: nasm
-  version: 2.15.05
-  category: dev-lang
+  - name: nasm
+    version: '{{ .Values.version }}'
+    category: dev-lang

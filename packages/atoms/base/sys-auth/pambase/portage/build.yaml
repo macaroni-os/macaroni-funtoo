@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pambase
-  version: "20190426"
-  category: sys-auth
+  - name: pambase
+    version: '{{ .Values.version }}'
+    category: sys-auth

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-todo
-  version: 3.28.1
-  category: gnome-extra
+  - name: gnome-todo
+    version: '{{ .Values.version }}'
+    category: gnome-extra

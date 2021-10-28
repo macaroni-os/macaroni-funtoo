@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: wpa_supplicant
-  version: "2.8"
-  category: net-wireless
+  - name: wpa_supplicant
+    version: '{{ .Values.version }}'
+    category: net-wireless

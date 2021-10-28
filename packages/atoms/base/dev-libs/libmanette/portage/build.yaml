@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libmanette
-  version: 0.2.3
-  category: dev-libs
+  - name: libmanette
+    version: '{{ .Values.version }}'
+    category: dev-libs

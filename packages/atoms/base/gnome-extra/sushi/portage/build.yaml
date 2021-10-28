@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: sushi
-  version: 3.34.0
-  category: gnome-extra
+  - name: sushi
+    version: '{{ .Values.version }}'
+    category: gnome-extra

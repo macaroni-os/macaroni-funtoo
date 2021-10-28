@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mailbase
-  version: "1.5"
-  category: net-mail
+  - name: mailbase
+    version: '{{ .Values.version }}'
+    category: net-mail

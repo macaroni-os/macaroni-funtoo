@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libXres
-  version: 1.2.0
-  category: x11-libs
+  - name: libXres
+    version: '{{ .Values.version }}'
+    category: x11-libs

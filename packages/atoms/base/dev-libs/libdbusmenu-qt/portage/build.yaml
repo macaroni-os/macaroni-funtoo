@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libdbusmenu-qt
-  version: 0.9.3_pre20160218-r3
-  category: dev-libs
+  - name: libdbusmenu-qt
+    version: '{{ .Values.version }}'
+    category: dev-libs

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cryptography-compat
-  version: 3.3.2
-  category: dev-python
+  - name: cryptography-compat
+    version: '{{ .Values.version }}'
+    category: dev-python

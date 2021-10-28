@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: swell-foop
-  version: 3.34.1
-  category: games-puzzle
+  - name: swell-foop
+    version: '{{ .Values.version }}'
+    category: games-puzzle

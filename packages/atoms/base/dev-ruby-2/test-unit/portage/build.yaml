@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: test-unit
-  version: 3.3.7
-  category: dev-ruby-2
+  - name: test-unit
+    version: '{{ .Values.version }}'
+    category: dev-ruby-2

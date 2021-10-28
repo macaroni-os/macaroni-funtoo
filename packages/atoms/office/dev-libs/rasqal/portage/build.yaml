@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: rasqal
-  version: 0.9.33
-  category: dev-libs
+  - name: rasqal
+    version: '{{ .Values.version }}'
+    category: dev-libs

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-disk-utility
-  version: 3.36.3
-  category: sys-apps
+  - name: gnome-disk-utility
+    version: '{{ .Values.version }}'
+    category: sys-apps

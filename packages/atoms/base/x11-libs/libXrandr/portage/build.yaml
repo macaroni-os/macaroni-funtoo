@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libXrandr
-  version: 1.5.2
-  category: x11-libs
+  - name: libXrandr
+    version: '{{ .Values.version }}'
+    category: x11-libs

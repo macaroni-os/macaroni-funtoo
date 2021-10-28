@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libcryptui
-  version: 3.12.2
-  category: x11-libs
+  - name: libcryptui
+    version: '{{ .Values.version }}'
+    category: x11-libs

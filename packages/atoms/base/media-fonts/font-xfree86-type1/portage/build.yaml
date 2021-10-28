@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: font-xfree86-type1
-  version: 1.0.4
-  category: media-fonts
+  - name: font-xfree86-type1
+    version: '{{ .Values.version }}'
+    category: media-fonts

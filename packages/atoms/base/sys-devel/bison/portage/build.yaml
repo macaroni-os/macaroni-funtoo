@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: bison
-  version: 3.4.1
-  category: sys-devel
+  - name: bison
+    version: '{{ .Values.version }}'
+    category: sys-devel

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: argon2
-  version: "20171227"
-  category: app-crypt
+  - name: argon2
+    version: '{{ .Values.version }}'
+    category: app-crypt

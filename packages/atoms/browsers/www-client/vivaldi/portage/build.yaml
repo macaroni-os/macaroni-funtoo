@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: vivaldi
-  version: 4.2.2406.52
-  category: www-client
+  - name: vivaldi
+    version: '{{ .Values.version }}'
+    category: www-client

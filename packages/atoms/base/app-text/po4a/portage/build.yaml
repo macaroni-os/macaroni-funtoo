@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: po4a
-  version: "0.61"
-  category: app-text
+  - name: po4a
+    version: '{{ .Values.version }}'
+    category: app-text

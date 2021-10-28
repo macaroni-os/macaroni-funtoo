@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: espeak
-  version: 1.48.04
-  category: app-accessibility
+  - name: espeak
+    version: '{{ .Values.version }}'
+    category: app-accessibility

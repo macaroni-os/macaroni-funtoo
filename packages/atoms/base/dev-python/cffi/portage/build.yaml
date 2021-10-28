@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cffi
-  version: 1.14.6
-  category: dev-python
+  - name: cffi
+    version: '{{ .Values.version }}'
+    category: dev-python

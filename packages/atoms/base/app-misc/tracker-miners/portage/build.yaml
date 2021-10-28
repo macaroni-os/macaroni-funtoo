@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: tracker-miners
-  version: 2.3.5
-  category: app-misc
+  - name: tracker-miners
+    version: '{{ .Values.version }}'
+    category: app-misc

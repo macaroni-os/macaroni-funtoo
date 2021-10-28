@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: containerd
-  version: 1.5.5
-  category: app-emulation
+  - name: containerd
+    version: '{{ .Values.version }}'
+    category: app-emulation

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libXxf86vm
-  version: 1.1.4
-  category: x11-libs
+  - name: libXxf86vm
+    version: '{{ .Values.version }}'
+    category: x11-libs

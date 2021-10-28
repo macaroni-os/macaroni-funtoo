@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mesa-progs
-  version: 8.4.0
-  category: x11-apps
+  - name: mesa-progs
+    version: '{{ .Values.version }}'
+    category: x11-apps

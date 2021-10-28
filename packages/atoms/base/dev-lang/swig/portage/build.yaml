@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: swig
-  version: 3.0.12
-  category: dev-lang
+  - name: swig
+    version: '{{ .Values.version }}'
+    category: dev-lang

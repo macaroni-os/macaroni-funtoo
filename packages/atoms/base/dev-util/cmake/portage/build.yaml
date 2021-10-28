@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cmake
-  version: 3.19.7
-  category: dev-util
+  - name: cmake
+    version: '{{ .Values.version }}'
+    category: dev-util

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: totem-pl-parser
-  version: 3.26.5
-  category: dev-libs
+  - name: totem-pl-parser
+    version: '{{ .Values.version }}'
+    category: dev-libs

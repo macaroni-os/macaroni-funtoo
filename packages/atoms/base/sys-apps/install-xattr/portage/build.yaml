@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: install-xattr
-  version: "0.7"
-  category: sys-apps
+  - name: install-xattr
+    version: '{{ .Values.version }}'
+    category: sys-apps

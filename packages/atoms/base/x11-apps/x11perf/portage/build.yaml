@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: x11perf
-  version: 1.6.1
-  category: x11-apps
+  - name: x11perf
+    version: '{{ .Values.version }}'
+    category: x11-apps

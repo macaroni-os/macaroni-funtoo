@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libdc1394
-  version: 2.2.5
-  category: media-libs-2
+  - name: libdc1394
+    version: '{{ .Values.version }}'
+    category: media-libs-2

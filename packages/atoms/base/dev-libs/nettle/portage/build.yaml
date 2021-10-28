@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: nettle
-  version: 3.5.1
-  category: dev-libs
+  - name: nettle
+    version: '{{ .Values.version }}'
+    category: dev-libs

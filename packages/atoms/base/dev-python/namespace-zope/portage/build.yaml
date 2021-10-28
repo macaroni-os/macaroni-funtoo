@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: namespace-zope
-  version: "1"
-  category: dev-python
+  - name: namespace-zope
+    version: '{{ .Values.version }}'
+    category: dev-python

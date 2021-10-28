@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mhash
-  version: 0.9.9.9
-  category: app-crypt
+  - name: mhash
+    version: '{{ .Values.version }}'
+    category: app-crypt

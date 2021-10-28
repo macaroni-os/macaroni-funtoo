@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libmad
-  version: 0.15.1b
-  category: media-libs
+  - name: libmad
+    version: '{{ .Values.version }}'
+    category: media-libs

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: spidermonkey
-  version: 78.14.0
-  category: dev-lang-78
+  - name: spidermonkey
+    version: '{{ .Values.version }}'
+    category: dev-lang-78

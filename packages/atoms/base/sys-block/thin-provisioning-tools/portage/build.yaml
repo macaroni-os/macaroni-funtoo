@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: thin-provisioning-tools
-  version: 0.8.5
-  category: sys-block
+  - name: thin-provisioning-tools
+    version: '{{ .Values.version }}'
+    category: sys-block

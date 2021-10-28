@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: luasocket
-  version: "3.0"
-  category: dev-lua
+  - name: luasocket
+    version: '{{ .Values.version }}'
+    category: dev-lua

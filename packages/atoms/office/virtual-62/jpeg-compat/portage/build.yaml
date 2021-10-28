@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: jpeg-compat
-  version: "62"
-  category: virtual-62
+  - name: jpeg-compat
+    version: '{{ .Values.version }}'
+    category: virtual-62

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: nspr
-  version: "4.32"
-  category: dev-libs
+  - name: nspr
+    version: '{{ .Values.version }}'
+    category: dev-libs

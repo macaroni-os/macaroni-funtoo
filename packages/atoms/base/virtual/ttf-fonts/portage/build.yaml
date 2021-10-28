@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: ttf-fonts
-  version: "1"
-  category: virtual
+  - name: ttf-fonts
+    version: '{{ .Values.version }}'
+    category: virtual

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: ffmpeg
-  version: 4.3.1
-  category: media-video
+  - name: ffmpeg
+    version: '{{ .Values.version }}'
+    category: media-video

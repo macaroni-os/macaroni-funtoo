@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: vala
-  version: 0.54.1
-  category: dev-lang-0.54
+  - name: vala
+    version: '{{ .Values.version }}'
+    category: dev-lang-0.54

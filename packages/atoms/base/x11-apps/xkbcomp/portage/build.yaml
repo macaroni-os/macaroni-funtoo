@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xkbcomp
-  version: 1.4.3
-  category: x11-apps
+  - name: xkbcomp
+    version: '{{ .Values.version }}'
+    category: x11-apps

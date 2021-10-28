@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: kactivitymanagerd
-  version: 5.20.5
-  category: kde-plasma-5
+  - name: kactivitymanagerd
+    version: '{{ .Values.version }}'
+    category: kde-plasma-5

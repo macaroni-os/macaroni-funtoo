@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gst-plugins-ugly
-  version: 1.14.3
-  category: media-libs-1.0
+  - name: gst-plugins-ugly
+    version: '{{ .Values.version }}'
+    category: media-libs-1.0

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: rust-bin
-  version: 1.55.0
-  category: dev-lang-stable
+  - name: rust-bin
+    version: '{{ .Values.version }}'
+    category: dev-lang-stable

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libltdl
-  version: 2.4.6
-  category: dev-libs
+  - name: libltdl
+    version: '{{ .Values.version }}'
+    category: dev-libs

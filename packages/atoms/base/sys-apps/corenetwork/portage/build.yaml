@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: corenetwork
-  version: 1.6.5
-  category: sys-apps
+  - name: corenetwork
+    version: '{{ .Values.version }}'
+    category: sys-apps

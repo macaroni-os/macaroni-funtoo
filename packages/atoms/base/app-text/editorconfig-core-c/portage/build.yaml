@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: editorconfig-core-c
-  version: 0.12.2
-  category: app-text
+  - name: editorconfig-core-c
+    version: '{{ .Values.version }}'
+    category: app-text

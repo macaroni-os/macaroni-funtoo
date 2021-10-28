@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xlsclients
-  version: 1.1.4
-  category: x11-apps
+  - name: xlsclients
+    version: '{{ .Values.version }}'
+    category: x11-apps

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libdmtx
-  version: 0.7.5
-  category: media-libs
+  - name: libdmtx
+    version: '{{ .Values.version }}'
+    category: media-libs

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: genkernel
-  version: 4.0.2
-  category: sys-kernel
+  - name: genkernel
+    version: '{{ .Values.version }}'
+    category: sys-kernel

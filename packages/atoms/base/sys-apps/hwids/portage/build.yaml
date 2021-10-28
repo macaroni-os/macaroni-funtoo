@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: hwids
-  version: "20210613"
-  category: sys-apps
+  - name: hwids
+    version: '{{ .Values.version }}'
+    category: sys-apps

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: glibmm
-  version: 2.64.2
-  category: dev-cpp-2
+  - name: glibmm
+    version: '{{ .Values.version }}'
+    category: dev-cpp-2

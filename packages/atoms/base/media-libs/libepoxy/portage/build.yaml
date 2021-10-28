@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libepoxy
-  version: 1.5.4
-  category: media-libs
+  - name: libepoxy
+    version: '{{ .Values.version }}'
+    category: media-libs

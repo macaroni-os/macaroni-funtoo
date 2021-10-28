@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libcmis
-  version: 0.5.2
-  category: dev-cpp-0.5
+  - name: libcmis
+    version: '{{ .Values.version }}'
+    category: dev-cpp-0.5

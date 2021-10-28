@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-dictionary
-  version: 3.26.1
-  category: app-dicts
+  - name: gnome-dictionary
+    version: '{{ .Values.version }}'
+    category: app-dicts

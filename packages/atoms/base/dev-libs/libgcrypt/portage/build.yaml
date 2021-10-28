@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libgcrypt
-  version: 1.9.2
-  category: dev-libs
+  - name: libgcrypt
+    version: '{{ .Values.version }}'
+    category: dev-libs

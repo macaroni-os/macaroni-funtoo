@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xcb-util-renderutil
-  version: 0.3.9
-  category: x11-libs
+  - name: xcb-util-renderutil
+    version: '{{ .Values.version }}'
+    category: x11-libs

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: speex
-  version: 1.2.0
-  category: media-libs
+  - name: speex
+    version: '{{ .Values.version }}'
+    category: media-libs

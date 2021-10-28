@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mwparserfromhell
-  version: 0.6.3
-  category: dev-python
+  - name: mwparserfromhell
+    version: '{{ .Values.version }}'
+    category: dev-python

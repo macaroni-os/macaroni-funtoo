@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: eselect-opencl
-  version: 1.2.0
-  category: app-eselect
+  - name: eselect-opencl
+    version: '{{ .Values.version }}'
+    category: app-eselect

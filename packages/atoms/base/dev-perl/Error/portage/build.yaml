@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: Error
-  version: 0.170.250
-  category: dev-perl
+  - name: Error
+    version: '{{ .Values.version }}'
+    category: dev-perl

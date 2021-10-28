@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: firefox-bin
-  version: 92.0.1
-  category: www-client
+  - name: firefox-bin
+    version: '{{ .Values.version }}'
+    category: www-client

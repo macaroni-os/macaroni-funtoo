@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-bluetooth
-  version: 3.34.3
-  category: net-wireless-2
+  - name: gnome-bluetooth
+    version: '{{ .Values.version }}'
+    category: net-wireless-2

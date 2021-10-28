@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pygtk
-  version: 2.24.0
-  category: dev-python-2
+  - name: pygtk
+    version: '{{ .Values.version }}'
+    category: dev-python-2

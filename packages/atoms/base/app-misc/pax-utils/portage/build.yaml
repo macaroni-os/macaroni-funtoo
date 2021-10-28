@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pax-utils
-  version: 1.2.4
-  category: app-misc
+  - name: pax-utils
+    version: '{{ .Values.version }}'
+    category: app-misc

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: dri2proto
-  version: "2.8"
-  category: x11-proto
+  - name: dri2proto
+    version: '{{ .Values.version }}'
+    category: x11-proto

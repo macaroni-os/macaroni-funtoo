@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: python
-  version: 2.7.18
-  category: dev-lang-2.7
+  - name: python
+    version: '{{ .Values.version }}'
+    category: dev-lang-2.7

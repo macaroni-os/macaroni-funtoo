@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libcap
-  version: "2.27"
-  category: sys-libs
+  - name: libcap
+    version: '{{ .Values.version }}'
+    category: sys-libs

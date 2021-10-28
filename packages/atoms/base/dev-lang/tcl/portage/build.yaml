@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: tcl
-  version: 8.6.9
-  category: dev-lang
+  - name: tcl
+    version: '{{ .Values.version }}'
+    category: dev-lang

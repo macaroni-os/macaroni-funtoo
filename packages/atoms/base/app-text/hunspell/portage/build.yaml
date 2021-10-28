@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: hunspell
-  version: 1.7.0
-  category: app-text
+  - name: hunspell
+    version: '{{ .Values.version }}'
+    category: app-text

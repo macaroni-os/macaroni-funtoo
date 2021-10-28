@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: networkmanager
-  version: 1.26.0
-  category: net-misc
+  - name: networkmanager
+    version: '{{ .Values.version }}'
+    category: net-misc

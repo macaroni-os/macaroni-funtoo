@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: net-telnet
-  version: 0.2.0
-  category: dev-ruby-1
+  - name: net-telnet
+    version: '{{ .Values.version }}'
+    category: dev-ruby-1

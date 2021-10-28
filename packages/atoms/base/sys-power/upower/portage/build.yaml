@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: upower
-  version: 0.99.11
-  category: sys-power
+  - name: upower
+    version: '{{ .Values.version }}'
+    category: sys-power

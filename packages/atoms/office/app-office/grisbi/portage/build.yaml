@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: grisbi
-  version: 1.2.1
-  category: app-office
+  - name: grisbi
+    version: '{{ .Values.version }}'
+    category: app-office

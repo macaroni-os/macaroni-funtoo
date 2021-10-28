@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libXi
-  version: 1.7.10
-  category: x11-libs
+  - name: libXi
+    version: '{{ .Values.version }}'
+    category: x11-libs
