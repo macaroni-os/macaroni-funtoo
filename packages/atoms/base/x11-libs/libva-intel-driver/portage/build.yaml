@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libva-intel-driver
-  version: 2.4.1
-  category: x11-libs
+  - name: libva-intel-driver
+    version: '{{ .Values.version }}'
+    category: x11-libs

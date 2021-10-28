@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xorg-server
-  version: 1.20.10
-  category: x11-base
+  - name: xorg-server
+    version: '{{ .Values.version }}'
+    category: x11-base

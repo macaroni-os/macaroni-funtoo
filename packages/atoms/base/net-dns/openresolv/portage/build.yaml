@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: openresolv
-  version: 3.9.0
-  category: net-dns
+  - name: openresolv
+    version: '{{ .Values.version }}'
+    category: net-dns

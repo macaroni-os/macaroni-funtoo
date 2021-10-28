@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-Time-HiRes
-  version: 1.976.400
-  category: virtual
+  - name: perl-Time-HiRes
+    version: '{{ .Values.version }}'
+    category: virtual

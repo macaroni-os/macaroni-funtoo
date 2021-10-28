@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: tepl
-  version: 4.4.0
-  category: gui-libs-4
+  - name: tepl
+    version: '{{ .Values.version }}'
+    category: gui-libs-4

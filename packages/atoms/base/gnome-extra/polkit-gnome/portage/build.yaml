@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: polkit-gnome
-  version: "0.105"
-  category: gnome-extra
+  - name: polkit-gnome
+    version: '{{ .Values.version }}'
+    category: gnome-extra

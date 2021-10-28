@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: Net-DBus
-  version: 1.1.0
-  category: dev-perl
+  - name: Net-DBus
+    version: '{{ .Values.version }}'
+    category: dev-perl

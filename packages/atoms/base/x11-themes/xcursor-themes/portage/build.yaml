@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xcursor-themes
-  version: 1.0.5
-  category: x11-themes
+  - name: xcursor-themes
+    version: '{{ .Values.version }}'
+    category: x11-themes

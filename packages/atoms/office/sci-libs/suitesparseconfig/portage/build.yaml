@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: suitesparseconfig
-  version: 4.2.1
-  category: sci-libs
+  - name: suitesparseconfig
+    version: '{{ .Values.version }}'
+    category: sci-libs

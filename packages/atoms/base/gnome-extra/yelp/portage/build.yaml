@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: yelp
-  version: 3.36.1
-  category: gnome-extra
+  - name: yelp
+    version: '{{ .Values.version }}'
+    category: gnome-extra

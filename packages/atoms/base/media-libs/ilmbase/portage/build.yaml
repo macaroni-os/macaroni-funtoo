@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: ilmbase
-  version: 2.3.0
-  category: media-libs
+  - name: ilmbase
+    version: '{{ .Values.version }}'
+    category: media-libs

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: tcp-wrappers
-  version: 7.6.31
-  category: sys-apps
+  - name: tcp-wrappers
+    version: '{{ .Values.version }}'
+    category: sys-apps

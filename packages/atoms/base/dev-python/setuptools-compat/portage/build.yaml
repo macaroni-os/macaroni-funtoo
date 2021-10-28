@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: setuptools-compat
-  version: 44.1.1
-  category: dev-python
+  - name: setuptools-compat
+    version: '{{ .Values.version }}'
+    category: dev-python

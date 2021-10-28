@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libcroco
-  version: 0.6.13
-  category: dev-libs-0.6
+  - name: libcroco
+    version: '{{ .Values.version }}'
+    category: dev-libs-0.6

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: os-prober
-  version: "1.76"
-  category: sys-boot
+  - name: os-prober
+    version: '{{ .Values.version }}'
+    category: sys-boot

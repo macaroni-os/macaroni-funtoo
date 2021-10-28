@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libyaml
-  version: 0.2.2
-  category: dev-libs
+  - name: libyaml
+    version: '{{ .Values.version }}'
+    category: dev-libs

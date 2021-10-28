@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libnfs
-  version: 4.0.0
-  category: net-fs
+  - name: libnfs
+    version: '{{ .Values.version }}'
+    category: net-fs

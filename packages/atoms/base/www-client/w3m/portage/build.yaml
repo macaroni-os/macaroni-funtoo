@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: w3m
-  version: 0.5.3
-  category: www-client
+  - name: w3m
+    version: '{{ .Values.version }}'
+    category: www-client

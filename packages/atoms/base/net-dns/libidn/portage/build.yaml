@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libidn
-  version: "1.35"
-  category: net-dns
+  - name: libidn
+    version: '{{ .Values.version }}'
+    category: net-dns

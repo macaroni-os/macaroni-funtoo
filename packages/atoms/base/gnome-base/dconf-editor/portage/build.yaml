@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: dconf-editor
-  version: 3.36.0
-  category: gnome-base
+  - name: dconf-editor
+    version: '{{ .Values.version }}'
+    category: gnome-base

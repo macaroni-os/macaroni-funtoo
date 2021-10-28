@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: atkmm
-  version: 2.28.0
-  category: dev-cpp
+  - name: atkmm
+    version: '{{ .Values.version }}'
+    category: dev-cpp

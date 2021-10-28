@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pygobject
-  version: 2.28.7
-  category: dev-python-2
+  - name: pygobject
+    version: '{{ .Values.version }}'
+    category: dev-python-2

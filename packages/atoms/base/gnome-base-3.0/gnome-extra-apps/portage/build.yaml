@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-extra-apps
-  version: 3.36.0
-  category: gnome-base-3.0
+  - name: gnome-extra-apps
+    version: '{{ .Values.version }}'
+    category: gnome-base-3.0

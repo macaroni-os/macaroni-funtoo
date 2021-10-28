@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: packaging-compat
-  version: "20.9"
-  category: dev-python
+  - name: packaging-compat
+    version: '{{ .Values.version }}'
+    category: dev-python

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: rsync
-  version: 3.2.3
-  category: net-misc
+  - name: rsync
+    version: '{{ .Values.version }}'
+    category: net-misc

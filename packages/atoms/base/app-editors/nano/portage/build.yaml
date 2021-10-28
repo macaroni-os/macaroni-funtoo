@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: nano
-  version: "5.8"
-  category: app-editors
+  - name: nano
+    version: '{{ .Values.version }}'
+    category: app-editors

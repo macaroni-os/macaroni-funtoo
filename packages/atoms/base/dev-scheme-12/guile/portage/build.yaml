@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: guile
-  version: 2.2.4
-  category: dev-scheme-12
+  - name: guile
+    version: '{{ .Values.version }}'
+    category: dev-scheme-12

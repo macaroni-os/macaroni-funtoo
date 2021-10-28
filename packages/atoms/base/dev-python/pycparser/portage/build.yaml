@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pycparser
-  version: "2.20"
-  category: dev-python
+  - name: pycparser
+    version: '{{ .Values.version }}'
+    category: dev-python

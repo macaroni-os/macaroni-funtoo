@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libmwaw
-  version: 0.3.15
-  category: app-text
+  - name: libmwaw
+    version: '{{ .Values.version }}'
+    category: app-text

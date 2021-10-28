@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-Text-ParseWords
-  version: 3.300.0
-  category: virtual
+  - name: perl-Text-ParseWords
+    version: '{{ .Values.version }}'
+    category: virtual

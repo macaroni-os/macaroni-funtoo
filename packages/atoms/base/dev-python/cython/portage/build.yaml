@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cython
-  version: 0.29.24
-  category: dev-python
+  - name: cython
+    version: '{{ .Values.version }}'
+    category: dev-python

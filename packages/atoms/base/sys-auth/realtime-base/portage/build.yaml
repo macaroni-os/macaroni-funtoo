@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: realtime-base
-  version: "0.1"
-  category: sys-auth
+  - name: realtime-base
+    version: '{{ .Values.version }}'
+    category: sys-auth

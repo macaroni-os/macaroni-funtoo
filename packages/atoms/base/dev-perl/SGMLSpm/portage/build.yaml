@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: SGMLSpm
-  version: "1.03"
-  category: dev-perl
+  - name: SGMLSpm
+    version: '{{ .Values.version }}'
+    category: dev-perl

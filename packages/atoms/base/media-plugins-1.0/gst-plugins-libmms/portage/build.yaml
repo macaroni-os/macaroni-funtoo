@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gst-plugins-libmms
-  version: 1.14.3
-  category: media-plugins-1.0
+  - name: gst-plugins-libmms
+    version: '{{ .Values.version }}'
+    category: media-plugins-1.0

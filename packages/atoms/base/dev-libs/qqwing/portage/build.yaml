@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: qqwing
-  version: 1.3.4
-  category: dev-libs
+  - name: qqwing
+    version: '{{ .Values.version }}'
+    category: dev-libs

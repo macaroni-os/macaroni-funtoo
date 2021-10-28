@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libtool
-  version: 2.4.6
-  category: sys-devel-2
+  - name: libtool
+    version: '{{ .Values.version }}'
+    category: sys-devel-2

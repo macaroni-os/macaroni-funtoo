@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: lcms
-  version: "2.11"
-  category: media-libs-2
+  - name: lcms
+    version: '{{ .Values.version }}'
+    category: media-libs-2

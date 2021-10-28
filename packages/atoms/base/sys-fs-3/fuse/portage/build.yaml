@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: fuse
-  version: 3.6.1
-  category: sys-fs-3
+  - name: fuse
+    version: '{{ .Values.version }}'
+    category: sys-fs-3

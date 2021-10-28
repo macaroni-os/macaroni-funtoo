@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: quadrapassel
-  version: 3.36.05
-  category: games-puzzle
+  - name: quadrapassel
+    version: '{{ .Values.version }}'
+    category: games-puzzle

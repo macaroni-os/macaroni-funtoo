@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: wireless-regdb
-  version: "20190603"
-  category: net-wireless
+  - name: wireless-regdb
+    version: '{{ .Values.version }}'
+    category: net-wireless

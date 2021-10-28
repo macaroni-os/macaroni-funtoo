@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: lxcfs
-  version: 4.0.8
-  category: sys-fs
+  - name: lxcfs
+    version: '{{ .Values.version }}'
+    category: sys-fs

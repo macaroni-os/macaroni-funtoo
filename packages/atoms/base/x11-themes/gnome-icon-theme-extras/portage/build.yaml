@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-icon-theme-extras
-  version: 3.12.0
-  category: x11-themes
+  - name: gnome-icon-theme-extras
+    version: '{{ .Values.version }}'
+    category: x11-themes

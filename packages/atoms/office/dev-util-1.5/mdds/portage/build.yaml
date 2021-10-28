@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mdds
-  version: 1.5.0
-  category: dev-util-1.5
+  - name: mdds
+    version: '{{ .Values.version }}'
+    category: dev-util-1.5

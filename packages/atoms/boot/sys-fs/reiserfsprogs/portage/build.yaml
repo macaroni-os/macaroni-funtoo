@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: reiserfsprogs
-  version: 3.6.27
-  category: sys-fs
+  - name: reiserfsprogs
+    version: '{{ .Values.version }}'
+    category: sys-fs

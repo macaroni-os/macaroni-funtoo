@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: attrs
-  version: 21.2.0
-  category: dev-python
+  - name: attrs
+    version: '{{ .Values.version }}'
+    category: dev-python

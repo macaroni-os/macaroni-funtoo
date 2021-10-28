@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-version
-  version: 0.992.400
-  category: virtual
+  - name: perl-version
+    version: '{{ .Values.version }}'
+    category: virtual

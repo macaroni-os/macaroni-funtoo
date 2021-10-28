@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: modemmanager
-  version: 1.10.0
-  category: net-misc
+  - name: modemmanager
+    version: '{{ .Values.version }}'
+    category: net-misc

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: adrien-gdm-keyboard
-  version: 1.0.2
-  category: gnome-base
+  - name: adrien-gdm-keyboard
+    version: '{{ .Values.version }}'
+    category: gnome-base

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libwpd
-  version: 0.10.3
-  category: app-text-0.10
+  - name: libwpd
+    version: '{{ .Values.version }}'
+    category: app-text-0.10

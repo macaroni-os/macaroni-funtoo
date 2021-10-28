@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libgphoto2
-  version: 2.5.27
-  category: media-libs
+  - name: libgphoto2
+    version: '{{ .Values.version }}'
+    category: media-libs

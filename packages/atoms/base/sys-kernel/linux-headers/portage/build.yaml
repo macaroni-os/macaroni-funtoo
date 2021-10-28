@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: linux-headers
-  version: "4.19"
-  category: sys-kernel
+  - name: linux-headers
+    version: '{{ .Values.version }}'
+    category: sys-kernel

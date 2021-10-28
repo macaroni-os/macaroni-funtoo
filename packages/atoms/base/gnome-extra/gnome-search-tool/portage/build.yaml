@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-search-tool
-  version: 3.6.0
-  category: gnome-extra
+  - name: gnome-search-tool
+    version: '{{ .Values.version }}'
+    category: gnome-extra

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libgnome-games-support
-  version: 1.4.3
-  category: dev-libs-1
+  - name: libgnome-games-support
+    version: '{{ .Values.version }}'
+    category: dev-libs-1

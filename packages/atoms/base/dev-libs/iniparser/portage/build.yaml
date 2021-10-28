@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: iniparser
-  version: "3.1"
-  category: dev-libs
+  - name: iniparser
+    version: '{{ .Values.version }}'
+    category: dev-libs

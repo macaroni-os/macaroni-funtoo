@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xf86vidmodeproto
-  version: 2.3.1
-  category: x11-proto
+  - name: xf86vidmodeproto
+    version: '{{ .Values.version }}'
+    category: x11-proto

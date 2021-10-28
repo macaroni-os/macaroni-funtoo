@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cogl
-  version: 1.22.8
-  category: media-libs-1.0
+  - name: cogl
+    version: '{{ .Values.version }}'
+    category: media-libs-1.0

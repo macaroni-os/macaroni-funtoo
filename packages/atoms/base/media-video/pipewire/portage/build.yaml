@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pipewire
-  version: 0.3.0
-  category: media-video
+  - name: pipewire
+    version: '{{ .Values.version }}'
+    category: media-video

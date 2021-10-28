@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cri-o
-  version: 1.14.4
-  category: app-emulation
+  - name: cri-o
+    version: '{{ .Values.version }}'
+    category: app-emulation

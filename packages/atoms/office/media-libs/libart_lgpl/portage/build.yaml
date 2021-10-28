@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libart_lgpl
-  version: 2.3.21
-  category: media-libs
+  - name: libart_lgpl
+    version: '{{ .Values.version }}'
+    category: media-libs

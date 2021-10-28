@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libdazzle
-  version: 3.42.0
-  category: dev-libs
+  - name: libdazzle
+    version: '{{ .Values.version }}'
+    category: dev-libs

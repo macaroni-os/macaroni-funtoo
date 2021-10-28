@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: font-adobe-utopia-100dpi
-  version: 1.0.4
-  category: media-fonts
+  - name: font-adobe-utopia-100dpi
+    version: '{{ .Values.version }}'
+    category: media-fonts

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: atomix
-  version: 3.34.0
-  category: games-puzzle
+  - name: atomix
+    version: '{{ .Values.version }}'
+    category: games-puzzle

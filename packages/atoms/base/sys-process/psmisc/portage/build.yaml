@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: psmisc
-  version: "23.2"
-  category: sys-process
+  - name: psmisc
+    version: '{{ .Values.version }}'
+    category: sys-process

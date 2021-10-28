@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: nautilus-sendto
-  version: 3.8.6
-  category: gnome-extra
+  - name: nautilus-sendto
+    version: '{{ .Values.version }}'
+    category: gnome-extra

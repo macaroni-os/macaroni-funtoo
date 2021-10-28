@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: appstream-glib
-  version: 0.7.14
-  category: dev-libs
+  - name: appstream-glib
+    version: '{{ .Values.version }}'
+    category: dev-libs

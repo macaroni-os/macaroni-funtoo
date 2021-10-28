@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: oracle-jdk-bin
-  version: 1.8.0.202
-  category: dev-java-1.8
+  - name: oracle-jdk-bin
+    version: '{{ .Values.version }}'
+    category: dev-java-1.8

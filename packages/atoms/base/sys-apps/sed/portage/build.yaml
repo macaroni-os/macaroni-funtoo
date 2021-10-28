@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: sed
-  version: "4.8"
-  category: sys-apps
+  - name: sed
+    version: '{{ .Values.version }}'
+    category: sys-apps

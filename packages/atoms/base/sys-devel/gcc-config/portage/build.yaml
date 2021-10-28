@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gcc-config
-  version: "2.4"
-  category: sys-devel
+  - name: gcc-config
+    version: '{{ .Values.version }}'
+    category: sys-devel

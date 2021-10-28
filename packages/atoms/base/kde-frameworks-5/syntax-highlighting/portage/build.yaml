@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: syntax-highlighting
-  version: 5.78.0
-  category: kde-frameworks-5
+  - name: syntax-highlighting
+    version: '{{ .Values.version }}'
+    category: kde-frameworks-5

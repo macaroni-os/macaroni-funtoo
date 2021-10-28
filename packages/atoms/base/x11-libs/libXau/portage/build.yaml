@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libXau
-  version: 1.0.9
-  category: x11-libs
+  - name: libXau
+    version: '{{ .Values.version }}'
+    category: x11-libs

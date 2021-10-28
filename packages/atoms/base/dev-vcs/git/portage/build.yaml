@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: git
-  version: 2.33.0
-  category: dev-vcs
+  - name: git
+    version: '{{ .Values.version }}'
+    category: dev-vcs

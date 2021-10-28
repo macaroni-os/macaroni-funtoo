@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: docbook-xml-simple-dtd
-  version: "1.0"
-  category: app-text-1.0
+  - name: docbook-xml-simple-dtd
+    version: '{{ .Values.version }}'
+    category: app-text-1.0

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-cleaner
-  version: "2.28"
-  category: app-admin
+  - name: perl-cleaner
+    version: '{{ .Values.version }}'
+    category: app-admin

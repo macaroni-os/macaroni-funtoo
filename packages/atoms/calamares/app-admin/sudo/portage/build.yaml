@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: sudo
-  version: 1.9.8
-  category: app-admin
+  - name: sudo
+    version: '{{ .Values.version }}'
+    category: app-admin

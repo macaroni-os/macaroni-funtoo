@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-power-manager
-  version: 3.32.0
-  category: gnome-extra
+  - name: gnome-power-manager
+    version: '{{ .Values.version }}'
+    category: gnome-extra

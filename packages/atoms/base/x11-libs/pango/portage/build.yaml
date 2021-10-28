@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pango
-  version: 1.44.7
-  category: x11-libs
+  - name: pango
+    version: '{{ .Values.version }}'
+    category: x11-libs

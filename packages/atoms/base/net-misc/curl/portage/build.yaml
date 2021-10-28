@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: curl
-  version: 7.74.0
-  category: net-misc
+  - name: curl
+    version: '{{ .Values.version }}'
+    category: net-misc

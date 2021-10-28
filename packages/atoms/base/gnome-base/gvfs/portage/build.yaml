@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gvfs
-  version: 1.44.1
-  category: gnome-base
+  - name: gvfs
+    version: '{{ .Values.version }}'
+    category: gnome-base

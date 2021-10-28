@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: appi
-  version: 0.2.5
-  category: dev-python
+  - name: appi
+    version: '{{ .Values.version }}'
+    category: dev-python

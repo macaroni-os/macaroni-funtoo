@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: exiv2
-  version: 0.27.3
-  category: media-gfx
+  - name: exiv2
+    version: '{{ .Values.version }}'
+    category: media-gfx

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: iptables
-  version: 1.8.3
-  category: net-firewall
+  - name: iptables
+    version: '{{ .Values.version }}'
+    category: net-firewall

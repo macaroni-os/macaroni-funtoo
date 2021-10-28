@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gtk-update-icon-cache
-  version: 3.24.7
-  category: dev-util
+  - name: gtk-update-icon-cache
+    version: '{{ .Values.version }}'
+    category: dev-util

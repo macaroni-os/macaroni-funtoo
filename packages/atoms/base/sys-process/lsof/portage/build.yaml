@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: lsof
-  version: 4.93.2
-  category: sys-process
+  - name: lsof
+    version: '{{ .Values.version }}'
+    category: sys-process

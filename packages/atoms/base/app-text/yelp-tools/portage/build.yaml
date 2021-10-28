@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: yelp-tools
-  version: 3.32.2
-  category: app-text
+  - name: yelp-tools
+    version: '{{ .Values.version }}'
+    category: app-text

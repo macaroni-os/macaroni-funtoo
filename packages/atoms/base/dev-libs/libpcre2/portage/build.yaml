@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libpcre2
-  version: "10.35"
-  category: dev-libs
+  - name: libpcre2
+    version: '{{ .Values.version }}'
+    category: dev-libs

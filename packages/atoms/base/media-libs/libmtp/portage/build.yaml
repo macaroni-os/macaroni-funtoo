@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libmtp
-  version: 1.1.16
-  category: media-libs
+  - name: libmtp
+    version: '{{ .Values.version }}'
+    category: media-libs

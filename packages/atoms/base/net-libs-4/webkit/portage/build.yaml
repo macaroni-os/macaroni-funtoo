@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: webkit
-  version: "266629"
-  category: net-libs-4
+  - name: webkit
+    version: '{{ .Values.version }}'
+    category: net-libs-4

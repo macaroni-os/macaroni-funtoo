@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnuconfig
-  version: "20180101"
-  category: sys-devel
+  - name: gnuconfig
+    version: '{{ .Values.version }}'
+    category: sys-devel

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: LWP-Protocol-https
-  version: 6.70.0
-  category: dev-perl
+  - name: LWP-Protocol-https
+    version: '{{ .Values.version }}'
+    category: dev-perl

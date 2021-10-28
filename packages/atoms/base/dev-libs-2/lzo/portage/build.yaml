@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: lzo
-  version: "2.10"
-  category: dev-libs-2
+  - name: lzo
+    version: '{{ .Values.version }}'
+    category: dev-libs-2

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: runc
-  version: 1.0.1
-  category: app-emulation
+  - name: runc
+    version: '{{ .Values.version }}'
+    category: app-emulation

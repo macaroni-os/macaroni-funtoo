@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: findutils
-  version: 4.8.0
-  category: sys-apps
+  - name: findutils
+    version: '{{ .Values.version }}'
+    category: sys-apps

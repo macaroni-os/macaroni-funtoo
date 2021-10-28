@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: ifenslave
-  version: 1.1.0
-  category: net-misc
+  - name: ifenslave
+    version: '{{ .Values.version }}'
+    category: net-misc

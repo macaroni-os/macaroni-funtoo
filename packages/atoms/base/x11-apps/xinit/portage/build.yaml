@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xinit
-  version: 1.4.1
-  category: x11-apps
+  - name: xinit
+    version: '{{ .Values.version }}'
+    category: x11-apps

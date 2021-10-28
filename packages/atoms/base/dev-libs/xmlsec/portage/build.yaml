@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xmlsec
-  version: 1.2.28
-  category: dev-libs
+  - name: xmlsec
+    version: '{{ .Values.version }}'
+    category: dev-libs

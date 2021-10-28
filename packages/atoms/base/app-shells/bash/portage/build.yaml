@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: bash
-  version: "5.0"
-  category: app-shells
+  - name: bash
+    version: '{{ .Values.version }}'
+    category: app-shells

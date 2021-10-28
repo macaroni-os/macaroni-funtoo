@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: enchant
-  version: 2.2.3
-  category: app-text-2.2
+  - name: enchant
+    version: '{{ .Values.version }}'
+    category: app-text-2.2

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome2048
-  version: 3.36.4
-  category: games-puzzle
+  - name: gnome2048
+    version: '{{ .Values.version }}'
+    category: games-puzzle

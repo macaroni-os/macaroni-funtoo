@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: baobab
-  version: 3.34.1
-  category: sys-apps
+  - name: baobab
+    version: '{{ .Values.version }}'
+    category: sys-apps

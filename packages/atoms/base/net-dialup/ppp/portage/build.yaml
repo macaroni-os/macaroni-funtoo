@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: ppp
-  version: 2.4.7
-  category: net-dialup
+  - name: ppp
+    version: '{{ .Values.version }}'
+    category: net-dialup

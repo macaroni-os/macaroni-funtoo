@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: zlib
-  version: 1.2.11
-  category: sys-libs
+  - name: zlib
+    version: '{{ .Values.version }}'
+    category: sys-libs

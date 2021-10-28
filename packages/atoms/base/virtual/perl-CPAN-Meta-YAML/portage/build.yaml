@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-CPAN-Meta-YAML
-  version: 0.18.0
-  category: virtual
+  - name: perl-CPAN-Meta-YAML
+    version: '{{ .Values.version }}'
+    category: virtual

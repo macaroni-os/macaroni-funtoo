@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: HTTP-Message
-  version: 6.130.0
-  category: dev-perl
+  - name: HTTP-Message
+    version: '{{ .Values.version }}'
+    category: dev-perl

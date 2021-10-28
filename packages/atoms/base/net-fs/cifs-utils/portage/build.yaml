@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cifs-utils
-  version: "6.11"
-  category: net-fs
+  - name: cifs-utils
+    version: '{{ .Values.version }}'
+    category: net-fs

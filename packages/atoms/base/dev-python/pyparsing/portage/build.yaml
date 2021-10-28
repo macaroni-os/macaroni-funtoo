@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pyparsing
-  version: 2.4.7
-  category: dev-python
+  - name: pyparsing
+    version: '{{ .Values.version }}'
+    category: dev-python

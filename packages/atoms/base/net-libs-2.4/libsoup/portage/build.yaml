@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libsoup
-  version: 2.74.0
-  category: net-libs-2.4
+  - name: libsoup
+    version: '{{ .Values.version }}'
+    category: net-libs-2.4

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: colm
-  version: 0.13.0.7
-  category: dev-util
+  - name: colm
+    version: '{{ .Values.version }}'
+    category: dev-util

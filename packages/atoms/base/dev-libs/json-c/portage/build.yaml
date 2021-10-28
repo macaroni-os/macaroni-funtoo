@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: json-c
-  version: 0.13.1
-  category: dev-libs
+  - name: json-c
+    version: '{{ .Values.version }}'
+    category: dev-libs

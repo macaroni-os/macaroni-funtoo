@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cheese
-  version: 3.34.0
-  category: media-video
+  - name: cheese
+    version: '{{ .Values.version }}'
+    category: media-video

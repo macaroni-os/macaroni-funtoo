@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: font-misc-ethiopic
-  version: 1.0.3
-  category: media-fonts
+  - name: font-misc-ethiopic
+    version: '{{ .Values.version }}'
+    category: media-fonts

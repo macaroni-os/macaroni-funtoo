@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: testtools
-  version: 2.5.0
-  category: dev-python
+  - name: testtools
+    version: '{{ .Values.version }}'
+    category: dev-python

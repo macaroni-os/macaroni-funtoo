@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: pangomm
-  version: 2.42.1
-  category: dev-cpp-1.4
+  - name: pangomm
+    version: '{{ .Values.version }}'
+    category: dev-cpp-1.4

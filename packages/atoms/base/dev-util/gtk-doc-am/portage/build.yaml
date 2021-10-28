@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gtk-doc-am
-  version: "1.32"
-  category: dev-util
+  - name: gtk-doc-am
+    version: '{{ .Values.version }}'
+    category: dev-util

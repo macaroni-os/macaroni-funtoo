@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: flex
-  version: 2.6.4
-  category: sys-devel
+  - name: flex
+    version: '{{ .Values.version }}'
+    category: sys-devel

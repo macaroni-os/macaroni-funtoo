@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: apr-util
-  version: 1.6.1
-  category: dev-libs-1
+  - name: apr-util
+    version: '{{ .Values.version }}'
+    category: dev-libs-1

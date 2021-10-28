@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-Digest-MD5
-  version: 2.550.100
-  category: virtual
+  - name: perl-Digest-MD5
+    version: '{{ .Values.version }}'
+    category: virtual

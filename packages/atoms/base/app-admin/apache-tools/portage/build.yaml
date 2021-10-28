@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: apache-tools
-  version: 2.4.46
-  category: app-admin
+  - name: apache-tools
+    version: '{{ .Values.version }}'
+    category: app-admin

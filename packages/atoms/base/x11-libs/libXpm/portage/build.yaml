@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: libXpm
-  version: 3.5.13
-  category: x11-libs
+  - name: libXpm
+    version: '{{ .Values.version }}'
+    category: x11-libs

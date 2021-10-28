@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: luaexpat
-  version: 1.3.0
-  category: dev-lua
+  - name: luaexpat
+    version: '{{ .Values.version }}'
+    category: dev-lua

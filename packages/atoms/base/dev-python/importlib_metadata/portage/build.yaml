@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: importlib_metadata
-  version: 4.8.1
-  category: dev-python
+  - name: importlib_metadata
+    version: '{{ .Values.version }}'
+    category: dev-python

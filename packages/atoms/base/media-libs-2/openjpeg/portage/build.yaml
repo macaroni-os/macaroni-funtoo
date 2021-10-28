@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: openjpeg
-  version: 2.3.1
-  category: media-libs-2
+  - name: openjpeg
+    version: '{{ .Values.version }}'
+    category: media-libs-2

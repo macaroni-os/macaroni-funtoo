@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: urllib3
-  version: 1.26.7
-  category: dev-python
+  - name: urllib3
+    version: '{{ .Values.version }}'
+    category: dev-python

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: perl-Pod-Parser
-  version: 1.630.0
-  category: virtual
+  - name: perl-Pod-Parser
+    version: '{{ .Values.version }}'
+    category: virtual

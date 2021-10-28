@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cracklib
-  version: 2.9.7
-  category: sys-libs
+  - name: cracklib
+    version: '{{ .Values.version }}'
+    category: sys-libs

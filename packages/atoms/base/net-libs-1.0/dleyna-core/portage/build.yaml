@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: dleyna-core
-  version: 0.5.0
-  category: net-libs-1.0
+  - name: dleyna-core
+    version: '{{ .Values.version }}'
+    category: net-libs-1.0

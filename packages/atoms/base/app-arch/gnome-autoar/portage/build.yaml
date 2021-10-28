@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gnome-autoar
-  version: 0.2.4
-  category: app-arch
+  - name: gnome-autoar
+    version: '{{ .Values.version }}'
+    category: app-arch

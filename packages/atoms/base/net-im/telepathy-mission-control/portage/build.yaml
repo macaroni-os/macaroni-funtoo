@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: telepathy-mission-control
-  version: 5.16.5
-  category: net-im
+  - name: telepathy-mission-control
+    version: '{{ .Values.version }}'
+    category: net-im

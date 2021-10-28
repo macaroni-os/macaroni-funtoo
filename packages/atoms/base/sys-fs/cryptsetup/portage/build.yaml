@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: cryptsetup
-  version: 2.1.0
-  category: sys-fs
+  - name: cryptsetup
+    version: '{{ .Values.version }}'
+    category: sys-fs

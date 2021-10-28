@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: lsb-release
-  version: "1.4"
-  category: sys-apps
+  - name: lsb-release
+    version: '{{ .Values.version }}'
+    category: sys-apps

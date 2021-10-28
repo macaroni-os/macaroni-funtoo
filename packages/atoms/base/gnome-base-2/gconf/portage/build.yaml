@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: gconf
-  version: 3.2.6
-  category: gnome-base-2
+  - name: gconf
+    version: '{{ .Values.version }}'
+    category: gnome-base-2

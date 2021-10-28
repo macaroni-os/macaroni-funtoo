@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: kcoreaddons
-  version: 5.78.0
-  category: kde-frameworks-5
+  - name: kcoreaddons
+    version: '{{ .Values.version }}'
+    category: kde-frameworks-5

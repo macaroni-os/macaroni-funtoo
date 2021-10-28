@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: notification-daemon
-  version: "0"
-  category: virtual
+  - name: notification-daemon
+    version: '{{ .Values.version }}'
+    category: virtual

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mod_dnssd
-  version: "0.6"
-  category: www-apache
+  - name: mod_dnssd
+    version: '{{ .Values.version }}'
+    category: www-apache

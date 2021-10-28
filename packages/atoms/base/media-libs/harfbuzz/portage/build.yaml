@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: harfbuzz
-  version: 2.6.4
-  category: media-libs
+  - name: harfbuzz
+    version: '{{ .Values.version }}'
+    category: media-libs

@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: mm-common
-  version: 1.0.2
-  category: dev-cpp
+  - name: mm-common
+    version: '{{ .Values.version }}'
+    category: dev-cpp

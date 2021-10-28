@@ -1,9 +1,9 @@
 package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
 includes:
-- ^/var/db/pkg
-- ^/var/db$
-- ^/var$
+  - ^/var/db/pkg
+  - ^/var/db$
+  - ^/var$
 requires:
-- name: xdg-dbus-proxy
-  version: 0.1.2
-  category: dev-util
+  - name: xdg-dbus-proxy
+    version: '{{ .Values.version }}'
+    category: dev-util
