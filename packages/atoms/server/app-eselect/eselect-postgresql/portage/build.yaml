@@ -1,0 +1,9 @@
+package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
+includes:
+- ^/var/db/pkg
+- ^/var/db$
+- ^/var$
+requires:
+- name: eselect-postgresql
+  version: "2.4"
+  category: app-eselect
