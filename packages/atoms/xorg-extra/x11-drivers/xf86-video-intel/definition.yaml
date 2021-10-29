@@ -1,0 +1,60 @@
+name: xf86-video-intel
+version: 2.99.917
+category: x11-drivers
+use_flags:
+- -ppc-aix
+- -tools
+- -x86-winnt
+- dri
+- udev
+- xvmc
+requires:
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libXfixes
+  version: '>=0'
+  category: x11-libs
+- name: libXvMC
+  version: '>=0'
+  category: x11-libs
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util
+  version: '>=0'
+  category: x11-libs
+description: X.Org driver for Intel cards
+uri:
+- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel
+license: MIT
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) >=sys-devel/libtool-2.2.6a
+    sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 virtual/pkgconfig'
+  DEPEND: x11-libs/libXext x11-libs/libXfixes x11-libs/libXScrnSaver >=x11-libs/pixman-0.27.1
+    >=x11-libs/libdrm-2.4.52[video_cards_intel] >=x11-base/xorg-server-1.18 !<=media-libs/mesa-12.0.4
+    tools? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libXcursor x11-libs/libXdamage
+    x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libxshmfence
+    x11-libs/libXtst ) udev? ( virtual/libudev:= ) xvmc? ( x11-libs/libXvMC >=x11-libs/libxcb-1.5
+    x11-libs/xcb-util ) x11-base/xorg-proto x11-base/xorg-proto dri? ( x11-base/xorg-server[-minimal]
+    x11-libs/libdrm ) >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+  IUSE: debug sna tools +udev +uxa xvmc kernel_linux dri
+  RDEPEND: x11-libs/libXext x11-libs/libXfixes x11-libs/libXScrnSaver >=x11-libs/pixman-0.27.1
+    >=x11-libs/libdrm-2.4.52[video_cards_intel] >=x11-base/xorg-server-1.18 !<=media-libs/mesa-12.0.4
+    tools? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libXcursor x11-libs/libXdamage
+    x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libxshmfence
+    x11-libs/libXtst ) udev? ( virtual/libudev:= ) xvmc? ( x11-libs/libXvMC >=x11-libs/libxcb-1.5
+    x11-libs/xcb-util ) x11-base/xorg-server:= dri? ( x11-base/xorg-server[-minimal]
+    x11-libs/libdrm ) >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+  emerge.packages: x11-drivers/xf86-video-intel
+  kit: core-gl-kit
+  original.package.name: x11-drivers/xf86-video-intel
+  original.package.slot: "0"
+  original.package.version: 2.99.917_p20210215
