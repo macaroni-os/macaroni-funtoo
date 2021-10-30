@@ -4,7 +4,7 @@ install:
 # This is needed because `mos kernel gi` is skipped.
 - cd boot && ln -s kernel-* bzImage || true
 - cd boot && ln -s initramfs-* Initrd || true
-- chmod a+r /var/
+- chmod a+rx /var/
 - chown gdm:gdm -R /var/lib/gdm/
 shell:
 - bash
