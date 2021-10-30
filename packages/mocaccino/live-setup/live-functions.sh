@@ -271,6 +271,11 @@ prepare() {
   # Trying to fix /dev/ptmx group issue
   #echo "devpts /dev/pts devpts gid=5,mode=620 0 0" >> /etc/fstab
 
+  # Fix access to var directory
+  chmod a+r /var
+
+  chown gdm:gdm /var/lib/gdm -R
+
   echo "Europe/Rome" > /etc/timezone
 
   # Create root and mocaccino user

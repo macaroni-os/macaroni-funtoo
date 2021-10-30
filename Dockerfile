@@ -7,12 +7,14 @@ RUN mkdir /funtoo-minimal/etc/ -p && \
 
 FROM quay.io/luet/base:develop
 ADD conf/luet.yaml.docker /etc/luet/luet.yaml
+COPY luet /usr/bin/luet
 #ADD https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml /etc/luet/repos.conf.d/
 
 COPY --from=0 /funtoo-minimal/ /
 ENV USER=root
 
-SHELL ["/usr/bin/luet", "install", "-y", "-d"]
+SHELL ["/usr/bin/luet", "install", "-y"]
+RUN repository/luet
 RUN repository/geaaru-stable
 RUN repository/mocaccino-os-commons
 RUN repository/mocaccino-extra
@@ -26,6 +28,7 @@ RUN /usr/share/mocaccino/layers/funtoo-base/entities/
 
 SHELL ["/usr/bin/luet", "install", "-y", "-d"]
 
+#RUN system/luet
 RUN sys-apps/shadow
 RUN sys-apps/sed
 RUN app-shells/bash
