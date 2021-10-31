@@ -6,6 +6,8 @@ packages:
   - system/luet-geaaru
   - system/luet-extensions
   - utils/yip
+  - utils/yq
+  - utils/jq
 
   - mocaccino/cli
 
@@ -53,6 +55,13 @@ packages:
   - sys-fs/udev-init-scripts
   # needed for /bin/hostname
   - sys-apps/net-tools
+  # needed for format vfat uefi partition
+  - sys-fs/dosfstools
+  - sys-boot/efibootmgr
+
+  # Add support to multiple filesystem to ISO
+  - sys-fs/btrfs-progs
+  - sys-fs/xfsprogs
 
   # Add plymouth
   - sys-boot/plymouth
