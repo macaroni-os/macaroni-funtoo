@@ -1,0 +1,106 @@
+env:
+- JOBS={{ ( index .Values.labels "jobs" ) | default "3" }}
+- LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages"
+- LUET_PORTAGE_IGNORE_TAR_WARNING=1
+- LUET_PORTAGE_PKGMETA=1
+- LUET_PORTAGE_PKGFILES=1
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+prelude:
+- eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet portage
+  -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
+  ) }}
+- rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
+package_dir: /pkgdir/{{ .Values.name }}
+excludes:
+- ^/var/db/pkg
+- ^/var/db
+- ^/var/cache/portage/
+- ^/var/git/
+requires:
+- name: libwpg
+  version: '>=0'
+  category: app-text-0.3
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: gtkmm
+  version: '>=0'
+  category: dev-cpp-4.0
+- name: boehm-gc
+  version: '>=0'
+  category: dev-libs
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: double-conversion
+  version: '>=0'
+  category: dev-libs
+- name: gdl
+  version: '>=0'
+  category: dev-libs-3
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+- name: popt
+  version: '>=0'
+  category: dev-libs
+- name: lxml
+  version: '>=0'
+  category: dev-python
+- name: cmake
+  version: '>=0'
+  category: dev-util
+- name: glib-utils
+  version: '>=0'
+  category: dev-util
+- name: ninja
+  version: '>=0'
+  category: dev-util
+- name: potrace
+  version: '>=0'
+  category: media-gfx
+- name: scour
+  version: '>=0'
+  category: media-gfx
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libcdr
+  version: '>=0'
+  category: media-libs
+- name: libexif
+  version: '>=0'
+  category: media-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: libvisio
+  version: '>=0'
+  category: media-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+- name: gsl
+  version: '>=0'
+  category: sci-libs
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
