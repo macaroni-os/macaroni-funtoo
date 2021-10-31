@@ -6,6 +6,8 @@ install:
 - cd boot && ln -s initramfs-* Initrd || true
 - chmod a+rx /var/
 - chown gdm:gdm -R /var/lib/gdm/
+# To replace with whip soon
+- source /usr/share/mocaccino-funtoo/triggers/triggers-loader && mime_update_db
 shell:
 - bash
 - -c
