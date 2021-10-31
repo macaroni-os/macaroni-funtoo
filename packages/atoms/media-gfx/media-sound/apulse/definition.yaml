@@ -1,0 +1,28 @@
+name: apulse
+version: 0.1.12
+category: media-sound
+use_flags:
+- -sdk
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+description: PulseAudio emulation for ALSA
+uri:
+- https://github.com/i-rinat/apulse
+license: MIT LGPL-2.1
+labels:
+  DEPEND: dev-libs/glib:2[-mgorny(-)] media-libs/alsa-lib[-mgorny(-)] sdk? ( !media-sound/pulseaudio
+    ) sys-devel/make >=dev-util/cmake-3.9.6
+  IUSE: debug sdk test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: dev-libs/glib:2[-mgorny(-)] media-libs/alsa-lib[-mgorny(-)] sdk? ( !media-sound/pulseaudio
+    ) !!media-plugins/alsa-plugins[pulseaudio]
+  emerge.packages: media-sound/apulse
+  kit: media-kit
+  original.package.name: media-sound/apulse
+  original.package.slot: "0"
+  original.package.version: 0.1.12-r4
