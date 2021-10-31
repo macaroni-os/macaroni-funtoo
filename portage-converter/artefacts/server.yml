@@ -614,3 +614,16 @@ artefacts:
   packages:
   - net-misc/ntpclient
 
+
+- tree: packages/atoms/server
+  uses:
+    disabled:
+    - debug
+    - embedded
+    - nios2
+    - obsolete
+    - sh
+  packages:
+  - net-misc/netkit-telnetd:0
+  - net-analyzer/openbsd-netcat:0
+
