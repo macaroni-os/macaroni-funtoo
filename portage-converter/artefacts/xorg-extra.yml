@@ -2,30 +2,18 @@ artefacts:
 - tree: packages/atoms/xorg-extra
   uses:
     disabled:
+    - debug
     - nios2
     - sh
+    - sna
+    - tools
     enabled:
-    - introspection
+    - dri
+    - udev
+    - uxa
+    - xvmc
   packages:
-  - dev-libs/keybinder:3
-- tree: packages/atoms/xorg-extra
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/notify-python
-- tree: packages/atoms/xorg-extra
-  uses:
-    disabled:
-    - dga
-    - nios2
-    - sh
-  packages:
-  - x11-drivers/xf86-video-dummy
+  - x11-drivers/xf86-video-intel
 - tree: packages/atoms/xorg-extra
   uses:
     disabled:
@@ -39,6 +27,86 @@ artefacts:
     - python_targets_python2_7
   packages:
   - x11-terms/terminator
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - gnutls
+    - hddtemp
+    - libressl
+    - lm_sensors
+    - nios2
+    - ntlm
+    - sh
+    enabled:
+    - X
+    - nls
+    - ssl
+  packages:
+  - app-admin/gkrellm:2
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - nios2
+    - pax_kernel
+    - sh
+  packages:
+  - net-im/skypeforlinux
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - debug
+    - debug-frame
+    - doc
+    - libatomic
+    - lzma
+    - nios2
+    - sh
+    enabled:
+    - static-libs
+  packages:
+  - sys-libs/libunwind:7
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    enabled:
+    - libcxxabi
+    - libunwind
+    - static-libs
+  packages:
+  - sys-libs/libcxx
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    enabled:
+    - libunwind
+    - static-libs
+  packages:
+  - sys-libs/libcxxabi
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - dga
+    - nios2
+    - sh
+  packages:
+  - x11-drivers/xf86-video-dummy
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - utempter
+    enabled:
+    - python_single_target_python3_7
+    - python_targets_python3_7
+  packages:
+  - x11-terms/guake
 - tree: packages/atoms/xorg-extra
   uses:
     disabled:
@@ -57,6 +125,16 @@ artefacts:
 - tree: packages/atoms/xorg-extra
   uses:
     disabled:
+    - examples
+    - nios2
+    - sh
+    enabled:
+    - python_targets_python2_7
+  packages:
+  - dev-python/notify-python
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
     - nios2
     - python_targets_pypy3
     - python_targets_python3_8
@@ -72,35 +150,87 @@ artefacts:
   uses:
     disabled:
     - debug
+    - libcanberra
+    - libproxy
+    - libressl
+    - lua
     - nios2
+    - perl
+    - plugin-checksum
+    - plugin-fishlim
+    - plugin-sysinfo
     - sh
-    - sna
-    - tools
+    - theme-manager
     enabled:
-    - dri
-    - udev
-    - uxa
-    - xvmc
+    - dbus
+    - gtk
+    - libnotify
+    - python
+    - python_single_target_python3_7
+    - python_targets_python3_7
+    - ssl
   packages:
-  - x11-drivers/xf86-video-intel
+  - net-irc/hexchat
 - tree: packages/atoms/xorg-extra
   uses:
     disabled:
     - nios2
     - sh
   packages:
+  - net-im/discord-bin
   - x11-drivers/xf86-video-vbox
   - x11-drivers/xf86-video-vesa
+  - x11-themes/gkrellm-themes
   - x11-wm/twm
 - tree: packages/atoms/xorg-extra
   uses:
     disabled:
+    - ayatana
     - nios2
+    - pax_kernel
     - sh
-    - utempter
     enabled:
-    - python_single_target_python3_7
+    - gnome-keyring
+  packages:
+  - net-im/slack-bin
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - aqua
+    - cscope
+    - debug
+    - lua
+    - luajit
+    - motif
+    - neXt
+    - netbeans
+    - nios2
+    - perl
+    - python_targets_python3_8
+    - racket
+    - ruby
+    - selinux
+    - session
+    - sh
+    - tcl
+    enabled:
+    - acl
+    - gnome
+    - gtk
+    - gtk3
+    - nls
+    - python
+    - python_targets_python2_7
     - python_targets_python3_7
   packages:
-  - x11-terms/guake
+  - app-editors/gvim
+- tree: packages/atoms/xorg-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - introspection
+  packages:
+  - dev-libs/keybinder:3
 
