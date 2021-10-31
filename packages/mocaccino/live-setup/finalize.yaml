@@ -8,6 +8,11 @@ install:
 - chown gdm:gdm -R /var/lib/gdm/
 # To replace with whip soon
 - source /usr/share/mocaccino-funtoo/triggers/triggers-loader && mime_update_db
+# This could be handled inside live-setup and/or through in another way.
+- yq w /etc/luet/luet.yaml 'general.debug' "false" -i || true
+- yq d /etc/luet/luet.yaml 'finalizer_envs' -i || true
+- yq w /etc/luet/luet.yaml 'general.spinner_charset' "39" -i || true
+- yq d /etc/luet/luet.yaml 'general.spinner_ms' -i || true
 shell:
 - bash
 - -c
