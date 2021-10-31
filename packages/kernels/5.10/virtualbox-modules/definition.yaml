@@ -4,7 +4,9 @@ version: "6.1.26"
 provides:
   - category: app-emulation
     name: virtualbox-modules
-    version: "6.1.26"
+    # BUG: setting a version on provides is not
+    # handled correctly by validate.
+    version: ">=0"
 labels:
   emerge.packages: >-
     app-emulation/virtualbox-modules
