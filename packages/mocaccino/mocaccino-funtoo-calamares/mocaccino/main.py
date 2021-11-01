@@ -17,8 +17,7 @@ luet_packages2remove = [
     "mocaccino/live-setup",
     "kernel/mocaccino-lts-initramfs",
     "system/mocaccino-funtoo-calamares",
-    "layer/funtoo-kde-commons",
-    "layer/funtoo-calamares",
+    "virtual/calamares",
     "repository/livecd",
 ]
 
