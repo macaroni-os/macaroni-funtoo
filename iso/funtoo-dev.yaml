@@ -127,8 +127,8 @@ packages:
   - x11-libs/xcb-util-renderutil
 
   - dev-qt-5/qtwayland
-  - x11-wm/twm
-  - x11-terms/xterm
+  #- x11-wm/twm
+  #- x11-terms/xterm
   - sys-libs/libutempter
   - sys-apps/which
 
@@ -164,6 +164,9 @@ initramfs:
 overlay: "true"
 image_prefix: "MocaccinoOS-Funtoo-Gnome-0."
 image_date: "true"
+
+overlay_hooks:
+  - /var/lib/mocaccino/build-iso-hook.sh
 
 luet:
   config: conf/luet-desktop-thin.yaml
