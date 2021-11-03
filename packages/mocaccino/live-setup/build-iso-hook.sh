@@ -10,6 +10,14 @@ setup_luet_config() {
   yq w /etc/luet/luet.yaml 'general.spinner_charset' "39" -i
   yq d /etc/luet/luet.yaml 'general.spinner_ms' -i
 
+  # Setup config protect option.
+  mkdir -p /etc/luet/config.protect.d || true
+  echo "
+name: \"etc_conf\"
+dirs:
+  - \"/etc/\"
+" > /etc/luet/config.protect.d/01_etc.yml
+
   return 0
 }
 
