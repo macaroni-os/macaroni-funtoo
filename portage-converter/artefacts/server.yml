@@ -626,4 +626,42 @@ artefacts:
   packages:
   - net-misc/netkit-telnetd:0
   - net-analyzer/openbsd-netcat:0
+- tree: packages/atoms/server
+  uses:
+    disabled:
+    - custom-cflags
+    - debug
+    - kernel-builtin
+    - libressl
+    - minimal
+    - nios2
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - sh
+    - static-libs
+    - test-suite
+    enabled:
+    - nls
+    - pam
+    - python
+    - python_targets_python3_7
+    - rootfs
+    - split-usr
+  packages:
+  - sys-fs/zfs
+
+- tree: packages/atoms/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-server
+  uses:
+    disabled:
+    - python_targets_python3_8
+    - python_targets_python3_9
+    enabled:
+    - python_targets_python3_7
+  packages:
+  - virtual/python-cffi
 
