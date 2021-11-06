@@ -29,7 +29,7 @@ prelude:
   utils/yq &&
   luet cleanup --config ./luet.yaml &&
   mkdir -p /mos-funtoo/etc/luet &&
-  yq w ./luet.yaml system.rootfs "/" -i &&
+  /mos-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
   cp ./luet.yaml /mos-funtoo/etc/luet/ &&
   cd /mos-funtoo/bin &&
   ln -s bash sh
