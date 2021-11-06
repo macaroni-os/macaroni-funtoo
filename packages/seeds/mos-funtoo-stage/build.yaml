@@ -26,15 +26,10 @@ prelude:
   toolchain/calamares
   toolchain/meta-repo
   system/entities
-  utils/yq
-  entities/acct-base
-  entities/acct-boot
-  entities/acct-emulation
-  entities/acct-office
-  entities/acct-server &&
-  luet upgrade --config ./luet.yaml --skip-finalizers &&
+  utils/yq &&
   luet cleanup --config ./luet.yaml &&
   mkdir -p /mos-funtoo/etc/luet &&
+  yq w ./luet.yaml system.rootfs "/" -i &&
   cp ./luet.yaml /mos-funtoo/etc/luet/ &&
   cd /mos-funtoo/bin &&
   ln -s bash sh
