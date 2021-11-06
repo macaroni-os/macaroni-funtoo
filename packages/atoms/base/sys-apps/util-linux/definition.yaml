@@ -3,7 +3,6 @@ version: 2.36.2+2
 category: sys-apps
 use_flags:
 - -audit
-- -caps
 - -cryptsetup
 - -hardlink
 - -kill
@@ -16,6 +15,7 @@ use_flags:
 - -su
 - -test
 - -udev
+- caps
 - cramfs
 - logger
 - ncurses
@@ -25,9 +25,9 @@ use_flags:
 - python_targets_python3_7
 - readline
 requires:
-- name: python-exec
+- name: libcap-ng
   version: '>=0'
-  category: dev-lang-2
+  category: sys-libs
 - name: pam
   version: '>=0'
   category: sys-libs
@@ -73,4 +73,5 @@ labels:
   emerge.packages: sys-apps/util-linux
   kit: core-kit
   original.package.name: sys-apps/util-linux
+  original.package.slot: "0"
   original.package.version: 2.36.2
