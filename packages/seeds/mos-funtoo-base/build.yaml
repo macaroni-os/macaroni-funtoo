@@ -18,11 +18,10 @@ steps:
   if [ ! -e /etc/group ] ; then touch /etc/group ; fi &&
   if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi
 - >-
-  yq w /etc/luet/luet.yaml system.rootfs "/" -i &&
+  luet install entities/acct-base --nodeps --force --relax -y &&
   luet install --relax --force
   system/luet-extensions-live
   system/luet-devkit
-  entities/acct-base
   entities/acct-boot
   entities/acct-emulation
   entities/acct-office
