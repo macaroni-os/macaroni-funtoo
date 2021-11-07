@@ -16,6 +16,7 @@ install:
 - if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi
 - if [ ! -e /etc/group ] ; then touch /etc/group ; fi
 - if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi
+- if [ ! -e /etc/modules-load.d ] ; then mkdir /etc/modules-load.d ; fi
 # Move this to whip soon.
 - |
   export EROOT=${EROOT:-/} ; \
