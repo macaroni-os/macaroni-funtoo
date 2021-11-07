@@ -17,7 +17,7 @@ steps:
   if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi &&
   if [ ! -e /etc/group ] ; then touch /etc/group ; fi &&
   if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi
-- luet install entities/acct-base --nodeps --force --relax
+- luet install entities/acct-base --force --relax
 - >-
   luet install --relax --force
   system/luet-extensions-live
