@@ -25,6 +25,7 @@ prelude:
   toolchain/emulation
   toolchain/calamares
   toolchain/meta-repo
+  pkglist/funtoo-base
   system/entities
   utils/yq &&
   luet cleanup --config ./luet.yaml &&
@@ -32,4 +33,15 @@ prelude:
   /mos-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
   cp ./luet.yaml /mos-funtoo/etc/luet/ &&
   cd /mos-funtoo/bin &&
-  ln -s bash sh
+  ln -s bash sh &&
+  touch /mos-funtoo/etc/passwd &&
+  touch /mos-funtoo/etc/shadow &&
+  touch /mos-funtoo/etc/group &&
+  touch /mos-funtoo/etc/gshadow &&
+  /mos-funtoo/usr/bin/entities merge -s /mos-funtoo/usr/share/mocaccino/layer/funtoo-base/entities/ -a
+  --users-file /mos-funtoo/etc/passwd
+  --shadow-file /mos-funtoo/etc/shadow
+  --groups-file /mos-funtoo/etc/group
+  --gshadow-file /mos-funtoo/etc/gshadow
+# We need to run entities before base image to set users/groups
+# and to avoid errors related with user identification
