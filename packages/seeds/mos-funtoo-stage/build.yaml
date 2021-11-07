@@ -34,11 +34,12 @@ prelude:
   cp ./luet.yaml /mos-funtoo/etc/luet/ &&
   cd /mos-funtoo/bin &&
   ln -s bash sh &&
+  cd - &&
   touch /mos-funtoo/etc/passwd &&
   touch /mos-funtoo/etc/shadow &&
   touch /mos-funtoo/etc/group &&
   touch /mos-funtoo/etc/gshadow &&
-  /mos-funtoo/usr/bin/entities merge -s /mos-funtoo/usr/share/mocaccino/layer/funtoo-base/entities/ -a
+  /mos-funtoo/usr/bin/entities merge -s /mos-funtoo/usr/share/mocaccino/layers/funtoo-base/entities/ -a
   --users-file /mos-funtoo/etc/passwd
   --shadow-file /mos-funtoo/etc/shadow
   --groups-file /mos-funtoo/etc/group
