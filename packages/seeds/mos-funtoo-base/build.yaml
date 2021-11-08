@@ -16,7 +16,10 @@ steps:
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
   if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi &&
   if [ ! -e /etc/group ] ; then touch /etc/group ; fi &&
-  if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi
+  if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi &&
+  if [ ! -d /tmp ] ; then mkdir /tmp ; fi &&
+  if [ ! -d /var ] ; then mkdir /var ; fi &&
+  chmod a+x /var
 - luet install entities/acct-base --force --relax
 - >-
   luet install --relax --force
