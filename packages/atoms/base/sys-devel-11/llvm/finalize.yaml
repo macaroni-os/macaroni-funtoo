@@ -1,0 +1,12 @@
+shell:
+- "/bin/bash"
+- "-c"
+install:
+- |
+  mkdir -p ${EROOT}etc/ld.so.conf.d || true ; \
+  echo "
+  /usr/lib/llvm/11/lib
+  /usr/lib/llvm/11/lib64
+  " > ${EROOT}etc/ld.so.conf.d/06-llvm11.conf
+- ldconfig
+- env-update
