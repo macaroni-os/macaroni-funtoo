@@ -6,13 +6,14 @@ use_flags:
 - python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: python
-  version: '>=0'
-  category: dev-lang-3.7
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
-description: POSIX 1003.1e capabilities
+# Drop python rdeps to avoid runtime cycle
+#- name: python
+#  version: '>=0'
+#  category: dev-lang-3.7
+#- name: python-exec
+#  version: '>=0'
+#  category: dev-lang-2
+#description: POSIX 1003.1e capabilities
 uri:
 - https://people.redhat.com/sgrubb/libcap-ng/
 license: LGPL-2.1
