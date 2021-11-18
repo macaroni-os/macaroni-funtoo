@@ -6,15 +6,16 @@ env:
 prelude:
 - >-
   mkdir /mos-funtoo &&
-  luet upgrade &&
+  wget https://github.com/geaaru/luet/releases/download/v0.20.0-geaaru/luet-v0.20.0-geaaru-linux-amd64 -O /usr/bin/luet
+  luet upgrade --sync-repos  &&
   luet install repository/geaaru &&
-  luet install system/luet-geaaru &&
-  luet install --force --config ./luet.yaml
+  luet install system/luet-geaaru --sync-repos &&
+  luet install --force --config ./luet.yaml --sync-repos
   repository/mocaccino-funtoo
   repository/luet
   repository/geaaru
   repository/mocaccino-extra-stable &&
-  luet install --force --config ./luet.yaml --skip-finalizers --sync-repos
+  luet install --force --config ./luet.yaml --skip-finalizers --sync-repos --solver-type solverv2
   system/luet-geaaru
   toolchain/base
   toolchain/boot
