@@ -7,6 +7,7 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 - |
+  cp patches/networkmanager-vpnc-1.2.6.ebuild /var/git/meta-repo/kits/net-kit/net-vpn/networkmanager-vpnc/
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
