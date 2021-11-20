@@ -1,0 +1,9 @@
+package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
+includes:
+- ^/var/db/pkg
+- ^/var/db$
+- ^/var$
+requires:
+- name: python-backports_abc
+  version: "0"
+  category: virtual
