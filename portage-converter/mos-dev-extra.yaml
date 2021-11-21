@@ -61,13 +61,28 @@ artefacts:
 
 - tree: packages/atoms-extra/dev
   uses:
-    disabled:
+    enabled:
       - conch
+      - crypt
+      - soap
+    disabled:
       - examples
   packages:
     - dev-python/twisted
     - dev-python/automat
     - sys-apps/metatools
+
+- tree: packages/atoms-extra/dev
+  ignore_build_deps: true
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: mos-funtoo-base
+  packages:
+    - virtual/python-backports_abc
+    - virtual/python-futures
+    - virtual/python-singledispatch
 
 - tree: packages/atoms-extra/dev
   uses:
@@ -84,6 +99,7 @@ artefacts:
       - curl_ssl_nss
       - test
     enabled:
+      - ssl
       - curl_ssl_openssl
       - python_targets_python3_7
       - python_targets_python2_7
@@ -1576,6 +1592,7 @@ build_layers:
       - virtual/perl-podlators:0
       - virtual/perl-version:0
       - virtual/pkgconfig:0
+      - virtual/python-cffi:0
       - virtual/python-enum34:0
       - virtual/python-ipaddress:0
       - virtual/python-typing:0
