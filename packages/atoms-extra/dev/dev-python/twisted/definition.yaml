@@ -1,23 +1,23 @@
 name: twisted
-version: 18.7.0
+version: "18.7.0+1"
 category: dev-python
 use_flags:
-- -conch
+- -http2
+- -python_targets_python2_7
+- -python_targets_python3_7
+- -serial
 - -test
+- conch
 - crypt
-- http2
-- python_targets_python2_7
-- python_targets_python3_7
-- serial
 - soap
 requires:
+- name: appdirs
+  version: '>=0'
+  category: dev-python
 - name: automat
   version: '>=0'
   category: dev-python
 - name: constantly
-  version: '>=0'
-  category: dev-python
-- name: hyper-h2
   version: '>=0'
   category: dev-python
 - name: hyperlink
@@ -29,19 +29,13 @@ requires:
 - name: incremental
   version: '>=0'
   category: dev-python
-- name: priority
+- name: pyasn1
   version: '>=0'
   category: dev-python
 - name: pyhamcrest
   version: '>=0'
   category: dev-python
-- name: pyserial
-  version: '>=0'
-  category: dev-python
 - name: service_identity
-  version: '>=0'
-  category: dev-python
-- name: soappy
   version: '>=0'
   category: dev-python
 description: An asynchronous networking framework written in Python
