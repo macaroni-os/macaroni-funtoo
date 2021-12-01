@@ -10,7 +10,7 @@ export ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 DESTINATION?=$(ROOT_DIR)/build
 COMPRESSION?=zstd
 export TREE?=$(ROOT_DIR)/packages
-REPO_CACHE?=quay.io/mocaccinocache/funtoo-amd64-cache
+REPO_CACHE?=quay.io/geaaru/funtoo-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
 SUDO?=
@@ -56,8 +56,8 @@ create-repo:
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
-    --name "mocaccino-funtoo" \
-    --descr "Mocaccino Funtoo $(ARCH)" \
+    --name "rhos-funtoo" \
+    --descr "RockHopper Funtoo $(ARCH)" \
     --urls "http://localhost:8000" \
     --tree-compression $(COMPRESSION) \
     --tree-filename tree.tar \
