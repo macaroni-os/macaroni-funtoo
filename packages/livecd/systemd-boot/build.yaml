@@ -1,0 +1,15 @@
+# This spec is meant to be consumed only from a root image which ends up being used as uefi image.
+
+prelude:
+- wget https://github.com/ivandavidov/systemd-boot/releases/download/systemd-boot_26-May-2018/systemd-boot_26-May-2018.tar.xz
+- mkdir -p /systemd-boot
+- tar -xvf systemd-boot_26-May-2018.tar.xz -C /systemd-boot
+steps:
+- mkdir -p {{ .Values.name }}/EFI/BOOT
+- cp /systemd-boot/systemd-boot*/uefi_root/EFI/BOOT/BOOTx64.EFI /{{ .Values.name }}/EFI/BOOT
+- cp /systemd-boot/systemd-boot*/uefi_root/EFI/BOOT/BOOTIA32.EFI /{{ .Values.name }}/EFI/BOOT
+package_dir: /{{ .Values.name }}
+requires:
+- category: "live"
+  name: "syslinux"
+  version: ">=0"
