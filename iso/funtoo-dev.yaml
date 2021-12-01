@@ -5,7 +5,6 @@ packages:
   - system/entities
   - system/luet-geaaru
   - system/luet-extensions
-  - utils/yip
   - utils/yq
   - utils/jq
 
@@ -18,7 +17,6 @@ packages:
   - virtual/mocaccino-kernel-lts
 
   - system/mocaccino-init
-  - system/mocaccino-wallpaper
   - system/mocaccino-funtoo-calamares
   - mocaccino/live-setup
   - mocaccino-release/funtoo
@@ -157,12 +155,10 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/luet
   - repository/livecd
   - repository/geaaru
-  - repository/mocaccino-extra
-  #- repository/mocaccino-kernel
-  - repository/mocaccino-funtoo
+  - repository/mottainai-stable
+  - repository/rhos-funtoo
   - repository/mocaccino-os-commons
 
 initramfs:
@@ -170,7 +166,7 @@ initramfs:
   rootfs_file: "Initrd"
 
 overlay: "true"
-image_prefix: "MocaccinoOS-Funtoo-Gnome-0."
+image_prefix: "RockHopper-Funtoo-Gnome-0."
 image_date: "true"
 
 overlay_hooks:
