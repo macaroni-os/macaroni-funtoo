@@ -1,24 +1,22 @@
-FROM quay.io/mocaccino/extra
+FROM alpine
 RUN mkdir /funtoo-minimal/etc/ -p && \
       touch /funtoo-minimal/etc/passwd && \
       touch /funtoo-minimal/etc/shadow && \
       touch /funtoo-minimal/etc/group && \
       touch /funtoo-minimal/etc/gshadow
 
-FROM quay.io/luet/base:develop
+FROM rhos/luet:latest
 ADD conf/luet.yaml.docker /etc/luet/luet.yaml
-COPY luet /usr/bin/luet
+#COPY luet /usr/bin/luet
 #ADD https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml /etc/luet/repos.conf.d/
 
 COPY --from=0 /funtoo-minimal/ /
 ENV USER=root
 
-SHELL ["/usr/bin/luet", "install", "-y"]
-RUN repository/luet
-RUN repository/geaaru-stable
-RUN repository/mocaccino-os-commons
-RUN repository/mocaccino-extra
-RUN repository/mocaccino-funtoo
+SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos", "--relax"]
+RUN repository/geaaru
+RUN repository/mottainai-stable
+RUN repository/rhos-funtoo
 
 RUN system/entities
 RUN pkglist/funtoo-base
@@ -26,9 +24,9 @@ RUN pkglist/funtoo-base
 SHELL ["entities", "merge", "-a", "-s"]
 RUN /usr/share/mocaccino/layers/funtoo-base/entities/
 
-SHELL ["/usr/bin/luet", "install", "-y", "-d"]
+SHELL ["/usr/bin/luet", "install", "-y", "--relax", "--force"]
 
-#RUN system/luet
+#RUN system/luet-geaaru
 RUN sys-apps/shadow
 RUN sys-apps/sed
 RUN app-shells/bash
