@@ -7,6 +7,9 @@ packages=$(luet tree pkglist -t $SOURCE_PKGS_DIR | grep -v "\-portage$")
 
 definition_file=${TARGET_PKG}/definition.yaml
 
+# Delete current requires
+yq d ${definition_file} "requires" -i
+
 p=0
 for i in ${packages};
 do
