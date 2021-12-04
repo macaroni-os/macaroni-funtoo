@@ -1,0 +1,6 @@
+image: "rhos/funtoo-minimal"
+prelude:
+- >-
+  mkdir -p /{{ .Values.names }}/etc/dracut.conf.d &&
+  mv 99-rhos.conf /{{ .Values.name }}/etc/dracut.conf.d/
+package_dir: /{{ .Values.name }}
