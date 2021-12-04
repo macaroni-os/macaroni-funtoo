@@ -115,7 +115,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: mos-funtoo-base
+          name: rhos-funtoo-base
   packages:
     - virtual/python-backports_abc
     - virtual/python-futures
@@ -312,7 +312,7 @@ reposcan_disabled_keywords:
 
 build_layers:
   - layer:
-      name: mos-funtoo-base
+      name: rhos-funtoo-base
       category: seed
 # lxc exec test-luet-funtoo -- /bin/bash -c 'pkgs-checker  pkglist  show -r /usr/share/mocaccino/layers/funtoo-server/pkgslist -j  -p  -v' | jq '.packages[] | "- " + .category + "/" + .name + ":" + .slot' -r | sort >> portage-converter/server.yaml
 #pkgs-checker  pkglist  show -r /usr/share/mocaccino/layers/funtoo-boot/pkgslist -j  -p  -v | jq '.packages[] | "- " + .category + "/" + .name + ":" + .slot' -r | sort
