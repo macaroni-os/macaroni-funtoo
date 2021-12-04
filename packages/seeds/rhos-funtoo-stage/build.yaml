@@ -1,15 +1,15 @@
-image: "quay.io/mocaccino/extra"
+image: "alpine"
 env:
 - LUET_YES=true
 - LUET_NOLOCK=true
 - HTTP_TIMEOUT=0
 prelude:
 - >-
+  apk add wget &&
   mkdir /rhos-funtoo &&
   wget https://github.com/geaaru/luet/releases/download/v0.21.2-geaaru/luet-v0.21.2-geaaru-linux-amd64 -O /usr/bin/luet &&
   luet upgrade --sync-repos  &&
   luet install repository/geaaru &&
-  luet install system/luet-geaaru --sync-repos &&
   luet install --force --config ./luet.yaml --sync-repos
   repository/rhos-funtoo
   repository/mottainai-stable &&
