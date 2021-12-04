@@ -26,7 +26,7 @@ RUN /usr/share/mocaccino/layers/funtoo-base/entities/
 
 SHELL ["/usr/bin/luet", "install", "-y", "--relax", "--force"]
 
-#RUN system/luet-geaaru
+RUN system/luet-geaaru
 RUN sys-apps/shadow
 RUN sys-apps/sed
 RUN app-shells/bash
@@ -34,7 +34,6 @@ RUN sys-devel-9.2.0/gcc
 
 
 RUN sys-apps/iproute2
-RUN sys-libs/readline
 RUN sys-apps/sysvinit
 
 RUN sys-apps/coreutils
