@@ -65,12 +65,49 @@ artefacts:
       - conch
       - crypt
       - soap
+      - python_targets_python3_7
+      - python_targets_python2_7
+    disabled:
+      - examples
+  packages:
+    - dev-python/automat
+    - dev-python/pyserial
+    - sys-apps/metatools
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      packages:
+        # TODO: check and test what are the all needed bdep
+        - name: appdirs
+          category: dev-python
+        - name: automat
+          category: dev-python
+        - name: constantly
+          category: dev-python
+        - name: hyperlink
+          category: dev-python
+        - name: idna
+          category: dev-python
+        - name: incremental
+          category: dev-python
+        - name: pyhamcrest
+          category: dev-python
+        - name: service_identity
+          category: dev-python
+        - name: soappy
+          category: dev-python
+  uses:
+    enabled:
+      - conch
+      - crypt
+      - soap
+      - python_targets_python3_7
+      - python_targets_python2_7
     disabled:
       - examples
   packages:
     - dev-python/twisted
-    - dev-python/automat
-    - sys-apps/metatools
 
 - tree: packages/atoms-extra/dev
   ignore_build_deps: true
