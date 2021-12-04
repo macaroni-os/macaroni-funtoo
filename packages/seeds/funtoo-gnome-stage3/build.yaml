@@ -1,11 +1,13 @@
 image: "alpine"
-env: 
+env:
 - LUET_YES=true
 - HTTP_TIMEOUT=0
 - STAGE_VERSION={{ ( index .Values.labels "package.version" ) }}
 prelude:
 - apk --no-cache add ca-certificates tar wget xz rsync curl
-- curl https://get.mocaccino.org/luet/get_luet_root.sh | sh
+- >-
+  wget https://github.com/geaaru/luet/releases/download/v0.21.2-geaaru/luet-v0.21.2-geaaru-linux-amd64 -O /usr/bin/luet &&
+  chmod a+x /usr/bin/luet
 #- wget https://build.funtoo.org/{{ ( index .Values.labels "release" ) }}-release-std/x86-64bit/generic_64/${STAGE_VERSION}/gnome-stage3-generic_64-1.4-release-std-${STAGE_VERSION}.tar.xz -O /stage3.tar.xz
 #- |
 #  mkdir /{{ .Values.name }} && \
