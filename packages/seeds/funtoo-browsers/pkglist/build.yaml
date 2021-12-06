@@ -1,11 +1,11 @@
 requires:
 - category: "seed"
   name: "funtoo-browsers"
-  version: "0.20210930"
+  version: ">=0"
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  mkdir -p /{{ .Values.name }}/usr/share/rhos/layers/{{ .Values.name }}/entities/ &&
-  entities dump -t /{{ .Values.name }}/usr/share/rhos/layers/{{ .Values.name }}/entities/ &&
-  qlist -ICSv > /{{ .Values.name }}/usr/share/rhos/layers/{{ .Values.name }}/pkgslist
+  mkdir -p /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
+  entities dump -t /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
+  qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist
 
