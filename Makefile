@@ -56,8 +56,8 @@ create-repo:
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
-    --name "rhos-funtoo" \
-    --descr "RockHopper Funtoo $(ARCH)" \
+    --name "macaroni-funtoo" \
+    --descr "Macaroni OS Funtoo $(ARCH)" \
     --urls "http://localhost:8000" \
     --tree-compression $(COMPRESSION) \
     --tree-filename tree.tar \
@@ -76,19 +76,11 @@ autobump: auto-bump
 repository:
 	mkdir -p $(ROOT_DIR)/repository
 
-repository/luet:
-	git clone -b master --single-branch https://github.com/Luet-lab/luet-repo $(ROOT_DIR)/repository/luet
+repository/mottainai:
+	git clone -b master --single-branch https://github.com/MottainaiCI/repo-stable $(ROOT_DIR)/repository/mottainai
 
-repository/extra:
-	git clone -b master --single-branch https://github.com/mocaccinoos/mocaccino-extra $(ROOT_DIR)/repository/extra
-	cd $(ROOT_DIR)/repository/extra && git checkout b4c9768f9768c24d45eff9096f53ec2333ffb80f && cd -
+repository/geaaru:
+	git clone -b master --single-branch https://github.com/geaaru/luet-specs $(ROOT_DIR)/repository/geaaru
 
-repository/commons:
-	git clone -b master --single-branch https://github.com/mocaccinoos/os-commons $(ROOT_DIR)/repository/commons
-	cd $(ROOT_DIR)/repository/commons && git checkout cc28b422f5497f69af3fd137579055902b7dff0f && cd -
-
-repository/kernel:
-	git clone -b master --single-branch https://github.com/mocaccinoos/kernel-repo $(ROOT_DIR)/repository/kernel-repo
-
-validate: repository repository/luet repository/extra repository/commons repository/kernel
+validate: repository repository/mottainai repository/geaaru
 	$(LUET) tree validate --tree $(ROOT_DIR)/repository --tree $(TREE) $(VALIDATE_OPTIONS)
