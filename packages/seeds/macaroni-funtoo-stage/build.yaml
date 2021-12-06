@@ -6,13 +6,13 @@ env:
 prelude:
 - >-
   apk add wget bash &&
-  mkdir /rhos-funtoo &&
+  mkdir /macaroni-funtoo &&
   wget https://github.com/geaaru/luet/releases/download/v0.21.2-geaaru/luet-v0.21.2-geaaru-linux-amd64 -O /usr/bin/luet &&
   chmod a+x /usr/bin/luet &&
   luet upgrade --sync-repos  &&
   luet install repository/geaaru &&
   luet install --force --config ./luet.yaml --sync-repos
-  repository/rhos-funtoo
+  repository/macaroni-funtoo
   repository/mottainai-stable &&
   luet install --force --config ./luet.yaml --skip-finalizers --sync-repos --solver-type solverv2
   system/luet-geaaru
@@ -30,20 +30,20 @@ prelude:
   system/entities
   utils/yq &&
   luet cleanup --config ./luet.yaml &&
-  mkdir -p /rhos-funtoo/etc/luet &&
-  /rhos-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
-  cp ./luet.yaml /rhos-funtoo/etc/luet/ &&
-  cd /rhos-funtoo/bin &&
+  mkdir -p /macaroni-funtoo/etc/luet &&
+  /macaroni-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
+  cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
+  cd /macaroni-funtoo/bin &&
   ln -s bash sh &&
   cd - &&
-  touch /rhos-funtoo/etc/passwd &&
-  touch /rhos-funtoo/etc/shadow &&
-  touch /rhos-funtoo/etc/group &&
-  touch /rhos-funtoo/etc/gshadow &&
-  /rhos-funtoo/usr/bin/entities merge -s /rhos-funtoo/usr/share/rhos/layers/funtoo-base/entities/ -a
-  --users-file /rhos-funtoo/etc/passwd
-  --shadow-file /rhos-funtoo/etc/shadow
-  --groups-file /rhos-funtoo/etc/group
-  --gshadow-file /rhos-funtoo/etc/gshadow
+  touch /macaroni-funtoo/etc/passwd &&
+  touch /macaroni-funtoo/etc/shadow &&
+  touch /macaroni-funtoo/etc/group &&
+  touch /macaroni-funtoo/etc/gshadow &&
+  /macaroni-funtoo/usr/bin/entities merge -s /macaroni-funtoo/usr/share/macaroni/layers/funtoo-base/entities/ -a
+  --users-file /macaroni-funtoo/etc/passwd
+  --shadow-file /macaroni-funtoo/etc/shadow
+  --groups-file /macaroni-funtoo/etc/group
+  --gshadow-file /macaroni-funtoo/etc/gshadow
 # We need to run entities before base image to set users/groups
 # and to avoid errors related with user identification
