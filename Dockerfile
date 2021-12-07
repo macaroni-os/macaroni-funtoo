@@ -5,7 +5,7 @@ RUN mkdir /funtoo-minimal/etc/ -p && \
       touch /funtoo-minimal/etc/group && \
       touch /funtoo-minimal/etc/gshadow
 
-FROM rhos/luet:latest
+FROM macaronios/luet:latest
 ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 #COPY luet /usr/bin/luet
 #ADD https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml /etc/luet/repos.conf.d/
@@ -16,13 +16,13 @@ ENV USER=root
 SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos", "--relax"]
 RUN repository/geaaru
 RUN repository/mottainai-stable
-RUN repository/rhos-funtoo
+RUN repository/macaroni-funtoo
 
 RUN system/entities
 RUN pkglist/funtoo-base
 
 SHELL ["entities", "merge", "-a", "-s"]
-RUN /usr/share/mocaccino/layers/funtoo-base/entities/
+RUN /usr/share/macaroni/layers/funtoo-base/entities/
 
 SHELL ["/usr/bin/luet", "install", "-y", "--relax", "--force"]
 
