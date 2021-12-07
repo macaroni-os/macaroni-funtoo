@@ -14,12 +14,11 @@ RE_IS_COMMENT = re.compile("^ *#")
 # on the installed rootfs at the
 # end of the installation process.
 luet_packages2remove = [
-    "mocaccino/live-setup",
-    "kernel/mocaccino-lts-initramfs",
-    "system/mocaccino-funtoo-calamares",
+    "macaroni/live-setup",
+    "kernel/macaroni-lts-initramfs",
+    "system/macaroni-funtoo-calamares",
     "virtual/calamares",
     "app-admin-5/calamares",
-    "repository/livecd",
 ]
 
 
@@ -118,7 +117,7 @@ def configure_services(root_install_path):
 
 
 def run():
-    """ Mocaccino Calamares Post-install module """
+    """ RockHopper Calamares Post-install module """
     # Get install path
     install_path = libcalamares.globalstorage.value('rootMountPoint')
     setup_locales(install_path)
@@ -126,7 +125,7 @@ def run():
 
     # Temporary. I hope to find a better way.
     libcalamares.utils.target_env_call([
-        'userdel', '-f', '-r', 'mocaccino',
+        'userdel', '-f', '-r', 'rockhopper',
     ])
 
     #configure_services(install_path)
@@ -139,7 +138,7 @@ def run():
         for pkg in luet_packages2remove:
             libcalamares.utils.target_env_call(args + [pkg])
 
-    # It's better run this after that is uninstalled mocaccino initramfs package.
+    # It's better run this after that is uninstalled rockhopper initramfs package.
     libcalamares.utils.target_env_call([
         'mos', 'kernel', 'gi', '--all',
         '--set-links', '--purge', '--grub',
