@@ -34,7 +34,7 @@ Presentation
 		anchors.fill: parent
 		Image {
 			id: background1
-			source: "1.png"
+			source: "home.jpg"
 			anchors.fill: parent
 		}
 	}
