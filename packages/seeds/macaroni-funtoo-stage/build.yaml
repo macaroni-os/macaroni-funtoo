@@ -3,6 +3,10 @@ env:
 - LUET_YES=true
 - LUET_NOLOCK=true
 - HTTP_TIMEOUT=0
+# On local docker installation setting this value
+# reduce the possibility to receive error with DNS inside
+# the docker container.
+#- LUET_GENERAL__CONCURRENCY=4
 prelude:
 - >-
   apk add wget bash &&
@@ -12,6 +16,7 @@ prelude:
   luet upgrade --sync-repos  &&
   luet install repository/geaaru &&
   luet install --force --config ./luet.yaml --sync-repos
+  repository/geaaru
   repository/macaroni-funtoo
   repository/mottainai-stable &&
   luet install --force --config ./luet.yaml --skip-finalizers --sync-repos --solver-type solverv2
