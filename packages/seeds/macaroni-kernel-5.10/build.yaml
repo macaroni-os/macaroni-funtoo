@@ -4,10 +4,10 @@ env:
 - KERNEL_VERSION={{ ( index .Values.labels "kernel.version" ) }}
 prelude:
 - >-
-  luet install repository/geaaru &&
-  luet install kernel/mocaccino-lts-sources &&
+  luet install repository/macaroni-commons &&
+  luet install --sync-repos kernel/macaroni-lts-sources &&
   luet cleanup &&
-  cd /usr/src && eval 'rm linux || true' && ln -s linux-$KERNEL_VERSION-mocaccino linux
+  cd /usr/src && eval 'rm linux || true' && ln -s linux-$KERNEL_VERSION-macaroni linux
 requires:
 - category: "seed"
   name: "funtoo-base"
