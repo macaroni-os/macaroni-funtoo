@@ -4,14 +4,14 @@ install:
 - >-
   ldconfig &&
   source /etc/profile && env &&
-  source /var/lib/mocaccino/live-functions.sh && prepare
+  source /var/lib/macaroni/live-functions.sh && prepare
 # This is needed because `mos kernel gi` is skipped.
 - cd boot && ln -s kernel-* bzImage || true
 - cd boot && ln -s initramfs-* Initrd || true
 - chmod a+rx /var/
 - chown gdm:gdm -R /var/lib/gdm/
 # To replace with whip soon
-- source /usr/share/mocaccino-funtoo/triggers/triggers-loader && mime_update_db
+- source /usr/share/macaroni-funtoo/triggers/triggers-loader && mime_update_db
 shell:
 - bash
 - -c
