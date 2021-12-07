@@ -1,10 +1,10 @@
-image: "quay.io/mocaccino/extra"
+image: "macaronios/funtoo-minimal"
 steps:
 # Modules
 - mkdir -p /{{.Values.name}}/etc/calamares/
 - mkdir -p /{{.Values.name}}/usr/lib64/calamares/modules/
 - cp -rfv modules-conf/* /{{.Values.name}}/etc/calamares/
-- cp -rfv mocaccino /{{.Values.name}}/usr/lib64/calamares/modules/
+- cp -rfv macaroni /{{.Values.name}}/usr/lib64/calamares/modules/
 # Desktop icons, launcher
 - mkdir -p /{{.Values.name}}/usr/bin
 - mkdir -p /{{.Values.name}}/etc/skel/Desktop
