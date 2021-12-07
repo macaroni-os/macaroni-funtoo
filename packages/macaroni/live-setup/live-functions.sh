@@ -11,7 +11,7 @@ SDDM_FILE="/etc/sddm.conf"
 LIVE_USER_GROUPS="audio bumblebee cdrom cdrw clamav console games \
 kvm lp lpadmin messagebus plugdev polkituser portage pulse pulse-access pulse-rt \
 scanner usb users uucp vboxguest vboxusers video wheel"
-LIVE_USER=mocaccino
+LIVE_USER=macaroni
 LIVE_PERSISTENT_HOME_LABEL="live:/home"
 
 setup_autologin() {
@@ -255,7 +255,7 @@ prepare() {
 
   EROOT=""
 
-  source /usr/share/mocaccino-funtoo/triggers/triggers-loader
+  source /usr/share/macaroni-funtoo/triggers/triggers-loader
 
   # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
   rm /etc/shadow || true
@@ -278,21 +278,21 @@ prepare() {
 
   echo "Europe/Rome" > /etc/timezone
 
-  # Create root and mocaccino user
-  entities merge -s /var/lib/mocaccino/entities -a
+  # Create root and macaroni user
+  entities merge -s /var/lib/macaroni/entities -a
 
   echo "Creating /etc/inittab..."
-  cp /var/lib/mocaccino/inittab /etc/inittab -v
+  cp /var/lib/macaroni/inittab /etc/inittab -v
 
   # Create all others entities
   main_layer="funtoo-base"
-  entities merge -s /usr/share/mocaccino/layers/${main_layer}/entities/ \
-    -s /usr/share/mocaccino/layers/funtoo-boot/entities/ -a
+  entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
+    -s /usr/share/macaroni/layers/funtoo-boot/entities/ -a
 
-  entities merge -s /var/lib/mocaccino/entities-mocaccino-groups -a
+  entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
-  echo "mocaccino-funtoo" > /etc/hostname
-  sed -i -e 's|^hostname=.*|hostname="mocaccino-funtoo"|' /etc/conf.d/hostname
+  echo "macaroni-funtoo" > /etc/hostname
+  sed -i -e 's|^hostname=.*|hostname="macaroni-funtoo"|' /etc/conf.d/hostname
 
   openrc_init_runlevels
 
@@ -325,8 +325,8 @@ prepare() {
     done
 
     echo "
-127.0.0.1   mocaccino-funtoo localhost
-::1         mocaccino-funtoo localhost
+127.0.0.1   macaroni-funtoo localhost
+::1         macaroni-funtoo localhost
 "   > /etc/hosts
 
     # Temporary. Maybe it's better set UTC here.
@@ -381,12 +381,12 @@ prepare() {
     fi
 
     # Temporary fix until entities will handle this
-    mkdir -p /home/mocaccino
-    chown mocaccino:users -R /home/mocaccino
+    mkdir -p /home/macaroni
+    chown macaroni:users -R /home/macaroni
 
     #sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
 
-    echo "mocaccino ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-mocaccino
+    echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
 
     ldconfig
 }

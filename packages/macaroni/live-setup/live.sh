@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /var/lib/mocaccino/live-functions.sh
+. /var/lib/macaroni/live-functions.sh
 
 CMDLINE=$(cat /proc/cmdline 2> /dev/null)
 
