@@ -22,6 +22,7 @@ prelude:
   +mediaformat-video-extra
   +mediadevice-video-pro
   +vmware-guest &&
+  emerge --unmerge x11-libs/amtk &&
   FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
   emerge -t -j $JOBS -uDN @world &&
   rm -rf /var/cache/portage/distfiles/*
