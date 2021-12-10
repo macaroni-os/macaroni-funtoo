@@ -1,4 +1,4 @@
-image: "quay.io/mocaccino/extra"
+image: "quay.io/macaroni/extra"
 env:
 - JOBS=3
 - LUET_YES=true
@@ -11,5 +11,5 @@ package_dir: /{{ .Values.name }}
 steps:
 - >-
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} &&
-  mkdir -p /{{ .Values.name }}/usr/share/mocaccino-funtoo/triggers/ &&
-  cp -rvf scripts/* /{{ .Values.name }}/usr/share/mocaccino-funtoo/triggers/
+  mkdir -p /{{ .Values.name }}/usr/share/macaroni-funtoo/triggers/ &&
+  cp -rvf scripts/* /{{ .Values.name }}/usr/share/macaroni-funtoo/triggers/
