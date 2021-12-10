@@ -127,7 +127,7 @@ setup_live_user() {
             done
         done
         # then setup live user, that is missing
-        useradd -d "/home/${live_user}" -g root -G ${live_groups} -c "MocaccinoOS" \
+        useradd -d "/home/${live_user}" -g root -G ${live_groups} -c "MacaroniOS" \
             -m -N -p "" -s /bin/bash ${live_uid} "${live_user}"
         # setting sudoers file
         [ -e /etc/sudoers ] && grep -q -F ${live_user} /etc/sudoers || echo "${live_user} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
