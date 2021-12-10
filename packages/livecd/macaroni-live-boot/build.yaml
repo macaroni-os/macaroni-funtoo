@@ -1,0 +1,32 @@
+image: "macaronios/funtoo-minimal"
+package_dir: /{{ .Values.name }}
+env:
+- LUET_NOLOCK=true
+prelude:
+# TODO: Fix rdep of git to zstd
+- >-
+  luet repo update &&
+  luet install --relax dev-vcs/git app-arch/zstd
+- >-
+  git clone https://github.com/ivandavidov/minimal.git &&
+  cd minimal &&
+  git checkout e4ab26d8ee2e9e2e24d47852474d453b19cb0ced
+steps:
+- >-
+  mkdir -p /{{ .Values.name }}/ &&
+  mv minimal/src/minimal_boot/    /{{ .Values.name }}/boot/ &&
+  sed -i 's/Minimal/MacaroniOS/g' /{{ .Values.name }}/boot/bios/EFI/BOOT/startup.nsh
+- sed -i 's/Minimal/MacaroniOS/g' /{{ .Values.name }}/boot/bios/boot/syslinux/syslinux.cfg
+- sed -i 's/Minimal/MacaroniOS/g' /{{ .Values.name }}/boot/uefi/loader/entries/mll-x86.conf
+- sed -i 's/Minimal/MacaroniOS/g' /{{ .Values.name }}/boot/uefi/loader/entries/mll-x86_64.conf
+# Needed during ISOIMAGE creation
+- cp -rfv /{{ .Values.name }}/boot/bios/* /{{ .Values.name }}/
+- cp -rfv /{{ .Values.name }}/boot/uefi/loader /{{ .Values.name }}/
+# Drop x86 boot option
+- rm -rfv /{{ .Values.name }}/boot/uefi/loader/entries/mll-x86.conf
+- rm -rfv /{{ .Values.name }}/loader/entries/mll-x86.conf
+# Append cdroot to boot options to trigger MacaroniOS-live startup scripts
+- sed -i 's/rootfs.xz/rootfs.xz cdroot rootdelay=7/g' /{{ .Values.name }}/boot/uefi/loader/entries/mll-x86_64.conf
+- sed -i 's/rootfs.xz/rootfs.xz cdroot rootdelay=7/g' /{{ .Values.name }}/loader/entries/mll-x86_64.conf
+- sed -i 's/APPEND/APPEND cdroot rootdelay=7/g' /{{ .Values.name }}/boot/bios/boot/syslinux/syslinux.cfg
+- sed -i 's/APPEND/APPEND cdroot rootdelay=7/g' /{{ .Values.name }}/boot/syslinux/syslinux.cfg
