@@ -8,20 +8,19 @@ packages:
   - utils/yq
   - utils/jq
 
-  - mocaccino/cli
+  - app-admin/macaronictl
+  - macaroni/live-setup
+  - macaroni-release/funtoo
+  - system/macaroni-funtoo-calamares
 
   - virtual/sh
   - virtual/base
   - virtual/openrc
   - virtual/gnome
-  - virtual/mocaccino-kernel-lts
+  - virtual/macaroni-kernel-lts
 
-  - system/mocaccino-init
-  - system/mocaccino-funtoo-calamares
-  - mocaccino/live-setup
-  - mocaccino-release/funtoo
   - www-client/firefox-bin
-  - kernel/mocaccino-lts-initramfs
+  - kernel/macaroni-lts-initramfs
   - gnome-base/gnome
 
   - pkglist/funtoo-base
@@ -95,7 +94,7 @@ packages:
   # Needed for the font cache generation
   - media-fonts/encodings
 
-  # Libraries missing on runtime deps (for issue on mocaccino specs or funtoo)
+  # Libraries missing on runtime deps (for issue on macaroni specs or funtoo)
   # htop, wpa_supplicant
   - dev-libs-3/libnl
   # cd-info, cdda-player, etc.
@@ -147,30 +146,29 @@ packages:
 
   uefi:
   - live/systemd-boot
-  - system/mocaccino-live-boot
+  - system/macaroni-live-boot
   isoimage:
   - live/syslinux
-  - system/mocaccino-live-boot
+  - system/macaroni-live-boot
 
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/livecd
   - repository/geaaru
   - repository/mottainai-stable
-  - repository/rhos-funtoo
-  - repository/mocaccino-os-commons
+  - repository/macaroni-funtoo
+  - repository/macaroni-commons
 
 initramfs:
   kernel_file: "bzImage"
   rootfs_file: "Initrd"
 
 overlay: "true"
-image_prefix: "RockHopper-Funtoo-Gnome-0."
+image_prefix: "Macaroni-Funtoo-Gnome-0."
 image_date: "true"
 
 overlay_hooks:
-  - /var/lib/mocaccino/build-iso-hook.sh
+  - /var/lib/macaroni/build-iso-hook.sh
 
 luet:
   config: conf/luet-desktop-thin.yaml
