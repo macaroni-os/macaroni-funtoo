@@ -3,9 +3,9 @@ env:
 - LUET_NOLOCK=true
 - KERNEL_VERSION={{ ( index .Values.labels "kernel.version" ) }}
 prelude:
+# dev-util/kbuild is needed for virtualbox-guest-additions
 - >-
-  luet install repository/macaroni-commons &&
-  luet install --sync-repos kernel/macaroni-lts-sources &&
+  luet install --relax --sync-repos kernel/macaroni-lts-sources dev-util/kbuild &&
   luet cleanup &&
   cd /usr/src && eval 'rm linux || true' && ln -s linux-$KERNEL_VERSION-macaroni linux
 requires:
