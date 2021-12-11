@@ -8,7 +8,7 @@ env:
 prelude:
 - >-
   cd /var/git/meta-repo/kits/core-kit/sys-cluster/singularity &&
-  wget https://raw.githubusercontent.com/funtoo/core-kit/1.4-release/sys-cluster/singularity/singularity-3.8.5.ebuild
+  wget https://raw.githubusercontent.com/funtoo/core-kit/1.4-release/sys-cluster/singularity/singularity-3.8.5.ebuild &&
   ebuild singularity-3.8.5.ebuild digest
 - |
   {{- if .Values.use_flags }}
