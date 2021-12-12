@@ -1,13 +1,17 @@
-# luet-funtoo
-Funtoo Based Repository Tree
+# macaroni-funtoo
+Funtoo Macaroni Repository Tree
 
 Branches behavior:
-* `master`: Experimental tree based on layers for main packages and
-  atoms for all others packages.
+* `master`: single packages tree based on 1.4-prime release.
 
 * `next-release`: Related to the new `next-release` release of Funtoo.
   This branch will be based on only single packages and
   integrated with `luet-portage-converter`.
+
+* `systemd`: related to a not funtoo supported release with SystemD.
+  The idea is to use it only for Server ISO release and as experimental
+  base rootfs where we will develop an alternative tool that will
+  replace SystemD probably written in Golang. Stay tuned!.
 
 
 ## Generate packages with `luet-portage-converter`
