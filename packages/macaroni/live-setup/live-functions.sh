@@ -287,7 +287,9 @@ prepare() {
   # Create all others entities
   main_layer="funtoo-base"
   entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
-    -s /usr/share/macaroni/layers/funtoo-boot/entities/ -a
+    -s /usr/share/macaroni/layers/funtoo-boot/entities/ \
+    -s /usr/share/macaroni/layers/virtualbox-guest-additions/entities/ \
+    -a
 
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
