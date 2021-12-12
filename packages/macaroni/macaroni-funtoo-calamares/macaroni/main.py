@@ -141,7 +141,7 @@ def run():
 
     # It's better run this after that is uninstalled macaroni initramfs package.
     libcalamares.utils.target_env_call([
-        'mos', 'kernel', 'gi', '--all',
+        'macaronictl', 'kernel', 'gi', '--all',
         '--set-links', '--purge', '--grub',
     ])
 
