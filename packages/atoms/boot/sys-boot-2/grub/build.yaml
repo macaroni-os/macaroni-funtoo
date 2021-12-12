@@ -10,7 +10,7 @@ prelude:
   -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
   ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
-# Push mocacaccino patched script
+# Push macaroni patched script
 - chmod a+x 10_linux && cp -r 10_linux /pkgdir/{{ .Values.name }}/etc/grub.d/10_linux
 - cp grub-default /pkgdir/{{ .Values.name }}/etc/default/grub
 package_dir: /pkgdir/{{ .Values.name }}
