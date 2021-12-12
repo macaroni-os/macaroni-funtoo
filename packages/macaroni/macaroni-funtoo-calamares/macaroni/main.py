@@ -118,7 +118,7 @@ def configure_services(root_install_path):
 
 
 def run():
-    """ RockHopper Calamares Post-install module """
+    """ MacaroniOS Calamares Post-install module """
     # Get install path
     install_path = libcalamares.globalstorage.value('rootMountPoint')
     setup_locales(install_path)
@@ -126,7 +126,7 @@ def run():
 
     # Temporary. I hope to find a better way.
     libcalamares.utils.target_env_call([
-        'userdel', '-f', '-r', 'rockhopper',
+        'userdel', '-f', '-r', 'macaroni',
     ])
 
     #configure_services(install_path)
@@ -139,7 +139,7 @@ def run():
         for pkg in luet_packages2remove:
             libcalamares.utils.target_env_call(args + [pkg])
 
-    # It's better run this after that is uninstalled rockhopper initramfs package.
+    # It's better run this after that is uninstalled macaroni initramfs package.
     libcalamares.utils.target_env_call([
         'mos', 'kernel', 'gi', '--all',
         '--set-links', '--purge', '--grub',
