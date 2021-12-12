@@ -317,6 +317,8 @@ prepare() {
       "NetworkManager"
       "xdm"
 
+      "virtualbox-guest-additions"
+
 #      "cups"
 #        "cups-browsed"
     )
@@ -389,4 +391,7 @@ prepare() {
     echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
 
     ldconfig
+
+    # Setup default plymouth theme
+    plymouth-set-default-theme funtoo
 }
