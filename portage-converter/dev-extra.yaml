@@ -24,10 +24,25 @@ skipped_resolutions:
 
 include_files:
 
-build_template_file: ../templates/build-pkg-uses.yaml.tmpl
+#build_template_file: ../templates/build-pkg-uses.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
 
 artefacts:
+
+- tree: packages/atoms-extra/dev
+  annotations:
+    subsets:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - jimtcl
+  packages:
+    - sys-apps/usb_modeswitch
+
 - tree: packages/atoms-extra/dev
   uses:
     enabled:
@@ -39,7 +54,7 @@ artefacts:
       - python_single_target_python3_7
       - python_targets_python3_7
       - python_targets_python2_7
-    disable:
+    disabled:
       - lzma
       - multitarget
       - source-highlight
