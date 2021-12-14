@@ -1,0 +1,35 @@
+name: pecl-mongodb
+version: 1.7.4
+category: dev-php
+use_flags:
+- -php_targets_php7-2
+- -php_targets_php7-3
+- -php_targets_php7-4
+requires:
+- name: php
+  version: '>=0'
+  category: dev-lang-7.4
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: MongoDB driver for PHP
+uri:
+- https://pecl.php.net/mongodb
+license: Apache-2.0
+labels:
+  DEPEND: dev-lang/php >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-4? ( dev-lang/php:7.4
+    ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3
+    )
+  IUSE: php_targets_php7-4 php_targets_php7-2 php_targets_php7-3
+  RDEPEND: dev-lang/php php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php7-2?
+    ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 )
+  emerge.packages: dev-php/pecl-mongodb
+  kit: core-server-kit
+  original.package.name: dev-php/pecl-mongodb
+  original.package.slot: "0"
+  original.package.version: 1.7.4
