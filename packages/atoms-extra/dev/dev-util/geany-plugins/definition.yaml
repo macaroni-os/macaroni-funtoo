@@ -1,0 +1,69 @@
+name: geany-plugins
+version: "1.36"
+category: dev-util
+use_flags:
+- -ctags
+- -debugger
+- -enchant
+- -gpg
+- -gtkspell
+- -lua
+- -nls
+- -pretty-printer
+- -scope
+- -soup
+- -workbench
+- git
+- gtk3
+- markdown
+requires:
+- name: discount
+  version: '>=0'
+  category: app-text
+- name: libgit2
+  version: '>=0'
+  category: dev-libs
+- name: geany
+  version: '>=0'
+  category: dev-util
+- name: webkit-gtk
+  version: '>=0'
+  category: net-libs-4
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: A collection of different plugins for Geany
+uri:
+- https://plugins.geany.org
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig nls? ( sys-devel/gettext )
+  DEPEND: dev-libs/glib:2 >=dev-util/geany-1.35[gtk3=] gtk3? ( x11-libs/gtk+:3 ) !gtk3?
+    ( x11-libs/gtk+:2 ) ctags? ( dev-util/ctags ) debugger? ( gtk3? ( x11-libs/vte:2.91
+    ) !gtk3? ( x11-libs/vte:0 ) ) enchant? ( app-text/enchant:= ) git? ( dev-libs/libgit2:=
+    ) gpg? ( app-crypt/gpgme:1= ) gtkspell? ( gtk3? ( app-text/gtkspell:3= ) !gtk3?
+    ( app-text/gtkspell:2 ) ) lua? ( dev-lang/lua:0= ) markdown? ( app-text/discount
+    net-libs/webkit-gtk:4 ) pretty-printer? ( dev-libs/libxml2:2 ) scope? ( gtk3?
+    ( x11-libs/vte:2.91 ) !gtk3? ( x11-libs/vte:0 ) ) soup? ( net-libs/libsoup:2.4
+    ) workbench? ( dev-libs/libgit2:= )
+  IUSE: +gtk3 ctags debugger enchant git gpg gtkspell lua markdown nls pretty-printer
+    scope soup workbench
+  RDEPEND: dev-libs/glib:2 >=dev-util/geany-1.35[gtk3=] gtk3? ( x11-libs/gtk+:3 )
+    !gtk3? ( x11-libs/gtk+:2 ) ctags? ( dev-util/ctags ) debugger? ( gtk3? ( x11-libs/vte:2.91
+    ) !gtk3? ( x11-libs/vte:0 ) ) enchant? ( app-text/enchant:= ) git? ( dev-libs/libgit2:=
+    ) gpg? ( app-crypt/gpgme:1= ) gtkspell? ( gtk3? ( app-text/gtkspell:3= ) !gtk3?
+    ( app-text/gtkspell:2 ) ) lua? ( dev-lang/lua:0= ) markdown? ( app-text/discount
+    net-libs/webkit-gtk:4 ) pretty-printer? ( dev-libs/libxml2:2 ) scope? ( gtk3?
+    ( x11-libs/vte:2.91 ) !gtk3? ( x11-libs/vte:0 ) ) soup? ( net-libs/libsoup:2.4
+    ) workbench? ( dev-libs/libgit2:= ) scope? ( sys-devel/gdb )
+  emerge.packages: dev-util/geany-plugins
+  kit: xfce-kit
+  original.package.name: dev-util/geany-plugins
+  original.package.slot: "0"
+  original.package.version: 1.36-r2
