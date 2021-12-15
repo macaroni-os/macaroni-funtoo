@@ -11,7 +11,7 @@ prelude:
   luet i -y app-admin/whip --relax &&
   mkdir catalog &&
   wget -O catalog/db.yaml https://raw.githubusercontent.com/geaaru/whip-catalog/master/catalog/eclass/eclass_db.yaml &&
-  whip hook --specs-dir ./catalog eclass.db_fix_so
+  whip hook --specs-dir ./catalog eclass_db.db_fix_so
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
