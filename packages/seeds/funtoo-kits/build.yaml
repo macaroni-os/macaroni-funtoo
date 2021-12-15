@@ -43,5 +43,11 @@ prelude:
   cp patches/kbuild /var/git/meta-repo/kits/dev-kit/dev-util/ -rf &&
   cd /var/git/meta-repo/kits/dev-kit/dev-util/kbuild &&
   ebuild kbuild-0.1.9998.3407.ebuild digest
-
+- >-
+  cp patches/java/* /var/git/meta-repo/kits/java-kit/ -rfv &&
+  cd /var/git/meta-repo/kits/java-kit/dev-java/openjdk-bin/ &&
+  ebuild openjdk-bin-11.0.13_p8.ebuild digest &&
+  ebuild openjdk-bin-17.0.1_p12.ebuild digest &&
+  cd /var/git/meta-repo/kits/java-kit/dev-java/openjdk-jre-bin/ &&
+  ebuild openjdk-jre-bin-11.0.11_p9.ebuild digest
 
