@@ -8,7 +8,7 @@ env:
 prelude:
 # Install whip and setup db.h includes
 - >-
-  luet -y i app-admin/whip --relax &&
+  luet i -y app-admin/whip --relax &&
   mkdir catalog &&
   wget -O catalog/db.yaml https://raw.githubusercontent.com/geaaru/whip-catalog/master/catalog/eclass/eclass_db.yaml &&
   whip hook --specs-dir ./catalog eclass.db_fix_so
