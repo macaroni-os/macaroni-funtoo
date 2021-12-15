@@ -8,6 +8,7 @@ use_flags:
 - -enchant
 - -ffi
 - -firebird
+- -imap
 - -iodbc
 - -ldap
 - -ldap-sasl
@@ -20,6 +21,7 @@ use_flags:
 - -selinux
 - -session-mm
 - -sodium
+- -spell
 - -tokyocabinet
 - -webp
 - acl
@@ -32,7 +34,6 @@ use_flags:
 - gdbm
 - gmp
 - iconv
-- imap
 - intl
 - kerberos
 - nls
@@ -40,7 +41,6 @@ use_flags:
 - postgres
 - readline
 - snmp
-- spell
 - sqlite
 - ssl
 - tidy
@@ -52,6 +52,9 @@ use_flags:
 - zip
 - zlib
 requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
 - name: eselect-php
   version: '>=0'
   category: app-eselect
@@ -61,6 +64,9 @@ requires:
 - name: acl
   version: '>=0'
   category: sys-apps
+- name: apache
+  version: '>=0'
+  category: www-servers-2
 annotations:
   subsets:
     devel:
