@@ -10,7 +10,7 @@ prelude:
 - >-
   luet i -y app-admin/whip --relax &&
   mkdir catalog &&
-  wget -O catalog/db.yaml https://raw.githubusercontent.com/geaaru/whip-catalog/master/catalog/eclass/eclass_db.yaml &&
+  wget -O catalog/eclass_db.yaml https://raw.githubusercontent.com/geaaru/whip-catalog/master/catalog/eclass/eclass_db.yaml &&
   whip hook --specs-dir ./catalog eclass_db.db_fix_so
 - |
   {{- if .Values.use_flags }}
