@@ -168,6 +168,11 @@ artefacts:
     - net-analyzer/net-snmp
 
 - tree: packages/atoms-extra/php
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
   annotations:
     subsets:
       devel:
@@ -183,6 +188,22 @@ artefacts:
       - mysql
   packages:
     - dev-libs/oniguruma:0
+
+- tree: packages/atoms-extra/php
+  annotations:
+    subsets:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+  uses:
+    enabled:
+    disabled:
+      - examples
+      - test
+      - X
+      - mysql
+  packages:
     - app-text/tidy-html5
 
 
