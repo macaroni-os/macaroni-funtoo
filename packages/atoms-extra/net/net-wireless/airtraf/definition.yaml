@@ -1,0 +1,28 @@
+name: airtraf
+version: "1.1"
+category: net-wireless
+requires:
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: AirTraf 802.11b Wireless traffic sniffer
+uri:
+- http://www.elixar.com/
+license: GPL-2
+labels:
+  DEPEND: net-libs/libpcap sys-libs/ncurses:= virtual/pkgconfig
+  RDEPEND: net-libs/libpcap sys-libs/ncurses:=
+  emerge.packages: net-wireless/airtraf
+  kit: net-kit
+  original.package.name: net-wireless/airtraf
+  original.package.slot: "0"
+  original.package.version: 1.1-r3
