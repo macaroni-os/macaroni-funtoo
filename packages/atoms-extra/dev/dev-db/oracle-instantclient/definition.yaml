@@ -1,0 +1,28 @@
+name: oracle-instantclient
+version: 18.3.0.0
+category: dev-db
+requires:
+- name: libaio
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: Oracle 18c Instant Client with SDK
+uri:
+- https://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html
+license: OTN
+labels:
+  DEPEND: app-arch/unzip
+  IUSE: jdbc odbc precomp +sdk +sqlplus tools abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=dev-libs/libaio-0.3.109-r5[-mgorny(-)] !<dev-db/oracle-instantclient-basic-12
+    !<dev-db/oracle-instantclient-odbc-12 !<dev-db/oracle-instantclient-jdbc-12 !<dev-db/oracle-instantclient-sqlplus-12'
+  emerge.packages: dev-db/oracle-instantclient
+  kit: dev-kit
+  original.package.name: dev-db/oracle-instantclient
+  original.package.slot: "0"
+  original.package.version: 18.3.0.0-r2
