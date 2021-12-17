@@ -1,0 +1,87 @@
+name: clisp
+version: 2.49.92
+category: dev-lisp-2
+use_flags:
+- X
+- berkdb
+- dbus
+- fastcgi
+- gdbm
+- gtk
+- hyperspec
+- pcre
+- postgres
+- readline
+- svm
+- zlib
+requires:
+- name: postgresql
+  version: '>=0'
+  category: dev-db-13
+- name: fcgi
+  version: '>=0'
+  category: dev-libs
+- name: ffcall
+  version: '>=0'
+  category: dev-libs
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: libsigsegv
+  version: '>=0'
+  category: dev-libs
+- name: asdf
+  version: '>=0'
+  category: dev-lisp
+- name: hyperspec
+  version: '>=0'
+  category: dev-lisp
+- name: libglade
+  version: '>=0'
+  category: gnome-base-2.0
+- name: libsvm
+  version: '>=0'
+  category: sci-libs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: gdbm
+  version: '>=0'
+  category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+- name: libXpm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: A portable, bytecode-compiled implementation of Common Lisp
+uri:
+- https://clisp.sourceforge.io/
+license: GPL-2
+labels:
+  DEPEND: '>=dev-lisp/asdf-2.33-r3 virtual/libiconv >=dev-libs/libsigsegv-2.10 >=dev-libs/ffcall-1.10
+    dbus? ( sys-apps/dbus ) fastcgi? ( dev-libs/fcgi ) gdbm? ( sys-libs/gdbm ) gtk?
+    ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6 ) postgres? ( >=dev-db/postgresql-8.0:*
+    ) readline? ( >=sys-libs/readline-7.0:0= ) pcre? ( dev-libs/libpcre:3 ) svm? (
+    sci-libs/libsvm ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libXpm ) hyperspec? (
+    dev-lisp/hyperspec ) berkdb? ( sys-libs/db:4.8 ) X? ( x11-base/xorg-proto x11-misc/imake
+    )'
+  IUSE: hyperspec X berkdb dbus fastcgi gdbm gtk +pcre postgres +readline svm -threads
+    +unicode +zlib
+  RDEPEND: '>=dev-lisp/asdf-2.33-r3 virtual/libiconv >=dev-libs/libsigsegv-2.10 >=dev-libs/ffcall-1.10
+    dbus? ( sys-apps/dbus ) fastcgi? ( dev-libs/fcgi ) gdbm? ( sys-libs/gdbm ) gtk?
+    ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6 ) postgres? ( >=dev-db/postgresql-8.0:*
+    ) readline? ( >=sys-libs/readline-7.0:0= ) pcre? ( dev-libs/libpcre:3 ) svm? (
+    sci-libs/libsvm ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libXpm ) hyperspec? (
+    dev-lisp/hyperspec ) berkdb? ( sys-libs/db:4.8 )'
+  emerge.packages: dev-lisp/clisp:2
+  kit: lisp-scheme-kit
+  original.package.name: dev-lisp/clisp
+  original.package.slot: "2"
+  original.package.version: 2.49.92

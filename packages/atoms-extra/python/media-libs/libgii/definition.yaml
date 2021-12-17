@@ -1,0 +1,38 @@
+name: libgii
+version: 1.0.2
+category: media-libs
+use_flags:
+- X
+- kernel_linux
+requires:
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXxf86dga
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: Easy to use, but yet powerful, API for all possible input sources
+uri:
+- https://ibiblio.org/ggicore/packages/libgii.html
+license: LGPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)] >=x11-libs/libXxf86dga-1.1.4[-mgorny(-)]
+    ) kernel_linux? ( >=sys-kernel/linux-headers-2.6.11 )
+  IUSE: X abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)] >=x11-libs/libXxf86dga-1.1.4[-mgorny(-)]
+    )
+  emerge.packages: media-libs/libgii
+  kit: media-kit
+  original.package.name: media-libs/libgii
+  original.package.slot: "0"
+  original.package.version: 1.0.2-r2

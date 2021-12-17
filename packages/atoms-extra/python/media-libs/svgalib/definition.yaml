@@ -1,0 +1,29 @@
+name: svgalib
+version: 1.9.25
+category: media-libs
+use_flags:
+- kernel_linux
+requires:
+- name: modutils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: A library for running svga graphics on the console
+uri:
+- http://www.svgalib.org/
+license: BSD
+labels:
+  DEPEND: kernel_linux? ( virtual/modutils ) sys-apps/sed kernel_linux? ( virtual/linux-sources
+    virtual/libelf )
+  IUSE: build +kernel-helper kernel_linux kernel_linux
+  RDEPEND: kernel_linux? ( virtual/modutils )
+  emerge.packages: media-libs/svgalib
+  kit: media-kit
+  original.package.name: media-libs/svgalib
+  original.package.slot: "0"
+  original.package.version: 1.9.25-r5
