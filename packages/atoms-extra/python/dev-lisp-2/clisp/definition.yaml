@@ -2,25 +2,19 @@ name: clisp
 version: 2.49.92
 category: dev-lisp-2
 use_flags:
+- -fastcgi
+- -hyperspec
+- -postgres
+- -svm
 - X
 - berkdb
 - dbus
-- fastcgi
 - gdbm
 - gtk
-- hyperspec
 - pcre
-- postgres
 - readline
-- svm
 - zlib
 requires:
-- name: postgresql
-  version: '>=0'
-  category: dev-db-13
-- name: fcgi
-  version: '>=0'
-  category: dev-libs
 - name: ffcall
   version: '>=0'
   category: dev-libs
@@ -33,15 +27,9 @@ requires:
 - name: asdf
   version: '>=0'
   category: dev-lisp
-- name: hyperspec
-  version: '>=0'
-  category: dev-lisp
 - name: libglade
   version: '>=0'
   category: gnome-base-2.0
-- name: libsvm
-  version: '>=0'
-  category: sci-libs
 - name: db
   version: '>=0'
   category: sys-libs-18.1
