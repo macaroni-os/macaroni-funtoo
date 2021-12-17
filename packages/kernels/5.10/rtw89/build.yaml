@@ -8,7 +8,7 @@ env:
 prelude:
 - >-
   ln -s
-  /usr/src/linux-(( ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }}
+  /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }}
   /usr/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }}/build
 - >-
   git clone https://github.com/lwfinger/rtw89.git &&
