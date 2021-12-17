@@ -1,3 +1,4 @@
+requires_final_images: true
 env:
 - JOBS={{ ( index .Values.labels "jobs" ) | default "3" }}
 - LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages"
@@ -27,6 +28,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: Text-CSV_XS
+- name: texlive-latexrecommended
   version: '>=0'
-  category: dev-perl
+  category: dev-texlive
