@@ -8,9 +8,9 @@ env:
 prelude:
 - >-
   git clone https://github.com/lwfinger/rtw89.git &&
-  cd rtw89 &&
+  cd {{ .Values.name }} &&
   git checkout "${GIT_HASH%\+*}" &&
-  cd {{ .Values.name }} && make
+  make
 steps:
 - >-
   cd {{ .Values.name }} && make install
