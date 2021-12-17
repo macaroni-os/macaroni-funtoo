@@ -24,26 +24,10 @@ skipped_resolutions:
 
 include_files:
 
-#build_template_file: ../templates/build-pkg-uses.yaml.tmpl
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
-build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
 
 artefacts:
-
-- tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
-  uses:
-    disabled:
-      - jimtcl
-  packages:
-    - sys-apps/usb_modeswitch
-
-- tree: packages/atoms-extra/dev
+- tree: packages/atoms-extra/python
   annotations:
     subsets:
       devel:
@@ -52,83 +36,25 @@ artefacts:
         - "^/var/db/pkg/"
   uses:
     enabled:
-      - nls
-      - python
-      - server
-      - client
-      - xml
-      - python_single_target_python3_7
-      - python_targets_python3_7
-      - python_targets_python2_7
-    disabled:
-      - lzma
-      - multitarget
-      - source-highlight
-      - test
-      - vanilla
   packages:
-    - sys-devel/gdb
+    - dev-python/mysql-connector-python
+    - dev-python/kafka-python
+    - dev-python/google-api-python-client
+    - dev-python/dbus-python
+    - dev-python/dnspython
+    - dev-python/prometheus_client
+    - dev-python/aiohttp
+    - dev-python/traceback2
+    - dev-python/python-memcached
+    - dev-python/pycryptodome
+    - dev-python/psutil
+    - dev-python/terminaltables
+    - dev-python/python-dateutil
+    - dev-python/sqlalchemy
+    - dev-python/sqlalchemy-migrate
+    - dev-python/sphinx
 
-- tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
-  uses:
-    disabled:
-      - aio
-      - elfutils
-      - perl
-      - static
-      - unwind
-  packages:
-    - dev-util/strace
-
-- tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
-  uses:
-    enabled:
-      - conch
-      - crypt
-      - soap
-      - python_targets_python3_7
-      - python_targets_python2_7
-    disabled:
-      - examples
-  packages:
-    - dev-python/automat
-    - dev-python/pyserial
-    - sys-apps/metatools
-
-- tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
-  uses:
-    enabled:
-      - vte
-      - gtk3
-      - git
-      - markdown
-      - python_single_target_python3_7
-    disabled:
-      - examples
-  packages:
-    - dev-util/geany
-    - dev-util/geany-plugins
-    - dev-util/meld
-
-- tree: packages/atoms-extra/dev
+- tree: packages/atoms-extra/net
   mutations:
     buildtime_deps:
       packages:
@@ -141,137 +67,14 @@ artefacts:
       portage:
         - "^/var/db/pkg/"
   packages:
-    - app-text/discount
-    - net-libs/http-parser
-    - net-misc/ipcalc
-    - virtual/jre:11
-    - virtual/jdk:11
-
-- tree: packages/atoms-extra/dev
-  mutations:
-    buildtime_deps:
-      packages:
-        # TODO: check and test what are the all needed bdep
-        - name: appdirs
-          category: dev-python
-        - name: automat
-          category: dev-python
-        - name: constantly
-          category: dev-python
-        - name: hyperlink
-          category: dev-python
-        - name: incremental
-          category: dev-python
-        - name: pyhamcrest
-          category: dev-python
-        - name: service_identity
-          category: dev-python
-        - name: soappy
-          category: dev-python
-  uses:
-    enabled:
-      - conch
-      - crypt
-      - soap
-      - python_targets_python3_7
-      - python_targets_python2_7
-    disabled:
-      - examples
-  packages:
-    - dev-python/twisted
-
-- tree: packages/atoms-extra/dev
-  ignore_build_deps: true
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-base
-  packages:
-    - virtual/python-backports_abc
-    - virtual/python-futures
-    - virtual/python-singledispatch
-
-- tree: packages/atoms-extra/dev
-  uses:
-    disabled:
-      - kerberos
-  packages:
-    - dev-python/pymongo
-
-- tree: packages/atoms-extra/dev
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-base
-  packages:
-    - net-misc/sshpass
-
-- tree: packages/atoms-extra/dev
-  uses:
-    disabled:
-      - curl_ssl_gnutls
-      - curl_ssl_libressl
-      - curl_ssl_nss
-      - test
-    enabled:
-      - ssl
-      - curl_ssl_openssl
-      - python_targets_python3_7
-      - python_targets_python2_7
-  packages:
-    - dev-python/pycurl
-
-- tree: packages/atoms-extra/dev
-  uses:
-    enabled:
-      - alsa
-      - cups
-      - headless-awt
-    disabled:
-      - selinux
-      #- system-java
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
-  packages:
-    - dev-java/openjdk-jre-bin:8
-    - dev-java/openjdk-bin:8
-    - dev-java/maven-bin:3.6
-
-- tree: packages/atoms-extra/dev
-  uses:
-    disabled:
-      - system-java
-      - prefix
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
-  packages:
-    - dev-libs/libdbusmenu
-    - dev-util/pycharm-community
-    - dev-util/pycharm-professional
-
-- tree: packages/atoms-extra/dev
-  uses:
-    disabled:
-      - handbook
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
-  packages:
-    - kde-misc/kdiff3
-
+    - virtual/texi2dvi:0
+    - virtual/latex-base:0
+    - virtual/perl-Test-Simple:0
+    - dev-libs/kpathsea:0
+    - dev-libs/ffcall:0
+    - dev-lisp/asdf:0
+    - dev-lisp/hyperspec:0
+    - sci-libs/libcerf:0
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
@@ -948,11 +751,11 @@ build_layers:
       - dev-python/wheel:0
       - dev-python/zipp:0
       - dev-python/zope-interface:0
+      - dev-python/httplib2:0
       - dev-qt/designer:5
       - dev-qt/qdbus:5
       - dev-qt/qtchooser:0
       - dev-qt/qtconcurrent:5
-      - dev-qt/qtmultimedia:5
       - dev-qt/qtcore:5
       - dev-qt/qtdbus:5
       - dev-qt/qtdeclarative:5
@@ -1013,7 +816,6 @@ build_layers:
       - dev-util/ninja:0
       - dev-util/opencl-clhpp:0
       - dev-util/opencl-headers:0
-      - dev-util/patchelf
       - dev-util/pkgconf:0
       - dev-util/ragel:0
       - dev-util/re2c:0
@@ -1248,6 +1050,7 @@ build_layers:
       - media-gfx/plantuml:0
       - media-gfx/qrencode:0
       - media-gfx/shotwell:0
+      - media-libs/libid3tag:0
       - media-libs/a52dec:0
       - media-libs/aalib:0
       - media-libs/alsa-lib:0
@@ -1709,6 +1512,7 @@ build_layers:
       - virtual/libintl:0
       - virtual/libudev:0
       - virtual/libusb:1
+      - virtual/linux-sources:0
       - virtual/logger:0
       - virtual/man:0
       - virtual/modutils:0
