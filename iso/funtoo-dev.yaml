@@ -17,10 +17,11 @@ packages:
   - virtual/base
   - virtual/openrc
   - virtual/gnome
-  - virtual/macaroni-kernel-lts
+  - kernel-5.4/macaroni-lts-full
+  - kernel-5.4/macaroni-lts-modules
 
   - www-client/firefox-bin
-  - kernel/macaroni-lts-initramfs
+  - kernel-5.4/macaroni-lts-initramfs
   - gnome-base/gnome
 
   - pkglist/funtoo-base
@@ -29,9 +30,9 @@ packages:
   - app-editors/vim
 
   # Extra kernel modules
-  - sys-fs-5.10/zfs-kmod
-  - kernel-5.10/virtualbox-guest-additions
-  - x11-drivers-5.10/nvidia-kernel-modules
+  - sys-fs-5.4/zfs-kmod
+  - kernel-5.4/virtualbox-guest-additions
+  - x11-drivers-5.4/nvidia-kernel-modules
   - sys-kernel/linux-firmware
   - sys-kernel/dracut
   - sys-fs/mdadm
@@ -154,7 +155,6 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-    #- repository/geaaru
   - repository/mottainai-stable
   - repository/macaroni-funtoo
   - repository/macaroni-commons
