@@ -17,6 +17,7 @@ luet_packages2remove = [
     "macaroni/live-setup",
     "kernel/macaroni-lts-initramfs",
     "kernel-5.10/virtualbox-guest-additions",
+    "kernel-5.4/virtualbox-guest-additions",
     "system/macaroni-funtoo-calamares",
     "virtual/calamares",
     "app-admin-5/calamares",
