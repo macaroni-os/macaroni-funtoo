@@ -4,6 +4,8 @@ requires:
   version: ">=0"
 prelude:
 - >-
+  yq w /etc/luet/luet.yaml 'subsets.enabled[0]' 'portage' -i &&
+  yq w /etc/luet/luet.yaml 'subsets.enabled[1]' 'devel' -i &&
   luet repo update &&
   luet install
   toolchain/extra-dev
