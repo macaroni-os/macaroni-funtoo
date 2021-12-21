@@ -24,10 +24,9 @@ prelude:
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
-- ^/var/db/pkg/
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: traceback2
+- name: pyasn1
   version: '>=0'
   category: dev-python
