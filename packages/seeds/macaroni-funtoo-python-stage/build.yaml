@@ -1,0 +1,15 @@
+requires:
+- name: mos-funtoo-base
+  category: seed
+  version: ">=0"
+prelude:
+- >-
+  luet install
+  toolchain/extra-dev
+  toolchain/extra-emulation
+  toolchain/extra-gnome
+  toolchain/extra-net
+  toolchain/extra-php
+  --force &&
+  luet cleanup &&
+  eselect postgresql set 13
