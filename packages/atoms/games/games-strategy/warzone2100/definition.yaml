@@ -1,0 +1,78 @@
+name: warzone2100
+version: 3.2.3
+category: games-strategy
+use_flags:
+- nls
+- sdl
+requires:
+- name: physfs
+  version: '>=0'
+  category: dev-games
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: qtopengl
+  version: '>=0'
+  category: dev-qt-5
+- name: qtscript
+  version: '>=0'
+  category: dev-qt-5
+- name: qtx11extras
+  version: '>=0'
+  category: dev-qt-5
+- name: dejavu
+  version: '>=0'
+  category: media-fonts
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: glew
+  version: '>=0'
+  category: media-libs
+- name: libtheora
+  version: '>=0'
+  category: media-libs
+- name: openal
+  version: '>=0'
+  category: media-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: 3D real-time strategy game
+uri:
+- http://wz2100.net/
+license: GPL-2+ CC-BY-SA-3.0 public-domain
+labels:
+  DEPEND: '>=dev-games/physfs-2[zip] dev-libs/openssl:0= dev-qt/qtcore:5 dev-qt/qtgui:5
+    dev-qt/qtscript:5 dev-qt/qtwidgets:5 media-libs/freetype:2 media-libs/glew:= media-libs/harfbuzz
+    media-libs/libogg media-libs/libpng:0 media-libs/libtheora media-libs/libvorbis
+    media-libs/openal sys-libs/zlib virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXrandr
+    nls? ( virtual/libintl ) !sdl? ( dev-qt/qtopengl:5 dev-qt/qtx11extras:5 ) sdl?
+    ( media-libs/libsdl2[opengl,video,X] ) app-arch/zip dev-libs/fribidi media-libs/fontconfig
+    virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: debug nls sdl videos
+  RDEPEND: '>=dev-games/physfs-2[zip] dev-libs/openssl:0= dev-qt/qtcore:5 dev-qt/qtgui:5
+    dev-qt/qtscript:5 dev-qt/qtwidgets:5 media-libs/freetype:2 media-libs/glew:= media-libs/harfbuzz
+    media-libs/libogg media-libs/libpng:0 media-libs/libtheora media-libs/libvorbis
+    media-libs/openal sys-libs/zlib virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXrandr
+    nls? ( virtual/libintl ) !sdl? ( dev-qt/qtopengl:5 dev-qt/qtx11extras:5 ) sdl?
+    ( media-libs/libsdl2[opengl,video,X] ) media-fonts/dejavu'
+  emerge.packages: games-strategy/warzone2100
+  kit: games-kit
+  original.package.name: games-strategy/warzone2100
+  original.package.slot: "0"
+  original.package.version: 3.2.3
