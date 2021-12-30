@@ -3,10 +3,16 @@ version: 11+1
 category: sys-devel
 description: wrapper for automake to manage multiple automake versions
 uri:
-- https://www.gentoo.org/
+  - https://www.gentoo.org/
 license: GPL-2
 labels:
   emerge.packages: sys-devel/automake-wrapper
   kit: core-kit
   original.package.name: sys-devel/automake-wrapper
   original.package.version: "11"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

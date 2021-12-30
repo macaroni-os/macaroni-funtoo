@@ -2,16 +2,21 @@ name: perl-JSON-PP
 version: 4.40.0+1
 category: virtual
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: Virtual for JSON-PP
 uri:
-- ""
+  - ""
 labels:
-  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/JSON-PP-4.40.0 ) dev-lang/perl:=
-    !<perl-core/JSON-PP-4.40.0 !>perl-core/JSON-PP-4.40.0-r999'
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/JSON-PP-4.40.0 ) dev-lang/perl:= !<perl-core/JSON-PP-4.40.0 !>perl-core/JSON-PP-4.40.0-r999'
   emerge.packages: virtual/perl-JSON-PP
   kit: perl-kit
   original.package.name: virtual/perl-JSON-PP
   original.package.version: 4.40.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

@@ -2,18 +2,18 @@ name: autoconf
 version: 2.13+1
 category: sys-devel-2.1
 requires:
-- name: texinfo
-  version: '>=0'
-  category: sys-apps
-- name: autoconf-wrapper
-  version: '>=0'
-  category: sys-devel
-- name: m4
-  version: '>=0'
-  category: sys-devel
+  - name: texinfo
+    version: '>=0'
+    category: sys-apps
+  - name: autoconf-wrapper
+    version: '>=0'
+    category: sys-devel
+  - name: m4
+    version: '>=0'
+    category: sys-devel
 description: Used to create autoconfiguration files
 uri:
-- https://www.gnu.org/software/autoconf/autoconf.html
+  - https://www.gnu.org/software/autoconf/autoconf.html
 license: GPL-2
 labels:
   DEPEND: '>=sys-apps/texinfo-4.3 =sys-devel/m4-1.4* dev-lang/perl'
@@ -23,3 +23,9 @@ labels:
   kit: core-kit
   original.package.name: sys-devel/autoconf
   original.package.version: 2.13-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

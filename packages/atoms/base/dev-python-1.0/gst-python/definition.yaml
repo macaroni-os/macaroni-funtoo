@@ -2,31 +2,30 @@ name: gst-python
 version: 1.14.1+1
 category: dev-python-1.0
 use_flags:
-- python_targets_python2_7
-- python_targets_python3_7
+  - python_targets_python2_7
+  - python_targets_python3_7
 requires:
-- name: pygobject
-  version: '>=0'
-  category: dev-python-3
-- name: gst-plugins-base
-  version: '>=0'
-  category: media-libs-1.0
+  - name: pygobject
+    version: '>=0'
+    category: dev-python-3
+  - name: gst-plugins-base
+    version: '>=0'
+    category: media-libs-1.0
 description: A Python Interface to GStreamer
 uri:
-- https://gstreamer.freedesktop.org/
+  - https://gstreamer.freedesktop.org/
 license: LGPL-2+
 labels:
-  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=dev-python/pygobject-3.8:3[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=media-libs/gstreamer-1.14.1:1.0[introspection] >=media-libs/gst-plugins-base-1.14.1:1.0[introspection]
-    virtual/pkgconfig
+  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)] >=dev-python/pygobject-3.8:3[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)] >=media-libs/gstreamer-1.14.1:1.0[introspection] >=media-libs/gst-plugins-base-1.14.1:1.0[introspection] virtual/pkgconfig
   IUSE: python_targets_python3_7 python_targets_python2_7
-  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=dev-python/pygobject-3.8:3[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=media-libs/gstreamer-1.14.1:1.0[introspection] >=media-libs/gst-plugins-base-1.14.1:1.0[introspection]
+  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)] >=dev-python/pygobject-3.8:3[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)] >=media-libs/gstreamer-1.14.1:1.0[introspection] >=media-libs/gst-plugins-base-1.14.1:1.0[introspection]
   emerge.packages: dev-python/gst-python:1.0
   kit: media-kit
   original.package.name: dev-python/gst-python
   original.package.version: 1.14.1-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

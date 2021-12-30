@@ -2,16 +2,21 @@ name: perl-IO
 version: 1.430.0+1
 category: virtual
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: Virtual for IO
 uri:
-- ""
+  - ""
 labels:
-  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/IO-1.430.0 ) dev-lang/perl:= !<perl-core/IO-1.430.0
-    !>perl-core/IO-1.430.0-r999'
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/IO-1.430.0 ) dev-lang/perl:= !<perl-core/IO-1.430.0 !>perl-core/IO-1.430.0-r999'
   emerge.packages: virtual/perl-IO
   kit: perl-kit
   original.package.name: virtual/perl-IO
   original.package.version: 1.430.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

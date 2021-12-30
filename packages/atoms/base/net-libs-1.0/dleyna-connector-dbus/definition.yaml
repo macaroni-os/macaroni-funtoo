@@ -2,21 +2,26 @@ name: dleyna-connector-dbus
 version: 0.2.0+1
 category: net-libs-1.0
 requires:
-- name: dleyna-core
-  version: '>=0'
-  category: net-libs-1.0
-- name: dbus
-  version: '>=0'
-  category: sys-apps
+  - name: dleyna-core
+    version: '>=0'
+    category: net-libs-1.0
+  - name: dbus
+    version: '>=0'
+    category: sys-apps
 description: utility library for higher level dLeyna libraries
 uri:
-- https://01.org/dleyna/
+  - https://01.org/dleyna/
 license: LGPL-2.1
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/dleyna-core-0.2.1:1.0 >=sys-apps/dbus-1
-    virtual/pkgconfig'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/dleyna-core-0.2.1:1.0 >=sys-apps/dbus-1 virtual/pkgconfig'
   RDEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/dleyna-core-0.2.1:1.0 >=sys-apps/dbus-1'
   emerge.packages: net-libs/dleyna-connector-dbus:1.0
   kit: gnome-kit
   original.package.name: net-libs/dleyna-connector-dbus
   original.package.version: 0.2.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

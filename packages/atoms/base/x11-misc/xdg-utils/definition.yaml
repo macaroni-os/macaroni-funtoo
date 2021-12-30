@@ -2,36 +2,39 @@ name: xdg-utils
 version: 1.1.2+1
 category: x11-misc
 requires:
-- name: File-MimeInfo
-  version: '>=0'
-  category: dev-perl
-- name: Net-DBus
-  version: '>=0'
-  category: dev-perl
-- name: X11-Protocol
-  version: '>=0'
-  category: dev-perl
-- name: desktop-file-utils
-  version: '>=0'
-  category: dev-util
-- name: xprop
-  version: '>=0'
-  category: x11-apps
-- name: xset
-  version: '>=0'
-  category: x11-apps
+  - name: File-MimeInfo
+    version: '>=0'
+    category: dev-perl
+  - name: Net-DBus
+    version: '>=0'
+    category: dev-perl
+  - name: X11-Protocol
+    version: '>=0'
+    category: dev-perl
+  - name: desktop-file-utils
+    version: '>=0'
+    category: dev-util
+  - name: xprop
+    version: '>=0'
+    category: x11-apps
+  - name: xset
+    version: '>=0'
+    category: x11-apps
 description: Portland utils for cross-platform/cross-toolkit/cross-desktop interoperability
 uri:
-- https://www.freedesktop.org/wiki/Software/xdg-utils/
+  - https://www.freedesktop.org/wiki/Software/xdg-utils/
 license: MIT
 labels:
-  DEPEND: '>=app-text/xmlto-0.0.26-r1[text(+)] >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  DEPEND: '>=app-text/xmlto-0.0.26-r1[text(+)] >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
   IUSE: doc
-  RDEPEND: dev-util/desktop-file-utils dev-perl/File-MimeInfo dev-perl/Net-DBus dev-perl/X11-Protocol
-    sys-apps/dbus x11-misc/shared-mime-info x11-apps/xprop x11-apps/xset
+  RDEPEND: dev-util/desktop-file-utils dev-perl/File-MimeInfo dev-perl/Net-DBus dev-perl/X11-Protocol sys-apps/dbus x11-misc/shared-mime-info x11-apps/xprop x11-apps/xset
   emerge.packages: x11-misc/xdg-utils
   kit: gnome-kit
   original.package.name: x11-misc/xdg-utils
   original.package.version: 1.1.2-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

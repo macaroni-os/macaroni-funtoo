@@ -3,7 +3,7 @@ version: 1.2.4+1
 category: media-libs
 description: ALSA topology configuration files
 uri:
-- https://www.alsa-project.org
+  - https://www.alsa-project.org
 license: BSD
 labels:
   DEPEND: '!<media-libs/alsa-lib-1.2.1'
@@ -12,3 +12,9 @@ labels:
   kit: core-kit
   original.package.name: media-libs/alsa-topology-conf
   original.package.version: 1.2.4
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

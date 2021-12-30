@@ -2,22 +2,24 @@ name: gptfdisk
 version: 1.0.4+1
 category: sys-apps
 use_flags:
-- -kernel_linux
-- -static
-- ncurses
+  - -kernel_linux
+  - -static
+  - ncurses
 description: GPT partition table manipulator for Linux
 uri:
-- https://www.rodsbooks.com/gdisk/
+  - https://www.rodsbooks.com/gdisk/
 license: GPL-2
 labels:
-  DEPEND: '!static? ( dev-libs/popt ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode]
-    ) kernel_linux? ( sys-apps/util-linux ) ) static? ( dev-libs/popt[static-libs(+)]
-    ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode,static-libs(+)] ) kernel_linux?
-    ( sys-apps/util-linux[static-libs(+)] ) ) virtual/pkgconfig'
+  DEPEND: '!static? ( dev-libs/popt ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode] ) kernel_linux? ( sys-apps/util-linux ) ) static? ( dev-libs/popt[static-libs(+)] ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode,static-libs(+)] ) kernel_linux? ( sys-apps/util-linux[static-libs(+)] ) ) virtual/pkgconfig'
   IUSE: kernel_linux ncurses static
-  RDEPEND: '!static? ( dev-libs/popt ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode]
-    ) kernel_linux? ( sys-apps/util-linux ) )'
+  RDEPEND: '!static? ( dev-libs/popt ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode] ) kernel_linux? ( sys-apps/util-linux ) )'
   emerge.packages: sys-apps/gptfdisk
   kit: core-kit
   original.package.name: sys-apps/gptfdisk
   original.package.version: 1.0.4
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

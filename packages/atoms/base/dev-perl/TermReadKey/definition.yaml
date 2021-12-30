@@ -2,12 +2,12 @@ name: TermReadKey
 version: 2.370.0+1
 category: dev-perl
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: Change terminal modes, and perform non-blocking reads
 uri:
-- https://metacpan.org/release/TermReadKey
+  - https://metacpan.org/release/TermReadKey
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: '>=virtual/perl-ExtUtils-MakeMaker-6.580.0 dev-lang/perl:='
@@ -17,3 +17,9 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/TermReadKey
   original.package.version: 2.370.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

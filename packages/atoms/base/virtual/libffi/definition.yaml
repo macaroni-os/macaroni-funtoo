@@ -2,17 +2,22 @@ name: libffi
 version: 3.3+1
 category: virtual
 requires:
-- name: libffi
-  version: '>=0'
-  category: dev-libs
+  - name: libffi
+    version: '>=0'
+    category: dev-libs
 description: A virtual for the Foreign Function Interface implementation
 uri:
-- ""
+  - ""
 labels:
-  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
-    abi_s390_64
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   RDEPEND: '>=dev-libs/libffi-3.3_rc0:0/7[-mgorny(-)]'
   emerge.packages: virtual/libffi
   kit: core-kit
   original.package.name: virtual/libffi
   original.package.version: 3.3_rc0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

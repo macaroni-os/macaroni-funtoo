@@ -2,10 +2,10 @@ name: openresolv
 version: 3.9.0+1
 category: net-dns
 use_flags:
-- -selinux
+  - -selinux
 description: A framework for managing DNS information
 uri:
-- https://roy.marples.name/projects/openresolv
+  - https://roy.marples.name/projects/openresolv
 license: BSD-2
 labels:
   DEPEND: '!net-dns/resolvconf-gentoo !<net-dns/dnsmasq-2.40-r1'
@@ -15,3 +15,9 @@ labels:
   kit: core-kit
   original.package.name: net-dns/openresolv
   original.package.version: 3.9.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

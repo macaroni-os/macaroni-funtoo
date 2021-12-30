@@ -2,21 +2,26 @@ name: lua
 version: 5.1.5+1
 category: dev-lang
 use_flags:
-- readline
+  - readline
 requires:
-- name: readline
-  version: '>=0'
-  category: sys-libs
+  - name: readline
+    version: '>=0'
+    category: sys-libs
 description: A powerful light-weight programming language designed for extending applications
 uri:
-- http://www.lua.org/
+  - http://www.lua.org/
 license: MIT
 labels:
   DEPEND: readline? ( >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] ) sys-devel/libtool
-  IUSE: +deprecated emacs readline static abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
-    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  IUSE: +deprecated emacs readline static abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   RDEPEND: readline? ( >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] )
   emerge.packages: dev-lang/lua
   kit: lang-kit
   original.package.name: dev-lang/lua
   original.package.version: 5.1.5-r4
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

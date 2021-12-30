@@ -2,16 +2,21 @@ name: giflib
 version: 5.1.9+1
 category: media-libs
 use_flags:
-- -doc
+  - -doc
 description: Library to handle, display and manipulate GIF images
 uri:
-- https://sourceforge.net/projects/giflib/
+  - https://sourceforge.net/projects/giflib/
 license: MIT
 labels:
   DEPEND: doc? ( app-text/xmlto )
-  IUSE: doc static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
+  IUSE: doc static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   emerge.packages: media-libs/giflib
   kit: media-kit
   original.package.name: media-libs/giflib
   original.package.version: 5.1.9
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

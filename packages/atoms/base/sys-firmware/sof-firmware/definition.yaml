@@ -3,10 +3,16 @@ version: 1.6.1+1
 category: sys-firmware
 description: Sound Open Firmware (SOF) binary files
 uri:
-- https://www.sofproject.org https://github.com/thesofproject/sof https://github.com/thesofproject/sof-bin
+  - https://www.sofproject.org https://github.com/thesofproject/sof https://github.com/thesofproject/sof-bin
 license: BSD
 labels:
   emerge.packages: sys-firmware/sof-firmware
   kit: core-hw-kit
   original.package.name: sys-firmware/sof-firmware
   original.package.version: 1.6.1-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

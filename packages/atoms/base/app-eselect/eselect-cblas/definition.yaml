@@ -2,12 +2,12 @@ name: eselect-cblas
 version: 0.1+1
 category: app-eselect
 requires:
-- name: eselect
-  version: '>=0'
-  category: app-admin
+  - name: eselect
+    version: '>=0'
+    category: app-admin
 description: C-language BLAS module for eselect
 uri:
-- https://www.gentoo.org/proj/en/eselect/
+  - https://www.gentoo.org/proj/en/eselect/
 license: GPL-2
 labels:
   DEPEND: '>=app-admin/eselect-1.0.5'
@@ -16,3 +16,9 @@ labels:
   kit: core-kit
   original.package.name: app-eselect/eselect-cblas
   original.package.version: "0.1"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

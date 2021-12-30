@@ -2,10 +2,10 @@ name: wayland-protocols
 version: 1.23+1
 category: dev-libs
 use_flags:
-- -test
+  - -test
 description: Wayland protocol files
 uri:
-- https://wayland.freedesktop.org/
+  - https://wayland.freedesktop.org/
 license: MIT
 labels:
   BDEPEND: dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
@@ -15,3 +15,9 @@ labels:
   kit: core-gl-kit
   original.package.name: dev-libs/wayland-protocols
   original.package.version: "1.23"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

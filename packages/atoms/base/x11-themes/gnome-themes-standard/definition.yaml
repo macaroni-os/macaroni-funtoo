@@ -2,19 +2,23 @@ name: gnome-themes-standard
 version: 3.27.90+1
 category: x11-themes
 requires:
-- name: gsettings-desktop-schemas
-  version: '>=0'
-  category: gnome-base
+  - name: gsettings-desktop-schemas
+    version: '>=0'
+    category: gnome-base
 description: Standard Themes for GNOME Applications
 uri:
-- https://gitlab.gnome.org/GNOME/gnome-themes-standard/
+  - https://gitlab.gnome.org/GNOME/gnome-themes-standard/
 license: LGPL-2.1+
 labels:
-  DEPEND: '>=dev-util/intltool-0.40 sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 app-arch/xz-utils'
+  DEPEND: '>=dev-util/intltool-0.40 sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 app-arch/xz-utils'
   RDEPEND: '>=gnome-base/gsettings-desktop-schemas-3.4'
   emerge.packages: x11-themes/gnome-themes-standard
   kit: gnome-kit
   original.package.name: x11-themes/gnome-themes-standard
   original.package.version: 3.27.90
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
