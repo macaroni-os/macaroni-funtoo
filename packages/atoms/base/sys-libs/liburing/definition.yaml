@@ -1,9 +1,15 @@
 name: liburing
-version: 0.7+1
+version: 0.7+2
 category: sys-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Efficient I/O with io_uring
 uri:
-  - https://github.com/axboe/liburing
+- https://github.com/axboe/liburing
 license: MIT
 labels:
   IUSE: static-libs
@@ -11,9 +17,3 @@ labels:
   kit: core-server-kit
   original.package.name: sys-libs/liburing
   original.package.version: "0.7"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

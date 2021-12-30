@@ -1,33 +1,38 @@
 name: gst-plugins-a52dec
-version: 1.14.3+1
+version: 1.14.3+2
 category: media-plugins-1.0
 use_flags:
-  - orc
+- orc
 requires:
-  - name: orc
-    version: '>=0'
-    category: dev-lang
-  - name: a52dec
-    version: '>=0'
-    category: media-libs
-  - name: gst-plugins-ugly
-    version: '>=0'
-    category: media-libs-1.0
+- name: orc
+  version: '>=0'
+  category: dev-lang
+- name: a52dec
+  version: '>=0'
+  category: media-libs
+- name: gst-plugins-ugly
+  version: '>=0'
+  category: media-libs-1.0
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: ATSC A/52 audio decoder plugin for GStreamer
 uri:
-  - https://gstreamer.freedesktop.org/
+- https://gstreamer.freedesktop.org/
 license: GPL-2
 labels:
-  DEPEND: '>=media-libs/a52dec-0.7.4-r6[-mgorny(-)] orc? ( >=dev-lang/orc-0.4.17[-mgorny(-)] ) >=sys-apps/sed-4 >=virtual/pkgconfig-0-r1[-mgorny(-)] >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)] >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
-  IUSE: +orc abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: '>=media-libs/a52dec-0.7.4-r6[-mgorny(-)] orc? ( >=dev-lang/orc-0.4.17[-mgorny(-)] ) >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)] >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
+  DEPEND: '>=media-libs/a52dec-0.7.4-r6[-mgorny(-)] orc? ( >=dev-lang/orc-0.4.17[-mgorny(-)]
+    ) >=sys-apps/sed-4 >=virtual/pkgconfig-0-r1[-mgorny(-)] >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)]
+    >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
+  IUSE: +orc abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-libs/a52dec-0.7.4-r6[-mgorny(-)] orc? ( >=dev-lang/orc-0.4.17[-mgorny(-)]
+    ) >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)] >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)]
+    >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
   emerge.packages: media-plugins/gst-plugins-a52dec:1.0
   kit: media-kit
   original.package.name: media-plugins/gst-plugins-a52dec
   original.package.version: 1.14.3
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

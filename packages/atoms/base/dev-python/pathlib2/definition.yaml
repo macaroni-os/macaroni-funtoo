@@ -1,33 +1,44 @@
 name: pathlib2
-version: 2.3.2+1
+version: 2.3.2+2
 category: dev-python
 use_flags:
-  - -python_targets_pypy3
-  - -test
-  - python_targets_python2_7
-  - python_targets_python3_7
+- -python_targets_pypy3
+- -test
+- python_targets_python2_7
+- python_targets_python3_7
 requires:
-  - name: scandir
-    version: '>=0'
-    category: dev-python
-  - name: six
-    version: '>=0'
-    category: dev-python
+- name: scandir
+  version: '>=0'
+  category: dev-python
+- name: six
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Fork of pathlib aiming to support the full stdlib Python API
 uri:
-  - https://github.com/mcmtroffaes/pathlib2
+- https://github.com/mcmtroffaes/pathlib2
 license: MIT
 labels:
-  BDEPEND: dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)] test? ( python_targets_python2_7? ( dev-python/scandir[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] ) dev-python/six[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)] python_targets_python2_7? ( dev-python/mock[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] ) ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)] >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  BDEPEND: dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    test? ( python_targets_python2_7? ( dev-python/scandir[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) dev-python/six[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python2_7? ( dev-python/mock[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
   IUSE: test python_targets_pypy3 python_targets_python3_7 python_targets_python2_7
-  RDEPEND: python_targets_python2_7? ( dev-python/scandir[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] ) dev-python/six[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)] python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  RDEPEND: python_targets_python2_7? ( dev-python/scandir[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) dev-python/six[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
   emerge.packages: dev-python/pathlib2
   kit: python-modules-kit
   original.package.name: dev-python/pathlib2
   original.package.version: 2.3.2
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

@@ -1,58 +1,87 @@
 name: bluez
-version: 5.54+1
+version: 5.54+2
 category: net-wireless
 use_flags:
-  - -btpclient
-  - -python_single_target_python3_8
-  - -python_single_target_python3_9
-  - -selinux
-  - -test
-  - -test-programs
-  - cups
-  - mesh
-  - midi
-  - obex
-  - python_single_target_python3_7
-  - readline
-  - udev
+- -btpclient
+- -python_single_target_python3_8
+- -python_single_target_python3_9
+- -selinux
+- -test
+- -test-programs
+- cups
+- mesh
+- midi
+- obex
+- python_single_target_python3_7
+- readline
+- udev
 requires:
-  - name: ell
-    version: '>=0'
-    category: dev-libs
-  - name: json-c
-    version: '>=0'
-    category: dev-libs
-  - name: libical
-    version: '>=0'
-    category: dev-libs
-  - name: alsa-lib
-    version: '>=0'
-    category: media-libs
-  - name: cups
-    version: '>=0'
-    category: net-print
-  - name: hwids
-    version: '>=0'
-    category: sys-apps
-  - name: readline
-    version: '>=0'
-    category: sys-libs
+- name: ell
+  version: '>=0'
+  category: dev-libs
+- name: json-c
+  version: '>=0'
+  category: dev-libs
+- name: libical
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: cups
+  version: '>=0'
+  category: net-print
+- name: hwids
+  version: '>=0'
+  category: sys-apps
+- name: readline
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Bluetooth Tools and System Daemons for Linux
 uri:
-  - http://www.bluez.org
+- http://www.bluez.org
 license: GPL-2+ LGPL-2.1+
 labels:
-  BDEPEND: virtual/pkgconfig test? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7? ( >=dev-python/dbus-python-1[python_targets_python3_7(-)] dev-python/pygobject:3[python_targets_python3_7(-)] ) python_single_target_python3_9? ( >=dev-python/dbus-python-1[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_8? ( >=dev-python/dbus-python-1[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)] ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
-  DEPEND: '>=dev-libs/glib-2.28:2 >=sys-apps/hwids-20121202.2 btpclient? ( >=dev-libs/ell-0.28 ) cups? ( net-print/cups:= ) mesh? ( >=dev-libs/ell-0.28 >=dev-libs/json-c-0.13:= sys-libs/readline:0= ) midi? ( media-libs/alsa-lib ) obex? ( dev-libs/libical:= ) readline? ( sys-libs/readline:0= ) >=sys-apps/dbus-1.6:= udev? ( >=virtual/udev-172 )'
-  IUSE: btpclient cups doc debug deprecated extra-tools experimental +mesh midi +obex +readline selinux test test-programs +udev user-session kernel_linux python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: '>=dev-libs/glib-2.28:2 >=sys-apps/hwids-20121202.2 btpclient? ( >=dev-libs/ell-0.28 ) cups? ( net-print/cups:= ) mesh? ( >=dev-libs/ell-0.28 >=dev-libs/json-c-0.13:= sys-libs/readline:0= ) midi? ( media-libs/alsa-lib ) obex? ( dev-libs/libical:= ) readline? ( sys-libs/readline:0= ) >=sys-apps/dbus-1.6:= udev? ( >=virtual/udev-172 ) selinux? ( sec-policy/selinux-bluetooth ) test-programs? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7? ( >=dev-python/dbus-python-1[python_targets_python3_7(-)] dev-python/pygobject:3[python_targets_python3_7(-)] ) python_single_target_python3_9? ( >=dev-python/dbus-python-1[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_8? ( >=dev-python/dbus-python-1[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)] ) )'
+  BDEPEND: virtual/pkgconfig test? ( python_single_target_python3_7? ( dev-lang/python:3.7
+    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7?
+    ( >=dev-python/dbus-python-1[python_targets_python3_7(-)] dev-python/pygobject:3[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/dbus-python-1[python_targets_python3_9(-)]
+    dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( >=dev-python/dbus-python-1[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)]
+    ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    virtual/pkgconfig
+  DEPEND: '>=dev-libs/glib-2.28:2 >=sys-apps/hwids-20121202.2 btpclient? ( >=dev-libs/ell-0.28
+    ) cups? ( net-print/cups:= ) mesh? ( >=dev-libs/ell-0.28 >=dev-libs/json-c-0.13:=
+    sys-libs/readline:0= ) midi? ( media-libs/alsa-lib ) obex? ( dev-libs/libical:=
+    ) readline? ( sys-libs/readline:0= ) >=sys-apps/dbus-1.6:= udev? ( >=virtual/udev-172
+    )'
+  IUSE: btpclient cups doc debug deprecated extra-tools experimental +mesh midi +obex
+    +readline selinux test test-programs +udev user-session kernel_linux python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: '>=dev-libs/glib-2.28:2 >=sys-apps/hwids-20121202.2 btpclient? ( >=dev-libs/ell-0.28
+    ) cups? ( net-print/cups:= ) mesh? ( >=dev-libs/ell-0.28 >=dev-libs/json-c-0.13:=
+    sys-libs/readline:0= ) midi? ( media-libs/alsa-lib ) obex? ( dev-libs/libical:=
+    ) readline? ( sys-libs/readline:0= ) >=sys-apps/dbus-1.6:= udev? ( >=virtual/udev-172
+    ) selinux? ( sec-policy/selinux-bluetooth ) test-programs? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7?
+    ( >=dev-python/dbus-python-1[python_targets_python3_7(-)] dev-python/pygobject:3[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/dbus-python-1[python_targets_python3_9(-)]
+    dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( >=dev-python/dbus-python-1[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)]
+    ) )'
   emerge.packages: net-wireless/bluez
   kit: core-kit
   original.package.name: net-wireless/bluez
   original.package.version: "5.54"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

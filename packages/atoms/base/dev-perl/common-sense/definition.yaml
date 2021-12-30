@@ -1,13 +1,19 @@
 name: common-sense
-version: 3.740.0+1
+version: 3.740.0+2
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Save a tree AND a kitten, use common::sense!
 uri:
-  - https://metacpan.org/release/common-sense
+- https://metacpan.org/release/common-sense
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
@@ -16,9 +22,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/common-sense
   original.package.version: 3.740.0-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

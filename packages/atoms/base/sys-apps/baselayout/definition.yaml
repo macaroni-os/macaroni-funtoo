@@ -1,9 +1,15 @@
 name: baselayout
-version: 2.6.1+1
+version: 2.6.1+2
 category: sys-apps
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Filesystem baselayout and init scripts
 uri:
-  - ""
+- ""
 license: GPL-2
 labels:
   IUSE: build kernel_FreeBSD kernel_linux +split-usr
@@ -11,9 +17,3 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/baselayout
   original.package.version: 2.6.1-r2
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

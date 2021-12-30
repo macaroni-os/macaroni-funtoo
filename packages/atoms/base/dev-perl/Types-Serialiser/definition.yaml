@@ -1,13 +1,19 @@
 name: Types-Serialiser
-version: 1.0.0+1
+version: 1.0.0+2
 category: dev-perl
 requires:
-  - name: common-sense
-    version: '>=0'
-    category: dev-perl
+- name: common-sense
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: simple data types for common serialisation formats
 uri:
-  - https://metacpan.org/release/Types-Serialiser
+- https://metacpan.org/release/Types-Serialiser
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-perl/common-sense virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
@@ -16,9 +22,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Types-Serialiser
   original.package.version: 1.0.0-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

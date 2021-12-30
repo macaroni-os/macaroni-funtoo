@@ -1,18 +1,25 @@
 name: binutils-libs
-version: 2.36.1+1
+version: 2.36.1+2
 category: sys-libs
 use_flags:
-  - nls
+- nls
 requires:
-  - name: binutils-config
-    version: '>=0'
-    category: sys-devel
-  - name: zlib
-    version: '>=0'
-    category: sys-libs
-description: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
+- name: binutils-config
+  version: '>=0'
+  category: sys-devel
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: Core binutils libraries (libbfd, libopcodes, libiberty) for external
+  packages
 uri:
-  - https://sourceware.org/binutils/
+- https://sourceware.org/binutils/
 license: '|| ( GPL-3 LGPL-3 )'
 labels:
   BDEPEND: nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
@@ -23,9 +30,3 @@ labels:
   kit: core-kit
   original.package.name: sys-libs/binutils-libs
   original.package.version: 2.36.1-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

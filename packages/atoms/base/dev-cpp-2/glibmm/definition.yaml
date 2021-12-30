@@ -1,21 +1,29 @@
 name: glibmm
-version: 2.64.2+1
+version: 2.64.2+2
 category: dev-cpp-2
 use_flags:
-  - -doc
+- -doc
 requires:
-  - name: glib
-    version: '>=0'
-    category: dev-libs-2
-  - name: libsigc++
-    version: '>=0'
-    category: dev-libs-3
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libsigc++
+  version: '>=0'
+  category: dev-libs-3
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: C++ interface for glib2
 uri:
-  - https://www.gtkmm.org
+- https://www.gtkmm.org
 license: LGPL-2.1+
 labels:
-  BDEPEND: virtual/pkgconfig >=dev-cpp/mm-common-1.0.0 sys-devel/m4 dev-lang/perl doc? ( app-doc/doxygen dev-libs/libxslt media-gfx/graphviz ) app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  BDEPEND: virtual/pkgconfig >=dev-cpp/mm-common-1.0.0 sys-devel/m4 dev-lang/perl
+    doc? ( app-doc/doxygen dev-libs/libxslt media-gfx/graphviz ) app-arch/xz-utils
+    >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
   DEPEND: '>=dev-libs/libsigc++-2.9.1:2 >=dev-libs/glib-2.62.2:2'
   IUSE: doc debug test
   RDEPEND: '>=dev-libs/libsigc++-2.9.1:2 >=dev-libs/glib-2.62.2:2'
@@ -23,9 +31,3 @@ labels:
   kit: gnome-kit
   original.package.name: dev-cpp/glibmm
   original.package.version: 2.64.2
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

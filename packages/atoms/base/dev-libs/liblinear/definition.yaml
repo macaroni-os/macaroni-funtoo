@@ -1,11 +1,17 @@
 name: liblinear
-version: 230+1
+version: 230+2
 category: dev-libs
 use_flags:
-  - -blas
+- -blas
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: A Library for Large Linear Classification
 uri:
-  - https://www.csie.ntu.edu.tw/~cjlin/liblinear/ https://github.com/cjlin1/liblinear
+- https://www.csie.ntu.edu.tw/~cjlin/liblinear/ https://github.com/cjlin1/liblinear
 license: BSD
 labels:
   DEPEND: blas? ( virtual/blas ) blas? ( virtual/pkgconfig )
@@ -15,9 +21,3 @@ labels:
   kit: dev-kit
   original.package.name: dev-libs/liblinear
   original.package.version: "230"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

@@ -1,13 +1,19 @@
 name: Parse-Yapp
-version: 1.210.0+1
+version: 1.210.0+2
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Compiles yacc-like LALR grammars to generate Perl OO parser modules
 uri:
-  - https://metacpan.org/release/Parse-Yapp
+- https://metacpan.org/release/Parse-Yapp
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: '!<net-fs/samba-4.10.6 virtual/perl-ExtUtils-MakeMaker dev-lang/perl:='
@@ -17,9 +23,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Parse-Yapp
   original.package.version: 1.210.0
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

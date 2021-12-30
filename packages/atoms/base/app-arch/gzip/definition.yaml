@@ -1,9 +1,15 @@
 name: gzip
-version: 1.11+1
+version: 1.11+2
 category: app-arch
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Standard GNU compressor
 uri:
-  - https://www.gnu.org/software/gzip/
+- https://www.gnu.org/software/gzip/
 license: GPL-3
 labels:
   IUSE: pic static
@@ -11,9 +17,3 @@ labels:
   kit: core-kit
   original.package.name: app-arch/gzip
   original.package.version: "1.11"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

@@ -1,12 +1,18 @@
 name: noto
-version: 20210913+1
+version: 20210913+2
 category: media-fonts
 use_flags:
-  - -cjk
-  - X
+- -cjk
+- X
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Google's font family that aims to support all the world's languages
 uri:
-  - https://www.google.com/get/noto/ https://github.com/googlefonts/noto-fonts
+- https://www.google.com/get/noto/ https://github.com/googlefonts/noto-fonts
 license: OFL-1.1
 labels:
   DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
@@ -16,9 +22,3 @@ labels:
   kit: media-kit
   original.package.name: media-fonts/noto
   original.package.version: "20210913"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

@@ -1,16 +1,22 @@
 name: Text-Iconv
-version: 1.700.0+1
+version: 1.700.0+2
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
-  - name: libiconv
-    version: '>=0'
-    category: virtual
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: A Perl interface to the iconv() codeset conversion function
 uri:
-  - https://metacpan.org/release/Text-Iconv
+- https://metacpan.org/release/Text-Iconv
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/libiconv dev-lang/perl:=
@@ -19,9 +25,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Text-Iconv
   original.package.version: 1.700.0-r2
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

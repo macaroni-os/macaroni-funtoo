@@ -1,34 +1,39 @@
 name: qtsql
-version: 5.15.2+1
+version: 5.15.2+2
 category: dev-qt-5
 use_flags:
-  - -freetds
-  - -mysql
-  - -oci8
-  - -odbc
-  - -postgres
-  - -sqlite
-  - -test
+- -freetds
+- -mysql
+- -oci8
+- -odbc
+- -postgres
+- -sqlite
+- -test
 requires:
-  - name: qtcore
-    version: '>=0'
-    category: dev-qt-5
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: SQL abstraction library for the Qt5 framework
 uri:
-  - https://www.qt.io/
+- https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
-  DEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= freetds? ( dev-db/freetds ) mysql? ( dev-db/mysql-connector-c:= ) oci8? ( dev-db/oracle-instantclient:=[sdk] ) odbc? ( dev-db/unixODBC ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 ) test? ( ~dev-qt/qttest-5.15.2 )'
+  DEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= freetds? ( dev-db/freetds ) mysql? ( dev-db/mysql-connector-c:=
+    ) oci8? ( dev-db/oracle-instantclient:=[sdk] ) odbc? ( dev-db/unixODBC ) postgres?
+    ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 ) test? ( ~dev-qt/qttest-5.15.2
+    )'
   IUSE: freetds mysql oci8 odbc postgres +sqlite debug test
-  RDEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= freetds? ( dev-db/freetds ) mysql? ( dev-db/mysql-connector-c:= ) oci8? ( dev-db/oracle-instantclient:=[sdk] ) odbc? ( dev-db/unixODBC ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 )'
+  RDEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= freetds? ( dev-db/freetds ) mysql? ( dev-db/mysql-connector-c:=
+    ) oci8? ( dev-db/oracle-instantclient:=[sdk] ) odbc? ( dev-db/unixODBC ) postgres?
+    ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 )'
   emerge.packages: dev-qt/qtsql:5
   kit: qt-kit
   original.package.name: dev-qt/qtsql
   original.package.version: 5.15.2-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

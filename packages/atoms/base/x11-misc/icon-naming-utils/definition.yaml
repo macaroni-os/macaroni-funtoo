@@ -1,13 +1,19 @@
 name: icon-naming-utils
-version: 0.8.90+1
+version: 0.8.90+2
 category: x11-misc
 requires:
-  - name: XML-Simple
-    version: '>=0'
-    category: dev-perl
+- name: XML-Simple
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Utils to help with the transition to the new freedesktop.org naming scheme
 uri:
-  - http://tango.freedesktop.org
+- http://tango.freedesktop.org
 license: GPL-2
 labels:
   DEPEND: '>=dev-perl/XML-Simple-2 >=dev-lang/perl-5'
@@ -16,9 +22,3 @@ labels:
   kit: desktop-kit
   original.package.name: x11-misc/icon-naming-utils
   original.package.version: 0.8.90-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

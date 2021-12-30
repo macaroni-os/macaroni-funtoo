@@ -1,9 +1,15 @@
 name: osinfo-db
-version: 20190319+1
+version: 20190319+2
 category: sys-apps
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: osinfo database files
 uri:
-  - https://libosinfo.org/
+- https://libosinfo.org/
 license: GPL-2+
 labels:
   DEPEND: sys-apps/osinfo-db-tools
@@ -11,9 +17,3 @@ labels:
   kit: dev-kit
   original.package.name: sys-apps/osinfo-db
   original.package.version: "20190319"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

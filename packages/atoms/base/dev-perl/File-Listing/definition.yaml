@@ -1,13 +1,19 @@
 name: File-Listing
-version: 6.40.0+1
+version: 6.40.0+2
 category: dev-perl
 requires:
-  - name: HTTP-Date
-    version: '>=0'
-    category: dev-perl
+- name: HTTP-Date
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Parse directory listings
 uri:
-  - https://metacpan.org/release/File-Listing
+- https://metacpan.org/release/File-Listing
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: '!<dev-perl/libwww-perl-6 >=dev-perl/HTTP-Date-6.0.0 dev-lang/perl:=[-build(-)]'
@@ -16,9 +22,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/File-Listing
   original.package.version: 6.40.0-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

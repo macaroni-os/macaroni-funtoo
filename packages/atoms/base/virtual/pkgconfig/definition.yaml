@@ -1,22 +1,23 @@
 name: pkgconfig
-version: 2+1
+version: 2+2
 category: virtual
 requires:
-  - name: pkgconf
-    version: '>=0'
-    category: dev-util
+- name: pkgconf
+  version: '>=0'
+  category: dev-util
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Virtual for the pkg-config implementation
 uri:
-  - ""
+- ""
 labels:
-  RDEPEND: '|| ( >=dev-util/pkgconf-1.3.7[pkg-config] >=dev-util/pkgconfig-0.29.2 >=dev-util/pkgconfig-openbsd-20130507-r2[pkg-config] )'
+  RDEPEND: '|| ( >=dev-util/pkgconf-1.3.7[pkg-config] >=dev-util/pkgconfig-0.29.2
+    >=dev-util/pkgconfig-openbsd-20130507-r2[pkg-config] )'
   emerge.packages: virtual/pkgconfig
   kit: core-kit
   original.package.name: virtual/pkgconfig
   original.package.version: "2"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

@@ -1,13 +1,19 @@
 name: libmatroska
-version: 1.5.0+1
+version: 1.5.0+2
 category: media-libs
 requires:
-  - name: libebml
-    version: '>=0'
-    category: dev-libs
+- name: libebml
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Extensible multimedia container format based on EBML
 uri:
-  - https://www.matroska.org/ https://github.com/Matroska-Org/libmatroska/
+- https://www.matroska.org/ https://github.com/Matroska-Org/libmatroska/
 license: LGPL-2.1
 labels:
   BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
@@ -17,9 +23,3 @@ labels:
   kit: media-kit
   original.package.name: media-libs/libmatroska
   original.package.version: 1.5.0
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

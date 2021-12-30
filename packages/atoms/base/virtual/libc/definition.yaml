@@ -1,29 +1,33 @@
 name: libc
-version: 1+1
+version: 1+2
 category: virtual
 use_flags:
-  - -elibc_Cygwin
-  - -elibc_FreeBSD
-  - -elibc_musl
-  - -elibc_uclibc
-  - elibc_glibc
-  - prefix-guest
+- -elibc_Cygwin
+- -elibc_FreeBSD
+- -elibc_musl
+- -elibc_uclibc
+- elibc_glibc
+- prefix-guest
 requires:
-  - name: glibc
-    version: '>=0'
-    category: sys-libs-2.2
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Virtual for the C library
 uri:
-  - ""
+- ""
 labels:
-  RDEPEND: '!prefix-guest? ( elibc_glibc? ( sys-libs/glibc:2.2 ) elibc_musl? ( sys-libs/musl ) elibc_uclibc? ( || ( sys-libs/uclibc-ng sys-libs/uclibc ) ) elibc_FreeBSD? ( sys-freebsd/freebsd-lib ) ) prefix-guest? ( elibc_Cygwin? ( sys-libs/cygwin-crypt ) !sys-libs/glibc !sys-libs/musl !sys-libs/uclibc-ng !sys-libs/uclibc !sys-freebsd/freebsd-lib )'
+  RDEPEND: '!prefix-guest? ( elibc_glibc? ( sys-libs/glibc:2.2 ) elibc_musl? ( sys-libs/musl
+    ) elibc_uclibc? ( || ( sys-libs/uclibc-ng sys-libs/uclibc ) ) elibc_FreeBSD? (
+    sys-freebsd/freebsd-lib ) ) prefix-guest? ( elibc_Cygwin? ( sys-libs/cygwin-crypt
+    ) !sys-libs/glibc !sys-libs/musl !sys-libs/uclibc-ng !sys-libs/uclibc !sys-freebsd/freebsd-lib
+    )'
   emerge.packages: virtual/libc
   kit: core-kit
   original.package.name: virtual/libc
   original.package.version: "1"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

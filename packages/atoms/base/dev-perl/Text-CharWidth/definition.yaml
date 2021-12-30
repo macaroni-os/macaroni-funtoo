@@ -1,13 +1,19 @@
 name: Text-CharWidth
-version: 0.40.0+1
+version: 0.40.0+2
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Get number of occupied columns of a string on terminal
 uri:
-  - https://metacpan.org/release/Text-CharWidth
+- https://metacpan.org/release/Text-CharWidth
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-lang/perl:=[-build(-)]
@@ -16,9 +22,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Text-CharWidth
   original.package.version: 0.40.0-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

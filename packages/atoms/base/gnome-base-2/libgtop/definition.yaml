@@ -1,27 +1,30 @@
 name: libgtop
-version: 2.40.0+1
+version: 2.40.0+2
 category: gnome-base-2
 use_flags:
-  - introspection
+- introspection
 requires:
-  - name: gobject-introspection
-    version: '>=0'
-    category: dev-libs
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: A library that provides top functionality to applications
 uri:
-  - https://git.gnome.org/browse/libgtop
+- https://git.gnome.org/browse/libgtop
 license: GPL-2
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) >=dev-util/gtk-doc-am-1.4 >=sys-devel/gettext-0.19.4 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) >=dev-util/gtk-doc-am-1.4 >=sys-devel/gettext-0.19.4 virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
   IUSE: +introspection
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= )'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    )'
   emerge.packages: gnome-base/libgtop:2
   kit: gnome-kit
   original.package.name: gnome-base/libgtop
   original.package.version: 2.40.0
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

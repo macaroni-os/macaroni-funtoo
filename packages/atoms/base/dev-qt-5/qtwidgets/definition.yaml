@@ -1,29 +1,34 @@
 name: qtwidgets
-version: 5.15.2+1
+version: 5.15.2+2
 category: dev-qt-5
 use_flags:
-  - -gtk
-  - -test
+- -gtk
+- -test
 requires:
-  - name: qtgui
-    version: '>=0'
-    category: dev-qt-5
-description: Set of components for creating classic desktop-style UIs for the Qt5 framework
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: Set of components for creating classic desktop-style UIs for the Qt5
+  framework
 uri:
-  - https://www.qt.io/
+- https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
-  DEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= ~dev-qt/qtgui-5.15.2[gles2-only=,png=,X?] gtk? ( ~dev-qt/qtgui-5.15.2[dbus] x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango ) test? ( ~dev-qt/qttest-5.15.2 )'
+  DEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= ~dev-qt/qtgui-5.15.2[gles2-only=,png=,X?]
+    gtk? ( ~dev-qt/qtgui-5.15.2[dbus] x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango
+    ) test? ( ~dev-qt/qttest-5.15.2 )'
   IUSE: gles2-only gtk +png +X debug test
-  RDEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= ~dev-qt/qtgui-5.15.2[gles2-only=,png=,X?] gtk? ( ~dev-qt/qtgui-5.15.2[dbus] x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango ) dev-qt/qtchooser'
+  RDEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= ~dev-qt/qtgui-5.15.2[gles2-only=,png=,X?]
+    gtk? ( ~dev-qt/qtgui-5.15.2[dbus] x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango
+    ) dev-qt/qtchooser'
   emerge.packages: dev-qt/qtwidgets:5
   kit: qt-kit
   original.package.name: dev-qt/qtwidgets
   original.package.version: 5.15.2-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

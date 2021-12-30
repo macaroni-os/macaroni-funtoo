@@ -1,40 +1,47 @@
 name: libbytesize
-version: 2.0+1
+version: 2.0+2
 category: dev-libs
 use_flags:
-  - -doc
-  - -test
-  - python
-  - python_targets_python3_7
+- -doc
+- -test
+- python
+- python_targets_python3_7
 requires:
-  - name: python
-    version: '>=0'
-    category: dev-lang-3.7
-  - name: python-exec
-    version: '>=0'
-    category: dev-lang-2
-  - name: libpcre2
-    version: '>=0'
-    category: dev-libs
-  - name: mpfr
-    version: '>=0'
-    category: dev-libs
-description: Tiny library providing a C "class" for working with arbitrary big sizes in bytes
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: mpfr
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: Tiny library providing a C "class" for working with arbitrary big sizes
+  in bytes
 uri:
-  - https://github.com/storaged-project/libbytesize
+- https://github.com/storaged-project/libbytesize
 license: LGPL-2+
 labels:
-  BDEPEND: sys-devel/gettext doc? ( dev-util/gtk-doc ) test? ( dev-python/pocketlint[python_targets_python3_7(-)?,-python_single_target_python3_7(-)] dev-python/polib[python_targets_python3_7(-)?,-python_single_target_python3_7(-)] )
-  DEPEND: dev-libs/gmp:0= dev-libs/mpfr:= dev-libs/libpcre2 python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)] )
+  BDEPEND: sys-devel/gettext doc? ( dev-util/gtk-doc ) test? ( dev-python/pocketlint[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    dev-python/polib[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    )
+  DEPEND: dev-libs/gmp:0= dev-libs/mpfr:= dev-libs/libpcre2 python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    )
   IUSE: doc python test tools python_targets_python3_7
-  RDEPEND: dev-libs/gmp:0= dev-libs/mpfr:= dev-libs/libpcre2 python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)] )
+  RDEPEND: dev-libs/gmp:0= dev-libs/mpfr:= dev-libs/libpcre2 python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    )
   emerge.packages: dev-libs/libbytesize
   kit: dev-kit
   original.package.name: dev-libs/libbytesize
   original.package.version: 2.0-r3
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

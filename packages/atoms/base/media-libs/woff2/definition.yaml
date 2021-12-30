@@ -1,13 +1,19 @@
 name: woff2
-version: 1.0.2+1
+version: 1.0.2+2
 category: media-libs
 requires:
-  - name: brotli
-    version: '>=0'
-    category: app-arch
+- name: brotli
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Encode/decode WOFF2 font format
 uri:
-  - https://github.com/google/woff2
+- https://github.com/google/woff2
 license: MIT
 labels:
   DEPEND: app-arch/brotli virtual/pkgconfig sys-devel/make >=dev-util/cmake-3.9.6
@@ -16,9 +22,3 @@ labels:
   kit: media-kit
   original.package.name: media-libs/woff2
   original.package.version: 1.0.2-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

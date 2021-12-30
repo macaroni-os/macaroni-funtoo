@@ -1,13 +1,19 @@
 name: Canary-Stability
-version: 2012.0.0+1
+version: 2012.0.0+2
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Canary to check perl compatibility for schmorp's modules
 uri:
-  - https://metacpan.org/release/Canary-Stability
+- https://metacpan.org/release/Canary-Stability
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
@@ -16,9 +22,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Canary-Stability
   original.package.version: 2012.0.0
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

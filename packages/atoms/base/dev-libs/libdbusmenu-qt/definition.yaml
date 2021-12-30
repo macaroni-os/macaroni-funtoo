@@ -1,16 +1,22 @@
 name: libdbusmenu-qt
-version: 0.9.3_pre20160218-r3+1
+version: 0.9.3_pre20160218-r3+2
 category: dev-libs
 requires:
-  - name: qtdbus
-    version: '>=0'
-    category: dev-qt-5
-  - name: qtwidgets
-    version: '>=0'
-    category: dev-qt-5
+- name: qtdbus
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwidgets
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Library providing Qt implementation of DBusMenu specification
 uri:
-  - https://launchpad.net/libdbusmenu-qt/
+- https://launchpad.net/libdbusmenu-qt/
 license: LGPL-2
 labels:
   BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
@@ -20,9 +26,3 @@ labels:
   kit: dev-kit
   original.package.name: dev-libs/libdbusmenu-qt
   original.package.version: 0.9.3_pre20160218-r3
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

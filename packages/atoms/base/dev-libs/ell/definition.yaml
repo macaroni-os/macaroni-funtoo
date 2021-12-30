@@ -1,12 +1,19 @@
 name: ell
-version: 0.30+1
+version: 0.30+2
 category: dev-libs
 use_flags:
-  - -glib
-  - -test
-description: Embedded Linux Library provides core, low-level functionality for system daemons
+- -glib
+- -test
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: Embedded Linux Library provides core, low-level functionality for system
+  daemons
 uri:
-  - ""
+- ""
 license: LGPL-2.1
 labels:
   DEPEND: glib? ( dev-libs/glib:2 ) test? ( sys-apps/dbus )
@@ -16,9 +23,3 @@ labels:
   kit: core-kit
   original.package.name: dev-libs/ell
   original.package.version: 0.30-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

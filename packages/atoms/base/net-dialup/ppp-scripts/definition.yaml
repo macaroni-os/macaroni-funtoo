@@ -1,9 +1,15 @@
 name: ppp-scripts
-version: 0+1
+version: 0+2
 category: net-dialup
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Common set of scripts for various PPP implementations
 uri:
-  - https://gentoo.org/
+- https://gentoo.org/
 license: GPL-2
 labels:
   DEPEND: '!<net-dialup/ppp-2.4.7-r1'
@@ -12,9 +18,3 @@ labels:
   kit: core-kit
   original.package.name: net-dialup/ppp-scripts
   original.package.version: "0"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/
