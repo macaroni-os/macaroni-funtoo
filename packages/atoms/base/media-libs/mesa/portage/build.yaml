@@ -1,9 +1,0 @@
-package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
-includes:
-  - ^/var/db/pkg
-  - ^/var/db$
-  - ^/var$
-requires:
-  - name: mesa
-    version: '{{ .Values.version }}'
-    category: media-libs

@@ -1,9 +1,0 @@
-package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
-includes:
-  - ^/var/db/pkg
-  - ^/var/db$
-  - ^/var$
-requires:
-  - name: gupnp
-    version: '{{ .Values.version }}'
-    category: net-libs-1.2

@@ -1,9 +1,0 @@
-package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
-includes:
-  - ^/var/db/pkg
-  - ^/var/db$
-  - ^/var$
-requires:
-  - name: charset_normalizer
-    version: '{{ .Values.version }}'
-    category: dev-python

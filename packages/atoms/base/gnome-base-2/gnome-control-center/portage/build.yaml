@@ -1,9 +1,0 @@
-package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
-includes:
-  - ^/var/db/pkg
-  - ^/var/db$
-  - ^/var$
-requires:
-  - name: gnome-control-center
-    version: '{{ .Values.version }}'
-    category: gnome-base-2
