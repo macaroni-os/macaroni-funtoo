@@ -1,39 +1,43 @@
 name: qtcore
-version: 5.15.2+1
+version: 5.15.2+2
 category: dev-qt-5
 use_flags:
-  - -icu
-  - -systemd
-  - -test
+- -icu
+- -systemd
+- -test
 requires:
-  - name: double-conversion
-    version: '>=0'
-    category: dev-libs
-  - name: glib
-    version: '>=0'
-    category: dev-libs-2
-  - name: libpcre2
-    version: '>=0'
-    category: dev-libs
-  - name: qtchooser
-    version: '>=0'
-    category: dev-qt
+- name: double-conversion
+  version: '>=0'
+  category: dev-libs
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: qtchooser
+  version: '>=0'
+  category: dev-qt
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Cross-platform application development framework
 uri:
-  - https://www.qt.io/
+- https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
-  DEPEND: dev-libs/double-conversion:= dev-libs/glib:2 dev-libs/libpcre2[pcre16,unicode] sys-libs/zlib:= icu? ( dev-libs/icu:= ) !icu? ( virtual/libiconv ) systemd? ( sys-apps/systemd:= ) test? ( ~dev-qt/qttest-5.15.2 )
+  DEPEND: dev-libs/double-conversion:= dev-libs/glib:2 dev-libs/libpcre2[pcre16,unicode]
+    sys-libs/zlib:= icu? ( dev-libs/icu:= ) !icu? ( virtual/libiconv ) systemd? (
+    sys-apps/systemd:= ) test? ( ~dev-qt/qttest-5.15.2 )
   IUSE: icu old-kernel systemd kernel_linux debug test
-  RDEPEND: dev-libs/double-conversion:= dev-libs/glib:2 dev-libs/libpcre2[pcre16,unicode] sys-libs/zlib:= icu? ( dev-libs/icu:= ) !icu? ( virtual/libiconv ) systemd? ( sys-apps/systemd:= ) !<dev-qt/qtcore-4.8.7-r4:4 dev-qt/qtchooser
+  RDEPEND: dev-libs/double-conversion:= dev-libs/glib:2 dev-libs/libpcre2[pcre16,unicode]
+    sys-libs/zlib:= icu? ( dev-libs/icu:= ) !icu? ( virtual/libiconv ) systemd? (
+    sys-apps/systemd:= ) !<dev-qt/qtcore-4.8.7-r4:4 dev-qt/qtchooser
   emerge.packages: dev-qt/qtcore:5
   kit: qt-kit
   original.package.name: dev-qt/qtcore
   original.package.version: 5.15.2-r3
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

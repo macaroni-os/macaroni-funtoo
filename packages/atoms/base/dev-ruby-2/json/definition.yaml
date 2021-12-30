@@ -1,31 +1,46 @@
 name: json
-version: 2.3.1+1
+version: 2.3.1+2
 category: dev-ruby-2
 use_flags:
-  - -doc
-  - -test
-  - ruby_targets_ruby26
-  - ruby_targets_ruby27
+- -doc
+- -test
+- ruby_targets_ruby26
+- ruby_targets_ruby27
 requires:
-  - name: rubygems
-    version: '>=0'
-    category: virtual
+- name: rubygems
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: A JSON implementation as a Ruby extension
 uri:
-  - https://github.com/flori/json
+- https://github.com/flori/json
 license: Ruby
 labels:
-  BDEPEND: ruby_targets_ruby27? ( dev-ruby/rake[ruby_targets_ruby27(-)] doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) test? ( dev-ruby/test-unit:2[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( dev-ruby/rake[ruby_targets_ruby26(-)] doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) test? ( dev-ruby/test-unit:2[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
-  DEPEND: dev-util/ragel ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  BDEPEND: ruby_targets_ruby27? ( dev-ruby/rake[ruby_targets_ruby27(-)] doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)]
+    ) test? ( dev-ruby/test-unit:2[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26?
+    ( dev-ruby/rake[ruby_targets_ruby26(-)] doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)]
+    ) test? ( dev-ruby/test-unit:2[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27?
+    ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27?
+    ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( doc?
+    ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27?
+    ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)]
+    ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)]
+    ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+  DEPEND: dev-util/ragel ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26?
+    ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)]
+    ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
   IUSE: ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 doc test test
-  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] )
   emerge.packages: dev-ruby/json:2
   kit: ruby-kit
   original.package.name: dev-ruby/json
   original.package.version: 2.3.1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

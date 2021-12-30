@@ -1,15 +1,21 @@
 name: mailbase
-version: 1.5+1
+version: 1.5+2
 category: net-mail
 use_flags:
-  - pam
+- pam
 requires:
-  - name: pam
-    version: '>=0'
-    category: virtual
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: MTA layout package
 uri:
-  - https://www.gentoo.org/
+- https://www.gentoo.org/
 license: GPL-2
 labels:
   IUSE: pam
@@ -18,9 +24,3 @@ labels:
   kit: core-kit
   original.package.name: net-mail/mailbase
   original.package.version: "1.5"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

@@ -1,13 +1,19 @@
 name: eselect-ruby
-version: 20191222+1
+version: 20191222+2
 category: app-eselect
 requires:
-  - name: eselect
-    version: '>=0'
-    category: app-admin
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Manages multiple Ruby versions
 uri:
-  - https://wiki.gentoo.org/wiki/Ruby
+- https://wiki.gentoo.org/wiki/Ruby
 license: GPL-2
 labels:
   RDEPEND: '>=app-admin/eselect-1.0.2'
@@ -15,9 +21,3 @@ labels:
   kit: ruby-kit
   original.package.name: app-eselect/eselect-ruby
   original.package.version: "20191222"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

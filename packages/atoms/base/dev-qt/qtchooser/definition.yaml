@@ -1,11 +1,17 @@
 name: qtchooser
-version: 66+1
+version: 66+2
 category: dev-qt
 use_flags:
-  - -test
+- -test
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Tool to quickly switch between multiple Qt installations
 uri:
-  - https://code.qt.io/cgit/qtsdk/qtchooser.git/
+- https://code.qt.io/cgit/qtsdk/qtchooser.git/
 license: '|| ( LGPL-2.1 GPL-3 )'
 labels:
   DEPEND: test? ( dev-qt/qtcore:5 dev-qt/qttest:5 )
@@ -14,9 +20,3 @@ labels:
   kit: qt-kit
   original.package.name: dev-qt/qtchooser
   original.package.version: "66"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

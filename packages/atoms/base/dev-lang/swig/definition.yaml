@@ -1,16 +1,22 @@
 name: swig
-version: 3.0.12+1
+version: 3.0.12+2
 category: dev-lang
 use_flags:
-  - -ccache
-  - pcre
+- -ccache
+- pcre
 requires:
-  - name: libpcre
-    version: '>=0'
-    category: dev-libs-3
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Simplified Wrapper and Interface Generator
 uri:
-  - http://www.swig.org/
+- http://www.swig.org/
 license: GPL-3+ BSD BSD-2
 labels:
   DEPEND: pcre? ( dev-libs/libpcre ) ccache? ( sys-libs/zlib )
@@ -20,9 +26,3 @@ labels:
   kit: lang-kit
   original.package.name: dev-lang/swig
   original.package.version: 3.0.12
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

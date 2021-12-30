@@ -1,9 +1,15 @@
 name: libutempter
-version: 1.1.6+1
+version: 1.1.6+2
 category: sys-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Library that allows non-privileged apps to write utmp (login) info
 uri:
-  - https://altlinux.org/index.php?module=sisyphus&package=libutempter
+- https://altlinux.org/index.php?module=sisyphus&package=libutempter
 license: LGPL-2.1
 labels:
   IUSE: static-libs elibc_FreeBSD
@@ -12,9 +18,3 @@ labels:
   kit: core-kit
   original.package.name: sys-libs/libutempter
   original.package.version: 1.1.6-r2
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

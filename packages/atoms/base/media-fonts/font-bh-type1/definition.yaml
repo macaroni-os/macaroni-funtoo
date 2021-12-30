@@ -1,32 +1,38 @@
 name: font-bh-type1
-version: 1.0.3+1
+version: 1.0.3+2
 category: media-fonts
 use_flags:
-  - -ppc-aix
-  - -x86-winnt
-  - X
+- -ppc-aix
+- -x86-winnt
+- X
 requires:
-  - name: encodings
-    version: '>=0'
-    category: media-fonts
-  - name: mkfontscale
-    version: '>=0'
-    category: x11-apps
+- name: encodings
+  version: '>=0'
+  category: media-fonts
+- name: mkfontscale
+  version: '>=0'
+  category: x11-apps
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: X.Org Bigelow & Holmes Type 1 fonts
 uri:
-  - https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/font/font-bh-type1
+- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/font/font-bh-type1
 license: bh-luxi
 labels:
-  DEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings ) ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) >=media-fonts/font-util-1.2.0 >=x11-apps/mkfontscale-1.2.0 virtual/pkgconfig'
+  DEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || (
+    >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings
+    ) ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) >=media-fonts/font-util-1.2.0
+    >=x11-apps/mkfontscale-1.2.0 virtual/pkgconfig'
   IUSE: X
   RDEPEND: media-fonts/encodings >=x11-apps/mkfontscale-1.2.0
   emerge.packages: media-fonts/font-bh-type1
   kit: core-gl-kit
   original.package.name: media-fonts/font-bh-type1
   original.package.version: 1.0.3-r1
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

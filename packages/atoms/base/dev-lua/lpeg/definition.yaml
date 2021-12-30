@@ -1,11 +1,17 @@
 name: lpeg
-version: 1.0.2+1
+version: 1.0.2+2
 category: dev-lua
 use_flags:
-  - -luajit
+- -luajit
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Parsing Expression Grammars for Lua
 uri:
-  - http://www.inf.puc-rio.br/~roberto/lpeg/
+- http://www.inf.puc-rio.br/~roberto/lpeg/
 license: MIT
 labels:
   DEPEND: '!luajit? ( >=dev-lang/lua-5.1:= ) luajit? ( dev-lang/luajit:2= ) virtual/pkgconfig'
@@ -15,9 +21,3 @@ labels:
   kit: lang-kit
   original.package.name: dev-lua/lpeg
   original.package.version: 1.0.2
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

@@ -1,13 +1,19 @@
 name: service-manager
-version: 1+1
+version: 1+2
 category: virtual
 requires:
-  - name: openrc
-    version: '>=0'
-    category: sys-apps
+- name: openrc
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Virtual for various service managers
 uri:
-  - ""
+- ""
 labels:
   IUSE: kernel_linux prefix
   RDEPEND: sys-apps/openrc
@@ -15,9 +21,3 @@ labels:
   kit: core-kit
   original.package.name: virtual/service-manager
   original.package.version: "1"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

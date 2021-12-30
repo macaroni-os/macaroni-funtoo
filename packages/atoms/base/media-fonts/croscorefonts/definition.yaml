@@ -1,11 +1,18 @@
 name: croscorefonts
-version: 1.31.0+1
+version: 1.31.0+2
 category: media-fonts
 use_flags:
-  - X
+- X
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Open licensed fonts metrically compatible with MS corefonts
 uri:
-  - https://www.google.com/webfonts/specimen/Arimo https://www.google.com/webfonts/specimen/Cousine https://www.google.com/webfonts/specimen/Tinos
+- https://www.google.com/webfonts/specimen/Arimo https://www.google.com/webfonts/specimen/Cousine
+  https://www.google.com/webfonts/specimen/Tinos
 license: Apache-2.0
 labels:
   DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
@@ -14,9 +21,3 @@ labels:
   kit: core-gl-kit
   original.package.name: media-fonts/croscorefonts
   original.package.version: 1.31.0
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/
