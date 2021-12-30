@@ -3,7 +3,7 @@ version: 3.76+1
 category: app-text
 description: ISO language, territory, currency, script codes and their translations
 uri:
-- http://pkg-isocodes.alioth.debian.org/
+  - http://pkg-isocodes.alioth.debian.org/
 license: LGPL-2.1+
 labels:
   DEPEND: '|| ( dev-lang/python:3.7 ) app-arch/xz-utils sys-devel/gettext'
@@ -11,3 +11,9 @@ labels:
   kit: text-kit
   original.package.name: app-text/iso-codes
   original.package.version: "3.76"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

@@ -2,37 +2,34 @@ name: telepathy-logger
 version: 0.8.2+1
 category: net-im
 use_flags:
-- -prefix
-- -test
-- introspection
+  - -prefix
+  - -test
+  - introspection
 requires:
-- name: sqlite
-  version: '>=0'
-  category: dev-db-3
-- name: libxslt
-  version: '>=0'
-  category: dev-libs
-- name: telepathy-glib
-  version: '>=0'
-  category: net-libs
-description: Telepathy Logger is a session daemon that should be activated whenever
-  telepathy is being used
+  - name: sqlite
+    version: '>=0'
+    category: dev-db-3
+  - name: libxslt
+    version: '>=0'
+    category: dev-libs
+  - name: telepathy-glib
+    version: '>=0'
+    category: net-libs
+description: Telepathy Logger is a session daemon that should be activated whenever telepathy is being used
 uri:
-- https://telepathy.freedesktop.org/wiki/Logger
+  - https://telepathy.freedesktop.org/wiki/Logger
 license: LGPL-2.1+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82
-    >=net-libs/telepathy-glib-0.19.2[introspection?] dev-libs/libxml2 dev-libs/libxslt
-    dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) ||
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-util/gtk-doc-am-1.10 >=dev-util/intltool-0.35
-    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
-    x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
-    )'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82 >=net-libs/telepathy-glib-0.19.2[introspection?] dev-libs/libxml2 dev-libs/libxslt dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) || ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-util/gtk-doc-am-1.10 >=dev-util/intltool-0.35 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
   IUSE: +introspection test
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82
-    >=net-libs/telepathy-glib-0.19.2[introspection?] dev-libs/libxml2 dev-libs/libxslt
-    dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= )'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82 >=net-libs/telepathy-glib-0.19.2[introspection?] dev-libs/libxml2 dev-libs/libxslt dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= )'
   emerge.packages: net-im/telepathy-logger
   kit: gnome-kit
   original.package.name: net-im/telepathy-logger
   original.package.version: 0.8.2
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

@@ -2,12 +2,12 @@ name: HTTP-Negotiate
 version: 6.10.0+1
 category: dev-perl
 requires:
-- name: HTTP-Message
-  version: '>=0'
-  category: dev-perl
+  - name: HTTP-Message
+    version: '>=0'
+    category: dev-perl
 description: HTTP content negotiation
 uri:
-- https://metacpan.org/release/HTTP-Negotiate
+  - https://metacpan.org/release/HTTP-Negotiate
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: '!<dev-perl/libwww-perl-6 >=dev-perl/HTTP-Message-6.0.0 dev-lang/perl:='
@@ -16,3 +16,9 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/HTTP-Negotiate
   original.package.version: 6.10.0-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

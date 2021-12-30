@@ -2,12 +2,12 @@ name: Text-Unidecode
 version: 1.300.0+1
 category: dev-perl
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: Plain ASCII transliterations of Unicode text
 uri:
-- https://metacpan.org/release/Text-Unidecode
+  - https://metacpan.org/release/Text-Unidecode
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
@@ -16,3 +16,9 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Text-Unidecode
   original.package.version: 1.300.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

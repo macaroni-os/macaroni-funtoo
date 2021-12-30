@@ -2,12 +2,12 @@ name: udev-init-scripts
 version: 33+1
 category: sys-fs
 requires:
-- name: udev
-  version: '>=0'
-  category: virtual
+  - name: udev
+    version: '>=0'
+    category: virtual
 description: udev startup scripts for openrc
 uri:
-- https://www.gentoo.org
+  - https://www.gentoo.org
 license: GPL-2
 labels:
   RDEPEND: '>=virtual/udev-217 !<sys-apps/openrc-0.14'
@@ -15,3 +15,9 @@ labels:
   kit: core-kit
   original.package.name: sys-fs/udev-init-scripts
   original.package.version: "33"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

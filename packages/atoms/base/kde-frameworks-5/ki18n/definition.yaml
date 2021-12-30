@@ -2,44 +2,37 @@ name: ki18n
 version: 5.78.0+1
 category: kde-frameworks-5
 use_flags:
-- -doc
-- -python_single_target_python3_7
-- -python_single_target_python3_8
-- -python_single_target_python3_9
-- -test
+  - -doc
+  - -python_single_target_python3_7
+  - -python_single_target_python3_8
+  - -python_single_target_python3_9
+  - -test
 requires:
-- name: qtdeclarative
-  version: '>=0'
-  category: dev-qt-5
-- name: kf-env
-  version: '>=0'
-  category: kde-frameworks-5
-- name: gettext
-  version: '>=0'
-  category: sys-devel
+  - name: qtdeclarative
+    version: '>=0'
+    category: dev-qt-5
+  - name: kf-env
+    version: '>=0'
+    category: kde-frameworks-5
+  - name: gettext
+    version: '>=0'
+    category: sys-devel
 description: Framework based on Gettext for internationalizing user interface text
 uri:
-- https://kde.org/
+  - https://kde.org/
 license: LGPL-2+
 labels:
-  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.78:5
-    doc? ( >=dev-qt/qthelp-5.15.1:5 >=app-doc/doxygen-1.8.13-r1 )
-  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) >=dev-qt/qtdeclarative-5.15.1:5 sys-devel/gettext virtual/libintl test? ( >=dev-qt/qtconcurrent-5.15.1:5
-    ) dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.15.1:5
-    ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5 ) dev-util/desktop-file-utils
-  IUSE: debug doc test python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8
-  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) >=dev-qt/qtdeclarative-5.15.1:5 sys-devel/gettext virtual/libintl >=kde-frameworks/kf-env-4
-    || ( >=kde-frameworks/breeze-icons-5.78:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5
-    doc? ( >=dev-qt/qt-docs-5.15.1:5 )
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.78:5 doc? ( >=dev-qt/qthelp-5.15.1:5 >=app-doc/doxygen-1.8.13-r1 )
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) >=dev-qt/qtdeclarative-5.15.1:5 sys-devel/gettext virtual/libintl test? ( >=dev-qt/qtconcurrent-5.15.1:5 ) dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.15.1:5 ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5 ) dev-util/desktop-file-utils
+  IUSE: debug doc test python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) >=dev-qt/qtdeclarative-5.15.1:5 sys-devel/gettext virtual/libintl >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.78:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5 )
   emerge.packages: kde-frameworks/ki18n:5
   kit: kde-kit
   original.package.name: kde-frameworks/ki18n
   original.package.version: 5.78.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

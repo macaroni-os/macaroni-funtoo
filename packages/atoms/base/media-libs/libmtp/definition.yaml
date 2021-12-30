@@ -2,18 +2,18 @@ name: libmtp
 version: 1.1.16+1
 category: media-libs
 use_flags:
-- -doc
-- crypt
+  - -doc
+  - crypt
 requires:
-- name: libgcrypt
-  version: '>=0'
-  category: dev-libs
-- name: libusb
-  version: '>=0'
-  category: virtual-1
+  - name: libgcrypt
+    version: '>=0'
+    category: dev-libs
+  - name: libusb
+    version: '>=0'
+    category: virtual-1
 description: Implementation of Microsoft's Media Transfer Protocol (MTP)
 uri:
-- http://libmtp.sourceforge.net/
+  - http://libmtp.sourceforge.net/
 license: LGPL-2.1
 labels:
   BDEPEND: '>sys-devel/gettext-0.18.3 virtual/pkgconfig doc? ( app-doc/doxygen ) virtual/pkgconfig'
@@ -24,3 +24,9 @@ labels:
   kit: media-kit
   original.package.name: media-libs/libmtp
   original.package.version: 1.1.16
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

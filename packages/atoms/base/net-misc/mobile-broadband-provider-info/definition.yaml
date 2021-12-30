@@ -2,10 +2,10 @@ name: mobile-broadband-provider-info
 version: 20190618+1
 category: net-misc
 use_flags:
-- -test
+  - -test
 description: Database of mobile broadband service providers
 uri:
-- https://wiki.gnome.org/Projects/NetworkManager/MobileBroadband
+  - https://wiki.gnome.org/Projects/NetworkManager/MobileBroadband
 license: CC-PD
 labels:
   DEPEND: dev-libs/libxslt test? ( dev-libs/libxml2 ) app-arch/xz-utils
@@ -14,3 +14,9 @@ labels:
   kit: core-kit
   original.package.name: net-misc/mobile-broadband-provider-info
   original.package.version: "20190618"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

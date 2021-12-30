@@ -2,16 +2,21 @@ name: nasm
 version: 2.15.05+1
 category: dev-lang
 use_flags:
-- -doc
+  - -doc
 description: groovy little assembler
 uri:
-- https://www.nasm.us
+  - https://www.nasm.us
 license: BSD-2
 labels:
-  BDEPEND: dev-lang/perl doc? ( app-text/ghostscript-gpl dev-perl/Font-TTF dev-perl/Sort-Versions
-    media-fonts/source-pro virtual/perl-File-Spec )
+  BDEPEND: dev-lang/perl doc? ( app-text/ghostscript-gpl dev-perl/Font-TTF dev-perl/Sort-Versions media-fonts/source-pro virtual/perl-File-Spec )
   IUSE: doc
   emerge.packages: dev-lang/nasm
   kit: core-kit
   original.package.name: dev-lang/nasm
   original.package.version: 2.15.05
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

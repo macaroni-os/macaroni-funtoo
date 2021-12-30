@@ -2,12 +2,12 @@ name: corenetwork
 version: 1.6.5+1
 category: sys-apps
 requires:
-- name: openrc
-  version: '>=0'
-  category: sys-apps
+  - name: openrc
+    version: '>=0'
+    category: sys-apps
 description: Funtoo's networking scripts.
 uri:
-- http://www.funtoo.org/Networking
+  - http://www.funtoo.org/Networking
 license: BSD-2
 labels:
   RDEPEND: sys-apps/openrc !<=sys-apps/openrc-0.12.4-r4
@@ -15,3 +15,9 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/corenetwork
   original.package.version: 1.6.5
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

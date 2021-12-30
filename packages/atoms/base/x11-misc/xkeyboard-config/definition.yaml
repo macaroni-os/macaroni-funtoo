@@ -3,7 +3,7 @@ version: 2.24+1
 category: x11-misc
 description: X keyboard configuration database
 uri:
-- https://www.freedesktop.org/wiki/Software/XKeyboardConfig
+  - https://www.freedesktop.org/wiki/Software/XKeyboardConfig
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig
@@ -13,3 +13,9 @@ labels:
   kit: core-gl-kit
   original.package.name: x11-misc/xkeyboard-config
   original.package.version: 2.24-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

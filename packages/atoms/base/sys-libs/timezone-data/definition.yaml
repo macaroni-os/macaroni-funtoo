@@ -2,14 +2,14 @@ name: timezone-data
 version: 2021b+1
 category: sys-libs
 use_flags:
-- nls
+  - nls
 requires:
-- name: libintl
-  version: '>=0'
-  category: virtual
+  - name: libintl
+    version: '>=0'
+    category: virtual
 description: Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)
 uri:
-- https://www.iana.org/time-zones
+  - https://www.iana.org/time-zones
 license: BSD public-domain
 labels:
   DEPEND: nls? ( virtual/libintl )
@@ -19,3 +19,9 @@ labels:
   kit: core-hw-kit
   original.package.name: sys-libs/timezone-data
   original.package.version: 2021b
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

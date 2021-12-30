@@ -3,10 +3,16 @@ version: 20180101+1
 category: sys-devel
 description: Updated config.sub and config.guess file from GNU
 uri:
-- https://savannah.gnu.org/projects/config
+  - https://savannah.gnu.org/projects/config
 license: GPL-2
 labels:
   emerge.packages: sys-devel/gnuconfig
   kit: core-kit
   original.package.name: sys-devel/gnuconfig
   original.package.version: "20180101"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

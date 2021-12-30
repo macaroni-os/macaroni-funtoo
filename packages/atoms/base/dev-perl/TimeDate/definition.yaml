@@ -2,12 +2,12 @@ name: TimeDate
 version: 2.300.0+1
 category: dev-perl
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: A Date/Time Parsing Perl Module
 uri:
-- https://metacpan.org/release/TimeDate
+  - https://metacpan.org/release/TimeDate
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-lang/perl:=[-build(-)]
@@ -16,3 +16,9 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/TimeDate
   original.package.version: 2.300.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

@@ -3,11 +3,16 @@ version: 1.0.3+1
 category: x11-proto
 description: X.Org Protocol package stub .
 uri:
-- ""
+  - ""
 labels:
-  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
-    abi_s390_64
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   emerge.packages: x11-proto/xproxymngproto
   kit: core-gl-kit
   original.package.name: x11-proto/xproxymngproto
   original.package.version: 1.0.3-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

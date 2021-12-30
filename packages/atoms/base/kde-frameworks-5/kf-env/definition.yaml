@@ -2,12 +2,12 @@ name: kf-env
 version: 5+1
 category: kde-frameworks-5
 requires:
-- name: xdg-utils
-  version: '>=0'
-  category: x11-misc
+  - name: xdg-utils
+    version: '>=0'
+    category: x11-misc
 description: Environment setting required for all KDE Frameworks apps to run
 uri:
-- https://community.kde.org/Frameworks
+  - https://community.kde.org/Frameworks
 license: GPL-2
 labels:
   RDEPEND: '>=x11-misc/xdg-utils-1.1.1-r1'
@@ -16,3 +16,9 @@ labels:
   original.package.name: kde-frameworks/kf-env
   original.package.slot: "5"
   original.package.version: "5"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

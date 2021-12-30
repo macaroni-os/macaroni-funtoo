@@ -2,35 +2,28 @@ name: openrc
 version: 0.41.2+1
 category: sys-apps
 use_flags:
-- -audit
-- -kernel_FreeBSD
-- -kernel_linux
-- -prefix
-- -selinux
-- ncurses
-- pam
+  - -audit
+  - -kernel_FreeBSD
+  - -kernel_linux
+  - -prefix
+  - -selinux
+  - ncurses
+  - pam
 description: OpenRC manages the services, startup and shutdown of a host
 uri:
-- https://github.com/openrc/openrc/
+  - https://github.com/openrc/openrc/
 license: BSD-2
 labels:
-  DEPEND: kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd
-    ) ) ncurses? ( sys-libs/ncurses:0= ) pam? ( sys-auth/pambase virtual/pam ) audit?
-    ( sys-process/audit ) kernel_linux? ( sys-process/psmisc !<sys-process/procps-3.3.9-r2
-    ) selinux? ( sys-apps/policycoreutils >=sys-libs/libselinux-2.6 ) !<sys-apps/baselayout-2.1-r1
-    !<sys-fs/udev-init-scripts-27 virtual/os-headers ncurses? ( virtual/pkgconfig
-    )
-  IUSE: audit +bash-completion debug ncurses pam newnet prefix -netifrc selinux static-libs
-    unicode kernel_linux kernel_FreeBSD zsh-completion
-  RDEPEND: kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd
-    ) ) ncurses? ( sys-libs/ncurses:0= ) pam? ( sys-auth/pambase virtual/pam ) audit?
-    ( sys-process/audit ) kernel_linux? ( sys-process/psmisc !<sys-process/procps-3.3.9-r2
-    ) selinux? ( sys-apps/policycoreutils >=sys-libs/libselinux-2.6 ) !<sys-apps/baselayout-2.1-r1
-    !<sys-fs/udev-init-scripts-27 sys-apps/corenetwork !prefix? ( kernel_linux? (
-    >=sys-apps/sysvinit-2.86-r6[selinux?] virtual/tmpfiles ) kernel_FreeBSD? ( sys-freebsd/freebsd-sbin
-    ) ) selinux? ( >=sec-policy/selinux-base-policy-2.20170204-r4 >=sec-policy/selinux-openrc-2.20170204-r4
-    ) !<app-shells/gentoo-bashcomp-20180302 !<app-shells/gentoo-zsh-completions-20180228
+  DEPEND: kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd ) ) ncurses? ( sys-libs/ncurses:0= ) pam? ( sys-auth/pambase virtual/pam ) audit? ( sys-process/audit ) kernel_linux? ( sys-process/psmisc !<sys-process/procps-3.3.9-r2 ) selinux? ( sys-apps/policycoreutils >=sys-libs/libselinux-2.6 ) !<sys-apps/baselayout-2.1-r1 !<sys-fs/udev-init-scripts-27 virtual/os-headers ncurses? ( virtual/pkgconfig )
+  IUSE: audit +bash-completion debug ncurses pam newnet prefix -netifrc selinux static-libs unicode kernel_linux kernel_FreeBSD zsh-completion
+  RDEPEND: kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd ) ) ncurses? ( sys-libs/ncurses:0= ) pam? ( sys-auth/pambase virtual/pam ) audit? ( sys-process/audit ) kernel_linux? ( sys-process/psmisc !<sys-process/procps-3.3.9-r2 ) selinux? ( sys-apps/policycoreutils >=sys-libs/libselinux-2.6 ) !<sys-apps/baselayout-2.1-r1 !<sys-fs/udev-init-scripts-27 sys-apps/corenetwork !prefix? ( kernel_linux? ( >=sys-apps/sysvinit-2.86-r6[selinux?] virtual/tmpfiles ) kernel_FreeBSD? ( sys-freebsd/freebsd-sbin ) ) selinux? ( >=sec-policy/selinux-base-policy-2.20170204-r4 >=sec-policy/selinux-openrc-2.20170204-r4 ) !<app-shells/gentoo-bashcomp-20180302 !<app-shells/gentoo-zsh-completions-20180228
   emerge.packages: sys-apps/openrc
   kit: core-kit
   original.package.name: sys-apps/openrc
   original.package.version: 0.41.2-r3
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

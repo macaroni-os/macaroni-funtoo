@@ -2,16 +2,15 @@ name: mod_dnssd
 version: 0.6+1
 category: www-apache
 requires:
-- name: avahi
-  version: '>=0'
-  category: net-dns
-- name: apache
-  version: '>=0'
-  category: www-servers-2
-description: mod_dnssd is an Apache module which adds Zeroconf support via DNS-SD
-  using Avahi
+  - name: avahi
+    version: '>=0'
+    category: net-dns
+  - name: apache
+    version: '>=0'
+    category: www-servers-2
+description: mod_dnssd is an Apache module which adds Zeroconf support via DNS-SD using Avahi
 uri:
-- http://0pointer.de/lennart/projects/mod_dnssd/
+  - http://0pointer.de/lennart/projects/mod_dnssd/
 license: BSD
 labels:
   DEPEND: net-dns/avahi[dbus] =www-servers/apache-2*
@@ -20,3 +19,9 @@ labels:
   kit: core-server-kit
   original.package.name: www-apache/mod_dnssd
   original.package.version: 0.6-r1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

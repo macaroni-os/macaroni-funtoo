@@ -2,29 +2,32 @@ name: LWP-Protocol-https
 version: 6.70.0+1
 category: dev-perl
 use_flags:
-- -test
+  - -test
 requires:
-- name: ca-certificates
-  version: '>=0'
-  category: app-misc
-- name: IO-Socket-SSL
-  version: '>=0'
-  category: dev-perl
-- name: libwww-perl
-  version: '>=0'
-  category: dev-perl
+  - name: ca-certificates
+    version: '>=0'
+    category: app-misc
+  - name: IO-Socket-SSL
+    version: '>=0'
+    category: dev-perl
+  - name: libwww-perl
+    version: '>=0'
+    category: dev-perl
 description: Provide https support for LWP::UserAgent
 uri:
-- https://metacpan.org/release/LWP-Protocol-https
+  - https://metacpan.org/release/LWP-Protocol-https
 license: '|| ( Artistic GPL-1+ )'
 labels:
-  DEPEND: app-misc/ca-certificates >=dev-perl/IO-Socket-SSL-1.540.0 >=dev-perl/libwww-perl-6.60.0
-    >=dev-perl/Net-HTTP-6 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple
-    dev-perl/Test-RequiresInternet ) dev-lang/perl:=
+  DEPEND: app-misc/ca-certificates >=dev-perl/IO-Socket-SSL-1.540.0 >=dev-perl/libwww-perl-6.60.0 >=dev-perl/Net-HTTP-6 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple dev-perl/Test-RequiresInternet ) dev-lang/perl:=
   IUSE: test
-  RDEPEND: app-misc/ca-certificates >=dev-perl/IO-Socket-SSL-1.540.0 >=dev-perl/libwww-perl-6.60.0
-    >=dev-perl/Net-HTTP-6 dev-lang/perl:=
+  RDEPEND: app-misc/ca-certificates >=dev-perl/IO-Socket-SSL-1.540.0 >=dev-perl/libwww-perl-6.60.0 >=dev-perl/Net-HTTP-6 dev-lang/perl:=
   emerge.packages: dev-perl/LWP-Protocol-https
   kit: perl-kit
   original.package.name: dev-perl/LWP-Protocol-https
   original.package.version: 6.70.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

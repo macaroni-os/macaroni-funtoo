@@ -3,7 +3,7 @@ version: 3.4.1+1
 category: sys-fs
 description: Common files for multiple slots of sys-fs/fuse
 uri:
-- https://github.com/libfuse/libfuse
+  - https://github.com/libfuse/libfuse
 license: GPL-2 LGPL-2.1
 labels:
   BDEPEND: virtual/pkgconfig
@@ -13,3 +13,9 @@ labels:
   kit: core-kit
   original.package.name: sys-fs/fuse-common
   original.package.version: 3.4.1
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

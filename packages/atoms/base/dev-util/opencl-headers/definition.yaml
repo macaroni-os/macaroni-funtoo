@@ -3,7 +3,7 @@ version: 2020.12.18+1
 category: dev-util
 description: Unified C language headers for the OpenCL API
 uri:
-- https://github.com/KhronosGroup/OpenCL-Headers
+  - https://github.com/KhronosGroup/OpenCL-Headers
 license: Apache-2.0
 labels:
   DEPEND: '!<app-eselect/eselect-opencl-1.2.0'
@@ -12,3 +12,9 @@ labels:
   kit: core-gl-kit
   original.package.name: dev-util/opencl-headers
   original.package.version: 2020.12.18
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

@@ -1,13 +1,18 @@
 name: gentoo-bashcomp
 version: 20190211+1
 category: app-shells
-description: Gentoo-specific bash command-line completions (emerge, ebuild, equery,
-  etc)
+description: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 uri:
-- https://www.gentoo.org/
+  - https://www.gentoo.org/
 license: GPL-2
 labels:
   emerge.packages: app-shells/gentoo-bashcomp
   kit: core-kit
   original.package.name: app-shells/gentoo-bashcomp
   original.package.version: "20190211"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
