@@ -1,10 +1,16 @@
 name: logger
-version: 0+1
+version: 0+2
 category: virtual
 requires:
 - name: metalog
   version: '>=0'
   category: app-admin
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Virtual for system loggers
 uri:
 - ""
