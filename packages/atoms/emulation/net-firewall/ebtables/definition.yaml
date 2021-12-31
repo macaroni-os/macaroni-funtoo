@@ -2,17 +2,17 @@ name: ebtables
 version: 2.0.10.4+1
 category: net-firewall
 use_flags:
-- perl
+  - perl
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
-- name: ethertypes
-  version: '>=0'
-  category: net-misc
+  - name: perl
+    version: '>=0'
+    category: dev-lang
+  - name: ethertypes
+    version: '>=0'
+    category: net-misc
 description: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
 uri:
-- http://ebtables.sourceforge.net/
+  - http://ebtables.sourceforge.net/
 license: GPL-2
 labels:
   IUSE: +perl static
@@ -22,3 +22,9 @@ labels:
   original.package.name: net-firewall/ebtables
   original.package.slot: "0"
   original.package.version: 2.0.10.4-r2
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

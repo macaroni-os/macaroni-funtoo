@@ -3,7 +3,7 @@ version: 0+1
 category: net-misc
 description: Maps ethernet frame ids to symbolic names
 uri:
-- https://netfilter.org/
+  - https://netfilter.org/
 license: GPL-2
 labels:
   RDEPEND: '!<net-firewall/ebtables-2.0.10.4-r2 !<net-firewall/iptables-1.6.2-r2[nftables(-)]'
@@ -12,3 +12,9 @@ labels:
   original.package.name: net-misc/ethertypes
   original.package.slot: "0"
   original.package.version: "0"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
