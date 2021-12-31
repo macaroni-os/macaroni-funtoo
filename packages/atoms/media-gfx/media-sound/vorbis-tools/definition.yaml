@@ -1,47 +1,53 @@
 name: vorbis-tools
-version: 1.4.0
+version: 1.4.0+1
 category: media-sound
 use_flags:
-  - flac
-  - kate
-  - nls
-  - ogg123
-  - speex
+- flac
+- kate
+- nls
+- ogg123
+- speex
 requires:
-  - name: flac
-    version: '>=0'
-    category: media-libs
-  - name: libao
-    version: '>=0'
-    category: media-libs
-  - name: libkate
-    version: '>=0'
-    category: media-libs
-  - name: libvorbis
-    version: '>=0'
-    category: media-libs
-  - name: speex
-    version: '>=0'
-    category: media-libs
-  - name: curl
-    version: '>=0'
-    category: net-misc
+- name: flac
+  version: '>=0'
+  category: media-libs
+- name: libao
+  version: '>=0'
+  category: media-libs
+- name: libkate
+  version: '>=0'
+  category: media-libs
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
+- name: speex
+  version: '>=0'
+  category: media-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Tools for using the Ogg Vorbis sound file format
 uri:
-  - http://www.vorbis.com
+- http://www.vorbis.com
 license: GPL-2
 labels:
-  DEPEND: '>=media-libs/libvorbis-1.3.0 flac? ( media-libs/flac ) kate? ( media-libs/libkate ) ogg123? ( >=media-libs/libao-1.0.0 net-misc/curl ) speex? ( media-libs/speex ) virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  DEPEND: '>=media-libs/libvorbis-1.3.0 flac? ( media-libs/flac ) kate? ( media-libs/libkate
+    ) ogg123? ( >=media-libs/libao-1.0.0 net-misc/curl ) speex? ( media-libs/speex
+    ) virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
   IUSE: flac kate nls +ogg123 speex
-  RDEPEND: '>=media-libs/libvorbis-1.3.0 flac? ( media-libs/flac ) kate? ( media-libs/libkate ) ogg123? ( >=media-libs/libao-1.0.0 net-misc/curl ) speex? ( media-libs/speex )'
+  RDEPEND: '>=media-libs/libvorbis-1.3.0 flac? ( media-libs/flac ) kate? ( media-libs/libkate
+    ) ogg123? ( >=media-libs/libao-1.0.0 net-misc/curl ) speex? ( media-libs/speex
+    )'
   emerge.packages: media-sound/vorbis-tools
   kit: media-kit
   original.package.name: media-sound/vorbis-tools
   original.package.slot: "0"
   original.package.version: 1.4.0-r5
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

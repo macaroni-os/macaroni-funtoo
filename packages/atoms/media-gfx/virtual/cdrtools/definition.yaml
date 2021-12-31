@@ -1,13 +1,19 @@
 name: cdrtools
-version: "0"
+version: 0+1
 category: virtual
 requires:
-  - name: cdrtools
-    version: '>=0'
-    category: app-cdr
+- name: cdrtools
+  version: '>=0'
+  category: app-cdr
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Virtual for command-line recorders cdrtools and cdrkit
 uri:
-  - ""
+- ""
 labels:
   RDEPEND: '|| ( app-cdr/cdrtools app-cdr/cdrkit )'
   emerge.packages: virtual/cdrtools
@@ -15,9 +21,3 @@ labels:
   original.package.name: virtual/cdrtools
   original.package.slot: "0"
   original.package.version: "0"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/
