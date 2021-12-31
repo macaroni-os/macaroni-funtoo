@@ -2,12 +2,12 @@ name: Net-Daemon
 version: 0.480.0
 category: dev-perl
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: Abstract base class for portable servers
 uri:
-- https://metacpan.org/release/Net-Daemon
+  - https://metacpan.org/release/Net-Daemon
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-lang/perl:=
@@ -17,3 +17,9 @@ labels:
   original.package.name: dev-perl/Net-Daemon
   original.package.slot: "0"
   original.package.version: 0.480.0-r2
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

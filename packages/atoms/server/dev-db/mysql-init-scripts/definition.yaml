@@ -2,15 +2,15 @@ name: mysql-init-scripts
 version: "2.3"
 category: dev-db
 requires:
-- name: mysql-connector-c
-  version: '>=0'
-  category: dev-db
-- name: tmpfiles
-  version: '>=0'
-  category: virtual
+  - name: mysql-connector-c
+    version: '>=0'
+    category: dev-db
+  - name: tmpfiles
+    version: '>=0'
+    category: virtual
 description: Gentoo MySQL init scripts.
 uri:
-- https://www.gentoo.org/
+  - https://www.gentoo.org/
 license: GPL-2
 labels:
   DEPEND: virtual/pkgconfig
@@ -20,3 +20,9 @@ labels:
   original.package.name: dev-db/mysql-init-scripts
   original.package.slot: "0"
   original.package.version: "2.3"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

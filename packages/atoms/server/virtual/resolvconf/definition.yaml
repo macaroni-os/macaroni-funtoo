@@ -2,12 +2,12 @@ name: resolvconf
 version: "1"
 category: virtual
 requires:
-- name: openresolv
-  version: '>=0'
-  category: net-dns
+  - name: openresolv
+    version: '>=0'
+    category: net-dns
 description: Virtual to select between different resolvconf providers
 uri:
-- ""
+  - ""
 labels:
   RDEPEND: net-dns/openresolv
   emerge.packages: virtual/resolvconf
@@ -15,3 +15,9 @@ labels:
   original.package.name: virtual/resolvconf
   original.package.slot: "0"
   original.package.version: "1"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
