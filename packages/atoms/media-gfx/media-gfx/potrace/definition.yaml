@@ -1,13 +1,19 @@
 name: potrace
-version: "1.15"
+version: 1.15+1
 category: media-gfx
 requires:
-  - name: zlib
-    version: '>=0'
-    category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Transforming bitmaps into vector graphics
 uri:
-  - http://potrace.sourceforge.net/
+- http://potrace.sourceforge.net/
 license: GPL-2
 labels:
   DEPEND: sys-libs/zlib
@@ -18,9 +24,3 @@ labels:
   original.package.name: media-gfx/potrace
   original.package.slot: "0"
   original.package.version: "1.15"
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/

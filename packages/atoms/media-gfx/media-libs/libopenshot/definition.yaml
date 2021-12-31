@@ -1,49 +1,59 @@
 name: libopenshot
-version: 0.2.4_pre20190609
+version: 0.2.4_pre20190609+1
 category: media-libs
 use_flags:
-  - -doc
-  - -libav
-  - -test
-  - imagemagick
-  - python
-  - python_single_target_python3_7
+- -doc
+- -libav
+- -test
+- imagemagick
+- python
+- python_single_target_python3_7
 requires:
-  - name: python
-    version: '>=0'
-    category: dev-lang-3.7
-  - name: python-exec
-    version: '>=0'
-    category: dev-lang-2
-  - name: qtmultimedia
-    version: '>=0'
-    category: dev-qt-5
-  - name: imagemagick
-    version: '>=0'
-    category: media-gfx
-  - name: libopenshot-audio
-    version: '>=0'
-    category: media-libs
-  - name: cppzmq
-    version: '>=0'
-    category: net-libs
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-5
+- name: imagemagick
+  version: '>=0'
+  category: media-gfx
+- name: libopenshot-audio
+  version: '>=0'
+  category: media-libs
+- name: cppzmq
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Video editing library used by OpenShot
 uri:
-  - https://www.openshot.org/
+- https://www.openshot.org/
 license: GPL-3+
 labels:
-  BDEPEND: doc? ( app-doc/doxygen ) python? ( dev-lang/swig ) test? ( dev-libs/unittest++ ) dev-util/ninja >=dev-util/cmake-3.9.6
-  DEPEND: net-libs/cppzmq dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.1.9_pre20190502:0= imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) libav? ( media-video/libav:0=[encode,x264,xvid,vpx,mp3,theora] ) !libav? ( media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora] ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) )
-  IUSE: doc examples +imagemagick libav +python test python_single_target_python3_7 python_targets_python3_7
-  RDEPEND: net-libs/cppzmq dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.1.9_pre20190502:0= imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) libav? ( media-video/libav:0=[encode,x264,xvid,vpx,mp3,theora] ) !libav? ( media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora] ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) )
+  BDEPEND: doc? ( app-doc/doxygen ) python? ( dev-lang/swig ) test? ( dev-libs/unittest++
+    ) dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: net-libs/cppzmq dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets]
+    >=media-libs/libopenshot-audio-0.1.9_pre20190502:0= imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
+    ) libav? ( media-video/libav:0=[encode,x264,xvid,vpx,mp3,theora] ) !libav? ( media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora]
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) )
+  IUSE: doc examples +imagemagick libav +python test python_single_target_python3_7
+    python_targets_python3_7
+  RDEPEND: net-libs/cppzmq dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets]
+    >=media-libs/libopenshot-audio-0.1.9_pre20190502:0= imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
+    ) libav? ( media-video/libav:0=[encode,x264,xvid,vpx,mp3,theora] ) !libav? ( media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora]
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) )
   emerge.packages: media-libs/libopenshot
   kit: media-kit
   original.package.name: media-libs/libopenshot
   original.package.slot: "0"
   original.package.version: 0.2.4_pre20190609
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/
