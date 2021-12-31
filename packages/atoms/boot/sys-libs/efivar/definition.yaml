@@ -2,12 +2,12 @@ name: efivar
 version: 35+1
 category: sys-libs
 requires:
-- name: popt
-  version: '>=0'
-  category: dev-libs
+  - name: popt
+    version: '>=0'
+    category: dev-libs
 description: Tools and library to manipulate EFI variables
 uri:
-- https://github.com/rhinstaller/efivar
+  - https://github.com/rhinstaller/efivar
 license: GPL-2
 labels:
   DEPEND: dev-libs/popt >=sys-kernel/linux-headers-3.18 virtual/pkgconfig
@@ -17,3 +17,9 @@ labels:
   original.package.name: sys-libs/efivar
   original.package.slot: "0"
   original.package.version: "35"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
