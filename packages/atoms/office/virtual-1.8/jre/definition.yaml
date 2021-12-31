@@ -1,23 +1,24 @@
 name: jre
-version: 1.8.0+1
+version: 1.8.0+2
 category: virtual-1.8
 requires:
-  - name: jdk
-    version: '>=0'
-    category: virtual-1.8
+- name: jdk
+  version: '>=0'
+  category: virtual-1.8
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Virtual for Java Runtime Environment (JRE)
 uri:
-  - ""
+- ""
 labels:
-  RDEPEND: '|| ( virtual/jdk:1.8 dev-java/oracle-jre-bin:1.8 dev-java/openjdk-jre-bin:8[gentoo-vm(+)] )'
+  RDEPEND: '|| ( virtual/jdk:1.8 dev-java/oracle-jre-bin:1.8 dev-java/openjdk-jre-bin:8[gentoo-vm(+)]
+    )'
   emerge.packages: virtual/jre:1.8
   kit: java-kit
   original.package.name: virtual/jre
   original.package.slot: "1.8"
   original.package.version: 1.8.0-r2
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/
