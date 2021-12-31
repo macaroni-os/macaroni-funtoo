@@ -3,7 +3,7 @@ version: "5.1"
 category: sys-apps
 description: Utility for examining and tuning ethernet-based network interfaces
 uri:
-- https://www.kernel.org/pub/software/network/ethtool/
+  - https://www.kernel.org/pub/software/network/ethtool/
 license: GPL-2
 labels:
   DEPEND: app-arch/xz-utils
@@ -12,3 +12,9 @@ labels:
   original.package.name: sys-apps/ethtool
   original.package.slot: "0"
   original.package.version: "5.1"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

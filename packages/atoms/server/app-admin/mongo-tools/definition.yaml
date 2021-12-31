@@ -2,18 +2,23 @@ name: mongo-tools
 version: 100.5.0
 category: app-admin
 use_flags:
-- -sasl
-- ssl
+  - -sasl
+  - ssl
 description: A high-performance, open source, schema-free document-oriented database
 uri:
-- https://www.mongodb.com
+  - https://www.mongodb.com
 license: Apache-2.0
 labels:
-  DEPEND: dev-lang/go:= net-libs/libpcap sasl? ( dev-libs/cyrus-sasl ) ssl? ( dev-libs/openssl:0=
-    )
+  DEPEND: dev-lang/go:= net-libs/libpcap sasl? ( dev-libs/cyrus-sasl ) ssl? ( dev-libs/openssl:0= )
   IUSE: sasl ssl
   emerge.packages: app-admin/mongo-tools
   kit: core-server-kit
   original.package.name: app-admin/mongo-tools
   original.package.slot: "0"
   original.package.version: 100.5.0
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

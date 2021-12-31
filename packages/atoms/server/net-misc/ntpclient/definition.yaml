@@ -3,7 +3,7 @@ version: "2018.244"
 category: net-misc
 description: A NTP (RFC-1305 and RFC-4330) client for unix-alike systems
 uri:
-- https://github.com/troglobit/ntpclient
+  - https://github.com/troglobit/ntpclient
 license: GPL-2
 labels:
   IUSE: debug embedded obsolete +syslog
@@ -12,3 +12,9 @@ labels:
   original.package.name: net-misc/ntpclient
   original.package.slot: "0"
   original.package.version: "2018.244"
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

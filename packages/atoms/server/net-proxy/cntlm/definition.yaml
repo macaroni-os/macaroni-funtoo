@@ -3,7 +3,7 @@ version: "0.93"
 category: net-proxy
 description: Cntlm is an NTLM/NTLMv2 authenticating HTTP proxy
 uri:
-- http://cntlm.sourceforge.net/
+  - http://cntlm.sourceforge.net/
 license: GPL-2
 labels:
   DEPEND: virtual/pkgconfig
@@ -12,3 +12,9 @@ labels:
   original.package.name: net-proxy/cntlm
   original.package.slot: "0"
   original.package.version: 0.93_beta5-r2
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/

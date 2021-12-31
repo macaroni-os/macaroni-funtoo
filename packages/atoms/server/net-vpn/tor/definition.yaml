@@ -2,42 +2,41 @@ name: tor
 version: 0.4.6.7
 category: net-vpn
 use_flags:
-- -caps
-- -libressl
-- -lzma
-- -scrypt
-- -seccomp
-- -selinux
-- -systemd
-- -zstd
+  - -caps
+  - -libressl
+  - -lzma
+  - -scrypt
+  - -seccomp
+  - -selinux
+  - -systemd
+  - -zstd
 requires:
-- name: asciidoc
-  version: '>=0'
-  category: app-text
-- name: libevent
-  version: '>=0'
-  category: dev-libs
-- name: zlib
-  version: '>=0'
-  category: sys-libs
+  - name: asciidoc
+    version: '>=0'
+    category: app-text
+  - name: libevent
+    version: '>=0'
+    category: dev-libs
+  - name: zlib
+    version: '>=0'
+    category: sys-libs
 description: Anonymizing overlay network for TCP
 uri:
-- http://www.torproject.org/
+  - http://www.torproject.org/
 license: BSD GPL-2
 labels:
   BDEPEND: virtual/pkgconfig
-  DEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap
-    ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
-    ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp
-    ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd )
+  DEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0= ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd )
   IUSE: caps libressl lzma scrypt seccomp selinux systemd tor-hardening test zstd
-  RDEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap
-    ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
-    ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp
-    ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) selinux? ( sec-policy/selinux-tor
-    )
+  RDEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0= ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) selinux? ( sec-policy/selinux-tor )
   emerge.packages: net-vpn/tor
   kit: net-kit
   original.package.name: net-vpn/tor
   original.package.slot: "0"
   original.package.version: 0.4.6.7
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
