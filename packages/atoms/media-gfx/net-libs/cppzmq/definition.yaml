@@ -2,12 +2,12 @@ name: cppzmq
 version: 0+pre150606
 category: net-libs
 requires:
-- name: zeromq
-  version: '>=0'
-  category: net-libs
+  - name: zeromq
+    version: '>=0'
+    category: net-libs
 description: High-level CPP Binding for ZeroMQ
 uri:
-- https://github.com/zeromq/cppzmq
+  - https://github.com/zeromq/cppzmq
 license: MIT
 labels:
   RDEPEND: '>=net-libs/zeromq-3'
@@ -16,3 +16,9 @@ labels:
   original.package.name: net-libs/cppzmq
   original.package.slot: "0"
   original.package.version: 0_pre150606
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
