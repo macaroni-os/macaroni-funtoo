@@ -2,18 +2,18 @@ name: containerd
 version: 1.5.5+1
 category: app-emulation
 use_flags:
-- btrfs
-- seccomp
+  - btrfs
+  - seccomp
 requires:
-- name: runc
-  version: '>=0'
-  category: app-emulation
-- name: btrfs-progs
-  version: '>=0'
-  category: sys-fs
+  - name: runc
+    version: '>=0'
+    category: app-emulation
+  - name: btrfs-progs
+    version: '>=0'
+    category: sys-fs
 description: A daemon to control runC
 uri:
-- https://containerd.io/
+  - https://containerd.io/
 license: Apache-2.0
 labels:
   BDEPEND: dev-go/go-md2man virtual/pkgconfig >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
@@ -25,3 +25,9 @@ labels:
   original.package.name: app-emulation/containerd
   original.package.slot: "0"
   original.package.version: 1.5.5
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
