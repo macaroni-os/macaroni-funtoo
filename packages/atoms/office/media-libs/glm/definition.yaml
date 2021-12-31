@@ -2,12 +2,12 @@ name: glm
 version: 0.9.9.5+1
 category: media-libs
 requires:
-- name: opengl
-  version: '>=0'
-  category: virtual
+  - name: opengl
+    version: '>=0'
+    category: virtual
 description: OpenGL Mathematics
 uri:
-- http://glm.g-truc.net/
+  - http://glm.g-truc.net/
 license: '|| ( HappyBunny MIT )'
 labels:
   BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
@@ -17,3 +17,9 @@ labels:
   kit: media-kit
   original.package.name: media-libs/glm
   original.package.version: 0.9.9.5
+annotations:
+  subsets:
+    devel:
+      - ^/usr/include/
+    portage:
+      - ^/var/db/pkg/
