@@ -1,10 +1,16 @@
 name: os-prober
-version: 1.76+1
+version: 1.76+2
 category: sys-boot
 requires:
 - name: grub
   version: '>=0'
   category: sys-boot-2
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Utility to detect other OSs on a set of drives
 uri:
 - https://packages.debian.org/source/sid/os-prober

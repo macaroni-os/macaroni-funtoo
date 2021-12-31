@@ -1,5 +1,5 @@
 name: sudo
-version: 1.9.8+1
+version: 1.9.8+2
 category: app-admin
 use_flags:
 - -gcrypt
@@ -31,6 +31,12 @@ requires:
 - name: tmpfiles
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Allows users or groups to run commands as other users
 uri:
 - https://www.sudo.ws/

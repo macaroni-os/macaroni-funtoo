@@ -1,5 +1,5 @@
 name: kpmcore
-version: 20.12.1+1
+version: 20.12.1+2
 category: sys-libs-5
 requires:
 - name: qca
@@ -17,6 +17,12 @@ requires:
 - name: util-linux
   version: '>=0'
   category: sys-apps
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Library for managing partitions
 uri:
 - https://apps.kde.org/en/partitionmanager

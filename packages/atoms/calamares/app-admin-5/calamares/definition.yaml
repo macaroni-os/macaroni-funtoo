@@ -1,5 +1,5 @@
 name: calamares
-version: 3.2.45
+version: 3.2.45+1
 category: app-admin-5
 use_flags:
 - -python_single_target_python3_8
@@ -72,6 +72,12 @@ requires:
 - name: udev
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Distribution-independent installer framework
 uri:
 - https://calamares.io
