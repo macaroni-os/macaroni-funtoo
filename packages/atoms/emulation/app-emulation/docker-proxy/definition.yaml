@@ -1,9 +1,15 @@
 name: docker-proxy
-version: 0.8.0+1
+version: 0.8.0+2
 category: app-emulation
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Docker container networking
 uri:
-  - https://github.com/docker/libnetwork
+- https://github.com/docker/libnetwork
 license: Apache-2.0
 labels:
   BDEPEND: '>=dev-lang/go-1.10'
@@ -12,9 +18,3 @@ labels:
   original.package.name: app-emulation/docker-proxy
   original.package.slot: "0"
   original.package.version: 0.8.0_p20210525
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/
