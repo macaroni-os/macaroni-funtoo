@@ -1,19 +1,25 @@
 name: zip
-version: 3.0+1
+version: 3.0+2
 category: app-arch
 use_flags:
-  - bzip2
-  - natspec
+- bzip2
+- natspec
 requires:
-  - name: bzip2
-    version: '>=0'
-    category: app-arch
-  - name: libnatspec
-    version: '>=0'
-    category: dev-libs
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: libnatspec
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
 description: Info ZIP (encryption support)
 uri:
-  - http://www.info-zip.org/
+- http://www.info-zip.org/
 license: Info-ZIP
 labels:
   DEPEND: bzip2? ( app-arch/bzip2 ) natspec? ( dev-libs/libnatspec ) app-arch/unzip
@@ -23,9 +29,3 @@ labels:
   kit: core-kit
   original.package.name: app-arch/zip
   original.package.version: 3.0-r3
-annotations:
-  subsets:
-    devel:
-      - ^/usr/include/
-    portage:
-      - ^/var/db/pkg/
