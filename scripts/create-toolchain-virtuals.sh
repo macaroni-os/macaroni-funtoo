@@ -15,5 +15,5 @@ kits=(
 )
 
 for i in ${kits[@]} ; do
-  TARGET_PKG=packages/toolchain/${i} SOURCE_PKGS_DIR=packages/atoms/${i}  ${SCRIPT_DIR}/virtual-core-requires.sh
+  TARGET_PKG=packages/toolchain/${i} SOURCE_PKGS_DIR=packages/atoms/${i}  ${SCRIPT_DIR}/toolchain-requires.sh
 done
