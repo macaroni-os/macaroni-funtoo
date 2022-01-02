@@ -2,18 +2,12 @@ name: wayland-scanner
 version: 1.19.0+2
 category: dev-util
 requires:
-- name: expat
-  version: '>=0'
-  category: dev-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: expat
+    version: '>=0'
+    category: dev-libs
 description: wayland-scanner tool
 uri:
-- https://wayland.freedesktop.org/ https://gitlab.freedesktop.org/wayland/wayland
+  - https://wayland.freedesktop.org/ https://gitlab.freedesktop.org/wayland/wayland
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
@@ -23,3 +17,10 @@ labels:
   kit: core-gl-kit
   original.package.name: dev-util/wayland-scanner
   original.package.version: 1.19.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

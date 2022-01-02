@@ -2,34 +2,34 @@ name: X11-Protocol
 version: 0.560.0+2
 category: dev-perl
 use_flags:
-- -test
-- prefix
+  - -test
+  - prefix
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
-- name: libXext
-  version: '>=0'
-  category: x11-libs
-- name: libXrender
-  version: '>=0'
-  category: x11-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: perl
+    version: '>=0'
+    category: dev-lang
+  - name: libXext
+    version: '>=0'
+    category: x11-libs
+  - name: libXrender
+    version: '>=0'
+    category: x11-libs
 description: Client-side interface to the X11 Protocol
 uri:
-- https://metacpan.org/release/X11-Protocol
+  - https://metacpan.org/release/X11-Protocol
 license: '|| ( Artistic GPL-1+ ) MIT'
 labels:
-  DEPEND: x11-libs/libXrender x11-libs/libXext dev-lang/perl:= test? ( !prefix? (
-    x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+  DEPEND: x11-libs/libXrender x11-libs/libXext dev-lang/perl:= test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
   IUSE: examples test
   RDEPEND: x11-libs/libXrender x11-libs/libXext dev-lang/perl:=
   emerge.packages: dev-perl/X11-Protocol
   kit: perl-kit
   original.package.name: dev-perl/X11-Protocol
   original.package.version: 0.560.0-r2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -1,21 +1,21 @@
 name: game-music-emu
 version: 0.6.2+2
 category: media-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Video game music file emulators
 uri:
-- https://bitbucket.org/mpyne/game-music-emu/wiki/Home
+  - https://bitbucket.org/mpyne/game-music-emu/wiki/Home
 license: LGPL-2.1
 labels:
   DEPEND: sys-devel/make >=dev-util/cmake-3.9.6
-  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
-    abi_s390_64
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   emerge.packages: media-libs/game-music-emu
   kit: media-kit
   original.package.name: media-libs/game-music-emu
   original.package.version: 0.6.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

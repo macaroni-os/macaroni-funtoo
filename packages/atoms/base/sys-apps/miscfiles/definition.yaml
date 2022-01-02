@@ -1,15 +1,9 @@
 name: miscfiles
 version: 1.5+2
 category: sys-apps
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Miscellaneous files
 uri:
-- https://savannah.gnu.org/projects/miscfiles/
+  - https://savannah.gnu.org/projects/miscfiles/
 license: GPL-2 unicode
 labels:
   IUSE: minimal
@@ -18,3 +12,10 @@ labels:
   kit: dev-kit
   original.package.name: sys-apps/miscfiles
   original.package.version: 1.5-r3
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

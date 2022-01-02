@@ -1,15 +1,9 @@
 name: uchardet
 version: 0.0.6+2
 category: app-i18n
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: An encoding detector library
 uri:
-- https://www.freedesktop.org/wiki/Software/uchardet/
+  - https://www.freedesktop.org/wiki/Software/uchardet/
 license: '|| ( MPL-1.1 GPL-2+ LGPL-2.1+ )'
 labels:
   DEPEND: sys-devel/make >=dev-util/cmake-3.9.6
@@ -18,3 +12,10 @@ labels:
   kit: text-kit
   original.package.name: app-i18n/uchardet
   original.package.version: 0.0.6-r2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

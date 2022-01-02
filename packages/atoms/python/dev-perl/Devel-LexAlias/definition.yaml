@@ -2,18 +2,12 @@ name: Devel-LexAlias
 version: 0.50.0
 category: dev-perl
 requires:
-- name: Devel-Caller
-  version: '>=0'
-  category: dev-perl
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: Devel-Caller
+    version: '>=0'
+    category: dev-perl
 description: Alias lexical variables
 uri:
-- https://metacpan.org/release/Devel-LexAlias
+  - https://metacpan.org/release/Devel-LexAlias
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: '>=dev-perl/Devel-Caller-2.03 dev-lang/perl:=[-build(-)]'
@@ -23,3 +17,10 @@ labels:
   original.package.name: dev-perl/Devel-LexAlias
   original.package.slot: "0"
   original.package.version: 0.50.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

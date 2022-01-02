@@ -2,18 +2,12 @@ name: libgudev
 version: 237+2
 category: virtual
 requires:
-- name: libgudev
-  version: '>=0'
-  category: dev-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: libgudev
+    version: '>=0'
+    category: dev-libs
 description: Virtual for libgudev providers
 uri:
-- ""
+  - ""
 labels:
   IUSE: introspection
   RDEPEND: '>=dev-libs/libgudev-237:0/0[introspection?]'
@@ -21,3 +15,10 @@ labels:
   kit: gnome-kit
   original.package.name: virtual/libgudev
   original.package.version: "237"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

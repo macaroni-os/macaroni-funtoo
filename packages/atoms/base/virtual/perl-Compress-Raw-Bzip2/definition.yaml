@@ -2,22 +2,22 @@ name: perl-Compress-Raw-Bzip2
 version: 2.93.0+2
 category: virtual
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: Virtual for Compress-Raw-Bzip2
 uri:
-- ""
+  - ""
 labels:
-  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Compress-Raw-Bzip2-2.93.0 ) dev-lang/perl:=
-    !<perl-core/Compress-Raw-Bzip2-2.93.0 !>perl-core/Compress-Raw-Bzip2-2.93.0-r999'
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Compress-Raw-Bzip2-2.93.0 ) dev-lang/perl:= !<perl-core/Compress-Raw-Bzip2-2.93.0 !>perl-core/Compress-Raw-Bzip2-2.93.0-r999'
   emerge.packages: virtual/perl-Compress-Raw-Bzip2
   kit: perl-kit
   original.package.name: virtual/perl-Compress-Raw-Bzip2
   original.package.version: 2.93.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

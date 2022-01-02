@@ -2,23 +2,22 @@ name: ttf-fonts
 version: 1+2
 category: virtual
 requires:
-- name: liberation-fonts
-  version: '>=0'
-  category: media-fonts
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: liberation-fonts
+    version: '>=0'
+    category: media-fonts
 description: Virtual for Serif/Sans/Monospace font packages
 uri:
-- ""
+  - ""
 labels:
-  RDEPEND: '|| ( media-fonts/liberation-fonts media-fonts/source-pro media-fonts/dejavu
-    media-fonts/croscorefonts media-fonts/droid media-fonts/freefont media-fonts/corefonts
-    )'
+  RDEPEND: '|| ( media-fonts/liberation-fonts media-fonts/source-pro media-fonts/dejavu media-fonts/croscorefonts media-fonts/droid media-fonts/freefont media-fonts/corefonts )'
   emerge.packages: virtual/ttf-fonts
   kit: core-gl-kit
   original.package.name: virtual/ttf-fonts
   original.package.version: 1-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

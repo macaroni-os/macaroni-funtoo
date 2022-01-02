@@ -2,47 +2,41 @@ name: cryptography-compat
 version: 3.3.2+2
 category: dev-python
 use_flags:
-- -idna
-- -libressl
-- -x86
-- cpu_flags_x86_sse2
-- python_targets_python2_7
+  - -idna
+  - -libressl
+  - -x86
+  - cpu_flags_x86_sse2
+  - python_targets_python2_7
 requires:
-- name: cffi
-  version: '>=0'
-  category: dev-python
-- name: six
-  version: '>=0'
-  category: dev-python
-- name: python-enum34
-  version: '>=0'
-  category: virtual
-- name: python-ipaddress
-  version: '>=0'
-  category: virtual
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: cffi
+    version: '>=0'
+    category: dev-python
+  - name: six
+    version: '>=0'
+    category: dev-python
+  - name: python-enum34
+    version: '>=0'
+    category: virtual
+  - name: python-ipaddress
+    version: '>=0'
+    category: virtual
 description: Library providing cryptographic recipes and primitives
 uri:
-- https://github.com/pyca/cryptography https://pypi.org/project/cryptography/
+  - https://github.com/pyca/cryptography https://pypi.org/project/cryptography/
 license: '|| ( Apache-2.0 BSD )'
 labels:
-  BDEPEND: '!x86? ( >=virtual/rust-1.37.0 ) x86? ( cpu_flags_x86_sse2? ( >=virtual/rust-1.37.0
-    ) ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
+  BDEPEND: '!x86? ( >=virtual/rust-1.37.0 ) x86? ( cpu_flags_x86_sse2? ( >=virtual/rust-1.37.0 ) ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
   DEPEND: libressl? ( dev-libs/libressl:0= ) !libressl? ( dev-libs/openssl:0= )
   IUSE: cpu_flags_x86_sse2 libressl idna python_targets_python2_7
-  RDEPEND: '!<dev-python/cryptography-3.4.2 >=dev-python/six-1.4.1[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    virtual/python-enum34[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    virtual/python-ipaddress[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    >=dev-python/cffi-1.11.3[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    idna? ( >=dev-python/idna-2.1[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
+  RDEPEND: '!<dev-python/cryptography-3.4.2 >=dev-python/six-1.4.1[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] virtual/python-enum34[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] virtual/python-ipaddress[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-python/cffi-1.11.3[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] idna? ( >=dev-python/idna-2.1[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
   emerge.packages: dev-python/cryptography-compat
   kit: python-modules-kit
   original.package.name: dev-python/cryptography-compat
   original.package.version: 3.3.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

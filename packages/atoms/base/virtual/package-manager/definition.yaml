@@ -2,21 +2,22 @@ name: package-manager
 version: 1+2
 category: virtual
 requires:
-- name: portage
-  version: '>=0'
-  category: sys-apps
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: portage
+    version: '>=0'
+    category: sys-apps
 description: Virtual for the package manager
 uri:
-- ""
+  - ""
 labels:
   RDEPEND: '|| ( sys-apps/portage sys-apps/pkgcore )'
   emerge.packages: virtual/package-manager
   kit: core-kit
   original.package.name: virtual/package-manager
   original.package.version: "1"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

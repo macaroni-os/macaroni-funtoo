@@ -2,34 +2,30 @@ name: bash-completion
 version: 2.9+2
 category: app-shells
 use_flags:
-- -test
+  - -test
 requires:
-- name: bash
-  version: '>=0'
-  category: app-shells
-- name: miscfiles
-  version: '>=0'
-  category: sys-apps
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: bash
+    version: '>=0'
+    category: app-shells
+  - name: miscfiles
+    version: '>=0'
+    category: sys-apps
 description: Programmable Completion for bash
 uri:
-- https://github.com/scop/bash-completion
+  - https://github.com/scop/bash-completion
 license: GPL-2+
 labels:
-  DEPEND: app-arch/xz-utils test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles
-    !app-eselect/eselect-bashcomp !!net-fs/mc app-misc/dtach dev-util/dejagnu dev-tcltk/tcllib
-    || ( ( dev-lang/python:3.7 dev-python/pexpect[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    dev-python/pytest[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) )
+  DEPEND: app-arch/xz-utils test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !app-eselect/eselect-bashcomp !!net-fs/mc app-misc/dtach dev-util/dejagnu dev-tcltk/tcllib || ( ( dev-lang/python:3.7 dev-python/pexpect[python_targets_python3_7(-),python_single_target_python3_7(+)] dev-python/pytest[python_targets_python3_7(-),python_single_target_python3_7(+)] ) ) )
   IUSE: +eselect test
-  RDEPEND: '>=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !app-eselect/eselect-bashcomp
-    !!net-fs/mc'
+  RDEPEND: '>=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !app-eselect/eselect-bashcomp !!net-fs/mc'
   emerge.packages: app-shells/bash-completion
   kit: core-kit
   original.package.name: app-shells/bash-completion
   original.package.version: 2.9-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

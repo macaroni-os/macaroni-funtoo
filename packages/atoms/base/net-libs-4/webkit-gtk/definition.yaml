@@ -2,18 +2,12 @@ name: webkit-gtk
 version: 2.28.4.20200904+2
 category: net-libs-4
 requires:
-- name: webkit
-  version: '>=0'
-  category: net-libs-4
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: webkit
+    version: '>=0'
+    category: net-libs-4
 description: GTK+ port of WebKit. Funtoo uses WebKit itself, so this is a placeholder.
 uri:
-- https://www.webkit.org
+  - https://www.webkit.org
 license: LGPL-2+ BSD
 labels:
   IUSE: +introspection wayland +X
@@ -23,3 +17,10 @@ labels:
   original.package.name: net-libs/webkit-gtk
   original.package.slot: "4"
   original.package.version: 2.28.4.20200904
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

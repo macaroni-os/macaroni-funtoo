@@ -2,31 +2,28 @@ name: gst-plugins-x264
 version: 1.14.3+2
 category: media-plugins-1.0
 requires:
-- name: gst-plugins-ugly
-  version: '>=0'
-  category: media-libs-1.0
-- name: x264
-  version: '>=0'
-  category: media-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: gst-plugins-ugly
+    version: '>=0'
+    category: media-libs-1.0
+  - name: x264
+    version: '>=0'
+    category: media-libs
 description: H.264 encoder plugin for GStreamer
 uri:
-- https://gstreamer.freedesktop.org/
+  - https://gstreamer.freedesktop.org/
 license: GPL-2
 labels:
-  DEPEND: '>=media-libs/x264-0.0.20130506:=[-mgorny(-)] >=sys-apps/sed-4 >=virtual/pkgconfig-0-r1[-mgorny(-)]
-    >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)] >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)]
-    >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
-  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
-    abi_s390_64
-  RDEPEND: '>=media-libs/x264-0.0.20130506:=[-mgorny(-)] >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)]
-    >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
+  DEPEND: '>=media-libs/x264-0.0.20130506:=[-mgorny(-)] >=sys-apps/sed-4 >=virtual/pkgconfig-0-r1[-mgorny(-)] >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)] >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-libs/x264-0.0.20130506:=[-mgorny(-)] >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)] >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.14.3:1.0[-mgorny(-)]'
   emerge.packages: media-plugins/gst-plugins-x264:1.0
   kit: media-kit
   original.package.name: media-plugins/gst-plugins-x264
   original.package.version: 1.14.3
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

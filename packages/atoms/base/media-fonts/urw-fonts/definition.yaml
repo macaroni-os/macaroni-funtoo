@@ -2,23 +2,23 @@ name: urw-fonts
 version: 2.4.9+2
 category: media-fonts
 use_flags:
-- X
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - X
 description: free good quality fonts gpl'd by URW++
 uri:
-- http://www.urwpp.de/
+  - http://www.urwpp.de/
 license: GPL-2
 labels:
-  DEPEND: '>=app-arch/rpm2targz-9.0.0.3g X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings
-    )'
+  DEPEND: '>=app-arch/rpm2targz-9.0.0.3g X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )'
   IUSE: X
   RDEPEND: '!media-fonts/gnu-gs-fonts-std !media-fonts/gnu-gs-fonts-other'
   emerge.packages: media-fonts/urw-fonts
   kit: media-kit
   original.package.name: media-fonts/urw-fonts
   original.package.version: 2.4.9
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

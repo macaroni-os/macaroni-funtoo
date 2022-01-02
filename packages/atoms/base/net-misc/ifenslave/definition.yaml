@@ -1,15 +1,9 @@
 name: ifenslave
 version: 1.1.0+2
 category: net-misc
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Attach and detach slave interfaces to a bonding device
 uri:
-- http://sf.net/projects/bonding/
+  - http://sf.net/projects/bonding/
 license: GPL-2
 labels:
   DEPEND: sys-devel/gcc >=sys-kernel/linux-headers-2.4.22
@@ -18,3 +12,10 @@ labels:
   kit: core-kit
   original.package.name: net-misc/ifenslave
   original.package.version: 1.1.0-r6
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

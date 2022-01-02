@@ -2,32 +2,31 @@ name: libgudev
 version: 237+2
 category: dev-libs
 use_flags:
-- introspection
+  - introspection
 requires:
-- name: gobject-introspection
-  version: '>=0'
-  category: dev-libs
-- name: libudev
-  version: '>=0'
-  category: virtual
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: gobject-introspection
+    version: '>=0'
+    category: dev-libs
+  - name: libudev
+    version: '>=0'
+    category: virtual
 description: GObject bindings for libudev
 uri:
-- https://wiki.gnome.org/Projects/libgudev
+  - https://wiki.gnome.org/Projects/libgudev
 license: LGPL-2.1+
 labels:
   BDEPEND: dev-util/glib-utils virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
-  DEPEND: '>=dev-libs/glib-2.38.0:2 >=virtual/libudev-199:= introspection? ( >=dev-libs/gobject-introspection-1.31.1
-    )'
+  DEPEND: '>=dev-libs/glib-2.38.0:2 >=virtual/libudev-199:= introspection? ( >=dev-libs/gobject-introspection-1.31.1 )'
   IUSE: introspection
-  RDEPEND: '>=dev-libs/glib-2.38.0:2 >=virtual/libudev-199:= introspection? ( >=dev-libs/gobject-introspection-1.31.1
-    )'
+  RDEPEND: '>=dev-libs/glib-2.38.0:2 >=virtual/libudev-199:= introspection? ( >=dev-libs/gobject-introspection-1.31.1 )'
   emerge.packages: dev-libs/libgudev
   kit: gnome-kit
   original.package.name: dev-libs/libgudev
   original.package.version: "237"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

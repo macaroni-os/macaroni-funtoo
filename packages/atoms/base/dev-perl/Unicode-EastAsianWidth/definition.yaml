@@ -2,18 +2,12 @@ name: Unicode-EastAsianWidth
 version: 1.330.0+2
 category: dev-perl
 requires:
-- name: perl-File-Spec
-  version: '>=0'
-  category: virtual
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: perl-File-Spec
+    version: '>=0'
+    category: virtual
 description: East Asian Width properties
 uri:
-- https://metacpan.org/release/Unicode-EastAsianWidth
+  - https://metacpan.org/release/Unicode-EastAsianWidth
 license: CC0-1.0
 labels:
   DEPEND: virtual/perl-File-Spec virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=[-build(-)]
@@ -22,3 +16,10 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Unicode-EastAsianWidth
   original.package.version: 1.330.0-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

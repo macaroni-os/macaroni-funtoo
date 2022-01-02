@@ -2,24 +2,23 @@ name: rust
 version: 1.55.0+2
 category: virtual
 requires:
-- name: rust-bin
-  version: '>=0'
-  category: dev-lang-stable
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: rust-bin
+    version: '>=0'
+    category: dev-lang-stable
 description: Virtual for Rust language compiler
 uri:
-- ""
+  - ""
 labels:
-  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
-    abi_s390_64
-  RDEPEND: '|| ( ~dev-lang/rust-bin-1.55.0[-mgorny(-)] ~dev-lang/rust-1.55.0[-mgorny(-)]
-    )'
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '|| ( ~dev-lang/rust-bin-1.55.0[-mgorny(-)] ~dev-lang/rust-1.55.0[-mgorny(-)] )'
   emerge.packages: virtual/rust
   kit: lang-kit
   original.package.name: virtual/rust
   original.package.version: 1.55.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

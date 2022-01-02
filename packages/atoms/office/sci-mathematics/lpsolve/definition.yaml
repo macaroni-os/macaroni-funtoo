@@ -2,18 +2,12 @@ name: lpsolve
 version: 5.5.2.0+2
 category: sci-mathematics
 requires:
-- name: colamd
-  version: '>=0'
-  category: sci-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: colamd
+    version: '>=0'
+    category: sci-libs
 description: Mixed Integer Linear Programming (MILP) solver
 uri:
-- https://sourceforge.net/projects/lpsolve/
+  - https://sourceforge.net/projects/lpsolve/
 license: LGPL-2.1
 labels:
   DEPEND: sci-libs/colamd
@@ -23,3 +17,10 @@ labels:
   kit: science-kit
   original.package.name: sci-mathematics/lpsolve
   original.package.version: 5.5.2.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

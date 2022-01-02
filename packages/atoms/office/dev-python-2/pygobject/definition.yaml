@@ -2,43 +2,36 @@ name: pygobject
 version: 2.28.7+2
 category: dev-python-2
 use_flags:
-- -test
-- libffi
-- prefix
-- python_targets_python2_7
+  - -test
+  - libffi
+  - prefix
+  - python_targets_python2_7
 requires:
-- name: python
-  version: '>=0'
-  category: dev-lang-3.7
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: python
+    version: '>=0'
+    category: dev-lang-3.7
+  - name: python-exec
+    version: '>=0'
+    category: dev-lang-2
+  - name: glib
+    version: '>=0'
+    category: dev-libs-2
 description: GLib's GObject library bindings for Python
 uri:
-- http://www.pygtk.org/
+  - http://www.pygtk.org/
 license: LGPL-2.1+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 dev-lang/python-exec:2 libffi? ( virtual/libffi:=
-    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    dev-util/gtk-doc-am virtual/pkgconfig test? ( media-fonts/font-cursor-misc media-fonts/font-misc-misc
-    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info test?
-    ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 dev-lang/python-exec:2 libffi? ( virtual/libffi:= ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] dev-util/gtk-doc-am virtual/pkgconfig test? ( media-fonts/font-cursor-misc media-fonts/font-misc-misc ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
   IUSE: examples libffi test python_targets_python2_7 test
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 dev-lang/python-exec:2 libffi? ( virtual/libffi:=
-    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    !<dev-python/pygtk-2.23'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 dev-lang/python-exec:2 libffi? ( virtual/libffi:= ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] !<dev-python/pygtk-2.23'
   emerge.packages: dev-python/pygobject:2
   kit: gnome-kit
   original.package.name: dev-python/pygobject
   original.package.version: 2.28.7
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

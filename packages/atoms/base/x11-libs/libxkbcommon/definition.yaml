@@ -2,29 +2,29 @@ name: libxkbcommon
 version: 0.10.0+2
 category: x11-libs
 use_flags:
-- -doc
-- X
+  - -doc
+  - X
 requires:
-- name: libxcb
-  version: '>=0'
-  category: x11-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: libxcb
+    version: '>=0'
+    category: x11-libs
 description: keymap handling library for toolkits and window systems
 uri:
-- https://xkbcommon.org/ https://github.com/xkbcommon/libxkbcommon/
+  - https://xkbcommon.org/ https://github.com/xkbcommon/libxkbcommon/
 license: MIT
 labels:
   BDEPEND: sys-devel/bison doc? ( app-doc/doxygen ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
   DEPEND: X? ( >=x11-libs/libxcb-1.10:=[xkb] ) X? ( x11-base/xorg-proto )
-  IUSE: X doc test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
-    abi_s390_32 abi_s390_64
+  IUSE: X doc test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   RDEPEND: X? ( >=x11-libs/libxcb-1.10:=[xkb] )
   emerge.packages: x11-libs/libxkbcommon
   kit: core-gl-kit
   original.package.name: x11-libs/libxkbcommon
   original.package.version: 0.10.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

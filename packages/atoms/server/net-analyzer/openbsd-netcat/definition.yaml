@@ -2,16 +2,10 @@ name: openbsd-netcat
 version: 1.190+1
 category: net-analyzer
 use_flags:
-- -elibc_Darwin
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - -elibc_Darwin
 description: The OpenBSD network swiss army knife
 uri:
-- https://cvsweb.openbsd.org/src/usr.bin/nc/ https://salsa.debian.org/debian/netcat-openbsd
+  - https://cvsweb.openbsd.org/src/usr.bin/nc/ https://salsa.debian.org/debian/netcat-openbsd
 license: BSD
 labels:
   DEPEND: virtual/pkgconfig
@@ -22,3 +16,10 @@ labels:
   original.package.name: net-analyzer/openbsd-netcat
   original.package.slot: "0"
   original.package.version: "1.190"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -2,18 +2,12 @@ name: man-pages-posix
 version: 2013a+2
 category: sys-apps
 requires:
-- name: man
-  version: '>=0'
-  category: virtual
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: man
+    version: '>=0'
+    category: virtual
 description: POSIX man-pages (0p, 1p, 3p)
 uri:
-- https://www.kernel.org/doc/man-pages/
+  - https://www.kernel.org/doc/man-pages/
 license: man-pages-posix-2013
 labels:
   RDEPEND: virtual/man !<sys-apps/man-pages-3
@@ -21,3 +15,10 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/man-pages-posix
   original.package.version: 2013a
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

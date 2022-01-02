@@ -1,18 +1,19 @@
 name: netsurf-buildsystem
 version: 1.7+2
 category: dev-util
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Build system used for netsurf and its libs
 uri:
-- https://www.netsurf-browser.org
+  - https://www.netsurf-browser.org
 license: MIT
 labels:
   emerge.packages: dev-util/netsurf-buildsystem
   kit: dev-kit
   original.package.name: dev-util/netsurf-buildsystem
   original.package.version: 1.7-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

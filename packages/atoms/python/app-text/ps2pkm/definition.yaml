@@ -2,19 +2,12 @@ name: ps2pkm
 version: "1.8"
 category: app-text
 requires:
-- name: kpathsea
-  version: '>=0'
-  category: dev-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
-description: Tool that converts a PostScript type1 font into a corresponding TeX PK
-  font
+  - name: kpathsea
+    version: '>=0'
+    category: dev-libs
+description: Tool that converts a PostScript type1 font into a corresponding TeX PK font
 uri:
-- http://tug.org/texlive/
+  - http://tug.org/texlive/
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig
@@ -25,3 +18,10 @@ labels:
   original.package.name: app-text/ps2pkm
   original.package.slot: "0"
   original.package.version: 1.8_p20190410
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -1,15 +1,9 @@
 name: kpathsea
 version: 6.3.2
 category: dev-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Path searching library for TeX-related files
 uri:
-- http://tug.org/texlive/
+  - http://tug.org/texlive/
 license: GPL-2
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815'
@@ -19,3 +13,10 @@ labels:
   original.package.name: dev-libs/kpathsea
   original.package.slot: "0"
   original.package.version: 6.3.2_p20200406
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -2,18 +2,12 @@ name: libatasmart
 version: 0.19+2
 category: dev-libs
 requires:
-- name: libudev
-  version: '>=0'
-  category: virtual
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: libudev
+    version: '>=0'
+    category: virtual
 description: A small and lightweight parser library for ATA S.M.A.R.T. hard disks
 uri:
-- http://0pointer.de/blog/projects/being-smart.html
+  - http://0pointer.de/blog/projects/being-smart.html
 license: LGPL-2.1
 labels:
   DEPEND: virtual/libudev:= virtual/pkgconfig
@@ -23,3 +17,10 @@ labels:
   kit: dev-kit
   original.package.name: dev-libs/libatasmart
   original.package.version: 0.19-r2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

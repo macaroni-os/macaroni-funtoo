@@ -2,40 +2,30 @@ name: did_you_mean
 version: 1.5.0+2
 category: dev-ruby-2.6
 use_flags:
-- -test
-- ruby_targets_ruby26
-- ruby_targets_ruby27
+  - -test
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
 requires:
-- name: rubygems
-  version: '>=0'
-  category: virtual
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: rubygems
+    version: '>=0'
+    category: virtual
 description: '''did you mean?''experience in Ruby'
 uri:
-- https://github.com/yuki24/did_you_mean
+  - https://github.com/yuki24/did_you_mean
 license: MIT
 labels:
-  BDEPEND: ruby_targets_ruby27? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby27(-)]
-    ) ) ruby_targets_ruby26? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby26(-)]
-    ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
-    ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26?
-    ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)]
-    !!dev-ruby/psych[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)]
-    !!dev-ruby/psych[ruby_targets_ruby26(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)]
-    ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
-  DEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
-    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
-    ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  BDEPEND: ruby_targets_ruby27? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+  DEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
   IUSE: ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 test test
-  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
-    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
-    ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
   emerge.packages: dev-ruby/did_you_mean:2.6
   kit: ruby-kit
   original.package.name: dev-ruby/did_you_mean
   original.package.version: 1.5.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/
