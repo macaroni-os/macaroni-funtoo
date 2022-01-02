@@ -2,11 +2,18 @@ name: python-backports_abc-portage
 version: "0+1"
 category: virtual
 requires:
-- name: python-backports_abc
-  version: "0+1"
-  category: virtual
+  - name: python-backports_abc
+    version: "0+1"
+    category: virtual
 labels:
   emerge.packages: virtual/python-backports_abc
   kit: python-modules-kit
   original.package.name: virtual/python-backports_abc
   original.package.version: "0"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

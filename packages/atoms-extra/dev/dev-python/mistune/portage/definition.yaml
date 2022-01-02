@@ -2,11 +2,18 @@ name: mistune-portage
 version: 0.8.3
 category: dev-python
 requires:
-- name: mistune
-  version: 0.8.3
-  category: dev-python
+  - name: mistune
+    version: 0.8.3
+    category: dev-python
 labels:
   emerge.packages: dev-python/mistune
   kit: python-modules-kit
   original.package.name: dev-python/mistune
   original.package.version: 0.8.3
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

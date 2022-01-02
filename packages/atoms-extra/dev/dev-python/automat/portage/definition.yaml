@@ -2,11 +2,18 @@ name: automat-portage
 version: 20.2.0
 category: dev-python
 requires:
-- name: automat
-  version: 20.2.0
-  category: dev-python
+  - name: automat
+    version: 20.2.0
+    category: dev-python
 labels:
   emerge.packages: dev-python/automat
   kit: python-modules-kit
   original.package.name: dev-python/automat
   original.package.version: 20.2.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

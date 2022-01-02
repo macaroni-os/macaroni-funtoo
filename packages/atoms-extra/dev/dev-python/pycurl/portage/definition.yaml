@@ -2,11 +2,18 @@ name: pycurl-portage
 version: "7.43.0.2+2"
 category: dev-python
 requires:
-- name: pycurl
-  version: "7.43.0.2+2"
-  category: dev-python
+  - name: pycurl
+    version: "7.43.0.2+2"
+    category: dev-python
 labels:
   emerge.packages: dev-python/pycurl
   kit: python-modules-kit
   original.package.name: dev-python/pycurl
   original.package.version: "7.43.0.2"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

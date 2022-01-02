@@ -2,11 +2,18 @@ name: service_identity-portage
 version: 21.1.0
 category: dev-python
 requires:
-- name: service_identity
-  version: 21.1.0
-  category: dev-python
+  - name: service_identity
+    version: 21.1.0
+    category: dev-python
 labels:
   emerge.packages: dev-python/service_identity
   kit: python-modules-kit
   original.package.name: dev-python/service_identity
   original.package.version: 21.1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

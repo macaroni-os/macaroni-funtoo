@@ -2,11 +2,18 @@ name: async_timeout-portage
 version: 3.0.1
 category: dev-python
 requires:
-- name: async_timeout
-  version: 3.0.1
-  category: dev-python
+  - name: async_timeout
+    version: 3.0.1
+    category: dev-python
 labels:
   emerge.packages: dev-python/async_timeout
   kit: python-modules-kit
   original.package.name: dev-python/async_timeout
   original.package.version: 3.0.1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

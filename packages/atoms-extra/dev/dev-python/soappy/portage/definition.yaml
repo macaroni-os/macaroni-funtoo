@@ -2,11 +2,18 @@ name: soappy-portage
 version: "0.12.22+1"
 category: dev-python
 requires:
-- name: soappy
-  version: "0.12.22+1"
-  category: dev-python
+  - name: soappy
+    version: "0.12.22+1"
+    category: dev-python
 labels:
   emerge.packages: dev-python/soappy
   kit: python-modules-kit
   original.package.name: dev-python/soappy
   original.package.version: 0.12.22
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

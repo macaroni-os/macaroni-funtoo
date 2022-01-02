@@ -2,11 +2,18 @@ name: msgpack-portage
 version: "1.0.2+1"
 category: dev-python
 requires:
-- name: msgpack
-  version: "1.0.2+1"
-  category: dev-python
+  - name: msgpack
+    version: "1.0.2+1"
+    category: dev-python
 labels:
   emerge.packages: dev-python/msgpack
   kit: python-modules-kit
   original.package.name: dev-python/msgpack
   original.package.version: 1.0.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/
