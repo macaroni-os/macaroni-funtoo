@@ -2,58 +2,53 @@ name: lxd
 version: 4.14+2
 category: app-emulation
 use_flags:
-- nls
+  - nls
 requires:
-- name: tcl
-  version: '>=0'
-  category: dev-lang
-- name: libuv
-  version: '>=0'
-  category: dev-libs
-- name: dnsmasq
-  version: '>=0'
-  category: net-dns
-- name: ebtables
-  version: '>=0'
-  category: net-firewall
-- name: iproute2
-  version: '>=0'
-  category: sys-apps
-- name: lxcfs
-  version: '>=0'
-  category: sys-fs
-- name: squashfs-tools
-  version: '>=0'
-  category: sys-fs
-- name: acl
-  version: '>=0'
-  category: virtual
-- name: lxc
-  version: '>=0'
-  category: app-emulation
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: tcl
+    version: '>=0'
+    category: dev-lang
+  - name: libuv
+    version: '>=0'
+    category: dev-libs
+  - name: dnsmasq
+    version: '>=0'
+    category: net-dns
+  - name: ebtables
+    version: '>=0'
+    category: net-firewall
+  - name: iproute2
+    version: '>=0'
+    category: sys-apps
+  - name: lxcfs
+    version: '>=0'
+    category: sys-fs
+  - name: squashfs-tools
+    version: '>=0'
+    category: sys-fs
+  - name: acl
+    version: '>=0'
+    category: virtual
+  - name: lxc
+    version: '>=0'
+    category: app-emulation
 description: Fast, dense and secure container management
 uri:
-- https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd
+  - https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd
 license: Apache-2.0 BSD BSD-2 LGPL-3 MIT MPL-2.0
 labels:
-  BDEPEND: '>=dev-lang/go-1.13 nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-lang/go-1.10'
-  DEPEND: app-arch/xz-utils || ( >=app-emulation/lxc-3.0.0[apparmor?,seccomp] >=app-emulation/lxc-4.0.6[apparmor?]
-    ) >=sys-kernel/linux-headers-4.15 dev-lang/tcl dev-libs/libuv dev-libs/lzo net-dns/dnsmasq[dhcp,ipv6?]
+  BDEPEND: '>=dev-lang/go-1.13 nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-lang/go-1.10'
+  DEPEND: app-arch/xz-utils || ( >=app-emulation/lxc-3.0.0[apparmor?,seccomp] >=app-emulation/lxc-4.0.6[apparmor?] ) >=sys-kernel/linux-headers-4.15 dev-lang/tcl dev-libs/libuv dev-libs/lzo net-dns/dnsmasq[dhcp,ipv6?]
   IUSE: apparmor ipv6 nls kernel_linux
-  RDEPEND: app-arch/xz-utils || ( >=app-emulation/lxc-3.0.0[apparmor?,seccomp] >=app-emulation/lxc-4.0.6[apparmor?]
-    ) >=sys-kernel/linux-headers-4.15 dev-lang/tcl dev-libs/libuv dev-libs/lzo net-dns/dnsmasq[dhcp,ipv6?]
-    net-firewall/ebtables net-firewall/iptables[ipv6?] sys-apps/iproute2[ipv6?] sys-fs/fuse:*
-    sys-fs/lxcfs sys-fs/squashfs-tools[lzma] virtual/acl
+  RDEPEND: app-arch/xz-utils || ( >=app-emulation/lxc-3.0.0[apparmor?,seccomp] >=app-emulation/lxc-4.0.6[apparmor?] ) >=sys-kernel/linux-headers-4.15 dev-lang/tcl dev-libs/libuv dev-libs/lzo net-dns/dnsmasq[dhcp,ipv6?] net-firewall/ebtables net-firewall/iptables[ipv6?] sys-apps/iproute2[ipv6?] sys-fs/fuse:* sys-fs/lxcfs sys-fs/squashfs-tools[lzma] virtual/acl
   emerge.packages: app-emulation/lxd
   kit: core-kit
   original.package.name: app-emulation/lxd
   original.package.slot: "0"
   original.package.version: "4.14"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -2,21 +2,15 @@ name: texlive-pictures
 version: "2020"
 category: dev-texlive
 requires:
-- name: pgf
-  version: '>=0'
-  category: dev-tex
-- name: texlive-basic
-  version: '>=0'
-  category: dev-texlive
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: pgf
+    version: '>=0'
+    category: dev-tex
+  - name: texlive-basic
+    version: '>=0'
+    category: dev-texlive
 description: TeXLive Graphics, pictures, diagrams
 uri:
-- http://www.tug.org/texlive/
+  - http://www.tug.org/texlive/
 license: Apache-2.0 BSD-2 GPL-2 GPL-2+ CC-BY-SA-4.0
 labels:
   BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
@@ -28,3 +22,10 @@ labels:
   original.package.name: dev-texlive/texlive-pictures
   original.package.slot: "0"
   original.package.version: 2020-r2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

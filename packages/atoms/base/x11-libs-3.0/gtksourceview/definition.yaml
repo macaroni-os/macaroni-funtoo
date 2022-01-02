@@ -2,42 +2,34 @@ name: gtksourceview
 version: 3.24.11+2
 category: x11-libs-3.0
 use_flags:
-- -glade
-- -prefix
-- -test
-- introspection
-- vala
+  - -glade
+  - -prefix
+  - -test
+  - introspection
+  - vala
 requires:
-- name: libxml2
-  version: '>=0'
-  category: dev-libs-2
-- name: gtk+
-  version: '>=0'
-  category: x11-libs-3
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: libxml2
+    version: '>=0'
+    category: dev-libs-2
+  - name: gtk+
+    version: '>=0'
+    category: x11-libs-3
 description: A text widget implementing syntax highlighting and other features
 uri:
-- https://wiki.gnome.org/Projects/GtkSourceView
+  - https://wiki.gnome.org/Projects/GtkSourceView
 license: GPL-2+ LGPL-2.1+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libxml2-2.6:2 >=x11-libs/gtk+-3.24.12:3[introspection?]
-    glade? ( >=dev-util/glade-3.9:3.10 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
-    ) dev-util/gdbus-codegen >=dev-util/gtk-doc-am-1.25 >=sys-devel/gettext-0.19.4
-    virtual/pkgconfig vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
-    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
-    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) >=app-portage/elt-patches-20170815
-    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info test?
-    ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libxml2-2.6:2 >=x11-libs/gtk+-3.24.12:3[introspection?] glade? ( >=dev-util/glade-3.9:3.10 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) dev-util/gdbus-codegen >=dev-util/gtk-doc-am-1.25 >=sys-devel/gettext-0.19.4 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
   IUSE: glade +introspection +vala test
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libxml2-2.6:2 >=x11-libs/gtk+-3.24.12:3[introspection?]
-    glade? ( >=dev-util/glade-3.9:3.10 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
-    )'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libxml2-2.6:2 >=x11-libs/gtk+-3.24.12:3[introspection?] glade? ( >=dev-util/glade-3.9:3.10 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= )'
   emerge.packages: x11-libs/gtksourceview:3.0
   kit: gnome-kit
   original.package.name: x11-libs/gtksourceview
   original.package.version: 3.24.11
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -1,22 +1,22 @@
 name: spirv-tools
 version: 2021.3+1
 category: dev-util
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Provides an API and commands for processing SPIR-V modules
 uri:
-- https://github.com/KhronosGroup/SPIRV-Tools
+  - https://github.com/KhronosGroup/SPIRV-Tools
 license: Apache-2.0
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) >=dev-util/spirv-headers-1.5.4_p20210219
-    dev-util/ninja >=dev-util/cmake-3.9.6'
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) >=dev-util/spirv-headers-1.5.4_p20210219 dev-util/ninja >=dev-util/cmake-3.9.6'
   DEPEND: '>=dev-util/spirv-headers-1.5.4_p20210219'
   emerge.packages: dev-util/spirv-tools
   kit: core-gl-kit
   original.package.name: dev-util/spirv-tools
   original.package.slot: "0"
   original.package.version: "2021.3"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -2,34 +2,33 @@ name: e2fsprogs
 version: 1.46.4+2
 category: sys-fs
 use_flags:
-- -cron
-- -fuse
-- nls
+  - -cron
+  - -fuse
+  - nls
 requires:
-- name: util-linux
-  version: '>=0'
-  category: sys-apps
-- name: e2fsprogs-libs
-  version: '>=0'
-  category: sys-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: util-linux
+    version: '>=0'
+    category: sys-apps
+  - name: e2fsprogs-libs
+    version: '>=0'
+    category: sys-libs
 description: Standard EXT2/EXT3/EXT4 filesystem utilities
 uri:
-- http://e2fsprogs.sourceforge.net/
+  - http://e2fsprogs.sourceforge.net/
 license: GPL-2 BSD
 labels:
   BDEPEND: nls? ( sys-devel/gettext ) virtual/pkgconfig sys-apps/texinfo virtual/pkgconfig
-  DEPEND: ~sys-libs/e2fsprogs-libs-1.46.4 >=sys-apps/util-linux-2.16 cron? ( sys-fs/lvm2[-device-mapper-only(-)]
-    ) fuse? ( sys-fs/fuse:0 ) nls? ( virtual/libintl )
+  DEPEND: ~sys-libs/e2fsprogs-libs-1.46.4 >=sys-apps/util-linux-2.16 cron? ( sys-fs/lvm2[-device-mapper-only(-)] ) fuse? ( sys-fs/fuse:0 ) nls? ( virtual/libintl )
   IUSE: cron fuse lto nls static-libs +threads elibc_FreeBSD +split-usr
-  RDEPEND: ~sys-libs/e2fsprogs-libs-1.46.4 >=sys-apps/util-linux-2.16 cron? ( sys-fs/lvm2[-device-mapper-only(-)]
-    ) fuse? ( sys-fs/fuse:0 ) nls? ( virtual/libintl )
+  RDEPEND: ~sys-libs/e2fsprogs-libs-1.46.4 >=sys-apps/util-linux-2.16 cron? ( sys-fs/lvm2[-device-mapper-only(-)] ) fuse? ( sys-fs/fuse:0 ) nls? ( virtual/libintl )
   emerge.packages: sys-fs/e2fsprogs
   kit: core-kit
   original.package.name: sys-fs/e2fsprogs
   original.package.version: 1.46.4
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

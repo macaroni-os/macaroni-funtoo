@@ -2,16 +2,10 @@ name: tinyxml
 version: 2.6.2+2
 category: dev-libs
 use_flags:
-- -doc
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - -doc
 description: Simple and small C++ XML parser
 uri:
-- http://www.grinninglizard.com/tinyxml/index.html
+  - http://www.grinninglizard.com/tinyxml/index.html
 license: ZLIB
 labels:
   DEPEND: doc? ( app-doc/doxygen )
@@ -20,3 +14,10 @@ labels:
   kit: dev-kit
   original.package.name: dev-libs/tinyxml
   original.package.version: 2.6.2-r3
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

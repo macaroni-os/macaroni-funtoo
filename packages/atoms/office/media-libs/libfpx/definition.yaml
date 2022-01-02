@@ -1,15 +1,9 @@
 name: libfpx
 version: 1.3.1+2
 category: media-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: A library for manipulating FlashPIX images
 uri:
-- https://github.com/ImageMagick/libfpx
+  - https://github.com/ImageMagick/libfpx
 license: Flashpix
 labels:
   DEPEND: '>=app-portage/elt-patches-20170815'
@@ -18,3 +12,10 @@ labels:
   kit: media-kit
   original.package.name: media-libs/libfpx
   original.package.version: 1.3.1_p10
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

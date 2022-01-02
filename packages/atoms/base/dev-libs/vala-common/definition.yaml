@@ -1,15 +1,9 @@
 name: vala-common
 version: 0.54.1+2
 category: dev-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Build infrastructure for packages that use Vala
 uri:
-- https://wiki.gnome.org/Projects/Vala
+  - https://wiki.gnome.org/Projects/Vala
 license: LGPL-2.1+
 labels:
   BDEPEND: app-arch/xz-utils
@@ -17,3 +11,10 @@ labels:
   kit: gnome-kit
   original.package.name: dev-libs/vala-common
   original.package.version: 0.54.1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

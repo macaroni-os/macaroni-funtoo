@@ -1,15 +1,9 @@
 name: libdiscid
 version: 0.6.2+2
 category: media-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Client library to create MusicBrainz enabled tagging applications
 uri:
-- http://musicbrainz.org/doc/libdiscid
+  - http://musicbrainz.org/doc/libdiscid
 license: LGPL-2.1
 labels:
   IUSE: static-libs
@@ -17,3 +11,10 @@ labels:
   kit: media-kit
   original.package.name: media-libs/libdiscid
   original.package.version: 0.6.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

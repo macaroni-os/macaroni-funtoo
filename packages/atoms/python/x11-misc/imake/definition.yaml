@@ -2,18 +2,12 @@ name: imake
 version: 1.0.7
 category: x11-misc
 requires:
-- name: xorg-cf-files
-  version: '>=0'
-  category: x11-misc
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: xorg-cf-files
+    version: '>=0'
+    category: x11-misc
 description: C preprocessor interface to the make utility
 uri:
-- https://www.x.org/wiki/ https://cgit.freedesktop.org/
+  - https://www.x.org/wiki/ https://cgit.freedesktop.org/
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig
@@ -24,3 +18,10 @@ labels:
   original.package.name: x11-misc/imake
   original.package.slot: "0"
   original.package.version: 1.0.7-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

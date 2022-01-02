@@ -2,18 +2,12 @@ name: realtime-base
 version: 0.1+2
 category: sys-auth
 requires:
-- name: pam
-  version: '>=0'
-  category: virtual
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: pam
+    version: '>=0'
+    category: virtual
 description: Sets up realtime scheduling
 uri:
-- http://jackaudio.org/faq/linux_rt_config.html
+  - http://jackaudio.org/faq/linux_rt_config.html
 license: public-domain
 labels:
   RDEPEND: virtual/pam
@@ -21,3 +15,10 @@ labels:
   kit: core-kit
   original.package.name: sys-auth/realtime-base
   original.package.version: "0.1"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

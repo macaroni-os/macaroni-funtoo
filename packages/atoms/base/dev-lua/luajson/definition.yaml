@@ -2,23 +2,17 @@ name: luajson
 version: 1.3.3+2
 category: dev-lua
 use_flags:
-- -test
+  - -test
 requires:
-- name: lua
-  version: '>=0'
-  category: dev-lang
-- name: lpeg
-  version: '>=0'
-  category: dev-lua
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: lua
+    version: '>=0'
+    category: dev-lang
+  - name: lpeg
+    version: '>=0'
+    category: dev-lua
 description: JSON Parser/Constructor for Lua
 uri:
-- https://www.eharning.us/wiki/luajson/
+  - https://www.eharning.us/wiki/luajson/
 license: MIT
 labels:
   DEPEND: test? ( dev-lua/luafilesystem )
@@ -28,3 +22,10 @@ labels:
   kit: lang-kit
   original.package.name: dev-lua/luajson
   original.package.version: 1.3.3
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

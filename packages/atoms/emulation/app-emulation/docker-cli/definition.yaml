@@ -1,15 +1,9 @@
 name: docker-cli
 version: 20.10.8+2
 category: app-emulation
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: the command line binary for docker
 uri:
-- https://www.docker.com/
+  - https://www.docker.com/
 license: Apache-2.0
 labels:
   BDEPEND: dev-go/go-md2man >=dev-lang/go-1.10
@@ -20,3 +14,10 @@ labels:
   original.package.name: app-emulation/docker-cli
   original.package.slot: "0"
   original.package.version: 20.10.8
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

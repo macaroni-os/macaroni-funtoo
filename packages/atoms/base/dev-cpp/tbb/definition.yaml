@@ -2,26 +2,25 @@ name: tbb
 version: 2021.3.0+2
 category: dev-cpp
 use_flags:
-- -hwloc
-- -valgrind
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - -hwloc
+  - -valgrind
 description: High level abstract threading library
 uri:
-- https://www.threadingbuildingblocks.org
+  - https://www.threadingbuildingblocks.org
 license: Apache-2.0
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
-  DEPEND: hwloc? ( || ( =sys-apps/hwloc-1.11* =sys-apps/hwloc-2.0* =sys-apps/hwloc-2.4*
-    ) ) valgrind? ( dev-util/valgrind )
+  DEPEND: hwloc? ( || ( =sys-apps/hwloc-1.11* =sys-apps/hwloc-2.0* =sys-apps/hwloc-2.4* ) ) valgrind? ( dev-util/valgrind )
   IUSE: hwloc tests valgrind
-  RDEPEND: hwloc? ( || ( =sys-apps/hwloc-1.11* =sys-apps/hwloc-2.0* =sys-apps/hwloc-2.4*
-    ) ) valgrind? ( dev-util/valgrind )
+  RDEPEND: hwloc? ( || ( =sys-apps/hwloc-1.11* =sys-apps/hwloc-2.0* =sys-apps/hwloc-2.4* ) ) valgrind? ( dev-util/valgrind )
   emerge.packages: dev-cpp/tbb
   kit: dev-kit
   original.package.name: dev-cpp/tbb
   original.package.version: 2021.3.0-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

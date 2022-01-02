@@ -2,24 +2,24 @@ name: lsof
 version: 4.93.2+2
 category: sys-process
 use_flags:
-- -rpc
-- -selinux
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - -rpc
+  - -selinux
 description: Lists open files for running Unix processes
 uri:
-- https://github.com/lsof-org/lsof
+  - https://github.com/lsof-org/lsof
 license: lsof
 labels:
-  DEPEND: rpc? ( net-libs/libtirpc ) selinux? ( sys-libs/libselinux ) rpc? ( virtual/pkgconfig
-    )
+  DEPEND: rpc? ( net-libs/libtirpc ) selinux? ( sys-libs/libselinux ) rpc? ( virtual/pkgconfig )
   IUSE: examples ipv6 rpc selinux
   RDEPEND: rpc? ( net-libs/libtirpc ) selinux? ( sys-libs/libselinux )
   emerge.packages: sys-process/lsof
   kit: core-kit
   original.package.name: sys-process/lsof
   original.package.version: 4.93.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

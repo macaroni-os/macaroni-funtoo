@@ -2,24 +2,18 @@ name: latex-base
 version: "1.0"
 category: virtual
 requires:
-- name: texlive-fontsrecommended
-  version: '>=0'
-  category: dev-texlive
-- name: texlive-fontutils
-  version: '>=0'
-  category: dev-texlive
-- name: texlive-latexrecommended
-  version: '>=0'
-  category: dev-texlive
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: texlive-fontsrecommended
+    version: '>=0'
+    category: dev-texlive
+  - name: texlive-fontutils
+    version: '>=0'
+    category: dev-texlive
+  - name: texlive-latexrecommended
+    version: '>=0'
+    category: dev-texlive
 description: Virtual for basic LaTeX binaries
 uri:
-- ""
+  - ""
 labels:
   RDEPEND: dev-texlive/texlive-latexrecommended dev-texlive/texlive-fontutils dev-texlive/texlive-fontsrecommended
   emerge.packages: virtual/latex-base
@@ -27,3 +21,10 @@ labels:
   original.package.name: virtual/latex-base
   original.package.slot: "0"
   original.package.version: "1.0"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -1,15 +1,9 @@
 name: timidity-freepats
 version: 20060219+1
 category: media-sound
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Free and open set of instrument patches
 uri:
-- http://freepats.opensrc.org/
+  - http://freepats.opensrc.org/
 license: GPL-2
 labels:
   DEPEND: '>=app-eselect/eselect-timidity-20061203'
@@ -18,3 +12,10 @@ labels:
   original.package.name: media-sound/timidity-freepats
   original.package.slot: "0"
   original.package.version: 20060219-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

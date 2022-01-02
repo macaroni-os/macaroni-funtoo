@@ -2,25 +2,25 @@ name: nautilus-sendto
 version: 3.8.6+2
 category: gnome-extra
 requires:
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: glib
+    version: '>=0'
+    category: dev-libs-2
 description: A nautilus extension for sending files to locations
 uri:
-- https://git.gnome.org/browse/nautilus-sendto/
+  - https://git.gnome.org/browse/nautilus-sendto/
 license: GPL-2+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-devel/gettext-0.19.8 dev-libs/appstream-glib
-    virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-devel/gettext-0.19.8 dev-libs/appstream-glib virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
   IUSE: debug
   RDEPEND: '>=dev-libs/glib-2.62.2:2'
   emerge.packages: gnome-extra/nautilus-sendto
   kit: gnome-kit
   original.package.name: gnome-extra/nautilus-sendto
   original.package.version: 3.8.6
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

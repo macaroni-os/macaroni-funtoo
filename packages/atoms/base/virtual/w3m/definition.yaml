@@ -2,21 +2,22 @@ name: w3m
 version: 0+2
 category: virtual
 requires:
-- name: w3m
-  version: '>=0'
-  category: www-client
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: w3m
+    version: '>=0'
+    category: www-client
 description: Virtual for the w3m web browser
 uri:
-- ""
+  - ""
 labels:
   RDEPEND: '|| ( www-client/w3m www-client/w3mmee )'
   emerge.packages: virtual/w3m
   kit: browser-kit
   original.package.name: virtual/w3m
   original.package.version: "0"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

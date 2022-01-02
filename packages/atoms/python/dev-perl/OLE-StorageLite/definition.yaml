@@ -2,18 +2,12 @@ name: OLE-StorageLite
 version: 0.190.0
 category: dev-perl
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: Simple Class for OLE document interface
 uri:
-- https://metacpan.org/release/OLE-Storage_Lite
+  - https://metacpan.org/release/OLE-Storage_Lite
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-lang/perl:=[-build(-)]
@@ -23,3 +17,10 @@ labels:
   original.package.name: dev-perl/OLE-StorageLite
   original.package.slot: "0"
   original.package.version: 0.190.0-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

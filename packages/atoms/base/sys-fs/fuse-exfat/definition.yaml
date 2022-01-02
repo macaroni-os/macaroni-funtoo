@@ -2,18 +2,12 @@ name: fuse-exfat
 version: 1.3.0+2
 category: sys-fs
 requires:
-- name: fuse
-  version: '>=0'
-  category: sys-fs-3
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: fuse
+    version: '>=0'
+    category: sys-fs-3
 description: exFAT filesystem FUSE module
 uri:
-- https://github.com/relan/exfat
+  - https://github.com/relan/exfat
 license: GPL-2+
 labels:
   BDEPEND: virtual/pkgconfig
@@ -23,3 +17,10 @@ labels:
   kit: core-kit
   original.package.name: sys-fs/fuse-exfat
   original.package.version: 1.3.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

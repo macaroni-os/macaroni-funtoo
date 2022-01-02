@@ -1,15 +1,9 @@
 name: mtdev
 version: 1.1.5+2
 category: sys-libs
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: Multitouch Protocol Translation Library
 uri:
-- http://bitmath.org/code/mtdev/
+  - http://bitmath.org/code/mtdev/
 license: MIT
 labels:
   DEPEND: '>=sys-kernel/linux-headers-2.6.31'
@@ -18,3 +12,10 @@ labels:
   kit: core-kit
   original.package.name: sys-libs/mtdev
   original.package.version: 1.1.5
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

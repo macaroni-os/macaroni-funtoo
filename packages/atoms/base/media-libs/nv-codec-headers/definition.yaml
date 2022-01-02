@@ -2,18 +2,12 @@ name: nv-codec-headers
 version: 10.0.26.1+2
 category: media-libs
 requires:
-- name: nvidia-drivers
-  version: '>=0'
-  category: x11-drivers
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: nvidia-drivers
+    version: '>=0'
+    category: x11-drivers
 description: FFmpeg version of headers required to interface with Nvidias codec APIs
 uri:
-- https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git
+  - https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git
 license: MIT
 labels:
   RDEPEND: '>=x11-drivers/nvidia-drivers-445.87'
@@ -21,3 +15,10 @@ labels:
   kit: media-kit
   original.package.name: media-libs/nv-codec-headers
   original.package.version: 10.0.26.1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

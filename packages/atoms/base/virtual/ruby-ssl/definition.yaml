@@ -2,30 +2,28 @@ name: ruby-ssl
 version: 11+2
 category: virtual
 use_flags:
-- -ruby_targets_ruby25
-- ruby_targets_ruby26
-- ruby_targets_ruby27
+  - -ruby_targets_ruby25
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
 requires:
-- name: ruby
-  version: '>=0'
-  category: dev-lang-2.7
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: ruby
+    version: '>=0'
+    category: dev-lang-2.7
 description: Virtual ebuild for the Ruby OpenSSL bindings
 uri:
-- ""
+  - ""
 labels:
-  DEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
-    )
+  DEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 )
   IUSE: ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27
-  RDEPEND: ruby_targets_ruby25? ( dev-lang/ruby:2.5[ssl] ) ruby_targets_ruby26? (
-    dev-lang/ruby:2.6[ssl] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7[ssl] ) ruby_targets_ruby27?
-    ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 )
+  RDEPEND: ruby_targets_ruby25? ( dev-lang/ruby:2.5[ssl] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6[ssl] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7[ssl] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 )
   emerge.packages: virtual/ruby-ssl
   kit: ruby-kit
   original.package.name: virtual/ruby-ssl
   original.package.version: "11"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

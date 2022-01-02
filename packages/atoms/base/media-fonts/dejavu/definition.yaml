@@ -2,24 +2,23 @@ name: dejavu
 version: 2.37+2
 category: media-fonts
 use_flags:
-- -fontforge
-- X
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - -fontforge
+  - X
 description: DejaVu fonts, bitstream vera with ISO-8859-2 characters
 uri:
-- https://dejavu-fonts.github.io/
+  - https://dejavu-fonts.github.io/
 license: BitstreamVera
 labels:
-  DEPEND: fontforge? ( x11-apps/mkfontscale >=media-gfx/fontforge-20080429 x11-apps/mkfontdir
-    dev-perl/Font-TTF app-i18n/unicode-data >media-libs/fontconfig-2.6.0:1.0 ) X?
-    ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  DEPEND: fontforge? ( x11-apps/mkfontscale >=media-gfx/fontforge-20080429 x11-apps/mkfontdir dev-perl/Font-TTF app-i18n/unicode-data >media-libs/fontconfig-2.6.0:1.0 ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
   IUSE: fontforge X
   emerge.packages: media-fonts/dejavu
   kit: core-gl-kit
   original.package.name: media-fonts/dejavu
   original.package.version: "2.37"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

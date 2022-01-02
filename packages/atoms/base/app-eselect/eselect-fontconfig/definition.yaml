@@ -2,21 +2,15 @@ name: eselect-fontconfig
 version: 1.1+2
 category: app-eselect
 requires:
-- name: eselect
-  version: '>=0'
-  category: app-admin
-- name: fontconfig
-  version: '>=0'
-  category: media-libs-1.0
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: eselect
+    version: '>=0'
+    category: app-admin
+  - name: fontconfig
+    version: '>=0'
+    category: media-libs-1.0
 description: An eselect module to manage /etc/fonts/conf.d symlinks
 uri:
-- https://www.gentoo.org
+  - https://www.gentoo.org
 license: GPL-2
 labels:
   RDEPEND: '>=app-admin/eselect-1.2.3 >=media-libs/fontconfig-2.4'
@@ -24,3 +18,10 @@ labels:
   kit: core-kit
   original.package.name: app-eselect/eselect-fontconfig
   original.package.version: 1.1-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

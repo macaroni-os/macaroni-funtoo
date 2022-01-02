@@ -2,24 +2,23 @@ name: libyaml
 version: 0.2.2+2
 category: dev-libs
 use_flags:
-- -doc
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - -doc
 description: YAML 1.1 parser and emitter written in C
 uri:
-- https://github.com/yaml/libyaml
+  - https://github.com/yaml/libyaml
 license: MIT
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
   DEPEND: doc? ( app-doc/doxygen )
   IUSE: doc static-libs test
   emerge.packages: dev-libs/libyaml
   kit: core-kit
   original.package.name: dev-libs/libyaml
   original.package.version: 0.2.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/
