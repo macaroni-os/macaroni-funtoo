@@ -1,11 +1,18 @@
 name: diffutils
-version: 3.8+2
+version: 3.8+3
 category: sys-apps
 use_flags:
-  - nls
+- nls
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Tools to make diffs and compare files
 uri:
-  - https://www.gnu.org/software/diffutils/
+- https://www.gnu.org/software/diffutils/
 license: GPL-2
 labels:
   BDEPEND: app-arch/xz-utils nls? ( sys-devel/gettext )
@@ -14,10 +21,3 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/diffutils
   original.package.version: "3.8"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

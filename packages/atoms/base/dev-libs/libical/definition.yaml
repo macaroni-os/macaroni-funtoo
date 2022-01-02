@@ -1,42 +1,49 @@
 name: libical
-version: 3.0.11+1
+version: 3.0.11+2
 category: dev-libs
 use_flags:
-  - -doc
-  - -test
-  - berkdb
-  - introspection
-  - vala
+- -doc
+- -test
+- berkdb
+- introspection
+- vala
 requires:
-  - name: glib
-    version: '>=0'
-    category: dev-libs-2
-  - name: icu
-    version: '>=0'
-    category: dev-libs
-  - name: db
-    version: '>=0'
-    category: sys-libs-18.1
-  - name: timezone-data
-    version: '>=0'
-    category: sys-libs
-description: An implementation of basic iCAL protocols
-uri:
-  - https://github.com/libical/libical
-license: '|| ( MPL-2.0 LGPL-2.1 )'
-labels:
-  BDEPEND: dev-lang/perl virtual/pkgconfig doc? ( app-doc/doxygen ) introspection? ( dev-libs/gobject-introspection ) test? ( || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) ) vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) dev-util/ninja >=dev-util/cmake-3.9.6
-  DEPEND: dev-libs/icu:= berkdb? ( sys-libs/db:= ) introspection? ( dev-libs/glib:2 ) introspection? ( dev-libs/libxml2:2 )
-  IUSE: berkdb doc examples +introspection static-libs test +vala
-  RDEPEND: dev-libs/icu:= berkdb? ( sys-libs/db:= ) introspection? ( dev-libs/glib:2 ) sys-libs/timezone-data
-  emerge.packages: dev-libs/libical
-  kit: core-kit
-  original.package.name: dev-libs/libical
-  original.package.version: 3.0.11
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: timezone-data
+  version: '>=0'
+  category: sys-libs
 annotations:
   subsets:
     rules:
       devel:
-        - ^/usr/include/
+      - ^/usr/include/
       portage:
-        - ^/var/db/pkg/
+      - ^/var/db/pkg/
+description: An implementation of basic iCAL protocols
+uri:
+- https://github.com/libical/libical
+license: '|| ( MPL-2.0 LGPL-2.1 )'
+labels:
+  BDEPEND: dev-lang/perl virtual/pkgconfig doc? ( app-doc/doxygen ) introspection?
+    ( dev-libs/gobject-introspection ) test? ( || ( dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) ) vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
+    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
+    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) dev-util/ninja
+    >=dev-util/cmake-3.9.6
+  DEPEND: dev-libs/icu:= berkdb? ( sys-libs/db:= ) introspection? ( dev-libs/glib:2
+    ) introspection? ( dev-libs/libxml2:2 )
+  IUSE: berkdb doc examples +introspection static-libs test +vala
+  RDEPEND: dev-libs/icu:= berkdb? ( sys-libs/db:= ) introspection? ( dev-libs/glib:2
+    ) sys-libs/timezone-data
+  emerge.packages: dev-libs/libical
+  kit: core-kit
+  original.package.name: dev-libs/libical
+  original.package.version: 3.0.11

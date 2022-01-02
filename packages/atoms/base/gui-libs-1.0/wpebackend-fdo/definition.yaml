@@ -1,16 +1,23 @@
 name: wpebackend-fdo
-version: 1.6.0+2
+version: 1.6.0+3
 category: gui-libs-1.0
 requires:
-  - name: glib
-    version: '>=0'
-    category: dev-libs-2
-  - name: libwpe
-    version: '>=0'
-    category: gui-libs-1.0
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libwpe
+  version: '>=0'
+  category: gui-libs-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: WPE backend designed for Linux desktop systems
 uri:
-  - https://wpewebkit.org/
+- https://wpewebkit.org/
 license: BSD-2
 labels:
   BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
@@ -20,10 +27,3 @@ labels:
   kit: core-gl-kit
   original.package.name: gui-libs/wpebackend-fdo
   original.package.version: 1.6.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

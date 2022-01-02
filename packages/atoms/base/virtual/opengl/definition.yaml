@@ -1,23 +1,23 @@
 name: opengl
-version: 7.0+2
+version: 7.0+3
 category: virtual
 requires:
-  - name: libglvnd
-    version: '>=0'
-    category: media-libs
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Virtual for OpenGL implementation
 uri:
-  - ""
+- ""
 labels:
   RDEPEND: '>=media-libs/libglvnd-1.2.0'
   emerge.packages: virtual/opengl
   kit: core-gl-kit
   original.package.name: virtual/opengl
   original.package.version: 7.0-r5
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

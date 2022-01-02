@@ -1,13 +1,20 @@
 name: rpm2targz
-version: 9.0.0.5g+2
+version: 9.0.0.5g+3
 category: app-arch
 requires:
-  - name: cpio
-    version: '>=0'
-    category: app-arch
+- name: cpio
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Convert a .rpm file to a .tar.gz archive
 uri:
-  - http://www.slackware.com/config/packages.php
+- http://www.slackware.com/config/packages.php
 license: BSD-1
 labels:
   DEPEND: app-arch/xz-utils
@@ -16,10 +23,3 @@ labels:
   kit: core-kit
   original.package.name: app-arch/rpm2targz
   original.package.version: 9.0.0.5g
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

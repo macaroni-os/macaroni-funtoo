@@ -1,9 +1,16 @@
 name: libnfnetlink
-version: 1.0.1+2
+version: 1.0.1+3
 category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: the low-level library for netfilter related kernel/userspace communication
 uri:
-  - http://www.netfilter.org/projects/libnfnetlink/
+- http://www.netfilter.org/projects/libnfnetlink/
 license: GPL-2
 labels:
   IUSE: static-libs kernel_linux
@@ -12,10 +19,3 @@ labels:
   original.package.name: net-libs/libnfnetlink
   original.package.slot: "0"
   original.package.version: 1.0.1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

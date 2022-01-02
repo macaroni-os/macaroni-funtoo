@@ -1,11 +1,18 @@
 name: dmidecode
-version: 3.2+2
+version: 3.2+3
 category: sys-apps
 use_flags:
-  - -selinux
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: DMI (Desktop Management Interface) table related utilities
 uri:
-  - https://www.nongnu.org/dmidecode/
+- https://www.nongnu.org/dmidecode/
 license: GPL-2
 labels:
   IUSE: selinux
@@ -15,10 +22,3 @@ labels:
   original.package.name: sys-apps/dmidecode
   original.package.slot: "0"
   original.package.version: "3.2"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

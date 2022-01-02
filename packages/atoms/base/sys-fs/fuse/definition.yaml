@@ -1,13 +1,20 @@
 name: fuse
-version: 2.9.9+1
+version: 2.9.9+2
 category: sys-fs
 requires:
-  - name: fuse-common
-    version: '>=0'
-    category: sys-fs
+- name: fuse-common
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: An interface for filesystems implemented in userspace
 uri:
-  - https://github.com/libfuse/libfuse
+- https://github.com/libfuse/libfuse
 license: GPL-2
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 virtual/pkgconfig'
@@ -19,10 +26,3 @@ labels:
   original.package.name: sys-fs/fuse
   original.package.slot: "0"
   original.package.version: 2.9.9
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

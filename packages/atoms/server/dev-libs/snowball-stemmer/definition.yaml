@@ -1,9 +1,16 @@
 name: snowball-stemmer
-version: 0.20140325+1
+version: 0.20140325+2
 category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: All you need to include the snowball stemming algorithms into a C project
 uri:
-  - https://snowballstem.org/
+- https://snowballstem.org/
 license: BSD-2
 labels:
   IUSE: static-libs
@@ -12,10 +19,3 @@ labels:
   original.package.name: dev-libs/snowball-stemmer
   original.package.slot: "0"
   original.package.version: "0.20140325"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

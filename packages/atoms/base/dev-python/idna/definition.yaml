@@ -1,31 +1,36 @@
 name: idna
-version: 3.2+2
+version: 3.2+3
 category: dev-python
 use_flags:
-  - -python_targets_python3_8
-  - -python_targets_python3_9
-  - python_targets_python2_7
-  - python_targets_python3_7
+- -python_targets_python3_8
+- -python_targets_python3_9
+- python_targets_python2_7
+- python_targets_python3_7
 requires:
-  - name: idna-compat
-    version: '>=0'
-    category: dev-python
-description: Internationalized Domain Names in Applications (IDNA)
-uri:
-  - https://github.com/kjd/idna https://pypi.org/project/idna/
-license: BSD
-labels:
-  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-  IUSE: python_targets_python2_7 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: python_targets_python2_7? ( dev-python/idna-compat ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-  emerge.packages: dev-python/idna
-  kit: python-modules-kit
-  original.package.name: dev-python/idna
-  original.package.version: "3.2"
+- name: idna-compat
+  version: '>=0'
+  category: dev-python
 annotations:
   subsets:
     rules:
       devel:
-        - ^/usr/include/
+      - ^/usr/include/
       portage:
-        - ^/var/db/pkg/
+      - ^/var/db/pkg/
+description: Internationalized Domain Names in Applications (IDNA)
+uri:
+- https://github.com/kjd/idna https://pypi.org/project/idna/
+license: BSD
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: python_targets_python2_7 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: python_targets_python2_7? ( dev-python/idna-compat ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  emerge.packages: dev-python/idna
+  kit: python-modules-kit
+  original.package.name: dev-python/idna
+  original.package.version: "3.2"

@@ -1,35 +1,42 @@
 name: sdl2-image
-version: 2.0.4
+version: 2.0.4+1
 category: media-libs
 use_flags:
-  - jpeg
-  - png
-  - tiff
-  - webp
+- jpeg
+- png
+- tiff
+- webp
 requires:
-  - name: libsdl2
-    version: '>=0'
-    category: media-libs
-  - name: tiff
-    version: '>=0'
-    category: media-libs
+- name: libsdl2
+  version: '>=0'
+  category: media-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Image file loading library
 uri:
-  - http://www.libsdl.org/projects/SDL_image/
+- http://www.libsdl.org/projects/SDL_image/
 license: ZLIB
 labels:
-  DEPEND: '>=media-libs/libsdl2-2.0.9[-mgorny(-)] >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] png? ( >=media-libs/libpng-1.6.10:0[-mgorny(-)] ) jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) tiff? ( >=media-libs/tiff-3.9.7-r1:0[-mgorny(-)] ) webp? ( >=media-libs/libwebp-0.3.0[-mgorny(-)] )'
-  IUSE: gif jpeg png static-libs tiff webp abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: '>=media-libs/libsdl2-2.0.9[-mgorny(-)] >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] png? ( >=media-libs/libpng-1.6.10:0[-mgorny(-)] ) jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) tiff? ( >=media-libs/tiff-3.9.7-r1:0[-mgorny(-)] ) webp? ( >=media-libs/libwebp-0.3.0[-mgorny(-)] )'
+  DEPEND: '>=media-libs/libsdl2-2.0.9[-mgorny(-)] >=sys-libs/zlib-1.2.8-r1[-mgorny(-)]
+    png? ( >=media-libs/libpng-1.6.10:0[-mgorny(-)] ) jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)]
+    ) tiff? ( >=media-libs/tiff-3.9.7-r1:0[-mgorny(-)] ) webp? ( >=media-libs/libwebp-0.3.0[-mgorny(-)]
+    )'
+  IUSE: gif jpeg png static-libs tiff webp abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-libs/libsdl2-2.0.9[-mgorny(-)] >=sys-libs/zlib-1.2.8-r1[-mgorny(-)]
+    png? ( >=media-libs/libpng-1.6.10:0[-mgorny(-)] ) jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)]
+    ) tiff? ( >=media-libs/tiff-3.9.7-r1:0[-mgorny(-)] ) webp? ( >=media-libs/libwebp-0.3.0[-mgorny(-)]
+    )'
   emerge.packages: media-libs/sdl2-image
   kit: media-kit
   original.package.name: media-libs/sdl2-image
   original.package.slot: "0"
   original.package.version: 2.0.4
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

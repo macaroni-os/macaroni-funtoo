@@ -1,13 +1,20 @@
 name: Digest-Perl-MD5
-version: 1.900.0
+version: 1.900.0+1
 category: dev-perl
 requires:
-  - name: perl-Exporter
-    version: '>=0'
-    category: virtual
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Pure perl implementation of MD5
 uri:
-  - https://metacpan.org/release/Digest-Perl-MD5
+- https://metacpan.org/release/Digest-Perl-MD5
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/perl-Exporter virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=[-build(-)]
@@ -17,10 +24,3 @@ labels:
   original.package.name: dev-perl/Digest-Perl-MD5
   original.package.slot: "0"
   original.package.version: 1.900.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

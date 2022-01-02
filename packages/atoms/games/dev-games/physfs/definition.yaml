@@ -1,24 +1,25 @@
 name: physfs
-version: 3.0.2
+version: 3.0.2+1
 category: dev-games
 use_flags:
-  - -doc
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Abstraction layer for filesystem and archive access
 uri:
-  - https://icculus.org/physfs/
+- https://icculus.org/physfs/
 license: ZLIB
 labels:
   BDEPEND: doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.9.6
-  IUSE: 7zip doc grp hog iso mvl qpak slb static-libs vdf wad +zip abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  IUSE: 7zip doc grp hog iso mvl qpak slb static-libs vdf wad +zip abi_x86_32 abi_x86_64
+    abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   emerge.packages: dev-games/physfs
   kit: dev-kit
   original.package.name: dev-games/physfs
   original.package.slot: "0"
   original.package.version: 3.0.2
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

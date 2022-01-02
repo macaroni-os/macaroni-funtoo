@@ -1,13 +1,20 @@
 name: PadWalker
-version: 2.300.0
+version: 2.300.0+1
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: play with other peoples' lexical variables
 uri:
-  - https://metacpan.org/release/PadWalker
+- https://metacpan.org/release/PadWalker
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
@@ -17,10 +24,3 @@ labels:
   original.package.name: dev-perl/PadWalker
   original.package.slot: "0"
   original.package.version: 2.300.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

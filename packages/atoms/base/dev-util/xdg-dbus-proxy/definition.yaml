@@ -1,29 +1,31 @@
 name: xdg-dbus-proxy
-version: 0.1.2+2
+version: 0.1.2+3
 category: dev-util
 requires:
-  - name: glib
-    version: '>=0'
-    category: dev-libs-2
-  - name: libffi
-    version: '>=0'
-    category: dev-libs
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libffi
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Filtering proxy for D-Bus connections.
 uri:
-  - https://github.com/flatpak/xdg-dbus-proxy
+- https://github.com/flatpak/xdg-dbus-proxy
 license: LGPL-2.1
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
   DEPEND: '>=dev-libs/glib-2.62 dev-libs/libffi dev-libs/libxslt'
   RDEPEND: '>=dev-libs/glib-2.62 dev-libs/libffi'
   emerge.packages: dev-util/xdg-dbus-proxy
   kit: gnome-kit
   original.package.name: dev-util/xdg-dbus-proxy
   original.package.version: 0.1.2
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

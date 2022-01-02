@@ -1,9 +1,16 @@
 name: lsb-release
-version: 1.4+2
+version: 1.4+3
 category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: LSB version query program
 uri:
-  - https://wiki.linuxfoundation.org/lsb/
+- https://wiki.linuxfoundation.org/lsb/
 license: GPL-2
 labels:
   DEPEND: dev-lang/perl
@@ -11,10 +18,3 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/lsb-release
   original.package.version: 1.4-r3
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,9 +1,16 @@
 name: libmnl
-version: 1.0.4+2
+version: 1.0.4+3
 category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Minimalistic netlink library
 uri:
-  - https://netfilter.org/projects/libmnl/
+- https://netfilter.org/projects/libmnl/
 license: LGPL-2.1
 labels:
   IUSE: examples static-libs
@@ -11,10 +18,3 @@ labels:
   kit: core-kit
   original.package.name: net-libs/libmnl
   original.package.version: 1.0.4
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

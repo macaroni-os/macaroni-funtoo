@@ -1,9 +1,16 @@
 name: go
-version: 1.17+2
+version: 1.17+3
 category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: A concurrent garbage collected and typesafe programming language
 uri:
-  - https://golang.org
+- https://golang.org
 license: BSD
 labels:
   BDEPEND: '|| ( dev-lang/go dev-lang/go-bootstrap )'
@@ -14,10 +21,3 @@ labels:
   original.package.name: dev-lang/go
   original.package.slot: "0"
   original.package.version: "1.17"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

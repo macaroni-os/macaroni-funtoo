@@ -1,13 +1,20 @@
 name: qrencode
-version: 4.0.2+2
+version: 4.0.2+3
 category: media-gfx
 requires:
-  - name: libpng
-    version: '>=0'
-    category: media-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: C library for encoding data in a QR Code symbol
 uri:
-  - https://fukuchi.org/works/qrencode/
+- https://fukuchi.org/works/qrencode/
 license: LGPL-2
 labels:
   DEPEND: media-libs/libpng:0= virtual/pkgconfig
@@ -17,10 +24,3 @@ labels:
   kit: media-kit
   original.package.name: media-gfx/qrencode
   original.package.version: 4.0.2
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

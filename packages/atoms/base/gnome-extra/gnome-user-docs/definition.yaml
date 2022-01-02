@@ -1,11 +1,18 @@
 name: gnome-user-docs
-version: 3.36.6+2
+version: 3.36.6+3
 category: gnome-extra
 use_flags:
-  - -test
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: GNOME end user documentation
 uri:
-  - https://git.gnome.org/browse/gnome-user-docs
+- https://git.gnome.org/browse/gnome-user-docs
 license: CC-BY-3.0
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils'
@@ -15,10 +22,3 @@ labels:
   kit: gnome-kit
   original.package.name: gnome-extra/gnome-user-docs
   original.package.version: 3.36.6
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

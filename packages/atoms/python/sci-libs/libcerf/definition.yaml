@@ -1,9 +1,16 @@
 name: libcerf
-version: "1.5"
+version: 1.5+1
 category: sci-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Efficient and accurate implementation of complex error functions
 uri:
-  - http://apps.jcns.fz-juelich.de/doku/sc/libcerf
+- http://apps.jcns.fz-juelich.de/doku/sc/libcerf
 license: MIT
 labels:
   IUSE: doc static-libs test
@@ -12,10 +19,3 @@ labels:
   original.package.name: sci-libs/libcerf
   original.package.slot: "0"
   original.package.version: "1.5"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

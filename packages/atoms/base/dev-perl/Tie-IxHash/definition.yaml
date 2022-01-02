@@ -1,15 +1,22 @@
 name: Tie-IxHash
-version: 1.230.0+2
+version: 1.230.0+3
 category: dev-perl
 use_flags:
-  - -test
+- -test
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Ordered associative arrays for Perl
 uri:
-  - https://metacpan.org/release/Tie-IxHash
+- https://metacpan.org/release/Tie-IxHash
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-perl/Module-Build test? ( virtual/perl-Test-Simple ) dev-lang/perl:=[-build(-)]
@@ -19,10 +26,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Tie-IxHash
   original.package.version: 1.230.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/
