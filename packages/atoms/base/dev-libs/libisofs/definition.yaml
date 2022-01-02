@@ -1,23 +1,30 @@
 name: libisofs
-version: 1.5.0+2
+version: 1.5.0+3
 category: dev-libs
 use_flags:
-  - acl
-  - xattr
-  - zlib
+- acl
+- xattr
+- zlib
 requires:
-  - name: attr
-    version: '>=0'
-    category: sys-apps
-  - name: zlib
-    version: '>=0'
-    category: sys-libs
-  - name: acl
-    version: '>=0'
-    category: virtual
+- name: attr
+  version: '>=0'
+  category: sys-apps
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: acl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Open-source library for reading, mastering and writing optical discs
 uri:
-  - https://dev.lovelyhq.com/libburnia/web/wikis/home
+- https://dev.lovelyhq.com/libburnia/web/wikis/home
 license: GPL-2
 labels:
   BDEPEND: virtual/pkgconfig
@@ -28,10 +35,3 @@ labels:
   kit: dev-kit
   original.package.name: dev-libs/libisofs
   original.package.version: 1.5.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

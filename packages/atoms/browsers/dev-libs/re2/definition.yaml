@@ -1,11 +1,18 @@
 name: re2
-version: 2021.09.01+2
+version: 2021.09.01+3
 category: dev-libs
 use_flags:
-  - -icu
+- -icu
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: An efficient, principled regular expression library
 uri:
-  - https://github.com/google/re2
+- https://github.com/google/re2
 license: BSD
 labels:
   BDEPEND: icu? ( virtual/pkgconfig )
@@ -16,10 +23,3 @@ labels:
   kit: dev-kit
   original.package.name: dev-libs/re2
   original.package.version: 2021.09.01
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

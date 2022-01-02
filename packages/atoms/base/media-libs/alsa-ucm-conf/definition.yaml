@@ -1,9 +1,16 @@
 name: alsa-ucm-conf
-version: 1.2.4+2
+version: 1.2.4+3
 category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: ALSA ucm configuration files
 uri:
-  - https://www.alsa-project.org
+- https://www.alsa-project.org
 license: BSD
 labels:
   DEPEND: '!<media-libs/alsa-lib-1.2.1'
@@ -12,10 +19,3 @@ labels:
   kit: core-kit
   original.package.name: media-libs/alsa-ucm-conf
   original.package.version: 1.2.4
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

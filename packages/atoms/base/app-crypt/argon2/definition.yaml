@@ -1,9 +1,16 @@
 name: argon2
-version: 20171227+2
+version: 20171227+3
 category: app-crypt
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Password hashing software that won the Password Hashing Competition (PHC)
 uri:
-  - https://github.com/P-H-C/phc-winner-argon2
+- https://github.com/P-H-C/phc-winner-argon2
 license: '|| ( Apache-2.0 CC0-1.0 )'
 labels:
   IUSE: static-libs
@@ -11,10 +18,3 @@ labels:
   kit: core-kit
   original.package.name: app-crypt/argon2
   original.package.version: 20171227-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

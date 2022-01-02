@@ -1,16 +1,24 @@
 name: source-pro
-version: 20191016+2
+version: 20191016+3
 category: media-fonts
 use_flags:
-  - -cjk
-  - X
+- -cjk
+- X
 requires:
-  - name: fontconfig
-    version: '>=0'
-    category: media-libs-1.0
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Adobe's open source typeface family designed for UI environments
 uri:
-  - https://adobe-fonts.github.io/source-sans-pro/ https://adobe-fonts.github.io/source-serif-pro/ https://adobe-fonts.github.io/source-code-pro/
+- https://adobe-fonts.github.io/source-sans-pro/ https://adobe-fonts.github.io/source-serif-pro/
+  https://adobe-fonts.github.io/source-code-pro/
 license: OFL-1.1
 labels:
   DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
@@ -20,10 +28,3 @@ labels:
   kit: core-gl-kit
   original.package.name: media-fonts/source-pro
   original.package.version: "20191016"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

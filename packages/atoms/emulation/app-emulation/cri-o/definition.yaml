@@ -1,58 +1,66 @@
 name: cri-o
-version: 1.14.4+2
+version: 1.14.4+3
 category: app-emulation
 use_flags:
-  - -btrfs
-  - -ostree
-  - -selinux
-  - -systemd
-  - device-mapper
+- -btrfs
+- -ostree
+- -selinux
+- -systemd
+- device-mapper
 requires:
-  - name: gpgme
-    version: '>=0'
-    category: app-crypt-1
-  - name: runc
-    version: '>=0'
-    category: app-emulation
-  - name: glib
-    version: '>=0'
-    category: dev-libs-2
-  - name: libassuan
-    version: '>=0'
-    category: dev-libs
-  - name: conntrack-tools
-    version: '>=0'
-    category: net-firewall
-  - name: cni-plugins
-    version: '>=0'
-    category: net-misc
-  - name: socat
-    version: '>=0'
-    category: net-misc
-  - name: iproute2
-    version: '>=0'
-    category: sys-apps
-  - name: lvm2
-    version: '>=0'
-    category: sys-fs
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
+- name: runc
+  version: '>=0'
+  category: app-emulation
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libassuan
+  version: '>=0'
+  category: dev-libs
+- name: conntrack-tools
+  version: '>=0'
+  category: net-firewall
+- name: cni-plugins
+  version: '>=0'
+  category: net-misc
+- name: socat
+  version: '>=0'
+  category: net-misc
+- name: iproute2
+  version: '>=0'
+  category: sys-apps
+- name: lvm2
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: OCI-based implementation of Kubernetes Container Runtime Interface
 uri:
-  - https://cri-o.io/
+- https://cri-o.io/
 license: Apache-2.0
 labels:
   BDEPEND: '>=dev-lang/go-1.10'
-  DEPEND: app-crypt/gpgme:= app-emulation/runc dev-libs/glib:= dev-libs/libassuan:= dev-libs/libgpg-error:= net-firewall/conntrack-tools net-firewall/iptables net-misc/cni-plugins net-misc/socat sys-apps/iproute2 sys-libs/libseccomp:= btrfs? ( sys-fs/btrfs-progs ) device-mapper? ( sys-fs/lvm2:= ) ostree? ( dev-util/ostree ) selinux? ( sys-libs/libselinux:= ) systemd? ( sys-apps/systemd:= ) dev-go/go-md2man
+  DEPEND: app-crypt/gpgme:= app-emulation/runc dev-libs/glib:= dev-libs/libassuan:=
+    dev-libs/libgpg-error:= net-firewall/conntrack-tools net-firewall/iptables net-misc/cni-plugins
+    net-misc/socat sys-apps/iproute2 sys-libs/libseccomp:= btrfs? ( sys-fs/btrfs-progs
+    ) device-mapper? ( sys-fs/lvm2:= ) ostree? ( dev-util/ostree ) selinux? ( sys-libs/libselinux:=
+    ) systemd? ( sys-apps/systemd:= ) dev-go/go-md2man
   IUSE: btrfs +device-mapper ostree selinux systemd
-  RDEPEND: app-crypt/gpgme:= app-emulation/runc dev-libs/glib:= dev-libs/libassuan:= dev-libs/libgpg-error:= net-firewall/conntrack-tools net-firewall/iptables net-misc/cni-plugins net-misc/socat sys-apps/iproute2 sys-libs/libseccomp:= btrfs? ( sys-fs/btrfs-progs ) device-mapper? ( sys-fs/lvm2:= ) ostree? ( dev-util/ostree ) selinux? ( sys-libs/libselinux:= ) systemd? ( sys-apps/systemd:= ) !<app-emulation/libpod-1.3.2-r1
+  RDEPEND: app-crypt/gpgme:= app-emulation/runc dev-libs/glib:= dev-libs/libassuan:=
+    dev-libs/libgpg-error:= net-firewall/conntrack-tools net-firewall/iptables net-misc/cni-plugins
+    net-misc/socat sys-apps/iproute2 sys-libs/libseccomp:= btrfs? ( sys-fs/btrfs-progs
+    ) device-mapper? ( sys-fs/lvm2:= ) ostree? ( dev-util/ostree ) selinux? ( sys-libs/libselinux:=
+    ) systemd? ( sys-apps/systemd:= ) !<app-emulation/libpod-1.3.2-r1
   emerge.packages: app-emulation/cri-o
   kit: nokit
   original.package.name: app-emulation/cri-o
   original.package.slot: "0"
   original.package.version: 1.14.4
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

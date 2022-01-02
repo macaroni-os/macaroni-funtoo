@@ -1,11 +1,19 @@
 name: clucene
-version: 2.3.3.4+2
+version: 2.3.3.4+3
 category: dev-cpp-1
 use_flags:
-  - -doc
-description: High-performance, full-featured text search engine based off of lucene in C++
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: High-performance, full-featured text search engine based off of lucene
+  in C++
 uri:
-  - http://clucene.sourceforge.net/
+- http://clucene.sourceforge.net/
 license: '|| ( Apache-2.0 LGPL-2.1 )'
 labels:
   DEPEND: doc? ( >=app-doc/doxygen-1.4.2 ) sys-devel/make >=dev-util/cmake-3.9.6
@@ -14,10 +22,3 @@ labels:
   kit: dev-kit
   original.package.name: dev-cpp/clucene
   original.package.version: 2.3.3.4-r6
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

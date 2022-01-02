@@ -1,13 +1,20 @@
 name: spdlog
-version: 1.9.2+2
+version: 1.9.2+3
 category: dev-libs
 requires:
-  - name: libfmt
-    version: '>=0'
-    category: dev-libs
+- name: libfmt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Very fast, header only, C++ logging library
 uri:
-  - https://github.com/gabime/spdlog
+- https://github.com/gabime/spdlog
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
@@ -18,10 +25,3 @@ labels:
   kit: dev-kit
   original.package.name: dev-libs/spdlog
   original.package.version: 1.9.2
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,23 +1,23 @@
 name: tmpfiles
-version: 1+2
+version: 1+3
 category: virtual
 requires:
-  - name: opentmpfiles
-    version: '>=0'
-    category: sys-apps
+- name: opentmpfiles
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Virtual to select between different tmpfiles.d handlers
 uri:
-  - ""
+- ""
 labels:
   RDEPEND: sys-apps/opentmpfiles
   emerge.packages: virtual/tmpfiles
   kit: core-kit
   original.package.name: virtual/tmpfiles
   original.package.version: "1"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,95 +1,132 @@
 name: obs-studio
-version: 27.1.1+1
+version: 27.1.1+2
 category: media-video
 use_flags:
-  - -browser
-  - -fdk
-  - -jack
-  - -luajit
-  - -pipewire
-  - -python_single_target_python3_8
-  - -python_single_target_python3_9
-  - -vlc
-  - alsa
-  - nvenc
-  - pulseaudio
-  - python
-  - python_single_target_python3_7
-  - speex
-  - ssl
-  - truetype
-  - v4l
-  - wayland
+- -browser
+- -fdk
+- -jack
+- -luajit
+- -pipewire
+- -python_single_target_python3_8
+- -python_single_target_python3_9
+- -vlc
+- alsa
+- nvenc
+- pulseaudio
+- python
+- python_single_target_python3_7
+- speex
+- ssl
+- truetype
+- v4l
+- wayland
 requires:
-  - name: jansson
-    version: '>=0'
-    category: dev-libs
-  - name: wayland
-    version: '>=0'
-    category: dev-libs
-  - name: qtmultimedia
-    version: '>=0'
-    category: dev-qt-5
-  - name: qtquickcontrols
-    version: '>=0'
-    category: dev-qt-5
-  - name: qtsql
-    version: '>=0'
-    category: dev-qt-5
-  - name: qtsvg
-    version: '>=0'
-    category: dev-qt-5
-  - name: qtx11extras
-    version: '>=0'
-    category: dev-qt-5
-  - name: qtxml
-    version: '>=0'
-    category: dev-qt-5
-  - name: libv4l
-    version: '>=0'
-    category: media-libs
-  - name: ffmpeg
-    version: '>=0'
-    category: media-video
-  - name: mbedtls
-    version: '>=0'
-    category: net-libs
-  - name: curl
-    version: '>=0'
-    category: net-misc
-  - name: dbus
-    version: '>=0'
-    category: sys-apps
-  - name: udev
-    version: '>=0'
-    category: virtual
-  - name: libXcomposite
-    version: '>=0'
-    category: x11-libs
-  - name: libXinerama
-    version: '>=0'
-    category: x11-libs
-  - name: libXrandr
-    version: '>=0'
-    category: x11-libs
+- name: jansson
+  version: '>=0'
+  category: dev-libs
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-5
+- name: qtquickcontrols
+  version: '>=0'
+  category: dev-qt-5
+- name: qtsql
+  version: '>=0'
+  category: dev-qt-5
+- name: qtsvg
+  version: '>=0'
+  category: dev-qt-5
+- name: qtx11extras
+  version: '>=0'
+  category: dev-qt-5
+- name: qtxml
+  version: '>=0'
+  category: dev-qt-5
+- name: libv4l
+  version: '>=0'
+  category: media-libs
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: mbedtls
+  version: '>=0'
+  category: net-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: udev
+  version: '>=0'
+  category: virtual
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Software for Recording and Streaming Live Video Content
 uri:
-  - https://obsproject.com
+- https://obsproject.com
 license: GPL-2
 labels:
   BDEPEND: luajit? ( dev-lang/swig ) python? ( dev-lang/swig ) dev-util/ninja >=dev-util/cmake-3.9.6
-  DEPEND: '>=dev-libs/jansson-2.5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5[wayland?] dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5 dev-qt/qtsql:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 media-libs/x264 media-video/ffmpeg:=[x264] net-misc/curl sys-apps/dbus sys-libs/zlib virtual/udev x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXfixes x11-libs/libXinerama x11-libs/libXrandr x11-libs/libxcb alsa? ( media-libs/alsa-lib ) browser? ( app-accessibility/at-spi2-atk dev-libs/atk dev-libs/expat dev-libs/glib dev-libs/nspr dev-libs/nss media-libs/fontconfig x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst ) fdk? ( media-libs/fdk-aac:= ) jack? ( virtual/jack ) luajit? ( dev-lang/luajit:2 ) nvenc? ( || ( <media-video/ffmpeg-4[nvenc] >=media-video/ffmpeg-4[video_cards_nvidia] ) ) pipewire? ( media-video/pipewire ) pulseaudio? ( media-sound/pulseaudio ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) ) speex? ( media-libs/speexdsp ) ssl? ( net-libs/mbedtls:= ) truetype? ( media-libs/fontconfig media-libs/freetype ) v4l? ( media-libs/libv4l ) vlc? ( media-video/vlc:= ) wayland? ( dev-libs/wayland )'
-  IUSE: +alsa browser fdk jack luajit nvenc pipewire pulseaudio python speex +ssl truetype v4l vlc wayland python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: '>=dev-libs/jansson-2.5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5[wayland?] dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5 dev-qt/qtsql:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 media-libs/x264 media-video/ffmpeg:=[x264] net-misc/curl sys-apps/dbus sys-libs/zlib virtual/udev x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXfixes x11-libs/libXinerama x11-libs/libXrandr x11-libs/libxcb alsa? ( media-libs/alsa-lib ) browser? ( app-accessibility/at-spi2-atk dev-libs/atk dev-libs/expat dev-libs/glib dev-libs/nspr dev-libs/nss media-libs/fontconfig x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst ) fdk? ( media-libs/fdk-aac:= ) jack? ( virtual/jack ) luajit? ( dev-lang/luajit:2 ) nvenc? ( || ( <media-video/ffmpeg-4[nvenc] >=media-video/ffmpeg-4[video_cards_nvidia] ) ) pipewire? ( media-video/pipewire ) pulseaudio? ( media-sound/pulseaudio ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) ) speex? ( media-libs/speexdsp ) ssl? ( net-libs/mbedtls:= ) truetype? ( media-libs/fontconfig media-libs/freetype ) v4l? ( media-libs/libv4l ) vlc? ( media-video/vlc:= ) wayland? ( dev-libs/wayland )'
+  DEPEND: '>=dev-libs/jansson-2.5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5[wayland?]
+    dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5 dev-qt/qtsql:5
+    dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 media-libs/x264
+    media-video/ffmpeg:=[x264] net-misc/curl sys-apps/dbus sys-libs/zlib virtual/udev
+    x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXfixes x11-libs/libXinerama
+    x11-libs/libXrandr x11-libs/libxcb alsa? ( media-libs/alsa-lib ) browser? ( app-accessibility/at-spi2-atk
+    dev-libs/atk dev-libs/expat dev-libs/glib dev-libs/nspr dev-libs/nss media-libs/fontconfig
+    x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXi x11-libs/libXrender
+    x11-libs/libXScrnSaver x11-libs/libXtst ) fdk? ( media-libs/fdk-aac:= ) jack?
+    ( virtual/jack ) luajit? ( dev-lang/luajit:2 ) nvenc? ( || ( <media-video/ffmpeg-4[nvenc]
+    >=media-video/ffmpeg-4[video_cards_nvidia] ) ) pipewire? ( media-video/pipewire
+    ) pulseaudio? ( media-sound/pulseaudio ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
+    speex? ( media-libs/speexdsp ) ssl? ( net-libs/mbedtls:= ) truetype? ( media-libs/fontconfig
+    media-libs/freetype ) v4l? ( media-libs/libv4l ) vlc? ( media-video/vlc:= ) wayland?
+    ( dev-libs/wayland )'
+  IUSE: +alsa browser fdk jack luajit nvenc pipewire pulseaudio python speex +ssl
+    truetype v4l vlc wayland python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: '>=dev-libs/jansson-2.5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5[wayland?]
+    dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5 dev-qt/qtsql:5
+    dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 media-libs/x264
+    media-video/ffmpeg:=[x264] net-misc/curl sys-apps/dbus sys-libs/zlib virtual/udev
+    x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXfixes x11-libs/libXinerama
+    x11-libs/libXrandr x11-libs/libxcb alsa? ( media-libs/alsa-lib ) browser? ( app-accessibility/at-spi2-atk
+    dev-libs/atk dev-libs/expat dev-libs/glib dev-libs/nspr dev-libs/nss media-libs/fontconfig
+    x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXi x11-libs/libXrender
+    x11-libs/libXScrnSaver x11-libs/libXtst ) fdk? ( media-libs/fdk-aac:= ) jack?
+    ( virtual/jack ) luajit? ( dev-lang/luajit:2 ) nvenc? ( || ( <media-video/ffmpeg-4[nvenc]
+    >=media-video/ffmpeg-4[video_cards_nvidia] ) ) pipewire? ( media-video/pipewire
+    ) pulseaudio? ( media-sound/pulseaudio ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
+    speex? ( media-libs/speexdsp ) ssl? ( net-libs/mbedtls:= ) truetype? ( media-libs/fontconfig
+    media-libs/freetype ) v4l? ( media-libs/libv4l ) vlc? ( media-video/vlc:= ) wayland?
+    ( dev-libs/wayland )'
   emerge.packages: media-video/obs-studio
   kit: media-kit
   original.package.name: media-video/obs-studio
   original.package.slot: "0"
   original.package.version: 27.1.1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

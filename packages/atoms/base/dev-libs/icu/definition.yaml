@@ -1,23 +1,26 @@
 name: icu
-version: 67.1+2
+version: 67.1+3
 category: dev-libs
 use_flags:
-  - -doc
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: International Components for Unicode
 uri:
-  - http://www.icu-project.org/
+- http://www.icu-project.org/
 license: BSD
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) virtual/pkgconfig
+    doc? ( app-doc/doxygen[dot] ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
   IUSE: debug doc examples static-libs
   emerge.packages: dev-libs/icu
   kit: core-kit
   original.package.name: dev-libs/icu
   original.package.version: "67.1"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

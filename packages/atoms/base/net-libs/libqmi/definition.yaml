@@ -1,29 +1,31 @@
 name: libqmi
-version: 1.22.2+2
+version: 1.22.2+3
 category: net-libs
 use_flags:
-  - -doc
-  - mbim
+- -doc
+- mbim
 requires:
-  - name: libmbim
-    version: '>=0'
-    category: net-libs
-description: Qualcomm MSM (Mobile Station Modem) Interface (QMI) modem protocol library
-uri:
-  - https://cgit.freedesktop.org/libqmi/
-license: LGPL-2
-labels:
-  DEPEND: '>=dev-libs/glib-2.36 virtual/libgudev mbim? ( >=net-libs/libmbim-1.18.0 ) doc? ( dev-util/gtk-doc ) virtual/pkgconfig'
-  IUSE: doc +mbim static-libs
-  RDEPEND: '>=dev-libs/glib-2.36 virtual/libgudev mbim? ( >=net-libs/libmbim-1.18.0 )'
-  emerge.packages: net-libs/libqmi
-  kit: net-kit
-  original.package.name: net-libs/libqmi
-  original.package.version: 1.22.2
+- name: libmbim
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
       devel:
-        - ^/usr/include/
+      - ^/usr/include/
       portage:
-        - ^/var/db/pkg/
+      - ^/var/db/pkg/
+description: Qualcomm MSM (Mobile Station Modem) Interface (QMI) modem protocol library
+uri:
+- https://cgit.freedesktop.org/libqmi/
+license: LGPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.36 virtual/libgudev mbim? ( >=net-libs/libmbim-1.18.0
+    ) doc? ( dev-util/gtk-doc ) virtual/pkgconfig'
+  IUSE: doc +mbim static-libs
+  RDEPEND: '>=dev-libs/glib-2.36 virtual/libgudev mbim? ( >=net-libs/libmbim-1.18.0
+    )'
+  emerge.packages: net-libs/libqmi
+  kit: net-kit
+  original.package.name: net-libs/libqmi
+  original.package.version: 1.22.2

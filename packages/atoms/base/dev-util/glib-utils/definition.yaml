@@ -1,23 +1,23 @@
 name: glib-utils
-version: 2.70.0+2
+version: 2.70.0+3
 category: dev-util
 requires:
-  - name: glib
-    version: '>=0'
-    category: dev-libs-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: meta package for glib
 uri:
-  - ""
+- ""
 labels:
   RDEPEND: ~dev-libs/glib-2.70.0
   emerge.packages: dev-util/glib-utils
   kit: gnome-kit
   original.package.name: dev-util/glib-utils
   original.package.version: 2.70.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

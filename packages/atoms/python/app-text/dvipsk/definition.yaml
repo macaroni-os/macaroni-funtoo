@@ -1,9 +1,16 @@
 name: dvipsk
-version: "2020.1"
+version: 2020.1+1
 category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: DVI-to-PostScript translator
 uri:
-  - http://tug.org/texlive/
+- http://tug.org/texlive/
 license: GPL-2
 labels:
   BDEPEND: virtual/pkgconfig
@@ -14,10 +21,3 @@ labels:
   original.package.name: app-text/dvipsk
   original.package.slot: "0"
   original.package.version: 2020.1_p20200406
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,31 +1,43 @@
 name: kpeg
-version: 1.1.0+2
+version: 1.1.0+3
 category: dev-ruby-1
 use_flags:
-  - -doc
-  - -test
-  - ruby_targets_ruby26
-  - ruby_targets_ruby27
+- -doc
+- -test
+- ruby_targets_ruby26
+- ruby_targets_ruby27
 requires:
-  - name: rubygems
-    version: '>=0'
-    category: virtual
-description: A simple PEG library for Ruby
-uri:
-  - https://github.com/evanphx/kpeg
-license: MIT
-labels:
-  DEPEND: ruby_targets_ruby27? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
-  IUSE: test ruby_targets_ruby24 ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 doc test test
-  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
-  emerge.packages: dev-ruby/kpeg:1
-  kit: ruby-kit
-  original.package.name: dev-ruby/kpeg
-  original.package.version: 1.1.0-r1
+- name: rubygems
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
       devel:
-        - ^/usr/include/
+      - ^/usr/include/
       portage:
-        - ^/var/db/pkg/
+      - ^/var/db/pkg/
+description: A simple PEG library for Ruby
+uri:
+- https://github.com/evanphx/kpeg
+license: MIT
+labels:
+  DEPEND: ruby_targets_ruby27? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby26? ( test? ( dev-ruby/minitest:5[ruby_targets_ruby26(-)]
+    ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
+    ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26?
+    ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test?
+    ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)]
+    ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)]
+    ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)]
+    ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+  IUSE: test ruby_targets_ruby24 ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27
+    doc test test
+  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  emerge.packages: dev-ruby/kpeg:1
+  kit: ruby-kit
+  original.package.name: dev-ruby/kpeg
+  original.package.version: 1.1.0-r1

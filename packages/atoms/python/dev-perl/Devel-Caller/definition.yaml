@@ -1,13 +1,20 @@
 name: Devel-Caller
-version: 2.60.0
+version: 2.60.0+1
 category: dev-perl
 requires:
-  - name: PadWalker
-    version: '>=0'
-    category: dev-perl
+- name: PadWalker
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Meatier versions of caller
 uri:
-  - https://metacpan.org/release/Devel-Caller
+- https://metacpan.org/release/Devel-Caller
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-perl/PadWalker dev-lang/perl:=[-build(-)]
@@ -17,10 +24,3 @@ labels:
   original.package.name: dev-perl/Devel-Caller
   original.package.slot: "0"
   original.package.version: 2.60.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

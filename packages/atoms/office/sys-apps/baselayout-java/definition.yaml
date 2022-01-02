@@ -1,13 +1,20 @@
 name: baselayout-java
-version: 0.1.0+2
+version: 0.1.0+3
 category: sys-apps
 requires:
-  - name: p11-kit
-    version: '>=0'
-    category: app-crypt
+- name: p11-kit
+  version: '>=0'
+  category: app-crypt
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Baselayout for Java
 uri:
-  - https://wiki.gentoo.org/wiki/Project:Java
+- https://wiki.gentoo.org/wiki/Project:Java
 license: GPL-2
 labels:
   BDEPEND: app-crypt/p11-kit[trust] app-misc/ca-certificates
@@ -16,10 +23,3 @@ labels:
   kit: nokit
   original.package.name: sys-apps/baselayout-java
   original.package.version: 0.1.0-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

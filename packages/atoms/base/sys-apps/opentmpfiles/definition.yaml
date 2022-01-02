@@ -1,11 +1,18 @@
 name: opentmpfiles
-version: 0.3.1+2
+version: 0.3.1+3
 category: sys-apps
 use_flags:
-  - -selinux
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: A standalone utility to process systemd-style tmpfiles.d files
 uri:
-  - https://github.com/openrc/opentmpfiles
+- https://github.com/openrc/opentmpfiles
 license: BSD-2
 labels:
   IUSE: selinux
@@ -14,10 +21,3 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/opentmpfiles
   original.package.version: 0.3.1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

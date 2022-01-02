@@ -1,13 +1,20 @@
 name: elt-patches
-version: 20170826.1+2
+version: 20170826.1+3
 category: app-portage
 requires:
-  - name: gentoo-functions
-    version: '>=0'
-    category: sys-apps
+- name: gentoo-functions
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Collection of patches for libtool.eclass
 uri:
-  - https://gitweb.gentoo.org/proj/elt-patches.git/
+- https://gitweb.gentoo.org/proj/elt-patches.git/
 license: GPL-2
 labels:
   DEPEND: app-arch/xz-utils
@@ -16,10 +23,3 @@ labels:
   kit: core-kit
   original.package.name: app-portage/elt-patches
   original.package.version: "20170826.1"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

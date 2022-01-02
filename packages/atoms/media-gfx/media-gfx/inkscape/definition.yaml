@@ -1,102 +1,138 @@
 name: inkscape
-version: 1.1+1
+version: 1.1+2
 category: media-gfx
 use_flags:
-  - -graphicsmagick
-  - -jemalloc
-  - -postscript
-  - -python_single_target_python3_8
-  - -python_single_target_python3_9
-  - -spell
-  - -wpg
-  - cdr
-  - dbus
-  - dia
-  - exif
-  - imagemagick
-  - jpeg
-  - lcms
-  - python_single_target_python3_7
-  - visio
+- -graphicsmagick
+- -jemalloc
+- -postscript
+- -python_single_target_python3_8
+- -python_single_target_python3_9
+- -spell
+- -wpg
+- cdr
+- dbus
+- dia
+- exif
+- imagemagick
+- jpeg
+- lcms
+- python_single_target_python3_7
+- visio
 requires:
-  - name: dia
-    version: '>=0'
-    category: app-office
-  - name: libwpg
-    version: '>=0'
-    category: app-text-0.3
-  - name: poppler
-    version: '>=0'
-    category: app-text
-  - name: gtkmm
-    version: '>=0'
-    category: dev-cpp-3.0
-  - name: boehm-gc
-    version: '>=0'
-    category: dev-libs
-  - name: dbus-glib
-    version: '>=0'
-    category: dev-libs
-  - name: double-conversion
-    version: '>=0'
-    category: dev-libs
-  - name: gdl
-    version: '>=0'
-    category: dev-libs-3
-  - name: lxml
-    version: '>=0'
-    category: dev-python
-  - name: numpy
-    version: '>=0'
-    category: dev-python
-  - name: potrace
-    version: '>=0'
-    category: media-gfx
-  - name: scour
-    version: '>=0'
-    category: media-gfx
-  - name: fontconfig
-    version: '>=0'
-    category: media-libs-1.0
-  - name: libcdr
-    version: '>=0'
-    category: media-libs
-  - name: libexif
-    version: '>=0'
-    category: media-libs
-  - name: libvisio
-    version: '>=0'
-    category: media-libs
-  - name: libsoup
-    version: '>=0'
-    category: net-libs-2.4
-  - name: gsl
-    version: '>=0'
-    category: sci-libs
-  - name: jpeg
-    version: '>=0'
-    category: virtual
-  - name: libX11
-    version: '>=0'
-    category: x11-libs
+- name: dia
+  version: '>=0'
+  category: app-office
+- name: libwpg
+  version: '>=0'
+  category: app-text-0.3
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: gtkmm
+  version: '>=0'
+  category: dev-cpp-3.0
+- name: boehm-gc
+  version: '>=0'
+  category: dev-libs
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: double-conversion
+  version: '>=0'
+  category: dev-libs
+- name: gdl
+  version: '>=0'
+  category: dev-libs-3
+- name: lxml
+  version: '>=0'
+  category: dev-python
+- name: numpy
+  version: '>=0'
+  category: dev-python
+- name: potrace
+  version: '>=0'
+  category: media-gfx
+- name: scour
+  version: '>=0'
+  category: media-gfx
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: libcdr
+  version: '>=0'
+  category: media-libs
+- name: libexif
+  version: '>=0'
+  category: media-libs
+- name: libvisio
+  version: '>=0'
+  category: media-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+- name: gsl
+  version: '>=0'
+  category: sci-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: SVG based generic vector-drawing program
 uri:
-  - https://inkscape.org/
+- https://inkscape.org/
 license: GPL-2 LGPL-2.1
 labels:
-  BDEPEND: dev-util/glib-utils >=dev-util/intltool-0.40 >=sys-devel/gettext-0.17 virtual/pkgconfig dev-util/ninja dev-util/cmake
-  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) >=app-text/poppler-0.57.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1 dev-cpp/gtkmm:3.0 >=dev-cpp/pangomm-2.40 >=dev-libs/boehm-gc-7.1:= dev-libs/double-conversion:= >=dev-libs/glib-2.41 >=dev-libs/libsigc++-2.8 >=dev-libs/libxml2-2.7.4 >=dev-libs/libxslt-1.1.25 dev-libs/gdl:3 dev-libs/popt media-gfx/potrace media-libs/fontconfig media-libs/freetype:2 media-libs/libpng:0= net-libs/libsoup sci-libs/gsl:= x11-libs/libX11 >=x11-libs/pango-1.37.2 x11-libs/gtk+:3 dev-python/lxml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)] media-gfx/scour[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)] cdr? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libcdr ) dbus? ( dev-libs/dbus-glib ) exif? ( media-libs/libexif ) imagemagick? ( !graphicsmagick? ( media-gfx/imagemagick:=[cxx] ) graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] ) ) jemalloc? ( dev-libs/jemalloc ) jpeg? ( virtual/jpeg:0 ) lcms? ( media-libs/lcms:2 ) spell? ( app-text/aspell app-text/gtkspell:3 ) visio? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libvisio ) wpg? ( app-text/libwpg:0.3 dev-libs/librevenge ) >=dev-libs/boost-1.65 dev-util/desktop-file-utils x11-misc/shared-mime-info
-  IUSE: cdr dbus dia exif graphicsmagick imagemagick inkjar jemalloc jpeg lcms openmp postscript spell static-libs svg2 visio wpg python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) >=app-text/poppler-0.57.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1 dev-cpp/gtkmm:3.0 >=dev-cpp/pangomm-2.40 >=dev-libs/boehm-gc-7.1:= dev-libs/double-conversion:= >=dev-libs/glib-2.41 >=dev-libs/libsigc++-2.8 >=dev-libs/libxml2-2.7.4 >=dev-libs/libxslt-1.1.25 dev-libs/gdl:3 dev-libs/popt media-gfx/potrace media-libs/fontconfig media-libs/freetype:2 media-libs/libpng:0= net-libs/libsoup sci-libs/gsl:= x11-libs/libX11 >=x11-libs/pango-1.37.2 x11-libs/gtk+:3 dev-python/lxml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)] media-gfx/scour[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)] cdr? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libcdr ) dbus? ( dev-libs/dbus-glib ) exif? ( media-libs/libexif ) imagemagick? ( !graphicsmagick? ( media-gfx/imagemagick:=[cxx] ) graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] ) ) jemalloc? ( dev-libs/jemalloc ) jpeg? ( virtual/jpeg:0 ) lcms? ( media-libs/lcms:2 ) spell? ( app-text/aspell app-text/gtkspell:3 ) visio? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libvisio ) wpg? ( app-text/libwpg:0.3 dev-libs/librevenge ) dev-python/numpy[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)] dia? ( app-office/dia ) postscript? ( app-text/ghostscript-gpl )
+  BDEPEND: dev-util/glib-utils >=dev-util/intltool-0.40 >=sys-devel/gettext-0.17 virtual/pkgconfig
+    dev-util/ninja dev-util/cmake
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) >=app-text/poppler-0.57.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1
+    dev-cpp/gtkmm:3.0 >=dev-cpp/pangomm-2.40 >=dev-libs/boehm-gc-7.1:= dev-libs/double-conversion:=
+    >=dev-libs/glib-2.41 >=dev-libs/libsigc++-2.8 >=dev-libs/libxml2-2.7.4 >=dev-libs/libxslt-1.1.25
+    dev-libs/gdl:3 dev-libs/popt media-gfx/potrace media-libs/fontconfig media-libs/freetype:2
+    media-libs/libpng:0= net-libs/libsoup sci-libs/gsl:= x11-libs/libX11 >=x11-libs/pango-1.37.2
+    x11-libs/gtk+:3 dev-python/lxml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    media-gfx/scour[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    cdr? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libcdr ) dbus? ( dev-libs/dbus-glib
+    ) exif? ( media-libs/libexif ) imagemagick? ( !graphicsmagick? ( media-gfx/imagemagick:=[cxx]
+    ) graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] ) ) jemalloc? ( dev-libs/jemalloc
+    ) jpeg? ( virtual/jpeg:0 ) lcms? ( media-libs/lcms:2 ) spell? ( app-text/aspell
+    app-text/gtkspell:3 ) visio? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libvisio
+    ) wpg? ( app-text/libwpg:0.3 dev-libs/librevenge ) >=dev-libs/boost-1.65 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: cdr dbus dia exif graphicsmagick imagemagick inkjar jemalloc jpeg lcms openmp
+    postscript spell static-libs svg2 visio wpg python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) >=app-text/poppler-0.57.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1
+    dev-cpp/gtkmm:3.0 >=dev-cpp/pangomm-2.40 >=dev-libs/boehm-gc-7.1:= dev-libs/double-conversion:=
+    >=dev-libs/glib-2.41 >=dev-libs/libsigc++-2.8 >=dev-libs/libxml2-2.7.4 >=dev-libs/libxslt-1.1.25
+    dev-libs/gdl:3 dev-libs/popt media-gfx/potrace media-libs/fontconfig media-libs/freetype:2
+    media-libs/libpng:0= net-libs/libsoup sci-libs/gsl:= x11-libs/libX11 >=x11-libs/pango-1.37.2
+    x11-libs/gtk+:3 dev-python/lxml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    media-gfx/scour[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    cdr? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libcdr ) dbus? ( dev-libs/dbus-glib
+    ) exif? ( media-libs/libexif ) imagemagick? ( !graphicsmagick? ( media-gfx/imagemagick:=[cxx]
+    ) graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] ) ) jemalloc? ( dev-libs/jemalloc
+    ) jpeg? ( virtual/jpeg:0 ) lcms? ( media-libs/lcms:2 ) spell? ( app-text/aspell
+    app-text/gtkspell:3 ) visio? ( app-text/libwpg:0.3 dev-libs/librevenge media-libs/libvisio
+    ) wpg? ( app-text/libwpg:0.3 dev-libs/librevenge ) dev-python/numpy[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    dia? ( app-office/dia ) postscript? ( app-text/ghostscript-gpl )
   emerge.packages: media-gfx/inkscape
   kit: media-kit
   original.package.name: media-gfx/inkscape
   original.package.slot: "0"
   original.package.version: "1.1"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

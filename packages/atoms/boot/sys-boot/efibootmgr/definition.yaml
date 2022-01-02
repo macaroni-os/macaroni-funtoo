@@ -1,16 +1,23 @@
 name: efibootmgr
-version: 16+2
+version: 16+3
 category: sys-boot
 requires:
-  - name: pciutils
-    version: '>=0'
-    category: sys-apps
-  - name: efivar
-    version: '>=0'
-    category: sys-libs
+- name: pciutils
+  version: '>=0'
+  category: sys-apps
+- name: efivar
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: User-space application to modify the EFI boot manager
 uri:
-  - https://github.com/rhinstaller/efibootmgr
+- https://github.com/rhinstaller/efibootmgr
 license: GPL-2
 labels:
   DEPEND: sys-apps/pciutils >=sys-libs/efivar-25:=
@@ -20,10 +27,3 @@ labels:
   original.package.name: sys-boot/efibootmgr
   original.package.slot: "0"
   original.package.version: "16"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,9 +1,16 @@
 name: mhash
-version: 0.9.9.9+2
+version: 0.9.9.9+3
 category: app-crypt
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: library providing a uniform interface to a large number of hash algorithms
 uri:
-  - http://mhash.sourceforge.net/
+- http://mhash.sourceforge.net/
 license: GPL-2
 labels:
   BDEPEND: dev-lang/perl
@@ -12,10 +19,3 @@ labels:
   kit: security-kit
   original.package.name: app-crypt/mhash
   original.package.version: 0.9.9.9-r2
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/
