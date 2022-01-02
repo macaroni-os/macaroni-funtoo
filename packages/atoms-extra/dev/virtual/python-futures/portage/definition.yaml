@@ -2,11 +2,18 @@ name: python-futures-portage
 version: "1+1"
 category: virtual
 requires:
-- name: python-futures
-  version: "1+1"
-  category: virtual
+  - name: python-futures
+    version: "1+1"
+    category: virtual
 labels:
   emerge.packages: virtual/python-futures
   kit: python-modules-kit
   original.package.name: virtual/python-futures
   original.package.version: "1"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

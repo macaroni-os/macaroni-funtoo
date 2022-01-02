@@ -2,11 +2,18 @@ name: singledispatch-portage
 version: 3.4.0.3
 category: dev-python
 requires:
-- name: singledispatch
-  version: 3.4.0.3
-  category: dev-python
+  - name: singledispatch
+    version: 3.4.0.3
+    category: dev-python
 labels:
   emerge.packages: dev-python/singledispatch
   kit: python-modules-kit
   original.package.name: dev-python/singledispatch
   original.package.version: 3.4.0.3
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

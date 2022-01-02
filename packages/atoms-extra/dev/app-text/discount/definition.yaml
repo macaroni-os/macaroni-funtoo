@@ -1,15 +1,9 @@
 name: discount
 version: 2.2.4
 category: app-text
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
 description: A Markdown-to HTML translator written in C
 uri:
-- http://www.pell.portland.or.us/~orc/Code/discount/
+  - http://www.pell.portland.or.us/~orc/Code/discount/
 license: BSD
 labels:
   IUSE: minimal test
@@ -18,3 +12,10 @@ labels:
   original.package.name: app-text/discount
   original.package.slot: "0"
   original.package.version: 2.2.4
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

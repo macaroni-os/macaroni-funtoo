@@ -2,23 +2,17 @@ name: eselect-php
 version: 0.9.5
 category: app-eselect
 use_flags:
-- apache2
+  - apache2
 requires:
-- name: eselect
-  version: '>=0'
-  category: app-admin
-- name: apache
-  version: '>=0'
-  category: www-servers-2
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: eselect
+    version: '>=0'
+    category: app-admin
+  - name: apache
+    version: '>=0'
+    category: www-servers-2
 description: PHP eselect module
 uri:
-- https://gitweb.gentoo.org/proj/eselect-php.git/
+  - https://gitweb.gentoo.org/proj/eselect-php.git/
 license: GPL-2
 labels:
   DEPEND: virtual/pkgconfig
@@ -29,3 +23,10 @@ labels:
   original.package.name: app-eselect/eselect-php
   original.package.slot: "0"
   original.package.version: 0.9.5
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

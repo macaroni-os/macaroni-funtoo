@@ -2,11 +2,18 @@ name: python-singledispatch-portage
 version: "0+1"
 category: virtual
 requires:
-- name: python-singledispatch
-  version: "0+1"
-  category: virtual
+  - name: python-singledispatch
+    version: "0+1"
+    category: virtual
 labels:
   emerge.packages: virtual/python-singledispatch
   kit: python-modules-kit
   original.package.name: virtual/python-singledispatch
   original.package.version: "0"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

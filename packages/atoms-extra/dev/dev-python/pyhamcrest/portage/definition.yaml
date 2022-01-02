@@ -2,11 +2,18 @@ name: pyhamcrest-portage
 version: 2.0.2
 category: dev-python
 requires:
-- name: pyhamcrest
-  version: 2.0.2
-  category: dev-python
+  - name: pyhamcrest
+    version: 2.0.2
+    category: dev-python
 labels:
   emerge.packages: dev-python/pyhamcrest
   kit: python-modules-kit
   original.package.name: dev-python/pyhamcrest
   original.package.version: 2.0.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

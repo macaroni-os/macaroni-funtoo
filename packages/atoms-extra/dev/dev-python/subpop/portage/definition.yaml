@@ -2,11 +2,18 @@ name: subpop-portage
 version: 0.4.4
 category: dev-python
 requires:
-- name: subpop
-  version: 0.4.4
-  category: dev-python
+  - name: subpop
+    version: 0.4.4
+    category: dev-python
 labels:
   emerge.packages: dev-python/subpop
   kit: python-modules-kit
   original.package.name: dev-python/subpop
   original.package.version: 0.4.4
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

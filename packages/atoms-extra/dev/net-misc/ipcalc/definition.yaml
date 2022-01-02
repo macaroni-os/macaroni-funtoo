@@ -2,18 +2,12 @@ name: ipcalc
 version: "0.41"
 category: net-misc
 requires:
-- name: perl
-  version: '>=0'
-  category: dev-lang
-annotations:
-  subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+  - name: perl
+    version: '>=0'
+    category: dev-lang
 description: IP Calculator prints broadcast/network/etc for an IP address and netmask
 uri:
-- http://jodies.de/ipcalc
+  - http://jodies.de/ipcalc
 license: GPL-2+
 labels:
   RDEPEND: '>=dev-lang/perl-5.6.0'
@@ -22,3 +16,10 @@ labels:
   original.package.name: net-misc/ipcalc
   original.package.slot: "0"
   original.package.version: "0.41"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

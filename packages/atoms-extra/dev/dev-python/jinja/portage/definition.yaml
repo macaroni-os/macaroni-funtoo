@@ -2,11 +2,18 @@ name: jinja-portage
 version: 3.0.1
 category: dev-python
 requires:
-- name: jinja
-  version: 3.0.1
-  category: dev-python
+  - name: jinja
+    version: 3.0.1
+    category: dev-python
 labels:
   emerge.packages: dev-python/jinja
   kit: python-modules-kit
   original.package.name: dev-python/jinja
   original.package.version: 3.0.1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/
