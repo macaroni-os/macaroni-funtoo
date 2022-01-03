@@ -1,13 +1,20 @@
 name: Socket6
-version: 0.280.0+2
+version: 0.280.0+3
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: IPv6 related part of the C socket.h defines and structure manipulators
 uri:
-  - https://metacpan.org/release/Socket6
+- https://metacpan.org/release/Socket6
 license: BSD
 labels:
   DEPEND: dev-lang/perl:=
@@ -16,10 +23,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Socket6
   original.package.version: 0.280.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

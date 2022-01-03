@@ -1,13 +1,20 @@
 name: HTTP-Date
-version: 6.20.0+2
+version: 6.20.0+3
 category: dev-perl
 requires:
-  - name: perl-Time-Local
-    version: '>=0'
-    category: virtual
+- name: perl-Time-Local
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Date conversion for HTTP date formats
 uri:
-  - https://metacpan.org/release/HTTP-Date
+- https://metacpan.org/release/HTTP-Date
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: '!<dev-perl/libwww-perl-6 virtual/perl-Time-Local dev-lang/perl:=[-build(-)]'
@@ -16,10 +23,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/HTTP-Date
   original.package.version: 6.20.0-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

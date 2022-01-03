@@ -1,13 +1,20 @@
 name: SGMLSpm
-version: 1.03+2
+version: 1.03+3
 category: dev-perl
 requires:
-  - name: perl
-    version: '>=0'
-    category: dev-lang
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Perl library for parsing the output of nsgmls
 uri:
-  - http://search.cpan.org/author/DMEGG/SGMLSpm-1.03ii/
+- http://search.cpan.org/author/DMEGG/SGMLSpm-1.03ii/
 license: GPL-2
 labels:
   DEPEND: dev-lang/perl:=[-build(-)]
@@ -16,10 +23,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/SGMLSpm
   original.package.version: 1.03-r7
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

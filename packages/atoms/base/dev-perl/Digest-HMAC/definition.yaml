@@ -1,16 +1,23 @@
 name: Digest-HMAC
-version: 1.30.0+2
+version: 1.30.0+3
 category: dev-perl
 requires:
-  - name: perl-Digest-MD5
-    version: '>=0'
-    category: virtual
-  - name: perl-Digest-SHA
-    version: '>=0'
-    category: virtual
+- name: perl-Digest-MD5
+  version: '>=0'
+  category: virtual
+- name: perl-Digest-SHA
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Keyed Hashing for Message Authentication
 uri:
-  - https://metacpan.org/release/Digest-HMAC
+- https://metacpan.org/release/Digest-HMAC
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/perl-Digest-MD5 virtual/perl-Digest-SHA dev-lang/perl:=[-build(-)]
@@ -19,10 +26,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/Digest-HMAC
   original.package.version: 1.30.0-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

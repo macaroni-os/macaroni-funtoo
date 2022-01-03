@@ -1,16 +1,23 @@
 name: JSON
-version: 2.940.0+2
+version: 2.940.0+3
 category: dev-perl
 use_flags:
-  - -test
-  - xs
+- -test
+- xs
 requires:
-  - name: JSON-XS
-    version: '>=0'
-    category: dev-perl
+- name: JSON-XS
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: JSON (JavaScript Object Notation) encoder/decoder
 uri:
-  - https://metacpan.org/release/JSON
+- https://metacpan.org/release/JSON
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
@@ -20,10 +27,3 @@ labels:
   kit: perl-kit
   original.package.name: dev-perl/JSON
   original.package.version: 2.940.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/
