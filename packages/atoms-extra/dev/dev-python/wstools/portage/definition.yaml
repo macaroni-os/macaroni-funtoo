@@ -1,19 +1,19 @@
 name: wstools-portage
-version: 0.4.8
+version: 0.4.8+1
 category: dev-python
 requires:
-  - name: wstools
-    version: 0.4.8
-    category: dev-python
+- name: wstools
+  version: 0.4.8
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/wstools
   kit: python-modules-kit
   original.package.name: dev-python/wstools
   original.package.version: 0.4.8
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

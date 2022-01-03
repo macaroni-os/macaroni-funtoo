@@ -1,19 +1,19 @@
 name: constantly-portage
-version: 15.1.0
+version: 15.1.0+1
 category: dev-python
 requires:
-  - name: constantly
-    version: 15.1.0
-    category: dev-python
+- name: constantly
+  version: 15.1.0
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/constantly
   kit: python-modules-kit
   original.package.name: dev-python/constantly
   original.package.version: 15.1.0-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

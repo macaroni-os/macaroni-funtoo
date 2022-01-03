@@ -1,19 +1,19 @@
 name: hyperlink-portage
-version: 18.0.0
+version: 18.0.0+1
 category: dev-python
 requires:
-  - name: hyperlink
-    version: 18.0.0
-    category: dev-python
+- name: hyperlink
+  version: 18.0.0
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/hyperlink
   kit: python-modules-kit
   original.package.name: dev-python/hyperlink
   original.package.version: 18.0.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

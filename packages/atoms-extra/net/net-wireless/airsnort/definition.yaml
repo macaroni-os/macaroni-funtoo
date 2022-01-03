@@ -1,16 +1,23 @@
 name: airsnort
-version: "0.2.7+e"
+version: 0.2.7+e.1
 category: net-wireless
 requires:
-  - name: libpcap
-    version: '>=0'
-    category: net-libs
-  - name: gtk+
-    version: '>=0'
-    category: x11-libs-3
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: 802.11b Wireless Packet Sniffer/WEP Cracker
 uri:
-  - http://airsnort.shmoo.com/
+- http://airsnort.shmoo.com/
 license: GPL-2
 labels:
   DEPEND: =x11-libs/gtk+-2* net-libs/libpcap virtual/pkgconfig
@@ -20,10 +27,3 @@ labels:
   original.package.name: net-wireless/airsnort
   original.package.slot: "0"
   original.package.version: 0.2.7e
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

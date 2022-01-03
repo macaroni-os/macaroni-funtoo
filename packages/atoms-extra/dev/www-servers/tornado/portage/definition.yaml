@@ -1,19 +1,19 @@
 name: tornado-portage
-version: "6.1"
+version: 6.1+1
 category: www-servers
 requires:
-  - name: tornado
-    version: "6.1"
-    category: www-servers
+- name: tornado
+  version: "6.1"
+  category: www-servers
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: www-servers/tornado
   kit: python-modules-kit
   original.package.name: www-servers/tornado
   original.package.version: "6.1"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

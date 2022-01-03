@@ -1,19 +1,19 @@
 name: pyhamcrest-compat-portage
-version: 1.9.0
+version: 1.9.0+1
 category: dev-python
 requires:
-  - name: pyhamcrest-compat
-    version: 1.9.0
-    category: dev-python
+- name: pyhamcrest-compat
+  version: 1.9.0
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/pyhamcrest-compat
   kit: python-modules-kit
   original.package.name: dev-python/pyhamcrest-compat
   original.package.version: 1.9.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

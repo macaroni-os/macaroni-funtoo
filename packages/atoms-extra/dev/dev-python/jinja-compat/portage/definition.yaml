@@ -1,19 +1,19 @@
 name: jinja-compat-portage
-version: 2.11.3
+version: 2.11.3+1
 category: dev-python
 requires:
-  - name: jinja-compat
-    version: 2.11.3
-    category: dev-python
+- name: jinja-compat
+  version: 2.11.3
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/jinja-compat
   kit: python-modules-kit
   original.package.name: dev-python/jinja-compat
   original.package.version: 2.11.3
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

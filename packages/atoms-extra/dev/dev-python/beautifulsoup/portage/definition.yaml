@@ -1,19 +1,19 @@
 name: beautifulsoup-portage
-version: 4.10.0
+version: 4.10.0+1
 category: dev-python
 requires:
-  - name: beautifulsoup
-    version: 4.10.0
-    category: dev-python
+- name: beautifulsoup
+  version: 4.10.0
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/beautifulsoup
   kit: python-modules-kit
   original.package.name: dev-python/beautifulsoup
   original.package.version: 4.10.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/
