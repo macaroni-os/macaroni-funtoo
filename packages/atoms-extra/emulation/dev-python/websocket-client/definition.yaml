@@ -1,0 +1,46 @@
+name: websocket-client
+version: 0.48.0
+category: dev-python
+use_flags:
+- -python_targets_pypy3
+- -test
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: backports-ssl-match-hostname
+  version: '>=0'
+  category: dev-python
+- name: six
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: WebSocket client for python with hybi13 support
+uri:
+- https://github.com/websocket-client/websocket-client
+license: LGPL-2.1
+labels:
+  BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  DEPEND: dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    test? ( dev-python/six[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python2_7? ( dev-python/backports-ssl-match-hostname[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) )
+  IUSE: examples test python_targets_pypy3 python_targets_python3_7 python_targets_python2_7
+  RDEPEND: dev-python/six[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python2_7? ( dev-python/backports-ssl-match-hostname[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: dev-python/websocket-client
+  kit: python-modules-kit
+  original.package.name: dev-python/websocket-client
+  original.package.slot: "0"
+  original.package.version: 0.48.0
