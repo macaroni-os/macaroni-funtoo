@@ -1,19 +1,19 @@
 name: pymongo-portage
-version: 3.12.0
+version: 3.12.0+1
 category: dev-python
 requires:
-  - name: pymongo
-    version: 3.12.0
-    category: dev-python
+- name: pymongo
+  version: 3.12.0
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/pymongo
   kit: python-modules-kit
   original.package.name: dev-python/pymongo
   original.package.version: 3.12.0
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,13 +1,20 @@
 name: sshpass
-version: "1.06"
+version: 1.06+1
 category: net-misc
 requires:
-  - name: openssh
-    version: '>=0'
-    category: net-misc
+- name: openssh
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Tool for noninteractively performing password authentication with ssh
 uri:
-  - http://sshpass.sourceforge.net
+- http://sshpass.sourceforge.net
 license: GPL-2
 labels:
   RDEPEND: net-misc/openssh
@@ -16,10 +23,3 @@ labels:
   original.package.name: net-misc/sshpass
   original.package.slot: "0"
   original.package.version: "1.06"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,34 +1,39 @@
 name: pecl-mcrypt
-version: 1.0.3
+version: 1.0.3+1
 category: dev-php
 use_flags:
-  - -php_targets_php7-2
-  - -php_targets_php7-3
-  - php_targets_php7-4
+- -php_targets_php7-2
+- -php_targets_php7-3
+- php_targets_php7-4
 requires:
-  - name: php
-    version: '>=0'
-    category: dev-lang-7.4
-  - name: libmcrypt
-    version: '>=0'
-    category: dev-libs
+- name: php
+  version: '>=0'
+  category: dev-lang-7.4
+- name: libmcrypt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Bindings for the libmcrypt library
 uri:
-  - https://pecl.php.net/mcrypt
+- https://pecl.php.net/mcrypt
 license: PHP-3.01
 labels:
-  DEPEND: dev-libs/libmcrypt >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 )
+  DEPEND: dev-libs/libmcrypt >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-4? ( dev-lang/php:7.4
+    ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3
+    )
   IUSE: php_targets_php7-4 php_targets_php7-2 php_targets_php7-3
-  RDEPEND: dev-libs/libmcrypt php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 )
+  RDEPEND: dev-libs/libmcrypt php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php7-2?
+    ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 )
   emerge.packages: dev-php/pecl-mcrypt
   kit: core-server-kit
   original.package.name: dev-php/pecl-mcrypt
   original.package.slot: "0"
   original.package.version: 1.0.3
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

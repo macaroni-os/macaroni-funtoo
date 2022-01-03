@@ -1,19 +1,19 @@
 name: metatools-portage
-version: 0.9.5
+version: 0.9.5+1
 category: sys-apps
 requires:
-  - name: metatools
-    version: 0.9.5
-    category: sys-apps
+- name: metatools
+  version: 0.9.5
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: sys-apps/metatools
   kit: core-kit
   original.package.name: sys-apps/metatools
   original.package.version: 0.9.5
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

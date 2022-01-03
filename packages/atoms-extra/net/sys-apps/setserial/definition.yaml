@@ -1,9 +1,16 @@
 name: setserial
-version: "2.17"
+version: 2.17+1
 category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Configure your serial ports with it
 uri:
-  - http://setserial.sourceforge.net/
+- http://setserial.sourceforge.net/
 license: GPL-2
 labels:
   emerge.packages: sys-apps/setserial
@@ -11,10 +18,3 @@ labels:
   original.package.name: sys-apps/setserial
   original.package.slot: "0"
   original.package.version: 2.17-r5
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

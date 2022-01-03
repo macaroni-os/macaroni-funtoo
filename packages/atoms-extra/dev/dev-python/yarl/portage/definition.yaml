@@ -1,19 +1,19 @@
 name: yarl-portage
-version: 1.6.3
+version: 1.6.3+1
 category: dev-python
 requires:
-  - name: yarl
-    version: 1.6.3
-    category: dev-python
+- name: yarl
+  version: 1.6.3
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 labels:
   emerge.packages: dev-python/yarl
   kit: python-modules-kit
   original.package.name: dev-python/yarl
   original.package.version: 1.6.3
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/
