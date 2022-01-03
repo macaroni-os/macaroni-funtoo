@@ -26,7 +26,7 @@ steps:
 - rm -rfv /{{ .Values.name }}/boot/uefi/loader/entries/mll-x86.conf
 - rm -rfv /{{ .Values.name }}/loader/entries/mll-x86.conf
 # Append cdroot to boot options to trigger MacaroniOS-live startup scripts
-- sed -i 's/rootfs.xz/rootfs.xz cdroot rootdelay=7/g' /{{ .Values.name }}/boot/uefi/loader/entries/mll-x86_64.conf
-- sed -i 's/rootfs.xz/rootfs.xz cdroot rootdelay=7/g' /{{ .Values.name }}/loader/entries/mll-x86_64.conf
-- sed -i 's/APPEND/APPEND cdroot rootdelay=7/g' /{{ .Values.name }}/boot/bios/boot/syslinux/syslinux.cfg
-- sed -i 's/APPEND/APPEND cdroot rootdelay=7/g' /{{ .Values.name }}/boot/syslinux/syslinux.cfg
+- sed -i 's/rootfs.xz/rootfs.xz quiet cdroot rootdelay=7/g' /{{ .Values.name }}/boot/uefi/loader/entries/mll-x86_64.conf
+- sed -i 's/rootfs.xz/rootfs.xz quiet cdroot rootdelay=7/g' /{{ .Values.name }}/loader/entries/mll-x86_64.conf
+- sed -i 's/APPEND/APPEND cdroot quiet rootdelay=7/g' /{{ .Values.name }}/boot/bios/boot/syslinux/syslinux.cfg
+- sed -i 's/APPEND/APPEND cdroot quiet rootdelay=7/g' /{{ .Values.name }}/boot/syslinux/syslinux.cfg
