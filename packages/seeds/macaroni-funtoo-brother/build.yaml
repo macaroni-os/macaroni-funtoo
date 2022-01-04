@@ -7,7 +7,7 @@ env:
 prelude:
 - >-
   luet repo update &&
-  luet i toolchain/extra-media &&
+  luet i toolchain/extra-media --force &&
   luet cleanup &&
   rm /etc/localtime &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
