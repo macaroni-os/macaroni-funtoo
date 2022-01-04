@@ -274,8 +274,6 @@ prepare() {
   # Fix access to var directory
   chmod a+r /var
 
-  chown gdm:gdm /var/lib/gdm -R
-
   echo "Europe/Rome" > /etc/timezone
 
   # Create root and macaroni user
@@ -363,10 +361,7 @@ prepare() {
 
     eselect opengl set xorg-x11 --use-old
 
-    if [ -f "/usr/share/xsessions/gnome.desktop" ]; then
-        setup_default_xsession "gnome"
-#        systemctl enable "gdm"
-    fi
+    sed -e 's/^DISPLAYMANAGER=.*/DISPLAYMANAGER="macaroni-server"/g' /etc/conf.d/xdm -i
 
     locale-gen
 
