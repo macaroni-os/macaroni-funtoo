@@ -17,7 +17,8 @@ steps:
   mkdir -p /{{.Values.name}}/usr/share/pixmaps &&
   mkdir -p /{{ .Values.name }}/home/macaroni/ &&
   cp xinitrc /{{ .Values.name }}/home/macaroni/.xinitrc &&
-  cp -rfv installer-desktop-icon.png /{{.Values.name}}/usr/share/pixmaps
+  cp -rfv installer-desktop-icon.png /{{.Values.name}}/usr/share/pixmaps &&
+  cp macaroni-server /{{ .Values.name }}/usr/bin/
 # Branding
 - >-
   mkdir -p /{{.Values.name}}/etc/calamares/branding/default/ &&
