@@ -311,6 +311,7 @@ prepare() {
       # this off.
       "metalog"
       "NetworkManager"
+      "xdm"
 
       "virtualbox-guest-additions"
     )
