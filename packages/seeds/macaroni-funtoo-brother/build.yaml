@@ -1,0 +1,15 @@
+requires:
+- category: "seed"
+  name: "macaroni-funtoo-python-stage"
+  version: ">=0"
+env:
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox -collision-protect"
+prelude:
+- >-
+  luet repo update &&
+  luet i toolchain/extra-media &&
+  luet cleanup &&
+  rm /etc/localtime &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
+  rm -rf /var/cache/portage/distfiles/*
