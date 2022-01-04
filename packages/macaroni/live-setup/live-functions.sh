@@ -334,7 +334,7 @@ prepare() {
 "   > /etc/hosts
 
     # Temporary. Maybe it's better set UTC here.
-    echo "Europe/Rome" > /etc/localtime
+    ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 
     ENABLED_BOOT_SERVICES=(
