@@ -33,10 +33,11 @@ artefacts:
 - tree: packages/atoms-extra/dev
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
       - jimtcl
@@ -46,10 +47,11 @@ artefacts:
 - tree: packages/atoms-extra/dev
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     enabled:
       - nls
@@ -72,10 +74,11 @@ artefacts:
 - tree: packages/atoms-extra/dev
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
       - aio
@@ -89,10 +92,11 @@ artefacts:
 - tree: packages/atoms-extra/dev
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     enabled:
       - conch
@@ -110,10 +114,11 @@ artefacts:
 - tree: packages/atoms-extra/dev
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     enabled:
       - vte
@@ -136,10 +141,11 @@ artefacts:
           name: macaroni-funtoo-base
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - app-text/discount
     - net-libs/http-parser
@@ -234,10 +240,11 @@ artefacts:
       #- system-java
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - dev-java/openjdk-jre-bin:8
     - dev-java/openjdk-bin:8
@@ -250,10 +257,11 @@ artefacts:
       - prefix
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - dev-libs/libdbusmenu
     - dev-util/pycharm-community
@@ -265,10 +273,11 @@ artefacts:
       - handbook
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - kde-misc/kdiff3
 
@@ -278,10 +287,11 @@ artefacts:
       - buildfont
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - media-fonts/noto-emoji
 
@@ -293,10 +303,11 @@ artefacts:
           name: macaroni-funtoo-base
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - media-gfx/libimagequant
     - app-arch/zopfli
@@ -305,12 +316,75 @@ artefacts:
 - tree: packages/atoms-extra/dev
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - x11-misc/grsync
+
+- tree: packages/atoms-extra/dev
+  uses:
+    disabled:
+      - kde
+      - doc
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - sys-apps/flatpak
+
+- tree: packages/atoms-extra/dev
+  uses:
+    disabled:
+      - debug
+      - external-filters
+      - frontend-optional
+      - launch-frontend-setuid
+      - libedit
+      - launch-frontend
+      - static-libs
+    enabled:
+      - zlib
+      - readline
+      - acl
+      - xattr
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - dev-libs/libisoburn
+    - dev-libs/libburn
+    - dev-libs/libisofs
+
+- tree: packages/atoms-extra/dev
+  uses:
+    disabled:
+      - cjk
+      - emacs
+      - latex
+      - static-libs
+      - vanilla
+    enabled:
+      - nls
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - app-text/a2ps
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
@@ -817,6 +891,7 @@ build_layers:
       - dev-libs/rasqal:0
       - dev-libs/re2:0
       - dev-libs/redland:0
+      - dev-libs/libsodium:0
       - dev-libs/snowball-stemmer:0
       - dev-libs/spdlog:0
       - dev-libs/tinyxml:0
