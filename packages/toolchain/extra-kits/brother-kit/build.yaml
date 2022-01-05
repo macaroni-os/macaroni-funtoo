@@ -11,7 +11,8 @@ prelude:
   cp brother-overlay /etc/portage/repos.conf/ &&
   emerge --sync &&
   cd /var/git/extra-kits/brother-overlay &&
-  git checkout ${KIT_HASH}
+  git checkout ${KIT_HASH} &&
+  cp patches/* /var/git/extra-kits/brother-overlay/ -rvf
 - >-
   mkdir /{{ .Values.name }}/etc/portage/repos.conf -p &&
   mkdir /{{ .Values.name }}/var/git/extra-kits/ -p &&
