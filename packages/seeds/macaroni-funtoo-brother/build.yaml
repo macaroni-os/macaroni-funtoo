@@ -10,6 +10,7 @@ prelude:
   luet i toolchain/extra-media toolchain/meta-brother-kit app-text/a2ps --force &&
   luet cleanup &&
   rm /etc/localtime &&
-  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+- >-
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
