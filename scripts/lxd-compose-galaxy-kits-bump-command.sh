@@ -1,11 +1,12 @@
 #!/bin/bash
-# Author: Daniele Rondina, geaaru@sabayonlinux.org
+# Author: Daniele Rondina, geaaru@funtoo.org
 # Description: This script permit to generate the
 #              lxd-compose command file to generate
 #              the current reposcan file or with the
 #              override of the commit_sha1 bump new kits.
 
 LCG_KITS_FILE=${LCG_KITS_FILE:-/lxd-compose-galaxy/envs/funtoo/commands/reposcan-funtoo-kits.yml}
+LCG_CMD_FILE=${LCG_CMD_FILE:-/tmp/reposcan.yml}
 MFUNTOO_TREE=${MFUNTOO_TREE:-.}
 
 KITS_PKG=${KITS_PKG:-${MFUNTOO_TREE}/packages/seeds/funtoo-kits/kits-versions/}
@@ -45,4 +46,5 @@ done
 
 echo '{ "envs": { "envs": { "kits": [] } } }' | jq '.envs.envs.kits += $inputs' --slurpfile inputs ${tmp_file}  | yq r -P - > ${tmp_kits}
 
-yq m ${tmp_command} ${tmp_kits}
+echo "Creating lxd-compose command on file ${LCG_CMD_FILE}..."
+yq m ${tmp_command} ${tmp_kits} > ${LCG_CMD_FILE}
