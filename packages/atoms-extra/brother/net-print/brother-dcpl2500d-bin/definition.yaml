@@ -1,0 +1,25 @@
+name: brother-dcpl2500d-bin
+version: "1.0"
+category: net-print
+requires:
+- name: brother-genml1-bin
+  version: '>=0'
+  category: net-print
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Printer driver for Brother DCP-L2500D (brgenml1)
+uri:
+- http://support.brother.com
+license: GPL-2
+labels:
+  RDEPEND: net-print/brother-genml1-bin
+  emerge.packages: net-print/brother-dcpl2500d-bin
+  kit: brother-overlay
+  original.package.name: net-print/brother-dcpl2500d-bin
+  original.package.slot: "0"
+  original.package.version: "1.0"
