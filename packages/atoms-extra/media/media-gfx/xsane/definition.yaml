@@ -1,0 +1,54 @@
+name: xsane
+version: "0.999"
+category: media-gfx
+use_flags:
+- -gimp
+- jpeg
+- lcms
+- png
+- tiff
+requires:
+- name: sane-backends
+  version: '>=0'
+  category: media-gfx
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: xdg-utils
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: graphical scanning frontend
+uri:
+- http://www.xsane.org/
+license: GPL-2
+labels:
+  DEPEND: media-gfx/sane-backends x11-libs/gtk+:2 x11-misc/xdg-utils jpeg? ( virtual/jpeg:0
+    ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:0 ) gimp? ( media-gfx/gimp
+    ) lcms? ( media-libs/lcms:2 ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: nls jpeg png tiff gimp lcms ocr
+  RDEPEND: media-gfx/sane-backends x11-libs/gtk+:2 x11-misc/xdg-utils jpeg? ( virtual/jpeg:0
+    ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:0 ) gimp? ( media-gfx/gimp
+    ) lcms? ( media-libs/lcms:2 )
+  emerge.packages: media-gfx/xsane
+  kit: media-kit
+  original.package.name: media-gfx/xsane
+  original.package.slot: "0"
+  original.package.version: 0.999-r2
