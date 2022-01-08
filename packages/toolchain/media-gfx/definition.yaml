@@ -3,6 +3,9 @@ name: media-gfx
 version: "1"
 description: "Virtul package to install portage meta data of the media-gfx packages"
 requires:
+  - name: snappy
+    category: app-arch
+    version: '>=0'
   - name: cdrtools
     category: app-cdr
     version: '>=0'
@@ -28,6 +31,9 @@ requires:
     category: dev-libs
     version: '>=0'
   - name: libsodium
+    category: dev-libs
+    version: '>=0'
+  - name: re2
     category: dev-libs
     version: '>=0'
   - name: PyQt5
@@ -70,6 +76,9 @@ requires:
     category: dev-qt-5
     version: '>=0'
   - name: glslang
+    category: dev-util
+    version: '>=0'
+  - name: gn
     category: dev-util
     version: '>=0'
   - name: spirv-headers
@@ -135,6 +144,9 @@ requires:
   - name: libshout
     category: media-libs
     version: '>=0'
+  - name: openh264
+    category: media-libs
+    version: '>=0'
   - name: shaderc
     category: media-libs
     version: '>=0'
@@ -180,10 +192,16 @@ requires:
   - name: obs-studio
     category: media-video
     version: '>=0'
+  - name: c-ares
+    category: net-dns
+    version: '>=0'
   - name: cppzmq
     category: net-libs
     version: '>=0'
   - name: mbedtls
+    category: net-libs
+    version: '>=0'
+  - name: nodejs
     category: net-libs
     version: '>=0'
   - name: zeromq
