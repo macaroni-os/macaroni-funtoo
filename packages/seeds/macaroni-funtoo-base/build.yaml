@@ -40,6 +40,8 @@ steps:
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
+  cp -rvf package.license /etc/portage/ &&
+  cp -rvf package.use /etc/portage/ &&
   cat /etc/luet/luet.yaml &&
   luet install virtual/base --relax --nodeps &&
   /usr/bin/gcc-config 1 &&
@@ -48,7 +50,8 @@ steps:
   eselect binutils set 1 &&
   mkdir -p /var/lib/portage &&
   epro list &&
-  echo "Europe/Rome" > /etc/localtime &&
+  eval 'rm /etc/localtime || true' &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   env-update &&
   ldconfig &&
   eval 'locale-gen || true' &&
