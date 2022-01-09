@@ -6,7 +6,6 @@ kits=(
   "office"
   "base"
   "emulation"
-  "browsers"
   "boot"
   "server"
   "xorg-extra"
