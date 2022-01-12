@@ -1,0 +1,19 @@
+requires:
+- category: "seed"
+  name: "funtoo-kits"
+  version: ">=0"
+env:
+- FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+- KIT_HASH=9af6885aafcfc0efd12b9bf40f9f2367e772a97d
+package_dir: /{{ .Values.name }}
+prelude:
+- >-
+  cp geaaru-overlay /etc/portage/repos.conf/ &&
+  emerge --sync &&
+  cd /var/git/extra-kits/geaaru-overlay &&
+  git checkout ${KIT_HASH}
+- >-
+  mkdir /{{ .Values.name }}/etc/portage/repos.conf -p &&
+  mkdir /{{ .Values.name }}/var/git/extra-kits/ -p &&
+  cp -rf /var/git/extra-kits/geaaru-overlay /{{ .Values.name }}/var/git/extra-kits/ &&
+  cp geaaru-overlay /{{ .Values.name }}/etc/portage/repos.conf/
