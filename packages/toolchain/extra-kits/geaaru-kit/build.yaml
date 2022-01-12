@@ -4,16 +4,19 @@ requires:
   version: ">=0"
 env:
 - FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
-- KIT_HASH=9af6885aafcfc0efd12b9bf40f9f2367e772a97d
+- KIT_HASH=3d67e445c41c1d48aa388dd8c8c1fcd510cb441a
 package_dir: /{{ .Values.name }}
 prelude:
 - >-
-  cp geaaru-overlay /etc/portage/repos.conf/ &&
-  emerge --sync &&
-  cd /var/git/extra-kits/geaaru-overlay &&
+  cp geaaru-kit /etc/portage/repos.conf/ &&
+  eval 'emerge --sync || true' &&
+  cd /var/git/extra-kits/geaaru-kit &&
+  git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' &&
+  git fetch -a &&
+  git checkout {{ ( index ".Values.labels" "repo_branch" ) }}
   git checkout ${KIT_HASH}
 - >-
   mkdir /{{ .Values.name }}/etc/portage/repos.conf -p &&
   mkdir /{{ .Values.name }}/var/git/extra-kits/ -p &&
-  cp -rf /var/git/extra-kits/geaaru-overlay /{{ .Values.name }}/var/git/extra-kits/ &&
-  cp geaaru-overlay /{{ .Values.name }}/etc/portage/repos.conf/
+  cp -rf /var/git/extra-kits/geaaru-kit /{{ .Values.name }}/var/git/extra-kits/ &&
+  cp geaaru-kit /{{ .Values.name }}/etc/portage/repos.conf/
