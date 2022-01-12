@@ -13,7 +13,7 @@ prelude:
   cd /var/git/extra-kits/geaaru-kit &&
   git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' &&
   git fetch -a &&
-  git checkout {{ ( index ".Values.labels" "repo_branch" ) }}
+  git checkout {{ ( index .Values.labels "repo_branch" ) }}
   git checkout ${KIT_HASH}
 - >-
   mkdir /{{ .Values.name }}/etc/portage/repos.conf -p &&
