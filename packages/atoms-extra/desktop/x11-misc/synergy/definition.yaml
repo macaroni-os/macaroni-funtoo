@@ -1,0 +1,46 @@
+name: synergy
+version: 2.0.0
+category: x11-misc
+use_flags:
+- -libressl
+requires:
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Lets you easily share a single mouse and keyboard between multiple computers
+uri:
+- http://synergy-project.org/ https://github.com/symless/synergy-core
+license: GPL-2
+labels:
+  DEPEND: net-misc/curl x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext
+    x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXtst !libressl?
+    ( dev-libs/openssl:= ) libressl? ( dev-libs/libressl:= ) x11-base/xorg-proto sys-devel/make
+    >=dev-util/cmake-3.9.6
+  IUSE: libressl
+  RDEPEND: net-misc/curl x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext
+    x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXtst !libressl?
+    ( dev-libs/openssl:= ) libressl? ( dev-libs/libressl:= )
+  emerge.packages: x11-misc/synergy
+  kit: desktop-kit
+  original.package.name: x11-misc/synergy
+  original.package.slot: "0"
+  original.package.version: 2.0.0
