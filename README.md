@@ -60,12 +60,9 @@ $> # Now under the directory kit_cache you can find the files to use with luet-p
 
 ```
 
----
-** NOTE **
-
-The `core-kit` must be the first kit of the list in the file /etc/reposcan.yml.
+**NOTE**: The `core-kit` must be the first kit of the list in the file /etc/reposcan.yml.
 If it isn't so, fix it before run lxd-compose.
----
+
 
 ### Create repoman files of additional overlay
 
