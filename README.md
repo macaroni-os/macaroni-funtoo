@@ -55,7 +55,7 @@ To generate reposcan files, then:
 
 ```bash
 $> cd lxd-compose-galaxy
-$> lxd-compose c r --command-file /tmp/reposcan.yml metatools-services reposcan-funtoo-kits-macaroni
+$> lxd-compose c r --command-file /tmp/reposcan.yml metatools-services reposcan-funtoo-kits
 $> # Now under the directory kit_cache you can find the files to use with luet-portage-converter
 
 ```
