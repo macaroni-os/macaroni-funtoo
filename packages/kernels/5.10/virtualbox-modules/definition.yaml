@@ -1,14 +1,11 @@
-category: "kernel-5.10"
-name: "virtualbox-modules"
-version: "6.1.26+4"
+name: virtualbox-modules
+version: 6.1.26+5
+category: kernel-5.10
 provides:
-  - category: app-emulation
-    name: virtualbox-modules
-    # BUG: setting a version on provides is not
-    # handled correctly by validate.
-    version: ">=0"
+- name: virtualbox-modules
+  version: '>=0'
+  category: app-emulation
 labels:
-  emerge.packages: >-
-    app-emulation/virtualbox-modules
-  kernel.version: "5.10.90"
-  kernel.suffix: "macaroni"
+  emerge.packages: app-emulation/virtualbox-modules
+  kernel.suffix: macaroni
+  kernel.version: 5.10.93
