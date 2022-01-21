@@ -1,22 +1,18 @@
-category: "kernel-5.10"
-name: "virtualbox-guest-additions"
-version: "6.1.26+4"
+name: virtualbox-guest-additions
+version: 6.1.26+5
+category: kernel-5.10
 provides:
-  - category: app-emulation
-    name: virtualbox-guest-additions
-    # BUG: setting a version on provides is not
-    # handled correctly by validate.
-    version: ">=0"
-labels:
-  kernel.version: "5.10.90"
-  kernel.suffix: "macaroni"
-  emerge.packages: >-
-    app-emulation/virtualbox-guest-additions
+- name: virtualbox-guest-additions
+  version: '>=0'
+  category: app-emulation
 annotations:
   subsets:
     rules:
       devel:
-        - "^/usr/include/"
+      - ^/usr/include/
       portage:
-        - "^/var/db/pkg/"
-
+      - ^/var/db/pkg/
+labels:
+  emerge.packages: app-emulation/virtualbox-guest-additions
+  kernel.suffix: macaroni
+  kernel.version: 5.10.93
