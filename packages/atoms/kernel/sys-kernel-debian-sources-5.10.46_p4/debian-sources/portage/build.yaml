@@ -1,9 +1,0 @@
-package_dir: /pkgdir/{{ .Values.name | replace "-portage" "" }}
-includes:
-  - ^/var/db/pkg
-  - ^/var/db$
-  - ^/var$
-requires:
-  - name: debian-sources
-    version: '{{ .Values.version }}'
-    category: sys-kernel-debian-sources-5.10.46_p4
