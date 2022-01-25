@@ -1,5 +1,5 @@
 requires:
-  - name: funtoo-gnome-stage3
+  - name: funtoo-stage3
     category: "seed"
     version: ">=0"
 env:
@@ -38,11 +38,6 @@ prelude:
   cp patches/libical-3.0.11.ebuild /var/git/meta-repo/kits/core-kit/dev-libs/libical/ &&
   cd /var/git/meta-repo/kits/core-kit/dev-libs/libical &&
   ebuild libical-3.0.11.ebuild digest
-- >-
-  rm /var/git/meta-repo/kits/dev-kit/dev-util/kbuild -rf &&
-  cp patches/kbuild /var/git/meta-repo/kits/dev-kit/dev-util/ -rf &&
-  cd /var/git/meta-repo/kits/dev-kit/dev-util/kbuild &&
-  ebuild kbuild-0.1.9998.3407.ebuild digest
 - >-
   cp patches/java/* /var/git/meta-repo/kits/java-kit/ -rfv &&
   cd /var/git/meta-repo/kits/java-kit/dev-java/openjdk-bin/ &&
