@@ -1,7 +1,7 @@
-net-misc/networkmanager bluetooth connection-sharing -consolekit dhcpcd elogind introspection modemmanager ncurses nss policykit ppp resolvconf vala wext wifi -audit -dhclient -gnutls -iwd -json -ofono -ovs -teamd -test
+net-misc/networkmanager bluetooth connection-sharing -consolekit dhcpcd -elogind introspection modemmanager ncurses nss policykit ppp resolvconf vala wext wifi -audit -dhclient -gnutls -iwd -json -ofono -ovs -teamd -test
 
 
-gnome-base/gnome-session -consolekit elogind -doc -man -systemd -wayland
+gnome-base/gnome-session -consolekit -elogind -doc -man systemd -wayland
 
 gnome-base/librsvg introspection vala
 
@@ -19,6 +19,12 @@ dev-qt/qtwebengine widgets
 sys-libs/ncurses tinfo
 
 # caps is required by openvswitch
-sys-apps/util-linux caps cramfs logger ncurses nls pam python readline split-usr static-libs suid tty-helpers unicode
+sys-apps/util-linux caps cramfs logger ncurses nls pam python readline split-usr static-libs suid tty-helpers unicode -kill
 # caps in iputils
 net-misc/iputils arping caps filecaps ipv6 nls ssl
+
+virtual/libudev static-libs systemd
+sys-kernel/debian-sources btrfs binary
+sys-libs/zlib minizip
+
+sys-fs/lvm2 lvm1 readline static systemd thin udev

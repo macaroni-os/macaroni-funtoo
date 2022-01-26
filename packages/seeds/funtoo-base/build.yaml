@@ -4,25 +4,38 @@ requires:
   version: ">=0"
 env:
 - JOBS=10
-- FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 - >-
   cp -rvf package.use /etc/portage/ &&
+  cp -v make.conf /etc/portage &&
   cp -rvf patches /etc/portage/ &&
-  epro mix-ins
-  +kde-plasma-5
-  +gfxcard-intel-classic
-  +gfxcard-nouveau
-  +gfxcard-nvidia
-  +gfxcard-amdgpu
-  +gfxcard-radeon
-  +gfxcard-vmware
-  +mediaformat-audio-extra
-  +mediaformat-gfx-extra
-  +mediaformat-video-extra
-  +mediadevice-video-pro
-  +vmware-guest &&
-  emerge --unmerge x11-libs/amtk &&
-  FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+  epro flavor minimal &&
+  epro mix-in +btrfs +vmware-guest &&
+  epro list &&
+  sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g' /var/git/meta-repo/kits/core-kit/profiles/base/packages &&
+  sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g'
+  -e 's|^*net-dns/openresolv|#*net-dns/openresolv|g'
+  /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages &&
+  cat /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages
+steps:
+- >-
+  emerge --unmerge
+  sys-fs/lvm2
+  virtual/udev
+  virtual/libudev
+  virtual/dev-manager
+  virtual/service-manager
+  sys-apps/gentoo-systemd-integration
+  sys-apps/sysvinit
+  sys-fs/eudev
+  net-dns/openresolv
+  sys-apps/corenetwork
+  sys-apps/opentmpfiles
+  virtual/udev
+  virtual/tmpfiles
+  sys-apps/openrc &&
+  export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  emerge -1 -t -j $JOBS sys-apps/systemd &&
+  emerge -1uDN -t -j $JOBS @system &&
   emerge -t -j $JOBS -uDN @world &&
   rm -rf /var/cache/portage/distfiles/*
