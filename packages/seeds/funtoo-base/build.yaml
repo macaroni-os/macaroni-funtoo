@@ -33,7 +33,12 @@ steps:
   sys-apps/opentmpfiles
   virtual/udev
   virtual/tmpfiles
-  sys-apps/openrc &&
+  sys-apps/openrc
+  net-misc/dhcpcd
+  sys-apps/usbutils
+  sys-apps/pciutils
+  sys-fs/dosfstools
+  &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -1 -t -j $JOBS sys-apps/systemd &&
   emerge -1uDN -t -j $JOBS @system &&
