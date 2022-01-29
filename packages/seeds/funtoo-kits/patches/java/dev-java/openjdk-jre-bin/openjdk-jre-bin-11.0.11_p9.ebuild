@@ -21,7 +21,7 @@ DESCRIPTION="Prebuilt Java JRE binaries provided by AdoptOpenJDK"
 HOMEPAGE="https://adoptopenjdk.net"
 LICENSE="GPL-2-with-classpath-exception"
 KEYWORDS="~amd64"
-IUSE="alsa cups headless-awt selinux"
+IUSE="alsa cups headless-awt selinux amd64"
 
 RDEPEND="
 	media-libs/fontconfig:1.0
