@@ -33,6 +33,13 @@ prelude:
   popd ;
   fi ;
   done
+# Temporary fix this until we update all kits
+- >-
+  sed /etc/portage/make.profile/parent
+  -e 's|.*gfxcard-kvm$||g' | sed '/^$/d' >
+  /etc/portage/make.profile/parentnew &&
+  rm /etc/portage/make.profile/parent &&
+  mv /etc/portage/make.profile/parentnew /etc/portage/make.profile/parent
 - >-
   cp patches/libical-3.0.11.ebuild /var/git/meta-repo/kits/core-kit/dev-libs/libical/ &&
   cd /var/git/meta-repo/kits/core-kit/dev-libs/libical &&

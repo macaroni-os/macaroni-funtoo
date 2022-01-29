@@ -41,7 +41,7 @@ DESCRIPTION="Prebuilt Java JDK binaries provided by Eclipse Temurin"
 HOMEPAGE="https://adoptium.net"
 LICENSE="GPL-2-with-classpath-exception"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x64-macos"
-IUSE="alsa cups headless-awt selinux source"
+IUSE="alsa cups headless-awt selinux source kernel_linux x64-macos amd64 ppc64 arm64 arm elibc_glibc elibc_musl"
 
 RDEPEND="
 	>=sys-apps/baselayout-java-0.1.0-r1
