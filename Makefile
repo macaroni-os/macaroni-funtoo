@@ -56,8 +56,8 @@ create-repo:
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
-    --name "macaroni-funtoo" \
-    --descr "Macaroni OS Funtoo $(ARCH)" \
+    --name "macaroni-funtoo-systemd" \
+    --descr "Macaroni OS Funtoo SystemD $(ARCH)" \
     --urls "http://localhost:8000" \
     --tree-compression $(COMPRESSION) \
     --tree-filename tree.tar \
