@@ -42,6 +42,6 @@ prelude:
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -1 -t -j $JOBS sys-apps/systemd &&
   emerge -1uDN -t -j $JOBS @system &&
-  emerge -t -j $JOBS -uDN @world &&
+  emerge -t -j $JOBS -D @world &&
   emerge -t -j $JOBS dev-util/cmake &&
   rm -rf /var/cache/portage/distfiles/*
