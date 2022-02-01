@@ -29,8 +29,11 @@ skipped_resolutions:
     - name: debian-sources-lts
       category: sys-kernel
 
-    - name: cdrtools
-      category: virtual
+    - name: sysvinit
+      category: sys-apps
+
+    - name: openrc
+      category: sys-apps
 
     # Force OR condition for app-text/xmlto
     # on use virtual/w3m
@@ -126,6 +129,177 @@ artefacts:
     - cpu_flags_x86_sse2
   packages:
   - dev-lang/rust-bin:stable
+
+- tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: sys-apps
+          name: sysvinit
+  override_version: 249
+  uses:
+    disabled:
+    - apparmor
+    - audit
+    - build
+    - cryptsetup
+    - dns-over-tls
+    - elfutils
+    - gnuefi
+    - gnutls
+    - http
+    - idn
+    - importd
+    - libidn2
+    - lzma
+    - nat
+    - nios2
+    - policykit
+    - qrcode
+    - selinux
+    - sh
+    - test
+    - vanilla
+    - xkb
+    enabled:
+    - acl
+    - curl
+    - gcrypt
+    - kmod
+    - lz4
+    - pam
+    - pcre
+    - resolvconf
+    - seccomp
+    - split-usr
+    - sysv-utils
+  packages:
+  - sys-apps/systemd
+
+- tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      ignore:
+        - category: sys-fs
+          name: eudev
+        - category: sys-fs
+          name: udev
+      packages:
+        - category: sys-apps
+          name: systemd
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - static-libs
+    - systemd
+  packages:
+  - virtual/libudev
+
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - ssl
+  packages:
+  - virtual/perl-libnet
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - systemd
+  packages:
+  - virtual/udev
+
+- tree: packages/atoms/base
+  ignore_build_deps: true
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - virtual/dev-manager
+  - virtual/editor
+  - virtual/libc
+  - virtual/libelf
+  - virtual/libffi
+  - virtual/libiconv
+  - virtual/libintl
+  - virtual/man
+  - virtual/modutils
+  - virtual/os-headers
+  - virtual/package-manager
+  - virtual/pager
+  - virtual/pam
+  - virtual/perl-CPAN-Meta
+  - virtual/perl-CPAN-Meta-YAML
+  - virtual/perl-Carp
+  - virtual/perl-Data-Dumper
+  - virtual/perl-Digest-MD5
+  - virtual/perl-Digest-SHA
+  - virtual/perl-Encode
+  - virtual/perl-Exporter
+  - virtual/perl-ExtUtils-CBuilder
+  - virtual/perl-ExtUtils-Install
+  - virtual/perl-ExtUtils-MakeMaker
+  - virtual/perl-ExtUtils-Manifest
+  - virtual/perl-ExtUtils-ParseXS
+  - virtual/perl-File-Spec
+  - virtual/perl-File-Temp
+  - virtual/perl-Getopt-Long
+  - virtual/perl-IO
+  - virtual/perl-JSON-PP
+  - virtual/perl-MIME-Base64
+  - virtual/perl-Module-Metadata
+  - virtual/perl-Parse-CPAN-Meta
+  - virtual/perl-Perl-OSType
+  - virtual/perl-Pod-Parser
+  - virtual/perl-Scalar-List-Utils
+  - virtual/perl-Test-Harness
+  - virtual/perl-Text-ParseWords
+  - virtual/perl-podlators
+  - virtual/perl-version
+  - virtual/pkgconfig
+  - virtual/rust
+  - virtual/shadow
+  - virtual/w3m
+  - virtual/yacc
+
+- tree: packages/atoms/base
+  ignore_build_deps: true
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+    runtime_deps:
+      ignore:
+        - category: sys-apps
+          name: openrc
+        - category: sys-apps
+          name: opentmpfiles
+      packages:
+        - category: sys-apps
+          name: systemd
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - virtual/service-manager
+  - virtual/tmpfiles
 
 build_layers:
   - layer:
