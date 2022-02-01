@@ -1,0 +1,32 @@
+name: procps
+version: 3.3.15
+category: sys-process
+use_flags:
+- -elogind
+- -selinux
+- -test
+- kill
+- ncurses
+- systemd
+requires:
+- name: systemd
+  version: '>=0'
+  category: sys-apps
+description: standard informational utilities and process-handling tools
+uri:
+- http://procps-ng.sourceforge.net/ https://gitlab.com/procps-ng/procps
+license: GPL-2
+labels:
+  DEPEND: elogind? ( sys-auth/elogind ) ncurses? ( >=sys-libs/ncurses-5.7-r7:=[unicode?]
+    ) selinux? ( sys-libs/libselinux ) systemd? ( sys-apps/systemd ) elogind? ( virtual/pkgconfig
+    ) ncurses? ( virtual/pkgconfig ) systemd? ( virtual/pkgconfig ) test? ( dev-util/dejagnu
+    )
+  IUSE: elogind +kill modern-top +ncurses nls selinux static-libs systemd test unicode
+  RDEPEND: elogind? ( sys-auth/elogind ) ncurses? ( >=sys-libs/ncurses-5.7-r7:=[unicode?]
+    ) selinux? ( sys-libs/libselinux ) systemd? ( sys-apps/systemd ) kill? ( !sys-apps/coreutils[kill]
+    !sys-apps/util-linux[kill] ) !<sys-apps/sysvinit-2.88-r6
+  emerge.packages: sys-process/procps
+  kit: core-kit
+  original.package.name: sys-process/procps
+  original.package.slot: "0"
+  original.package.version: 3.3.15-r1
