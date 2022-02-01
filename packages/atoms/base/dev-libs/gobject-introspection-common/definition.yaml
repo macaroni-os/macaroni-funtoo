@@ -3,7 +3,7 @@ version: 1.70.0
 category: dev-libs
 description: Build infrastructure for GObject Introspection
 uri:
-- https://wiki.gnome.org/Projects/GObjectIntrospection
+  - https://wiki.gnome.org/Projects/GObjectIntrospection
 license: HPND
 labels:
   BDEPEND: app-arch/xz-utils
@@ -13,3 +13,10 @@ labels:
   original.package.name: dev-libs/gobject-introspection-common
   original.package.slot: "0"
   original.package.version: 1.70.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

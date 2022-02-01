@@ -2,13 +2,12 @@ name: libidn2
 version: 2.3.0
 category: net-dns
 requires:
-- name: libunistring
-  version: '>=0'
-  category: dev-libs
-description: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892,
-  5893)
+  - name: libunistring
+    version: '>=0'
+    category: dev-libs
+description: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
 uri:
-- https://www.gnu.org/software/libidn/#libidn2 https://gitlab.com/libidn/libidn2
+  - https://www.gnu.org/software/libidn/#libidn2 https://gitlab.com/libidn/libidn2
 license: GPL-2+ LGPL-3+
 labels:
   BDEPEND: dev-lang/perl sys-apps/help2man
@@ -20,3 +19,10 @@ labels:
   original.package.name: net-dns/libidn2
   original.package.slot: "0"
   original.package.version: 2.3.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

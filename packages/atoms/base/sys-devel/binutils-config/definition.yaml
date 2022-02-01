@@ -2,12 +2,12 @@ name: binutils-config
 version: "5.4"
 category: sys-devel
 requires:
-- name: gentoo-functions
-  version: '>=0'
-  category: sys-apps
+  - name: gentoo-functions
+    version: '>=0'
+    category: sys-apps
 description: Utility to change the binutils version being used
 uri:
-- https://wiki.gentoo.org/wiki/Project:Toolchain
+  - https://wiki.gentoo.org/wiki/Project:Toolchain
 license: GPL-2
 labels:
   IUSE: +native-symlinks
@@ -17,3 +17,10 @@ labels:
   original.package.name: sys-devel/binutils-config
   original.package.slot: "0"
   original.package.version: "5.4"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

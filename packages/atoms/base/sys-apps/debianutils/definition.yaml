@@ -3,7 +3,7 @@ version: 4.8.6.1
 category: sys-apps
 description: A selection of tools from Debian
 uri:
-- https://packages.qa.debian.org/d/debianutils.html
+  - https://packages.qa.debian.org/d/debianutils.html
 license: BSD GPL-2 SMAIL
 labels:
   IUSE: +installkernel static
@@ -12,3 +12,10 @@ labels:
   original.package.name: sys-apps/debianutils
   original.package.slot: "0"
   original.package.version: 4.8.6.1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -2,29 +2,32 @@ name: corosync
 version: 2.4.2
 category: sys-cluster
 use_flags:
-- -doc
-- infiniband
+  - -doc
+  - infiniband
 requires:
-- name: nss
-  version: '>=0'
-  category: dev-libs
-- name: libqb
-  version: '>=0'
-  category: sys-cluster
+  - name: nss
+    version: '>=0'
+    category: dev-libs
+  - name: libqb
+    version: '>=0'
+    category: sys-cluster
 description: OSI Certified implementation of a complete cluster engine
 uri:
-- http://www.corosync.org/
+  - http://www.corosync.org/
 license: BSD-2 public-domain
 labels:
-  DEPEND: '!sys-cluster/heartbeat infiniband? ( sys-fabric/libibverbs:* sys-fabric/librdmacm:*
-    ) dev-libs/nss >=sys-cluster/libqb-0.14.4 virtual/pkgconfig doc? ( sys-apps/groff
-    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  DEPEND: '!sys-cluster/heartbeat infiniband? ( sys-fabric/libibverbs:* sys-fabric/librdmacm:* ) dev-libs/nss >=sys-cluster/libqb-0.14.4 virtual/pkgconfig doc? ( sys-apps/groff ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
   IUSE: doc infiniband static-libs systemd xml
-  RDEPEND: '!sys-cluster/heartbeat infiniband? ( sys-fabric/libibverbs:* sys-fabric/librdmacm:*
-    ) dev-libs/nss >=sys-cluster/libqb-0.14.4'
+  RDEPEND: '!sys-cluster/heartbeat infiniband? ( sys-fabric/libibverbs:* sys-fabric/librdmacm:* ) dev-libs/nss >=sys-cluster/libqb-0.14.4'
   emerge.packages: sys-cluster/corosync
   kit: nokit
   original.package.name: sys-cluster/corosync
   original.package.slot: "0"
   original.package.version: 2.4.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

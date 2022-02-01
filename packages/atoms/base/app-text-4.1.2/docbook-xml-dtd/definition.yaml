@@ -2,12 +2,12 @@ name: docbook-xml-dtd
 version: 4.1.2
 category: app-text-4.1.2
 requires:
-- name: docbook-xsl-stylesheets
-  version: '>=0'
-  category: app-text
+  - name: docbook-xsl-stylesheets
+    version: '>=0'
+    category: app-text
 description: Docbook DTD for XML
 uri:
-- http://www.docbook.org/
+  - http://www.docbook.org/
 license: docbook
 labels:
   DEPEND: '>=app-arch/unzip-5.41 >=app-text/sgml-common-0.6.3-r2'
@@ -17,3 +17,10 @@ labels:
   original.package.name: app-text/docbook-xml-dtd
   original.package.slot: 4.1.2
   original.package.version: 4.1.2-r6
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

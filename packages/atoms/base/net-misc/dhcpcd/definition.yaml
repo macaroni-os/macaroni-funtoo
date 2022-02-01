@@ -2,14 +2,14 @@ name: dhcpcd
 version: 7.2.2
 category: net-misc
 use_flags:
-- udev
+  - udev
 requires:
-- name: udev
-  version: '>=0'
-  category: virtual
+  - name: udev
+    version: '>=0'
+    category: virtual
 description: A fully featured, yet light weight RFC2131 compliant DHCP client
 uri:
-- https://roy.marples.name/projects/dhcpcd
+  - https://roy.marples.name/projects/dhcpcd
 license: BSD-2
 labels:
   DEPEND: udev? ( virtual/udev ) virtual/pkgconfig
@@ -20,3 +20,10 @@ labels:
   original.package.name: net-misc/dhcpcd
   original.package.slot: "0"
   original.package.version: 7.2.2
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

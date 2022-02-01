@@ -2,24 +2,23 @@ name: MailTools
 version: 2.190.0
 category: dev-perl
 use_flags:
-- -test
+  - -test
 requires:
-- name: TimeDate
-  version: '>=0'
-  category: dev-perl
-- name: perl-IO
-  version: '>=0'
-  category: virtual
-- name: perl-libnet
-  version: '>=0'
-  category: virtual
+  - name: TimeDate
+    version: '>=0'
+    category: dev-perl
+  - name: perl-IO
+    version: '>=0'
+    category: virtual
+  - name: perl-libnet
+    version: '>=0'
+    category: virtual
 description: Manipulation of electronic mail addresses
 uri:
-- https://metacpan.org/release/MailTools
+  - https://metacpan.org/release/MailTools
 license: '|| ( Artistic GPL-1+ )'
 labels:
-  DEPEND: dev-perl/TimeDate virtual/perl-IO >=virtual/perl-libnet-1.50.0 virtual/perl-ExtUtils-MakeMaker
-    test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  DEPEND: dev-perl/TimeDate virtual/perl-IO >=virtual/perl-libnet-1.50.0 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
   IUSE: test examples
   RDEPEND: dev-perl/TimeDate virtual/perl-IO >=virtual/perl-libnet-1.50.0 dev-lang/perl:=
   emerge.packages: dev-perl/MailTools
@@ -27,3 +26,10 @@ labels:
   original.package.name: dev-perl/MailTools
   original.package.slot: "0"
   original.package.version: 2.190.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

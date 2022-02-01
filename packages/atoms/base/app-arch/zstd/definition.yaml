@@ -2,14 +2,14 @@ name: zstd
 version: 1.5.0
 category: app-arch
 use_flags:
-- -lz4
+  - -lz4
 requires:
-- name: xz-utils
-  version: '>=0'
-  category: app-arch
+  - name: xz-utils
+    version: '>=0'
+    category: app-arch
 description: zstd fast compression library
 uri:
-- https://facebook.github.io/zstd/
+  - https://facebook.github.io/zstd/
 license: '|| ( BSD GPL-2 )'
 labels:
   DEPEND: app-arch/xz-utils lz4? ( app-arch/lz4 )
@@ -20,3 +20,10 @@ labels:
   original.package.name: app-arch/zstd
   original.package.slot: "0"
   original.package.version: 1.5.0
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

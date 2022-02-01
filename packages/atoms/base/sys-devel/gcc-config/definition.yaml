@@ -2,12 +2,12 @@ name: gcc-config
 version: "2.4"
 category: sys-devel
 requires:
-- name: gentoo-functions
-  version: '>=0'
-  category: sys-apps
+  - name: gentoo-functions
+    version: '>=0'
+    category: sys-apps
 description: Utility to manage compilers
 uri:
-- https://gitweb.gentoo.org/proj/gcc-config.git/
+  - https://gitweb.gentoo.org/proj/gcc-config.git/
 license: GPL-2
 labels:
   RDEPEND: '>=sys-apps/gentoo-functions-0.10'
@@ -16,3 +16,10 @@ labels:
   original.package.name: sys-devel/gcc-config
   original.package.slot: "0"
   original.package.version: "2.4"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

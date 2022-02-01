@@ -3,7 +3,7 @@ version: 3.23.1
 category: sys-apps
 description: program used for creating device files in /dev
 uri:
-- https://people.redhat.com/nalin/MAKEDEV/
+  - https://people.redhat.com/nalin/MAKEDEV/
 license: GPL-2
 labels:
   IUSE: build selinux
@@ -13,3 +13,10 @@ labels:
   original.package.name: sys-apps/makedev
   original.package.slot: "0"
   original.package.version: 3.23.1-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

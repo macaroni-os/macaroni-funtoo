@@ -2,26 +2,31 @@ name: less
 version: "590"
 category: sys-apps
 use_flags:
-- pcre
+  - pcre
 requires:
-- name: editor-wrapper
-  version: '>=0'
-  category: app-misc
-- name: libpcre2
-  version: '>=0'
-  category: dev-libs
+  - name: editor-wrapper
+    version: '>=0'
+    category: app-misc
+  - name: libpcre2
+    version: '>=0'
+    category: dev-libs
 description: Excellent text file viewer
 uri:
-- http://www.greenwoodsoftware.com/less/
+  - http://www.greenwoodsoftware.com/less/
 license: '|| ( GPL-3 BSD-2 )'
 labels:
-  DEPEND: '>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:0= pcre? ( dev-libs/libpcre2
-    )'
+  DEPEND: '>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:0= pcre? ( dev-libs/libpcre2 )'
   IUSE: pcre unicode
-  RDEPEND: '>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:0= pcre? ( dev-libs/libpcre2
-    )'
+  RDEPEND: '>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:0= pcre? ( dev-libs/libpcre2 )'
   emerge.packages: sys-apps/less
   kit: core-kit
   original.package.name: sys-apps/less
   original.package.slot: "0"
   original.package.version: "590"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

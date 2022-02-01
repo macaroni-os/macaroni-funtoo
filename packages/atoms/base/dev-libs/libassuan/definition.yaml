@@ -2,12 +2,12 @@ name: libassuan
 version: 2.5.4
 category: dev-libs
 requires:
-- name: libgpg-error
-  version: '>=0'
-  category: dev-libs
+  - name: libgpg-error
+    version: '>=0'
+    category: dev-libs
 description: IPC library used by GnuPG and GPGME
 uri:
-- http://www.gnupg.org/related_software/libassuan/index.en.html
+  - http://www.gnupg.org/related_software/libassuan/index.en.html
 license: GPL-3 LGPL-2.1
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815'
@@ -18,3 +18,10 @@ labels:
   original.package.name: dev-libs/libassuan
   original.package.slot: "0"
   original.package.version: 2.5.4-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

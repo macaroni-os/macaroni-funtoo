@@ -3,7 +3,7 @@ version: 1.46.4
 category: sys-libs
 description: e2fsprogs libraries (common error and subsystem)
 uri:
-- http://e2fsprogs.sourceforge.net/
+  - http://e2fsprogs.sourceforge.net/
 license: GPL-2
 labels:
   BDEPEND: virtual/pkgconfig
@@ -14,3 +14,10 @@ labels:
   original.package.name: sys-libs/e2fsprogs-libs
   original.package.slot: "0"
   original.package.version: 1.46.4
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

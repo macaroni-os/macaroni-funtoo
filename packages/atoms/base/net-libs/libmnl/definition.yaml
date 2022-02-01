@@ -3,7 +3,7 @@ version: 1.0.4
 category: net-libs
 description: Minimalistic netlink library
 uri:
-- https://netfilter.org/projects/libmnl/
+  - https://netfilter.org/projects/libmnl/
 license: LGPL-2.1
 labels:
   IUSE: examples static-libs
@@ -12,3 +12,10 @@ labels:
   original.package.name: net-libs/libmnl
   original.package.slot: "0"
   original.package.version: 1.0.4
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

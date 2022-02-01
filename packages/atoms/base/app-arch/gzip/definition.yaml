@@ -3,7 +3,7 @@ version: "1.11"
 category: app-arch
 description: Standard GNU compressor
 uri:
-- https://www.gnu.org/software/gzip/
+  - https://www.gnu.org/software/gzip/
 license: GPL-3
 labels:
   IUSE: pic static
@@ -12,3 +12,10 @@ labels:
   original.package.name: app-arch/gzip
   original.package.slot: "0"
   original.package.version: "1.11"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

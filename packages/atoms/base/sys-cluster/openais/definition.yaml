@@ -2,17 +2,15 @@ name: openais
 version: 1.1.4
 category: sys-cluster
 requires:
-- name: corosync
-  version: '>=0'
-  category: sys-cluster
+  - name: corosync
+    version: '>=0'
+    category: sys-cluster
 description: Open Application Interface Specification cluster framework
 uri:
-- http://www.openais.org/
+  - http://www.openais.org/
 license: BSD public-domain
 labels:
-  DEPEND: <sys-cluster/corosync-2.0.0 virtual/pkgconfig >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: <sys-cluster/corosync-2.0.0 virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
   IUSE: static-libs
   RDEPEND: <sys-cluster/corosync-2.0.0
   emerge.packages: sys-cluster/openais
@@ -20,3 +18,10 @@ labels:
   original.package.name: sys-cluster/openais
   original.package.slot: "0"
   original.package.version: 1.1.4-r1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -2,12 +2,12 @@ name: mdadm
 version: "4.1"
 category: sys-fs
 requires:
-- name: util-linux
-  version: '>=0'
-  category: sys-apps
+  - name: util-linux
+    version: '>=0'
+    category: sys-apps
 description: Tool for running RAID systems - replacement for the raidtools
 uri:
-- https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git/
+  - https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git/
 license: GPL-2
 labels:
   DEPEND: virtual/pkgconfig app-arch/xz-utils virtual/pkgconfig virtual/pkgconfig
@@ -18,3 +18,10 @@ labels:
   original.package.name: sys-fs/mdadm
   original.package.slot: "0"
   original.package.version: "4.1"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

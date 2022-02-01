@@ -3,7 +3,7 @@ version: "2.13"
 category: app-arch
 description: A file archival tool which can also read and write tar files
 uri:
-- https://www.gnu.org/software/cpio/cpio.html
+  - https://www.gnu.org/software/cpio/cpio.html
 license: GPL-3
 labels:
   IUSE: nls
@@ -12,3 +12,10 @@ labels:
   original.package.name: app-arch/cpio
   original.package.slot: "0"
   original.package.version: "2.13"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

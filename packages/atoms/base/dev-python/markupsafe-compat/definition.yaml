@@ -2,23 +2,28 @@ name: markupsafe-compat
 version: 1.1.1
 category: dev-python
 use_flags:
-- python_targets_python2_7
+  - python_targets_python2_7
 requires:
-- name: python
-  version: '>=0'
-  category: dev-lang-2.7
+  - name: python
+    version: '>=0'
+    category: dev-lang-2.7
 description: Implements a XML/HTML/XHTML Markup safe string for Python
 uri:
-- https://pypi.org/project/MarkupSafe
+  - https://pypi.org/project/MarkupSafe
 license: BSD
 labels:
-  BDEPEND: python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+  BDEPEND: python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
   IUSE: python_targets_python2_7
-  RDEPEND: '!<dev-python/markupsafe-2.0.0 python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
-    ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
+  RDEPEND: '!<dev-python/markupsafe-2.0.0 python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
   emerge.packages: dev-python/markupsafe-compat
   kit: python-modules-kit
   original.package.name: dev-python/markupsafe-compat
   original.package.slot: "0"
   original.package.version: 1.1.1
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

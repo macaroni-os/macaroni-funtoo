@@ -3,7 +3,7 @@ version: "4.19"
 category: sys-kernel
 description: Linux system headers
 uri:
-- https://www.kernel.org/ https://www.gentoo.org/
+  - https://www.kernel.org/ https://www.gentoo.org/
 license: GPL-2
 labels:
   DEPEND: app-arch/xz-utils dev-lang/perl
@@ -13,3 +13,10 @@ labels:
   original.package.name: sys-kernel/linux-headers
   original.package.slot: "0"
   original.package.version: "4.19"
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/

@@ -3,7 +3,7 @@ version: 1.9.3
 category: app-arch
 description: Extremely Fast Compression algorithm
 uri:
-- https://github.com/lz4/lz4
+  - https://github.com/lz4/lz4
 license: BSD-2 GPL-2
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
@@ -13,3 +13,10 @@ labels:
   original.package.name: app-arch/lz4
   original.package.slot: "0"
   original.package.version: 1.9.3
+annotations:
+  subsets:
+    rules:
+      devel:
+        - ^/usr/include/
+      portage:
+        - ^/var/db/pkg/
