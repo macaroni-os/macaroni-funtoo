@@ -1,0 +1,27 @@
+name: kbd
+version: 2.0.4
+category: sys-apps
+use_flags:
+- -test
+- pam
+requires:
+- name: gzip
+  version: '>=0'
+  category: app-arch
+- name: pam
+  version: '>=0'
+  category: virtual
+description: Keyboard and console utilities
+uri:
+- http://kbd-project.org/
+license: GPL-2
+labels:
+  DEPEND: pam? ( virtual/pam ) app-arch/gzip virtual/pkgconfig test? ( dev-libs/check
+    )
+  IUSE: nls pam test
+  RDEPEND: pam? ( virtual/pam ) app-arch/gzip
+  emerge.packages: sys-apps/kbd
+  kit: core-kit
+  original.package.name: sys-apps/kbd
+  original.package.slot: "0"
+  original.package.version: 2.0.4
