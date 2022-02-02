@@ -17,6 +17,10 @@ prelude:
   -e 's|^*net-dns/openresolv|#*net-dns/openresolv|g'
   /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages &&
   cat /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages
+# Temporary fix until FL-9364 is resolved
+- >-
+  cd /var/cache/portage/distfiles/ &&
+  wget https://the.earth.li/debian/pool/main/l/linux/linux_5.15.15-2.debian.tar.xz
 #steps:
 - >-
   emerge --unmerge
