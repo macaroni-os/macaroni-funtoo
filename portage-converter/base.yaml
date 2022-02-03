@@ -47,6 +47,9 @@ skipped_resolutions:
     - name: pkgcore
       category: sys-apps
 
+    - name: eudev
+      category: sys-fs
+
 include_files:
   - ./artefacts/base.yml
 
@@ -381,8 +384,13 @@ artefacts:
   - virtual/tmpfiles
 
 - tree: packages/atoms/base
+  ignore_build_deps: true
+  mutations:
   mutations:
     buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
       ignore:
         - category: sys-fs
           name: eudev
