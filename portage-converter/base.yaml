@@ -380,6 +380,89 @@ artefacts:
   - virtual/service-manager
   - virtual/tmpfiles
 
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      ignore:
+        - category: sys-fs
+          name: eudev
+    runtime_deps:
+      ignore:
+        - category: sys-fs
+          name: eudev
+  uses:
+    disabled:
+    - clvm
+    - cman
+    - corosync
+    - device-mapper-only
+    - lvm1
+    - lvm2create_initrd
+    - nios2
+    - openais
+    - sanlock
+    - selinux
+    - sh
+    - static-libs
+    - systemd
+    enabled:
+    - readline
+    - static
+    - thin
+    - udev
+  packages:
+  - sys-fs/lvm2
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - sh
+    enabled:
+    - python_targets_pypy3
+    - python_targets_python2_7
+    - python_targets_python3_7
+  packages:
+  - dev-lang/python-exec:2
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/lzo:2
+
+
+
 build_layers:
   - layer:
       name: funtoo-base
