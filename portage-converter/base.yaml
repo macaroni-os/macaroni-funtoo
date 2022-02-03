@@ -479,6 +479,36 @@ artefacts:
   packages:
   - dev-libs/libusb:1
 
+- tree: packages/atoms/base
+  ignore_build_deps: true
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - debug
+    - doc
+    - emacs
+    - nios2
+    - python_single_target_python3_8
+    - python_single_target_python3_9
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - sh
+    enabled:
+    - python_single_target_python3_7
+    - python_targets_python3_7
+  packages:
+  - dev-util/gtk-doc
 
 build_layers:
   - layer:
