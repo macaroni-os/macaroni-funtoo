@@ -2,12 +2,19 @@ name: Unicode-LineBreak
 version: 2017.4.0
 category: dev-perl
 requires:
-  - name: MIME-Charset
-    version: '>=0'
-    category: dev-perl
+- name: MIME-Charset
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: 'UAX #14 Unicode Line Breaking Algorithm'
 uri:
-  - https://metacpan.org/release/Unicode-LineBreak
+- https://metacpan.org/release/Unicode-LineBreak
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-perl/MIME-Charset virtual/perl-Encode dev-lang/perl:=
@@ -17,10 +24,3 @@ labels:
   original.package.name: dev-perl/Unicode-LineBreak
   original.package.slot: "0"
   original.package.version: 2017.4.0-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

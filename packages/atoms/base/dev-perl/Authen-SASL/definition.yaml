@@ -2,14 +2,21 @@ name: Authen-SASL
 version: 2.160.0
 category: dev-perl
 use_flags:
-  - -kerberos
+- -kerberos
 requires:
-  - name: Digest-HMAC
-    version: '>=0'
-    category: dev-perl
+- name: Digest-HMAC
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: A Perl SASL interface
 uri:
-  - https://metacpan.org/release/Authen-SASL
+- https://metacpan.org/release/Authen-SASL
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-perl/Digest-HMAC kerberos? ( dev-perl/GSSAPI ) dev-lang/perl:=[-build(-)]
@@ -20,10 +27,3 @@ labels:
   original.package.name: dev-perl/Authen-SASL
   original.package.slot: "0"
   original.package.version: 2.160.0-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

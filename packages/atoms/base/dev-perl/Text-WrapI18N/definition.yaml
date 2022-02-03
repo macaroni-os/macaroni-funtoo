@@ -2,12 +2,19 @@ name: Text-WrapI18N
 version: 0.60.0
 category: dev-perl
 requires:
-  - name: Text-CharWidth
-    version: '>=0'
-    category: dev-perl
+- name: Text-CharWidth
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Internationalized substitute of Text::Wrap
 uri:
-  - https://metacpan.org/release/Text-WrapI18N
+- https://metacpan.org/release/Text-WrapI18N
 license: '|| ( Artistic GPL-1+ )'
 labels:
   DEPEND: dev-perl/Text-CharWidth dev-lang/perl:=[-build(-)]
@@ -17,10 +24,3 @@ labels:
   original.package.name: dev-perl/Text-WrapI18N
   original.package.slot: "0"
   original.package.version: 0.60.0-r1
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

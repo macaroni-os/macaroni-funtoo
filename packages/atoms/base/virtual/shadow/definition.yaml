@@ -1,0 +1,22 @@
+name: shadow
+version: "0"
+category: virtual
+use_flags:
+- prefix
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for user account management utilities
+uri:
+- ""
+labels:
+  RDEPEND: '!prefix? ( || ( >=sys-apps/shadow-4.1 sys-apps/hardened-shadow ) )'
+  emerge.packages: virtual/shadow
+  kit: core-kit
+  original.package.name: virtual/shadow
+  original.package.slot: "0"
+  original.package.version: "0"

@@ -2,12 +2,19 @@ name: docbook-sgml-dtd
 version: "4.4"
 category: app-text-4.4
 requires:
-  - name: sgml-common
-    version: '>=0'
-    category: app-text
+- name: sgml-common
+  version: '>=0'
+  category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Docbook SGML DTD 4.4
 uri:
-  - https://docbook.org/sgml/
+- https://docbook.org/sgml/
 license: docbook
 labels:
   DEPEND: '>=app-arch/unzip-5.41 >=app-text/sgml-common-0.6.3-r2'
@@ -17,10 +24,3 @@ labels:
   original.package.name: app-text/docbook-sgml-dtd
   original.package.slot: "4.4"
   original.package.version: "4.4"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

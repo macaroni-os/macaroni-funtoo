@@ -1,9 +1,16 @@
 name: mime-types
 version: "9"
 category: app-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Provides /etc/mime.types file
 uri:
-  - https://www.gentoo.org/
+- https://www.gentoo.org/
 license: GPL-2
 labels:
   emerge.packages: app-misc/mime-types
@@ -11,10 +18,3 @@ labels:
   original.package.name: app-misc/mime-types
   original.package.slot: "0"
   original.package.version: "9"
-annotations:
-  subsets:
-    rules:
-      devel:
-        - ^/usr/include/
-      portage:
-        - ^/var/db/pkg/

@@ -1,4 +1,6 @@
 skipped_resolutions:
+  categories:
+    - sys-freebsd
   packages:
     - name: elt-patches
       category: app-portage
@@ -53,6 +55,13 @@ artefacts:
 
 # Artefacts manually changed
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -68,6 +77,13 @@ artefacts:
     - dev-libs/iniparser:0
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -87,6 +103,13 @@ artefacts:
   - dev-lang/python-exec:2
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -102,6 +125,13 @@ artefacts:
   - virtual/libusb:1
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
       - btrfs
@@ -112,6 +142,13 @@ artefacts:
   - sys-kernel/genkernel
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -131,6 +168,13 @@ artefacts:
   - dev-lang/rust-bin:stable
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   replacements:
     runtime_deps:
       ignore:
@@ -177,6 +221,13 @@ artefacts:
   - sys-apps/systemd
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   mutations:
     runtime_deps:
       ignore:
@@ -199,6 +250,13 @@ artefacts:
 
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -209,6 +267,13 @@ artefacts:
   - virtual/perl-libnet
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -219,6 +284,13 @@ artefacts:
   - virtual/udev
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   ignore_build_deps: true
   mutations:
     buildtime_deps:
@@ -278,6 +350,13 @@ artefacts:
   - virtual/yacc
 
 - tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   ignore_build_deps: true
   mutations:
     buildtime_deps:
