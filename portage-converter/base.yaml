@@ -355,8 +355,37 @@ artefacts:
   - virtual/rust
   - virtual/shadow
   - virtual/w3m
-  - virtual/yacc
 
+- tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  ignore_build_deps: true
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+  finalizer:
+    install:
+    - >-
+      if [ ! -e /usr/bin/yacc ] ; then
+      cd /usr/bin ;
+      ln -s yacc.bison yacc ;
+      fi
+    shell:
+      - bash
+      - -c
+  packages:
+  - virtual/yacc
 
 - tree: packages/atoms/base
   annotations:
