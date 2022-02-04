@@ -357,6 +357,28 @@ artefacts:
   - virtual/w3m
   - virtual/yacc
 
+
+- tree: packages/atoms/base
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  ignore_build_deps: true
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - virtual/libintl
+
 - tree: packages/atoms/base
   annotations:
     subsets:
