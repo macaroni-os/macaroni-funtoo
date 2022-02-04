@@ -1,0 +1,45 @@
+name: guile
+version: 2.2.4
+category: dev-scheme-12
+requires:
+- name: boehm-gc
+  version: '>=0'
+  category: dev-libs
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: libunistring
+  version: '>=0'
+  category: dev-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+- name: libffi
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNU Ubiquitous Intelligent Language for Extensions
+uri:
+- https://www.gnu.org/software/guile/
+license: LGPL-3+
+labels:
+  BDEPEND: virtual/pkgconfig sys-devel/libtool sys-devel/gettext
+  DEPEND: '>=dev-libs/boehm-gc-7.0:=[threads?] dev-libs/gmp:= virtual/libffi:= dev-libs/libltdl:=
+    dev-libs/libunistring:0= sys-libs/ncurses:0= sys-libs/readline:0='
+  IUSE: debug debug-malloc +deprecated +networking +nls +regex +threads
+  RDEPEND: '>=dev-libs/boehm-gc-7.0:=[threads?] dev-libs/gmp:= virtual/libffi:= dev-libs/libltdl:=
+    dev-libs/libunistring:0= sys-libs/ncurses:0= sys-libs/readline:0='
+  emerge.packages: dev-scheme/guile:12
+  kit: lisp-scheme-kit
+  original.package.name: dev-scheme/guile
+  original.package.slot: "12"
+  original.package.version: 2.2.4
