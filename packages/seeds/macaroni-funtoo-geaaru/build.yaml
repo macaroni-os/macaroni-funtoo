@@ -5,7 +5,10 @@ requires:
 prelude:
 - >-
   luet repo update &&
-  luet i toolchain/meta-geaaru-kit --force &&
+  luet i
+  toolchain/meta-geaaru-kit
+  toolchain/extra-net
+  --force &&
   luet cleanup &&
   rm /etc/localtime &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
