@@ -1,0 +1,22 @@
+name: mongodb_exporter
+version: 0.6.2
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus exporter for MongoDB
+uri:
+- https://github.com/percona/mongodb_exporter
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.10'
+  DEPEND: dev-util/promu
+  emerge.packages: app-metrics/mongodb_exporter
+  kit: nokit
+  original.package.name: app-metrics/mongodb_exporter
+  original.package.slot: "0"
+  original.package.version: 0.6.2
