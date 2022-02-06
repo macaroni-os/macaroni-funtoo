@@ -466,6 +466,11 @@ artefacts:
     - net-analyzer/net-snmp
 
 - tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang
+          name: go
   annotations:
     subsets:
       rules:
@@ -475,6 +480,22 @@ artefacts:
           - "^/var/db/pkg/"
   packages:
     - dev-util/promu
+    - www-apps/gitea
+
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-util
+          name: promu
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
     - app-metrics/snmp_exporter
     - app-metrics/node_exporter
     - app-metrics/rabbitmq_exporter
