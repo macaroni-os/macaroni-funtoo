@@ -1,0 +1,21 @@
+name: node_exporter
+version: 0.18.1
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus exporter for machine metrics
+uri:
+- https://github.com/prometheus/node_exporter
+license: Apache-2.0
+labels:
+  DEPEND: '>=dev-lang/go-1.12 >=dev-util/promu-0.3.0 >=dev-lang/go-1.10 virtual/pkgconfig'
+  emerge.packages: app-metrics/node_exporter
+  kit: nokit
+  original.package.name: app-metrics/node_exporter
+  original.package.slot: "0"
+  original.package.version: 0.18.1
