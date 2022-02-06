@@ -1,0 +1,21 @@
+name: redis_exporter
+version: 0.20.2
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus Exporter for Redis Metrics. Supports Redis 2.x, 3.x and 4.x
+uri:
+- https://github.com/oliver006/redis_exporter
+license: MIT
+labels:
+  DEPEND: '>=dev-lang/go-1.10 virtual/pkgconfig'
+  emerge.packages: app-metrics/redis_exporter
+  kit: nokit
+  original.package.name: app-metrics/redis_exporter
+  original.package.slot: "0"
+  original.package.version: 0.20.2
