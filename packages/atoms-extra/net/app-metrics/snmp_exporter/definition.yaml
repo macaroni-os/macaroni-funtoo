@@ -1,0 +1,21 @@
+name: snmp_exporter
+version: 0.15.0
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus exporter for snmp metrics
+uri:
+- https://github.com/prometheus/snmp_exporter
+license: Apache-2.0
+labels:
+  DEPEND: '>=dev-lang/go-1.11 dev-util/promu net-analyzer/net-snmp >=dev-lang/go-1.10'
+  emerge.packages: app-metrics/snmp_exporter
+  kit: nokit
+  original.package.name: app-metrics/snmp_exporter
+  original.package.slot: "0"
+  original.package.version: 0.15.0
