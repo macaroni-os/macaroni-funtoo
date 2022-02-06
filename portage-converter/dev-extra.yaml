@@ -50,16 +50,14 @@ skipped_resolutions:
     - name: eudev
       category: sys-fs
 
-    - name: openresolv
-      category: net-dns
-
 include_files:
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
 artefacts:
 
-- tree: packages/atoms-extra/net
+
+- tree: packages/atoms-extra/dev
   annotations:
     subsets:
       rules:
@@ -69,99 +67,24 @@ artefacts:
           - "^/var/db/pkg/"
   uses:
     enabled:
-      - dbus
-    disabled:
-      - netlink
-      - bluetooth
-  packages:
-    - net-libs/libpcap
-
-
-- tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - net-misc/ethertypes
-    - sys-apps/ethtool
-    # TODO: fix distfiles on funtoo
-    #- net-analyzer/arping
-    - net-analyzer/arpwatch
-    - net-analyzer/tcptraceroute
-    - net-analyzer/tcptrace
-    - www-servers/gunicorn
-    - net-wireless/wireless-tools
-    - net-vpn/wireguard-tools
-
-- tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  uses:
-    enabled:
-      - gnutls
-    disabled:
-      - selinux
-      - resolvconf
-  packages:
-    - net-vpn/vpnc
-
-- tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  uses:
-    enabled:
-      - gnutls
       - nls
-      - lz4
+      - python
+      - server
+      - client
+      - xml
+      - python_single_target_python3_7
+      - python_targets_python3_7
+      - python_targets_python2_7
     disabled:
-      - selinux
-      - resolvconf
-      - doc
-      - gssapi
-      - libproxy
-      - smartcard
-      - static-libs
-      - stoken
+      - lzma
+      - multitarget
+      - source-highlight
       - test
+      - vanilla
   packages:
-    - net-vpn/openconnect
+    - sys-devel/gdb
 
-- tree: packages/atoms-extra/net
-  uses:
-    enabled:
-      - tcpdump
-      - pcapnav
-    disabled:
-      - debug
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - net-analyzer/tcpreplay
-
-- tree: packages/atoms-extra/net
-  mutations:
-    uses:
-      # Needed for tcpreplay
-      - libopts
+- tree: packages/atoms-extra/dev
   annotations:
     subsets:
       rules:
@@ -171,73 +94,20 @@ artefacts:
           - "^/var/db/pkg/"
   uses:
     disabled:
-      - static-libs
+      - aio
+      - elfutils
+      - perl
+      - static
+      - unwind
   packages:
-    - sys-devel/autogen
+    - dev-util/strace
 
-- tree: packages/atoms-extra/net
-  uses:
-    enabled:
-      - drop-root
-      - ssl
-    disabled:
-      - libressl
-      - samba
-      - smi
-      - suid
-      - test
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - net-analyzer/tcpdump
-
-- tree: packages/atoms-extra/net
-  uses:
-    disabled:
-      - cairo
-      - test
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - net-analyzer/tcpflow
-
-- tree: packages/atoms-extra/net
-  uses:
-    enabled:
-      - ipv6
-      - split-usr
-    disabled:
-      - netgroups
-      - static-libs
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - sys-apps/tcp-wrappers
-
-- tree: packages/atoms-extra/net
+- tree: packages/atoms-extra/dev
   mutations:
     buildtime_deps:
       packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-      - static
+        - category: dev-libs
+          name: libevent
   annotations:
     subsets:
       rules:
@@ -246,57 +116,8 @@ artefacts:
         portage:
           - "^/var/db/pkg/"
   packages:
-    - net-misc/vconfig
-    - net-analyzer/tcping
+    - app-misc/tmux
 
-- tree: packages/atoms-extra/net
-  uses:
-    disabled:
-      - static
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - net-analyzer/traceroute
-
-- tree: packages/atoms-extra/net
-  uses:
-    enabled:
-      - python
-      - python_targets_python2_7
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - dev-libs/libdnet
-
-- tree: packages/atoms-extra/net
-  uses:
-    enabled:
-      - ssl
-      - threads
-    disabled:
-      - debug
-      - libressl
-      - static-libs
-      - test
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - dev-libs/libevent
 
 - tree: packages/atoms-extra/dev
   annotations:
@@ -312,28 +133,13 @@ artefacts:
         - category: seed
           name: macaroni-funtoo-base
   packages:
-    - net-libs/http-parser
+    - net-misc/sshpass
 
-- tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
+
+- tree: packages/atoms-extra/dev
   uses:
-    enabled:
-      - daemon
-      - xmlrpc
     disabled:
-      - test
-      - selinux
-      - debug
-  packages:
-    - net-p2p/rtorrent
-
-- tree: packages/atoms-extra/net
+      - buildfont
   annotations:
     subsets:
       rules:
@@ -341,89 +147,107 @@ artefacts:
           - "^/usr/include/"
         portage:
           - "^/var/db/pkg/"
+  packages:
+    - media-fonts/noto-emoji
+
+- tree: packages/atoms-extra/dev
   uses:
     enabled:
-      - dbus
-      - dhcp
-      - dumpfile
-      - inotify
-      - ipv6
+      - nls
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - sys-power/cpupower
+    - dev-util/kbuild
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang
+          name: go-bootstrap
+  uses:
+    enabled:
+      - nls
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - dev-lang/go
+
+- tree: packages/atoms-extra/dev
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - dev-lang/go-bootstrap
+
+
+- tree: packages/atoms-extra/dev
+  uses:
+    enabled:
+      - unicode
+    disabled:
+      - vserver
+      - debug
+      - hwloc
+      - lm-sensors
+      - openvz
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - sys-process/htop:0
+
+
+- tree: packages/atoms-extra/dev
+  uses:
+    enabled:
+      - python
+      - python_targets_python3_7
+      - acl
+      - gpm
       - nls
     disabled:
-      - auth-dns
-      - conntrack
-      - dhcp-tools
-      - dnssec
-      - id
-      - idn
-      - libidn2
+      - cscope
+      - X
+      - debug
       - lua
-      - lua_single_target_lua5-1
-      - lua_single_target_lua5-2
-      - lua_single_target_lua5-3
-      - lua_single_target_lua5-4
-      - lua_single_target_luajit
-      - nettlehash
-      - script
+      - luajit
+      - minimal
+      - perl
+      - racket
+      - ruby
       - selinux
-      - static
-      - tftp
+      - tcl
+      - vim-syntax
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
-    - net-dns/dnsmasq
-
-      # - tree: packages/atoms-extra/net
-      #   annotations:
-      #     subsets:
-      #       rules:
-      #         devel:
-      #           - "^/usr/include/"
-      #         portage:
-      #           - "^/var/db/pkg/"
-      #   uses:
-      #     enabled:
-      #       - caps
-      #       - constraints
-      #       - curl
-      #       - gmp
-      #       - networkmanager
-      #       - non-root
-      #       - openssl
-      #       - pam
-      #       - strongswan_plugins_led
-      #       - strongswan_plugins_lookip
-      #       - strongswan_plugins_systime-fix
-      #       - strongswan_plugins_unity
-      #       - strongswan_plugins_vici
-      #       - systemd
-      #     disabled:
-      #       - debug
-      #       - dhcp
-      #       - eap
-      #       - farp
-      #       - gcrypt
-      #       - ldap
-      #       - mysql
-      #       - pkcs11
-      #       - selinux
-      #       - sqlite
-      #       - strongswan_plugins_aesni
-      #       - strongswan_plugins_blowfish
-      #       - strongswan_plugins_ccm
-      #       - strongswan_plugins_chapoly
-      #       - strongswan_plugins_ctr
-      #       - strongswan_plugins_forecast
-      #       - strongswan_plugins_gcm
-      #       - strongswan_plugins_ha
-      #       - strongswan_plugins_ipseckey
-      #       - strongswan_plugins_newhope
-      #       - strongswan_plugins_ntru
-      #       - strongswan_plugins_padlock
-      #       - strongswan_plugins_rdrand
-      #       - strongswan_plugins_save-keys
-      #       - strongswan_plugins_unbound
-      #       - strongswan_plugins_whitelist
-      #   packages:
-      #     - net-vpn/strongswan
+    - app-editors/vim
+    - app-editors/vim-core
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
@@ -458,8 +282,6 @@ reposcan_sources:
   - ./kit_cache/security-kit-1.4-release
   - ./kit_cache/text-kit-1.4-release
   - ./kit_cache/xfce-kit-4.14-release
-
-  - ./kit_cache/geaaru-kit-funtoo
 
 # Disable use of category with slot as requires. Default is without slot.
 reposcan_requires_slot: true
@@ -872,7 +694,6 @@ build_layers:
       - dev-libs/libebml:0
       - dev-libs/libev:0
       - dev-libs/libevdev:0
-      - dev-libs/libevent:0
       - dev-libs/libffi:0
       - dev-libs/libfmt:0
       - dev-libs/libgcrypt:0
@@ -1145,6 +966,7 @@ build_layers:
       - dev-ruby/rubygems:0
       - dev-ruby/test-unit:2
       - dev-ruby/xmlrpc:0
+      - dev-scheme/guile:12
       - dev-util/boost-build:0
       - dev-util/cmake:0
       - dev-util/cmocka:0
@@ -1592,6 +1414,7 @@ build_layers:
       - net-dns/dnsmasq:0
       - net-dns/libidn2:0
       - net-dns/libidn:0
+      - net-dns/openresolv:0
       - net-firewall/conntrack-tools:0
       - net-firewall/ebtables:0
       - net-firewall/ipset:0
@@ -1624,6 +1447,7 @@ build_layers:
       - net-libs/libnma:0
       - net-libs/libnsl:0
       - net-libs/liboauth:0
+      - net-libs/libpcap:0
       - net-libs/libproxy:0
       - net-libs/libpsl:0
       - net-libs/libqmi:0
@@ -1742,7 +1566,6 @@ build_layers:
       - sys-apps/usbutils:0
       - sys-apps/util-linux:0
       - sys-apps/which:0
-      - sys-apps/systemd
       - sys-auth/elogind:0
       - sys-auth/nss-mdns:0
       - sys-auth/nss-myhostname:0
@@ -1823,7 +1646,6 @@ build_layers:
       - sys-libs/libraw1394:0
       - sys-libs/libseccomp:0
       - sys-libs/liburing:0
-      - sys-libs/libutempter:0
       - sys-libs/mtdev:0
       - sys-libs/ncurses:0
       - sys-libs/pam:0
