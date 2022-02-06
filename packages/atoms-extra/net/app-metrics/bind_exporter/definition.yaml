@@ -1,0 +1,21 @@
+name: bind_exporter
+version: 0.2.0
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus exporter for BIND
+uri:
+- https://github.com/digitalocean/bind_exporter
+license: Apache-2.0
+labels:
+  DEPEND: dev-util/promu >=dev-lang/go-1.10
+  emerge.packages: app-metrics/bind_exporter
+  kit: nokit
+  original.package.name: app-metrics/bind_exporter
+  original.package.slot: "0"
+  original.package.version: 0.2.0_p20180307
