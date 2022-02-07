@@ -1,0 +1,38 @@
+name: XML-SAX
+version: 1.0.0
+category: dev-perl
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: XML-NamespaceSupport
+  version: '>=0'
+  category: dev-perl
+- name: XML-SAX-Base
+  version: '>=0'
+  category: dev-perl
+- name: perl-File-Temp
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl module for using and building Perl SAX2 XML parsers, filters, and
+  drivers
+uri:
+- https://metacpan.org/release/XML-SAX
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/XML-SAX-Base-1.50.0 >=dev-perl/XML-NamespaceSupport-1.40.0 >=dev-libs/libxml2-2.4.1
+    virtual/perl-File-Temp virtual/perl-ExtUtils-MakeMaker dev-lang/perl:='
+  RDEPEND: '>=dev-perl/XML-SAX-Base-1.50.0 >=dev-perl/XML-NamespaceSupport-1.40.0
+    >=dev-libs/libxml2-2.4.1 virtual/perl-File-Temp dev-lang/perl:='
+  emerge.packages: dev-perl/XML-SAX
+  kit: perl-kit
+  original.package.name: dev-perl/XML-SAX
+  original.package.slot: "0"
+  original.package.version: 1.0.0
