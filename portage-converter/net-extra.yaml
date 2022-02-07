@@ -212,6 +212,11 @@ artefacts:
     - net-analyzer/tcpflow
 
 - tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
   uses:
     enabled:
       - ipv6
@@ -234,7 +239,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: funtoo-base
+          name: macaroni-funtoo-base
   uses:
     disabled:
       - static
