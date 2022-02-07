@@ -1,0 +1,33 @@
+name: XML-LibXML
+version: 2.13.200
+category: dev-perl
+use_flags:
+- -minimal
+- -test
+requires:
+- name: XML-SAX
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl binding for libxml2
+uri:
+- https://metacpan.org/release/XML-LibXML
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/XML-SAX-0.120.0 >=dev-libs/libxml2-2.6.21 dev-perl/XML-SAX-Base
+    >=dev-perl/XML-NamespaceSupport-1.70.0 virtual/perl-ExtUtils-MakeMaker test? (
+    !minimal? ( dev-perl/Test-LeakTrace ) ) dev-lang/perl:='
+  IUSE: test minimal examples
+  RDEPEND: '>=dev-perl/XML-SAX-0.120.0 >=dev-libs/libxml2-2.6.21 dev-perl/XML-SAX-Base
+    >=dev-perl/XML-NamespaceSupport-1.70.0 dev-lang/perl:='
+  emerge.packages: dev-perl/XML-LibXML
+  kit: perl-kit
+  original.package.name: dev-perl/XML-LibXML
+  original.package.slot: "0"
+  original.package.version: 2.13.200
