@@ -4,6 +4,7 @@ SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 
 kits=(
   "net"
+  "dev"
 )
 
 for i in ${kits[@]} ; do
