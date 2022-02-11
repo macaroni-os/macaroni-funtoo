@@ -49,6 +49,8 @@ steps:
   eselect gcc set 1 &&
   eselect binutils set 1 &&
   mkdir -p /var/lib/portage &&
+  cp -rvf patches/* /var/git/meta-repo/kits/python-modules-kit/dev-python/tempita/ &&
+  mkdir -p /etc/portage/package.use &&
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
@@ -56,7 +58,9 @@ steps:
   ldconfig &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
-  cd / && rm -rf /luetbuild
+  cd / && rm -rf /luetbuild &&
+  emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
+  rm -rf /var/cache/portage/distfiles/*
 
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
 
