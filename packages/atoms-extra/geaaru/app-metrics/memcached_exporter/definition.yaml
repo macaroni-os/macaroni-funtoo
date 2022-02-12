@@ -1,0 +1,21 @@
+name: memcached_exporter
+version: 0.6.0
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus exporter for memcached
+uri:
+- https://github.com/prometheus/memcached_exporter
+license: Apache-2.0 BSD BSD-2 MIT
+labels:
+  DEPEND: dev-lang/go dev-util/promu >=dev-lang/go-1.10 virtual/pkgconfig
+  emerge.packages: app-metrics/memcached_exporter
+  kit: geaaru-kit
+  original.package.name: app-metrics/memcached_exporter
+  original.package.slot: "0"
+  original.package.version: 0.6.0
