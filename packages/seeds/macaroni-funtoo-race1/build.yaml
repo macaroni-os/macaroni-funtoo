@@ -35,6 +35,9 @@ steps:
   dev-util/pkgs-checker-minimal
   toolchain/extra-net
   toolchain/extra-dev
+  app-admin/whip
+  macaroni/whip-catalog
+  whip-profiles/macaroni
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
   luet cleanup
@@ -44,8 +47,10 @@ steps:
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
+  export JOBS={{ ( index .Values.labels "emerge.jobs" ) }} &&
   cat /etc/luet/luet.yaml &&
   luet install virtual/base --relax --nodeps &&
+  luet cleanup --purge-repos &&
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
   eselect gcc set 1 &&
@@ -61,10 +66,13 @@ steps:
   ldconfig &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
+  whip hook eclass_db.db_fix_so &&
   cd / && rm -rf /luetbuild &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
 
+# TODO: fix this hook
+# whip hook perl.postinst &&
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
 
 excludes:
