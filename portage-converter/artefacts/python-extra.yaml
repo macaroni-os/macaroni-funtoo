@@ -152,7 +152,6 @@ artefacts:
     - sh
     - static-libs
     - test
-    enabled:
     - sdl
   packages:
   - dev-libs/zziplib
@@ -534,6 +533,7 @@ artefacts:
     - sh
     - source
     - static-libs
+    - X
   packages:
   - dev-libs/kpathsea
   - app-text/teckit:0
@@ -766,3 +766,17 @@ artefacts:
   packages:
   - dev-python/terminaltables
 
+- tree: packages/atoms-extra/python
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race1
+  annotations:
+    subsets:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+  packages:
+  - dev-libs/lzo:2
