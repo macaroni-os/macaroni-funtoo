@@ -118,6 +118,21 @@ artefacts:
     - app-metrics/memcached_exporter
     - app-metrics/freeradius_exporter
 
+- tree: packages/atoms-extra/geaaru
+  uses:
+    disabled:
+      - jemalloc
+      - system-boot
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - dev-db/arangodb
+
 #- tree: packages/atoms-extra/net
 #  uses:
 #    enabled:
