@@ -48,7 +48,6 @@ steps:
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  export JOBS={{ ( index .Values.labels "emerge.jobs" ) }} &&
   cat /etc/luet/luet.yaml &&
   luet install virtual/base --relax --nodeps &&
   luet cleanup --purge-repos &&
