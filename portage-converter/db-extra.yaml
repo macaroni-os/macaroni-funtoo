@@ -143,6 +143,9 @@ artefacts:
     - dev-db/redis
 
 - tree: packages/atoms-extra/db
+  mutations:
+    uses:
+      - python_single_target_python3_7
   annotations:
     subsets:
       rules:
@@ -153,6 +156,7 @@ artefacts:
   uses:
     enabled:
       - python_targets_python3_7
+      - python_single_target_python3_7
       - shell
       - ssl
       - tools

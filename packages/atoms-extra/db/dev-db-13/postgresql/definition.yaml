@@ -12,7 +12,6 @@ use_flags:
 - -ldap
 - -llvm
 - -perl
-- -python_single_target_python3_7
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -selinux
@@ -21,6 +20,7 @@ use_flags:
 - nls
 - pam
 - python
+- python_single_target_python3_7
 - readline
 - server
 - ssl
@@ -32,6 +32,9 @@ requires:
 - name: eselect-postgresql
   version: '>=0'
   category: app-eselect
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
 - name: libxslt
   version: '>=0'
   category: dev-libs
