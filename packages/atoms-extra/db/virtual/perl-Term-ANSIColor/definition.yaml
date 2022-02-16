@@ -1,0 +1,25 @@
+name: perl-Term-ANSIColor
+version: 5.10.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Term-ANSIColor
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Term-ANSIColor-5.10.0 ) dev-lang/perl:=
+    !<perl-core/Term-ANSIColor-5.10.0 !>perl-core/Term-ANSIColor-5.10.0-r999'
+  emerge.packages: virtual/perl-Term-ANSIColor
+  kit: perl-kit
+  original.package.name: virtual/perl-Term-ANSIColor
+  original.package.slot: "0"
+  original.package.version: 5.10.0
