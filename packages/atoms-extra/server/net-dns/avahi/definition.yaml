@@ -3,31 +3,28 @@ version: 0.8+1
 category: net-dns
 use_flags:
 - -bookmarks
-- -dbus
 - -doc
-- -gdbm
 - -gtk
 - -introspection
 - -kernel_linux
 - -mono
-- -python
-- -python_targets_python3_7
 - -python_targets_python3_8
 - -qt5
 - -selinux
+- dbus
+- gdbm
+- python
+- python_targets_python3_7
 requires:
-- name: expat
-  version: '>=0'
-  category: dev-libs
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
 - name: libdaemon
   version: '>=0'
   category: dev-libs
 - name: libevent
   version: '>=0'
   category: dev-libs
+- name: dbus-python
+  version: '>=0'
+  category: dev-python
 annotations:
   subsets:
     rules:
