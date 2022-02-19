@@ -1,5 +1,5 @@
 name: openfortivpn
-version: 1.17.1
+version: 1.17.1+1
 category: net-vpn
 requires:
 - name: openssl
@@ -8,6 +8,13 @@ requires:
 - name: ppp
   version: '>=0'
   category: net-dialup
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Fortinet compatible VPN client
 uri:
 - https://github.com/adrienverge/openfortivpn
