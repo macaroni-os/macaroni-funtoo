@@ -15,7 +15,6 @@ use_flags:
 - -json
 - -modemmanager
 - -ncurses
-- -nss
 - -ofono
 - -ovs
 - -policykit
@@ -26,11 +25,15 @@ use_flags:
 - -teamd
 - -test
 - -vala
+- nss
 - wifi
 requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
+- name: nss
+  version: '>=0'
+  category: dev-libs
 - name: libndp
   version: '>=0'
   category: net-libs
