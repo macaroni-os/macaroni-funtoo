@@ -1,5 +1,5 @@
 name: networkmanager
-version: 1.26.0
+version: 1.26.0+1
 category: net-misc
 use_flags:
 - -audit
@@ -49,6 +49,13 @@ requires:
 - name: libudev
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: A set of co-operative tools that make networking simple and straightforward
 uri:
 - https://wiki.gnome.org/Projects/NetworkManager
