@@ -1,5 +1,5 @@
 name: strongswan
-version: 5.7.2
+version: 5.7.2+1
 category: net-vpn
 use_flags:
 - -gcrypt
@@ -34,6 +34,13 @@ requires:
 - name: logger
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 uri:
 - https://www.strongswan.org/
