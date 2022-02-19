@@ -1,5 +1,5 @@
 name: avahi
-version: "0.8"
+version: 0.8+1
 category: net-dns
 use_flags:
 - -bookmarks
@@ -28,6 +28,13 @@ requires:
 - name: libevent
   version: '>=0'
   category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: System which facilitates service discovery on a local network
 uri:
 - http://avahi.org/
