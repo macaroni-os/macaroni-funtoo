@@ -1,5 +1,5 @@
 name: zfs
-version: 2.0.6
+version: 2.0.6+1
 category: sys-fs
 use_flags:
 - -kernel-builtin
@@ -42,6 +42,13 @@ requires:
 - name: python-cffi
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Userland utilities for ZFS Linux kernel module
 uri:
 - https://github.com/openzfs/zfs
