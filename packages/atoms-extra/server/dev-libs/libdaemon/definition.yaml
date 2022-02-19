@@ -1,8 +1,15 @@
 name: libdaemon
-version: "0.14"
+version: 0.14+1
 category: dev-libs
 use_flags:
 - -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Simple library for creating daemon processes in C
 uri:
 - http://0pointer.de/lennart/projects/libdaemon/
