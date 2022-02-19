@@ -1,5 +1,5 @@
 name: wvstreams
-version: 4.6.1
+version: 4.6.1+1
 category: net-libs
 use_flags:
 - -boost
@@ -19,6 +19,13 @@ requires:
 - name: pam
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: A network programming library in C++
 uri:
 - https://github.com/apenwarr/wvstreams
