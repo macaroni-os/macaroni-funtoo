@@ -1,8 +1,15 @@
 name: openbsd-netcat
-version: "1.190"
+version: 1.190+1
 category: net-analyzer
 use_flags:
 - -elibc_Darwin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: The OpenBSD network swiss army knife
 uri:
 - https://cvsweb.openbsd.org/src/usr.bin/nc/ https://salsa.debian.org/debian/netcat-openbsd
