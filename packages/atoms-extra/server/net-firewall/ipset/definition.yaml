@@ -1,5 +1,5 @@
 name: ipset
-version: "7.1"
+version: 7.1+1
 category: net-firewall
 use_flags:
 - -modules
@@ -11,6 +11,13 @@ requires:
 - name: libmnl
   version: '>=0'
   category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: IPset tool for iptables, successor to ippool
 uri:
 - http://ipset.netfilter.org/
