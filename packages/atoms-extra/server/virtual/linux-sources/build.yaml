@@ -28,3 +28,7 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+requires:
+- name: networkmanager
+  version: '>=0'
+  category: net-misc
