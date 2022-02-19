@@ -1,0 +1,93 @@
+name: cloud-init
+version: "18.5"
+category: app-emulation
+use_flags:
+- -test
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: configobj
+  version: '>=0'
+  category: dev-python
+- name: jinja
+  version: '>=0'
+  category: dev-python
+- name: jsonpatch
+  version: '>=0'
+  category: dev-python
+- name: jsonschema
+  version: '>=0'
+  category: dev-python
+- name: oauthlib
+  version: '>=0'
+  category: dev-python
+- name: pyserial
+  version: '>=0'
+  category: dev-python
+- name: pyyaml
+  version: '>=0'
+  category: dev-python
+- name: requests
+  version: '>=0'
+  category: dev-python
+- name: macchanger
+  version: '>=0'
+  category: net-analyzer
+- name: iproute2
+  version: '>=0'
+  category: sys-apps
+- name: growpart
+  version: '>=0'
+  category: sys-fs
+- name: logger
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Cloud instance initialisation magic
+uri:
+- https://launchpad.net/cloud-init
+license: GPL-3
+labels:
+  DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    test? ( dev-python/jinja[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/oauthlib[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/pyserial[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/configobj-5.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/pyyaml[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/requests[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/jsonpatch[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/jsonschema[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/six[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/httpretty-0.7.1[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/mock[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/nose[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/unittest2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/coverage[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/contextlib2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  IUSE: test python_targets_python3_7 python_targets_python2_7
+  RDEPEND: dev-python/jinja[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/oauthlib[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/pyserial[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/configobj-5.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/pyyaml[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/requests[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/jsonpatch[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/jsonschema[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/six[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    net-analyzer/macchanger sys-apps/iproute2 sys-fs/growpart virtual/logger python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: app-emulation/cloud-init
+  kit: nokit
+  original.package.name: app-emulation/cloud-init
+  original.package.slot: "0"
+  original.package.version: "18.5"
