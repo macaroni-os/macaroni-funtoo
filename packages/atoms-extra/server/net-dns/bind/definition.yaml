@@ -1,0 +1,88 @@
+name: bind
+version: 9.18.0
+category: net-dns
+use_flags:
+- -dnstap
+- -geoip
+- -gssapi
+- -json
+- -ldap
+- -libressl
+- -lmdb
+- -mysql
+- -odbc
+- -postgres
+- -python
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -python_targets_python3_9
+- -selinux
+- berkdb
+- caps
+- xml
+- zlib
+requires:
+- name: libuv
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: psmisc
+  version: '>=0'
+  category: sys-process
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Berkeley Internet Name Domain - Name Server
+uri:
+- https://www.isc.org/software/bind
+license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: berkdb? ( sys-libs/db:= ) !libressl? ( dev-libs/openssl:=[-bindist] ) libressl?
+    ( dev-libs/libressl:= ) mysql? ( dev-db/mysql-connector-c:0= ) odbc? ( >=dev-db/unixODBC-2.2.6
+    ) ldap? ( net-nds/openldap ) postgres? ( dev-db/postgresql:= ) caps? ( >=sys-libs/libcap-2.1.0
+    ) xml? ( dev-libs/libxml2 ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5
+    ) json? ( dev-libs/json-c:= ) lmdb? ( dev-db/lmdb ) zlib? ( sys-libs/zlib ) dnstap?
+    ( dev-libs/fstrm dev-libs/protobuf-c ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/ply[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) dev-libs/libuv:=
+  IUSE: +berkdb +caps +dlz dnstap doc dnsrps fixed-rrset geoip gssapi json ldap libressl
+    lmdb mysql odbc postgres python selinux static-libs urandom xml +zlib python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: berkdb? ( sys-libs/db:= ) !libressl? ( dev-libs/openssl:=[-bindist] ) libressl?
+    ( dev-libs/libressl:= ) mysql? ( dev-db/mysql-connector-c:0= ) odbc? ( >=dev-db/unixODBC-2.2.6
+    ) ldap? ( net-nds/openldap ) postgres? ( dev-db/postgresql:= ) caps? ( >=sys-libs/libcap-2.1.0
+    ) xml? ( dev-libs/libxml2 ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5
+    ) json? ( dev-libs/json-c:= ) lmdb? ( dev-db/lmdb ) zlib? ( sys-libs/zlib ) dnstap?
+    ( dev-libs/fstrm dev-libs/protobuf-c ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/ply[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) dev-libs/libuv:= selinux? ( sec-policy/selinux-bind ) sys-process/psmisc virtual/tmpfiles
+  emerge.packages: net-dns/bind
+  kit: net-kit
+  original.package.name: net-dns/bind
+  original.package.slot: "0"
+  original.package.version: 9.18.0
