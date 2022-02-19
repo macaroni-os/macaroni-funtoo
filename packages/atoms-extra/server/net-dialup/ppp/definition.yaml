@@ -1,5 +1,5 @@
 name: ppp
-version: 2.4.7
+version: 2.4.7+1
 category: net-dialup
 use_flags:
 - -activefilter
@@ -11,6 +11,13 @@ requires:
 - name: pam
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Point-to-Point Protocol (PPP)
 uri:
 - https://ppp.samba.org/
