@@ -1,5 +1,5 @@
 name: openvpn
-version: "2.4.9+1"
+version: 2.4.9+2
 category: net-vpn
 use_flags:
 - -iproute2
@@ -24,6 +24,13 @@ requires:
 - name: pam
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Robust and highly flexible tunneling application compatible with many
   OSes
 uri:
