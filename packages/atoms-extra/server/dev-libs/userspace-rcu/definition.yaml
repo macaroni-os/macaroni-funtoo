@@ -1,0 +1,24 @@
+name: userspace-rcu
+version: 0.10.2
+category: dev-libs
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: userspace RCU (read-copy-update) library
+uri:
+- https://liburcu.org/
+license: LGPL-2.1
+labels:
+  DEPEND: test? ( sys-process/time )
+  IUSE: static-libs regression-test test
+  emerge.packages: dev-libs/userspace-rcu
+  kit: dev-kit
+  original.package.name: dev-libs/userspace-rcu
+  original.package.slot: "0"
+  original.package.version: 0.10.2
