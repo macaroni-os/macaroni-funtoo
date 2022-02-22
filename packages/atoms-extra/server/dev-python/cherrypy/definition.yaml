@@ -1,0 +1,55 @@
+name: cherrypy
+version: 18.1.0
+category: dev-python
+use_flags:
+- -python_targets_pypy3
+- python_targets_python3_7
+- ssl
+requires:
+- name: cheroot
+  version: '>=0'
+  category: dev-python
+- name: portend
+  version: '>=0'
+  category: dev-python
+- name: pyopenssl
+  version: '>=0'
+  category: dev-python
+- name: zc-lockfile
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: CherryPy is a pythonic, object-oriented HTTP framework
+uri:
+- https://www.cherrypy.org https://pypi.org/project/CherryPy/
+license: BSD
+labels:
+  BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+  DEPEND: '>=dev-python/cheroot-6.2.4[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    >=dev-python/portend-2.1.1[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/more-itertools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/zc-lockfile[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    ssl? ( dev-python/pyopenssl[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    ) dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/setuptools_scm[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]'
+  IUSE: ssl python_targets_pypy3 python_targets_python3_7
+  RDEPEND: '>=dev-python/cheroot-6.2.4[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    >=dev-python/portend-2.1.1[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/more-itertools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/zc-lockfile[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    ssl? ( dev-python/pyopenssl[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]'
+  emerge.packages: dev-python/cherrypy
+  kit: python-modules-kit
+  original.package.name: dev-python/cherrypy
+  original.package.slot: "0"
+  original.package.version: 18.1.0-r1
