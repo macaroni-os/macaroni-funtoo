@@ -1,0 +1,37 @@
+name: oath-toolkit
+version: 2.6.2
+category: sys-auth
+use_flags:
+- -test
+- pam
+- pskc
+requires:
+- name: xmlsec
+  version: '>=0'
+  category: dev-libs
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Toolkit for using one-time password authentication with HOTP/TOTP algorithms
+uri:
+- http://www.nongnu.org/oath-toolkit/
+license: GPL-3 LGPL-2.1
+labels:
+  DEPEND: pam? ( virtual/pam ) pskc? ( dev-libs/xmlsec ) test? ( dev-libs/libxml2
+    ) dev-util/gtk-doc-am >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: pam pskc test
+  RDEPEND: pam? ( virtual/pam ) pskc? ( dev-libs/xmlsec )
+  emerge.packages: sys-auth/oath-toolkit
+  kit: nokit
+  original.package.name: sys-auth/oath-toolkit
+  original.package.slot: "0"
+  original.package.version: 2.6.2
