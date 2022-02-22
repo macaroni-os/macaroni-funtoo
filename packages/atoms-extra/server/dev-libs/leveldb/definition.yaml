@@ -1,0 +1,33 @@
+name: leveldb
+version: "1.20"
+category: dev-libs
+use_flags:
+- snappy
+- tcmalloc
+requires:
+- name: snappy
+  version: '>=0'
+  category: app-arch
+- name: google-perftools
+  version: '>=0'
+  category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: a fast key-value storage library written at Google
+uri:
+- http://leveldb.org/ https://github.com/google/leveldb
+license: BSD
+labels:
+  DEPEND: tcmalloc? ( dev-util/google-perftools ) snappy? ( app-arch/snappy:= )
+  IUSE: +snappy static-libs kernel_FreeBSD +tcmalloc test
+  RDEPEND: tcmalloc? ( dev-util/google-perftools ) snappy? ( app-arch/snappy:= )
+  emerge.packages: dev-libs/leveldb
+  kit: dev-kit
+  original.package.name: dev-libs/leveldb
+  original.package.slot: "0"
+  original.package.version: "1.20"
