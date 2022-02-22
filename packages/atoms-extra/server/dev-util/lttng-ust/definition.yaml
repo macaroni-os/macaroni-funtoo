@@ -1,0 +1,30 @@
+name: lttng-ust
+version: 2.10.1
+category: dev-util
+requires:
+- name: userspace-rcu
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux Trace Toolkit - UST library
+uri:
+- http://lttng.org
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/userspace-rcu:=
+  IUSE: examples
+  RDEPEND: dev-libs/userspace-rcu:=
+  emerge.packages: dev-util/lttng-ust
+  kit: dev-kit
+  original.package.name: dev-util/lttng-ust
+  original.package.slot: "0"
+  original.package.version: 2.10.1
