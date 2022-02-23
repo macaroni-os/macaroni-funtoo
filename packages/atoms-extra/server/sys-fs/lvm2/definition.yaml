@@ -9,9 +9,9 @@ use_flags:
 - -openais
 - -sanlock
 - -selinux
+- -static
 - -systemd
 - readline
-- static
 - thin
 - udev
 requires:
@@ -30,6 +30,13 @@ requires:
 - name: libudev
   version: '>=0'
   category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: User-land utilities for LVM2 (device-mapper) software
 uri:
 - https://sourceware.org/lvm2/
