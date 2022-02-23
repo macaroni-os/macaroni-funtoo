@@ -11,12 +11,7 @@ prelude:
   cp -rvf patches /etc/portage/ &&
   epro flavor minimal &&
   epro mix-in +btrfs +vmware-guest &&
-  epro list &&
-  sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g' /var/git/meta-repo/kits/core-kit/profiles/base/packages &&
-  sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g'
-  -e 's|^*net-dns/openresolv|#*net-dns/openresolv|g'
-  /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages &&
-  cat /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages
+  epro list
 #steps:
 - >-
   emerge --unmerge
