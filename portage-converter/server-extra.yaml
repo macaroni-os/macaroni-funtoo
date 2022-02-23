@@ -50,48 +50,46 @@ skipped_resolutions:
     - name: eudev
       category: sys-fs
 
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: dummy-sources
+      category: sys-kernel
+
+
 include_files:
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
 artefacts:
-- tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  uses:
-    enabled:
-      - dbus
-      - dhcp
-      - dumpfile
-      - inotify
-      - ipv6
-      - nls
-      - dnssec
-    disabled:
-      - auth-dns
-      - conntrack
-      - dhcp-tools
-      - id
-      - idn
-      - libidn2
-      - lua
-      - lua_single_target_lua5-1
-      - lua_single_target_lua5-2
-      - lua_single_target_lua5-3
-      - lua_single_target_lua5-4
-      - lua_single_target_luajit
-      - nettlehash
-      - script
-      - selinux
-      - static
-      - tftp
-  packages:
-    - net-dns/dnsmasq
 
 - tree: packages/atoms-extra/server
   annotations:
@@ -192,6 +190,828 @@ artefacts:
   packages:
     - net-dns/bind
 
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - test
+      - python_targets_python2_7
+  packages:
+    - app-emulation/cloud-init
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - test
+  packages:
+    - virtual/logger
+    - net-analyzer/macchanger
+    - sys-fs/growpart
+    - dev-libs/libdaemon
+    - virtual/linux-sources
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - activefilter
+    - atm
+    - dhcp
+    - eap-tls
+    - libressl
+    - nios2
+    - radius
+    - sh
+    - gtk
+    enabled:
+    - ipv6
+    - pam
+  packages:
+  - net-dialup/ppp
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - cpp_test
+    - debug
+    - full
+    - google_perftools
+    - libatomic
+    - libressl
+    - luajit
+    - nginx_modules_dynamic_geoip
+    - nginx_modules_dynamic_image_filter
+    - nginx_modules_dynamic_mail
+    - nginx_modules_dynamic_perl
+    - nginx_modules_dynamic_stream_geoip
+    - nginx_modules_dynamic_xslt
+    - nginx_modules_external_accept_language
+    - nginx_modules_external_ajp
+    - nginx_modules_external_auth_pam
+    - nginx_modules_external_brotli
+    - nginx_modules_external_cache_purge
+    - nginx_modules_external_concat
+    - nginx_modules_external_dav_ext
+    - nginx_modules_external_echo
+    - nginx_modules_external_encrypted_session
+    - nginx_modules_external_fancyindex
+    - nginx_modules_external_headers_more
+    - nginx_modules_external_lua
+    - nginx_modules_external_metrics
+    - nginx_modules_external_modsecurity
+    - nginx_modules_external_mogilefs
+    - nginx_modules_external_naxsi
+    - nginx_modules_external_ndk
+    - nginx_modules_external_push
+    - nginx_modules_external_push_stream
+    - nginx_modules_external_rtmp
+    - nginx_modules_external_slowfs_cache
+    - nginx_modules_external_sticky
+    - nginx_modules_external_upload_progress
+    - nginx_modules_external_upstream_check
+    - nginx_modules_http_addition
+    - nginx_modules_http_auth_request
+    - nginx_modules_http_dav
+    - nginx_modules_http_degradation
+    - nginx_modules_http_flv
+    - nginx_modules_http_geoip
+    - nginx_modules_http_gunzip
+    - nginx_modules_http_gzip_static
+    - nginx_modules_http_image_filter
+    - nginx_modules_http_mp4
+    - nginx_modules_http_perl
+    - nginx_modules_http_random_index
+    - nginx_modules_http_realip
+    - nginx_modules_http_secure_link
+    - nginx_modules_http_ssl
+    - nginx_modules_http_stub_status
+    - nginx_modules_http_sub
+    - nginx_modules_http_xslt
+    - nginx_modules_mail_imap
+    - nginx_modules_mail_pop3
+    - nginx_modules_mail_smtp
+    - nginx_modules_stream_geoip
+    - nginx_modules_stream_realip
+    - nginx_modules_stream_ssl_preread
+    - nios2
+    - pcre-jit
+    - sh
+    - threads
+    - vim-syntax
+    enabled:
+    - aio
+    - http
+    - http-cache
+    - http2
+    - ipv6
+    - nginx_modules_dynamic_stream
+    - nginx_modules_http_access
+    - nginx_modules_http_auth_basic
+    - nginx_modules_http_autoindex
+    - nginx_modules_http_browser
+    - nginx_modules_http_charset
+    - nginx_modules_http_empty_gif
+    - nginx_modules_http_fastcgi
+    - nginx_modules_http_geo
+    - nginx_modules_http_grpc
+    - nginx_modules_http_gzip
+    - nginx_modules_http_limit_conn
+    - nginx_modules_http_limit_req
+    - nginx_modules_http_map
+    - nginx_modules_http_memcached
+    - nginx_modules_http_mirror
+    - nginx_modules_http_proxy
+    - nginx_modules_http_referer
+    - nginx_modules_http_rewrite
+    - nginx_modules_http_scgi
+    - nginx_modules_http_split_clients
+    - nginx_modules_http_ssi
+    - nginx_modules_http_upstream_hash
+    - nginx_modules_http_upstream_ip_hash
+    - nginx_modules_http_upstream_keepalive
+    - nginx_modules_http_upstream_least_conn
+    - nginx_modules_http_upstream_zone
+    - nginx_modules_http_userid
+    - nginx_modules_http_uwsgi
+    - nginx_modules_stream_access
+    - nginx_modules_stream_geo
+    - nginx_modules_stream_limit_conn
+    - nginx_modules_stream_map
+    - nginx_modules_stream_return
+    - nginx_modules_stream_split_clients
+    - nginx_modules_stream_upstream_hash
+    - nginx_modules_stream_upstream_least_conn
+    - nginx_modules_stream_upstream_zone
+    - pcre
+    - poll
+    - rtmp
+    - select
+    - ssl
+    - stream
+  packages:
+  - www-servers/nginx
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
+  uses:
+    disabled:
+    - nios2
+    - pud
+    - sh
+    - gtk
+  packages:
+  - net-misc/olsrd
+
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - caps
+    - debug
+    - libressl
+    - nios2
+    - ntp-cron
+    - parse-clocks
+    - samba
+    - selinux
+    - sh
+    - snmp
+    - vim-syntax
+    enabled:
+    - ipv6
+    - openntpd
+    - readline
+    - ssl
+    - threads
+    - zeroconf
+  packages:
+  - net-misc/ntp
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - debug
+    - dhcp
+    - eap
+    - farp
+    - gcrypt
+    - ldap
+    - mysql
+    - nios2
+    - pkcs11
+    - selinux
+    - sh
+    - sqlite
+    - strongswan_plugins_aesni
+    - strongswan_plugins_blowfish
+    - strongswan_plugins_ccm
+    - strongswan_plugins_chapoly
+    - strongswan_plugins_ctr
+    - strongswan_plugins_forecast
+    - strongswan_plugins_gcm
+    - strongswan_plugins_ha
+    - strongswan_plugins_ipseckey
+    - strongswan_plugins_newhope
+    - strongswan_plugins_ntru
+    - strongswan_plugins_padlock
+    - strongswan_plugins_rdrand
+    - strongswan_plugins_save-keys
+    - strongswan_plugins_unbound
+    - strongswan_plugins_whitelist
+    - systemd
+    enabled:
+    - caps
+    - constraints
+    - curl
+    - gmp
+    - networkmanager
+    - non-root
+    - openssl
+    - pam
+    - strongswan_plugins_led
+    - strongswan_plugins_lookip
+    - strongswan_plugins_systime-fix
+    - strongswan_plugins_unity
+    - strongswan_plugins_vici
+  packages:
+  - net-vpn/strongswan
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - doc
+    - gssapi
+    - libproxy
+    - lz4
+    - nios2
+    - sh
+    - smartcard
+    - static-libs
+    - stoken
+    - test
+    enabled:
+    - gnutls
+    - nls
+  packages:
+  - net-vpn/openconnect
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - libressl
+    - nios2
+    - sh
+  packages:
+  - net-vpn/openfortivpn
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - down-root
+    - examples
+    - inotify
+    - iproute2
+    - libressl
+    - lz4
+    - mbedtls
+    - nios2
+    - pkcs11
+    - selinux
+    - sh
+    - static
+    - test
+    enabled:
+    - systemd
+    - lzo
+    - pam
+    - plugins
+    - ssl
+  packages:
+  - net-vpn/openvpn
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - modules
+    - nios2
+    - sh
+  packages:
+  - net-firewall/ipset
+
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - caps
+    - libressl
+    - lzma
+    - nios2
+    - scrypt
+    - seccomp
+    - selinux
+    - sh
+    - systemd
+    - test
+    - tor-hardening
+    - zstd
+  packages:
+  - net-vpn/tor
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - nios2
+    - selinux
+    - sh
+    enabled:
+    - gnutls
+    - resolvconf
+  packages:
+  - net-vpn/vpnc
+
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - boost
+    - debug
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - dbus
+    - pam
+    - ssl
+  packages:
+  - net-libs/wvstreams
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - debug
+    - embedded
+    - nios2
+    - obsolete
+    - sh
+    enabled:
+    - syslog
+  packages:
+  - net-misc/ntpclient
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - debug
+    - embedded
+    - nios2
+    - obsolete
+    - sh
+  packages:
+  - net-misc/netkit-telnetd:0
+  - net-analyzer/openbsd-netcat:0
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - custom-cflags
+    - debug
+    - kernel-builtin
+    - libressl
+    - minimal
+    - nios2
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - sh
+    - static-libs
+    - test-suite
+    enabled:
+    - nls
+    - pam
+    - python
+    - python_targets_python3_7
+    - rootfs
+    - split-usr
+  packages:
+  - sys-fs/zfs
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    enabled:
+    - python
+    - python_targets_python3_7
+    - python_targets_python2_7
+  packages:
+  - dev-python/pyserial
+  - dev-python/pyjwt
+  - dev-python/oauthlib
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - audit
+    - consolekit
+    - dhclient
+    - gnutls
+    - iwd
+    - json
+    - nios2
+    - ofono
+    - ovs
+    - selinux
+    - sh
+    - teamd
+    - test
+    - bluetooth
+    - connection-sharing
+    - dhcpcd
+    - elogind
+    - introspection
+    - modemmanager
+    - ppp
+    - policykit
+    - resolvconf
+    - vala
+    - ncurses
+    enabled:
+    - nss
+    - wext
+    - wifi
+  packages:
+  - net-misc/networkmanager
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - autoipd
+    - bookmarks
+    - doc
+    - howl-compat
+    - mono
+    - nios2
+    - python_targets_python3_8
+    - selinux
+    - sh
+    - systemd
+    - test
+    - qt5
+    - gtk
+    - introspection
+    enabled:
+    - dbus
+    - gdbm
+    - ipv6
+    - mdnsresponder-compat
+    - nls
+    - python
+    - python_targets_python3_7
+  packages:
+  - net-dns/avahi
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - ap
+    - bindist
+    - eap-sim
+    - eapol_test
+    - fasteap
+    - libressl
+    - macsec
+    - nios2
+    - p2p
+    - privsep
+    - ps3
+    - selinux
+    - sh
+    - smartcard
+    - tdls
+    - uncommon-eap-types
+    - wimax
+    - wps
+    - qt5
+    enabled:
+    - dbus
+    - fils
+    - hs2-0
+    - readline
+  packages:
+  - net-wireless/wpa_supplicant
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    - regression-test
+    - static-libs
+  packages:
+    - net-wireless/wireless-regdb
+    - dev-libs/userspace-rcu
+    - virtual/python-singledispatch
+    - app-crypt/argon2
+
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - debug
+      - emacs
+      - infiniband
+      - libressl
+      - static-libs
+      - test
+      - vim-syntax
+    enalbed:
+      - bd-xlator
+      - crypt-xlator
+      - fuse
+      - georeplication
+      - glupy
+      - ipv6
+      - libtirpc
+      - qemu-block
+      - rsyslog
+      - syslog
+      - systemtap
+      - xml
+  packages:
+    - sys-cluster/glusterfs
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - babeltrace
+      - dpdk
+      - fuse
+      - grafana
+      - jemalloc
+      - libressl
+      - nss
+      - numa
+      - rabbitmq
+      - static-libs
+      - test
+    enalbed:
+      - system-boost
+      - systemd
+      - tcmalloc
+      - xfs
+      - zfs
+      - radosgw
+      - ssl
+      - lttng
+      - cephfs
+      - ldap
+      - kerberos
+      - mgr
+  packages:
+    - sys-cluster/ceph
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - clvm
+    - cman
+    - corosync
+    - device-mapper-only
+    - lvm1
+    - lvm2create_initrd
+    - nios2
+    - openais
+    - sanlock
+    - selinux
+    - sh
+    - static-libs
+    - static
+    - systemd
+    enabled:
+    - readline
+    - thin
+    - udev
+  packages:
+  - sys-fs/lvm2
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - gcrypt
+    - kernel
+    - libressl
+    - nettle
+    - nios2
+    - pwquality
+    - reencrypt
+    - sh
+    - static
+    - static-libs
+    - urandom
+    enabled:
+    - argon2
+    - luks1_default
+    - nls
+    - openssl
+    - udev
+  packages:
+  - sys-fs/cryptsetup
+
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
 #  - source1.json
@@ -225,7 +1045,6 @@ reposcan_sources:
   - ./kit_cache/security-kit-1.4-release
   - ./kit_cache/text-kit-1.4-release
   - ./kit_cache/xfce-kit-4.14-release
-
   - ./kit_cache/geaaru-kit-funtoo
 
 # Disable use of category with slot as requires. Default is without slot.
