@@ -1,0 +1,1 @@
+DHCLIENT_OPTS="-I"

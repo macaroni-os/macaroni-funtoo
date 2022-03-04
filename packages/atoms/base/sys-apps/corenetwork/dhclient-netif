@@ -1,0 +1,34 @@
+#!/bin/sh
+
+DHCPCD="/sbin/dhclient"
+PIDFILE="/var/run/dhclient-${interface}.pid"
+
+[ -e /etc/conf.d/dhclient ] && source /etc/conf.d/dhclient
+[ ! -d /var/lib/dhcp ] && mkdir -p /var/lib/dhcp
+
+DHCP_DEFOPTS="-lf /var/lib/dhcp/dhclient.${interface}.leases -df /var/lib/dhcp/dhclient6.eth0.leases"
+
+netif_pre_up() {
+    if [ ! -f "${DHCPCD}" ]; then
+        echo "dhclient binary not found. Did you emerge net-misc/dhcp?"
+        exit 1
+    fi
+}
+
+netif_post_up() {
+    if [ -f "${PIDFILE}" ]; then
+        echo "There's a PID file for interface $interface. Aborting."
+        exit 2
+    fi
+
+    $DHCPCD $DHCLIENT_OPTS -pf $PIDFILE $DHCP_DEFOPTS $interface 
+}
+
+netif_pre_down() {
+    if [ ! -f "${PIDFILE}" ]; then
+        echo "There's no PID file for interface ${interface}. Aborting."
+        exit 3
+    fi
+    start-stop-daemon --stop --exec "${DHCPCD}" --pidfile "${PIDFILE}"
+}
+
