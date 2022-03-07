@@ -154,6 +154,13 @@ artefacts:
     - virtual/jdk:11
 
 - tree: packages/atoms-extra/dev
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -187,6 +194,13 @@ artefacts:
     - dev-python/twisted
 
 - tree: packages/atoms-extra/dev
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   ignore_build_deps: true
   mutations:
     buildtime_deps:
@@ -199,6 +213,13 @@ artefacts:
     - virtual/python-singledispatch
 
 - tree: packages/atoms-extra/dev
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
       - kerberos
@@ -206,6 +227,13 @@ artefacts:
     - dev-python/pymongo
 
 - tree: packages/atoms-extra/dev
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -215,6 +243,13 @@ artefacts:
     - net-misc/sshpass
 
 - tree: packages/atoms-extra/dev
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
       - curl_ssl_gnutls
@@ -338,6 +373,7 @@ artefacts:
           - "^/var/db/pkg/"
   packages:
     - sys-apps/flatpak
+    - dev-vcs/hub
 
 - tree: packages/atoms-extra/dev
   uses:
