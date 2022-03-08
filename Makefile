@@ -1,5 +1,5 @@
 
-BACKEND?=docker
+BACKEND?=dockerv2
 CONCURRENCY?=1
 CI_ARGS?=
 PACKAGES?=
