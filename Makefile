@@ -16,9 +16,15 @@ BUILD_ARGS?=--pull --no-spinner
 SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
+REPO_VALUES?=values/amd64.yml
+export REPO_VALUES
 
 ifneq ($(strip $(REPO_CACHE)),)
 	BUILD_ARGS+=--image-repository $(REPO_CACHE)
+endif
+
+ifneq ($(strip $(REPO_VALUES)),)
+  BUILD_ARGS+=--values $(REPO_VALUES)
 endif
 
 .PHONY: all
