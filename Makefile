@@ -16,7 +16,7 @@ BUILD_ARGS?=--pull --no-spinner
 SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
-REPO_VALUES?=values/amd64.yml
+REPO_VALUES?=values/amd64.yaml
 export REPO_VALUES
 
 ifneq ($(strip $(REPO_CACHE)),)
