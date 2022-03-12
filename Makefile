@@ -16,6 +16,9 @@ BUILD_ARGS?=--pull --no-spinner
 SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
+REPO_NAME?=macaroni-funtoo
+REPO_DESC?="Macaroni OS Funtoo"
+REPO_URL?=https://cdn.macaroni.funtoo.org/mottainai/macaroni-funtoo/
 REPO_VALUES?=values/amd64.yaml
 export REPO_VALUES
 
@@ -62,9 +65,9 @@ create-repo:
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
-    --name "macaroni-funtoo" \
-    --descr "Macaroni OS Funtoo $(ARCH)" \
-    --urls "http://localhost:8000" \
+    --name "$(REPO_NAME)" \
+    --descr "$(REPO_DESC) $(ARCH)" \
+    --urls "$(REPO_URL)" \
     --tree-compression $(COMPRESSION) \
     --tree-filename tree.tar \
     --meta-compression $(COMPRESSION) \
