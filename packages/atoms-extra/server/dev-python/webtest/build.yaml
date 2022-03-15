@@ -9,6 +9,7 @@ prelude:
 # TEMPORARY: to remove when the fix will be in the tree. FL-9545
 - >-
   sed -e 's|dev-python/beautifulsoup:4|dev-python/beautifulsoup|g' /var/git/meta-repo/kits/python-modules-kit/dev-python/webtest/webtest-2.0.29-r1.ebuild -i
+
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -17,9 +18,10 @@ prelude:
   {{- else }}
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- end }}
+# Really, i dunno why is need to force PYTHON_TARGETS.
 - |
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  PYTHON_TARGETS=python3_7 USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- else }}
   emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- end }}
@@ -32,6 +34,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: webob
+- name: beautifulsoup
   version: '>=0'
   category: dev-python
