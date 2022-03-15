@@ -205,6 +205,25 @@ artefacts:
   packages:
     - app-emulation/cloud-init
     - dev-python/webtest
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: webtest
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - test
+      - python_targets_python2_7
+  packages:
     - dev-python/pecan
 
 - tree: packages/atoms-extra/server
