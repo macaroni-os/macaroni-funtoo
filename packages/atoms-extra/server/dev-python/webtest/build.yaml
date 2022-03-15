@@ -6,6 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# TEMPORARY: to remove when the fix will be in the tree. FL-9545
+- >-
+  sed -e 's|dev-python/beautifulsoup:4|dev-python/beautifulsoup|g' /var/git/meta-repo/kits/python-modules-kit/dev-python/webtest/webtest-2.0.29-r1.ebuild -i
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
