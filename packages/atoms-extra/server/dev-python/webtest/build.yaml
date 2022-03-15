@@ -10,15 +10,15 @@ prelude:
 - >-
   sed -e 's|dev-python/beautifulsoup:4|dev-python/beautifulsoup|g' /var/git/meta-repo/kits/python-modules-kit/dev-python/webtest/webtest-2.0.29-r1.ebuild -i
 
+# Really, i dunno why is need to force PYTHON_TARGETS.
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  PYTHON_TARGETS=python3_7 USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- end }}
-# Really, i dunno why is need to force PYTHON_TARGETS.
 - |
   {{- if .Values.use_flags }}
   PYTHON_TARGETS=python3_7 USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
