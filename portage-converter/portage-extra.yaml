@@ -58,15 +58,14 @@ artefacts:
 - tree: packages/atoms-extra/portage
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
-    - sys-apps/metatools
     # TODO: maybe subpop is to move on python-extra?
     - dev-python/subpop
-    - dev-python/automat
     # PY 2.7 only deps
     - dev-python/backports-abc
     - dev-python/typing
@@ -75,10 +74,32 @@ artefacts:
 - tree: packages/atoms-extra/portage
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    enabled:
+      - conch
+      - crypt
+      - soap
+      - python_targets_python3_7
+      - python_targets_python2_7
+    disabled:
+      - examples
+  packages:
+    - dev-python/automat
+    - sys-apps/metatools
+
+- tree: packages/atoms-extra/portage
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     enabled:
       - nls
@@ -97,10 +118,11 @@ artefacts:
           name: typing
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - virtual/python-typing
 
@@ -113,10 +135,11 @@ artefacts:
           name: backports-abc
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - virtual/python-backports_abc
 
@@ -127,12 +150,14 @@ artefacts:
       packages:
         - category: dev-python
           name: futures
+
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - virtual/python-futures
 

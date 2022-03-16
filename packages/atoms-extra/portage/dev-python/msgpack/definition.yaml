@@ -2,10 +2,10 @@ name: msgpack
 version: 1.0.3
 category: dev-python
 use_flags:
+- -native-extensions
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -test
-- native-extensions
 - python_targets_python3_7
 requires:
 - name: python
@@ -16,10 +16,11 @@ requires:
   category: dev-lang-2
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: MessagePack (de)serializer for Python
 uri:
 - https://msgpack.org https://github.com/msgpack/msgpack-python/ https://pypi.org/project/msgpack/

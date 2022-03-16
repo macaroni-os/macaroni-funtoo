@@ -2,11 +2,11 @@ name: pycurl
 version: 7.43.0.2
 category: dev-python
 use_flags:
+- -curl_ssl_gnutls
+- -ssl
 - -test
-- curl_ssl_gnutls
 - python_targets_python2_7
 - python_targets_python3_7
-- ssl
 requires:
 - name: python
   version: '>=0'
@@ -17,18 +17,16 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
-- name: gnutls
-  version: '>=0'
-  category: net-libs
 - name: curl
   version: '>=0'
   category: net-misc
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: python binding for curl/libcurl
 uri:
 - https://github.com/pycurl/pycurl https://pypi.org/project/pycurl/ http://pycurl.io/
