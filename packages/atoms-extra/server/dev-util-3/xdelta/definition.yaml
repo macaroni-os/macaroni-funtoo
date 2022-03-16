@@ -1,0 +1,31 @@
+name: xdelta
+version: 3.1.0
+category: dev-util-3
+use_flags:
+- -test
+requires:
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Computes changes between binary or text files and creates deltas
+uri:
+- http://xdelta.org/
+license: GPL-2
+labels:
+  DEPEND: app-arch/xz-utils test? ( || ( >=dev-lang/python-2.7.5-r2:2.7 ) ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 =sys-devel/automake-1.14* >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: examples test
+  RDEPEND: app-arch/xz-utils
+  emerge.packages: dev-util/xdelta:3
+  kit: dev-kit
+  original.package.name: dev-util/xdelta
+  original.package.slot: "3"
+  original.package.version: 3.1.0
