@@ -2,13 +2,13 @@ name: twisted
 version: 18.7.0
 category: dev-python
 use_flags:
+- -serial
 - -test
 - conch
 - crypt
 - http2
 - python_targets_python2_7
 - python_targets_python3_7
-- serial
 - soap
 requires:
 - name: appdirs
@@ -38,9 +38,6 @@ requires:
 - name: pyhamcrest
   version: '>=0'
   category: dev-python
-- name: pyserial
-  version: '>=0'
-  category: dev-python
 - name: service_identity
   version: '>=0'
   category: dev-python
@@ -49,10 +46,11 @@ requires:
   category: dev-python
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: An asynchronous networking framework written in Python
 uri:
 - https://www.twistedmatrix.com/trac/
