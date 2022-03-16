@@ -7,6 +7,8 @@ kits=(
   "dev"
   "python"
   "db"
+  "portage"
+  "server"
 )
 
 for i in ${kits[@]} ; do
