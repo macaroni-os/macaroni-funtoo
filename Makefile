@@ -13,7 +13,10 @@ export TREE?=$(ROOT_DIR)/packages
 REPO_CACHE?=quay.io/geaaru/funtoo-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
-REPO?=macaroni-funtoo-systemd
+REPO_NAME?=macaroni-funtoo-systemd
+REPO_DESC?="Macaroni OS Funtoo Systemd"
+REPO_URL?="https://cdn.macaroni.funtoo.org/mottainai/macaroni-funtoo-systemd/"
+
 SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
@@ -57,9 +60,9 @@ create-repo:
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
-    --name "$(REPO)" \
-    --descr "Macaroni OS Funtoo SystemD $(ARCH)" \
-    --urls "http://localhost:8000" \
+    --name "$(REPO_NAME)" \
+    --descr "$(REPO_DESC) $(ARCH)" \
+    --urls "$(REPO_URL)" \
     --tree-compression $(COMPRESSION) \
     --tree-filename tree.tar \
     --meta-compression $(COMPRESSION) \
