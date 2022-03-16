@@ -226,25 +226,25 @@ artefacts:
   packages:
     - dev-python/webtest
 
-- tree: packages/atoms-extra/server
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: webtest
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  uses:
-    disabled:
-      - test
-      - python_targets_python2_7
-  packages:
-    - dev-python/pecan
+#- tree: packages/atoms-extra/server
+#  mutations:
+#    buildtime_deps:
+#      packages:
+#        - category: dev-python
+#          name: webtest
+#  annotations:
+#    subsets:
+#      rules:
+#        devel:
+#          - "^/usr/include/"
+#        portage:
+#          - "^/var/db/pkg/"
+#  uses:
+#    disabled:
+#      - test
+#      - python_targets_python2_7
+#  packages :
+#     - dev-python/pecan
 
 - tree: packages/atoms-extra/server
   mutations:
@@ -956,44 +956,44 @@ artefacts:
   packages:
     - sys-cluster/glusterfs
 
-- tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  uses:
-    disabled:
-      - babeltrace
-      - dpdk
-      - fuse
-      - grafana
-      - jemalloc
-      - libressl
-      - nss
-      - numa
-      - rabbitmq
-      - static-libs
-      - lttng
-      - test
-      - python_targets_python2_7
-    enabled:
-      - system-boost
-      - systemd
-      - tcmalloc
-      - xfs
-      - zfs
-      - radosgw
-      - ssl
-      - cephfs
-      - ldap
-      - kerberos
-      - mgr
-  packages:
-    - sys-cluster/ceph
-
+# - tree: packages/atoms-extra/server
+#  annotations:
+#    subsets:
+#      rules:
+#        devel:
+#          - "^/usr/include/"
+#        portage:
+#          - "^/var/db/pkg/"
+#  uses:
+#    disabled:
+#      - babeltrace
+#      - dpdk
+#      - fuse
+#      - grafana
+#      - jemalloc
+#      - libressl
+#      - nss
+#      - numa
+#      - rabbitmq
+#      - static-libs
+#      - lttng
+#      - test
+#      - python_targets_python2_7
+#    enabled:
+#      - system-boost
+#      - systemd
+#      - tcmalloc
+#      - xfs
+#      - zfs
+#      - radosgw
+#      - ssl
+#      - cephfs
+#      - ldap
+#      - kerberos
+#      - mgr
+#  packages:
+#    - sys-cluster/ceph
+#
 - tree: packages/atoms-extra/server
   replacements:
     runtime_deps:
