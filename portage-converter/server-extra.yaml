@@ -1082,10 +1082,11 @@ artefacts:
           name: macaroni-funtoo-race3
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - sys-process/cronbase
     - virtual/cron
@@ -1108,6 +1109,295 @@ artefacts:
   packages:
     - sys-process/cronie
 
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_single_target_python3_8
+    - python_single_target_python3_9
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - reiserfs
+    - sh
+    - static
+    - static-libs
+    enabled:
+    - convert
+    - python
+    - python_single_target_python3_7
+    - python_targets_python3_7
+    - zstd
+  packages:
+  - sys-fs/btrfs-progs
+
+- tree: packages/atoms-extra/server
+
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - apparmor
+    - device-mapper
+    - hardened
+    - nios2
+    - selinux
+    - sh
+    - test
+    enabled:
+    - btrfs
+    - cri
+    - seccomp
+  packages:
+  - app-emulation/containerd
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - apparmor
+    - aufs
+    - device-mapper
+    - hardened
+    - nios2
+    - seccomp
+    - sh
+    enabled:
+    - btrfs
+    - cli
+    - container-init
+    - overlay
+  packages:
+  - app-emulation/docker
+
+- tree: packages/atoms-extra/emulation
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - sh
+    - static-libs
+    enabled:
+    - perl
+    - python
+    - python_targets_python3_7
+  packages:
+  - sys-libs/libapparmor
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - args
+    - static
+  packages:
+  - sys-process/tini
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+    enabled:
+    - lz4
+    - lzma
+    - lzo
+    - xattr
+    - zstd
+  packages:
+  - sys-fs/squashfs-tools
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - btrfs
+    - nios2
+    - ostree
+    - selinux
+    - sh
+    - systemd
+    enabled:
+    - device-mapper
+  packages:
+  - app-emulation/cri-o
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+    enabled:
+    - kmem
+    - seccomp
+  packages:
+  - app-emulation/runc
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+  packages:
+  - app-emulation/docker-cli
+  - net-misc/cni-plugins
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-util/xdelta:3
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - perl
+  packages:
+  - net-firewall/ebtables
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - app-emulation/docker-proxy
+  - dev-go/go-md2man
+  - sys-fs/lxcfs
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - apparmor
+    - doc
+    - man
+    - nios2
+    - selinux
+    - sh
+    enabled:
+    - caps
+    - pam
+    - ssl
+    - tools
+  packages:
+  - app-emulation/lxc
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - apparmor
+    - nios2
+    - sh
+    enabled:
+    - ipv6
+    - nls
+  packages:
+  - app-emulation/lxd
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
 #  - source1.json
