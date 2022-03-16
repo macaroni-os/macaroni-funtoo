@@ -1,0 +1,30 @@
+name: libnetfilter_queue
+version: 1.0.3
+category: net-libs
+requires:
+- name: libmnl
+  version: '>=0'
+  category: net-libs
+- name: libnfnetlink
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: API to packets that have been queued by the kernel packet filter
+uri:
+- https://www.netfilter.org/projects/libnetfilter_queue/
+license: GPL-2
+labels:
+  DEPEND: '>=net-libs/libmnl-1.0.3 >=net-libs/libnfnetlink-0.0.41 virtual/pkgconfig'
+  IUSE: static-libs kernel_linux
+  RDEPEND: '>=net-libs/libmnl-1.0.3 >=net-libs/libnfnetlink-0.0.41'
+  emerge.packages: net-libs/libnetfilter_queue
+  kit: net-kit
+  original.package.name: net-libs/libnetfilter_queue
+  original.package.slot: "0"
+  original.package.version: 1.0.3
