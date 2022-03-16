@@ -80,6 +80,20 @@ artefacts:
         portage:
           - "^/var/db/pkg/"
   uses:
+    disabled:
+      - curl_ssl_gnutls
+  packages:
+    - dev-python/pycurl
+
+- tree: packages/atoms-extra/portage
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
     enabled:
       - conch
       - crypt
