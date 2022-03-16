@@ -1265,16 +1265,34 @@ artefacts:
           - "^/var/db/pkg/"
   uses:
     disabled:
-    - btrfs
     - nios2
     - ostree
     - selinux
     - sh
-    - systemd
     enabled:
+    - btrfs
     - device-mapper
+    - systemd
   packages:
   - app-emulation/cri-o
+
+
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - example
+    enabled:
+    - suid
+    - network
+  packages:
+  - sys-cluster/singularity
 
 - tree: packages/atoms-extra/server
   annotations:

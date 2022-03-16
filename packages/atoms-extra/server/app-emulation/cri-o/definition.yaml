@@ -2,11 +2,11 @@ name: cri-o
 version: 1.14.4
 category: app-emulation
 use_flags:
-- -btrfs
 - -ostree
 - -selinux
-- -systemd
+- btrfs
 - device-mapper
+- systemd
 requires:
 - name: gpgme
   version: '>=0'
@@ -32,6 +32,12 @@ requires:
 - name: iproute2
   version: '>=0'
   category: sys-apps
+- name: systemd
+  version: '>=0'
+  category: sys-apps
+- name: btrfs-progs
+  version: '>=0'
+  category: sys-fs
 - name: lvm2
   version: '>=0'
   category: sys-fs
