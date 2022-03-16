@@ -1,5 +1,5 @@
 
-BACKEND?=docker
+BACKEND?=dockerv2
 CONCURRENCY?=1
 CI_ARGS?=
 PACKAGES?=
@@ -13,6 +13,7 @@ export TREE?=$(ROOT_DIR)/packages
 REPO_CACHE?=quay.io/geaaru/funtoo-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
+REPO?=macaroni-funtoo-systemd
 SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
@@ -56,7 +57,7 @@ create-repo:
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
-    --name "macaroni-funtoo-systemd" \
+    --name "$(REPO)" \
     --descr "Macaroni OS Funtoo SystemD $(ARCH)" \
     --urls "http://localhost:8000" \
     --tree-compression $(COMPRESSION) \
