@@ -1,0 +1,47 @@
+name: squashfs-tools
+version: "4.4"
+category: sys-fs
+use_flags:
+- lz4
+- lzma
+- lzo
+- xattr
+- zstd
+requires:
+- name: lz4
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: lzo
+  version: '>=0'
+  category: dev-libs-2
+- name: attr
+  version: '>=0'
+  category: sys-apps
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: tools to create and extract Squashfs filesystems
+uri:
+- https://github.com/plougher/squashfs-tools/
+license: GPL-2
+labels:
+  DEPEND: sys-libs/zlib lz4? ( app-arch/lz4 ) lzma? ( app-arch/xz-utils ) lzo? ( dev-libs/lzo
+    ) xattr? ( sys-apps/attr ) zstd? ( app-arch/zstd )
+  IUSE: debug lz4 +lzma lzo xattr zstd
+  RDEPEND: sys-libs/zlib lz4? ( app-arch/lz4 ) lzma? ( app-arch/xz-utils ) lzo? (
+    dev-libs/lzo ) xattr? ( sys-apps/attr ) zstd? ( app-arch/zstd )
+  emerge.packages: sys-fs/squashfs-tools
+  kit: core-kit
+  original.package.name: sys-fs/squashfs-tools
+  original.package.slot: "0"
+  original.package.version: 4.4_p1
