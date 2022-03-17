@@ -11,7 +11,7 @@ prelude:
   eval 'mkdir -p /var/cache/portage/distfiles || true' &&
   chown portage:portage -R /var/cache/portage/ &&
   cd /var/git/meta-repo/kits/core-kit/sys-process/criu/ &&
-  ebuild digest criu-3.16.1.ebuild
+  ebuild criu-3.16.1.ebuild digest
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
