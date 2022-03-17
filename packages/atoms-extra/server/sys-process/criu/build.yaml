@@ -11,6 +11,7 @@ prelude:
   eval 'mkdir -p /var/cache/portage/distfiles || true' &&
   chown portage:portage -R /var/cache/portage/ &&
   cd /var/git/meta-repo/kits/core-kit/sys-process/criu/ &&
+  rm Manifest &&
   ebuild criu-3.16.1.ebuild digest
 - |
   {{- if .Values.use_flags }}
