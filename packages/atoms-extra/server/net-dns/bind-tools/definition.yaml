@@ -1,5 +1,5 @@
 name: bind-tools
-version: 9.12.3
+version: 9.18.1
 category: net-dns
 use_flags:
 - -gost
@@ -28,23 +28,18 @@ uri:
 - http://www.isc.org/software/bind
 license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
-  DEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
-    ) ) gost? ( || ( =dev-libs/openssl-1.0*[-bindist] ( >=dev-libs/openssl-1.1 dev-libs/gost-engine
-    ) ) ) xml? ( dev-libs/libxml2 ) idn? ( <net-dns/idnkit-2:= ) libidn2? ( net-dns/libidn2:=
-    ) gssapi? ( virtual/krb5 ) libedit? ( dev-libs/libedit ) !libedit? ( readline?
-    ( sys-libs/readline:0= ) ) seccomp? ( sys-libs/libseccomp ) virtual/pkgconfig
-  IUSE: doc gost gssapi idn ipv6 libedit libidn2 libressl readline seccomp ssl urandom
-    xml
-  RDEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
-    ) ) gost? ( || ( =dev-libs/openssl-1.0*[-bindist] ( >=dev-libs/openssl-1.1 dev-libs/gost-engine
-    ) ) ) xml? ( dev-libs/libxml2 ) idn? ( <net-dns/idnkit-2:= ) libidn2? ( net-dns/libidn2:=
-    ) gssapi? ( virtual/krb5 ) libedit? ( dev-libs/libedit ) !libedit? ( readline?
-    ( sys-libs/readline:0= ) ) seccomp? ( sys-libs/libseccomp ) !<net-dns/bind-9.10.2
+  BDEPEND: doc? ( dev-python/sphinx ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/libuv:= caps? ( sys-libs/libcap ) dev-libs/openssl:= xml? ( dev-libs/libxml2
+    ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5 ) libedit? ( dev-libs/libedit
+    ) !libedit? ( readline? ( sys-libs/readline:= ) )
+  IUSE: +caps doc gssapi idn ipv6 libedit readline xml
+  RDEPEND: dev-libs/libuv:= caps? ( sys-libs/libcap ) dev-libs/openssl:= xml? ( dev-libs/libxml2
+    ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5 ) libedit? ( dev-libs/libedit
+    ) !libedit? ( readline? ( sys-libs/readline:= ) )
   emerge.packages: net-dns/bind-tools
-  kit: core-kit
+  kit: net-kit
   original.package.name: net-dns/bind-tools
   original.package.slot: "0"
-  original.package.version: 9.12.3_p4
+  original.package.version: 9.18.1
