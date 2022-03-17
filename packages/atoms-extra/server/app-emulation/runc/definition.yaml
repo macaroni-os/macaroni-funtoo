@@ -1,5 +1,5 @@
 name: runc
-version: 1.0.1
+version: 1.0.3
 category: app-emulation
 use_flags:
 - seccomp
@@ -22,11 +22,14 @@ uri:
 - http://runc.io
 license: Apache-2.0 BSD-2 BSD MIT
 labels:
-  BDEPEND: '>=dev-lang/go-1.10'
-  IUSE: hardened +kmem +seccomp kernel_linux
-  RDEPEND: sys-libs/libapparmor seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc
+  BDEPEND: dev-go/go-md2man test? ( seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc
+    apparmor? ( sys-libs/libapparmor ) ) >=dev-lang/go-1.12 app-arch/unzip
+  DEPEND: seccomp? ( sys-libs/libseccomp )
+  IUSE: apparmor hardened +kmem +seccomp test kernel_linux
+  RDEPEND: seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc apparmor? (
+    sys-libs/libapparmor )
   emerge.packages: app-emulation/runc
   kit: core-kit
   original.package.name: app-emulation/runc
   original.package.slot: "0"
-  original.package.version: 1.0.1
+  original.package.version: 1.0.3
