@@ -127,6 +127,12 @@ artefacts:
   packages:
   - dev-python/cryptography
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
   annotations:
     subsets:
       rules:
