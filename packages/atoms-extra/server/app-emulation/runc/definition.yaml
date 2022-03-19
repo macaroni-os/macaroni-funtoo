@@ -1,12 +1,11 @@
 name: runc
-version: 1.0.3
+version: 1.0.3+1
 category: app-emulation
 use_flags:
+- -apparmor
+- -test
 - seccomp
 requires:
-- name: libapparmor
-  version: '>=0'
-  category: sys-libs
 - name: libseccomp
   version: '>=0'
   category: sys-libs
@@ -19,7 +18,7 @@ annotations:
       - ^/var/db/pkg/
 description: runc container cli tools
 uri:
-- http://runc.io
+- http://github.com/opencontainers/runc/
 license: Apache-2.0 BSD-2 BSD MIT
 labels:
   BDEPEND: dev-go/go-md2man test? ( seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc
