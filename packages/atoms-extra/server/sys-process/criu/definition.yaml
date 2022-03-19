@@ -1,14 +1,17 @@
 name: criu
-version: 3.16.1+2
+version: 3.16.1+3
 category: sys-process
 use_flags:
 - -doc
-- -python_targets_python3_7
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -selinux
-- -setproctitle
+- python_targets_python3_7
+- setproctitle
 requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
 - name: libnl
   version: '>=0'
   category: dev-libs-3
