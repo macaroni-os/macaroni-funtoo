@@ -1,8 +1,9 @@
 name: cloud-init
-version: "22.1+1"
+version: 22.1+1
 category: app-admin
 use_flags:
-- -python_targets_python2_7
+- -python_targets_python3_8
+- -python_targets_python3_9
 - -test
 - python_targets_python3_7
 requires:
@@ -30,6 +31,9 @@ requires:
 - name: requests
   version: '>=0'
   category: dev-python
+- name: setuptools
+  version: '>=0'
+  category: dev-python
 - name: macchanger
   version: '>=0'
   category: net-analyzer
@@ -53,7 +57,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Cloud instance initialisation magic
+description: 'Official upstream for the cloud-init: cloud instance initialization'
 uri:
 - https://launchpad.net/cloud-init
 license: GPL-3
