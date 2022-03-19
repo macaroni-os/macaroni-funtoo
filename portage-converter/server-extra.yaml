@@ -170,6 +170,7 @@ artefacts:
       - xml
       - zlib
     disabled:
+      - python
       - dnsrps
       - dnstap
       - doc
@@ -183,7 +184,6 @@ artefacts:
       - mysql
       - odbc
       - postgres
-      - python
       - selinux
       - static-libs
       - urandom
@@ -953,6 +953,8 @@ artefacts:
       - syslog
       - systemtap
       - xml
+      - python_single_target_python3_7
+      - elibc_glibc
   packages:
     - sys-cluster/glusterfs
 
@@ -1192,7 +1194,7 @@ artefacts:
   packages:
   - app-emulation/docker
 
-- tree: packages/atoms-extra/emulation
+- tree: packages/atoms-extra/server
   annotations:
     subsets:
       rules:
@@ -1333,7 +1335,68 @@ artefacts:
   packages:
   - app-emulation/docker-cli
   - net-misc/cni-plugins
+  - sys-block/parted
+  - sys-auth/oath-toolkit
+  - sys-process/criu
+  - dev-python/zc-lockfile
+  - dev-util/cunit
+  - dev-python/simplejson
+  - dev-python/tempora
+  - dev-python/setuptools_scm_git_archive
+  - dev-python/protobuf-python
+  - dev-python/prettytable
+  - dev-python/namespace-jaraco
+  - dev-python/namespace-google
+  - dev-python/mako
+  - dev-python/logutils
+  - dev-python/jaraco-functools
+  - dev-python/itsdangerous
+  - dev-python/click
+  - dev-python/cherrypy
+  - dev-python/cheroot
+  - dev-python/bcrypt
+  - dev-python/backports-functools-lru-cache
+  - dev-python/portend
+  - dev-python/ordereddict
+  - dev-libs/libpwquality
+  - dev-libs/leveldb
+  - dev-libs/crypto++
+  - dev-lang/yasm
+  - net-misc/socat
 
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - app-misc/jq
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - test
+    - nss
+  packages:
+  - dev-libs/xmlsec
 - tree: packages/atoms-extra/server
   annotations:
     subsets:
