@@ -3,38 +3,32 @@ version: 9.18.1
 category: net-dns
 use_flags:
 - -dnstap
+- -doh
 - -geoip
 - -gssapi
-- -json
-- -ldap
-- -libressl
+- -idn
 - -lmdb
-- -mysql
-- -odbc
-- -postgres
-- -python
-- -python_targets_python3_7
-- -python_targets_python3_8
-- -python_targets_python3_9
 - -selinux
-- berkdb
+- -test
 - caps
 - xml
-- zlib
 requires:
+- name: jemalloc
+  version: '>=0'
+  category: dev-libs
+- name: json-c
+  version: '>=0'
+  category: dev-libs
 - name: libuv
   version: '>=0'
   category: dev-libs
 - name: libxml2
   version: '>=0'
   category: dev-libs-2
-- name: db
+- name: openssl
   version: '>=0'
-  category: sys-libs-18.1
+  category: dev-libs
 - name: libcap
-  version: '>=0'
-  category: sys-libs
-- name: zlib
   version: '>=0'
   category: sys-libs
 - name: psmisc
