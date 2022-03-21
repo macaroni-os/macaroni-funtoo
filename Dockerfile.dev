@@ -5,7 +5,7 @@ RUN mkdir /funtoo-minimal/etc/ -p && \
       touch /funtoo-minimal/etc/group && \
       touch /funtoo-minimal/etc/gshadow
 
-FROM macaronios/luet:latest
+FROM macaronios/luet:latest-amd64
 ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 #COPY luet /usr/bin/luet
 #ADD https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml /etc/luet/repos.conf.d/
