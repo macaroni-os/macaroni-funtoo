@@ -1206,7 +1206,9 @@ artefacts:
       - >-
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e docker
-      - chown root:docker /var/lib/docker
+      - >-
+        eval 'mkdir /var/lib/docker -p || true' &&
+        chown root:docker /var/lib/docker
 
 - tree: packages/atoms-extra/server
   annotations:
