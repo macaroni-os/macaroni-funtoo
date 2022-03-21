@@ -151,6 +151,20 @@ artefacts:
   packages:
   - app-emulation/containerd
 - tree: packages/atoms/emulation
+  mutations:
+    uses:
+      - overlay
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   uses:
     disabled:
     - apparmor
@@ -167,6 +181,18 @@ artefacts:
     - overlay
   packages:
   - app-emulation/docker
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e docker
+      - >-
+        eval 'mkdir /var/lib/docker -p || true' &&
+        chown root:docker /var/lib/docker
+
 - tree: packages/atoms/emulation
   uses:
     disabled:
