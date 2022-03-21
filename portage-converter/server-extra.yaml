@@ -1170,6 +1170,10 @@ artefacts:
   mutations:
     uses:
       - overlay
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   annotations:
     subsets:
       rules:
@@ -1193,6 +1197,16 @@ artefacts:
     - overlay
   packages:
   - app-emulation/docker
+  override_version: 20.10.8+1
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e docker
+      - chown root:docker /var/lib/docker
 
 - tree: packages/atoms-extra/server
   annotations:
