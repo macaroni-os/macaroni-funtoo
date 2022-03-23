@@ -13,7 +13,7 @@ main () {
 
   if [ -z "${BUMPER_DIR}" ] ; then
     echo "Missing BUMPER_DIR variable with the package directory to parse"
-    exit 1
+    return 1
   fi
 
   echo "Running bumper for directory ${BUMPER_DIR}..."
