@@ -5,10 +5,17 @@ use_flags:
 - -elibc_Darwin
 - -elibc_FreeBSD
 - -elibc_SunOS
-- -python_single_target_python3_7
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - python
+- python_single_target_python3_7
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 annotations:
   subsets:
     rules:
