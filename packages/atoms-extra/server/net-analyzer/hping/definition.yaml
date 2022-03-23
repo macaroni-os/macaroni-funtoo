@@ -1,0 +1,29 @@
+name: hping
+version: 3_pre20141226
+category: net-analyzer
+use_flags:
+- -tcl
+requires:
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A ping-like TCP/IP packet assembler/analyzer
+uri:
+- http://www.hping.org
+license: GPL-2
+labels:
+  DEPEND: net-libs/libpcap tcl? ( dev-lang/tcl:0= )
+  IUSE: tcl
+  RDEPEND: net-libs/libpcap tcl? ( dev-lang/tcl:0= )
+  emerge.packages: net-analyzer/hping
+  kit: net-kit
+  original.package.name: net-analyzer/hping
+  original.package.slot: "0"
+  original.package.version: 3_pre20141226
