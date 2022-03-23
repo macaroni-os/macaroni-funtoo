@@ -176,19 +176,29 @@ extra-pkgs:
 
 seeds:
   - name: macaroni-funtoo-base
+    prefix: packages/atoms-extra
     specs:
-      - net-extra.yaml
-      - dev-extra.yaml
+      - file: net-extra.yaml
+        dir: net
+      - file: dev-extra.yaml
+        dir: dev
 
   - name: macaroni-funtoo-race1
+    prefix: packages/atoms-extra
     specs:
-      - python-extra.yaml
+      - file: python-extra.yaml
+        dir: python
 
   - name: macaroni-funtoo-race2
+    prefix: packages/atoms-extra
     specs:
-      - db-extra.yaml
+      - file: db-extra.yaml
+        dir: db
 
   - name: macaroni-funtoo-race3
+    prefix: packages/atoms-extra
     specs:
-      - server-extra.yaml
-      - portage-extra.yaml
+      - file: server-extra.yaml
+        dir: server
+      - file: portage-extra.yaml
+        dir: portage
