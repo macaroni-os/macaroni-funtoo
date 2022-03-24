@@ -10,15 +10,15 @@ prelude:
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
-  emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- end }}
 - |
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- else }}
-  emerge -j ${JOBS} --nodeps ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
+  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- end }}
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet portage
   -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
@@ -29,6 +29,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: mongo-c-driver
+- name: libmemcached
   version: '>=0'
   category: dev-libs
