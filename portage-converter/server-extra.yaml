@@ -1520,9 +1520,12 @@ artefacts:
     - apparmor
     - nios2
     - sh
+    - test
     enabled:
     - ipv6
     - nls
+    - dnsmasq
+    - daemon
   packages:
   - app-emulation/lxd
 
@@ -1910,6 +1913,11 @@ reposcan_contraints:
     - dev-cpp/gtkmm:3.0
     - dev-db/postgresql:13
     - dev-db/postgresql:11
+
+    # Temporary
+    - <=app-emulation/lxd-4.14
+    - <app-emulation/lxc-4.0.10
+    - <sys-cluster/singularity-3.8.7
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
