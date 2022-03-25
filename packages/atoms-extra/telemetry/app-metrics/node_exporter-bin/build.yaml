@@ -6,7 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-- luet rm app-metrics/node_exporter -y
+- >-
+  luet rm toolchain/extra-net -y &&
+  luet rm app-metrics/node_exporter -y
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
