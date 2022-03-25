@@ -1,4 +1,5 @@
 funtoo-stage:
+
   kits:
     browser-kit:
       specs:
@@ -75,6 +76,7 @@ funtoo-stage:
         - base-custom.yaml
         - base.yaml
 
+# grep kit packages/atoms-extra/telemetry/* -r | awk '{ print $3 }'
 extra-pkgs:
   kits:
 
@@ -109,6 +111,7 @@ extra-pkgs:
         - net-extra.yaml
         - python-extra.yaml
         - server-extra.yaml
+        - telemetry.yaml
 
     lang-kit:
       specs:
@@ -146,6 +149,7 @@ extra-pkgs:
         - dev-extra.yaml
         - net-extra.yaml
         - server-extra.yaml
+        - telemetry.yaml
 
     python-modules-kit:
       specs:
@@ -202,3 +206,5 @@ seeds:
         dir: server
       - file: portage-extra.yaml
         dir: portage
+      - file: telemetry.yaml
+        dir: telemetry
