@@ -7,7 +7,7 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 - >-
-  eval 'mkdir -p /etc/portage/package.mask' &&
+  eval 'mkdir -p /etc/portage/package.mask || true' &&
   cp -vf 00-nodejs.package.mask /etc/portage/package.mask/
 - |
   {{- if .Values.use_flags }}
