@@ -919,10 +919,28 @@ artefacts:
     - static-libs
   packages:
     - net-wireless/wireless-regdb
-    - dev-libs/userspace-rcu
     - virtual/python-singledispatch
     - app-crypt/argon2
 
+- tree: packages/atoms-extra/server
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    - regression-test
+    - static-libs
+  packages:
+    - dev-libs/userspace-rcu
+    - dev-util/lttng-ust
+    - dev-util/lttng-tools
 
 - tree: packages/atoms-extra/server
   annotations:
@@ -1819,8 +1837,8 @@ artefacts:
           - "^/var/db/pkg/"
   packages:
     - sys-devel/automake:1.13
-      #- dev-util/lttng-tools
-      #- dev-util/lttng-ust
+    - dev-util/lttng-tools
+    - dev-util/lttng-ust
 
 - tree: packages/atoms-extra/server
   mutations:
