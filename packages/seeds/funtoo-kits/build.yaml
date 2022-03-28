@@ -42,7 +42,6 @@ prelude:
   cp patches/text-kit/* /var/git/meta-repo/kits/text-kit/ -rfv
 - >-
   cp -rvf kits-patches/core-kit/* /var/git/meta-repo/kits/core-kit/ &&
-  cp -rvf kits-patches/nokit/* /var/git/meta-repo/kits/nokit/ &&
   sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g' /var/git/meta-repo/kits/core-kit/profiles/base/packages &&
   sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g'
   -e 's|^*net-dns/openresolv|#*net-dns/openresolv|g'
