@@ -1,0 +1,29 @@
+name: geoip
+version: 1.6.12
+category: dev-libs
+requires:
+- name: wget
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GeoIP Legacy C API
+uri:
+- https://github.com/maxmind/geoip-api-c
+license: LGPL-2.1 GPL-2 MaxMind2
+labels:
+  DEPEND: net-misc/wget >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: static-libs
+  RDEPEND: net-misc/wget
+  emerge.packages: dev-libs/geoip
+  kit: dev-kit
+  original.package.name: dev-libs/geoip
+  original.package.slot: "0"
+  original.package.version: 1.6.12
