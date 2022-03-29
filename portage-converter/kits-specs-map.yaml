@@ -76,7 +76,7 @@ funtoo-stage:
         - base-custom.yaml
         - base.yaml
 
-# grep kit packages/atoms-extra/telemetry/* -r | awk '{ print $3 }'
+# grep "kit:" packages/atoms-extra/java/* -r | awk '{ print $3 }' | sort | uniq
 extra-pkgs:
   kits:
 
@@ -103,6 +103,7 @@ extra-pkgs:
         - python-extra.yaml
         - server-extra.yaml
         - portage-extra.yaml
+        - java-extra.yaml
 
     core-server-kit:
       specs:
@@ -182,6 +183,14 @@ extra-pkgs:
       specs:
         - geaaru-extra.yaml
 
+    desktop-kit:
+      specs:
+        - java-extra.yaml
+
+    java-kit:
+      specs:
+        - java-extra.yaml
+
 seeds:
   - name: macaroni-funtoo-base
     prefix: packages/atoms-extra
@@ -220,3 +229,6 @@ seeds:
 
       - file: telemetry.yaml
         dir: telemetry
+
+      - file: java-extra.yaml
+        dir: java
