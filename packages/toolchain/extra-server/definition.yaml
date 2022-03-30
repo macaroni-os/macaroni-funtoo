@@ -3,6 +3,12 @@ name: extra-server
 version: "1"
 description: "Virtul package to install portage meta data of the server-extra packages"
 requires:
+  - name: apache-tools
+    category: app-admin
+    version: '>=0'
+  - name: cloud-init
+    category: app-admin
+    version: '>=0'
   - name: logrotate
     category: app-admin
     version: '>=0'
@@ -15,16 +21,52 @@ requires:
   - name: xmltoman
     category: app-doc
     version: '>=0'
-  - name: cloud-init
+  - name: containerd
+    category: app-emulation
+    version: '>=0'
+  - name: cri-o
+    category: app-emulation
+    version: '>=0'
+  - name: docker
+    category: app-emulation
+    version: '>=0'
+  - name: docker-cli
+    category: app-emulation
+    version: '>=0'
+  - name: docker-proxy
+    category: app-emulation
+    version: '>=0'
+  - name: lxc
+    category: app-emulation
+    version: '>=0'
+  - name: lxd
+    category: app-emulation
+    version: '>=0'
+  - name: runc
     category: app-emulation
     version: '>=0'
   - name: jq
     category: app-misc
     version: '>=0'
+  - name: go-md2man
+    category: dev-go
+    version: '>=0'
   - name: yasm
     category: dev-lang
     version: '>=0'
+  - name: apr
+    category: dev-libs-1
+    version: '>=0'
+  - name: apr-util
+    category: dev-libs-1
+    version: '>=0'
   - name: crypto++
+    category: dev-libs
+    version: '>=0'
+  - name: geoip
+    category: dev-libs
+    version: '>=0'
+  - name: hiredis
     category: dev-libs
     version: '>=0'
   - name: json-c
@@ -33,10 +75,25 @@ requires:
   - name: leveldb
     category: dev-libs
     version: '>=0'
+  - name: libbson
+    category: dev-libs
+    version: '>=0'
   - name: libdaemon
     category: dev-libs
     version: '>=0'
+  - name: libev
+    category: dev-libs
+    version: '>=0'
+  - name: libgamin
+    category: dev-libs
+    version: '>=0'
+  - name: libmemcached
+    category: dev-libs
+    version: '>=0'
   - name: libpwquality
+    category: dev-libs
+    version: '>=0'
+  - name: mongo-c-driver
     category: dev-libs
     version: '>=0'
   - name: nspr
@@ -46,6 +103,9 @@ requires:
     category: dev-libs
     version: '>=0'
   - name: oniguruma
+    category: dev-libs
+    version: '>=0'
+  - name: protobuf-c
     category: dev-libs
     version: '>=0'
   - name: userspace-rcu
@@ -102,6 +162,9 @@ requires:
   - name: mako
     category: dev-python
     version: '>=0'
+  - name: namespace-google
+    category: dev-python
+    version: '>=0'
   - name: namespace-jaraco
     category: dev-python
     version: '>=0'
@@ -117,7 +180,13 @@ requires:
   - name: prettytable
     category: dev-python
     version: '>=0'
+  - name: protobuf-python
+    category: dev-python
+    version: '>=0'
   - name: pyjwt
+    category: dev-python
+    version: '>=0'
+  - name: pyjwt-compat
     category: dev-python
     version: '>=0'
   - name: pyserial
@@ -153,14 +222,32 @@ requires:
   - name: zc-lockfile
     category: dev-python
     version: '>=0'
+  - name: xdelta
+    category: dev-util-3
+    version: '>=0'
   - name: cunit
     category: dev-util
+    version: '>=0'
+  - name: lttng-tools
+    category: dev-util
+    version: '>=0'
+  - name: lttng-ust
+    category: dev-util
+    version: '>=0'
+  - name: hping
+    category: net-analyzer
     version: '>=0'
   - name: macchanger
     category: net-analyzer
     version: '>=0'
   - name: openbsd-netcat
     category: net-analyzer
+    version: '>=0'
+  - name: rrdtool
+    category: net-analyzer
+    version: '>=0'
+  - name: freeradius
+    category: net-dialup
     version: '>=0'
   - name: ppp
     category: net-dialup
@@ -174,14 +261,38 @@ requires:
   - name: bind-tools
     category: net-dns
     version: '>=0'
+  - name: conntrack-tools
+    category: net-firewall
+    version: '>=0'
+  - name: ebtables
+    category: net-firewall
+    version: '>=0'
   - name: ipset
     category: net-firewall
     version: '>=0'
   - name: libndp
     category: net-libs
     version: '>=0'
+  - name: libnetfilter_conntrack
+    category: net-libs
+    version: '>=0'
+  - name: libnetfilter_cthelper
+    category: net-libs
+    version: '>=0'
+  - name: libnetfilter_cttimeout
+    category: net-libs
+    version: '>=0'
+  - name: libnetfilter_queue
+    category: net-libs
+    version: '>=0'
   - name: wvstreams
     category: net-libs
+    version: '>=0'
+  - name: cni-plugins
+    category: net-misc
+    version: '>=0'
+  - name: memcached
+    category: net-misc
     version: '>=0'
   - name: netkit-telnetd
     category: net-misc
@@ -200,6 +311,12 @@ requires:
     version: '>=0'
   - name: socat
     category: net-misc
+    version: '>=0'
+  - name: whois
+    category: net-misc
+    version: '>=0'
+  - name: cntlm
+    category: net-proxy
     version: '>=0'
   - name: openfortivpn
     category: net-vpn
@@ -225,8 +342,20 @@ requires:
   - name: glusterfs
     category: sys-cluster
     version: '>=0'
+  - name: singularity
+    category: sys-cluster
+    version: '>=0'
+  - name: automake
+    category: sys-devel-1.13
+    version: '>=0'
+  - name: automake
+    category: sys-devel-1.14
+    version: '>=0'
   - name: fuse
     category: sys-fs-3
+    version: '>=0'
+  - name: btrfs-progs
+    category: sys-fs
     version: '>=0'
   - name: cryptsetup
     category: sys-fs
@@ -240,13 +369,34 @@ requires:
   - name: lvm2
     category: sys-fs
     version: '>=0'
+  - name: lxcfs
+    category: sys-fs
+    version: '>=0'
+  - name: squashfs-tools
+    category: sys-fs
+    version: '>=0'
   - name: zfs
     category: sys-fs
+    version: '>=0'
+  - name: libapparmor
+    category: sys-libs
+    version: '>=0'
+  - name: talloc
+    category: sys-libs
+    version: '>=0'
+  - name: criu
+    category: sys-process
     version: '>=0'
   - name: cronbase
     category: sys-process
     version: '>=0'
   - name: cronie
+    category: sys-process
+    version: '>=0'
+  - name: numactl
+    category: sys-process
+    version: '>=0'
+  - name: tini
     category: sys-process
     version: '>=0'
   - name: cron
@@ -260,6 +410,15 @@ requires:
     version: '>=0'
   - name: python-singledispatch
     category: virtual
+    version: '>=0'
+  - name: apache
+    category: www-servers-2
+    version: '>=0'
+  - name: caddy
+    category: www-servers
+    version: '>=0'
+  - name: lighttpd
+    category: www-servers
     version: '>=0'
   - name: nginx
     category: www-servers
