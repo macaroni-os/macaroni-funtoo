@@ -1,0 +1,27 @@
+name: mta
+version: "1"
+category: virtual
+requires:
+- name: nullmailer
+  version: '>=0'
+  category: mail-mta
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Message Transfer Agents
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( mail-mta/nullmailer mail-mta/msmtp[mta] mail-mta/ssmtp[mta] mail-mta/courier
+    mail-mta/esmtp mail-mta/exim mail-mta/mini-qmail mail-mta/netqmail mail-mta/postfix
+    mail-mta/qmail-ldap mail-mta/sendmail mail-mta/opensmtpd mail-mta/citadel[-postfix]
+    )'
+  emerge.packages: virtual/mta
+  kit: core-kit
+  original.package.name: virtual/mta
+  original.package.slot: "0"
+  original.package.version: "1"
