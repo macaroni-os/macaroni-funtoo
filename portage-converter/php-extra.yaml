@@ -135,13 +135,86 @@ artefacts:
     - dev-libs/libzip
 
 - tree: packages/atoms-extra/php
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    enabled:
+    disabled:
+      - examples
+      - test
+      - X
+  packages:
+    - mail-mta/nullmailer
+
+- tree: packages/atoms-extra/php
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    enabled:
+    disabled:
+      - examples
+      - test
+      - X
+      - static-libs
+  packages:
+    - media-libs/libjpeg-turbo
+
+- tree: packages/atoms-extra/php
   mutations:
+    buildtime_deps:
+      packages:
+        - name: nullmailer
+          category: mail-mta
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - virtual/mta
+
+- tree: packages/atoms-extra/php
+  mutations:
+    buildtime_deps:
+      packages:
+        - name: libjpeg-turbo
+          category: media-libs
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - virtual/jpeg
+
+- tree: packages/atoms-extra/php
+  mutations:
+    uses:
+      - soap
     buildtime_deps:
       packages:
         - name: tidy-html5
           category: app-text
         - name: libzip
           category: dev-libs
+        - name: mta
+          category: virtual
+        - name: jpeg
+          category: virtual
   annotations:
     subsets:
       rules:
@@ -196,10 +269,10 @@ artefacts:
       - soap
       - sockets
       - sqlite
-      - ssl 
+      - ssl
       - systemd
       - sysvipc
-      - tidy 
+      - tidy
       - tokenizer
       - truetype
       - unicode
