@@ -1,0 +1,79 @@
+image: scratch
+env:
+- LUET_YES=true
+- LUET_NOLOCK=true
+- HTTP_TIMEOUT=0
+- PYTHON_TARGETS="python2_7 python3_7"
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox -collision-protect"
+copy:
+  - package:
+      category: seed
+      name: macaroni-funtoo-stage
+      version: ">=0"
+    source: "/macaroni-funtoo"
+    destination: "/"
+# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
+steps:
+- >-
+  if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
+  if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi &&
+  if [ ! -e /etc/group ] ; then touch /etc/group ; fi &&
+  if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi &&
+  if [ ! -d /tmp ] ; then mkdir /tmp ; fi &&
+  if [ ! -d /var ] ; then mkdir /var ; fi &&
+  if [ ! -d /var/lock ] ; then mkdir /var/lock ; fi &&
+  chmod a+x /var &&
+  chmod a+x /var/lock &&
+  chmod a+rwx /tmp
+- luet install entities/acct-base --force --relax
+- >-
+  luet repo update &&
+  luet install --relax --force
+  system/luet-devkit
+  utils/jq
+  utils/yq
+  dev-util/pkgs-checker-minimal
+  toolchain/extra-net
+  toolchain/extra-dev
+  toolchain/extra-python
+  toolchain/extra-db
+  toolchain/extra-geaaru
+  toolchain/extra-server
+  toolchain/extra-portage
+  app-admin/whip
+  macaroni/whip-catalog
+  whip-profiles/macaroni
+  kernel/macaroni-lts-sources &&
+  eselect kernel set 1 &&
+  luet cleanup
+
+# Using steps to trace what files are generated
+# by gcc-config/binutils-config.
+# steps:
+# sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
+- >-
+  cat /etc/luet/luet.yaml &&
+  luet install virtual/base --relax --nodeps &&
+  luet cleanup --purge-repos &&
+  /usr/bin/gcc-config 1 &&
+  source /etc/profile &&
+  eselect gcc set 1 &&
+  eselect binutils set 1 &&
+  mkdir -p /var/lib/portage &&
+  mkdir -p /etc/portage/package.use &&
+  epro list &&
+  eval 'rm /etc/localtime || true' &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  env-update &&
+  ldconfig &&
+  eval 'locale-gen || true' &&
+  build-docbook-catalog &&
+  whip hook eclass_db.db_fix_so &&
+  cd / && rm -rf /luetbuild
+
+# TODO: fix this hook
+# whip hook perl.postinst &&
+# build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
+
+excludes:
+- ^/.*
