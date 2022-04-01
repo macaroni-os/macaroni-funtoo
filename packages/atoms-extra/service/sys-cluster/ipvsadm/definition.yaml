@@ -1,0 +1,30 @@
+name: ipvsadm
+version: "1.28"
+category: sys-cluster
+requires:
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
+- name: popt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: utility to administer the IP virtual server services
+uri:
+- http://linuxvirtualserver.org/
+license: GPL-2
+labels:
+  DEPEND: '>=sys-libs/ncurses-5.2:* dev-libs/libnl:= >=dev-libs/popt-1.16 virtual/pkgconfig'
+  IUSE: static-libs kernel_linux
+  RDEPEND: '>=sys-libs/ncurses-5.2:* dev-libs/libnl:= >=dev-libs/popt-1.16'
+  emerge.packages: sys-cluster/ipvsadm
+  kit: nokit
+  original.package.name: sys-cluster/ipvsadm
+  original.package.slot: "0"
+  original.package.version: "1.28"
