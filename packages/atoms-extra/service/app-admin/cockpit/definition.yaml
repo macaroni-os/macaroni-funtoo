@@ -1,0 +1,39 @@
+name: cockpit
+version: "263"
+category: app-admin
+requires:
+- name: mit-krb5
+  version: '>=0'
+  category: app-crypt
+- name: intltool
+  version: '>=0'
+  category: dev-util
+- name: libssh
+  version: '>=0'
+  category: net-libs
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Cockpit is a server manager that makes it easy to administer
+uri:
+- http://cockpit-project.org/
+labels:
+  DEPEND: sys-auth/polkit:= dev-libs/glib sys-libs/pam:= app-crypt/mit-krb5:= dev-util/intltool:=
+    net-libs/libssh:=[server] >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: doc
+  RDEPEND: sys-auth/polkit:= dev-libs/glib sys-libs/pam:= app-crypt/mit-krb5:= dev-util/intltool:=
+    net-libs/libssh:=[server]
+  emerge.packages: app-admin/cockpit
+  kit: geaaru-kit
+  original.package.name: app-admin/cockpit
+  original.package.slot: "0"
+  original.package.version: "263"
