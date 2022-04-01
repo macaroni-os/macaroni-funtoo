@@ -80,6 +80,10 @@ funtoo-stage:
 extra-pkgs:
   kits:
 
+    browser-kit:
+      specs:
+        - service-extra.yaml
+
     dev-kit:
       specs:
         - dev-extra.yaml
@@ -106,6 +110,7 @@ extra-pkgs:
         - portage-extra.yaml
         - java-extra.yaml
         - php-extra.yaml
+        - service-extra.yaml
 
     core-server-kit:
       specs:
@@ -116,11 +121,13 @@ extra-pkgs:
         - server-extra.yaml
         - telemetry.yaml
         - php-extra.yaml
+        - service-extra.yaml
 
     lang-kit:
       specs:
         - dev-extra.yaml
         - net-extra.yaml
+        - service-extra.yaml
 
     lisp-scheme-kit:
       specs:
@@ -142,6 +149,7 @@ extra-pkgs:
         - python-extra.yaml
         - server-extra.yaml
         - php-extra.yaml
+        - service-extra.yaml
 
     gnome-kit:
       specs:
@@ -155,6 +163,7 @@ extra-pkgs:
         - net-extra.yaml
         - server-extra.yaml
         - telemetry.yaml
+        - service-extra.yaml
 
     python-modules-kit:
       specs:
@@ -163,6 +172,7 @@ extra-pkgs:
         - python-extra.yaml
         - server-extra.yaml
         - portage-extra.yaml
+        - service-extra.yaml
 
     perl-kit:
       specs:
@@ -182,10 +192,16 @@ extra-pkgs:
       specs:
         - net-extra.yaml
         - server-extra.yaml
+        - service-extra.yaml
 
     geaaru-kit:
       specs:
         - geaaru-extra.yaml
+        - service-extra.yaml
+
+    gnome-kit:
+      specs:
+        - service-extra.yaml
 
     desktop-kit:
       specs:
@@ -243,3 +259,6 @@ seeds:
 
       - file: php-extra.yaml
         dir: php
+
+      - file: service-extra.yaml
+        dir: service
