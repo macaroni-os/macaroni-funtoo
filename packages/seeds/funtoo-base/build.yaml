@@ -1,10 +1,9 @@
 requires:
 - category: "seed"
-  name: "funtoo-kits"
+  name: "funtoo-kit-geaaru"
   version: ">=0"
 env:
 - JOBS=10
-- FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 - >-
   cp -rvf package.use /etc/portage/ &&
@@ -22,7 +21,9 @@ prelude:
   +mediaformat-video-extra
   +mediadevice-video-pro
   +vmware-guest &&
-  emerge --unmerge x11-libs/amtk &&
+  emerge --unmerge x11-libs/amtk
+steps:
+- >-
   FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
   emerge -t -j $JOBS -uDN @world &&
   rm -rf /var/cache/portage/distfiles/*
