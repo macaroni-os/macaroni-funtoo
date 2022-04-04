@@ -1,0 +1,31 @@
+name: libxmlpp
+version: 2.40.1
+category: dev-cpp-2.6
+requires:
+- name: glibmm
+  version: '>=0'
+  category: dev-cpp-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ wrapper for the libxml2 XML parser library
+uri:
+- http://libxmlplusplus.sourceforge.net/
+license: LGPL-2.1
+labels:
+  DEPEND: '>=dev-libs/libxml2-2.7.7 >=dev-cpp/glibmm-2.32 virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: doc
+  RDEPEND: '>=dev-libs/libxml2-2.7.7 >=dev-cpp/glibmm-2.32'
+  emerge.packages: dev-cpp/libxmlpp:2.6
+  kit: gnome-kit
+  original.package.name: dev-cpp/libxmlpp
+  original.package.slot: "2.6"
+  original.package.version: 2.40.1
