@@ -1,5 +1,5 @@
 name: eudev
-version: 3.2.9+3
+version: 3.2.9+4
 category: sys-fs
 use_flags:
 - -selinux
@@ -36,12 +36,13 @@ labels:
     !sys-apps/gentoo-systemd-integration !sys-apps/systemd dev-util/gperf virtual/os-headers
     virtual/pkgconfig >=sys-devel/make-3.82-r4 >=sys-kernel/linux-headers-2.6.39 >=dev-util/intltool-0.50
     test? ( app-text/tree dev-lang/perl )'
-  IUSE: +hwdb +kmod introspection rule-generator selinux static-libs test user kernel_linux
+  IUSE: +hwdb +kmod introspection +rule-generator selinux static-libs test user kernel_linux
   RDEPEND: '>=sys-apps/util-linux-2.20 introspection? ( >=dev-libs/gobject-introspection-1.38
     ) kmod? ( >=sys-apps/kmod-16 ) selinux? ( >=sys-libs/libselinux-2.1.9 ) !<sys-libs/glibc-2.11
     !sys-apps/gentoo-systemd-integration !sys-apps/systemd !<sys-fs/lvm2-2.02.103
-    !<sec-policy/selinux-base-2.20120725-r10 !sys-fs/udev !sys-apps/systemd'
+    !<sec-policy/selinux-base-2.20120725-r10 !sys-fs/udev !sys-apps/systemd !sys-fs/udev-init-scripts'
   emerge.packages: sys-fs/eudev
   kit: core-kit
   original.package.name: sys-fs/eudev
-  original.package.version: 3.2.9-r1
+  original.package.slot: "0"
+  original.package.version: 3.2.9-r3
