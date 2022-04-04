@@ -1,0 +1,34 @@
+# Define the regex for the use flags to exclude
+use_filters:
+  - "^userland_"
+  - "^kernel_"
+  - "^x86"
+  - "^x64"
+  - "^ppc"
+  - "^arm"
+  - "^amd64"
+  - "^prefix"
+  - "^m68k"
+  - "^ia64"
+  - "^riscv"
+  - "^s390"
+  - "^hppa"
+  - "^s390"
+  - "^mips"
+  - "^alpha"
+  - "^sparc"
+  - "^elibc_"
+  - "^abi_"
+
+# Define the categories to elaborate.
+# If the list is empty all categories are elaborated.
+categories:
+#  - media-libs
+
+# Define the regex string of the packages to elaborate in format cat/pkg:slot.
+# If the list is empty all packages are elaborated.
+pkgs_filters:
+  - sys-kernel/debian-sources
+  - x11-drivers/nvidia-kernel-modules:0
+
+  #- ^media
