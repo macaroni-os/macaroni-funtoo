@@ -144,6 +144,9 @@ requires:
   - name: open-vm-tools
     category: app-emulation
     version: '>=0'
+  - name: spice-protocol
+    category: app-emulation
+    version: '>=0'
   - name: eselect-cblas
     category: app-eselect
     version: '>=0'
@@ -282,6 +285,9 @@ requires:
   - name: docbook-sgml-dtd
     category: app-text-4.0
     version: '>=0'
+  - name: docbook-xml-simple-dtd
+    category: app-text-4.1.2.5
+    version: '>=0'
   - name: docbook-xml-dtd
     category: app-text-4.1.2
     version: '>=0'
@@ -363,9 +369,6 @@ requires:
   - name: manpager
     category: app-text
     version: '>=0'
-  - name: mupdf
-    category: app-text
-    version: '>=0'
   - name: openjade
     category: app-text
     version: '>=0'
@@ -404,6 +407,9 @@ requires:
     version: '>=0'
   - name: cairomm
     category: dev-cpp-1
+    version: '>=0'
+  - name: libxmlpp
+    category: dev-cpp-2.6
     version: '>=0'
   - name: glibmm
     category: dev-cpp-2
@@ -466,9 +472,6 @@ requires:
     category: dev-lang-stable
     version: '>=0'
   - name: lua
-    category: dev-lang
-    version: '>=0'
-  - name: mujs
     category: dev-lang
     version: '>=0'
   - name: nasm
@@ -543,6 +546,9 @@ requires:
   - name: libsigc++
     category: dev-libs-3
     version: '>=0'
+  - name: iniparser
+    category: dev-libs-4
+    version: '>=0'
   - name: appstream-glib
     category: dev-libs
     version: '>=0'
@@ -556,6 +562,9 @@ requires:
     category: dev-libs
     version: '>=0'
   - name: check
+    category: dev-libs
+    version: '>=0'
+  - name: dbus-c++
     category: dev-libs
     version: '>=0'
   - name: dbus-glib
@@ -597,13 +606,13 @@ requires:
   - name: gom
     category: dev-libs
     version: '>=0'
-  - name: gumbo
-    category: dev-libs
-    version: '>=0'
   - name: hyphen
     category: dev-libs
     version: '>=0'
   - name: icu
+    category: dev-libs
+    version: '>=0'
+  - name: imath
     category: dev-libs
     version: '>=0'
   - name: iniparser
@@ -643,6 +652,9 @@ requires:
     category: dev-libs
     version: '>=0'
   - name: libcdio-paranoia
+    category: dev-libs
+    version: '>=0'
+  - name: libconfig
     category: dev-libs
     version: '>=0'
   - name: libdaemon
@@ -1125,6 +1137,9 @@ requires:
   - name: namespace-zope
     category: dev-python
     version: '>=0'
+  - name: numpy
+    category: dev-python
+    version: '>=0'
   - name: packaging
     category: dev-python
     version: '>=0'
@@ -1251,10 +1266,16 @@ requires:
   - name: zipp
     category: dev-python
     version: '>=0'
+  - name: zipp-compat
+    category: dev-python
+    version: '>=0'
   - name: zope-interface
     category: dev-python
     version: '>=0'
   - name: designer
+    category: dev-qt-5
+    version: '>=0'
+  - name: linguist-tools
     category: dev-qt-5
     version: '>=0'
   - name: qdbus
@@ -1443,6 +1464,12 @@ requires:
   - name: re2c
     category: dev-util
     version: '>=0'
+  - name: scons
+    category: dev-util
+    version: '>=0'
+  - name: scons-compat
+    category: dev-util
+    version: '>=0'
   - name: sysprof
     category: dev-util
     version: '>=0'
@@ -1450,9 +1477,6 @@ requires:
     category: dev-util
     version: '>=0'
   - name: wayland-scanner
-    category: dev-util
-    version: '>=0'
-  - name: xdg-dbus-proxy
     category: dev-util
     version: '>=0'
   - name: git
@@ -1680,17 +1704,8 @@ requires:
   - name: zenity
     category: gnome-extra
     version: '>=0'
-  - name: libwpe
-    category: gui-libs-1.0
-    version: '>=0'
-  - name: wpebackend-fdo
-    category: gui-libs-1.0
-    version: '>=0'
   - name: tepl
     category: gui-libs-4
-    version: '>=0'
-  - name: amtk
-    category: gui-libs-5
     version: '>=0'
   - name: kio-extras
     category: kde-apps-5
@@ -1864,6 +1879,9 @@ requires:
     category: kde-frameworks-5
     version: '>=0'
   - name: kxmlgui
+    category: kde-frameworks-5
+    version: '>=0'
+  - name: networkmanager-qt
     category: kde-frameworks-5
     version: '>=0'
   - name: plasma
@@ -2238,9 +2256,6 @@ requires:
   - name: harfbuzz
     category: media-libs
     version: '>=0'
-  - name: ilmbase
-    category: media-libs
-    version: '>=0'
   - name: jasper
     category: media-libs
     version: '>=0'
@@ -2293,6 +2308,9 @@ requires:
     category: media-libs
     version: '>=0'
   - name: libexif
+    category: media-libs
+    version: '>=0'
+  - name: libffado
     category: media-libs
     version: '>=0'
   - name: libglvnd
@@ -2475,9 +2493,6 @@ requires:
   - name: gst-plugins-gdkpixbuf
     category: media-plugins-1.0
     version: '>=0'
-  - name: gst-plugins-gtk
-    category: media-plugins-1.0
-    version: '>=0'
   - name: gst-plugins-jpeg
     category: media-plugins-1.0
     version: '>=0'
@@ -2541,6 +2556,9 @@ requires:
   - name: live
     category: media-plugins
     version: '>=0'
+  - name: jack2
+    category: media-sound-2
+    version: '>=0'
   - name: cdparanoia
     category: media-sound
     version: '>=0'
@@ -2554,9 +2572,6 @@ requires:
     category: media-sound
     version: '>=0'
   - name: gsm
-    category: media-sound
-    version: '>=0'
-  - name: jack-audio-connection-kit
     category: media-sound
     version: '>=0'
   - name: lame
@@ -2590,9 +2605,6 @@ requires:
     category: media-video
     version: '>=0'
   - name: gnome-video-effects
-    category: media-video
-    version: '>=0'
-  - name: pipewire
     category: media-video
     version: '>=0'
   - name: rtmpdump
@@ -2672,9 +2684,6 @@ requires:
     version: '>=0'
   - name: libsoup
     category: net-libs-2.4
-    version: '>=0'
-  - name: webkit
-    category: net-libs-4
     version: '>=0'
   - name: webkit-gtk
     category: net-libs-4
@@ -3126,9 +3135,6 @@ requires:
   - name: mdadm
     category: sys-fs
     version: '>=0'
-  - name: udev-init-scripts
-    category: sys-fs
-    version: '>=0'
   - name: xfsprogs
     category: sys-fs
     version: '>=0'
@@ -3227,9 +3233,6 @@ requires:
     version: '>=0'
   - name: upower
     category: sys-power
-    version: '>=0'
-  - name: lsof
-    category: sys-process
     version: '>=0'
   - name: procps
     category: sys-process
@@ -3669,6 +3672,9 @@ requires:
   - name: xf86-video-nouveau
     category: x11-drivers
     version: '>=0'
+  - name: xf86-video-qxl
+    category: x11-drivers
+    version: '>=0'
   - name: xf86-video-vmware
     category: x11-drivers
     version: '>=0'
@@ -3692,6 +3698,9 @@ requires:
     version: '>=0'
   - name: gtksourceview
     category: x11-libs-4
+    version: '>=0'
+  - name: amtk
+    category: x11-libs
     version: '>=0'
   - name: cairo
     category: x11-libs
