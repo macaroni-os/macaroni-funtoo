@@ -1,5 +1,5 @@
 name: mutter
-version: 3.36.7+3
+version: 3.36.7+4
 category: x11-wm
 use_flags:
 - -input_devices_wacom
@@ -81,11 +81,12 @@ labels:
     ) udev? ( >=virtual/libgudev-232:= ) wayland? ( >=dev-libs/libinput-1.4 >=dev-libs/wayland-1.6.90
     >=dev-libs/wayland-protocols-1.19 >=media-libs/mesa-10.3[egl,gbm,wayland] || (
     sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= x11-base/xorg-server[wayland]
-    x11-libs/libdrm:= ) >=media-video/pipewire-0.3.0 profiler? ( >=dev-util/sysprof-3.34.0
-    ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig x11-base/xorg-proto test? ( app-text/docbook-xml-dtd:4.5
-    ) wayland? ( >=sys-kernel/linux-headers-4.4 ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  IUSE: elogind +gles2 input_devices_wacom +introspection -profiler -test udev wayland
-    test
+    x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0 ) profiler?
+    ( >=dev-util/sysprof-3.34.0 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig x11-base/xorg-proto
+    test? ( app-text/docbook-xml-dtd:4.5 ) wayland? ( >=sys-kernel/linux-headers-4.4
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: elogind +gles2 input_devices_wacom +introspection -profiler remote-desktop
+    -test udev wayland test
   RDEPEND: '>=dev-libs/atk-2.5.3 >=x11-libs/gdk-pixbuf-2.39.2:2 >=dev-libs/json-glib-0.12.0
     >=x11-libs/pango-1.44.7[introspection?] >=x11-libs/cairo-1.16.0[X] >=x11-libs/gtk+-3.24.12:3[X,introspection?]
     >=dev-libs/glib-2.62.2:2[dbus] >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/startup-notification-0.7
@@ -100,9 +101,10 @@ labels:
     ) udev? ( >=virtual/libgudev-232:= ) wayland? ( >=dev-libs/libinput-1.4 >=dev-libs/wayland-1.6.90
     >=dev-libs/wayland-protocols-1.19 >=media-libs/mesa-10.3[egl,gbm,wayland] || (
     sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= x11-base/xorg-server[wayland]
-    x11-libs/libdrm:= ) >=media-video/pipewire-0.3.0 profiler? ( >=dev-util/sysprof-3.34.0
-    )'
+    x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0 ) profiler?
+    ( >=dev-util/sysprof-3.34.0 )'
   emerge.packages: x11-wm/mutter
   kit: gnome-kit
   original.package.name: x11-wm/mutter
-  original.package.version: 3.36.7
+  original.package.slot: "0"
+  original.package.version: 3.36.7-r1
