@@ -1,5 +1,5 @@
 name: telepathy-logger
-version: 0.8.2+3
+version: 0.8.2+4
 category: net-im
 use_flags:
 - -prefix
@@ -28,18 +28,19 @@ uri:
 - https://telepathy.freedesktop.org/wiki/Logger
 license: LGPL-2.1+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82
-    >=net-libs/telepathy-glib-0.19.2[introspection?] dev-libs/libxml2 dev-libs/libxslt
-    dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) ||
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-util/gtk-doc-am-1.10 >=dev-util/intltool-0.35
-    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
-    x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
-    )'
+  BDEPEND: '|| ( dev-lang/python:3.8[xml] dev-lang/python:3.9[xml] dev-lang/python:3.7[xml]
+    ) dev-util/glib-utils >=dev-util/gtk-doc-am-1.10 >=dev-util/intltool-0.35 virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )'
+  DEPEND: '>=dev-libs/glib-2.28:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82 >=net-libs/telepathy-glib-0.19.2[introspection?]
+    dev-libs/libxml2 dev-libs/libxslt dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-0.9.6
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
   IUSE: +introspection test
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82
-    >=net-libs/telepathy-glib-0.19.2[introspection?] dev-libs/libxml2 dev-libs/libxslt
-    dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-1.62.0:= )'
+  RDEPEND: '>=dev-libs/glib-2.28:2 >=sys-apps/dbus-1.1 >=dev-libs/dbus-glib-0.82 >=net-libs/telepathy-glib-0.19.2[introspection?]
+    dev-libs/libxml2 dev-libs/libxslt dev-db/sqlite:3 introspection? ( >=dev-libs/gobject-introspection-0.9.6
+    )'
   emerge.packages: net-im/telepathy-logger
   kit: gnome-kit
   original.package.name: net-im/telepathy-logger
-  original.package.version: 0.8.2
+  original.package.slot: "0"
+  original.package.version: 0.8.2-r1
