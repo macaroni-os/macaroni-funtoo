@@ -69,6 +69,9 @@ skipped_resolutions:
     - name: linux-sources
       category: virtual
 
+    - name: jack-audio-connection-kit
+      category: media-sound
+
 include_files:
   - ./artefacts/base.yml
   - ./artefacts/base-kde.yml
@@ -109,11 +112,6 @@ artefacts:
     - nios2
     - sh
     - static-libs
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
   packages:
     - dev-libs/iniparser:0
 
@@ -399,6 +397,7 @@ reposcan_contraints:
     - app-text/docbook-sgml-dtd:3.0
     - dev-cpp/cairomm:0
     - dev-cpp/cairomm:1
+    - dev-libs/iniparser:0
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
