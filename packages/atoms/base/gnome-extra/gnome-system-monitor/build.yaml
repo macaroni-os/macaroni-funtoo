@@ -10,9 +10,9 @@ prelude:
   - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
 requires:
-  - name: gtkmm
+  - name: funtoo-base
     version: '>=0'
-    category: dev-cpp-3.0
+    category: seed
 excludes:
   - ^/var/cache/portage/
   - ^/var/git/
