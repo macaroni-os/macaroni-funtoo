@@ -1,5 +1,5 @@
 name: gnutls
-version: 3.6.15+3
+version: 3.7.2
 category: net-libs
 use_flags:
 - -dane
@@ -42,14 +42,14 @@ labels:
     ) tools? ( sys-devel/autogen ) valgrind? ( dev-util/valgrind ) test-full? ( app-crypt/dieharder
     >=app-misc/datefudge-1.22 dev-libs/softhsm:2[-bindist] net-dialup/ppp net-misc/socat
     ) >=app-portage/elt-patches-20170815'
-  DEPEND: '>=dev-libs/libtasn1-4.9:= dev-libs/libunistring:= >=dev-libs/nettle-3.4.1:=[gmp]
+  DEPEND: '>=dev-libs/libtasn1-4.9:= dev-libs/libunistring:= >=dev-libs/nettle-3.6:=[gmp]
     >=dev-libs/gmp-5.1.3-r1:= tools? ( sys-devel/autogen:= ) dane? ( >=net-dns/unbound-1.4.20:=
     ) guile? ( >=dev-scheme/guile-2:=[networking] ) nls? ( >=virtual/libintl-0-r1:=
     ) pkcs11? ( >=app-crypt/p11-kit-0.23.1:= ) idn? ( >=net-dns/libidn2-0.16-r1:=
     ) test? ( seccomp? ( sys-libs/libseccomp ) )'
   IUSE: +cxx dane doc examples guile +idn nls +openssl +pkcs11 seccomp sslv2 sslv3
     static-libs test test-full +tls-heartbeat tools valgrind
-  RDEPEND: '>=dev-libs/libtasn1-4.9:= dev-libs/libunistring:= >=dev-libs/nettle-3.4.1:=[gmp]
+  RDEPEND: '>=dev-libs/libtasn1-4.9:= dev-libs/libunistring:= >=dev-libs/nettle-3.6:=[gmp]
     >=dev-libs/gmp-5.1.3-r1:= tools? ( sys-devel/autogen:= ) dane? ( >=net-dns/unbound-1.4.20:=
     ) guile? ( >=dev-scheme/guile-2:=[networking] ) nls? ( >=virtual/libintl-0-r1:=
     ) pkcs11? ( >=app-crypt/p11-kit-0.23.1:= ) idn? ( >=net-dns/libidn2-0.16-r1:=
@@ -57,4 +57,5 @@ labels:
   emerge.packages: net-libs/gnutls
   kit: core-kit
   original.package.name: net-libs/gnutls
-  original.package.version: 3.6.15
+  original.package.slot: "0"
+  original.package.version: 3.7.2
