@@ -1,5 +1,5 @@
 name: zipp
-version: 0.6.0+3
+version: 3.7.0
 category: dev-python
 use_flags:
 - -doc
@@ -23,38 +23,19 @@ uri:
 - https://github.com/jaraco/zipp
 license: MIT
 labels:
-  BDEPEND: dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    test? ( dev-python/more-itertools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    python_targets_pypy3? ( dev-python/contextlib2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    dev-python/pathlib2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    dev-python/unittest2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    ) python_targets_python3_7? ( dev-python/contextlib2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    dev-python/pathlib2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    dev-python/unittest2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    ) python_targets_python2_7? ( dev-python/contextlib2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    dev-python/pathlib2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    dev-python/unittest2[python_targets_pypy3(-)?,-python_single_target_pypy3(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-    ) ) doc? ( || ( ( >=dev-lang/python-2.7.5-r2:2.7 dev-python/sphinx[python_targets_python2_7(-),python_single_target_python2_7(+)]
-    >=dev-python/jaraco-packaging-3.2[python_targets_python2_7(-),python_single_target_python2_7(+)]
-    >=dev-python/rst-linker-1.9[python_targets_python2_7(-),python_single_target_python2_7(+)]
-    ) ( dev-lang/python:3.7 dev-python/sphinx[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    >=dev-python/jaraco-packaging-3.2[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    >=dev-python/rst-linker-1.9[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ( >=dev-python/pypy3-7.3.0:0 dev-python/sphinx[python_targets_pypy3(-),python_single_target_pypy3(+)]
-    >=dev-python/jaraco-packaging-3.2[python_targets_pypy3(-),python_single_target_pypy3(+)]
-    >=dev-python/rst-linker-1.9[python_targets_pypy3(-),python_single_target_pypy3(+)]
-    ) ) ) test? ( dev-python/more-itertools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=dev-python/pytest-4.5.0[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
-    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-  IUSE: test doc test python_targets_pypy3 python_targets_python3_7 python_targets_python2_7
-  RDEPEND: dev-python/more-itertools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: python_targets_python2_7 python_targets_pypy3 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: python_targets_python2_7? ( dev-python/zipp-compat ) dev-python/toml[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/setuptools_scm[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
-    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/zipp
   kit: python-modules-kit
   original.package.name: dev-python/zipp
-  original.package.version: 0.6.0-r1
+  original.package.slot: "0"
+  original.package.version: 3.7.0
