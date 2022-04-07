@@ -1,5 +1,5 @@
 name: gst-plugins-wavpack
-version: 1.14.4+3
+version: 1.18.4
 category: media-plugins-1.0
 requires:
 - name: gst-plugins-good
@@ -20,14 +20,16 @@ uri:
 - https://gstreamer.freedesktop.org/
 license: GPL-2
 labels:
-  DEPEND: '>=media-sound/wavpack-4.60.1-r1[-mgorny(-)] >=sys-apps/sed-4 >=virtual/pkgconfig-0-r1[-mgorny(-)]
-    >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)] >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)]
-    >=media-libs/gst-plugins-good-1.14.4:1.0[-mgorny(-)]'
-  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
-    abi_s390_64
-  RDEPEND: '>=media-sound/wavpack-4.60.1-r1[-mgorny(-)] >=dev-libs/glib-2.38.2-r1:2[-mgorny(-)]
-    >=media-libs/gstreamer-1.2.4-r1:1.0[-mgorny(-)] >=media-libs/gst-plugins-good-1.14.4:1.0[-mgorny(-)]'
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP'
+  DEPEND: '>=media-sound/wavpack-4.60.1-r1[-mgorny(-)] >=dev-libs/glib-2.40.0:2[-mgorny(-)]
+    >=media-libs/gstreamer-1.18:1.0[-mgorny(-)] >=media-libs/gst-plugins-good-1.18.4:1.0[-mgorny(-)]'
+  IUSE: test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-sound/wavpack-4.60.1-r1[-mgorny(-)] >=dev-libs/glib-2.40.0:2[-mgorny(-)]
+    >=media-libs/gstreamer-1.18:1.0[-mgorny(-)] >=media-libs/gst-plugins-good-1.18.4:1.0[-mgorny(-)]'
   emerge.packages: media-plugins/gst-plugins-wavpack:1.0
   kit: media-kit
   original.package.name: media-plugins/gst-plugins-wavpack
-  original.package.version: 1.14.4
+  original.package.slot: "1.0"
+  original.package.version: 1.18.4
