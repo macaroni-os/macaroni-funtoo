@@ -1,5 +1,5 @@
 name: libwebp
-version: 1.0.2+3
+version: 1.1.0
 category: media-libs
 use_flags:
 - -tiff
@@ -37,12 +37,13 @@ labels:
     >=sys-devel/libtool-2.4'
   DEPEND: gif? ( media-libs/giflib:= ) jpeg? ( virtual/jpeg:0= ) opengl? ( media-libs/freeglut
     virtual/opengl ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:0= )
-  IUSE: cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 gif +jpeg neon opengl +png static-libs
-    swap-16bit-csp tiff abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
+  IUSE: cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 gif +jpeg opengl
+    +png static-libs swap-16bit-csp tiff abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   RDEPEND: gif? ( media-libs/giflib:= ) jpeg? ( virtual/jpeg:0= ) opengl? ( media-libs/freeglut
     virtual/opengl ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:0= )
   emerge.packages: media-libs/libwebp
   kit: media-kit
   original.package.name: media-libs/libwebp
-  original.package.version: 1.0.2
+  original.package.slot: "0"
+  original.package.version: 1.1.0
