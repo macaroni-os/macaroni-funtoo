@@ -1,5 +1,5 @@
 name: openexr
-version: 2.3.0+3
+version: 3.1.4
 category: media-libs
 requires:
 - name: ilmbase
@@ -20,14 +20,12 @@ uri:
 - http://openexr.com/
 license: BSD
 labels:
-  DEPEND: '>=media-libs/ilmbase-2.3.0:=[-mgorny(-)] sys-libs/zlib[-mgorny(-)] >=sys-devel/autoconf-archive-2016.09.16
-    virtual/pkgconfig[-mgorny(-)] >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
-  IUSE: cpu_flags_x86_avx examples static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
-    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: '>=media-libs/ilmbase-2.3.0:=[-mgorny(-)] sys-libs/zlib[-mgorny(-)]'
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: '>=dev-libs/imath-3.1.0:= sys-libs/zlib !!media-libs/openexr:2 !!media-libs/ilmbase'
+  IUSE: cpu_flags_x86_avx examples large-stack static-libs utils test threads
+  RDEPEND: '>=dev-libs/imath-3.1.0:= sys-libs/zlib !!media-libs/openexr:2 !!media-libs/ilmbase'
   emerge.packages: media-libs/openexr
   kit: media-kit
   original.package.name: media-libs/openexr
-  original.package.version: 2.3.0
+  original.package.slot: "0"
+  original.package.version: 3.1.4
