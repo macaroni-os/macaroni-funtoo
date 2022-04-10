@@ -1,8 +1,7 @@
-name: openjdk-bin
-version: 11.0.13+3
+name: openjdk-jre-bin
+version: 11.0.11+3
 category: dev-java-11
 use_flags:
-- -arm
 - -selinux
 - alsa
 - cups
@@ -20,12 +19,12 @@ requires:
 - name: fontconfig
   version: '>=0'
   category: media-libs-1.0
+- name: libnet
+  version: '>=0'
+  category: net-libs-1.1
 - name: cups
   version: '>=0'
   category: net-print
-- name: glibc
-  version: '>=0'
-  category: sys-libs-2.2
 - name: zlib
   version: '>=0'
   category: sys-libs
@@ -42,20 +41,20 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Prebuilt Java JDK binaries provided by AdoptOpenJDK
+description: Prebuilt Java JRE binaries provided by AdoptOpenJDK
 uri:
 - https://adoptopenjdk.net
 license: GPL-2-with-classpath-exception
 labels:
   DEPEND: '>=dev-java/java-config-2.2.0-r3 >=app-eselect/eselect-java-0.4.0'
-  IUSE: alsa cups examples headless-awt selinux source
-  RDEPEND: media-libs/fontconfig:1.0 media-libs/freetype:2 >=sys-apps/baselayout-java-0.1.0-r1
-    >=sys-libs/glibc-2.2.5:* sys-libs/zlib alsa? ( media-libs/alsa-lib ) arm? ( dev-libs/libffi-compat:6
-    ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt?
-    ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst
-    ) >=dev-java/java-config-2.2.0-r3 >=app-eselect/eselect-java-0.4.0
-  emerge.packages: dev-java/openjdk-bin:11
-  kit: java-kit
-  original.package.name: dev-java/openjdk-bin
+  IUSE: alsa cups headless-awt selinux
+  RDEPEND: media-libs/fontconfig:1.0 media-libs/freetype:2 >net-libs/libnet-1.1 >=sys-apps/baselayout-java-0.1.0-r1
+    >=sys-libs/glibc-2.2.5:* sys-libs/zlib alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups
+    ) selinux? ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext
+    x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) >=dev-java/java-config-2.2.0-r3
+    >=app-eselect/eselect-java-0.4.0
+  emerge.packages: dev-java/openjdk-jre-bin:11
+  kit: geaaru-kit
+  original.package.name: dev-java/openjdk-jre-bin
   original.package.slot: "11"
-  original.package.version: 11.0.13_p8
+  original.package.version: 11.0.11_p9
