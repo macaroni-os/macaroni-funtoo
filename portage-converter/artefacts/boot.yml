@@ -2,18 +2,6 @@ artefacts:
 - tree: packages/atoms/boot
   uses:
     disabled:
-    - debug
-    - nios2
-    - sh
-    - static
-    - static-libs
-    enabled:
-    - readline
-  packages:
-  - sys-fs/reiser4progs
-- tree: packages/atoms/boot
-  uses:
-    disabled:
     - nios2
     - sh
     - static-libs
@@ -38,6 +26,10 @@ artefacts:
   - sys-boot/plymouth-openrc-plugin
   - sys-libs/efivar
 - tree: packages/atoms/boot
+  mutations:
+    provides:
+      - category: utils
+        name: grub2
   uses:
     disabled:
     - device-mapper
