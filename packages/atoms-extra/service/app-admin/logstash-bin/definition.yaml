@@ -1,0 +1,30 @@
+name: logstash-bin
+version: 8.1.2
+category: app-admin
+requires:
+- name: java-config
+  version: '>=0'
+  category: dev-java-2
+- name: jre
+  version: '>=0'
+  category: virtual-11
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tool for managing events and logs
+uri:
+- https://www.elastic.co/products/logstash
+license: Apache-2.0 MIT Elastic-2.0
+labels:
+  DEPEND: '>=dev-java/java-config-2.2.0-r3'
+  IUSE: elibc_FreeBSD
+  RDEPEND: virtual/jre >=dev-java/java-config-2.2.0-r3
+  emerge.packages: app-admin/logstash-bin
+  kit: core-server-kit
+  original.package.name: app-admin/logstash-bin
+  original.package.slot: "0"
+  original.package.version: 8.1.2
