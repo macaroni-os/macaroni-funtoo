@@ -1,0 +1,29 @@
+name: elasticsearch
+version: 8.1.2
+category: app-misc
+requires:
+- name: jre
+  version: '>=0'
+  category: virtual-11
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Free and Open, Distributed, RESTful Search Engine
+uri:
+- https://www.elastic.co/elasticsearch/
+license: Apache-2.0 BSD-2 Elastic-2.0 LGPL-3 MIT public-domain
+labels:
+  BDEPEND: virtual/pkgconfig
+  RDEPEND: virtual/jre virtual/tmpfiles
+  emerge.packages: app-misc/elasticsearch
+  kit: core-server-kit
+  original.package.name: app-misc/elasticsearch
+  original.package.slot: "0"
+  original.package.version: 8.1.2
