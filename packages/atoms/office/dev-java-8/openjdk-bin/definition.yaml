@@ -2,9 +2,9 @@ name: openjdk-bin
 version: 8.272+2
 category: dev-java-8
 use_flags:
-- -arm
 - -selinux
 - alsa
+- arm
 - cups
 - headless-awt
 requires:
@@ -14,6 +14,9 @@ requires:
 - name: java-config
   version: '>=0'
   category: dev-java-2
+- name: libffi-compat
+  version: '>=0'
+  category: dev-libs-6
 - name: alsa-lib
   version: '>=0'
   category: media-libs
@@ -23,9 +26,6 @@ requires:
 - name: cups
   version: '>=0'
   category: net-print
-- name: glibc
-  version: '>=0'
-  category: sys-libs-2.2
 - name: zlib
   version: '>=0'
   category: sys-libs
