@@ -1,0 +1,27 @@
+name: libffi-compat
+version: 3.2.1
+category: dev-libs-6
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: a portable, high level programming interface to various calling conventions
+uri:
+- https://sourceware.org/libffi/
+license: MIT
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: test? ( dev-util/dejagnu )
+  IUSE: debug pax-kernel test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '!dev-libs/libffi:0/0'
+  emerge.packages: dev-libs/libffi-compat:6
+  kit: core-kit
+  original.package.name: dev-libs/libffi-compat
+  original.package.slot: "6"
+  original.package.version: 3.2.1
