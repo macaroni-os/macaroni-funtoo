@@ -47,6 +47,8 @@ steps:
   eselect gcc set 1 &&
   eselect binutils set 1 &&
   mkdir -p /var/lib/portage &&
+  whip hook eclass_db.db_fix_so &&
+  whip hook perl.postinst &&
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
