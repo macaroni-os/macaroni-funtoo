@@ -120,6 +120,18 @@ artefacts:
     - app-office/libreoffice-bin:0
 
 - tree: packages/atoms/office
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: virtual-1.8
+          name: jdk
+  uses:
+    disabled:
+      - static-libs
+  packages:
+    - dev-java/ant-core:0
+
+- tree: packages/atoms/office
   uses:
     disabled:
       - static-libs
@@ -151,7 +163,6 @@ artefacts:
     - dev-db/libdbi:0
     - dev-db/mariadb-connector-c:0
     - dev-db/unixODBC:0
-    - dev-java/ant-core:0
     - dev-java/java-config:2
     - dev-java/javatoolkit:0
     - dev-libs/libfmt:0
@@ -452,5 +463,5 @@ reposcan_disabled_use_flags:
   - ppc64
 
 reposcan_disabled_keywords:
-  - ~amd64
+  #  - ~amd64
   - -*
