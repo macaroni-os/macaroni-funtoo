@@ -145,11 +145,9 @@ artefacts:
     - app-text/libebook:0
     - app-text/libepubgen:0
     - app-text/libetonyek:0
-    - app-text/libexttextcat:0
     - app-text/liblangtag:0
     - app-text/libmspub:0
     - app-text/libmwaw:0
-    - app-text/libnumbertext:0
     - app-text/libodfgen:0
     - app-text/libqxp:0
     - app-text/libstaroffice:0
@@ -194,15 +192,33 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-funtoo-race1
   packages:
     - virtual/jre:1.8
     - virtual/jre:11
-    - virtual/jdk:1.8
-    - virtual/jdk:11
     - virtual/jpeg-compat:62
     - sci-libs/suitesparseconfig
     - media-libs/libfpx
+    - app-text/libnumbertext:0
+    - app-text/libexttextcat:0
+
+- tree: packages/atoms/office
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-java-8
+          name: openjdk-bin
+  packages:
+    - virtual/jdk:1.8
+
+- tree: packages/atoms/office
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-java-11
+          name: openjdk-bin
+  packages:
+    - virtual/jdk:11
 
 - tree: packages/atoms/office
   uses:
@@ -249,6 +265,7 @@ artefacts:
 - tree: packages/atoms/office
   uses:
     disabled:
+      - mysql
       - quotes
       - postgres
       - static-libs
@@ -463,5 +480,5 @@ reposcan_disabled_use_flags:
   - ppc64
 
 reposcan_disabled_keywords:
-  #  - ~amd64
+  - ~amd64
   - -*
