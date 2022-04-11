@@ -6,6 +6,12 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary until will be fixed in the seed
+- >-
+  luet repo update &&
+  luet upgrade -y &&
+  whip hook perl.postinst
+
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
