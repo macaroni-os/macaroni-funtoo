@@ -1,5 +1,5 @@
 name: eselect-php
-version: 0.9.5
+version: 0.9.8
 category: app-eselect
 use_flags:
 - apache2
@@ -25,8 +25,9 @@ labels:
   DEPEND: virtual/pkgconfig
   IUSE: fpm apache2
   RDEPEND: app-admin/eselect apache2? ( www-servers/apache[apache2_modules_dir] )
+    fpm? ( virtual/tmpfiles ) virtual/tmpfiles
   emerge.packages: app-eselect/eselect-php
   kit: core-kit
   original.package.name: app-eselect/eselect-php
   original.package.slot: "0"
-  original.package.version: 0.9.5
+  original.package.version: 0.9.8
