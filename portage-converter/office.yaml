@@ -120,18 +120,6 @@ artefacts:
     - app-office/libreoffice-bin:0
 
 - tree: packages/atoms/office
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: virtual-1.8
-          name: jdk
-  uses:
-    disabled:
-      - static-libs
-  packages:
-    - dev-java/ant-core:0
-
-- tree: packages/atoms/office
   uses:
     disabled:
       - static-libs
@@ -185,7 +173,6 @@ artefacts:
     - sci-libs/colamd:0
     - sci-libs/suitesparseconfig:0
     - sci-mathematics/lpsolve:0
-    - sys-apps/baselayout-java:0
 
 - tree: packages/atoms/office
   mutations:
@@ -194,31 +181,11 @@ artefacts:
         - category: seed
           name: macaroni-funtoo-race1
   packages:
-    - virtual/jre:1.8
-    - virtual/jre:11
     - virtual/jpeg-compat:62
     - sci-libs/suitesparseconfig
     - media-libs/libfpx
     - app-text/libnumbertext:0
     - app-text/libexttextcat:0
-
-- tree: packages/atoms/office
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-java-8
-          name: openjdk-bin
-  packages:
-    - virtual/jdk:1.8
-
-- tree: packages/atoms/office
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-java-11
-          name: openjdk-bin
-  packages:
-    - virtual/jdk:11
 
 - tree: packages/atoms/office
   uses:
@@ -291,21 +258,6 @@ artefacts:
       - fftw
   packages:
     - media-gfx/imagemagick:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - pax_kernel
-      - x64-macos
-      - doc
-      - selinux
-  packages:
-    - dev-java/oracle-jdk-bin:1.8
-    - dev-java/openjdk-jre-bin:8
-    - dev-java/openjdk-jre-bin:11
-    - dev-java/openjdk-bin:11
-    - dev-java/openjdk-bin:8
-    - dev-java/maven-bin:3.6
 
 include_layers:
 - layers/macaroni-funtoo-race1.yaml
