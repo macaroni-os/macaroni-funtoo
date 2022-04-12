@@ -38,10 +38,11 @@ artefacts:
 - tree: packages/atoms-extra/server
   annotations:
     subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
     - app-admin/logrotate
 
