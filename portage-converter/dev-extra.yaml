@@ -150,8 +150,6 @@ artefacts:
     - app-text/discount
     - net-libs/http-parser
     - net-misc/ipcalc
-    - virtual/jre:11
-    - virtual/jdk:11
 
 - tree: packages/atoms-extra/dev
   annotations:
@@ -264,26 +262,6 @@ artefacts:
   packages:
     - dev-python/pycurl
 
-- tree: packages/atoms-extra/dev
-  uses:
-    enabled:
-      - alsa
-      - cups
-      - headless-awt
-    disabled:
-      - selinux
-      #- system-java
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
-  packages:
-    - dev-java/openjdk-jre-bin:8
-    - dev-java/openjdk-bin:8
-    - dev-java/maven-bin:3.6
 
 - tree: packages/atoms-extra/dev
   uses:
