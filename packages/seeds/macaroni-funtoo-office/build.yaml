@@ -10,6 +10,8 @@ prelude:
 - >-
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
+  luet i -y toolchain/java &&
+  eselect java-vm set 1 &&
   mkdir /etc/portage/package.use/ -p &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
