@@ -13,7 +13,7 @@ prelude:
   luet repo update &&
   luet i -y toolchain/java &&
   luet cleanup --purge-repos &&
-  eselect java-vm set 1 &&
+  eselect java-vm set system 1 &&
   mkdir /etc/portage/package.use/ -p &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   qlist -ICSv > /pkgslist-start &&
