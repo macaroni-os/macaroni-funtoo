@@ -4,23 +4,8 @@ env:
 - LUET_PORTAGE_IGNORE_TAR_WARNING=1
 - LUET_PORTAGE_PKGMETA=1
 - LUET_PORTAGE_PKGFILES=1
-- L10N="af am ar as ast be bg bn bnIN bo br brx bs ca cavalencia cs cy da de dgo dsb dz el enGB enZA eo es et eu fa fi fr fy ga gd gl gu gug he hi hr hsb hu id is it ja ka kab kk km kmrLatn kn ko kok ks lb lo lt lv mai mk ml mn mni mr my nb ne nl nn nr nso oc om or pa pl pt ptBR ro ru rw sa sat sd si sid sk sl sq sr srLatn ss st sv swTZ szl ta te tg th tn tr ts tt ug uk uz ve vec vi xh zhCN zhTW zu"
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-- |
-  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
-  chown portage:portage -R /var/cache/portage/ && \
-  {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
-  {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
-  {{- end }}
-- |
-  {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
-  {{- else }}
-  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
-  {{- end }}
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet portage
   -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
   ) }}
@@ -30,6 +15,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-funtoo-race1
+- name: macaroni-funtoo-office
   version: '>=0'
   category: seed
