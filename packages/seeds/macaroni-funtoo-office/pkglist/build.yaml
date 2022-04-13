@@ -8,7 +8,7 @@ steps:
   mkdir -p /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
   entities dump -t /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
   qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist &&
-  cp /pkglist-start /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist-before &&
+  cp /pkgslist-start /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist-before &&
   pkgs-checker portage gen-pkgs-uses
   --luet-portage-converter-format
   --filter-opts gen-uses-filter.yaml
