@@ -1,0 +1,28 @@
+name: usbredir
+version: 0.7.1
+category: sys-apps
+requires:
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TCP daemon and set of libraries for usbredir protocol (redirecting USB
+  traffic)
+uri:
+- https://www.spice-space.org/usbredir.html
+license: GPL-2 LGPL-2.1
+labels:
+  DEPEND: virtual/libusb:1 virtual/pkgconfig
+  IUSE: static-libs
+  RDEPEND: virtual/libusb:1
+  emerge.packages: sys-apps/usbredir
+  kit: nokit
+  original.package.name: sys-apps/usbredir
+  original.package.slot: "0"
+  original.package.version: 0.7.1_p20180211
