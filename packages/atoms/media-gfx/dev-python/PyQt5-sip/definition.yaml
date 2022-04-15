@@ -1,5 +1,5 @@
 name: PyQt5-sip
-version: 4.19.24+2
+version: 12.9.0
 category: dev-python
 use_flags:
 - -python_targets_python3_8
@@ -19,19 +19,19 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Private sip module for PyQt5
+description: sip extension module for PyQt5
 uri:
-- https://www.riverbankcomputing.com/software/sip/intro
+- https://www.riverbankcomputing.com/software/sip/ https://pypi.org/project/PyQt5-sip/
 license: '|| ( GPL-2 GPL-3 SIP )'
 labels:
-  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   IUSE: python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
   RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    !<dev-python/PyQt5-5.12.2
   emerge.packages: dev-python/PyQt5-sip
-  kit: qt-kit
+  kit: geaaru-kit
   original.package.name: dev-python/PyQt5-sip
   original.package.slot: "0"
-  original.package.version: 4.19.24
+  original.package.version: 12.9.0
