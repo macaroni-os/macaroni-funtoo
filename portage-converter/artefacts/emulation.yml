@@ -9,6 +9,11 @@ artefacts:
   packages:
   - dev-util/xdelta:3
 - tree: packages/atoms/emulation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-office
   uses:
     disabled:
     - nios2
@@ -18,6 +23,25 @@ artefacts:
     - perl
   packages:
   - net-firewall/ebtables
+  - net-libs/libnfnetlink
+
+- tree: packages/atoms/emulation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-office
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+  packages:
+  - net-misc/ethertypes
+  - dev-lang/go-bootstrap
+  - sys-firmware/edk2-ovmf
+  - sys-firmware/ipxe
+  - sys-firmware/sgabios
 - tree: packages/atoms/emulation
   uses:
     disabled:
@@ -26,10 +50,15 @@ artefacts:
   packages:
   - app-emulation/docker-proxy
   - dev-go/go-md2man
-  - dev-lang/go-bootstrap
-  - net-misc/ethertypes
   - sys-fs/lxcfs
 - tree: packages/atoms/emulation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-devel-1.14
+          name: automake
+        - category: sys-fs
+          name: lxcfs
   uses:
     disabled:
     - apparmor
@@ -46,6 +75,11 @@ artefacts:
   packages:
   - app-emulation/lxc
 - tree: packages/atoms/emulation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-emulation
+          name: lxc
   uses:
     disabled:
     - apparmor
@@ -54,16 +88,10 @@ artefacts:
     enabled:
     - ipv6
     - nls
+    - daemon
+    - dnsmasq
   packages:
   - app-emulation/lxd
-- tree: packages/atoms/emulation
-  uses:
-    disabled:
-    - nios2
-    - pax_kernel
-    - sh
-  packages:
-  - app-emulation/virtualbox-modules
 - tree: packages/atoms/emulation
   uses:
     disabled:
@@ -74,6 +102,11 @@ artefacts:
   - app-emulation/docker-cli
   - net-misc/cni-plugins
 - tree: packages/atoms/emulation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-go
+          name: go-md2man
   uses:
     disabled:
     - hardened
@@ -82,6 +115,7 @@ artefacts:
     enabled:
     - kmem
     - seccomp
+    - apparmor
   packages:
   - app-emulation/runc
 - tree: packages/atoms/emulation
@@ -96,9 +130,6 @@ artefacts:
     - libtirpc
   packages:
   - net-firewall/conntrack-tools
-- tree: packages/atoms/emulation
-  packages:
-  - net-libs/libnfnetlink
 - tree: packages/atoms/emulation
   uses:
     disabled:
@@ -237,15 +268,25 @@ artefacts:
     - python_targets_python3_7
   packages:
   - app-emulation/virtualbox-bin
-- tree: packages/atoms/emulation
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang
+          name: go-bootstrap
   uses:
-    disabled:
-    - nios2
-    - sh
     enabled:
-    - cpu_flags_x86_sse2
+      - nls
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
   packages:
-  - dev-lang/go
+    - dev-lang/go
+
 - tree: packages/atoms/emulation
   uses:
     disabled:
@@ -293,3 +334,136 @@ artefacts:
     - device-mapper
   packages:
   - app-emulation/cri-o
+
+- tree: packages/atoms/emulation
+  mutations:
+    uses:
+      - qemu_softmmu_targets_mips64
+      - qemu_softmmu_targets_mips64el
+      - qemu_softmmu_targets_mipsel
+      - qemu_softmmu_targets_riscv32
+      - qemu_softmmu_targets_riscv64
+      - qemu_softmmu_targets_sparc64
+      - qemu_softmmu_targets_s390x
+      - qemu_softmmu_targets_arm
+
+      - qemu_user_targets_arm
+      - qemu_user_targets_armeb
+      - qemu_user_targets_mips
+      - qemu_user_targets_mipsel
+      - qemu_user_targets_mips64
+      - qemu_user_targets_mips64el
+      - qemu_user_targets_riscv32
+      - qemu_user_targets_riscv64
+      - qemu_user_targets_s390x
+  uses:
+    enabled:
+      - python_targets_python3_7
+      - kernel_linux
+      - qemu_softmmu_targets_mips64
+      - qemu_softmmu_targets_mips64el
+      - qemu_softmmu_targets_mipsel
+      - qemu_softmmu_targets_riscv32
+      - qemu_softmmu_targets_riscv64
+      - qemu_softmmu_targets_sparc64
+      - qemu_softmmu_targets_s390x
+      - qemu_softmmu_targets_arm
+      - qemu_softmmu_targets_i386
+      - qemu_softmmu_targets_x86_64
+
+      - qemu_user_targets_arm
+      - qemu_user_targets_armeb
+      - qemu_user_targets_mips
+      - qemu_user_targets_mipsel
+      - qemu_user_targets_mips64
+      - qemu_user_targets_mips64el
+      - qemu_user_targets_riscv32
+      - qemu_user_targets_riscv64
+      - qemu_user_targets_s390x
+      - qemu_user_targets_i386
+      - qemu_user_targets_x86_64
+
+      - fuse
+      - bpf
+      - iscsi
+      - ssh
+      - vte
+      - aio
+      - alsa
+      - bpf
+      - bzip2
+      - caps
+      - curl
+      - fdt
+      - filecaps
+      - fuse
+      - glusterfs
+      - gnutls
+      - gtk
+      - iscsi
+      - jpeg
+      - lzo
+      - multipath
+      - ncurses
+      - nfs
+      - nls
+      - opengl
+      - oss
+      - pam
+      - plugins
+      - png
+      - pulseaudio
+      - python
+      - sdl
+      - seccomp
+      - slirp
+      - spice
+      - ssh
+      - udev
+      - usb
+      - usbredir
+      - vhost-net
+      - virgl
+      - virtfs
+      - vnc
+      - vte
+      - xattr
+      - xfs
+      - zstd
+  packages:
+  - app-emulation/qemu
+
+- tree: packages/atoms/emulation
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - debug
+      - emacs
+      - infiniband
+      - libressl
+      - static-libs
+      - test
+      - vim-syntax
+    enabled:
+      - bd-xlator
+      - crypt-xlator
+      - fuse
+      - georeplication
+      - glupy
+      - ipv6
+      - libtirpc
+      - qemu-block
+      - rsyslog
+      - syslog
+      - systemtap
+      - xml
+      - python_single_target_python3_7
+      - elibc_glibc
+  packages:
+    - sys-cluster/glusterfs
