@@ -1,5 +1,5 @@
 name: inkscape
-version: 1.1+2
+version: 1.1.2
 category: media-gfx
 use_flags:
 - -graphicsmagick
@@ -49,7 +49,7 @@ requires:
 - name: numpy
   version: '>=0'
   category: dev-python
-- name: potrace
+- name: imagemagick
   version: '>=0'
   category: media-gfx
 - name: scour
@@ -96,7 +96,7 @@ labels:
   DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) >=app-text/poppler-0.57.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1
+    ) <=app-text/poppler-22.04.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1
     dev-cpp/gtkmm:3.0 >=dev-cpp/pangomm-2.40 >=dev-libs/boehm-gc-7.1:= dev-libs/double-conversion:=
     >=dev-libs/glib-2.41 >=dev-libs/libsigc++-2.8 >=dev-libs/libxml2-2.7.4 >=dev-libs/libxslt-1.1.25
     dev-libs/gdl:3 dev-libs/popt media-gfx/potrace media-libs/fontconfig media-libs/freetype:2
@@ -117,7 +117,7 @@ labels:
   RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) >=app-text/poppler-0.57.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1
+    ) <=app-text/poppler-22.04.0:=[cairo] >=dev-cpp/cairomm-1.12 >=dev-cpp/glibmm-2.54.1
     dev-cpp/gtkmm:3.0 >=dev-cpp/pangomm-2.40 >=dev-libs/boehm-gc-7.1:= dev-libs/double-conversion:=
     >=dev-libs/glib-2.41 >=dev-libs/libsigc++-2.8 >=dev-libs/libxml2-2.7.4 >=dev-libs/libxslt-1.1.25
     dev-libs/gdl:3 dev-libs/popt media-gfx/potrace media-libs/fontconfig media-libs/freetype:2
@@ -135,4 +135,4 @@ labels:
   kit: media-kit
   original.package.name: media-gfx/inkscape
   original.package.slot: "0"
-  original.package.version: "1.1"
+  original.package.version: 1.1.2-r1
