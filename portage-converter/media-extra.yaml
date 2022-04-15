@@ -22,11 +22,63 @@ skipped_resolutions:
     - name: argp-standalone
       category: sys-libs
 
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+
+    - name: cdrtools
+      category: virtual
+
+    - name: virtualbox-modules
+      category: app-emulation
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
 include_files:
 
 #build_template_file: ../templates/build-pkg-uses.yaml.tmpl
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
-build_portage_template_file: ../templates/build-pkg-portage.yaml.tmpl
 
 artefacts:
 
