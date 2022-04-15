@@ -2,33 +2,36 @@ name: glusterfs
 version: "9.0"
 category: sys-cluster
 use_flags:
-- -elibc_glibc
 - -emacs
-- -georeplication
 - -libressl
-- -libtirpc
-- -python_single_target_python3_7
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -test
-- -xml
+- elibc_glibc
 - fuse
+- georeplication
+- libtirpc
+- python_single_target_python3_7
+- xml
 requires:
 - name: libaio
   version: '>=0'
   category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
 - name: openssl
   version: '>=0'
   category: dev-libs
 - name: userspace-rcu
   version: '>=0'
   category: dev-libs
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
 - name: rpcsvc-proto
   version: '>=0'
   category: net-libs
-- name: util-linux
-  version: '>=0'
-  category: sys-apps
 - name: fuse
   version: '>=0'
   category: sys-fs-3
