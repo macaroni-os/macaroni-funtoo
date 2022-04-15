@@ -1,5 +1,5 @@
 name: mpv
-version: 0.33.1.20210913+2
+version: 0.34.1.20220402
 category: media-video
 use_flags:
 - -archive
@@ -33,6 +33,7 @@ use_flags:
 - libass
 - lua
 - opengl
+- pipewire
 - pulseaudio
 - python_targets_python3_7
 - sdl
@@ -47,9 +48,9 @@ requires:
 - name: uchardet
   version: '>=0'
   category: app-i18n
-- name: alsa-lib
+- name: lua
   version: '>=0'
-  category: media-libs
+  category: dev-lang
 - name: libdvdnav
   version: '>=0'
   category: media-libs
@@ -57,6 +58,9 @@ requires:
   version: '>=0'
   category: media-libs
 - name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: pipewire
   version: '>=0'
   category: media-video
 - name: jpeg
@@ -87,8 +91,9 @@ labels:
     ) lcms? ( >=media-libs/lcms-2.6:2 ) libass? ( >=media-libs/libass-0.12.1:=[fontconfig,harfbuzz(+)]
     virtual/ttf-fonts ) libcaca? ( >=media-libs/libcaca-0.99_beta18 ) lua? ( !luajit?
     ( <dev-lang/lua-5.3:= ) luajit? ( dev-lang/luajit:2 ) ) openal? ( >=media-libs/openal-1.13
-    ) pulseaudio? ( media-sound/pulseaudio ) raspberry-pi? ( >=media-libs/raspberrypi-userland-0_pre20160305-r1
-    ) rubberband? ( >=media-libs/rubberband-1.8.0 ) sdl? ( media-libs/libsdl2[sound,threads,video]
+    ) pipewire? ( >=media-video/pipewire-0.3.6 ) pulseaudio? ( media-sound/pulseaudio
+    ) raspberry-pi? ( >=media-libs/raspberrypi-userland-0_pre20160305-r1 ) rubberband?
+    ( >=media-libs/rubberband-1.8.0 ) sdl? ( media-libs/libsdl2[sound,threads,video]
     ) vaapi? ( x11-libs/libva:=[drm?,X?,wayland?] ) vdpau? ( x11-libs/libvdpau ) vulkan?
     ( media-libs/libplacebo:=[vulkan] media-libs/shaderc ) wayland? ( >=dev-libs/wayland-1.6.0
     >=dev-libs/wayland-protocols-1.14 >=x11-libs/libxkbcommon-0.3.0 ) X? ( x11-libs/libX11
@@ -102,8 +107,8 @@ labels:
     )'
   IUSE: +alsa aqua archive bluray cdda +cli coreaudio cplugins cuda debug doc drm
     dvb dvd +egl gamepad gbm +iconv jack javascript jpeg lcms libass libcaca libmpv
-    +lua luajit openal +opengl pulseaudio raspberry-pi rubberband sdl selinux test
-    tools +uchardet vaapi vdpau vulkan wayland +X +xv zlib zimg python_targets_python3_7
+    +lua luajit openal +opengl pipewire pulseaudio raspberry-pi rubberband sdl selinux
+    test tools +uchardet vaapi vdpau vulkan wayland +X +xv zlib zimg python_targets_python3_7
     python_targets_python3_9 python_targets_python3_8
   RDEPEND: '!!app-shells/mpv-bash-completion >=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?]
     alsa? ( >=media-libs/alsa-lib-1.0.18 ) archive? ( >=app-arch/libarchive-3.4.0:=
@@ -115,8 +120,9 @@ labels:
     ) lcms? ( >=media-libs/lcms-2.6:2 ) libass? ( >=media-libs/libass-0.12.1:=[fontconfig,harfbuzz(+)]
     virtual/ttf-fonts ) libcaca? ( >=media-libs/libcaca-0.99_beta18 ) lua? ( !luajit?
     ( <dev-lang/lua-5.3:= ) luajit? ( dev-lang/luajit:2 ) ) openal? ( >=media-libs/openal-1.13
-    ) pulseaudio? ( media-sound/pulseaudio ) raspberry-pi? ( >=media-libs/raspberrypi-userland-0_pre20160305-r1
-    ) rubberband? ( >=media-libs/rubberband-1.8.0 ) sdl? ( media-libs/libsdl2[sound,threads,video]
+    ) pipewire? ( >=media-video/pipewire-0.3.6 ) pulseaudio? ( media-sound/pulseaudio
+    ) raspberry-pi? ( >=media-libs/raspberrypi-userland-0_pre20160305-r1 ) rubberband?
+    ( >=media-libs/rubberband-1.8.0 ) sdl? ( media-libs/libsdl2[sound,threads,video]
     ) vaapi? ( x11-libs/libva:=[drm?,X?,wayland?] ) vdpau? ( x11-libs/libvdpau ) vulkan?
     ( media-libs/libplacebo:=[vulkan] media-libs/shaderc ) wayland? ( >=dev-libs/wayland-1.6.0
     >=dev-libs/wayland-protocols-1.14 >=x11-libs/libxkbcommon-0.3.0 ) X? ( x11-libs/libX11
@@ -131,4 +137,4 @@ labels:
   kit: media-kit
   original.package.name: media-video/mpv
   original.package.slot: "0"
-  original.package.version: 0.33.1.20210913
+  original.package.version: 0.34.1.20220402
