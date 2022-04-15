@@ -204,7 +204,6 @@ artefacts:
     - python_targets_python3_7
   packages:
   - dev-python/httplib2
-  - virtual/python-greenlet
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
@@ -231,15 +230,6 @@ artefacts:
     - player
   packages:
   - media-sound/wildmidi
-- tree: packages/atoms/media-gfx
-  uses:
-    disabled:
-    - cuda
-    - doc
-    - nios2
-    - sh
-  packages:
-  - dev-cpp/eigen:3
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
@@ -315,9 +305,15 @@ artefacts:
     - wayland
     - xv
     - zlib
+    - pipewire
   packages:
   - media-video/mpv
 - tree: packages/atoms/media-gfx
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
   uses:
     disabled:
     - libav
@@ -509,7 +505,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: funtoo-media-gfx
+          name: macaroni-funtoo-race2
   uses:
     disabled:
     - altivec
@@ -573,18 +569,14 @@ artefacts:
     - nios2
     - sh
   packages:
-  - app-eselect/eselect-timidity
   - dev-util/glslang
   - dev-util/patchelf
   - dev-util/spirv-headers
   - dev-util/spirv-tools
-  - media-gfx/blender-bin:2.93
-  - media-gfx/mypaint-brushes:1.0
   - media-libs/libopenshot-audio
   - media-sound/timidity-freepats
   - media-video/movit
-  - net-libs/cppzmq
-  - virtual/cdrtools
+
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
@@ -635,15 +627,6 @@ artefacts:
     - threads
   packages:
   - media-libs/libmikmod
-- tree: packages/atoms/media-gfx
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  packages:
-  - dev-libs/jansson
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
@@ -911,4 +894,71 @@ artefacts:
     - test
   packages:
   - net-dns/c-ares
+
+- tree: packages/atoms/media-gfx
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-cdr
+          name: cdrtools
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - virtual/cdrtools
+
+- tree: packages/atoms/media-gfx
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: greenlet
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - virtual/python-greenlet
+
+- tree: packages/atoms/media-gfx
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - net-libs/cppzmq
+
+- tree: packages/atoms/media-gfx
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/jansson
+  - media-sound/rawrec
+  - dev-libs/re2
+  - app-eselect/eselect-timidity
+
+- tree: packages/atoms/media-gfx
+  uses:
+    disabled:
+    - cuda
+    - doc
+    - nios2
+    - sh
+  packages:
+  - dev-cpp/eigen:3
 
