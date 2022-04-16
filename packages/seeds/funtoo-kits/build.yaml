@@ -12,10 +12,8 @@ prelude:
 - >-
   mv kits-versions / &&
   curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh &&
-  luet install
-  repository/mottainai-stable
-  system/luet-devkit &&
   luet install --sync-repos
+  system/luet-devkit
   dev-util/pkgs-checker-minimal utils/yq &&
   luet install system/entities --sync-repos && luet upgrade &&
   luet cleanup &&
