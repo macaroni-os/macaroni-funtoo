@@ -1,5 +1,5 @@
 name: curl
-version: 7.74.0+3
+version: 7.82.0
 category: net-misc
 use_flags:
 - -adns
@@ -40,35 +40,36 @@ uri:
 - https://curl.haxx.se/
 license: MIT
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: dev-lang/perl virtual/pkgconfig test? ( sys-apps/diffutils ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
   DEPEND: ldap? ( net-nds/openldap[-mgorny(-)] ) brotli? ( app-arch/brotli:=[-mgorny(-)]
-    ) ssl? ( curl_ssl_gnutls? ( net-libs/gnutls:0=[static-libs?,-mgorny(-)] dev-libs/nettle:0=[-mgorny(-)]
-    app-misc/ca-certificates ) curl_ssl_libressl? ( dev-libs/libressl:0=[static-libs?,-mgorny(-)]
-    ) curl_ssl_mbedtls? ( net-libs/mbedtls:0=[-mgorny(-)] app-misc/ca-certificates
-    ) curl_ssl_openssl? ( dev-libs/openssl:0=[static-libs?,-mgorny(-)] ) curl_ssl_nss?
-    ( dev-libs/nss:0[-mgorny(-)] app-misc/ca-certificates ) ) http2? ( net-libs/nghttp2[-mgorny(-)]
-    ) idn? ( net-dns/libidn2:0=[static-libs?,-mgorny(-)] ) adns? ( net-dns/c-ares:0[-mgorny(-)]
-    ) kerberos? ( >=virtual/krb5-0-r1[-mgorny(-)] ) metalink? ( >=media-libs/libmetalink-0.1.1[-mgorny(-)]
-    ) rtmp? ( media-video/rtmpdump[-mgorny(-)] ) ssh? ( net-libs/libssh2[-mgorny(-)]
-    ) sys-libs/zlib[-mgorny(-)] >=virtual/pkgconfig-0-r1[-mgorny(-)] test? ( sys-apps/diffutils
-    dev-lang/perl )
-  IUSE: adns brotli http2 idn ipv6 kerberos ldap metalink rtmp samba ssh ssl static-libs
-    test threads curl_ssl_gnutls curl_ssl_libressl curl_ssl_mbedtls curl_ssl_nss +curl_ssl_openssl
-    curl_ssl_winssl elibc_Winnt abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
+    ) ssl? ( gnutls? ( net-libs/gnutls:0=[static-libs?,-mgorny(-)] dev-libs/nettle:0=[-mgorny(-)]
+    app-misc/ca-certificates ) mbedtls? ( net-libs/mbedtls:0=[-mgorny(-)] app-misc/ca-certificates
+    ) openssl? ( dev-libs/openssl:0=[sslv3(-)=,static-libs?,-mgorny(-)] ) nss? ( dev-libs/nss:0[-mgorny(-)]
+    app-misc/ca-certificates ) ) http2? ( net-libs/nghttp2:=[-mgorny(-)] ) nghttp3?
+    ( net-libs/nghttp3[-mgorny(-)] net-libs/ngtcp2[ssl,-mgorny(-)] ) quiche? ( >=net-libs/quiche-0.3.0[-mgorny(-)]
+    ) idn? ( net-dns/libidn2:0=[static-libs?,-mgorny(-)] ) adns? ( net-dns/c-ares:0=[-mgorny(-)]
+    ) kerberos? ( >=virtual/krb5-0-r1[-mgorny(-)] ) rtmp? ( media-video/rtmpdump[-mgorny(-)]
+    ) ssh? ( net-libs/libssh2[-mgorny(-)] ) sys-libs/zlib[-mgorny(-)] zstd? ( app-arch/zstd:=[-mgorny(-)]
+    )
+  IUSE: adns alt-svc brotli +ftp gnutls gopher hsts +http2 idn +imap ipv6 kerberos
+    ldap mbedtls nss +openssl +pop3 +progress-meter rtmp samba +smtp ssh ssl sslv3
+    static-libs test telnet +tftp threads zstd curl_ssl_gnutls curl_ssl_mbedtls curl_ssl_nss
+    +curl_ssl_openssl nghttp3 quiche abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   RDEPEND: ldap? ( net-nds/openldap[-mgorny(-)] ) brotli? ( app-arch/brotli:=[-mgorny(-)]
-    ) ssl? ( curl_ssl_gnutls? ( net-libs/gnutls:0=[static-libs?,-mgorny(-)] dev-libs/nettle:0=[-mgorny(-)]
-    app-misc/ca-certificates ) curl_ssl_libressl? ( dev-libs/libressl:0=[static-libs?,-mgorny(-)]
-    ) curl_ssl_mbedtls? ( net-libs/mbedtls:0=[-mgorny(-)] app-misc/ca-certificates
-    ) curl_ssl_openssl? ( dev-libs/openssl:0=[static-libs?,-mgorny(-)] ) curl_ssl_nss?
-    ( dev-libs/nss:0[-mgorny(-)] app-misc/ca-certificates ) ) http2? ( net-libs/nghttp2[-mgorny(-)]
-    ) idn? ( net-dns/libidn2:0=[static-libs?,-mgorny(-)] ) adns? ( net-dns/c-ares:0[-mgorny(-)]
-    ) kerberos? ( >=virtual/krb5-0-r1[-mgorny(-)] ) metalink? ( >=media-libs/libmetalink-0.1.1[-mgorny(-)]
-    ) rtmp? ( media-video/rtmpdump[-mgorny(-)] ) ssh? ( net-libs/libssh2[-mgorny(-)]
-    ) sys-libs/zlib[-mgorny(-)]
+    ) ssl? ( gnutls? ( net-libs/gnutls:0=[static-libs?,-mgorny(-)] dev-libs/nettle:0=[-mgorny(-)]
+    app-misc/ca-certificates ) mbedtls? ( net-libs/mbedtls:0=[-mgorny(-)] app-misc/ca-certificates
+    ) openssl? ( dev-libs/openssl:0=[sslv3(-)=,static-libs?,-mgorny(-)] ) nss? ( dev-libs/nss:0[-mgorny(-)]
+    app-misc/ca-certificates ) ) http2? ( net-libs/nghttp2:=[-mgorny(-)] ) nghttp3?
+    ( net-libs/nghttp3[-mgorny(-)] net-libs/ngtcp2[ssl,-mgorny(-)] ) quiche? ( >=net-libs/quiche-0.3.0[-mgorny(-)]
+    ) idn? ( net-dns/libidn2:0=[static-libs?,-mgorny(-)] ) adns? ( net-dns/c-ares:0=[-mgorny(-)]
+    ) kerberos? ( >=virtual/krb5-0-r1[-mgorny(-)] ) rtmp? ( media-video/rtmpdump[-mgorny(-)]
+    ) ssh? ( net-libs/libssh2[-mgorny(-)] ) sys-libs/zlib[-mgorny(-)] zstd? ( app-arch/zstd:=[-mgorny(-)]
+    )
   emerge.packages: net-misc/curl
   kit: core-kit
   original.package.name: net-misc/curl
-  original.package.version: 7.74.0
+  original.package.slot: "0"
+  original.package.version: 7.82.0
