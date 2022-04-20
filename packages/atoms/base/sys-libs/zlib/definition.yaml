@@ -1,5 +1,5 @@
 name: zlib
-version: 1.2.11+3
+version: 1.2.12
 category: sys-libs
 use_flags:
 - -abi_x86_32
@@ -16,9 +16,10 @@ uri:
 - https://zlib.net/
 license: ZLIB
 labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
   DEPEND: minizip? ( !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
     >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-    ) >=app-portage/elt-patches-20170815
+    )
   IUSE: minizip static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
     abi_mips_o32 abi_s390_32 abi_s390_64
   RDEPEND: abi_x86_32? ( !<=app-emulation/emul-linux-x86-baselibs-20130224 !app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
@@ -26,4 +27,5 @@ labels:
   emerge.packages: sys-libs/zlib
   kit: core-kit
   original.package.name: sys-libs/zlib
-  original.package.version: 1.2.11-r3
+  original.package.slot: "0"
+  original.package.version: 1.2.12
