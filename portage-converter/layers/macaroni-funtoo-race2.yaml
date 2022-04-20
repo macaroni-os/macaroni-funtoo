@@ -59,8 +59,10 @@ packages:
   - app-emulation/lxc:0
   - app-emulation/lxd:0
   - app-emulation/open-vm-tools:0
+  - app-emulation/qemu:0
   - app-emulation/runc:0
   - app-emulation/spice-protocol:0
+  - app-emulation/spice:0
   - app-emulation/virtualbox-bin:0
   - app-eselect/eselect-cblas:0
   - app-eselect/eselect-cdparanoia:0
@@ -191,9 +193,7 @@ packages:
   - dev-go/go-md2man:0
   - dev-java/ant-core:0
   - dev-java/java-config:2
-  - dev-java/javatoolkit:0
-  - dev-java/openjdk-jre-bin:11
-  - dev-java/oracle-jdk-bin:1.8
+  - dev-java/openjdk-bin:11
   - dev-lang/go-bootstrap:0
   - dev-lang/go:0
   - dev-lang/lua:0
@@ -250,6 +250,7 @@ packages:
   - dev-libs/libassuan:0
   - dev-libs/libatasmart:0
   - dev-libs/libatomic_ops:0
+  - dev-libs/libbpf:0
   - dev-libs/libbsd:0
   - dev-libs/libburn:0
   - dev-libs/libbytesize:0
@@ -279,7 +280,6 @@ packages:
   - dev-libs/libical:0
   - dev-libs/libinput:0
   - dev-libs/libisofs:0
-  - dev-libs/libixion:0
   - dev-libs/libksba:0
   - dev-libs/liblinear:0
   - dev-libs/liblouis:0
@@ -288,7 +288,6 @@ packages:
   - dev-libs/libmspack:0
   - dev-libs/libnatspec:0
   - dev-libs/libnl:3
-  - dev-libs/liborcus:0
   - dev-libs/libpcre2:0
   - dev-libs/libpcre:3
   - dev-libs/libpeas:0
@@ -308,6 +307,7 @@ packages:
   - dev-libs/libxml2:2
   - dev-libs/libxslt:0
   - dev-libs/libyaml:0
+  - dev-libs/libzip:0
   - dev-libs/lzo:2
   - dev-libs/mpc:0
   - dev-libs/mpfr:0
@@ -320,12 +320,13 @@ packages:
   - dev-libs/openssl:0
   - dev-libs/plasma-wayland-protocols:0
   - dev-libs/popt:0
+  - dev-libs/protobuf:0
   - dev-libs/qqwing:0
   - dev-libs/rasqal:0
   - dev-libs/redland:0
-  - dev-libs/spdlog:0
   - dev-libs/tinyxml:0
   - dev-libs/totem-pl-parser:0
+  - dev-libs/userspace-rcu:0
   - dev-libs/vala-common:0
   - dev-libs/wayland-protocols:0
   - dev-libs/wayland:0
@@ -771,6 +772,7 @@ packages:
   - media-gfx/graphviz:0
   - media-gfx/imagemagick:0
   - media-gfx/plantuml:0
+  - media-gfx/potrace:0
   - media-gfx/qrencode:0
   - media-gfx/shotwell:0
   - media-libs/a52dec:0
@@ -890,6 +892,7 @@ packages:
   - media-libs/speexdsp:0
   - media-libs/taglib:0
   - media-libs/tiff:0
+  - media-libs/virglrenderer:0
   - media-libs/vo-amrwbenc:0
   - media-libs/vulkan-loader:0
   - media-libs/webrtc-audio-processing:0
@@ -978,10 +981,10 @@ packages:
   - net-libs/libasyncns:0
   - net-libs/libgfbgraph:0.2
   - net-libs/libgrss:0
+  - net-libs/libiscsi:0
   - net-libs/libmbim:0
   - net-libs/libmnl:0
   - net-libs/libndp:0
-  - net-libs/libnet:1.1
   - net-libs/libnetfilter_conntrack:0
   - net-libs/libnetfilter_cthelper:0
   - net-libs/libnetfilter_cttimeout:0
@@ -994,6 +997,7 @@ packages:
   - net-libs/libproxy:0
   - net-libs/libpsl:0
   - net-libs/libqmi:0
+  - net-libs/libslirp:0
   - net-libs/libsoup:2.4
   - net-libs/libssh:0
   - net-libs/libtirpc:0
@@ -1055,6 +1059,7 @@ packages:
   - sys-apps/dbus:0
   - sys-apps/debianutils:0
   - sys-apps/diffutils:0
+  - sys-apps/dtc:0
   - sys-apps/file:0
   - sys-apps/findutils:0
   - sys-apps/gawk:0
@@ -1090,6 +1095,7 @@ packages:
   - sys-apps/sysvinit:0
   - sys-apps/tcp-wrappers:0
   - sys-apps/texinfo:0
+  - sys-apps/usbredir:0
   - sys-apps/usbutils:0
   - sys-apps/util-linux:0
   - sys-apps/which:0
@@ -1106,6 +1112,7 @@ packages:
   - sys-boot/grub:2
   - sys-boot/plymouth-openrc-plugin:0
   - sys-boot/plymouth:0
+  - sys-cluster/glusterfs:0
   - sys-devel/autoconf-archive:0
   - sys-devel/autoconf-wrapper:0
   - sys-devel/autoconf:2.1
@@ -1128,6 +1135,10 @@ packages:
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
+  - sys-firmware/edk2-ovmf:0
+  - sys-firmware/ipxe:0
+  - sys-firmware/seabios:0
+  - sys-firmware/sgabios:0
   - sys-firmware/sof-firmware:0
   - sys-fs/btrfs-progs:0
   - sys-fs/cryptsetup:0
@@ -1142,6 +1153,7 @@ packages:
   - sys-fs/lvm2:0
   - sys-fs/lxcfs:0
   - sys-fs/mdadm:0
+  - sys-fs/multipath-tools:0
   - sys-fs/reiser4progs:0
   - sys-fs/reiserfsprogs:0
   - sys-fs/squashfs-tools:0
@@ -1182,6 +1194,7 @@ packages:
   - sys-libs/tevent:0
   - sys-libs/timezone-data:0
   - sys-libs/zlib:0
+  - sys-power/iasl:0
   - sys-power/upower:0
   - sys-process/procps:0
   - sys-process/psmisc:0
@@ -1195,10 +1208,9 @@ packages:
   - virtual/glu:0
   - virtual/imagemagick-tools:0
   - virtual/jack:0
-  - virtual/jdk:1.8
+  - virtual/jdk:11
   - virtual/jpeg-compat:62
   - virtual/jpeg:0
-  - virtual/jre:1.8
   - virtual/jre:11
   - virtual/krb5:0
   - virtual/libc:0
