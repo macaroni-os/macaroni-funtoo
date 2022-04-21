@@ -1,5 +1,5 @@
 name: git
-version: 2.36.0
+version: 2.36.0+1
 category: dev-vcs
 use_flags:
 - -cgi
@@ -14,7 +14,6 @@ use_flags:
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -test
-- -tk
 - curl
 - gpg
 - iconv
@@ -23,11 +22,21 @@ use_flags:
 - pcre-jit
 - perl
 - python_single_target_python3_7
+- tk
 - webdav
 requires:
+- name: zstd
+  version: '>=0'
+  category: app-arch
 - name: gnupg
   version: '>=0'
   category: app-crypt
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: tk
+  version: '>=0'
+  category: dev-lang
 - name: expat
   version: '>=0'
   category: dev-libs
@@ -46,9 +55,6 @@ requires:
 - name: libiconv
   version: '>=0'
   category: virtual
-- name: zstd
-  version: '>=0'
-  category: app-arch
 annotations:
   subsets:
     rules:
