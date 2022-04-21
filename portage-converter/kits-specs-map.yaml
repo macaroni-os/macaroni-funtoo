@@ -83,6 +83,7 @@ funtoo-stage:
         - base-modified.yaml
         - base.yaml
 
+# grep "kit:" packages/atoms/media-gfx/* -r | awk '{ print $3 }' | sort | uniq
 extra-pkgs:
   kits:
     browser-kit:
@@ -94,10 +95,18 @@ extra-pkgs:
         - dev-extra.yaml
         - macaroni-emulation-extra.yaml
         - php-extra.yaml
+        - office.yaml
+        - emulation.yaml
+        - media-gfx.yaml
+
+    core-gl-kit:
+      specs:
+        - media-gfx.yaml
 
     core-hw-kit:
       specs:
         - dev-extra.yaml
+        - emulation.yaml
 
     core-kit:
       specs:
@@ -105,17 +114,24 @@ extra-pkgs:
         - macaroni-emulation-extra.yaml
         - net-extra.yaml
         - php-extra.yaml
+        - java.yaml
+        - boot.yaml
+        - office.yaml
+        - emulation.yaml
+        - media-gfx.yaml
 
     core-server-kit:
       specs:
         - dev-extra.yaml
         - php-extra.yaml
         - python-extra.yaml
+        - media-gfx.yaml
 
     desktop-kit:
       specs:
         - dev-extra.yaml
         - desktop-extra.yaml
+        - office.yaml
 
     java-kit:
       specs:
@@ -131,6 +147,10 @@ extra-pkgs:
       specs:
         - dev-extra.yaml
         - media-extra.yaml
+        - boot.yaml
+        - office.yaml
+        - emulation.yaml
+        - media-gfx.yaml
 
     net-kit:
       specs:
@@ -138,17 +158,23 @@ extra-pkgs:
         - macaroni-emulation-extra.yaml
         - net-extra.yaml
         - php-extra.yaml
+        - java.yaml
+        - emulation.yaml
+        - media-gfx.yaml
 
     python-modules-kit:
       specs:
         - dev-extra.yaml
         - macaroni-emulation-extra.yaml
         - python-extra.yaml
+        - media-gfx.yaml
 
     text-kit:
       specs:
         - dev-extra.yaml
         - php-extra.yaml
+        - office.yaml
+        - media-gfx.yaml
 
     xfce-kit:
       specs:
@@ -157,14 +183,38 @@ extra-pkgs:
     gnome-kit:
       specs:
         - mos-gnome-extra.yaml
+        - office.yaml
+        - media-gfx.yaml
 
     qt-kit:
       specs:
         - net-extra.yaml
+        - media-gfx.yaml
 
     nokit:
       specs:
         - net-extra.yaml
+        - emulation.yaml
+
+    geaaru-kit:
+      specs:
+        - java.yaml
+        - emulation.yaml
+        - media-gfx.yaml
+
+    science-kit:
+      specs:
+        - office.yaml
+        - media-gfx.yaml
+
+    security-kit:
+      specs:
+        - office.yaml
+        - emulation.yaml
+
+    lang-kit:
+      specs:
+        - emulation.yaml
 
 seeds:
   - name: macaroni-funtoo-base
