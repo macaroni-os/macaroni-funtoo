@@ -1,0 +1,49 @@
+name: tk
+version: 8.6.9.1
+category: dev-lang
+use_flags:
+- -aqua
+- -prefix
+- -test
+- -truetype
+- -xscreensaver
+requires:
+- name: tcl
+  version: '>=0'
+  category: dev-lang
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: libXt
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tk Widget Set
+uri:
+- http://www.tcl.tk/
+license: tcltk
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
+    )'
+  DEPEND: '!aqua? ( >=media-libs/fontconfig-2.10.92[-mgorny(-)] >=x11-libs/libX11-1.6.2[-mgorny(-)]
+    >=x11-libs/libXt-1.1.4[-mgorny(-)] truetype? ( >=x11-libs/libXft-2.3.1-r1[-mgorny(-)]
+    ) xscreensaver? ( >=x11-libs/libXScrnSaver-1.2.2-r1[-mgorny(-)] ) ) ~dev-lang/tcl-8.6.9:0=[-mgorny(-)]
+    !aqua? ( x11-base/xorg-proto )'
+  IUSE: debug +threads truetype aqua xscreensaver abi_x86_32 abi_x86_64 abi_x86_x32
+    abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 test
+  RDEPEND: '!aqua? ( >=media-libs/fontconfig-2.10.92[-mgorny(-)] >=x11-libs/libX11-1.6.2[-mgorny(-)]
+    >=x11-libs/libXt-1.1.4[-mgorny(-)] truetype? ( >=x11-libs/libXft-2.3.1-r1[-mgorny(-)]
+    ) xscreensaver? ( >=x11-libs/libXScrnSaver-1.2.2-r1[-mgorny(-)] ) ) ~dev-lang/tcl-8.6.9:0=[-mgorny(-)]'
+  emerge.packages: dev-lang/tk
+  kit: lang-kit
+  original.package.name: dev-lang/tk
+  original.package.slot: "0"
+  original.package.version: 8.6.9.1
