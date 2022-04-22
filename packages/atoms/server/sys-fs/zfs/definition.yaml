@@ -1,5 +1,5 @@
 name: zfs
-version: 2.0.6+2
+version: 2.1.4
 category: sys-fs
 use_flags:
 - -kernel-builtin
@@ -21,15 +21,12 @@ requires:
 - name: pax-utils
   version: '>=0'
   category: app-misc
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: libtirpc
   version: '>=0'
   category: net-libs
-- name: util-linux
-  version: '>=0'
-  category: sys-apps
-- name: udev-init-scripts
-  version: '>=0'
-  category: sys-fs
 - name: awk
   version: '>=0'
   category: virtual
@@ -39,6 +36,9 @@ requires:
 - name: python-cffi
   version: '>=0'
   category: virtual
+- name: udev
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -46,7 +46,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Userland utilities for ZFS Linux kernel module
+description: OpenZFS on Linux and FreeBSD
 uri:
 - https://github.com/openzfs/zfs
 license: BSD-2 CDDL MIT
@@ -71,12 +71,12 @@ labels:
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     ) pam? ( sys-libs/pam ) python? ( virtual/python-cffi[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    ) !kernel-builtin? ( ~sys-fs/zfs-kmod-2.0.6 ) !prefix? ( virtual/udev ) sys-fs/udev-init-scripts
-    rootfs? ( app-arch/cpio app-misc/pax-utils !<sys-kernel/genkernel-3.5.1.1 ) test-suite?
+    ) !kernel-builtin? ( ~sys-fs/zfs-kmod-2.1.4 ) !prefix? ( virtual/udev ) rootfs?
+    ( app-arch/cpio app-misc/pax-utils !<sys-kernel/genkernel-3.5.1.1 ) test-suite?
     ( sys-apps/kmod[tools] sys-apps/util-linux sys-devel/bc sys-block/parted sys-fs/lsscsi
     sys-fs/mdadm sys-process/procps )
   emerge.packages: sys-fs/zfs
   kit: core-kit
   original.package.name: sys-fs/zfs
   original.package.slot: "0"
-  original.package.version: 2.0.6
+  original.package.version: 2.1.4
