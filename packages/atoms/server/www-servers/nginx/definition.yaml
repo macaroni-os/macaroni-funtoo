@@ -1,5 +1,5 @@
 name: nginx
-version: 1.19.4+2
+version: 1.19.4+3
 category: www-servers
 use_flags:
 - -arm
@@ -31,6 +31,9 @@ requires:
 - name: libpcre
   version: '>=0'
   category: dev-libs-3
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -125,4 +128,4 @@ labels:
   kit: core-server-kit
   original.package.name: www-servers/nginx
   original.package.slot: "0"
-  original.package.version: 1.19.4-r1
+  original.package.version: 1.19.4-r2
