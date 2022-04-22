@@ -1,9 +1,16 @@
 name: mongo-tools
-version: 100.5.0+2
+version: 100.5.2
 category: app-admin
 use_flags:
 - -sasl
 - ssl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: libpcap
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
@@ -16,11 +23,12 @@ uri:
 - https://www.mongodb.com
 license: Apache-2.0
 labels:
-  DEPEND: dev-lang/go:= net-libs/libpcap sasl? ( dev-libs/cyrus-sasl ) ssl? ( dev-libs/openssl:0=
-    )
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
   IUSE: sasl ssl
+  RDEPEND: net-libs/libpcap sasl? ( dev-libs/cyrus-sasl ) ssl? ( dev-libs/openssl:0=
+    )
   emerge.packages: app-admin/mongo-tools
   kit: core-server-kit
   original.package.name: app-admin/mongo-tools
   original.package.slot: "0"
-  original.package.version: 100.5.0
+  original.package.version: 100.5.2
