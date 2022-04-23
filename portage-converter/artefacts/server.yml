@@ -43,21 +43,32 @@ artefacts:
   packages:
   - dev-db/mariadb:10.5
 - tree: packages/atoms/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pyyaml
+        - category: dev-python
+          name: psutil
+        - category: dev-python
+          name: cheetah3
+        - category: dev-util
+          name: scons
   uses:
-    disabled:
-    - debug
-    - kerberos
-    - libressl
-    - lto
-    - nios2
-    - sh
-    - test
     enabled:
-    - shell
-    - ssl
-    - tools
+      - python_targets_python3_7
+      - shell
+      - ssl
+      - tools
+    disabled:
+      - debug
+      - kerberos
+      - libressl
+      - lto
+      - test
   packages:
-  - dev-db/mongodb
+    - dev-db/mongodb
+
 - tree: packages/atoms/server
   uses:
     disabled:
@@ -132,17 +143,12 @@ artefacts:
     - nios2
     - sh
   packages:
-  - app-eselect/eselect-postgresql
   - dev-db/mysql-init-scripts
   - dev-perl/Net-Daemon
   - dev-perl/PlRPC
   - net-dialup/wvdial
   - net-proxy/cntlm
   - sys-apps/ethtool
-  - virtual/logger
-  - virtual/perl-Sys-Syslog
-  - virtual/perl-Term-ANSIColor
-  - virtual/resolvconf
 - tree: packages/atoms/server
   uses:
     disabled:
@@ -181,11 +187,19 @@ artefacts:
   packages:
   - net-vpn/openconnect
 - tree: packages/atoms/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
   uses:
     disabled:
     - nios2
     - sh
     - static-libs
+    enabled:
+    - python_targets_python2_7
+    - python_targets_python3_7
   packages:
   - dev-libs/snowball-stemmer
 - tree: packages/atoms/server
@@ -215,6 +229,11 @@ artefacts:
   packages:
   - dev-python/pyyaml
 - tree: packages/atoms/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
   uses:
     disabled:
     - nios2
@@ -442,6 +461,9 @@ artefacts:
   packages:
   - www-servers/nginx
 - tree: packages/atoms/server
+  mutations:
+    uses:
+      - python_single_target_python3_7
   uses:
     disabled:
     - debug
@@ -602,6 +624,11 @@ artefacts:
   packages:
   - net-libs/wvstreams
 - tree: packages/atoms/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
   uses:
     disabled:
     - debug
@@ -655,7 +682,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: funtoo-server
+          name: macaroni-funtoo-race3
   uses:
     disabled:
     - python_targets_python3_8
@@ -665,3 +692,22 @@ artefacts:
   packages:
   - virtual/python-cffi
 
+- tree: packages/atoms/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - test
+  packages:
+  - virtual/logger
+  - virtual/perl-Sys-Syslog
+  - virtual/perl-Term-ANSIColor
+  - virtual/resolvconf
+  - app-eselect/eselect-postgresql
+  - sys-kernel/dummy-sources
