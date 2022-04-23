@@ -44,4 +44,5 @@ prelude:
   ebuild libical-3.0.11.ebuild digest
 - >-
   cp patches/text-kit/* /var/git/meta-repo/kits/text-kit/ -rfv
-
+# Fix broken ebuild
+- sed -e 's|\[${MULTILIB_USEDEP}\]||g' -i /var/git/meta-repo/kits/core-kit/net-libs/libpcap/libpcap-1.10.1.ebuild
