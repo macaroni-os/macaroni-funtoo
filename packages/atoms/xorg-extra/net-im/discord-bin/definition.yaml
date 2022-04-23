@@ -1,5 +1,5 @@
 name: discord-bin
-version: 0.0.16+2
+version: 0.0.17
 category: net-im
 requires:
 - name: nss
@@ -41,6 +41,9 @@ requires:
 - name: libXtst
   version: '>=0'
   category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -59,9 +62,10 @@ labels:
     sys-apps/dbus sys-libs/libcxx x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3
     x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libxcb x11-libs/libXcomposite
     x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi
-    x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/pango
+    x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/libxkbcommon
+    x11-libs/pango
   emerge.packages: net-im/discord-bin
   kit: net-kit
   original.package.name: net-im/discord-bin
   original.package.slot: "0"
-  original.package.version: 0.0.16
+  original.package.version: 0.0.17
