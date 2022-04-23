@@ -1,5 +1,5 @@
 name: libpcap
-version: 1.9.0
+version: 1.10.1
 category: net-libs
 use_flags:
 - -bluetooth
@@ -21,15 +21,18 @@ uri:
 - http://www.tcpdump.org/ https://github.com/the-tcpdump-group/libpcap
 license: BSD
 labels:
-  DEPEND: bluetooth? ( net-wireless/bluez:= ) dbus? ( sys-apps/dbus ) netlink? ( dev-libs/libnl:3
-    ) sys-devel/flex virtual/yacc dbus? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815
+  BDEPEND: sys-devel/flex virtual/yacc dbus? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815
     !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
     ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-  IUSE: bluetooth dbus netlink static-libs usb
-  RDEPEND: bluetooth? ( net-wireless/bluez:= ) dbus? ( sys-apps/dbus ) netlink? (
-    dev-libs/libnl:3 )
+  DEPEND: bluetooth? ( net-wireless/bluez:=[] ) dbus? ( sys-apps/dbus[] ) netlink?
+    ( dev-libs/libnl:3[] ) remote? ( virtual/libcrypt:=[] ) rdma? ( sys-cluster/rdma-core
+    ) usb? ( virtual/libusb:1[] )
+  IUSE: bluetooth dbus netlink rdma remote static-libs usb yydebug
+  RDEPEND: bluetooth? ( net-wireless/bluez:=[] ) dbus? ( sys-apps/dbus[] ) netlink?
+    ( dev-libs/libnl:3[] ) remote? ( virtual/libcrypt:=[] ) rdma? ( sys-cluster/rdma-core
+    ) usb? ( virtual/libusb:1[] )
   emerge.packages: net-libs/libpcap
   kit: core-kit
   original.package.name: net-libs/libpcap
   original.package.slot: "0"
-  original.package.version: 1.9.0-r1
+  original.package.version: 1.10.1
