@@ -43,3 +43,5 @@ prelude:
   -e 's|^*net-dns/openresolv|#*net-dns/openresolv|g'
   /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages &&
   cat /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages
+# Temporary fix
+- sed -e 's|\[${MULTILIB_USEDEP}\]||g' -i /var/git/meta-repo/kits/core-kit/net-libs/libpcap/libpcap-1.10.1.ebuild
