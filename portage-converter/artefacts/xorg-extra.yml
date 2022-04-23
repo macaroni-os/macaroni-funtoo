@@ -116,6 +116,7 @@ artefacts:
     - sixel
     - toolbar
     enabled:
+    - kernel_linux
     - openpty
     - truetype
     - unicode
@@ -183,6 +184,11 @@ artefacts:
   - x11-themes/gkrellm-themes
   - x11-wm/twm
 - tree: packages/atoms/xorg-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
   uses:
     disabled:
     - ayatana
@@ -240,3 +246,16 @@ artefacts:
     - test
   packages:
   - gnome-extra/evolution-ews
+
+- tree: packages/atoms/xorg-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - x11-themes/gkrellm-themes
