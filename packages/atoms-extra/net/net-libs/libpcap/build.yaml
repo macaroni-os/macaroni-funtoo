@@ -6,6 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary fix ebuild
+- >-
+  sed -e 's|\[${MULTILIB_USEDEP}\]||g' -i /var/git/meta-repo/kits/core-kit/net-libs/libpcap/libpcap-1.10.1.ebuild
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
