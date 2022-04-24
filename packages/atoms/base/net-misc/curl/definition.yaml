@@ -1,27 +1,37 @@
 name: curl
-version: 7.82.0
+version: 7.82.0+1
 category: net-misc
 use_flags:
 - -adns
 - -brotli
+- -gnutls
+- -idn
+- -kerberos
+- -ldap
+- -mbedtls
+- -nghttp3
+- -nss
+- -quiche
+- -rtmp
+- -ssh
+- -test
+- -zstd
+- http2
+- openssl
+- ssl
 - -curl_ssl_gnutls
 - -curl_ssl_libressl
 - -curl_ssl_mbedtls
 - -curl_ssl_nss
-- -http2
-- -idn
-- -kerberos
-- -ldap
-- -metalink
-- -rtmp
-- -ssh
-- -test
 - curl_ssl_openssl
-- ssl
+- -metalink
 requires:
 - name: openssl
   version: '>=0'
   category: dev-libs
+- name: nghttp2
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
@@ -32,7 +42,7 @@ annotations:
 description: A Client that groks URLs
 uri:
 - https://curl.haxx.se/
-license: MIT
+license: curl
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig test? ( sys-apps/diffutils ) >=app-portage/elt-patches-20170815
     !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
