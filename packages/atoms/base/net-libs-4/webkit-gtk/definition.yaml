@@ -1,6 +1,73 @@
 name: webkit-gtk
 version: 2.34.1
 category: net-libs-4
+use_flags:
+- -avif
+- -gamepad
+- -gles2-only
+- -gnome-keyring
+- -gtk-doc
+- -prefix
+- -seccomp
+- -spell
+- -systemd
+- -test
+- -wayland
+- X
+- egl
+- geolocation
+- gstreamer
+- introspection
+- jpeg2k
+- lcms
+- libnotify
+- opengl
+requires:
+- name: geoclue
+  version: '>=0'
+  category: app-misc-2.0
+- name: hyphen
+  version: '>=0'
+  category: dev-libs
+- name: libtasn1
+  version: '>=0'
+  category: dev-libs
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-bad
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+- name: libwebp
+  version: '>=0'
+  category: media-libs
+- name: openjpeg
+  version: '>=0'
+  category: media-libs-2
+- name: woff2
+  version: '>=0'
+  category: media-libs
+- name: gst-plugins-opus
+  version: '>=0'
+  category: media-plugins-1.0
+- name: opengl
+  version: '>=0'
+  category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXt
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -8,9 +75,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: GTK+ port of WebKit. Funtoo uses WebKit itself, so this is a placeholder.
+description: Open source web browser engine
 uri:
-- https://www.webkit.org
+- https://www.webkitgtk.org
 license: LGPL-2+ BSD
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) ||
