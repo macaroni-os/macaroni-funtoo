@@ -6319,6 +6319,15 @@ artefacts:
   packages:
   - dev-qt/qtprintsupport:5
 - tree: packages/atoms/base
+  mutations:
+    uses:
+    - -curl_ssl_gnutls
+    - -curl_ssl_libressl
+    - -curl_ssl_mbedtls
+    - -curl_ssl_nss
+    - -curl_ssl_winssl
+    - -metalink
+    - curl_ssl_openssl
   uses:
     disabled:
     - abi_mips_n32
@@ -6346,13 +6355,14 @@ artefacts:
     - static-libs
     - test
     - threads
+    - rtmp
     enabled:
     - abi_x86_64
     - curl_ssl_openssl
     - http2
     - ipv6
-    - rtmp
     - ssl
+    - openssl
   packages:
   - net-misc/curl
 - tree: packages/atoms/base
