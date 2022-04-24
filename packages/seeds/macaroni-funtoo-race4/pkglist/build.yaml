@@ -1,0 +1,14 @@
+requires:
+- category: "seed"
+  name: "macaroni-funtoo-race4"
+  version: ">=0"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  mkdir -p /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
+  entities dump -t /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
+  qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist &&
+  pkgs-checker portage gen-pkgs-uses
+  --luet-portage-converter-format
+  --filter-opts gen-uses-filter.yaml
+  --treePath packages/atoms/race4 > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/lpc-artefacts.yaml
