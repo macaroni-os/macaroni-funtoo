@@ -220,9 +220,12 @@ artefacts:
       - >-
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e docker
+      # Ignore error on chown because at the moment
+      # on build phase this finalize is executed before
+      # the creation of the /etc/group file.
       - >-
         eval 'mkdir /var/lib/docker -p || true' &&
-        chown root:docker /var/lib/docker
+        eval 'chown root:docker /var/lib/docker || true'
 
 - tree: packages/atoms/emulation
   uses:
