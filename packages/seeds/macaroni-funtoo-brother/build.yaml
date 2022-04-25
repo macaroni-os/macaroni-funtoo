@@ -1,13 +1,13 @@
 requires:
 - category: "seed"
-  name: "macaroni-funtoo-python-stage"
+  name: "macaroni-funtoo-race4"
   version: ">=0"
 env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox -collision-protect"
 prelude:
 - >-
   luet repo update &&
-  luet i toolchain/extra-media toolchain/meta-brother-kit app-text/a2ps --force &&
+  luet i toolchain/python toolchain/extra-media toolchain/meta-brother-kit app-text/a2ps --force &&
   luet cleanup &&
   rm /etc/localtime &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
