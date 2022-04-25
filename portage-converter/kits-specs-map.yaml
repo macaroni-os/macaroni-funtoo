@@ -98,15 +98,19 @@ extra-pkgs:
         - office.yaml
         - emulation.yaml
         - media-gfx.yaml
+        - server.yaml
+        - xorg-extra.yaml
 
     core-gl-kit:
       specs:
         - media-gfx.yaml
+        - xorg-extra.yaml
 
     core-hw-kit:
       specs:
         - dev-extra.yaml
         - emulation.yaml
+        - calamares.yaml
 
     core-kit:
       specs:
@@ -119,6 +123,9 @@ extra-pkgs:
         - office.yaml
         - emulation.yaml
         - media-gfx.yaml
+        - server.yaml
+        - xorg-extra.yaml
+        - calamares.yaml
 
     core-server-kit:
       specs:
@@ -126,12 +133,14 @@ extra-pkgs:
         - php-extra.yaml
         - python-extra.yaml
         - media-gfx.yaml
+        - server.yaml
 
     desktop-kit:
       specs:
         - dev-extra.yaml
         - desktop-extra.yaml
         - office.yaml
+        - xorg-extra.yaml
 
     java-kit:
       specs:
@@ -142,6 +151,7 @@ extra-pkgs:
       specs:
         - dev-extra.yaml
         - media-extra.yaml
+        - calamares.yaml
 
     media-kit:
       specs:
@@ -161,6 +171,9 @@ extra-pkgs:
         - java.yaml
         - emulation.yaml
         - media-gfx.yaml
+        - server.yaml
+        - xorg-extra.yaml
+        - calamares.yaml
 
     python-modules-kit:
       specs:
@@ -168,6 +181,8 @@ extra-pkgs:
         - macaroni-emulation-extra.yaml
         - python-extra.yaml
         - media-gfx.yaml
+        - server.yaml
+        - xorg-extra.yaml
 
     text-kit:
       specs:
@@ -185,16 +200,19 @@ extra-pkgs:
         - mos-gnome-extra.yaml
         - office.yaml
         - media-gfx.yaml
+        - xorg-extra.yaml
 
     qt-kit:
       specs:
         - net-extra.yaml
         - media-gfx.yaml
+        - calamares.yaml
 
     nokit:
       specs:
         - net-extra.yaml
         - emulation.yaml
+        - xorg-extra.yaml
 
     geaaru-kit:
       specs:
@@ -211,10 +229,24 @@ extra-pkgs:
       specs:
         - office.yaml
         - emulation.yaml
+        - server.yaml
 
     lang-kit:
       specs:
         - emulation.yaml
+
+    perl-kit:
+      specs:
+        - server.yaml
+
+    editors-kit:
+      specs:
+        - xorg-extra.yaml
+
+    llvm-kit:
+      specs:
+        - xorg-extra.yaml
+
 
 seeds:
   - name: macaroni-funtoo-base
@@ -262,3 +294,10 @@ seeds:
     specs:
       - file: calamares.yaml
         dir: calamares
+
+  - name: macaroni-funtoo-python
+    prefix: packages/atoms
+
+    specs:
+      - file: python.yaml
+        dir: python
