@@ -1,16 +1,21 @@
 requires:
 - category: "seed"
-  name: "macaroni-funtoo-python-stage"
+  name: "macaroni-funtoo-race4"
   version: ">=0"
 env:
+- JOBS=3
 - PYTHON_TARGETS="python2_7 python3_7"
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox -collision-protect"
 prelude:
 - >-
+  whip hook eclass_db.db_fix_so &&
+  whip hook perl.postinst &&
+  luet repo update &&
+  luet i -y toolchain/calamares &&
+  luet cleanup --purge-repos &&
+  eselect java-vm set system 1 &&
+  mkdir /etc/portage/package.use/ -p &&
   cp -rvf patches/* /var/git/meta-repo/kits/python-modules-kit/dev-python/tempita/ &&
-  mkdir -p /etc/portage/package.use &&
-  rm /etc/localtime &&
-  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
