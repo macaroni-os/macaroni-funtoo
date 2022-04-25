@@ -111,6 +111,11 @@ artefacts:
   packages:
   - kde-plasma/ksysguard:5
 - tree: packages/atoms/calamares
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
   uses:
     disabled:
     - nios2
@@ -606,13 +611,29 @@ artefacts:
   packages:
   - kde-frameworks/ktexteditor:5
 - tree: packages/atoms/calamares
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
   uses:
     disabled:
     - nios2
     - sh
   packages:
   - sys-boot/os-prober
-  - virtual/logger
+
+- tree: packages/atoms/calamares
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: mail-mta
+          name: nullmailer
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
   - virtual/mta
 - tree: packages/atoms/calamares
   uses:
