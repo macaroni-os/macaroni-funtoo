@@ -2055,6 +2055,20 @@ artefacts:
   packages:
   - dev-perl/MailTools
 - tree: packages/atoms/base
+  mutations:
+    uses:
+    - -curl_ssl_gnutls
+    - -curl_ssl_libressl
+    - -curl_ssl_mbedtls
+    - -curl_ssl_nss
+    - -curl_ssl_winssl
+    - -metalink
+    - -imap
+    - -smtp
+    - -pop3
+    - -progress-meter
+    - -nss
+    - curl_ssl_openssl
   annotations:
     subsets:
       rules:
@@ -2084,10 +2098,18 @@ artefacts:
     - static-libs
     - test
     - threads
+    - imap
+    - pop3
+    - progress-meter
+    - smtp
+    - nss
     enabled:
     - curl_ssl_openssl
     - ipv6
     - ssl
+    - http2
+    - tftp
+    - openssl
   packages:
   - net-misc/curl
 - tree: packages/atoms/base
