@@ -56,17 +56,12 @@ steps:
   ldconfig &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
-  cd / && rm -rf /luetbuild
+  cd / && rm -rf /luetbuild &&
+  mkdir /layer
 
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
 
-excludes:
-- ^/etc/gshadow
-- ^/etc/group
-- ^/etc/passwd
-- ^/etc/shadow
-- ^/etc/ld.so.cache
-- ^/etc/ld.so.conf
-- ^/etc/locatime
-- ^/var/cache/ldconfig/aux-cache
-
+# Using package_dir to avoid fat package.
+# Will be removed when copy command with prelude
+# will be fixed.
+package_dir: /layer
