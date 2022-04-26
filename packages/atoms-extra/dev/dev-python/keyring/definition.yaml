@@ -1,0 +1,48 @@
+name: keyring
+version: 18.0.1
+category: dev-python
+use_flags:
+- -doc
+- -python_targets_pypy3
+- -test
+- python_targets_python3_7
+requires:
+- name: entrypoints
+  version: '>=0'
+  category: dev-python
+- name: secretstorage
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Provides access to the system keyring service
+uri:
+- https://github.com/jaraco/keyring
+license: PSF-2
+labels:
+  BDEPEND: '>=dev-python/setuptools_scm-1.15.0[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    doc? ( >=dev-python/jaraco-packaging-3.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    >=dev-python/rst-linker-1.9[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/sphinx[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    ) test? ( >=dev-python/pytest-3.7.4[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/secretstorage[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/entrypoints[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]'
+  IUSE: doc test python_targets_pypy3 python_targets_python3_7
+  RDEPEND: dev-python/secretstorage[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    dev-python/entrypoints[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+    python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-)]
+  emerge.packages: dev-python/keyring
+  kit: python-modules-kit
+  original.package.name: dev-python/keyring
+  original.package.slot: "0"
+  original.package.version: 18.0.1
