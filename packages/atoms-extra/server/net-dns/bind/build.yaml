@@ -10,6 +10,9 @@ prelude:
 - >-
   luet i macaroni/entities-catalog -y &&
   entities merge -s /usr/share/macaroni/entities/ -e named
+# fix FL-9749
+- >-
+  emerge net-dns/bind-tools -j
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
