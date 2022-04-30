@@ -1,5 +1,5 @@
 name: logrotate
-version: 3.15.0
+version: 3.19.0
 category: app-admin
 use_flags:
 - -selinux
@@ -15,24 +15,31 @@ requires:
 - name: cron
   version: '>=0'
   category: virtual
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Rotates, compresses, and mails system logs
 uri:
 - https://github.com/logrotate/logrotate
 license: GPL-2
 labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
   DEPEND: '>=dev-libs/popt-1.5 selinux? ( sys-libs/libselinux ) acl? ( virtual/acl
-    ) >=sys-apps/sed-4 virtual/pkgconfig'
-  IUSE: acl +cron selinux
+    )'
+  IUSE: acl +cron selinux systemd
   RDEPEND: '>=dev-libs/popt-1.5 selinux? ( sys-libs/libselinux ) acl? ( virtual/acl
-    ) selinux? ( sec-policy/selinux-logrotate ) cron? ( virtual/cron )'
+    ) selinux? ( sec-policy/selinux-logrotate ) cron? ( virtual/cron ) virtual/tmpfiles'
   emerge.packages: app-admin/logrotate
   kit: core-server-kit
   original.package.name: app-admin/logrotate
   original.package.slot: "0"
-  original.package.version: 3.15.0
+  original.package.version: 3.19.0
