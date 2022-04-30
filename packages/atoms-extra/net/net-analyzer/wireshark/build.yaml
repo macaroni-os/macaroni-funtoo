@@ -6,11 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# TODO: fix setup of perl with whip
-- >-
-  cp -rvf patches/* /var/git/meta-repo/kits/net-kit/net-analyzer/wireshark/ &&
-  ln -s /usr/bin/pod2man-4.140.0-perl-5.32.0 /usr/bin/pod2man
 - |
+  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
+  chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
@@ -31,6 +29,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: linguist-tools
+- name: macaroni-funtoo-race5
   version: '>=0'
-  category: dev-qt-5
+  category: seed
