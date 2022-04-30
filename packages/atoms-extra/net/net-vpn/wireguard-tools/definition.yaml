@@ -1,5 +1,5 @@
 name: wireguard-tools
-version: 1.0.20200319
+version: 1.0.20200319+1
 category: net-vpn
 use_flags:
 - wg-quick
@@ -9,10 +9,11 @@ requires:
   category: virtual
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Required tools for WireGuard, such as wg(8) and wg-quick(8)
 uri:
 - https://www.wireguard.com/
