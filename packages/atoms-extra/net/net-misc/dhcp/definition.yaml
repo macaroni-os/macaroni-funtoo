@@ -1,5 +1,5 @@
 name: dhcp
-version: 4.4.1
+version: 4.4.1+1
 category: net-misc
 use_flags:
 - -ldap
@@ -19,10 +19,11 @@ requires:
   category: sys-apps
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: ISC Dynamic Host Configuration Protocol (DHCP) client/server
 uri:
 - http://www.isc.org/products/DHCP
