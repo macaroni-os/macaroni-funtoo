@@ -6,11 +6,6 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-- >-
-  cd /var/git/meta-repo/kits/core-kit/sys-cluster/singularity &&
-  wget https://raw.githubusercontent.com/funtoo/core-kit/1.4-release/sys-cluster/singularity/singularity-3.8.5.ebuild &&
-  ebuild singularity-3.8.5.ebuild digest &&
-  sed -e 's|^S=.*||g' singularity-3.8.5.ebuild -i
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
@@ -32,6 +27,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-funtoo-base
+- name: macaroni-funtoo-race6
   version: '>=0'
   category: seed
