@@ -1,5 +1,6 @@
-
 #!/bin/bash
+
+[ "$DEBUG" = true ] && set -x 
 
 TARGET_PKG=${TARGET_PKG:-packages/toolchain/extra-dev}
 SOURCE_PKGS_DIR=${SOURCE_PKGS_DIR:-packages/atoms-extra/dev}
