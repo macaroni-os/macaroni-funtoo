@@ -89,16 +89,17 @@ include_files:
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
 artefacts:
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - dbus
@@ -128,13 +129,6 @@ artefacts:
       - tftp
   packages:
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - ipv6
@@ -155,13 +149,6 @@ artefacts:
     - net-dns/bind-tools
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - berkdb
@@ -191,13 +178,6 @@ artefacts:
     - net-dns/bind
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - test
@@ -212,13 +192,6 @@ artefacts:
       packages:
         - category: dev-python
           name: beautifulsoup
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - test
@@ -252,13 +225,6 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race3
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - test
@@ -271,13 +237,6 @@ artefacts:
     - dev-libs/oniguruma
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - activefilter
@@ -296,13 +255,6 @@ artefacts:
   - net-dialup/ppp
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - cpp_test
@@ -425,13 +377,6 @@ artefacts:
   - www-servers/nginx
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -448,13 +393,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - caps
@@ -479,13 +417,6 @@ artefacts:
   - net-misc/ntp
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - debug
@@ -535,13 +466,6 @@ artefacts:
   - net-vpn/strongswan
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -561,13 +485,6 @@ artefacts:
   - net-vpn/openconnect
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - libressl
@@ -577,13 +494,6 @@ artefacts:
   - net-vpn/openfortivpn
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - down-root
@@ -609,13 +519,6 @@ artefacts:
   - net-vpn/openvpn
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - modules
@@ -626,13 +529,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - caps
@@ -651,13 +547,6 @@ artefacts:
   - net-vpn/tor
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -671,13 +560,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - boost
@@ -697,13 +579,6 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race3
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - debug
@@ -717,13 +592,6 @@ artefacts:
   - net-misc/ntpclient
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - debug
@@ -735,13 +603,6 @@ artefacts:
   - net-misc/netkit-telnetd:0
   - net-analyzer/openbsd-netcat:0
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - custom-cflags
@@ -766,13 +627,6 @@ artefacts:
   - sys-fs/zfs
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
     - python
@@ -784,13 +638,6 @@ artefacts:
   - dev-python/oauthlib
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - audit
@@ -825,13 +672,6 @@ artefacts:
   - net-misc/networkmanager
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - autoipd
@@ -860,13 +700,6 @@ artefacts:
   - net-dns/avahi
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - ap
@@ -902,13 +735,6 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race3
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -922,13 +748,6 @@ artefacts:
     - app-crypt/argon2
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -942,13 +761,6 @@ artefacts:
     - dev-util/lttng-tools
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - debug
@@ -982,13 +794,6 @@ artefacts:
       ignore:
         - category: dev-python
           name: lvm2
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - clvm
@@ -1013,13 +818,6 @@ artefacts:
   - sys-fs/lvm2
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - gcrypt
@@ -1081,13 +879,6 @@ artefacts:
 #  packages:
 #    - sys-cluster/ceph
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - selinux
@@ -1100,16 +891,29 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race3
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
+  packages:
+    - virtual/cron
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
   packages:
     - sys-process/cronbase
-    - virtual/cron
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        if [ -d /usr/share/macaroni/entities ] ; then
+        entities merge --specs-dir /usr/share/macaroni/entities/ -e cron ;
+        chown root:cron /var/spool/cron ;
+        else
+        echo "Add macaroni/entities-catalog package and merge cron entities!" ;
+        fi
 
 - tree: packages/atoms-extra/server
   mutations:
@@ -1120,24 +924,24 @@ artefacts:
   uses:
     disabled:
       - selinux
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   packages:
     - sys-process/cronie
-
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        if [ -d /usr/share/macaroni/entities ] ; then
+        entities --version 1>/dev/null 2>&1 ;
+        if [ $? -eq 0 ] ; then
+        entities merge --specs-dir /usr/share/macaroni/entities/ -e crontab ;
+        fi ;
+        else
+        echo "Add macaroni/entities-catalog package and merge cronbase entities!" ;
+        fi
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -1160,14 +964,6 @@ artefacts:
   - sys-fs/btrfs-progs
 
 - tree: packages/atoms-extra/server
-
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - apparmor
@@ -1192,13 +988,6 @@ artefacts:
       packages:
         - category: macaroni
           name: entities-catalog
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - apparmor
@@ -1228,13 +1017,6 @@ artefacts:
         chown root:docker /var/lib/docker
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -1251,13 +1033,6 @@ artefacts:
   - sys-libs/libapparmor
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -1269,13 +1044,6 @@ artefacts:
   - sys-process/tini
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - debug
@@ -1291,13 +1059,6 @@ artefacts:
   - sys-fs/squashfs-tools
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -1313,13 +1074,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - example
@@ -1335,13 +1089,6 @@ artefacts:
       packages:
         - category: dev-go
           name: go-md2man
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - hardened
@@ -1353,13 +1100,6 @@ artefacts:
   packages:
   - app-emulation/runc
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - hardened
@@ -1400,13 +1140,6 @@ artefacts:
   - www-servers/caddy
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - hardened
@@ -1416,13 +1149,6 @@ artefacts:
   packages:
   - app-misc/jq
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - examples
@@ -1433,13 +1159,6 @@ artefacts:
   packages:
   - dev-libs/xmlsec
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - examples
@@ -1454,13 +1173,6 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race3
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -1475,13 +1187,6 @@ artefacts:
   - net-firewall/ebtables
   - dev-libs/hiredis
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -1498,13 +1203,6 @@ artefacts:
           name: automake
         - category: sys-fs
           name: lxcfs
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - apparmor
@@ -1527,13 +1225,6 @@ artefacts:
       packages:
         - category: app-emulation
           name: lxc
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - apparmor
@@ -1549,13 +1240,6 @@ artefacts:
   - app-emulation/lxd
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -1565,13 +1249,6 @@ artefacts:
   - sys-devel/automake:1.14
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -1590,13 +1267,6 @@ artefacts:
       packages:
         - category: dev-libs-1
           name: apr-util
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - apache2_modules_access_compat
@@ -1716,13 +1386,6 @@ artefacts:
   - www-servers/apache:2
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - libressl
@@ -1734,13 +1397,6 @@ artefacts:
   - app-admin/apache-tools
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - idn
@@ -1753,13 +1409,6 @@ artefacts:
   - net-misc/whois
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -1775,13 +1424,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - tcl
@@ -1789,13 +1431,6 @@ artefacts:
     - net-analyzer/hping
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - debug
@@ -1829,13 +1464,6 @@ artefacts:
     - net-dialup/freeradius
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - sys-devel/automake:1.13
     - dev-util/lttng-tools
@@ -1848,14 +1476,6 @@ artefacts:
         - name: automake
           category: sys-devel-1.13
           version: '>=0'
-
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - sasl
@@ -1863,13 +1483,6 @@ artefacts:
     - dev-libs/libmemcached
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - sasl
@@ -1883,13 +1496,6 @@ artefacts:
     - dev-libs/mongo-c-driver
 
 - tree: packages/atoms-extra/server
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - test
