@@ -1,0 +1,40 @@
+name: importlib_resources-compat
+version: 3.3.1
+category: dev-python
+use_flags:
+- -doc
+- python_targets_python2_7
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-2.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Read resources from Python packages
+uri:
+- https://github.com/python/importlib_resources https://pypi.org/project/importlib-resources/
+license: Apache-2.0
+labels:
+  BDEPEND: doc? ( || ( ( >=dev-lang/python-2.7.5-r2:2.7 dev-python/sphinx[python_targets_python2_7(-),python_single_target_python2_7(+)]
+    dev-python/rst-linker[python_targets_python2_7(-),python_single_target_python2_7(+)]
+    dev-python/jaraco-packaging[python_targets_python2_7(-),python_single_target_python2_7(+)]
+    ) ) ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+  DEPEND: dev-python/toml[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    >=dev-python/setuptools_scm-3.4.1[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+  IUSE: doc python_targets_python2_7
+  RDEPEND: '!<dev-python/importlib_resources-4 python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
+  emerge.packages: dev-python/importlib_resources-compat
+  kit: python-modules-kit
+  original.package.name: dev-python/importlib_resources-compat
+  original.package.slot: "0"
+  original.package.version: 3.3.1
