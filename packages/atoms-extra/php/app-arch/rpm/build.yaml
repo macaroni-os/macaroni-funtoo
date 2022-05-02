@@ -6,13 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Install whip and setup db.h includes
-- >-
-  luet i -y app-admin/whip --relax &&
-  mkdir catalog &&
-  wget -O catalog/eclass_db.yaml https://raw.githubusercontent.com/geaaru/whip-catalog/master/catalog/eclass/eclass_db.yaml &&
-  whip hook --specs-dir ./catalog eclass_db.db_fix_so
 - |
+  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
+  chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
@@ -33,6 +29,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-funtoo-base
+- name: audit
   version: '>=0'
-  category: seed
+  category: sys-process
