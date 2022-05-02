@@ -89,16 +89,17 @@ include_files:
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
 artefacts:
 
 - tree: packages/atoms-extra/php
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - json
@@ -116,13 +117,6 @@ artefacts:
     - dev-php/pecl-mcrypt
 
 - tree: packages/atoms-extra/php
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
     disabled:
@@ -135,13 +129,6 @@ artefacts:
     - dev-libs/libzip
 
 - tree: packages/atoms-extra/php
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
     disabled:
@@ -152,13 +139,6 @@ artefacts:
     - mail-mta/nullmailer
 
 - tree: packages/atoms-extra/php
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
     disabled:
@@ -175,13 +155,6 @@ artefacts:
       packages:
         - name: nullmailer
           category: mail-mta
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - virtual/mta
 
@@ -191,13 +164,6 @@ artefacts:
       packages:
         - name: libjpeg-turbo
           category: media-libs
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - virtual/jpeg
 
@@ -215,13 +181,6 @@ artefacts:
           category: virtual
         - name: jpeg
           category: virtual
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - acl
