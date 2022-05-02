@@ -17,9 +17,27 @@ requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
-- name: openh264
-  category: media-libs
+- name: libxml2
   version: '>=0'
+  category: dev-libs-2
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
 annotations:
   subsets:
     rules:
@@ -34,8 +52,8 @@ license: BSD
 labels:
   BDEPEND: '|| ( >=dev-lang/python-2.7.5-r2:2.7[xml] ) >=app-arch/gzip-1.7 app-arch/unzip
     dev-lang/perl >=dev-util/gn-0.1807 dev-vcs/git >=dev-util/gperf-3.0.3 >=dev-util/ninja-1.7.2
-    >=net-libs/nodejs-7.6.0[inspector] sys-apps/hwids[usb(+)] >=sys-devel/bison-2.4.3
-    sys-devel/flex virtual/pkgconfig js-type-check? ( virtual/jre )'
+    >=net-libs/nodejs-7.6.0 sys-apps/hwids[usb(+)] >=sys-devel/bison-2.4.3 sys-devel/flex
+    virtual/pkgconfig js-type-check? ( virtual/jre )'
   DEPEND: app-arch/bzip2:= cups? ( >=net-print/cups-1.3.11:= ) dev-libs/expat:= dev-libs/glib:2
     >=dev-libs/libxml2-2.9.4-r3:=[icu] dev-libs/nspr:= >=dev-libs/nss-3.26:= >=media-libs/alsa-lib-1.0.19:=
     media-libs/fontconfig:= media-libs/freetype:= >=media-libs/harfbuzz-2.4.0:0=[icu(-)]
