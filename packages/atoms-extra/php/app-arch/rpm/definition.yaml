@@ -1,23 +1,22 @@
 name: rpm
-version: 4.14.3+1
+version: 4.17.0
 category: app-arch
 use_flags:
 - -doc
 - -python_single_target_python3_8
+- -python_single_target_python3_9
 - -selinux
 - -test
 - acl
+- audit
 - caps
 - dbus
-- lua
 - nls
 - python
 - python_single_target_python3_7
+- sqlite
 - zstd
 requires:
-- name: bzip2
-  version: '>=0'
-  category: app-arch
 - name: libarchive
   version: '>=0'
   category: app-arch
@@ -27,45 +26,33 @@ requires:
 - name: gnupg
   version: '>=0'
   category: app-crypt
-- name: lua
-  version: '>=0'
-  category: dev-lang
 - name: perl
   version: '>=0'
   category: dev-lang
-- name: python
-  version: '>=0'
-  category: dev-lang-3.7
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
 - name: elfutils
   version: '>=0'
   category: dev-libs
-- name: nss
+- name: libgcrypt
   version: '>=0'
   category: dev-libs
 - name: popt
   version: '>=0'
   category: dev-libs
+- name: lua
+  version: '>=0'
+  category: dev-lua-5.3
 - name: dbus
   version: '>=0'
   category: sys-apps
-- name: db
+- name: file
   version: '>=0'
-  category: sys-libs-18.1
+  category: sys-apps
 - name: libcap
   version: '>=0'
   category: sys-libs
-- name: zlib
+- name: audit
   version: '>=0'
-  category: sys-libs
-- name: acl
-  version: '>=0'
-  category: virtual
-- name: libintl
-  version: '>=0'
-  category: virtual
+  category: sys-process
 annotations:
   subsets:
     rules:
@@ -78,29 +65,35 @@ uri:
 - https://rpm.org https://github.com/rpm-software-management/rpm
 license: GPL-2 LGPL-2
 labels:
-  DEPEND: '!app-arch/rpm5 app-arch/libarchive >=sys-libs/db-4.5:* >=sys-libs/zlib-1.2.3-r1
-    >=app-arch/bzip2-1.0.1 >=dev-libs/popt-1.7 >=app-crypt/gnupg-1.2 dbus? ( sys-apps/dbus
-    ) dev-libs/elfutils virtual/libintl >=dev-lang/perl-5.8.8 dev-libs/nss python?
-    ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) ) nls? ( virtual/libintl ) lua? ( >=dev-lang/lua-5.1.0:*[deprecated] ) acl?
-    ( virtual/acl ) caps? ( >=sys-libs/libcap-2.0 ) zstd? ( app-arch/zstd ) nls? (
-    sys-devel/gettext ) doc? ( app-doc/doxygen ) virtual/pkgconfig test? ( sys-apps/fakechroot
-    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-    dev-lang/perl:='
-  IUSE: acl caps doc dbus lua nls python selinux test zstd python_single_target_python3_7
-    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_8
-  RDEPEND: '!app-arch/rpm5 app-arch/libarchive >=sys-libs/db-4.5:* >=sys-libs/zlib-1.2.3-r1
-    >=app-arch/bzip2-1.0.1 >=dev-libs/popt-1.7 >=app-crypt/gnupg-1.2 dbus? ( sys-apps/dbus
-    ) dev-libs/elfutils virtual/libintl >=dev-lang/perl-5.8.8 dev-libs/nss python?
-    ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) ) nls? ( virtual/libintl ) lua? ( >=dev-lang/lua-5.1.0:*[deprecated] ) acl?
-    ( virtual/acl ) caps? ( >=sys-libs/libcap-2.0 ) zstd? ( app-arch/zstd ) selinux?
-    ( sec-policy/selinux-rpm ) dev-lang/perl:='
+  BDEPEND: nls? ( sys-devel/gettext ) doc? ( app-doc/doxygen ) virtual/pkgconfig test?
+    ( sys-apps/fakechroot ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 dev-lang/perl:=
+  DEPEND: '!app-arch/rpm5 app-arch/libarchive:= >=app-arch/bzip2-1.0.1 app-arch/xz-utils
+    >=app-crypt/gnupg-1.2 >=dev-lang/perl-5.8.8 dev-libs/elfutils dev-libs/libgcrypt:=
+    >=dev-libs/popt-1.7 sys-apps/file >=sys-libs/zlib-1.2.3-r1 virtual/libintl =dev-lua/lua-5.3*
+    acl? ( virtual/acl ) audit? ( sys-process/audit ) caps? ( >=sys-libs/libcap-2.0
+    ) dbus? ( sys-apps/dbus ) sqlite? ( dev-db/sqlite:3 ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
+    nls? ( virtual/libintl ) zstd? ( app-arch/zstd:= ) dev-lang/perl:='
+  IUSE: acl audit caps +berkdb doc dbus nls openmp python selinux +sqlite test +zstd
+    +lua_single_target_lua5-3 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: '!app-arch/rpm5 app-arch/libarchive:= >=app-arch/bzip2-1.0.1 app-arch/xz-utils
+    >=app-crypt/gnupg-1.2 >=dev-lang/perl-5.8.8 dev-libs/elfutils dev-libs/libgcrypt:=
+    >=dev-libs/popt-1.7 sys-apps/file >=sys-libs/zlib-1.2.3-r1 virtual/libintl =dev-lua/lua-5.3*
+    acl? ( virtual/acl ) audit? ( sys-process/audit ) caps? ( >=sys-libs/libcap-2.0
+    ) dbus? ( sys-apps/dbus ) sqlite? ( dev-db/sqlite:3 ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
+    nls? ( virtual/libintl ) zstd? ( app-arch/zstd:= ) selinux? ( sec-policy/selinux-rpm
+    ) dev-lang/perl:='
   emerge.packages: app-arch/rpm
   kit: core-kit
   original.package.name: app-arch/rpm
   original.package.slot: "0"
-  original.package.version: 4.14.3
+  original.package.version: 4.17.0
