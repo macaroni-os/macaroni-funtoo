@@ -7,6 +7,8 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 - |
+  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
+  chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
@@ -27,6 +29,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: net-snmp
+- name: rpm
   version: '>=0'
-  category: net-analyzer
+  category: app-arch
