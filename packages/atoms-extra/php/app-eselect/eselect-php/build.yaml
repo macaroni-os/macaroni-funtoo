@@ -28,3 +28,7 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+requires:
+- name: audit
+  version: '>=0'
+  category: sys-process
