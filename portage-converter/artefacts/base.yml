@@ -6330,47 +6330,48 @@ artefacts:
     - curl_ssl_openssl
   uses:
     disabled:
-    - abi_mips_n32
-    - abi_mips_n64
-    - abi_mips_o32
-    - abi_s390_32
-    - abi_s390_64
-    - abi_x86_32
-    - abi_x86_x32
     - adns
+    - alt-svc
     - brotli
     - curl_ssl_gnutls
-    - curl_ssl_libressl
     - curl_ssl_mbedtls
     - curl_ssl_nss
-    - curl_ssl_winssl
+    - gnutls
+    - gopher
+    - hsts
     - idn
     - kerberos
     - ldap
-    - metalink
+    - mbedtls
+    - nghttp3
     - nios2
+    - quiche
     - samba
     - sh
     - ssh
+    - sslv3
     - static-libs
+    - telnet
     - test
     - threads
-    - rtmp
+    - zstd
+    enabled:
+    - curl_ssl_openssl
+    - ftp
+    - http2
     - imap
+    - ipv6
+    - nss
+    - openssl
     - pop3
     - progress-meter
+    - rtmp
     - smtp
-    - nss
-    enabled:
-    - abi_x86_64
-    - curl_ssl_openssl
-    - http2
-    - ipv6
     - ssl
     - tftp
-    - openssl
   packages:
   - net-misc/curl
+
 - tree: packages/atoms/base
   uses:
     disabled:
