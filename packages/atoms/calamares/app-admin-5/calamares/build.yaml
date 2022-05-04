@@ -6,6 +6,12 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Until pushed to funtoo upstream
+- >-
+  cp calamares-3.2.45.ebuild /var/git/meta-repo/kits/kde-kit/app-admin/calamares &&
+  cd /var/git/meta-repo/kits/kde-kit/app-admin/calamares/ &&
+  ebuild calamares-3.2.45.ebuild digest
+
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
