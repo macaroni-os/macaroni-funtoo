@@ -1,20 +1,18 @@
 name: mutter
-version: 3.36.7+4
+version: 3.36.7+5
 category: x11-wm
 use_flags:
 - -input_devices_wacom
 - -prefix
 - -profiler
+- -remote-desktop
 - -test
+- -wayland
 - gles2
 - introspection
 - udev
-- wayland
 requires:
 - name: json-glib
-  version: '>=0'
-  category: dev-libs
-- name: libinput
   version: '>=0'
   category: dev-libs
 - name: gnome-desktop
@@ -29,9 +27,15 @@ requires:
 - name: graphene
   version: '>=0'
   category: media-libs
-- name: xorg-server
+- name: libgudev
   version: '>=0'
-  category: x11-base
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
 - name: libSM
   version: '>=0'
   category: x11-libs
@@ -39,6 +43,9 @@ requires:
   version: '>=0'
   category: x11-libs
 - name: libXcursor
+  version: '>=0'
+  category: x11-libs
+- name: libXi
   version: '>=0'
   category: x11-libs
 - name: libXinerama
