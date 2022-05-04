@@ -1,5 +1,5 @@
 name: polkit
-version: "0.120"
+version: 0.119+4
 category: sys-auth
 use_flags:
 - -elogind
@@ -33,13 +33,15 @@ uri:
 license: LGPL-2
 labels:
   BDEPEND: app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xsl-stylesheets dev-libs/glib
-    dev-libs/gobject-introspection-common dev-libs/libxslt dev-util/glib-utils sys-devel/gettext
-    virtual/pkgconfig introspection? ( dev-libs/gobject-introspection ) >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2 virtual/pkgconfig
+    dev-libs/gobject-introspection-common dev-libs/libxslt dev-util/glib-utils dev-util/gtk-doc-am
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig introspection? ( dev-libs/gobject-introspection
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
   DEPEND: spidermonkey? ( dev-lang/spidermonkey:78[-debug] ) !spidermonkey? ( dev-lang/duktape
     ) dev-libs/glib:2 dev-libs/expat elogind? ( sys-auth/elogind ) pam? ( sys-auth/pambase
     sys-libs/pam )
-  IUSE: elogind examples gtk +introspection kde pam selinux +spidermonkey test
+  IUSE: elogind examples gtk +introspection jit kde nls pam selinux +spidermonkey
+    test
   RDEPEND: spidermonkey? ( dev-lang/spidermonkey:78[-debug] ) !spidermonkey? ( dev-lang/duktape
     ) dev-libs/glib:2 dev-libs/expat elogind? ( sys-auth/elogind ) pam? ( sys-auth/pambase
     sys-libs/pam ) selinux? ( sec-policy/selinux-policykit )
@@ -47,4 +49,4 @@ labels:
   kit: gnome-kit
   original.package.name: sys-auth/polkit
   original.package.slot: "0"
-  original.package.version: 0.120-r1
+  original.package.version: 0.119-r4
