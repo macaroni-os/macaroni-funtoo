@@ -1,15 +1,18 @@
 name: knotifications
-version: 5.78.0+3
+version: 5.78.0+4
 category: kde-frameworks-5
 use_flags:
-- -X
-- -dbus
 - -doc
-- -nls
-- -phonon
 - -speech
+- X
+- dbus
+- nls
+- phonon
 requires:
-- name: qtdbus
+- name: libdbusmenu-qt
+  version: '>=0'
+  category: dev-libs
+- name: qtx11extras
   version: '>=0'
   category: dev-qt-5
 - name: kcodecs
@@ -24,6 +27,15 @@ requires:
 - name: kwindowsystem
   version: '>=0'
   category: kde-frameworks-5
+- name: phonon
+  version: '>=0'
+  category: media-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -58,4 +70,5 @@ labels:
   emerge.packages: kde-frameworks/knotifications:5
   kit: kde-kit
   original.package.name: kde-frameworks/knotifications
+  original.package.slot: "5"
   original.package.version: 5.78.0
