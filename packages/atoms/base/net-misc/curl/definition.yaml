@@ -10,14 +10,14 @@ use_flags:
 - -ldap
 - -mbedtls
 - -nghttp3
-- -nss
 - -quiche
-- -rtmp
 - -ssh
 - -test
 - -zstd
 - http2
+- nss
 - openssl
+- rtmp
 - ssl
 - -curl_ssl_gnutls
 - -curl_ssl_libressl
@@ -27,9 +27,18 @@ use_flags:
 - -metalink
 - curl_ssl_openssl
 requires:
+- name: ca-certificates
+  version: '>=0'
+  category: app-misc
+- name: nss
+  version: '>=0'
+  category: dev-libs
 - name: openssl
   version: '>=0'
   category: dev-libs
+- name: rtmpdump
+  version: '>=0'
+  category: media-video
 - name: nghttp2
   version: '>=0'
   category: net-libs
