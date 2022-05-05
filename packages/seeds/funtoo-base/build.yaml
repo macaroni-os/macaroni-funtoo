@@ -21,7 +21,9 @@ prelude:
   +mediadevice-video-pro
   +vmware-guest &&
   emerge --unmerge x11-libs/amtk
-steps:
+- >-
+  sed -e 's|2022.04.15|2022.04.26|g' /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.15.ebuild &&
+  mv /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.15.ebuild /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.26.ebuild
 - >-
   FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
   emerge -t -j $JOBS -uDN @world &&
