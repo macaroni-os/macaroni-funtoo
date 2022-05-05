@@ -4,11 +4,13 @@ SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 
 kits=(
   "dev"
+  "net"
   "emulation"
   "gnome"
-  "net"
   "php"
   "media"
+  "desktop"
+  "tools"
 )
 
 for i in ${kits[@]} ; do
