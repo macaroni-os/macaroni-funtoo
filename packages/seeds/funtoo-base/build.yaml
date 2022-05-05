@@ -22,7 +22,7 @@ prelude:
   +vmware-guest &&
   emerge --unmerge x11-libs/amtk
 - >-
-  sed -e 's|2022.04.15|2022.04.26|g' /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.15.ebuild &&
+  sed -i -e 's|2022.04.15|2022.04.26|g' /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.15.ebuild &&
   mv /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.15.ebuild /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.26.ebuild &&
   ebuild /var/git/meta-repo/kits/media-kit/media-plugins/live/live-2022.04.26.ebuild digest
 - >-
