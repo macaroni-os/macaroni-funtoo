@@ -4857,6 +4857,11 @@ artefacts:
   packages:
   - app-crypt/rhash
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - accessibility
@@ -4878,21 +4883,28 @@ artefacts:
     - xinerama
   packages:
   - gnome-base/gdm
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e gdm
+      # Ignore error on chown because at the moment
+      # on build phase this finalize is executed before
+      # the creation of the /etc/group file.
+      - >-
+        eval 'mkdir /var/lib/gdm -p || true' &&
+        eval 'chown gdm:gdm /var/lib/gdm || true'
+
 - tree: packages/atoms/base
   uses:
     disabled:
-    - abi_mips_n32
-    - abi_mips_n64
-    - abi_mips_o32
-    - abi_s390_32
-    - abi_s390_64
-    - abi_x86_32
-    - abi_x86_x32
     - nios2
     - sh
     - static-libs
     enabled:
-    - abi_x86_64
     - css
   packages:
   - media-libs/libdvdread
