@@ -29,9 +29,15 @@ requires:
 - name: libpcre
   version: '>=0'
   category: dev-libs-3
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: tmpfiles
   version: '>=0'
   category: virtual
+- name: entities-catalog
+  version: '>=0'
+  category: macaroni
 annotations:
   subsets:
     rules:
@@ -98,4 +104,5 @@ labels:
   emerge.packages: www-servers/apache:2
   kit: core-server-kit
   original.package.name: www-servers/apache
+  original.package.slot: "2"
   original.package.version: 2.4.46
