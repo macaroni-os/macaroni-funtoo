@@ -12,10 +12,6 @@ install:
   export ARCH={{ ( index .Values.labels "gcc_arch" ) }} ;
   echo "CHOST=\"${ARCH}-pc-linux-gnu\"" > /etc/portage/make.conf ;
   fi
-- if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi
-- if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi
-- if [ ! -e /etc/group ] ; then touch /etc/group ; fi
-- if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi
 - if [ ! -e /etc/modules-load.d ] ; then mkdir /etc/modules-load.d ; fi
 # Move this to whip soon.
 - |
