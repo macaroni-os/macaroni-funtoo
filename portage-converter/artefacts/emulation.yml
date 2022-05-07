@@ -76,6 +76,11 @@ artefacts:
   - app-emulation/lxc
 - tree: packages/atoms/emulation
   mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  mutations:
     buildtime_deps:
       packages:
         - category: app-emulation
@@ -92,6 +97,14 @@ artefacts:
     - dnsmasq
   packages:
   - app-emulation/lxd
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e lxd
 - tree: packages/atoms/emulation
   uses:
     disabled:
