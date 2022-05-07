@@ -1,5 +1,10 @@
 artefacts:
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - bindist
@@ -42,8 +47,20 @@ artefacts:
     - xml
   packages:
   - dev-db/mariadb:10.5
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mysql
 - tree: packages/atoms/server
   mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
     buildtime_deps:
       packages:
         - category: dev-python
@@ -68,6 +85,15 @@ artefacts:
       - test
   packages:
     - dev-db/mongodb
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/mongodb || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mongodb
 
 - tree: packages/atoms/server
   uses:
@@ -147,8 +173,28 @@ artefacts:
   - dev-perl/Net-Daemon
   - dev-perl/PlRPC
   - net-dialup/wvdial
-  - net-proxy/cntlm
   - sys-apps/ethtool
+
+- tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - net-proxy/cntlm
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e cntlm
 - tree: packages/atoms/server
   uses:
     disabled:
@@ -299,6 +345,11 @@ artefacts:
   - dev-python/markdown-compat
   - dev-util/scons-compat
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - libressl
@@ -307,6 +358,15 @@ artefacts:
     - sh
   packages:
   - net-misc/openntpd
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/openntpd/chroot || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e ntp
 - tree: packages/atoms/server
   uses:
     disabled:
@@ -316,6 +376,11 @@ artefacts:
   packages:
   - net-vpn/openfortivpn
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - down-root
@@ -339,7 +404,20 @@ artefacts:
     - ssl
   packages:
   - net-vpn/openvpn
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e openvpn
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - cpp_test
@@ -460,8 +538,21 @@ artefacts:
     - stream
   packages:
   - www-servers/nginx
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/nginx || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e nginx
 - tree: packages/atoms/server
   mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
     uses:
       - python_single_target_python3_7
   uses:
@@ -498,6 +589,15 @@ artefacts:
     - zlib
   packages:
   - dev-db/postgresql:13
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/postgresql || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e postgres
 - tree: packages/atoms/server
   uses:
     disabled:
@@ -545,6 +645,11 @@ artefacts:
   packages:
   - dev-python/psutil
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - libressl
@@ -559,7 +664,20 @@ artefacts:
     - ssl
   packages:
   - net-analyzer/tcpdump
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e tcpdump
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - caps
@@ -576,6 +694,15 @@ artefacts:
     - zstd
   packages:
   - net-vpn/tor
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/tor || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e tor
 - tree: packages/atoms/server
   uses:
     disabled:

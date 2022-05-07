@@ -2948,6 +2948,11 @@ artefacts:
   packages:
   - net-libs/liboauth
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - X509
@@ -2976,6 +2981,15 @@ artefacts:
     - ssl
   packages:
   - net-misc/openssh
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir /var/empty -p || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e sshd
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -3122,6 +3136,14 @@ artefacts:
   packages:
   - media-libs/gst-plugins-ugly:1.0
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+    uses:
+      - python_targets_python3_7
+      - -python_targets_python3_8
   uses:
     disabled:
     - autoipd
@@ -3130,7 +3152,10 @@ artefacts:
     - howl-compat
     - mono
     - nios2
+    - python_single_target_python3_8
+    - python_single_target_python3_9
     - python_targets_python3_8
+    - python_targets_python3_9
     - selinux
     - sh
     - systemd
@@ -3144,10 +3169,19 @@ artefacts:
     - mdnsresponder-compat
     - nls
     - python
+    - python_single_target_python3_7
     - python_targets_python3_7
     - qt5
   packages:
   - net-dns/avahi
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -3210,6 +3244,11 @@ artefacts:
   packages:
   - net-misc/networkmanager
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - examples
@@ -3228,6 +3267,15 @@ artefacts:
     - spidermonkey
   packages:
   - sys-auth/polkit
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/polkit-1 || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e polkitd
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -5607,6 +5655,11 @@ artefacts:
   packages:
   - net-libs/gssdp:1.2
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - apache2_modules_access_compat
@@ -5724,6 +5777,14 @@ artefacts:
     - suexec-caps
   packages:
   - www-servers/apache:2
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e apache
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -6204,6 +6265,11 @@ artefacts:
   - net-misc/curl
 
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - apidoc
@@ -6224,6 +6290,16 @@ artefacts:
     - xattr
   packages:
   - sys-apps/portage
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/tmp/portage || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e portage &&
+        eval 'chown portage:portage /var/tmp/portage -R || true'
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -7055,6 +7131,11 @@ artefacts:
   - dev-python/pyxdg
   - dev-python/zope-interface
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - nios2
@@ -7065,6 +7146,15 @@ artefacts:
     - zeroconf
   packages:
   - app-misc/geoclue:2.0
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/geoclue || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e geoclue
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -9333,6 +9423,11 @@ artefacts:
   packages:
   - media-plugins/alsa-plugins
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - auth-dns
@@ -9364,6 +9459,14 @@ artefacts:
     - nls
   packages:
   - net-dns/dnsmasq
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e dnsmasq
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -10453,15 +10556,13 @@ artefacts:
   packages:
   - gnome-extra/gnome-recipes
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
-    - abi_mips_n32
-    - abi_mips_n64
-    - abi_mips_o32
-    - abi_s390_32
-    - abi_s390_64
-    - abi_x86_32
-    - abi_x86_x32
     - argyllcms
     - examples
     - extra-print-profiles
@@ -10471,13 +10572,21 @@ artefacts:
     - systemd
     - vala
     enabled:
-    - abi_x86_64
     - gusb
     - introspection
     - policykit
     - udev
   packages:
   - x11-misc/colord
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/colord || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e colord
 - tree: packages/atoms/base
   uses:
     disabled:
