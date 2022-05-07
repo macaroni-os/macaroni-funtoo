@@ -2,4 +2,5 @@ shell:
 - /bin/bash
 - -c
 install:
-- entities merge --specs-dir /usr/share/macaroni/entities/ -e sshd
+- eval 'mkdir /var/empty -p || true' && entities merge --specs-dir /usr/share/macaroni/entities/
+  -e sshd
