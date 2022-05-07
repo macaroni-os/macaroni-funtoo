@@ -253,6 +253,11 @@ artefacts:
   packages:
   - sys-process/tini
 - tree: packages/atoms/emulation
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - headless
@@ -271,6 +276,16 @@ artefacts:
     - python_targets_python3_7
   packages:
   - app-emulation/virtualbox-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        for i in vboxguest vboxsf vboxusers ; do
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e $i ; done
+
 - tree: packages/atoms-extra/dev
   mutations:
     buildtime_deps:
