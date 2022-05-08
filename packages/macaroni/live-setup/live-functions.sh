@@ -269,6 +269,9 @@ prepare() {
   # Create root and macaroni user
   entities merge -s /var/lib/macaroni/entities -a
 
+  # TODO: fix in another way.
+  entities merge -s /usr/share/macaroni/entities -e vboxguest
+
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
