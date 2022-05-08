@@ -1,0 +1,11 @@
+requires:
+- category: "seed"
+  name: "funtoo-emulation"
+  version: ">=0"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  mkdir -p /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
+  entities dump -t /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
+  qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist
+
