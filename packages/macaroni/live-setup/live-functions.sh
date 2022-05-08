@@ -239,13 +239,13 @@ setup_openrc_network() {
 setup_xorg_server() {
   mkdir -p /etc/X11/ || true
 
-  whip hook fonts.convert_pfb
-  whip hook fonts.setup_all_fonts
+  setup_all_fonts
 
-  whip hook gtk.glib_update_schemas
-  whip hook gtk.gtk_update_icons
-  whip hook gtk.mime_update_db
-  whip hook gdb.setup
+  glib_update_schemas
+
+  gtk_update_icons
+
+  mime_update_db
 
   return 0
 }
@@ -254,6 +254,18 @@ setup_xorg_server() {
 prepare() {
 
   EROOT=""
+
+  source /usr/share/macaroni-funtoo/triggers/triggers-loader
+
+  # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
+  rm /etc/shadow || true
+  touch /etc/shadow
+  rm /etc/group || true
+  touch /etc/group
+  rm /etc/gshadow || true
+  touch /etc/gshadow
+  rm /etc/passwd || true
+  touch /etc/passwd
 
   touch /etc/fstab
   # Trying to fix /dev/ptmx group issue
@@ -269,34 +281,45 @@ prepare() {
   # Create root and macaroni user
   entities merge -s /var/lib/macaroni/entities -a
 
-  # TODO: fix in another way.
-  entities merge -s /usr/share/macaroni/entities -e vboxguest
-
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
+
+  # Create all others entities
+  main_layer="funtoo-base"
+  entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
+    -s /usr/share/macaroni/layers/funtoo-boot/entities/ \
+    -s /usr/share/macaroni/layers/virtualbox-guest-additions/entities/ \
+    -a
+
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
   echo "macaroni-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="macaroni-funtoo"|' /etc/conf.d/hostname
 
-  mkdir /var/tmp -p || true
+  openrc_init_runlevels
 
-  # Setup openrc runlevels
-  whip hook openrc.openrc_setup
-  whip hook polkit.polkit_setup
-  whip hook dbus.dbus_gen_machineid
+  mkdir /var/tmp || true
 
-  ENABLED_SERVICES=(
-    "avahi-daemon"
-    "local"
-    "bluetooth"
-    # Temporay enable logger always. On ISO probably we can to maintain
-    # this off.
-    "metalog"
-    "NetworkManager"
-    "xdm"
+  # Temporary stuff
 
-    "virtualbox-guest-additions"
+  # TODO: probably could be set on finalizer.
+  polkit_setup
+
+  dbus_gen_machineid
+
+#    systemctl --no-reload disable ldconfig.service 2> /dev/null
+#    systemctl stop ldconfig.service 2> /dev/null
+    ENABLED_SERVICES=(
+      "avahi-daemon"
+      "local"
+      "bluetooth"
+      # Temporay enable logger always. On ISO probably we can to maintain
+      # this off.
+      "metalog"
+      "NetworkManager"
+      "xdm"
+
+      "virtualbox-guest-additions"
 
 #      "cups"
 #        "cups-browsed"
