@@ -1,6 +1,6 @@
 install:
 - >-
-  entities={{ ( index .Values.labels "entities" ) }} ;
+  entities='{{ ( index .Values.labels "entities" ) }}' ;
   for i in ${entities} ; do
   entities merge --specs-dir /usr/share/macaroni/entities/ -e ${i} ;
   done
