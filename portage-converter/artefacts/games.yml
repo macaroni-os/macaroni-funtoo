@@ -1,11 +1,5 @@
 artefacts:
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - fbcon
@@ -16,12 +10,6 @@ artefacts:
   packages:
     - games-emulation/advancemame
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - debug
@@ -33,12 +21,6 @@ artefacts:
     - games-strategy/warzone2100:0
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - geoip
@@ -48,12 +30,6 @@ artefacts:
     - games-strategy/openra:0
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - debug
@@ -65,12 +41,11 @@ artefacts:
     - games-strategy/ufoai:0
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
       - dedicated
@@ -84,14 +59,16 @@ artefacts:
       - nls
   packages:
     - games-strategy/wesnoth:0
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e wesnoth
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - pax_kernel
@@ -103,12 +80,6 @@ artefacts:
     - dev-lang/mono
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - static-libs
@@ -118,12 +89,6 @@ artefacts:
     - media-libs/sdl2-ttf
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - static-libs
@@ -137,12 +102,6 @@ artefacts:
     - media-libs/sdl2-image
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - fluidsynth
@@ -165,12 +124,6 @@ artefacts:
     - media-libs/sdl2-mixer
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - debug
@@ -186,12 +139,6 @@ artefacts:
     - media-libs/openal:0
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - 7zip
@@ -211,12 +158,6 @@ artefacts:
     - dev-games/physfs
 
 - tree: packages/atoms/games
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
       - cairo
