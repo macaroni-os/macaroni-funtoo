@@ -239,13 +239,13 @@ setup_openrc_network() {
 setup_xorg_server() {
   mkdir -p /etc/X11/ || true
 
-  setup_all_fonts
+  whip hook fonts.convert_pfb
+  whip hook fonts.setup_all_fonts
 
-  glib_update_schemas
-
-  gtk_update_icons
-
-  mime_update_db
+  whip hook gtk.glib_update_schemas
+  whip hook gtk.gtk_update_icons
+  whip hook gtk.mime_update_db
+  whip hook gdb.setup
 
   return 0
 }
@@ -254,18 +254,6 @@ setup_xorg_server() {
 prepare() {
 
   EROOT=""
-
-  source /usr/share/macaroni-funtoo/triggers/triggers-loader
-
-  # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
-  rm /etc/shadow || true
-  touch /etc/shadow
-  rm /etc/group || true
-  touch /etc/group
-  rm /etc/gshadow || true
-  touch /etc/gshadow
-  rm /etc/passwd || true
-  touch /etc/passwd
 
   touch /etc/fstab
   # Trying to fix /dev/ptmx group issue
@@ -282,13 +270,6 @@ prepare() {
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
 
-  # Create all others entities
-  main_layer="funtoo-base"
-  entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
-    -s /usr/share/macaroni/layers/funtoo-boot/entities/ \
-    -s /usr/share/macaroni/layers/virtualbox-guest-additions/entities/ \
-    -a
-
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
   echo "macaroni-funtoo" > /etc/hostname
@@ -298,90 +279,88 @@ prepare() {
 
   mkdir /var/tmp || true
 
-  # Temporary stuff
+  # Setup openrc runlevels
+  whip hook openrc.openrc_setup
+  whip hook polkit.polkit_setup
+  whip hook dbus.dbus_gen_machineid
 
-  # TODO: probably could be set on finalizer.
-  polkit_setup
+  ENABLED_SERVICES=(
+    "local"
+    # Temporay enable logger always. On ISO probably we can to maintain
+    # this off.
+    "metalog"
+    "NetworkManager"
+    "xdm"
 
-  dbus_gen_machineid
+    "virtualbox-guest-additions"
+  )
 
-    ENABLED_SERVICES=(
-      "local"
-      # Temporay enable logger always. On ISO probably we can to maintain
-      # this off.
-      "metalog"
-      "NetworkManager"
-      "xdm"
+  for srv in "${ENABLED_SERVICES[@]}"; do
+      rc-update add "${srv}" default
+  done
 
-      "virtualbox-guest-additions"
-    )
-
-    for srv in "${ENABLED_SERVICES[@]}"; do
-        rc-update add "${srv}" default
-    done
-
-    echo "
+  echo "
 127.0.0.1   macaroni-funtoo localhost
 ::1         macaroni-funtoo localhost
 "   > /etc/hosts
 
-    # Temporary. Maybe it's better set UTC here.
-    ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+  # Temporary. Maybe it's better set UTC here.
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
-    ENABLED_BOOT_SERVICES=(
-      "dbus"
-      "binfmt"
-      "elogind"
-      "hostname"
-      #"modules"
-      "opentmpfiles-setup"
-      "procfs"
-      "root"
-      "swap"
-      "urandom"
-    )
+  ENABLED_BOOT_SERVICES=(
+    "dbus"
+    "binfmt"
+    "elogind"
+    "hostname"
+    #"modules"
+    "opentmpfiles-setup"
+    "procfs"
+    "root"
+    "swap"
+    "urandom"
+  )
 
-    for srv in "${ENABLED_BOOT_SERVICES[@]}"; do
-        rc-update add "${srv}" boot
-    done
+  for srv in "${ENABLED_BOOT_SERVICES[@]}"; do
+      rc-update add "${srv}" boot
+  done
 
-    ENABLED_SYSINIT_SERVICES=(
-      "udev-postmount"
-      "udev-trigger"
-      "udev-settle"
-      "cgroups"
-      "devfs"
-      "dmesg"
-      "sysfs"
-    )
-    for srv in "${ENABLED_SYSINIT_SERVICES[@]}"; do
-        rc-update add "${srv}" sysinit
-    done
+  ENABLED_SYSINIT_SERVICES=(
+    "udev-postmount"
+    "udev-trigger"
+    "udev-settle"
+    "cgroups"
+    "devfs"
+    "dmesg"
+    "sysfs"
+  )
+  for srv in "${ENABLED_SYSINIT_SERVICES[@]}"; do
+      rc-update add "${srv}" sysinit
+  done
 
-    setup_xorg_server
+  setup_xorg_server
 
-    eselect opengl set xorg-x11 --use-old
+  eselect opengl set xorg-x11 --use-old
 
-    sed -e 's/^DISPLAYMANAGER=.*/DISPLAYMANAGER="macaroni-server"/g' /etc/conf.d/xdm -i
+  sed -e 's/^DISPLAYMANAGER=.*/DISPLAYMANAGER="macaroni-server"/g' /etc/conf.d/xdm -i
 
-    locale-gen
+  locale-gen
 
-    # Temporary fix for gnome
-    if [ -e /etc/motd ] ; then
-      cp /etc/motd /etc/issue
-      rm /etc/motd
-    fi
+  # Temporary fix for gnome
+  if [ -e /etc/motd ] ; then
+    cp /etc/motd /etc/issue
+    rm /etc/motd
+  fi
 
-    # Temporary fix until entities will handle this
-    mkdir -p /home/macaroni
-    chown macaroni:users -R /home/macaroni
+  # Temporary fix until entities will handle this
+  mkdir -p /home/macaroni
+  chown macaroni:users -R /home/macaroni
 
-    #sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
+  #sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
 
-    echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
+  echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
 
-    ldconfig
+  ldconfig
 
-    # Setup default plymouth theme
-    plymouth-set-default-theme funtoo
+  # Setup default plymouth theme
+  plymouth-set-default-theme funtoo
 }
