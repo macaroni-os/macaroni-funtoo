@@ -239,13 +239,24 @@ setup_openrc_network() {
 setup_xorg_server() {
   mkdir -p /etc/X11/ || true
 
-  setup_all_fonts
+  env-update
+  ldconfig
+  source /etc/profile
 
-  glib_update_schemas
+  whip hook fonts.convert_pfb
+  whip fonts.setup_all_fonts
+  whip hook gtk.glib_update_schemas
+  whip hook gtk.gtk_update_icons
+  whip hook gtk.mime_update_db
+  whip hook gdb.setup
 
-  gtk_update_icons
+  #setup_all_fonts
 
-  mime_update_db
+  #glib_update_schemas
+
+  #gtk_update_icons
+
+  #mime_update_db
 
   return 0
 }
@@ -296,16 +307,21 @@ prepare() {
   echo "macaroni-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="macaroni-funtoo"|' /etc/conf.d/hostname
 
-  openrc_init_runlevels
+  # openrc_init_runlevels
 
   mkdir /var/tmp || true
 
   # Temporary stuff
 
-  # TODO: probably could be set on finalizer.
-  polkit_setup
+  # Setup openrc runlevels
+  whip hook openrc.openrc_setup
+  whip hook polkit.polkit_setup
+  whip hook dbus.dbus_gen_machineid
 
-  dbus_gen_machineid
+  # TODO: probably could be set on finalizer.
+  #polkit_setup
+
+  #dbus_gen_machineid
 
 #    systemctl --no-reload disable ldconfig.service 2> /dev/null
 #    systemctl stop ldconfig.service 2> /dev/null
