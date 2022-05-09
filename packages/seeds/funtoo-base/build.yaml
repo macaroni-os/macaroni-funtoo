@@ -38,11 +38,13 @@ prelude:
   system/entities
   system/luet-geaaru &&
   luet cleanup --purge-repos &&
+  rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a &&
   entities list users &&
   entities list groups
 
 - >-
   FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
-  emerge -t -j $JOBS -uDN @world &&
+  emerge -t -j $JOBS -DN @world &&
+  emerge -t -j $JOBS -D @world &&
   rm -rf /var/cache/portage/distfiles/*
