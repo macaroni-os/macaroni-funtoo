@@ -10,8 +10,9 @@ install:
 - cd boot && ln -s initramfs-* Initrd || true
 - chmod a+rx /var/
 - chown gdm:gdm -R /var/lib/gdm/
+- whip hook gtk.mime_update_db
 # To replace with whip soon
-- source /usr/share/macaroni-funtoo/triggers/triggers-loader && mime_update_db
+#- source /usr/share/macaroni-funtoo/triggers/triggers-loader && mime_update_db
 shell:
 - bash
 - -c
