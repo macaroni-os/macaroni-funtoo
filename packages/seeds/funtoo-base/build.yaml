@@ -45,6 +45,7 @@ prelude:
 
 - >-
   FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+  emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e
   emerge -t -j $JOBS -DN @world &&
   emerge -t -j $JOBS -D @world &&
   rm -rf /var/cache/portage/distfiles/*
