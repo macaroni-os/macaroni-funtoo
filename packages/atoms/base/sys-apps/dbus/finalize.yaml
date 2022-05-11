@@ -3,5 +3,5 @@ shell:
 - "-c"
 install:
 - >-
-  chown root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
-  chmod 4750 /usr/libexec/dbus-daemon-launch-helper
+  eval 'chown root:messagebus /usr/libexec/dbus-daemon-launch-helper || true' &&
+  eval 'chmod 4750 /usr/libexec/dbus-daemon-launch-helper || true'
