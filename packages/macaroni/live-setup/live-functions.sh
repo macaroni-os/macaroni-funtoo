@@ -244,7 +244,7 @@ setup_xorg_server() {
   source /etc/profile
 
   whip hook fonts.convert_pfb
-  whip fonts.setup_all_fonts
+  whip hook fonts.setup_all_fonts
   whip hook gtk.glib_update_schemas
   whip hook gtk.gtk_update_icons
   whip hook gtk.mime_update_db
@@ -299,15 +299,23 @@ prepare() {
   main_layer="funtoo-base"
   entities merge -s /usr/share/macaroni/entities -a
 
-  # entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
-  #  -s /usr/share/macaroni/layers/funtoo-boot/entities/ \
-  #  -s /usr/share/macaroni/layers/virtualbox-guest-additions/entities/ \
+  #entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
+  # -s /usr/share/macaroni/layers/virtualbox-guest-additions/entities/ \
   #  -a
+  # -s /usr/share/macaroni/layers/funtoo-boot/entities/ \
 
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
   echo "macaroni-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="macaroni-funtoo"|' /etc/conf.d/hostname
+
+  entities list users
+  entities list groups
+
+  # Ensure right permissions of the dbus-daemon-launch-helper
+  # TODO: convert this in whip hook and finalizer
+  chown root:messagebus /usr/libexec/dbus-daemon-launch-helper
+  chmod 4750 /usr/libexec/dbus-daemon-launch-helper
 
   # openrc_init_runlevels
 
