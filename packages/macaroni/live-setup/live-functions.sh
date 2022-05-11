@@ -269,14 +269,14 @@ prepare() {
   source /usr/share/macaroni-funtoo/triggers/triggers-loader
 
   # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
-  rm /etc/shadow || true
-  touch /etc/shadow
-  rm /etc/group || true
-  touch /etc/group
-  rm /etc/gshadow || true
-  touch /etc/gshadow
-  rm /etc/passwd || true
-  touch /etc/passwd
+  #rm /etc/shadow || true
+  #touch /etc/shadow
+  #rm /etc/group || true
+  #touch /etc/group
+  #rm /etc/gshadow || true
+  #touch /etc/gshadow
+  #rm /etc/passwd || true
+  #touch /etc/passwd
 
   touch /etc/fstab
   # Trying to fix /dev/ptmx group issue
@@ -297,7 +297,7 @@ prepare() {
 
   # Create all others entities
   main_layer="funtoo-base"
-  entities merge -s /usr/share/macaroni/entities -a
+  #entities merge -s /usr/share/macaroni/entities -a
 
   #entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
   # -s /usr/share/macaroni/layers/virtualbox-guest-additions/entities/ \
