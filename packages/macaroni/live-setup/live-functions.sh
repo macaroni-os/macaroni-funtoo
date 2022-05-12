@@ -290,7 +290,7 @@ prepare() {
   echo "Europe/Rome" > /etc/timezone
 
  # TODO: temporary
- missing="avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video"
+ missing="avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video vboxsf vboxusers vboxguest"
  missing="${missing}    adm   audio   bin   cdrom   console   daemon   dialout   disk   floppy   input   ipsec   kmem   locate   lp   lpadmin   mail   man   mem   messagebus   netdev   news   nobody   nogroup   plugdev   realtime   render   root   sys   tape   tss   tty   usb   users   utmp   uucp   video   wheel   halt   shutdown   operator   sync"
 
  for i in ${missing} ; do
@@ -302,6 +302,13 @@ prepare() {
 
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
+
+  # Temporary until will be fixed with whip
+  mkdir -p /var/lib/color{,d}/icc
+  chown colord:colord /var/lib/color{,d}/icc
+
+  mkdir -p /var/run/vboxguest
+  chown vboxguest:vboxguest
 
   # Create all others entities
   main_layer="funtoo-base"
@@ -317,8 +324,8 @@ prepare() {
   echo "macaroni-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="macaroni-funtoo"|' /etc/conf.d/hostname
 
-  entities list users
-  entities list groups
+  entities list users --user-has-shadow
+  entities list groups --group-has-shadow
 
   # Ensure right permissions of the dbus-daemon-launch-helper
   # TODO: convert this in whip hook and finalizer
