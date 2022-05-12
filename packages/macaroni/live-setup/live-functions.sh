@@ -289,7 +289,13 @@ prepare() {
 
   echo "Europe/Rome" > /etc/timezone
 
-  # Create root and macaroni user
+ # TODO: temporary
+ missing="avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video"
+ for i in ${missing} ; do
+ entities merge -s /usr/share/macaroni/entities -e $i
+ done
+
+ # Create root and macaroni user
   entities merge -s /var/lib/macaroni/entities -a
 
   echo "Creating /etc/inittab..."
