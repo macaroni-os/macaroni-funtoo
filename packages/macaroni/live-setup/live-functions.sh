@@ -308,7 +308,7 @@ prepare() {
   chown colord:colord /var/lib/color{,d}/icc
 
   mkdir -p /var/run/vboxguest
-  chown vboxguest:vboxguest
+  chown vboxguest:vboxguest /var/run/vboxguest
 
   # Create all others entities
   main_layer="funtoo-base"
