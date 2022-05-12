@@ -291,6 +291,8 @@ prepare() {
 
  # TODO: temporary
  missing="avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video"
+ missing="${missing}    adm   audio   bin   cdrom   console   daemon   dialout   disk   floppy   input   ipsec   kmem   locate   lp   lpadmin   mail   man   mem   messagebus   netdev   news   nobody   nogroup   plugdev   realtime   render   root   sys   tape   tss   tty   usb   users   utmp   uucp   video   wheel   halt   shutdown   operator   sync"
+
  for i in ${missing} ; do
  entities merge -s /usr/share/macaroni/entities -e $i
  done
