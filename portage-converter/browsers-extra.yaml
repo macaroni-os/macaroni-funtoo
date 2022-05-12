@@ -113,10 +113,37 @@ artefacts:
 
   packages:
     - www-client/vivaldi
-    - www-client/chromium
     - www-client/firefox-bin
     - www-client/opera
     - www-client/brave-bin
+
+- tree: packages/atoms-extra/browsers
+  mutations:
+    runtime_deps:
+      packages:
+        # TODO: Check this. It seems a bug on luet-portage-converter.
+        - category: media-libs
+          name: openh264
+  uses:
+    disabled:
+      - static-libs
+      - geckodriver
+    enabled:
+      - pulseaudio
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile && ldconfig &&
+        env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+
+  packages:
+    - www-client/chromium
 
 - tree: packages/atoms-extra/browsers
   mutations:
