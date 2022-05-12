@@ -1,2 +1,2 @@
 #!/bin/sh
-calamares-pkexec
+sudo -E calamares-pkexec
