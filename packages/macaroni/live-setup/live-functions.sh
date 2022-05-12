@@ -303,12 +303,8 @@ prepare() {
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
 
-  # Temporary until will be fixed with whip
-  mkdir -p /var/lib/color{,d}/icc
-  chown colord:colord /var/lib/color{,d}/icc
-
-  mkdir -p /var/run/vboxguest
-  chown vboxguest:vboxguest /var/run/vboxguest
+  whip hook colord.colord_setup
+  whip hook vboxguest.vboxguest_setup
 
   # Create all others entities
   main_layer="funtoo-base"
