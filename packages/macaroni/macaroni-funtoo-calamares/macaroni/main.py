@@ -146,6 +146,10 @@ def run():
         '--set-links', '--purge', '--grub',
     ])
 
+    libcalamares.utils.target_env_call([
+        'chmod', 'u-s', '/usr/bin/pkexec',
+    ])
+
     libcalamares.utils.target_env_call(['env-update'])
 
     return None
