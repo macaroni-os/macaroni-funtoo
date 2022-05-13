@@ -6,6 +6,14 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Until the fix is available in upstream
+- >-
+  cd /var/git/meta-repo/kits/dev-kit/dev-libs/jemalloc/files &&
+  wget https://bugs.funtoo.org/secure/attachment/23129/23129_jemalloc-5.3.0-gentoo-fixups.patch &&
+  cd .. &&
+  mv files/23129_jemalloc-5.3.0-gentoo-fixups.patch files/jemalloc-5.3.0-gentoo-fixups.patch &&
+  sed -i -e 's|5.2.0-gentoo|5.3.0-gentoo|g' jemalloc-5.3.0.ebuild &&
+  ebuild jemalloc-5.3.0.ebuild digest
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
