@@ -1,5 +1,5 @@
 name: qemu
-version: 6.2.0+1
+version: 6.2.0+2
 category: app-emulation
 use_flags:
 - -accessibility
@@ -22,7 +22,6 @@ use_flags:
 - -smartcard
 - -snappy
 - -static
-- -static-user
 - -systemtap
 - -test
 - -vde
@@ -60,6 +59,7 @@ use_flags:
 - slirp
 - spice
 - ssh
+- static-user
 - udev
 - usb
 - usbredir
@@ -171,6 +171,9 @@ requires:
 - name: vte
   version: '>=0'
   category: x11-libs-2.91
+- name: entities-catalog
+  version: '>=0'
+  category: macaroni
 annotations:
   subsets:
     rules:
