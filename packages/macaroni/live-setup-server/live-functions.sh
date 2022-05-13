@@ -239,6 +239,11 @@ setup_openrc_network() {
 setup_xorg_server() {
   mkdir -p /etc/X11/ || true
 
+  env-update
+  ldconfig
+
+  source /etc/profile
+
   whip hook fonts.convert_pfb
   whip hook fonts.setup_all_fonts
 
@@ -263,6 +268,11 @@ prepare() {
   chmod a+r /var
 
   echo "Europe/Rome" > /etc/timezone
+
+  missing="ddclient dhcpcd ushare utmp video vboxsf vboxusers vboxguest"
+  for i in ${missing} ; do
+    entities merge -s /usr/share/macaroni/entities -e $i
+  done
 
   # Create root and macaroni user
   entities merge -s /var/lib/macaroni/entities -a
