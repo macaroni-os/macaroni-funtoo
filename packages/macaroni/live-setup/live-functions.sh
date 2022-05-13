@@ -276,6 +276,10 @@ prepare() {
 
  # Create root and macaroni user
   entities merge -s /var/lib/macaroni/entities -a
+  # user root is already present (created by virtual-entities/base)
+  # In this case `entities merge` command doesn't replace the password.
+  # I need use apply command.
+  entities apply -f /etc/shadow /var/lib/macaroni/entities/entity_shadow_root.yaml
 
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
