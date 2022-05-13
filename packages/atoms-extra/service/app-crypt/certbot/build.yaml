@@ -6,6 +6,12 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary
+- >-
+  cd /var/git/meta-repo/kits/core-server-kit/app-crypt/certbot/ &&
+  rm Manifest &&
+  ebuild certbot-1.26.0.ebuild digest &&
+  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
