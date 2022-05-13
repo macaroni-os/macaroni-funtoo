@@ -6,13 +6,6 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# NOTE: temporary workaround
-- >-
-  eval 'mkdir -p /var/cache/portage/distfiles || true' &&
-  chown portage:portage -R /var/cache/portage/ &&
-  cd /var/git/meta-repo/kits/core-kit/sys-process/criu/ &&
-  rm Manifest &&
-  ebuild criu-3.16.1.ebuild digest
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
