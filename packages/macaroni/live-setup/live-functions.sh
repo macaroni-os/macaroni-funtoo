@@ -136,17 +136,6 @@ setup_live_user() {
     return 1
 }
 
-setup_vt_autologin() {
-        cp /lib/systemd/system/getty@.service \
-            /etc/systemd/system/autologin@.service
-        sed -i "/^ExecStart=/ s:/sbin/agetty:/sbin/agetty --autologin root:g" \
-            /lib/systemd/system/getty@.service
-        sed -i "/^ExecStart=/ s:-o.*--noclear::g" \
-            /lib/systemd/system/getty@.service
-        systemctl daemon-reload
-        systemctl restart getty@tty1
-}
-
 setup_desktop_session() {
     local usr="${1}"
     local sess="${2}"
@@ -266,18 +255,6 @@ prepare() {
 
   EROOT=""
 
-  source /usr/share/macaroni-funtoo/triggers/triggers-loader
-
-  # Create /etc/shadow,/etc/group,/etc/gshadow,/etc/passwd files
-  #rm /etc/shadow || true
-  #touch /etc/shadow
-  #rm /etc/group || true
-  #touch /etc/group
-  #rm /etc/gshadow || true
-  #touch /etc/gshadow
-  #rm /etc/passwd || true
-  #touch /etc/passwd
-
   touch /etc/fstab
   # Trying to fix /dev/ptmx group issue
   #echo "devpts /dev/pts devpts gid=5,mode=620 0 0" >> /etc/fstab
@@ -306,15 +283,6 @@ prepare() {
   whip hook colord.colord_setup
   whip hook vboxguest.vboxguest_setup
 
-  # Create all others entities
-  main_layer="funtoo-base"
-  #entities merge -s /usr/share/macaroni/entities -a
-
-  #entities merge -s /usr/share/macaroni/layers/${main_layer}/entities/ \
-  # -s /usr/share/macaroni/layers/virtualbox-guest-additions/entities/ \
-  #  -a
-  # -s /usr/share/macaroni/layers/funtoo-boot/entities/ \
-
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
   echo "macaroni-funtoo" > /etc/hostname
@@ -339,98 +307,90 @@ prepare() {
   whip hook polkit.polkit_setup
   whip hook dbus.dbus_gen_machineid
 
-  # TODO: probably could be set on finalizer.
-  #polkit_setup
+  ENABLED_SERVICES=(
+    "avahi-daemon"
+    "local"
+    "bluetooth"
+    # Temporay enable logger always. On ISO probably we can to maintain
+    # this off.
+    "metalog"
+    "NetworkManager"
+    "xdm"
 
-  #dbus_gen_machineid
-
-#    systemctl --no-reload disable ldconfig.service 2> /dev/null
-#    systemctl stop ldconfig.service 2> /dev/null
-    ENABLED_SERVICES=(
-      "avahi-daemon"
-      "local"
-      "bluetooth"
-      # Temporay enable logger always. On ISO probably we can to maintain
-      # this off.
-      "metalog"
-      "NetworkManager"
-      "xdm"
-
-      "virtualbox-guest-additions"
+    "virtualbox-guest-additions"
 
 #      "cups"
 #        "cups-browsed"
-    )
-    for srv in "${ENABLED_SERVICES[@]}"; do
-        rc-update add "${srv}" default
-    done
+  )
+  for srv in "${ENABLED_SERVICES[@]}"; do
+      rc-update add "${srv}" default
+  done
 
-    echo "
+  echo "
 127.0.0.1   macaroni-funtoo localhost
 ::1         macaroni-funtoo localhost
-"   > /etc/hosts
+" > /etc/hosts
 
-    # Temporary. Maybe it's better set UTC here.
-    ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+  # Temporary. Maybe it's better set UTC here.
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 
-    ENABLED_BOOT_SERVICES=(
-      "dbus"
-      "binfmt"
-      "elogind"
-      "hostname"
-      #"modules"
-      "opentmpfiles-setup"
-      "procfs"
-      "root"
-      "swap"
-      "urandom"
-    )
+  ENABLED_BOOT_SERVICES=(
+    "dbus"
+    "binfmt"
+    "elogind"
+    "hostname"
+    #"modules"
+    "opentmpfiles-setup"
+    "procfs"
+    "root"
+    "swap"
+    "urandom"
+  )
 
-    for srv in "${ENABLED_BOOT_SERVICES[@]}"; do
-        rc-update add "${srv}" boot
-    done
+  for srv in "${ENABLED_BOOT_SERVICES[@]}"; do
+      rc-update add "${srv}" boot
+  done
 
-    ENABLED_SYSINIT_SERVICES=(
-      "udev-postmount"
-      "udev-trigger"
-      "udev-settle"
-      "cgroups"
-      "devfs"
-      "dmesg"
-      "sysfs"
-    )
-    for srv in "${ENABLED_SYSINIT_SERVICES[@]}"; do
-        rc-update add "${srv}" sysinit
-    done
+  ENABLED_SYSINIT_SERVICES=(
+    "udev-postmount"
+    "udev-trigger"
+    "udev-settle"
+    "cgroups"
+    "devfs"
+    "dmesg"
+    "sysfs"
+  )
+  for srv in "${ENABLED_SYSINIT_SERVICES[@]}"; do
+      rc-update add "${srv}" sysinit
+  done
 
-    setup_xorg_server
+  setup_xorg_server
 
-    eselect opengl set xorg-x11 --use-old
+  eselect opengl set xorg-x11 --use-old
 
-    if [ -f "/usr/share/xsessions/gnome.desktop" ]; then
-        setup_default_xsession "gnome"
-#        systemctl enable "gdm"
-    fi
+  if [ -f "/usr/share/xsessions/gnome.desktop" ]; then
+      setup_default_xsession "gnome"
+  fi
 
-    locale-gen
+  locale-gen
 
-    # Temporary fix for gnome
-    if [ -e /etc/motd ] ; then
-      cp /etc/motd /etc/issue
-      rm /etc/motd
-    fi
+  # Temporary fix for gnome
+  if [ -e /etc/motd ] ; then
+    cp /etc/motd /etc/issue
+    rm /etc/motd
+  fi
 
-    # Temporary fix until entities will handle this
-    mkdir -p /home/macaroni
-    chown macaroni:users -R /home/macaroni
+  # Temporary fix until entities will handle this
+  mkdir -p /home/macaroni
+  chown macaroni:users -R /home/macaroni
 
     #sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
 
-    echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
+  echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
 
-    ldconfig
+  ldconfig
 
-    # Setup default plymouth theme
-    plymouth-set-default-theme funtoo
+  # Setup default plymouth theme
+  plymouth-set-default-theme funtoo
 }

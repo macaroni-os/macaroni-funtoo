@@ -113,9 +113,8 @@ main() {
 #    setup_desktop
     setup_keymap
     setup_locale
-    setup_autologin
+    #setup_autologin
     setup_vbox
-    setup_vt_autologin
 }
 
 main
