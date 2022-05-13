@@ -6864,6 +6864,24 @@ artefacts:
     - zlib
   packages:
   - media-libs/gd:2
+
+- tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: net-libs-1.2
+          name: gupnp
+  mutations:
+    runtime_deps:
+      packages:
+        - category: net-libs
+          name: gupnp
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - net-libs/dleyna-core:1.0
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -7007,7 +7025,6 @@ artefacts:
   - media-video/gnome-video-effects
   - net-dialup/ppp-scripts
   - net-libs/dleyna-connector-dbus:1.0
-  - net-libs/dleyna-core:1.0
   - net-libs/rpcsvc-proto
   - net-misc/dleyna-server
   - net-misc/netkit-fingerd
@@ -10569,6 +10586,8 @@ artefacts:
       packages:
         - category: macaroni
           name: entities-catalog
+        - category: macaroni
+          name: whip-catalog
   uses:
     disabled:
     - argyllcms
@@ -10592,9 +10611,10 @@ artefacts:
       - "-c"
     install:
       - >-
-        eval 'mkdir -p /var/lib/colord || true' &&
         entities merge --specs-dir /usr/share/macaroni/entities/
-        -e colord
+        -e colord &&
+        eval 'whip hook colord.colord_setup || true'
+
 - tree: packages/atoms/base
   uses:
     disabled:
