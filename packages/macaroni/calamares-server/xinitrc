@@ -1,3 +1,6 @@
 #!/bin/bash
-
+# At the moment pkexec is without suid for CVE issue.
+# This is the workaround.
+sudo chmod u+s /usr/bin/pkexec
 exec sudo installer.sh
+sudo chmod u-s /usr/bin/pkexec
