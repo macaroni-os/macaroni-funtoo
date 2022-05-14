@@ -284,6 +284,10 @@ prepare() {
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
 
+
+  # The suid is removed when the installation is completed.
+  chmod u+s /usr/bin/pkexec
+
   whip hook colord.colord_setup
   whip hook vboxguest.vboxguest_setup
 
