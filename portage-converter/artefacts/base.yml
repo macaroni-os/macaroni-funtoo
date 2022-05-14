@@ -10281,6 +10281,16 @@ artefacts:
   packages:
   - media-gfx/shotwell
 - tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: net-libs-1.2
+          name: gssdp
+  mutations:
+    runtime_deps:
+      packages:
+        - category: net-libs
+          name: gssdp
   uses:
     disabled:
     - connman
