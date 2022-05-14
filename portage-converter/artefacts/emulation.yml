@@ -368,6 +368,10 @@ artefacts:
 
 - tree: packages/atoms/emulation
   mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
     uses:
       - qemu_softmmu_targets_mips64
       - qemu_softmmu_targets_mips64el
@@ -461,8 +465,18 @@ artefacts:
       - xattr
       - xfs
       - zstd
+      - static-user
   packages:
   - app-emulation/qemu
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        for i in kvm qemu ; do
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e $i ; done
 
 - tree: packages/atoms/emulation
   annotations:
