@@ -1,0 +1,36 @@
+name: gnome-shell-frippery
+version: 3.32.1
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+- name: gnome-menus
+  version: '>=0'
+  category: gnome-base-3
+- name: clutter
+  version: '>=0'
+  category: media-libs-1.0
+- name: pango
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Unofficial extension pack providing GNOME 2-like features for GNOME 3
+uri:
+- http://frippery.org/extensions/index.html
+license: GPL-2+
+labels:
+  RDEPEND: app-eselect/eselect-gnome-shell-extensions >=dev-libs/gjs-1.29 >=dev-libs/gobject-introspection-1.62.0:=
+    gnome-base/gnome-menus:3[introspection] >=gnome-base/gnome-shell-3.32 media-libs/clutter:1.0[introspection]
+    x11-libs/pango[introspection]
+  emerge.packages: gnome-extra/gnome-shell-frippery
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-shell-frippery
+  original.package.slot: "0"
+  original.package.version: 3.32.1
