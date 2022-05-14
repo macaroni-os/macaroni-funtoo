@@ -1,10 +1,5 @@
 FROM alpine
-RUN mkdir /funtoo-minimal/etc/ -p && \
-      touch /funtoo-minimal/etc/passwd && \
-      touch /funtoo-minimal/etc/shadow && \
-      touch /funtoo-minimal/etc/group && \
-      touch /funtoo-minimal/etc/gshadow
-
+RUN mkdir /funtoo-minimal/etc/ -p
 FROM macaronios/luet:latest-amd64
 ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 #COPY luet /usr/bin/luet
@@ -19,10 +14,6 @@ RUN repository/macaroni-commons-testing
 RUN repository/macaroni-funtoo-testing
 
 RUN system/entities
-RUN pkglist/funtoo-base
-
-SHELL ["entities", "merge", "-a", "-s"]
-RUN /usr/share/macaroni/layers/funtoo-base/entities/
 
 SHELL ["/usr/bin/luet", "install", "-y", "--relax", "--force"]
 
@@ -32,6 +23,8 @@ RUN sys-apps/sed
 RUN app-shells/bash
 RUN sys-devel-9.2.0/gcc
 
+RUN virtual-entities/base
+
 RUN sys-apps/iproute2
 RUN sys-apps/sysvinit
 
@@ -40,7 +33,7 @@ RUN sys-apps/openrc
 
 SHELL ["/bin/bash", "-c"]
 
-RUN luet cleanup --purge-repos && luet uninstall -y pkglist/funtoo-base
+RUN luet cleanup --purge-repos && mkdir /tmp
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
