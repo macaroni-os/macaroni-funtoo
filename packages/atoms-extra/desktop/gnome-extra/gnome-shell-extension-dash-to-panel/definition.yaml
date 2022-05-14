@@ -1,0 +1,30 @@
+name: gnome-shell-extension-dash-to-panel
+version: "19"
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An icon taskbar for the Gnome Shell
+uri:
+- https://github.com/home-sweet-gnome/dash-to-panel
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext
+  DEPEND: dev-libs/glib:2
+  RDEPEND: dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.18.0
+  emerge.packages: gnome-extra/gnome-shell-extension-dash-to-panel
+  kit: nokit
+  original.package.name: gnome-extra/gnome-shell-extension-dash-to-panel
+  original.package.slot: "0"
+  original.package.version: "19"
