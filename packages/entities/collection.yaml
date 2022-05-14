@@ -1,24 +1,52 @@
-# This collections contains temporary packages used
-# by entities merge command that will be replaced
-# when i have integrated luet-portage-converter
-# when an automatic management of the acct/* packages.
-
 packages:
-  - name: acct-base
-    version: "0.20220204"
-    category: entities
-    desciption: |
-      Base system entities.
-    labels:
-      entities_dir: "funtoo-base"
+  - category: "virtual-entities"
+    name: "base"
+    version: "2022.05"
     requires:
-      - name: entities
-        category: system
-        version: ">=0"
-      - name: sh
-        category: "virtual"
-        version: ">=0"
-      - name: funtoo-base
-        category: "pkglist"
-        version: ">=0"
-
+      - category: macaroni
+        name: entities-catalog
+        version: '>=0'
+      - category: system
+        name: entities
+        version: '>=0'
+    labels:
+      entities: >-
+        adm
+        bin
+        cdrom
+        console
+        daemon
+        dialout
+        disk
+        floppy
+        input
+        ipsec
+        kmem
+        locate
+        lp
+        lpadmin
+        mail
+        man
+        mem
+        messagebus
+        netdev
+        news
+        nobody
+        nogroup
+        plugdev
+        realtime
+        render
+        root
+        sys
+        tape
+        tty
+        usb
+        users
+        utmp
+        uucp
+        video
+        wheel
+        halt
+        shutdown
+        operator
+        sync

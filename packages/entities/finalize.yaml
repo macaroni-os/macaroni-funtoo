@@ -1,11 +1,9 @@
-shell:
-- /bin/bash
-- -c
 install:
-# These steps must be handled by entities in the near future.
 - >-
-  if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi ;
-  if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi ;
-  if [ ! -e /etc/group ] ; then touch /etc/group ; fi ;
-  if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi
-- entities merge -s /usr/share/macaroni/layers/{{ ( index .Values.labels "entities_dir" ) }}/entities/ -a
+  entities='{{ ( index .Values.labels "entities" ) }}' ;
+  for i in ${entities} ; do
+  entities merge --specs-dir /usr/share/macaroni/entities/ -e ${i} ;
+  done
+shell:
+  - bash
+  - -c
