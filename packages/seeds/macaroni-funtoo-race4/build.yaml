@@ -23,6 +23,7 @@ steps:
   chmod a+rwx /tmp
 - luet install entities/acct-base --force --relax
 - >-
+  luet repo update &&
   luet install --relax --force
   system/luet-devkit
   toolchain/boot
