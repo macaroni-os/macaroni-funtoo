@@ -11,6 +11,7 @@ prelude:
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
   luet repo update &&
+  luet reinstall macaroni/entities-catalog &&
   luet i -y toolchain/calamares &&
   luet cleanup --purge-repos &&
   eselect java-vm set system 1 &&
