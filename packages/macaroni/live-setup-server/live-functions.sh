@@ -269,23 +269,41 @@ prepare() {
 
   echo "Europe/Rome" > /etc/timezone
 
-  missing="ddclient dhcpcd ushare utmp video vboxsf vboxusers vboxguest"
+  # TODO: temporary
+  missing="avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video vboxsf vboxusers vboxguest kvm"
+  missing="${missing}    adm   audio   bin   cdrom   console   daemon   dialout   disk   floppy   input   ipsec   kmem   locate   lp   lpadmin   mail   man   mem   messagebus   netdev   news   nobody   nogroup   plugdev   realtime   render   root   sys   tape   tss   tty   usb   users   utmp   uucp   video   wheel   halt   shutdown   operator   sync"
+
   for i in ${missing} ; do
     entities merge -s /usr/share/macaroni/entities -e $i
   done
 
   # Create root and macaroni user
   entities merge -s /var/lib/macaroni/entities -a
+  # user root is already present (created by virtual-entities/base)
+  # In this case `entities merge` command doesn't replace the password.
+  # I need use apply command.
+  entities apply -f /etc/shadow /var/lib/macaroni/entities/entity_shadow_root.yaml
 
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
+
+  # The suid is removed when the installation is completed.
+  chmod u+s /usr/bin/pkexec
+
+  whip hook vboxguest.vboxguest_setup
 
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
   echo "macaroni-funtoo" > /etc/hostname
   sed -i -e 's|^hostname=.*|hostname="macaroni-funtoo"|' /etc/conf.d/hostname
 
-  openrc_init_runlevels
+  entities list users --user-has-shadow
+  entities list groups --group-has-shadow
+
+  # Ensure right permissions of the dbus-daemon-launch-helper
+  # TODO: convert this in whip hook and finalizer
+  chown root:messagebus /usr/libexec/dbus-daemon-launch-helper
+  chmod 4750 /usr/libexec/dbus-daemon-launch-helper
 
   mkdir /var/tmp || true
 
