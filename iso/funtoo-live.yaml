@@ -21,12 +21,13 @@ packages:
   - virtual/gnome
   - virtual/macaroni-kernel-lts
 
+  - virtual-entities/base
+
   - www-client/firefox-bin
   - kernel/macaroni-lts-initramfs
   - gnome-base/gnome
 
   - pkglist/funtoo-base
-  - pkglist/funtoo-boot
 
   - app-editors/vim
 
@@ -62,7 +63,6 @@ packages:
   # Ibus-settings require py2.7
   - dev-lang-2.7/python
 
-  - sys-fs/udev-init-scripts
   # needed for /bin/hostname
   - sys-apps/net-tools
   # needed for format vfat uefi partition
@@ -157,7 +157,7 @@ packages:
   # Live additional packages
   - media-gfx-2/gimp
   - media-gfx/inkscape
-  - media-gfx-2.93/blender-bin
+  - media-gfx/blender-bin
   - app-office/dia
   - app-office/libreoffice-bin
   - app-office/libreoffice-l10n
@@ -175,6 +175,7 @@ packages:
   - net-vpn/openfortivpn
   - net-vpn/openconnect
   - net-analyzer/wireshark
+  - net-analyzer/tcpdump
 
   # Mobile connection cli handler
   - net-dialup/wvdial
@@ -182,11 +183,15 @@ packages:
   - app-emulation/docker
   - app-emulation/lxd
   - app-emulation/lxd-compose
+  - app-emulation/qemu
+  - sys-apps/fchroot
 
   # #MAC-2
   - gnome-extra/gnome-calculator
   - gnome-extra/gnome-tweaks
   - mail-client-2.0/evolution
+  # Dependency of evolution (to fix)
+  - media-libs/woff2
   - app-misc/tmux
   - dev-util/meld
   - sys-apps/man-pages
