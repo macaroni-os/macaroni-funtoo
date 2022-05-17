@@ -239,14 +239,6 @@ setup_xorg_server() {
   whip hook gtk.mime_update_db
   whip hook gdb.setup
 
-  #setup_all_fonts
-
-  #glib_update_schemas
-
-  #gtk_update_icons
-
-  #mime_update_db
-
   return 0
 }
 
@@ -267,7 +259,8 @@ prepare() {
   echo "Europe/Rome" > /etc/timezone
 
  # TODO: temporary
- missing="avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video vboxsf vboxusers vboxguest"
+ # kvm user used on setup s390x / ppc device from udev rule
+ missing="avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video vboxsf vboxusers vboxguest kvm"
  missing="${missing}    adm   audio   bin   cdrom   console   daemon   dialout   disk   floppy   input   ipsec   kmem   locate   lp   lpadmin   mail   man   mem   messagebus   netdev   news   nobody   nogroup   plugdev   realtime   render   root   sys   tape   tss   tty   usb   users   utmp   uucp   video   wheel   halt   shutdown   operator   sync"
 
  for i in ${missing} ; do
