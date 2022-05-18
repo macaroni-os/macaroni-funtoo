@@ -375,6 +375,14 @@ artefacts:
     - stream
   packages:
   - www-servers/nginx
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e nginx
 
 - tree: packages/atoms-extra/server
   mutations:
@@ -1384,6 +1392,14 @@ artefacts:
     - suexec-caps
   packages:
   - www-servers/apache:2
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e apache
 
 - tree: packages/atoms-extra/server
   uses:

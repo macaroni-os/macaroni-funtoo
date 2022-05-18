@@ -765,6 +765,14 @@ artefacts:
     - systemd
   packages:
   - sys-apps/dbus
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        chown root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
+        chmod 4750 /usr/libexec/dbus-daemon-launch-helper
 - tree: packages/atoms/base
   annotations:
     subsets:
@@ -2627,6 +2635,11 @@ artefacts:
   packages:
   - dev-util/ninja
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - name: entities-catalog
+          category: macaroni
   annotations:
     subsets:
       rules:
@@ -2662,6 +2675,15 @@ artefacts:
     - ssl
   packages:
   - net-misc/openssh
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir /var/empty -p || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e sshd
 - tree: packages/atoms/base
   annotations:
     subsets:
@@ -2708,6 +2730,11 @@ artefacts:
   - dev-python/toml
   - dev-python/wheel
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   annotations:
     subsets:
       rules:
@@ -2725,6 +2752,14 @@ artefacts:
     - udev
   packages:
   - net-misc/dhcpcd
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e dhcpcd
 - tree: packages/atoms/base
   annotations:
     subsets:

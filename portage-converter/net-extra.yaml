@@ -375,6 +375,14 @@ artefacts:
       - tftp
   packages:
     - net-dns/dnsmasq
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e dnsmasq
 
       # - tree: packages/atoms-extra/net
       #   annotations:

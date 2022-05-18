@@ -89,6 +89,14 @@ artefacts:
       - wurfl
   packages:
     - net-proxy/haproxy
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e haproxy
 
 - tree: packages/atoms-extra/geaaru
   mutations:
