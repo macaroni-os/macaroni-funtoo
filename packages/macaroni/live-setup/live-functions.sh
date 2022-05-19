@@ -386,7 +386,7 @@ prepare() {
   mkdir -p /home/macaroni
   chown macaroni:users -R /home/macaroni
 
-    #sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
+  #sed -i -e 's|INACTIVE_TIMEOUT.*|INACTIVE_TIMEOUT=60|g' /etc/conf.d/NetworkManager
 
   echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
 
