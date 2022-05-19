@@ -6,9 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  eval 'mkdir -p /var/cache/portage/distfiles || true' &&
+  chown portage:portage -R /var/cache/portage/ &&
+  ebuild /var/git/meta-repo/kits/core-kit/app-emulation/containerd/containerd-{{ ( index .Values.labels "emerge.packages" ) }}.ebuild digest
 - |
-  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
-  chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
