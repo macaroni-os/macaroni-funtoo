@@ -9,7 +9,8 @@ prelude:
 - >-
   eval 'mkdir -p /var/cache/portage/distfiles || true' &&
   chown portage:portage -R /var/cache/portage/ &&
-  ebuild /var/git/meta-repo/kits/core-kit/app-emulation/containerd/containerd-{{ ( index .Values.labels "emerge.packages" ) }}.ebuild digest
+  rm /var/git/meta-repo/kits/core-kit/app-emulation/containerd/Manifest &&
+  ebuild /var/git/meta-repo/kits/core-kit/app-emulation/containerd/containerd-{{ ( index .Values.labels "original.package.version" ) }}.ebuild digest
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
