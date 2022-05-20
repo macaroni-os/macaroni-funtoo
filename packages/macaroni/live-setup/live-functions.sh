@@ -383,6 +383,7 @@ prepare() {
   fi
 
   # Temporary fix until entities will handle this
+  mkdir -p /home/
   cp -rvf /etc/skel/ /home/macaroni/
   chown macaroni:users -R /home/macaroni
 
