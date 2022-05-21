@@ -15,9 +15,6 @@ RUN repository/macaroni-funtoo-systemd-testing
 
 RUN system/entities
 
-SHELL ["entities", "merge", "-a", "-s"]
-RUN /usr/share/macaroni/layers/funtoo-base/entities/
-
 SHELL ["/usr/bin/luet", "install", "-y", "--relax", "--force"]
 
 RUN system/luet-geaaru
