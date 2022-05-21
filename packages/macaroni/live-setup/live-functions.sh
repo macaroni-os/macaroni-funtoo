@@ -392,8 +392,10 @@ prepare() {
   echo "macaroni ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/99-macaroni
 
   dash2dockid=$(eselect gnome-shell-extensions list  | grep dash-to-dock | awk '{ print $1 }' | sed -e 's|\[||g' -e 's|\]||g')
+  desktopiconsid=$(eselect gnome-shell-extensions list  | grep desktop-icons| awk '{ print $1 }' | sed -e 's|\[||g' -e 's|\]||g')
   eselect gnome-shell-extensions list
   eselect gnome-shell-extensions enable ${dash2dockid}
+  eselect gnome-shell-extensions enable ${desktopiconsid}
   eselect gnome-shell-extensions list
 
   ldconfig
