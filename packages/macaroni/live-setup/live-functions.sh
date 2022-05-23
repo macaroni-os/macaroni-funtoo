@@ -398,6 +398,10 @@ prepare() {
   eselect gnome-shell-extensions enable ${desktopiconsid}
   eselect gnome-shell-extensions list
 
+  cd /home/macaroni
+  HOME=/home/macaroni su -c "gio set Desktop/Installer.desktop metadata::trusted true" macaroni
+  chmod a+x /home/macaroni/Desktop/Installer.desktop
+
   ldconfig
 
   # Setup default plymouth theme
