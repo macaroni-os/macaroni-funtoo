@@ -479,13 +479,11 @@ artefacts:
         -e $i ; done
 
 - tree: packages/atoms/emulation
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
       - debug
@@ -512,3 +510,11 @@ artefacts:
       - elibc_glibc
   packages:
     - sys-cluster/glusterfs
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e gluster
