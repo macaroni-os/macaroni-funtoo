@@ -769,6 +769,11 @@ artefacts:
     - dev-util/lttng-tools
 
 - tree: packages/atoms-extra/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
       - debug
@@ -795,6 +800,14 @@ artefacts:
       - elibc_glibc
   packages:
     - sys-cluster/glusterfs
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e gluster
 
 - tree: packages/atoms-extra/server
   replacements:
