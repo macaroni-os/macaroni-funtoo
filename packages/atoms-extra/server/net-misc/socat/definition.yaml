@@ -1,5 +1,5 @@
 name: socat
-version: 1.7.3.3
+version: 1.7.4.3
 category: net-misc
 use_flags:
 - -libressl
@@ -28,13 +28,13 @@ labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
     ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
     >=sys-devel/libtool-2.4'
-  DEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:=
-    ) ) readline? ( sys-libs/readline:= ) tcpd? ( sys-apps/tcp-wrappers )
-  IUSE: bindist libressl ssl readline ipv6 tcpd
-  RDEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:=
-    ) ) readline? ( sys-libs/readline:= ) tcpd? ( sys-apps/tcp-wrappers )
+  DEPEND: ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:= ) tcpd? ( sys-apps/tcp-wrappers
+    )
+  IUSE: bindist ipv6 readline ssl tcpd
+  RDEPEND: ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:= ) tcpd? (
+    sys-apps/tcp-wrappers )
   emerge.packages: net-misc/socat
   kit: net-kit
   original.package.name: net-misc/socat
   original.package.slot: "0"
-  original.package.version: 1.7.3.3
+  original.package.version: 1.7.4.3
