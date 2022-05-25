@@ -1,5 +1,5 @@
 FROM alpine
-RUN mkdir /funtoo-minimal/etc/ -p &&
+RUN mkdir /funtoo-minimal/etc/ -p
 FROM macaronios/luet:latest-amd64
 ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 
