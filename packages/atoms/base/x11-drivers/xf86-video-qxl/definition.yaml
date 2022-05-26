@@ -1,5 +1,5 @@
 name: xf86-video-qxl
-version: 0.1.5
+version: 0.1.5+1
 category: x11-drivers
 use_flags:
 - -xspice
@@ -41,14 +41,15 @@ labels:
     ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
     >=sys-devel/libtool-2.4'
   DEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=app-emulation/spice-protocol-0.12.0
+    >=x11-misc/util-macros-1.18 >=x11-base/xorg-server-1.20.10-r2 >=app-emulation/spice-protocol-0.12.0
   IUSE: xspice kernel_linux python_single_target_python2_7 python_targets_python2_7
   RDEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=app-emulation/spice-protocol-0.12.0 x11-libs/libpciaccess
-    xspice? ( app-emulation/spice python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
-    >=dev-lang/python-exec-2:=[python_targets_python2_7] ) ) x11-libs/libdrm
+    >=x11-misc/util-macros-1.18 >=x11-base/xorg-server-1.20.10-r2 >=app-emulation/spice-protocol-0.12.0
+    x11-libs/libpciaccess xspice? ( app-emulation/spice python_single_target_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) ) x11-libs/libdrm
   emerge.packages: x11-drivers/xf86-video-qxl
   kit: core-gl-kit
   original.package.name: x11-drivers/xf86-video-qxl
   original.package.slot: "0"
-  original.package.version: 0.1.5-r1
+  original.package.version: 0.1.5-r2
