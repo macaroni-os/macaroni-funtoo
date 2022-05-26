@@ -680,6 +680,10 @@ artefacts:
   - net-misc/networkmanager
 
 - tree: packages/atoms-extra/server
+  mutations:
+    uses:
+      - python_targets_python3_7
+      - -python_targets_python3_8
   uses:
     disabled:
     - autoipd
@@ -706,6 +710,16 @@ artefacts:
     - python_targets_python3_7
   packages:
   - net-dns/avahi
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi-autoipd
 
 - tree: packages/atoms-extra/server
   uses:
@@ -1239,6 +1253,14 @@ artefacts:
     - tools
   packages:
   - app-emulation/lxc
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e lxc
 
 - tree: packages/atoms-extra/server
   mutations:
@@ -1259,6 +1281,14 @@ artefacts:
     - daemon
   packages:
   - app-emulation/lxd
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e lxd
 
 - tree: packages/atoms-extra/server
   uses:
