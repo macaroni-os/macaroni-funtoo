@@ -140,6 +140,14 @@ artefacts:
           - "^/var/db/pkg/"
   packages:
     - dev-db/arangodb
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e arangodb3
 
 #- tree: packages/atoms-extra/net
 #  uses:
