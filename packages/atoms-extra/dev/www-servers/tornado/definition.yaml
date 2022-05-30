@@ -1,5 +1,5 @@
 name: tornado
-version: 6.1+3
+version: 6.1+4
 category: www-servers
 use_flags:
 - -doc
@@ -37,6 +37,9 @@ uri:
 - http://www.tornadoweb.org/
 license: Apache-2.0
 labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
     doc? ( dev-python/sphinx[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
     dev-python/sphinx_rtd_theme[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
@@ -49,16 +52,14 @@ labels:
     ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_8?
     ( dev-lang/python:3.8[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
     >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-  IUSE: doc examples test python_targets_python3_7 python_targets_python3_8
-  RDEPEND: '>=dev-python/pycurl-7.19.3.1[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-    >=dev-python/twisted-16.0.0[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-    virtual/python-backports_abc[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-    virtual/python-futures[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-    virtual/python-singledispatch[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-    python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_8?
-    ( dev-lang/python:3.8[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]'
+  IUSE: python_targets_python2_7 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: python_targets_python2_7? ( www-servers/tornado-compat ) dev-python/pycurl[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/twisted[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
+    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: www-servers/tornado
   kit: python-modules-kit
   original.package.name: www-servers/tornado
   original.package.slot: "0"
-  original.package.version: "6.1"
+  original.package.version: 6.1-r1
