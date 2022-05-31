@@ -54,6 +54,14 @@ include_files:
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
 artefacts:
 - tree: packages/atoms-extra/db
   mutations:
@@ -69,13 +77,6 @@ artefacts:
           name: pymongo
         - category: dev-util
           name: scons
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - python_targets_python3_7
@@ -90,26 +91,24 @@ artefacts:
       - test
   packages:
     - dev-db/mongodb
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/mongodb || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mongodb
+      - >-
+        chown mongodb:mongodb /var/lib/mongodb &&
+        chown mongodb:mongodb /var/log/mongodb
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-util/scons
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-python/pymongo
     - dev-python/cheetah3
@@ -125,13 +124,6 @@ artefacts:
       packages:
         - category: dev-libs
           name: jemalloc
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - ssl
@@ -148,13 +140,6 @@ artefacts:
   mutations:
     uses:
       - python_single_target_python3_7
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - python_targets_python3_7
@@ -187,6 +172,15 @@ artefacts:
   packages:
     - dev-db/postgresql:13
     - dev-db/postgresql:11
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/postgresql || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e postgres
 
 - tree: packages/atoms-extra/db
   mutations:
@@ -194,13 +188,6 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race2
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - app-eselect/eselect-postgresql
     - dev-libs/snowball-stemmer
@@ -214,13 +201,6 @@ artefacts:
   mutations:
     uses:
       - router
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - client-libs
@@ -243,15 +223,16 @@ artefacts:
       - test
   packages:
     - dev-db/mysql-community:8.0
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mysql
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - ssl
@@ -264,13 +245,6 @@ artefacts:
     - dev-db/mysql-connector-c
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - backup
@@ -311,6 +285,14 @@ artefacts:
       - yassl
   packages:
     - dev-db/mariadb
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mysql
 
 - tree: packages/atoms-extra/db
   mutations:
@@ -318,13 +300,6 @@ artefacts:
       packages:
         - category: dev-db
           name: lmdb
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - berkdb
@@ -360,13 +335,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - pam
@@ -387,13 +355,6 @@ artefacts:
     - dev-libs/cyrus-sasl:2
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - server
@@ -403,13 +364,6 @@ artefacts:
     - dev-db/etcd
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - cracklib
@@ -440,13 +394,6 @@ artefacts:
     - dev-db/percona-server
 
 - tree: packages/atoms-extra/db
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - xtpax
