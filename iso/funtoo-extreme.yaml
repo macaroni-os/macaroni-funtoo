@@ -1,0 +1,229 @@
+packages:
+
+  keep_luet_db: "true"
+  rootfs:
+  - system/entities
+  - system/luet-geaaru
+  - utils/yq
+  - utils/jq
+
+  - app-admin/whip
+  - app-admin/macaronictl
+  - macaroni/live-setup
+  - macaroni/whip-catalog
+  - macaroni/skel-phoenix
+  - whip-profiles/macaroni
+  - macaroni-release/funtoo
+  - system/macaroni-funtoo-calamares
+
+  - virtual/sh
+  - virtual/base
+  - virtual/openrc
+  - virtual/gnome
+  - virtual-entities/base
+
+  - kernel-5.18/macaroni-full
+  - kernel-5.18/macaroni-modules
+
+
+  - www-client/firefox-bin
+  - kernel-5.18/macaroni-initramfs
+  - gnome-base/gnome
+
+  - pkglist/funtoo-base
+
+  - app-editors/vim
+
+  # Extra kernel modules
+  #- sys-fs-5.18/zfs-kmod
+  #- kernel-5.18/rtw89
+  #- kernel-5.18/virtualbox-guest-additions
+  #- x11-drivers-5.18/nvidia-kernel-modules
+  - sys-kernel/linux-firmware
+  - sys-kernel/dracut
+  - sys-fs/mdadm
+
+  - sys-apps/shadow
+  - sys-apps/iproute2
+  - sys-apps/corenetwork
+  - net-misc/dhcpcd
+  - net-libs/libmnl
+
+  - gnome-extra/polkit-gnome
+  - sys-process/procps
+  - sys-process/htop
+  - sys-apps/ethtool
+  - sys-apps/less
+  - net-wireless/wpa_supplicant
+  - net-wireless/wireless-regdb
+  - sys-fs/eudev
+  - sys-apps/kbd
+  # NOTE: gnome-photos + deps are needed for nautilus
+  - media-gfx/gnome-photos
+  - media-fonts/noto-emoji
+
+  # TODO: fix this dependency soon
+  # Ibus-settings require py2.7
+  - dev-lang-2.7/python
+
+  # needed for /bin/hostname
+  - sys-apps/net-tools
+  # needed for format vfat uefi partition
+  - sys-fs/dosfstools
+  - sys-boot/efibootmgr
+
+  # Add support to multiple filesystem to ISO
+  - sys-fs/btrfs-progs
+  - sys-fs/xfsprogs
+  - sys-fs/zfs
+
+  # Add plymouth
+  - sys-boot/plymouth
+  - sys-boot/plymouth-openrc-plugin
+  - x11-themes/plymouth-funtoo
+
+  - x11-apps/setxkbmap
+  - x11-apps/xrandr
+
+  # Package to add on virtual/xorg-base
+  - x11-drivers/xf86-video-vmware
+  - x11-drivers/xf86-video-nouveau
+  - x11-drivers/xf86-video-fbdev
+  - x11-drivers/xf86-video-ati
+  - x11-drivers/xf86-video-amdgpu
+  - x11-drivers/xf86-video-intel
+  - x11-drivers/xf86-video-vbox
+  - x11-drivers/xf86-video-vesa
+  - x11-base/xorg-drivers
+  - x11-drivers/xf86-input-mouse
+  - x11-drivers/xf86-input-synaptics
+  - x11-drivers/xf86-input-vmmouse
+  - x11-drivers/xf86-input-wacom
+  - x11-drivers/xf86-input-keyboard
+  - x11-drivers/xf86-input-evdev
+
+  - net-misc/wget
+
+  # Needed for the font cache generation
+  - media-fonts/encodings
+
+  # Libraries missing on runtime deps (for issue on macaroni specs or funtoo)
+  # htop, wpa_supplicant
+  - dev-libs-3/libnl
+  # cd-info, cdda-player, etc.
+  - media-libs/libcddb
+  # probably virtual/libusb to fix
+  - dev-libs-1/libusb
+  # gjs-console, gjs (libmozjs-68)
+  - dev-lang-68/spidermonkey
+  # gnome-system-monitor, etc
+  - dev-libs-2/libsigc++
+  - dev-cpp-1/cairomm
+  - dev-cpp/cairomm
+  # grub
+  - sys-fs-3/fuse
+  - sys-fs/fuse
+  # Apache
+  - dev-libs-1/apr-util
+  # kadmind
+  - dev-libs/libverto
+  # thin-tools etc.
+  - dev-libs/libaio
+  # pppgetpass.gtk (libgtk-x11-2.0.so)
+  - x11-libs-2/gtk+
+  # slapacl, slapcat, etc.
+  - sys-libs-5.3/db
+
+  # calamares plugin requires these packages
+  - x11-libs/xcb-util-wm
+  - x11-libs/xcb-util-image
+  - x11-libs/xcb-util-renderutil
+
+  - dev-qt-5/qtwayland
+  #- x11-wm/twm
+  #- x11-terms/xterm
+  - sys-libs/libutempter
+  - sys-apps/which
+
+  # Needed by /usr/lib64/dri/*.so
+  - sys-devel/llvm-common
+  - sys-devel-11/llvm
+
+# equery belongs libstd-008055cc7d873802.so (fix ldconfig)
+# * Searching for libstd-008055cc7d873802.so ... 
+#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/libstd-008055cc7d873802.so)
+#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/rustlib/x86_64-unknown-linux-gnu/lib/libstd-008055cc7d873802.so)
+  # rust-bin 
+
+  # Live additional packages
+  - media-gfx-2/gimp
+  - media-gfx/inkscape
+  - media-gfx/blender-bin
+  - app-office/dia
+  - app-office/libreoffice-bin
+  - app-office/libreoffice-l10n
+
+  - x11-misc/grsync
+  - www-client/brave-bin
+  - www-client/chromium
+  - x11-terms/terminator
+
+  - net-irc/hexchat
+  # VPN Services
+  - net-vpn/vpnc
+  - net-vpn/tor
+  - net-vpn/openvpn
+  - net-vpn/openfortivpn
+  - net-vpn/openconnect
+  - net-analyzer/wireshark
+  - net-analyzer/tcpdump
+
+  # Mobile connection cli handler
+  - net-dialup/wvdial
+
+  - app-emulation/docker
+  - app-emulation/lxd
+  - app-emulation/lxd-compose
+  - app-emulation/qemu
+  - sys-apps/fchroot
+
+  # #MAC-2
+  - gnome-extra/gnome-calculator
+  - gnome-extra/gnome-tweaks
+  - mail-client-2.0/evolution
+  # Dependency of evolution (to fix)
+  - media-libs/woff2
+  - app-misc/tmux
+  - dev-util/meld
+  - sys-apps/man-pages
+    # Dependency of calamares
+  - kde-frameworks-5/plasma
+
+  uefi:
+  - live/systemd-boot
+  - system/macaroni-live-boot
+  isoimage:
+  - live/syslinux
+  - system/macaroni-live-boot
+
+# Repositories packages from repository-index
+repository:
+  packages:
+  - repository/mottainai-stable
+  - repository/macaroni-funtoo-dev
+  - repository/macaroni-commons-dev
+
+initramfs:
+  kernel_file: "bzImage"
+  rootfs_file: "Initrd"
+
+overlay: "true"
+image_prefix: "Macaroni-Funtoo-Gnome-Live-Extreme-0."
+image_date: "true"
+
+overlay_hooks:
+  - /var/lib/macaroni/build-iso-hook.sh
+
+luet:
+  config: conf/luet-devel.yaml
+  #config: conf/luet-desktop-thin.yaml
