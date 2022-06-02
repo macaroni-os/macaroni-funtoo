@@ -11,7 +11,7 @@ prelude:
     eval 'rm -rf /pkgdir/ || true' &&
     emerge dbus -t -j &&
     mkdir -p /pkgdir/{{ .Values.name }} &&
-    luet portage -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
+    luet-portage -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
   - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
   - >-
     chown root:messagebus /pkgdir/{{ .Values.name }}/usr/libexec/dbus-daemon-launch-helper &&

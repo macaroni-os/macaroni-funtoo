@@ -8,7 +8,7 @@ env:
 prelude:
   - >-
     wget -O /usr/bin/pkgs-checker https://github.com/Sabayon/pkgs-checker/releases/download/v0.10.4/pkgs-checker-v0.10.4-linux-amd64 && chmod a+x /usr/bin/pkgs-checker
-  - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet portage -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
+  - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
   - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
 requires:
