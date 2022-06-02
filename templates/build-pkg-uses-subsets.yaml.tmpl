@@ -34,5 +34,5 @@ prelude:
   {{- end }}
 - >-
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} &&
-  luet portage -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
+  luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
