@@ -9,7 +9,7 @@ prelude:
   - >-
     eval 'rm -rf /pkgdir/ || true' &&
     mkdir -p /pkgdir/{{ .Values.name }} &&
-    luet-portage -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} &&
+    luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} &&
     setcap cap_ipc_lock=-ep /pkgdir/{{ .Values.name }}/usr/bin/gnome-keyring-daemon
   - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
