@@ -8,6 +8,13 @@ env:
 prelude:
   - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet portage -- --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
   - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
+# Add ldconfig
+  - >-
+    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
+    mkdir /pkgdir/{{ .Values.name }}/etc/ld.so.conf.d -p &&
+    echo "/opt/nvidia/nvidia-drivers-${PACKAGE_VERSION}/lib64" >
+    /pkgdir/{{ .Values.name }}/etc/ld.so.conf.d/07-nvidia.conf
+
 package_dir: /pkgdir/{{ .Values.name }}
 requires:
   - name: funtoo-base
