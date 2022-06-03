@@ -80,3 +80,16 @@ For example:
 
 After this you can follow the same commmand of the `lxd-compose` tool and get the repoman file of the
 overlay added.
+
+### Download stable/dev reposcan files from Macaroni CDN
+
+```shell
+$> scripts/download-reposcan-files.sh
+```
+
+For develop JSONs:
+
+```shell
+$> STABLE=0 scripts/download-reposcan-files.sh
+```
+
