@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  luet repo update &&
+  luet install kernel-5.10/macaroni-lts-sources dev-util/kbuild --nodeps &&
+  luet cleanup &&
+  cd /usr/src && eval 'rm linux || true' &&
+  KERNEL_VERSION=$(ls /usr/src/ -1 | grep macaroni | head -n 1 | cut -d'-' -f2) &&
+  ln -s linux-${KERNEL_VERSION}-macaroni linux
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
