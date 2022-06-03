@@ -1,0 +1,21 @@
+diff --git a/dev-libs/mongo-c-driver/mongo-c-driver-1.21.1.ebuild b/dev-libs/mongo-c-driver/mongo-c-driver-1.21.1.ebuild
+index 62cf4a014..0dcef84fc 100644
+--- a/dev-libs/mongo-c-driver/mongo-c-driver-1.21.1.ebuild
++++ b/dev-libs/mongo-c-driver/mongo-c-driver-1.21.1.ebuild
+@@ -45,6 +45,9 @@ src_prepare() {
+ 		cp src/libbson/src/bson/bson-*.h src/libbson/tests/bson/ || die
+ 	fi
+ 
++	# Ignore warning on generate docs
++	sed -e 's|qEW|qE|g'  -i build/cmake/SphinxBuild.cmake
++
+ 	# remove doc files
+ 	sed -i '/^\s*install\s*(FILES COPYING NEWS/,/^\s*)/{d}' CMakeLists.txt || die
+ 
+@@ -93,4 +96,4 @@ src_install() {
+ 	fi
+ 
+ 	cmake_src_install
+-}
+\ No newline at end of file
++}
