@@ -83,13 +83,22 @@ overlay added.
 
 ### Download stable/dev reposcan files from Macaroni CDN
 
-```shell
-$> scripts/download-reposcan-files.sh
-```
-
-For develop JSONs:
+Download Funtoo Kits reposcan files of the stable tree:
 
 ```shell
-$> STABLE=0 scripts/download-reposcan-files.sh
+$> sh scripts/download-reposcan-files.sh
 ```
 
+For develop tree JSONs:
+
+```shell
+$> STABLE=0 sh scripts/download-reposcan-files.sh
+```
+
+Download Exrta kits reposcan files:
+
+```shell
+$> sh scripts/download-reposcan-extra-files.sh
+```
+
+All files are stored under the ./kit_cache directory.
