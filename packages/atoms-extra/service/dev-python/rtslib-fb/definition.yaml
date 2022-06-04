@@ -1,0 +1,37 @@
+name: rtslib-fb
+version: 2.1.69
+category: dev-python
+use_flags:
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: pyudev
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Python object API for managing the Linux LIO kernel target
+uri:
+- https://github.com/open-iscsi/rtslib-fb
+license: Apache-2.0
+labels:
+  BDEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? (
+    >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    virtual/pkgconfig
+  IUSE: python_targets_python3_7 python_targets_python2_7
+  RDEPEND: dev-python/pyudev[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/six[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? (
+    >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: dev-python/rtslib-fb
+  kit: python-modules-kit
+  original.package.name: dev-python/rtslib-fb
+  original.package.slot: "0"
+  original.package.version: 2.1.69
