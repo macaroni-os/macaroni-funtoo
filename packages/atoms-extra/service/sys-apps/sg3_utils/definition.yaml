@@ -1,0 +1,23 @@
+name: sg3_utils
+version: "1.44"
+category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Apps for querying the sg SCSI interface
+uri:
+- http://sg.danny.cz/sg/
+license: GPL-2
+labels:
+  DEPEND: sys-devel/libtool
+  IUSE: static-libs
+  RDEPEND: '!sys-apps/rescan-scsi-bus'
+  emerge.packages: sys-apps/sg3_utils
+  kit: nokit
+  original.package.name: sys-apps/sg3_utils
+  original.package.slot: "0"
+  original.package.version: "1.44"
