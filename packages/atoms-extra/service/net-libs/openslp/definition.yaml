@@ -1,0 +1,27 @@
+name: openslp
+version: 2.0.0
+category: net-libs
+use_flags:
+- -libressl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An open-source implementation of Service Location Protocol
+uri:
+- http://www.openslp.org/
+license: BSD GPL-2
+labels:
+  DEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  IUSE: libressl
+  RDEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= )'
+  emerge.packages: net-libs/openslp
+  kit: net-kit
+  original.package.name: net-libs/openslp
+  original.package.slot: "0"
+  original.package.version: 2.0.0-r5
