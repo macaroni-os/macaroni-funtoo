@@ -1,0 +1,45 @@
+name: tgt
+version: 1.0.78
+category: sys-block
+use_flags:
+- -infiniband
+- -rbd
+requires:
+- name: docbook-xsl-stylesheets
+  version: '>=0'
+  category: app-text
+- name: libaio
+  version: '>=0'
+  category: dev-libs
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: Config-General
+  version: '>=0'
+  category: dev-perl
+- name: sg3_utils
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux SCSI target framework (tgt)
+uri:
+- http://stgt.sourceforge.net
+license: GPL-2
+labels:
+  DEPEND: dev-perl/Config-General dev-libs/libxslt rbd? ( sys-cluster/ceph ) infiniband?
+    ( sys-fabric/libibverbs:= sys-fabric/librdmacm:= ) app-text/docbook-xsl-stylesheets
+  IUSE: fcoe fcp ibmvio infiniband rbd
+  RDEPEND: dev-perl/Config-General dev-libs/libxslt rbd? ( sys-cluster/ceph ) infiniband?
+    ( sys-fabric/libibverbs:= sys-fabric/librdmacm:= ) app-text/docbook-xsl-stylesheets
+    dev-libs/libaio sys-apps/sg3_utils
+  emerge.packages: sys-block/tgt
+  kit: nokit
+  original.package.name: sys-block/tgt
+  original.package.slot: "0"
+  original.package.version: 1.0.78
