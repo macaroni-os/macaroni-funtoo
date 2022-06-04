@@ -1,0 +1,30 @@
+name: Config-General
+version: 2.630.0
+category: dev-perl
+requires:
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-IO
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Config file parser module
+uri:
+- https://metacpan.org/release/Config-General
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-File-Spec virtual/perl-IO virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
+  IUSE: examples
+  RDEPEND: virtual/perl-File-Spec virtual/perl-IO dev-lang/perl:=
+  emerge.packages: dev-perl/Config-General
+  kit: perl-kit
+  original.package.name: dev-perl/Config-General
+  original.package.slot: "0"
+  original.package.version: 2.630.0
