@@ -1,0 +1,47 @@
+name: targetcli-fb
+version: 2.1.49
+category: sys-block
+use_flags:
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: configshell-fb
+  version: '>=0'
+  category: dev-python
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: rtslib-fb
+  version: '>=0'
+  category: dev-python
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Command shell for managing Linux LIO kernel target
+uri:
+- https://github.com/open-iscsi/targetcli-fb
+license: Apache-2.0
+labels:
+  BDEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? (
+    >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  IUSE: python_targets_python3_7 python_targets_python2_7
+  RDEPEND: dev-python/configshell-fb[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/rtslib-fb[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/six[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    sys-apps/dbus python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: sys-block/targetcli-fb
+  kit: nokit
+  original.package.name: sys-block/targetcli-fb
+  original.package.slot: "0"
+  original.package.version: 2.1.49
