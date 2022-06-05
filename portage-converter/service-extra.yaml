@@ -141,6 +141,11 @@ artefacts:
     - sys-apps/lsb-release
 
 - tree: packages/atoms-extra/service
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: configshell-fb
   uses:
     enabled:
       - python_targets_python3_7
@@ -154,6 +159,7 @@ artefacts:
       - python_single_target_python3_7
   packages:
     - dev-python/configshell-fb
+    - dev-libs/gobject-introspection
 
 - tree: packages/atoms-extra/service
   uses:
