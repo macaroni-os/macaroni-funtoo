@@ -10,7 +10,9 @@ prelude:
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 # Override with macaroni files
 - >-
-  sed -i -e 's|^VERSION_ID.*|VERSION_ID={{ ( index .Values.labels "macaroni.version" ) }}|g' os-release &&
+  sed -i -e 's|^VERSION_ID.*|VERSION_ID={{ ( index .Values.labels "macaroni.version" ) }}|g'
+  -e 's|^VERSION=.*|VERSION="{{ ( index .Values.labels "macaroni.version" ) }} (Phoenix)"|g'
+  os-release &&
   cp os-release /pkgdir/{{ .Values.name }}/etc/os-release &&
   mv /pkgdir/{{ .Values.name }}/etc/issue /pkgdir/{{ .Values.name }}/etc/issue.simple &&
   cp issue /pkgdir/{{ .Values.name }}/etc/issue
