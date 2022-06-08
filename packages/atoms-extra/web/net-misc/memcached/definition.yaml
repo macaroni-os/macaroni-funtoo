@@ -2,17 +2,14 @@ name: memcached
 version: 1.6.8
 category: net-misc
 use_flags:
+- -sasl
 - -selinux
 - -test
-- sasl
 - seccomp
 requires:
 - name: perl
   version: '>=0'
   category: dev-lang
-- name: cyrus-sasl
-  version: '>=0'
-  category: dev-libs-2
 - name: libevent
   version: '>=0'
   category: dev-libs
