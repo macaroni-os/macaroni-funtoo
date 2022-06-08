@@ -10,6 +10,8 @@ kits=(
   "portage"
   "server"
   "java"
+  "php"
+  "service"
 )
 
 for i in ${kits[@]} ; do
