@@ -7,10 +7,10 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 # Temporary patch
-- >-
-  cp sphinx5-warnings.patch /var/git/meta-repo/kits/dev-kit/ &&
-  cd /var/git/meta-repo/kits/dev-kit &&
-  patch -p1 < sphinx5-warnings.patch
+#- >-
+#  cp sphinx5-warnings.patch /var/git/meta-repo/kits/dev-kit/ &&
+#  cd /var/git/meta-repo/kits/dev-kit &&
+#  patch -p1 < sphinx5-warnings.patch
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
