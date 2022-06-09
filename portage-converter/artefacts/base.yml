@@ -543,6 +543,11 @@ artefacts:
         chown root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
         chmod 4750 /usr/libexec/dbus-daemon-launch-helper
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - apidoc
@@ -563,6 +568,16 @@ artefacts:
     - xattr
   packages:
   - sys-apps/portage
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/tmp/portage || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e portage &&
+        eval 'chown portage:portage /var/tmp/portage -R || true'
 - tree: packages/atoms/base
   uses:
     disabled:
