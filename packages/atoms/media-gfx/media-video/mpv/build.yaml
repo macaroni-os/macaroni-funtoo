@@ -9,7 +9,6 @@ prelude:
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
-  USE="X wayland" emerge media-libs/vulkan-loader -j && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
@@ -22,8 +21,7 @@ prelude:
   emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- end }}
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
-  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
-  ) }}
+  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
