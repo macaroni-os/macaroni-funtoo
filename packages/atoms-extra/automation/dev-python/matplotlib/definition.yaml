@@ -2,6 +2,7 @@ name: matplotlib
 version: 3.5.2
 category: dev-python
 use_flags:
+- -cairo
 - -doc
 - -latex
 - -python_targets_pypy3
@@ -9,7 +10,6 @@ use_flags:
 - -python_targets_python3_9
 - -test
 - -wxwidgets
-- cairo
 - excel
 - gtk3
 - prefix
@@ -17,9 +17,6 @@ use_flags:
 - qt5
 requires:
 - name: PyQt5
-  version: '>=0'
-  category: dev-python
-- name: cairocffi
   version: '>=0'
   category: dev-python
 - name: cycler
