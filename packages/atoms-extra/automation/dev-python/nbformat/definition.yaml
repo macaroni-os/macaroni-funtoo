@@ -1,0 +1,48 @@
+name: nbformat
+version: 4.4.0
+category: dev-python
+use_flags:
+- -doc
+- -test
+- python_targets_python3_7
+requires:
+- name: jsonschema
+  version: '>=0'
+  category: dev-python
+- name: jupyter_core
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Reference implementation of the Jupyter Notebook format
+uri:
+- https://jupyter.org
+license: BSD
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7[sqlite] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+  DEPEND: '>=dev-python/jsonschema-2.4.0[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    dev-python/ipython_genutils[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    >=dev-python/traitlets-4.1[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    dev-python/jupyter_core[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    doc? ( dev-python/sphinx[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    dev-python/numpydoc[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    ) test? ( dev-python/testpath[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    dev-python/pytest[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    )'
+  IUSE: doc test python_targets_python3_7
+  RDEPEND: '>=dev-python/jsonschema-2.4.0[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    dev-python/ipython_genutils[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    >=dev-python/traitlets-4.1[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    dev-python/jupyter_core[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7[sqlite] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]'
+  emerge.packages: dev-python/nbformat
+  kit: python-modules-kit
+  original.package.name: dev-python/nbformat
+  original.package.slot: "0"
+  original.package.version: 4.4.0-r1
