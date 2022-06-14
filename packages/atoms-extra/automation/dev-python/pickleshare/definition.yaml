@@ -1,0 +1,42 @@
+name: pickleshare
+version: 0.7.4
+category: dev-python
+use_flags:
+- -test
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: path-py
+  version: '>=0'
+  category: dev-python
+- name: pathlib2
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A small 'shelve' like datastore with concurrency support
+uri:
+- https://github.com/pickleshare/pickleshare
+license: MIT
+labels:
+  DEPEND: python_targets_python2_7? ( dev-python/pathlib2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) >=dev-python/path-py-6.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    test? ( dev-python/pytest[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  IUSE: test python_targets_python3_7 python_targets_python2_7
+  RDEPEND: python_targets_python2_7? ( dev-python/pathlib2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) >=dev-python/path-py-6.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? (
+    >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: dev-python/pickleshare
+  kit: python-modules-kit
+  original.package.name: dev-python/pickleshare
+  original.package.slot: "0"
+  original.package.version: 0.7.4-r1
