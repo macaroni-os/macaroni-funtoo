@@ -1,0 +1,52 @@
+name: traitlets
+version: 4.3.2
+category: dev-python
+use_flags:
+- -doc
+- -test
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: decorator
+  version: '>=0'
+  category: dev-python
+- name: enum34
+  version: '>=0'
+  category: dev-python
+- name: ipython_genutils
+  version: '>=0'
+  category: dev-python
+- name: six
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A configuration system for Python applications
+uri:
+- https://github.com/ipython/traitlets
+license: BSD
+labels:
+  DEPEND: doc? ( dev-python/ipython_genutils[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/sphinx[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    ) test? ( python_targets_python2_7? ( dev-python/mock[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) dev-python/pytest[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  IUSE: doc test python_targets_python3_7 python_targets_python2_7
+  RDEPEND: dev-python/decorator[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python2_7? ( dev-python/enum34[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    ) dev-python/ipython_genutils[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/six[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? (
+    >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: dev-python/traitlets
+  kit: python-modules-kit
+  original.package.name: dev-python/traitlets
+  original.package.slot: "0"
+  original.package.version: 4.3.2
