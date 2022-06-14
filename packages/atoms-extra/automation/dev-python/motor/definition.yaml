@@ -1,0 +1,38 @@
+name: motor
+version: 3.0.0
+category: dev-python
+use_flags:
+- -python_targets_python3_8
+- -python_targets_python3_9
+- python_targets_python3_7
+requires:
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: pymongo
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Non-blocking MongoDB driver for Tornado or asyncio
+uri:
+- https://github.com/mongodb/motor/ https://pypi.org/project/motor/
+license: Apache-2.0
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: '>=dev-python/pymongo-4.1[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
+    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]'
+  emerge.packages: dev-python/motor
+  kit: geaaru-kit
+  original.package.name: dev-python/motor
+  original.package.slot: "0"
+  original.package.version: 3.0.0
