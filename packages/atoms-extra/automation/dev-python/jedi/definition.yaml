@@ -1,0 +1,39 @@
+name: jedi
+version: 0.12.1
+category: dev-python
+use_flags:
+- -doc
+- -test
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: parso
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Autocompletion library for Python
+uri:
+- https://github.com/davidhalter/jedi
+license: MIT
+labels:
+  DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    doc? ( dev-python/sphinx ) test? ( dev-python/pytest[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/parso-0.3.1[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  IUSE: doc test python_targets_python3_7 python_targets_python2_7
+  RDEPEND: '>=dev-python/parso-0.3.1[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7? (
+    >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]'
+  emerge.packages: dev-python/jedi
+  kit: python-modules-kit
+  original.package.name: dev-python/jedi
+  original.package.slot: "0"
+  original.package.version: 0.12.1
