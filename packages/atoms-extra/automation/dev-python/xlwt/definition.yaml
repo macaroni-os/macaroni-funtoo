@@ -1,0 +1,46 @@
+name: xlwt
+version: 1.3.0
+category: dev-python
+use_flags:
+- -doc
+- -test
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-2.7
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Python library to create spreadsheet files compatible with Excel
+uri:
+- https://pypi.org/project/xlwt/
+license: BSD
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    doc? ( >=dev-python/sphinx-1.3.1[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/pkginfo[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    ) test? ( dev-python/nose[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    )
+  IUSE: doc examples test python_targets_python3_7 python_targets_python2_7
+  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: dev-python/xlwt
+  kit: python-modules-kit
+  original.package.name: dev-python/xlwt
+  original.package.slot: "0"
+  original.package.version: 1.3.0
