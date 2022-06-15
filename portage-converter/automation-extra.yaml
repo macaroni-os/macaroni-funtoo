@@ -102,6 +102,23 @@ artefacts:
       - cairo
   packages:
     - dev-python/matplotlib
+    - dev-python/cppy
+
+- tree: packages/atoms-extra/automation
+  mutations:
+    # Until FL-10031 is fixed
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: cppy
+  uses:
+    disabled:
+      - doc
+      - wxwidgets
+      - latex
+      - cairo
+  packages:
+    - dev-python/kiwisolver
 
 - tree: packages/atoms-extra/automation
   uses:
