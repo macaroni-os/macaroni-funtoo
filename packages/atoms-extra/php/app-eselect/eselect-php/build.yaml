@@ -24,6 +24,8 @@ prelude:
   --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
   ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
+# Needed to generate the file /var/lib/eselect-php/mod_php.conf with eselect php set ...
+- mkdir -p /pkgdir/{{ .Values.name }}/var/lib/eselect-php
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
