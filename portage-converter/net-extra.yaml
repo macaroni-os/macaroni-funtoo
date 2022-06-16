@@ -195,6 +195,14 @@ artefacts:
           - "^/var/db/pkg/"
   packages:
     - net-analyzer/tcpdump
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e tcpdump
 
 - tree: packages/atoms-extra/net
   uses:

@@ -1318,6 +1318,23 @@ artefacts:
       packages:
         - category: dev-libs-1
           name: apr-util
+    runtime_deps:
+      packages:
+        - category: dev-libs-1
+          name: apr-util
+    uses:
+    - apache2_modules_xml2enc
+    - apache2_modules_proxy_html
+    - apache2_modules_proxy_http
+    - apache2_modules_proxy_balancer
+    - apache2_modules_proxy_connect
+    - apache2_modules_proxy
+    - apache2_modules_vhost_alias
+    - apache2_modules_remoteip
+    - apache2_modules_reqtimeout
+    - apache2_modules_lbmethod_bybusyness
+    - apache2_modules_lbmethod_byrequests
+    - apache2_modules_lbmethod_bytraffic
   uses:
     disabled:
     - apache2_modules_access_compat
@@ -1336,27 +1353,17 @@ artefacts:
     - apache2_modules_http2
     - apache2_modules_ident
     - apache2_modules_imagemap
-    - apache2_modules_lbmethod_bybusyness
-    - apache2_modules_lbmethod_byrequests
-    - apache2_modules_lbmethod_bytraffic
     - apache2_modules_lbmethod_heartbeat
     - apache2_modules_log_forensic
     - apache2_modules_macro
     - apache2_modules_md
-    - apache2_modules_proxy
     - apache2_modules_proxy_ajp
-    - apache2_modules_proxy_balancer
-    - apache2_modules_proxy_connect
     - apache2_modules_proxy_fcgi
     - apache2_modules_proxy_ftp
-    - apache2_modules_proxy_html
-    - apache2_modules_proxy_http
     - apache2_modules_proxy_http2
     - apache2_modules_proxy_scgi
     - apache2_modules_proxy_wstunnel
     - apache2_modules_ratelimit
-    - apache2_modules_remoteip
-    - apache2_modules_reqtimeout
     - apache2_modules_session
     - apache2_modules_session_cookie
     - apache2_modules_session_crypto
@@ -1366,7 +1373,6 @@ artefacts:
     - apache2_modules_substitute
     - apache2_modules_version
     - apache2_modules_watchdog
-    - apache2_modules_xml2enc
     - apache2_mpms_event
     - apache2_mpms_worker
     - debug
@@ -1382,6 +1388,17 @@ artefacts:
     - suexec-syslog
     - threads
     enabled:
+    - apache2_modules_remoteip
+    - apache2_modules_reqtimeout
+    - apache2_modules_lbmethod_bybusyness
+    - apache2_modules_lbmethod_byrequests
+    - apache2_modules_lbmethod_bytraffic
+    - apache2_modules_xml2enc
+    - apache2_modules_proxy_html
+    - apache2_modules_proxy_http
+    - apache2_modules_proxy_balancer
+    - apache2_modules_proxy_connect
+    - apache2_modules_proxy
     - apache2_modules_actions
     - apache2_modules_alias
     - apache2_modules_auth_basic
