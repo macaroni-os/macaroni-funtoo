@@ -1,5 +1,5 @@
 name: apache
-version: 2.4.46+1
+version: 2.4.46+2
 category: www-servers-2
 use_flags:
 - -apache2_modules_brotli
@@ -16,6 +16,18 @@ use_flags:
 - gdbm
 - ssl
 - suexec-caps
+- apache2_modules_xml2enc
+- apache2_modules_proxy_html
+- apache2_modules_proxy_http
+- apache2_modules_proxy_balancer
+- apache2_modules_proxy_connect
+- apache2_modules_proxy
+- apache2_modules_vhost_alias
+- apache2_modules_remoteip
+- apache2_modules_reqtimeout
+- apache2_modules_lbmethod_bybusyness
+- apache2_modules_lbmethod_byrequests
+- apache2_modules_lbmethod_bytraffic
 requires:
 - name: mime-types
   version: '>=0'
@@ -23,9 +35,6 @@ requires:
 - name: perl
   version: '>=0'
   category: dev-lang
-- name: apr
-  version: '>=0'
-  category: dev-libs-1
 - name: libpcre
   version: '>=0'
   category: dev-libs-3
@@ -35,6 +44,9 @@ requires:
 - name: tmpfiles
   version: '>=0'
   category: virtual
+- name: apr-util
+  version: '>=0'
+  category: dev-libs-1
 annotations:
   subsets:
     rules:
