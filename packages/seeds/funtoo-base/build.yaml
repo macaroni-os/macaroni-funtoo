@@ -39,6 +39,11 @@ prelude:
   entities list users &&
   entities list groups
 
+# Temporary workaround
+- >-
+  cd /var/git/meta-repo/kits/media-kit/media-fonts/noto &&
+  ebuild /var/git/meta-repo/kits/media-kit/media-fonts/noto/noto-20220613.ebuild digest
+
 - >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
