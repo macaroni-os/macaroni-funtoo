@@ -19,6 +19,7 @@ prelude:
   luet cleanup &&
   ego sync &&
   cd /var/git/meta-repo/kits &&
+  chown root:root -R /var/git/meta-repo/kits &&
   ls -l &&
   for i in $(ls .) ; do
   echo $i ;
@@ -30,7 +31,8 @@ prelude:
   git checkout $hash || exit 1 ;
   popd ;
   fi ;
-  done
+  done &&
+  chown portage:portage -R /var/git/meta-repo/kits &&
 # Temporary fix this until we update all kits
 - >-
   sed /etc/portage/make.profile/parent
