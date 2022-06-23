@@ -1,5 +1,5 @@
 name: chromium
-version: 102.0.5005.61
+version: 91.0.4472.106
 category: www-client
 use_flags:
 - -cups
@@ -53,71 +53,56 @@ uri:
 - https://chromium.org/
 license: BSD
 labels:
-  BDEPEND: system-icu? ( >=dev-libs/icu-69.1:= ) >=dev-libs/libxml2-2.9.4-r3:=[icu]
-    dev-libs/nspr:= >=dev-libs/nss-3.26:= !libcxx? ( >=dev-libs/re2-0.2019.08.01:=
-    ) dev-libs/libxslt:= media-libs/fontconfig:= >=media-libs/freetype-2.10.4-r1:=
-    system-harfbuzz? ( >=media-libs/harfbuzz-2:0=[icu(-)] ) media-libs/libjpeg-turbo:=
-    system-png? ( media-libs/libpng:=[-apng] ) >=media-libs/libwebp-0.4.0:= media-libs/mesa:=[gbm(+)]
-    >=media-libs/openh264-1.6.0:= sys-libs/zlib:= x11-libs/libdrm:= !headless? ( dev-libs/glib:2
-    >=media-libs/alsa-lib-1.0.19:= pulseaudio? ( media-sound/pulseaudio:= ) sys-apps/pciutils:=
-    kerberos? ( virtual/krb5 ) vaapi? ( >=x11-libs/libva-2.7:=[X] ) x11-libs/libX11:=
-    x11-libs/libXext:= x11-libs/libxcb:= x11-libs/libxkbcommon:= wayland? ( dev-libs/wayland:=
-    screencast? ( media-video/pipewire:= ) ) ) || ( dev-lang/python:3.8[xml] dev-lang/python:3.9[xml]
-    dev-lang/python:3.7[xml] ) >=app-arch/gzip-1.7 libcxx? ( >=sys-devel/clang-12
-    ) dev-lang/perl >=dev-util/gn-0.1807 >=dev-util/gperf-3.0.3 >=dev-util/ninja-1.7.2
-    dev-vcs/git >=net-libs/nodejs-14.19.3 >=sys-devel/bison-2.4.3 sys-devel/flex virtual/pkgconfig
-    js-type-check? ( virtual/jre )
-  DEPEND: system-icu? ( >=dev-libs/icu-69.1:= ) >=dev-libs/libxml2-2.9.4-r3:=[icu]
-    dev-libs/nspr:= >=dev-libs/nss-3.26:= !libcxx? ( >=dev-libs/re2-0.2019.08.01:=
-    ) dev-libs/libxslt:= media-libs/fontconfig:= >=media-libs/freetype-2.10.4-r1:=
-    system-harfbuzz? ( >=media-libs/harfbuzz-2:0=[icu(-)] ) media-libs/libjpeg-turbo:=
-    system-png? ( media-libs/libpng:=[-apng] ) >=media-libs/libwebp-0.4.0:= media-libs/mesa:=[gbm(+)]
-    >=media-libs/openh264-1.6.0:= sys-libs/zlib:= x11-libs/libdrm:= !headless? ( dev-libs/glib:2
-    >=media-libs/alsa-lib-1.0.19:= pulseaudio? ( media-sound/pulseaudio:= ) sys-apps/pciutils:=
-    kerberos? ( virtual/krb5 ) vaapi? ( >=x11-libs/libva-2.7:=[X] ) x11-libs/libX11:=
-    x11-libs/libXext:= x11-libs/libxcb:= x11-libs/libxkbcommon:= wayland? ( dev-libs/wayland:=
-    screencast? ( media-video/pipewire:= ) ) ) app-arch/bzip2:= dev-libs/expat:= system-ffmpeg?
-    ( >=media-video/ffmpeg-4.3:= || ( media-video/ffmpeg[-samba] >=net-fs/samba-4.5.10-r1[-debug(-)]
-    ) >=media-libs/opus-1.3.1:= ) net-misc/curl[ssl] sys-apps/dbus:= media-libs/flac:=
-    sys-libs/zlib:=[minizip] !headless? ( x11-libs/gdk-pixbuf:2 x11-libs/libXcomposite:=
-    x11-libs/libXcursor:= x11-libs/libXdamage:= x11-libs/libXfixes:= >=x11-libs/libXi-1.6.0:=
-    x11-libs/libXrandr:= x11-libs/libXrender:= x11-libs/libXtst:= x11-libs/libxshmfence:=
-    virtual/opengl >=app-accessibility/at-spi2-atk-2.26:2 >=app-accessibility/at-spi2-core-2.26:2
-    >=dev-libs/atk-2.26 cups? ( >=net-print/cups-1.3.11:= ) virtual/udev x11-libs/cairo:=
-    x11-libs/pango:= ) !headless? ( gtk4? ( gui-libs/gtk:4[X,wayland?] ) !gtk4? (
-    x11-libs/gtk+:3[X,wayland?] ) )
-  IUSE: component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless js-type-check
-    kerberos +libcxx +official pic +proprietary-codecs pulseaudio screencast selinux
-    +suid system-ffmpeg system-harfbuzz system-icu system-png vaapi wayland widevine
-    kernel_linux custom-cflags +l10n_af +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca
-    +l10n_cs +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_es +l10n_es-419 +l10n_et
-    +l10n_fa +l10n_fi +l10n_fil +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu
-    +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr
-    +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru
-    +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr
-    +l10n_uk +l10n_ur +l10n_vi +l10n_zh-CN +l10n_zh-TW
-  RDEPEND: system-icu? ( >=dev-libs/icu-69.1:= ) >=dev-libs/libxml2-2.9.4-r3:=[icu]
-    dev-libs/nspr:= >=dev-libs/nss-3.26:= !libcxx? ( >=dev-libs/re2-0.2019.08.01:=
-    ) dev-libs/libxslt:= media-libs/fontconfig:= >=media-libs/freetype-2.10.4-r1:=
-    system-harfbuzz? ( >=media-libs/harfbuzz-2:0=[icu(-)] ) media-libs/libjpeg-turbo:=
-    system-png? ( media-libs/libpng:=[-apng] ) >=media-libs/libwebp-0.4.0:= media-libs/mesa:=[gbm(+)]
-    >=media-libs/openh264-1.6.0:= sys-libs/zlib:= x11-libs/libdrm:= !headless? ( dev-libs/glib:2
-    >=media-libs/alsa-lib-1.0.19:= pulseaudio? ( media-sound/pulseaudio:= ) sys-apps/pciutils:=
-    kerberos? ( virtual/krb5 ) vaapi? ( >=x11-libs/libva-2.7:=[X] ) x11-libs/libX11:=
-    x11-libs/libXext:= x11-libs/libxcb:= x11-libs/libxkbcommon:= wayland? ( dev-libs/wayland:=
-    screencast? ( media-video/pipewire:= ) ) ) app-arch/bzip2:= dev-libs/expat:= system-ffmpeg?
-    ( >=media-video/ffmpeg-4.3:= || ( media-video/ffmpeg[-samba] >=net-fs/samba-4.5.10-r1[-debug(-)]
-    ) >=media-libs/opus-1.3.1:= ) net-misc/curl[ssl] sys-apps/dbus:= media-libs/flac:=
-    sys-libs/zlib:=[minizip] !headless? ( x11-libs/gdk-pixbuf:2 x11-libs/libXcomposite:=
-    x11-libs/libXcursor:= x11-libs/libXdamage:= x11-libs/libXfixes:= >=x11-libs/libXi-1.6.0:=
-    x11-libs/libXrandr:= x11-libs/libXrender:= x11-libs/libXtst:= x11-libs/libxshmfence:=
-    virtual/opengl >=app-accessibility/at-spi2-atk-2.26:2 >=app-accessibility/at-spi2-core-2.26:2
-    >=dev-libs/atk-2.26 cups? ( >=net-print/cups-1.3.11:= ) virtual/udev x11-libs/cairo:=
-    x11-libs/pango:= ) !headless? ( || ( x11-libs/gtk+:3[X,wayland?] gui-libs/gtk:4[X,wayland?]
-    ) ) x11-misc/xdg-utils virtual/ttf-fonts selinux? ( sec-policy/selinux-chromium
-    )
+  BDEPEND: '|| ( >=dev-lang/python-2.7.5-r2:2.7[xml] ) >=app-arch/gzip-1.7 app-arch/unzip
+    dev-lang/perl >=dev-util/gn-0.1807 dev-vcs/git >=dev-util/gperf-3.0.3 >=dev-util/ninja-1.7.2
+    >=net-libs/nodejs-7.6.0 sys-apps/hwids[usb(+)] >=sys-devel/bison-2.4.3 sys-devel/flex
+    virtual/pkgconfig js-type-check? ( virtual/jre )'
+  DEPEND: app-arch/bzip2:= cups? ( >=net-print/cups-1.3.11:= ) dev-libs/expat:= dev-libs/glib:2
+    >=dev-libs/libxml2-2.9.4-r3:=[icu] dev-libs/nspr:= >=dev-libs/nss-3.26:= >=media-libs/alsa-lib-1.0.19:=
+    media-libs/fontconfig:= media-libs/freetype:= >=media-libs/harfbuzz-2.4.0:0=[icu(-)]
+    media-libs/libjpeg-turbo:= media-libs/libpng:= pulseaudio? ( media-sound/pulseaudio:=
+    ) system-ffmpeg? ( >=media-video/ffmpeg-4.3:= || ( media-video/ffmpeg[-samba]
+    >=net-fs/samba-4.5.10-r1[-debug(-)] ) >=media-libs/opus-1.3.1:= ) sys-apps/dbus:=
+    sys-apps/pciutils:= virtual/udev x11-libs/cairo:= x11-libs/gdk-pixbuf:2 x11-libs/libxkbcommon:=
+    x11-libs/pango:= media-libs/flac:= >=media-libs/libwebp-0.4.0:= sys-libs/zlib:=[minizip]
+    kerberos? ( virtual/krb5 ) !headless? ( media-libs/mesa:=[gbm] x11-libs/libX11:=
+    x11-libs/libXcomposite:= x11-libs/libXcursor:= x11-libs/libXdamage:= x11-libs/libXext:=
+    x11-libs/libXfixes:= >=x11-libs/libXi-1.6.0:= x11-libs/libXrandr:= x11-libs/libXrender:=
+    x11-libs/libXtst:= x11-libs/libxcb:= x11-libs/libxshmfence:= vaapi? ( >=x11-libs/libva-2.7:=[X,drm]
+    ) >=app-accessibility/at-spi2-atk-2.26:2 >=app-accessibility/at-spi2-core-2.26:2
+    >=dev-libs/atk-2.26 x11-libs/gtk+:3[X] wayland? ( dev-libs/wayland:= screencast?
+    ( media-video/pipewire:0/0.3 ) x11-libs/gtk+:3[wayland,X] x11-libs/libdrm:= )
+    ) app-arch/snappy:= dev-libs/libxslt:= >=dev-libs/re2-0.2019.08.01:= >=media-libs/openh264-1.6.0:=
+    system-icu? ( >=dev-libs/icu-69.1:= )
+  IUSE: component-build cups cpu_flags_arm_neon +hangouts headless +js-type-check
+    kerberos +memsaver official pic +proprietary-codecs pulseaudio screencast selinux
+    +suid +system-ffmpeg +system-icu vaapi wayland widevine kernel_linux custom-cflags
+    +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de +l10n_el
+    +l10n_en-GB +l10n_es +l10n_es-419 +l10n_et +l10n_fa +l10n_fi +l10n_fil +l10n_fr
+    +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_kn
+    +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_pl
+    +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sk +l10n_sl +l10n_sr +l10n_sv
+    +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW
+  RDEPEND: app-arch/bzip2:= cups? ( >=net-print/cups-1.3.11:= ) dev-libs/expat:= dev-libs/glib:2
+    >=dev-libs/libxml2-2.9.4-r3:=[icu] dev-libs/nspr:= >=dev-libs/nss-3.26:= >=media-libs/alsa-lib-1.0.19:=
+    media-libs/fontconfig:= media-libs/freetype:= >=media-libs/harfbuzz-2.4.0:0=[icu(-)]
+    media-libs/libjpeg-turbo:= media-libs/libpng:= pulseaudio? ( media-sound/pulseaudio:=
+    ) system-ffmpeg? ( >=media-video/ffmpeg-4.3:= || ( media-video/ffmpeg[-samba]
+    >=net-fs/samba-4.5.10-r1[-debug(-)] ) >=media-libs/opus-1.3.1:= ) sys-apps/dbus:=
+    sys-apps/pciutils:= virtual/udev x11-libs/cairo:= x11-libs/gdk-pixbuf:2 x11-libs/libxkbcommon:=
+    x11-libs/pango:= media-libs/flac:= >=media-libs/libwebp-0.4.0:= sys-libs/zlib:=[minizip]
+    kerberos? ( virtual/krb5 ) !headless? ( media-libs/mesa:=[gbm] x11-libs/libX11:=
+    x11-libs/libXcomposite:= x11-libs/libXcursor:= x11-libs/libXdamage:= x11-libs/libXext:=
+    x11-libs/libXfixes:= >=x11-libs/libXi-1.6.0:= x11-libs/libXrandr:= x11-libs/libXrender:=
+    x11-libs/libXtst:= x11-libs/libxcb:= x11-libs/libxshmfence:= vaapi? ( >=x11-libs/libva-2.7:=[X,drm]
+    ) >=app-accessibility/at-spi2-atk-2.26:2 >=app-accessibility/at-spi2-core-2.26:2
+    >=dev-libs/atk-2.26 x11-libs/gtk+:3[X] wayland? ( dev-libs/wayland:= screencast?
+    ( media-video/pipewire:0/0.3 ) x11-libs/gtk+:3[wayland,X] x11-libs/libdrm:= )
+    ) x11-misc/xdg-utils virtual/opengl virtual/ttf-fonts selinux? ( sec-policy/selinux-chromium
+    ) app-arch/snappy:= dev-libs/libxslt:= >=dev-libs/re2-0.2019.08.01:= >=media-libs/openh264-1.6.0:=
+    system-icu? ( >=dev-libs/icu-69.1:= )
   emerge.packages: www-client/chromium
   kit: browser-kit
   original.package.name: www-client/chromium
   original.package.slot: "0"
-  original.package.version: 102.0.5005.61
+  original.package.version: 91.0.4472.106
