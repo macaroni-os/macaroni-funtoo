@@ -5,7 +5,7 @@ CI_ARGS?=
 PACKAGES?=
 
 # Abs path only. It gets copied in chroot in pre-seed stages
-export LUET?=/usr/bin/luet
+export LUET?=/usr/bin/luet-build
 export ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 DESTINATION?=$(ROOT_DIR)/build
 COMPRESSION?=zstd
