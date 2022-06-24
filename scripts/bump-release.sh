@@ -24,7 +24,7 @@ main() {
 
     echo "For file ${i} upgrade from ${previous} to ${RELEASE}..."
 
-    luet tree bump -f $i
+    luet-build tree bump -f $i
   done
 
   return 0
