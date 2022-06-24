@@ -1335,6 +1335,8 @@ artefacts:
     - apache2_modules_lbmethod_bybusyness
     - apache2_modules_lbmethod_byrequests
     - apache2_modules_lbmethod_bytraffic
+    # slotmem_shm is needed for lbmethod_*
+    - apache2_modules_slotmem_shm
   uses:
     disabled:
     - apache2_modules_access_compat
@@ -1368,7 +1370,6 @@ artefacts:
     - apache2_modules_session_cookie
     - apache2_modules_session_crypto
     - apache2_modules_session_dbd
-    - apache2_modules_slotmem_shm
     - apache2_modules_socache_memcache
     - apache2_modules_substitute
     - apache2_modules_version
@@ -1439,6 +1440,7 @@ artefacts:
     - apache2_modules_rewrite
     - apache2_modules_setenvif
     - apache2_modules_socache_shmcb
+    - apache2_modules_slotmem_shm
     - apache2_modules_speling
     - apache2_modules_status
     - apache2_modules_unique_id
