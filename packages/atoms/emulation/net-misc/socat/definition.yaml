@@ -2,11 +2,13 @@ name: socat
 version: 1.7.4.3
 category: net-misc
 use_flags:
-- -libressl
 - readline
 - ssl
 - tcpd
 requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: tcp-wrappers
   version: '>=0'
   category: sys-apps
@@ -22,12 +24,9 @@ annotations:
       - ^/var/db/pkg/
 description: Multipurpose relay (SOcket CAT)
 uri:
-- http://www.dest-unreach.org/socat/
+- http://www.dest-unreach.org/socat/ https://repo.or.cz/socat.git
 license: GPL-2
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
   DEPEND: ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:= ) tcpd? ( sys-apps/tcp-wrappers
     )
   IUSE: bindist ipv6 readline ssl tcpd

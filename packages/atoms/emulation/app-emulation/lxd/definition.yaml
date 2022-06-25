@@ -2,17 +2,11 @@ name: lxd
 version: "5.2"
 category: app-emulation
 use_flags:
-- -test
-- daemon
-- dnsmasq
 - nls
 requires:
-- name: lxc
+- name: tcl
   version: '>=0'
-  category: app-emulation
-- name: sqlite
-  version: '>=0'
-  category: dev-db-3
+  category: dev-lang
 - name: libuv
   version: '>=0'
   category: dev-libs
@@ -25,15 +19,6 @@ requires:
 - name: ebtables
   version: '>=0'
   category: net-firewall
-- name: libnfnetlink
-  version: '>=0'
-  category: net-libs
-- name: libnsl
-  version: '>=0'
-  category: net-libs
-- name: rsync
-  version: '>=0'
-  category: net-misc
 - name: iproute2
   version: '>=0'
   category: sys-apps
@@ -55,7 +40,7 @@ annotations:
       - ^/var/db/pkg/
 description: Fast, dense and secure container management
 uri:
-- https://linuxcontainers.org/lxd/introduction/
+- https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd
 license: Apache-2.0 BSD BSD-2 LGPL-3 MIT MPL-2.0
 labels:
   BDEPEND: '>=dev-lang/go-1.18 >=sys-kernel/linux-headers-4.15 nls? ( sys-devel/gettext
