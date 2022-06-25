@@ -6,9 +6,6 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-- >-
-  eval 'mkdir -p /etc/portage/package.license' &&
-  echo 'app-emulation/virtualbox-bin PUEL' >> /etc/portage/package.license/00-virtualbox.license
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -24,8 +21,7 @@ prelude:
   emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- end }}
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
-  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
-  ) }}
+  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:

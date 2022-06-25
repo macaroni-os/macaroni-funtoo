@@ -4,7 +4,9 @@ category: app-emulation
 use_flags:
 - -apparmor
 - -doc
+- -io-uring
 - -man
+- -seccomp
 - -selinux
 - caps
 - pam
@@ -22,9 +24,6 @@ requires:
 - name: libcap
   version: '>=0'
   category: sys-libs
-- name: libseccomp
-  version: '>=0'
-  category: sys-libs
 - name: awk
   version: '>=0'
   category: virtual
@@ -38,7 +37,7 @@ annotations:
 description: A userspace interface for the Linux kernel containment features
 uri:
 - https://linuxcontainers.org/ https://github.com/lxc/lxc
-license: LGPL-3
+license: GPL-2 LGPL-2.1 LGPL-3
 labels:
   BDEPEND: virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) man? ( app-text/docbook-sgml-utils
     ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
