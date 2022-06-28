@@ -107,6 +107,15 @@ artefacts:
     - dev-util/kbuild
 
 - tree: packages/atoms-extra/emulation
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+  packages:
+    - sys-process/criu
+
+- tree: packages/atoms-extra/emulation
   packages:
     - app-emulation/docker-compose
       #- app-emulation/docker-swarm
@@ -133,6 +142,16 @@ artefacts:
       - selinux
       - wireshark-plugins
       - systemd
+      - iscsi-direct
+      - glusterfs
+      - ofed
+      - rdma
+      - ftdi
+      - infiniband
+      - rdma
+      - slp
+      - libressl
+      - ocaml
   packages:
     - app-emulation/libvirt
 
@@ -249,6 +268,11 @@ reposcan_disabled_use_flags:
 
   # Disable pptpclient
   - pptp
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
 
   # Disable LDAP integration at core level
   - ldap
