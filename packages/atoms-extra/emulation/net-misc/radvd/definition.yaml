@@ -1,0 +1,31 @@
+name: radvd
+version: "2.18"
+category: net-misc
+use_flags:
+- -selinux
+- -test
+requires:
+- name: libdaemon
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux IPv6 Router Advertisement Daemon
+uri:
+- http://v6web.litech.org/radvd/
+license: BSD
+labels:
+  DEPEND: dev-libs/libdaemon sys-devel/bison sys-devel/flex virtual/pkgconfig test?
+    ( dev-libs/check ) virtual/pkgconfig sys-apps/shadow
+  IUSE: kernel_FreeBSD selinux test
+  RDEPEND: dev-libs/libdaemon selinux? ( sec-policy/selinux-radvd )
+  emerge.packages: net-misc/radvd
+  kit: net-kit
+  original.package.name: net-misc/radvd
+  original.package.slot: "0"
+  original.package.version: "2.18"
