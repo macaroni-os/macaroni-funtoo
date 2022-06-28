@@ -2,19 +2,16 @@ name: nfs-utils
 version: 2.5.1
 category: net-fs
 use_flags:
+- -kerberos
 - -ldap
 - -selinux
 - caps
-- kerberos
 - libmount
 - nfsv4
 - nfsv41
 - tcpd
 - uuid
 requires:
-- name: mit-krb5
-  version: '>=0'
-  category: app-crypt
 - name: sqlite
   version: '>=0'
   category: dev-db-3
@@ -33,6 +30,9 @@ requires:
 - name: lvm2
   version: '>=0'
   category: sys-fs
+- name: e2fsprogs-libs
+  version: '>=0'
+  category: sys-libs
 - name: libcap
   version: '>=0'
   category: sys-libs

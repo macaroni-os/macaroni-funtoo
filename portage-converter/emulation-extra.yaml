@@ -118,6 +118,16 @@ artefacts:
     - sys-devel/bin86
 
 - tree: packages/atoms-extra/emulation
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+    - kerberos
+  packages:
+    - net-fs/nfs-utils
+
+- tree: packages/atoms-extra/emulation
   packages:
     - app-emulation/docker-compose
       #- app-emulation/docker-swarm
