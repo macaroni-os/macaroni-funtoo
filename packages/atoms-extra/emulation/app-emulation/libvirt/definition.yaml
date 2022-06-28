@@ -10,6 +10,7 @@ use_flags:
 - -sasl
 - -selinux
 - -wireshark-plugins
+- -xen
 - apparmor
 - audit
 - caps
@@ -27,16 +28,9 @@ use_flags:
 - udev
 - virt-network
 - virtualbox
-- xen
 - zfs
 requires:
 - name: qemu
-  version: '>=0'
-  category: app-emulation
-- name: xen
-  version: '>=0'
-  category: app-emulation
-- name: xen-tools
   version: '>=0'
   category: app-emulation
 - name: scrub
@@ -45,6 +39,9 @@ requires:
 - name: libnl
   version: '>=0'
   category: dev-libs-3
+- name: yajl
+  version: '>=0'
+  category: dev-libs
 - name: openbsd-netcat
   version: '>=0'
   category: net-analyzer
@@ -73,6 +70,9 @@ requires:
   version: '>=0'
   category: net-misc
 - name: dmidecode
+  version: '>=0'
+  category: sys-apps
+- name: iproute2
   version: '>=0'
   category: sys-apps
 - name: polkit
