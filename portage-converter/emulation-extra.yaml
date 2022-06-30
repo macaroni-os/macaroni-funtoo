@@ -81,7 +81,7 @@ include_files:
 include_layers:
 - layers/macaroni-funtoo-race6.yaml
 
-build_template_file: ../templates/build-pkg-uses.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -115,6 +115,7 @@ artefacts:
   packages:
     - sys-process/criu
     - sys-devel/dev86
+    - dev-python/protobuf-python
 
 - tree: packages/atoms-extra/emulation
   uses:
@@ -166,6 +167,7 @@ artefacts:
       - libressl
       - ocaml
       - xen
+      - apparmor
   packages:
     - app-emulation/libvirt
 
