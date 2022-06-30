@@ -1,0 +1,37 @@
+name: pyhoca-cli
+version: 0.6.0.1
+category: net-misc
+use_flags:
+- python_targets_python3_7
+requires:
+- name: setproctitle
+  version: '>=0'
+  category: dev-python
+- name: python-x2go
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X2Go command line client
+uri:
+- http://www.x2go.org
+license: AGPL-3
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+  DEPEND: dev-python/setproctitle[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    >=net-misc/python-x2go-0.6.0.1[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+  IUSE: python_targets_python3_7
+  RDEPEND: dev-python/setproctitle[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    >=net-misc/python-x2go-0.6.0.1[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+  emerge.packages: net-misc/pyhoca-cli
+  kit: net-kit
+  original.package.name: net-misc/pyhoca-cli
+  original.package.slot: "0"
+  original.package.version: 0.6.0.1
