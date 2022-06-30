@@ -1,0 +1,67 @@
+name: nx
+version: 3.5.99.26
+category: net-misc
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXdamage
+  version: '>=0'
+  category: x11-libs
+- name: libXdmcp
+  version: '>=0'
+  category: x11-libs
+- name: libXfont2
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXpm
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: pixman
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: NX compression technology core libraries
+uri:
+- https://github.com/ArcticaProject/nx-libs
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/libxml2 >=media-libs/libpng-1.2.8:0= >=sys-libs/zlib-1.2.3 virtual/jpeg:*
+    x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXdmcp x11-libs/libXext
+    x11-libs/libXfixes x11-libs/libXfont2 x11-libs/libXinerama x11-libs/libXpm x11-libs/libXrandr
+    x11-libs/libXrender x11-libs/libXtst x11-libs/pixman x11-base/xorg-proto x11-libs/libfontenc
+    x11-misc/gccmakedep x11-misc/imake
+  IUSE: elibc_glibc
+  RDEPEND: dev-libs/libxml2 >=media-libs/libpng-1.2.8:0= >=sys-libs/zlib-1.2.3 virtual/jpeg:*
+    x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXdmcp x11-libs/libXext
+    x11-libs/libXfixes x11-libs/libXfont2 x11-libs/libXinerama x11-libs/libXpm x11-libs/libXrandr
+    x11-libs/libXrender x11-libs/libXtst x11-libs/pixman
+  emerge.packages: net-misc/nx
+  kit: net-kit
+  original.package.name: net-misc/nx
+  original.package.slot: "0"
+  original.package.version: 3.5.99.26
