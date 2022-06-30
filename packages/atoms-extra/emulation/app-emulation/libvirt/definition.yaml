@@ -2,6 +2,7 @@ name: libvirt
 version: 8.4.0
 category: app-emulation
 use_flags:
+- -apparmor
 - -dtrace
 - -firewalld
 - -glusterfs
@@ -11,7 +12,6 @@ use_flags:
 - -selinux
 - -wireshark-plugins
 - -xen
-- apparmor
 - audit
 - caps
 - dbus
@@ -90,9 +90,6 @@ requires:
 - name: zfs
   version: '>=0'
   category: sys-fs
-- name: libapparmor
-  version: '>=0'
-  category: sys-libs
 - name: audit
   version: '>=0'
   category: sys-process
