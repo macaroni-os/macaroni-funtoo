@@ -1,0 +1,39 @@
+name: phodav
+version: "2.3"
+category: net-libs-2.0
+use_flags:
+- zeroconf
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: WebDav server implementation using libsoup
+uri:
+- https://wiki.gnome.org/phodav
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.51:2 >=net-libs/libsoup-2.48:2.4 dev-libs/libxml2 zeroconf?
+    ( net-dns/avahi ) >=dev-util/gtk-doc-am-1.10 >=dev-util/intltool-0.40.0 sys-devel/gettext
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info virtual/pkgconfig virtual/pkgconfig'
+  IUSE: spice systemd zeroconf
+  RDEPEND: '>=dev-libs/glib-2.51:2 >=net-libs/libsoup-2.48:2.4 dev-libs/libxml2 zeroconf?
+    ( net-dns/avahi )'
+  emerge.packages: net-libs/phodav:2.0
+  kit: net-kit
+  original.package.name: net-libs/phodav
+  original.package.slot: "2.0"
+  original.package.version: "2.3"
