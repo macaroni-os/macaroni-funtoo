@@ -1,0 +1,49 @@
+name: python-x2go
+version: 0.6.0.2
+category: net-misc
+use_flags:
+- python_targets_python2_7
+- python_targets_python3_7
+requires:
+- name: gevent
+  version: '>=0'
+  category: dev-python
+- name: paramiko
+  version: '>=0'
+  category: dev-python
+- name: python-xlib
+  version: '>=0'
+  category: dev-python
+- name: nx
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X2Go client-side Python API
+uri:
+- http://www.x2go.org
+license: AGPL-3
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  DEPEND: dev-python/gevent[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/paramiko[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/python-xlib[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    net-misc/nx
+  IUSE: python_targets_python3_7 python_targets_python2_7
+  RDEPEND: dev-python/gevent[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/paramiko[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    dev-python/python-xlib[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    net-misc/nx python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  emerge.packages: net-misc/python-x2go
+  kit: net-kit
+  original.package.name: net-misc/python-x2go
+  original.package.slot: "0"
+  original.package.version: 0.6.0.2
