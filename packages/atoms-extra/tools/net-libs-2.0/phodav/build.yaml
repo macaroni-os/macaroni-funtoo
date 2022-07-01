@@ -6,9 +6,14 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary patch until i push PR on upstream
+- >-
+  eval 'mkdir -p /var/cache/portage/distfiles || true' &&
+  chown portage:portage -R /var/cache/portage/ &&
+  cp patches/* -rvf /var/git/meta-repo/kits/net-kit/net-libs/phodav/ &&
+  cd /var/git/meta-repo/kits/net-kit/net-libs/phodav/ &&
+  ebuild phodav-2.5.ebuild digest
 - |
-  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
-  chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
