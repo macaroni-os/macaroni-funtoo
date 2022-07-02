@@ -1,15 +1,15 @@
 name: lxc
-version: 4.0.12+2
+version: 4.0.12+3
 category: app-emulation
 use_flags:
 - -apparmor
 - -doc
 - -io-uring
 - -man
-- -seccomp
 - -selinux
 - caps
 - pam
+- seccomp
 - ssl
 requires:
 - name: pax-utils
@@ -22,6 +22,9 @@ requires:
   version: '>=0'
   category: sys-apps
 - name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: libseccomp
   version: '>=0'
   category: sys-libs
 - name: awk
