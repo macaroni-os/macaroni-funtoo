@@ -4,6 +4,7 @@ category: net-misc
 use_flags:
 - -gstaudio
 - -libressl
+- -smartcard
 - -vala
 - gstvideo
 - gtk3
@@ -12,16 +13,12 @@ use_flags:
 - policykit
 - pulseaudio
 - sasl
-- smartcard
 - usbredir
 - webdav
 requires:
 - name: lz4
   version: '>=0'
   category: app-arch
-- name: qemu
-  version: '>=0'
-  category: app-emulation
 - name: cyrus-sasl
   version: '>=0'
   category: dev-libs-2
@@ -44,6 +41,9 @@ requires:
   version: '>=0'
   category: sys-apps
 - name: hwids
+  version: '>=0'
+  category: sys-apps
+- name: usbredir
   version: '>=0'
   category: sys-apps
 - name: polkit
