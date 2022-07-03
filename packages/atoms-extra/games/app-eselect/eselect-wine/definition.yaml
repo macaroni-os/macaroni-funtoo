@@ -1,0 +1,28 @@
+name: eselect-wine
+version: 1.2.2
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+- name: desktop-file-utils
+  version: '>=0'
+  category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manage active wine version
+uri:
+- https://bitbucket.org/NP-Hardass/eselect-wine
+license: GPL-2+
+labels:
+  RDEPEND: app-admin/eselect dev-util/desktop-file-utils !!app-emulation/wine:0
+  emerge.packages: app-eselect/eselect-wine
+  kit: core-kit
+  original.package.name: app-eselect/eselect-wine
+  original.package.slot: "0"
+  original.package.version: 1.2.2
