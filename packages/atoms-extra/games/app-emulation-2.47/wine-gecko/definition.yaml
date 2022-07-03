@@ -1,0 +1,22 @@
+name: wine-gecko
+version: "2.47"
+category: app-emulation-2.47
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Mozilla Gecko based version of Internet Explorer for Wine
+uri:
+- https://winehq.org
+license: Apache-2.0 BSD BSD-2 MIT MPL-2.0
+labels:
+  DEPEND: '!!app-emulation/wine:0'
+  IUSE: abi_x86_32 abi_x86_64
+  emerge.packages: app-emulation/wine-gecko:2.47
+  kit: nokit
+  original.package.name: app-emulation/wine-gecko
+  original.package.slot: "2.47"
+  original.package.version: 2.47-r1
