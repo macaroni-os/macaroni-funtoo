@@ -11,6 +11,7 @@ kits=(
   "media"
   "desktop"
   "tools"
+  "automation"
 )
 
 for i in ${kits[@]} ; do
