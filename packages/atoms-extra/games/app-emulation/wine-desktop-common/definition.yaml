@@ -1,0 +1,22 @@
+name: wine-desktop-common
+version: "20150204"
+category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Various desktop menu items and icons for wine
+uri:
+- https://github.com/NP-Hardass/wine-desktop-common https://bazaar.launchpad.net/~ubuntu-wine/wine/ubuntu-debian-dir/files/head:/debian/
+license: LGPL-2.1
+labels:
+  DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: '!app-emulation/wine:0'
+  emerge.packages: app-emulation/wine-desktop-common
+  kit: nokit
+  original.package.name: app-emulation/wine-desktop-common
+  original.package.slot: "0"
+  original.package.version: 20150204-r1
