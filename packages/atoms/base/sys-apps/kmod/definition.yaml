@@ -1,5 +1,5 @@
 name: kmod
-version: "29"
+version: 29+1
 category: sys-apps
 use_flags:
 - -doc
@@ -40,7 +40,7 @@ labels:
     ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     ) pkcs7? ( >=dev-libs/openssl-1.1.0:0= ) zlib? ( >=sys-libs/zlib-1.2.6 ) zstd?
     ( >=app-arch/zstd-1.4.4 )'
-  IUSE: debug doc +lzma pkcs7 python static-libs +tools +zlib zstd python_targets_python3_7
+  IUSE: debug doc +lzma +pkcs7 python static-libs +tools +zlib zstd python_targets_python3_7
     python_targets_python3_9 python_targets_python3_8
   RDEPEND: '!sys-apps/module-init-tools !sys-apps/modutils !<sys-apps/openrc-0.13.8
     !<sys-apps/systemd-216-r3 lzma? ( >=app-arch/xz-utils-5.0.4-r1 ) python? ( python_targets_python3_7?
@@ -52,4 +52,4 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/kmod
   original.package.slot: "0"
-  original.package.version: "29"
+  original.package.version: 29-r1
