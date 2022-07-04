@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  cd /var/git/meta-repo/kits/nokit/app-emulation/vkd3d &&
+  wget https://raw.githubusercontent.com/gentoo/gentoo/master/app-emulation/vkd3d/vkd3d-1.2.ebuild &&
+  ebuild vkd3d-1.2.ebuild digest &&
+  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
