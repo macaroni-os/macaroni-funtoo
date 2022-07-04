@@ -1,5 +1,5 @@
 name: automake
-version: 1.16.1
+version: 1.16.5
 category: sys-devel-1.16
 use_flags:
 - -test
@@ -25,9 +25,10 @@ uri:
 - https://www.gnu.org/software/automake/
 license: GPL-2
 labels:
+  BDEPEND: app-arch/gzip sys-apps/help2man test? ( || ( dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) )
   DEPEND: dev-lang/perl >=sys-devel/automake-wrapper-11 >=sys-devel/autoconf-2.69:*
-    sys-devel/gnuconfig sys-apps/help2man test? ( || ( >=dev-lang/python-2.7.5-r2:2.7
-    ) )
+    sys-devel/gnuconfig
   IUSE: test
   RDEPEND: dev-lang/perl >=sys-devel/automake-wrapper-11 >=sys-devel/autoconf-2.69:*
     sys-devel/gnuconfig
@@ -35,4 +36,4 @@ labels:
   kit: core-kit
   original.package.name: sys-devel/automake
   original.package.slot: "1.16"
-  original.package.version: 1.16.1-r1
+  original.package.version: 1.16.5
