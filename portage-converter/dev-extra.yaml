@@ -50,21 +50,25 @@ skipped_resolutions:
     - name: eudev
       category: sys-fs
 
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
 include_files:
+
+#include_layers:
+#- layers/macaroni-funtoo-base.yaml
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
 artefacts:
 
-
 - tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - nls
@@ -85,13 +89,6 @@ artefacts:
     - sys-devel/gdb
 
 - tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - aio
@@ -108,25 +105,11 @@ artefacts:
       packages:
         - category: dev-libs
           name: libevent
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - app-misc/tmux
 
 
 - tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -140,13 +123,6 @@ artefacts:
   uses:
     disabled:
       - buildfont
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - media-fonts/noto-emoji
 
@@ -154,13 +130,6 @@ artefacts:
   uses:
     enabled:
       - nls
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - sys-power/cpupower
     - dev-util/kbuild
@@ -174,24 +143,15 @@ artefacts:
   uses:
     enabled:
       - nls
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-lang/go
 
 - tree: packages/atoms-extra/dev
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
   packages:
     - dev-lang/go-bootstrap
 
@@ -206,13 +166,6 @@ artefacts:
       - hwloc
       - lm-sensors
       - openvz
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - sys-process/htop:0
 
@@ -225,26 +178,21 @@ artefacts:
       - acl
       - gpm
       - nls
+      # Enable this avoid to add dependency to
+      # vim-core and ctags util
+      - minimal
     disabled:
       - cscope
       - X
       - debug
       - lua
       - luajit
-      - minimal
       - perl
       - racket
       - ruby
       - selinux
       - tcl
       - vim-syntax
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - app-editors/vim
     - app-editors/vim-core
@@ -266,13 +214,6 @@ artefacts:
       - pax-kernel
       - systemtap
       - test
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-libs/nodejs
 
