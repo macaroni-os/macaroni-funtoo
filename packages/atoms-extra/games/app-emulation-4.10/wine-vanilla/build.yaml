@@ -8,7 +8,12 @@ env:
 prelude:
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
-  chown portage:portage -R /var/cache/portage/ && \
+  chown portage:portage -R /var/cache/portage/
+# Temporary fix until fix on games atoms
+- >-
+  USE="wayland xscreensaver gles X alsa dbus joystick opengl pulseaudio sound threads udev video vulkan xinerama haptic"
+  emerge media-libs/libsdl2 -t -j
+- |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
