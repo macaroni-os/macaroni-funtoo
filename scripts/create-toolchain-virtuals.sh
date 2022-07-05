@@ -13,6 +13,7 @@ kits=(
   "xorg-extra"
   "calamares"
   "python"
+  "games"
 )
 
 for i in ${kits[@]} ; do
