@@ -1877,8 +1877,22 @@ artefacts:
   - dev-perl/Error
   - dev-perl/Module-Build
   - dev-perl/Pod-Parser
-  - sys-devel/automake:1.16
   - x11-misc/shared-mime-info
+
+- tree: packages/atoms/base
+  mutations:
+    provides:
+      - category: sys-devel-1.13
+        name: automake
+      - category: sys-devel-1.14
+        name: automake
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - sys-devel/automake:1.16
 - tree: packages/atoms/base
   uses:
     disabled:
