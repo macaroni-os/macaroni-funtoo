@@ -1,5 +1,5 @@
 name: mpv
-version: 0.34.1.20220611
+version: 0.34.1.20220627
 category: media-video
 use_flags:
 - -archive
@@ -96,12 +96,13 @@ labels:
     ( >=media-libs/rubberband-1.8.0 ) sdl? ( media-libs/libsdl2[sound,threads,video]
     ) vaapi? ( x11-libs/libva:=[drm?,X?,wayland?] ) vdpau? ( x11-libs/libvdpau ) vulkan?
     ( media-libs/libplacebo:=[vulkan] media-libs/shaderc ) wayland? ( >=dev-libs/wayland-1.6.0
-    >=dev-libs/wayland-protocols-1.14 >=x11-libs/libxkbcommon-0.3.0 ) X? ( x11-libs/libX11
-    x11-libs/libXScrnSaver x11-libs/libXext x11-libs/libXinerama x11-libs/libXrandr
-    opengl? ( x11-libs/libXdamage virtual/opengl ) xv? ( x11-libs/libXv ) ) zlib?
-    ( sys-libs/zlib ) zimg? ( >=media-libs/zimg-2.9.2 ) python_targets_python3_7?
-    ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)]
-    ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-libs/wayland-protocols-1.14 >=x11-libs/libxkbcommon-0.3.0 vulkan? ( media-libs/vulkan-loader[wayland]
+    ) ) X? ( x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXext x11-libs/libXinerama
+    x11-libs/libXrandr x11-libs/libXpresent opengl? ( x11-libs/libXdamage virtual/opengl
+    ) xv? ( x11-libs/libXv ) ) zlib? ( sys-libs/zlib ) zimg? ( >=media-libs/zimg-2.9.2
+    ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     virtual/pkgconfig dev-python/docutils cuda? ( >=media-libs/nv-codec-headers-8.2.15.7
     ) doc? ( dev-python/rst2pdf ) dvb? ( virtual/linuxtv-dvb-headers ) test? ( >=dev-util/cmocka-1.0.0
     )'
@@ -125,16 +126,17 @@ labels:
     ( >=media-libs/rubberband-1.8.0 ) sdl? ( media-libs/libsdl2[sound,threads,video]
     ) vaapi? ( x11-libs/libva:=[drm?,X?,wayland?] ) vdpau? ( x11-libs/libvdpau ) vulkan?
     ( media-libs/libplacebo:=[vulkan] media-libs/shaderc ) wayland? ( >=dev-libs/wayland-1.6.0
-    >=dev-libs/wayland-protocols-1.14 >=x11-libs/libxkbcommon-0.3.0 ) X? ( x11-libs/libX11
-    x11-libs/libXScrnSaver x11-libs/libXext x11-libs/libXinerama x11-libs/libXrandr
-    opengl? ( x11-libs/libXdamage virtual/opengl ) xv? ( x11-libs/libXv ) ) zlib?
-    ( sys-libs/zlib ) zimg? ( >=media-libs/zimg-2.9.2 ) cuda? ( x11-drivers/nvidia-drivers[X]
-    ) selinux? ( sec-policy/selinux-mplayer ) tools? ( python_targets_python3_7? (
-    dev-lang/python:3.7[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)]
-    ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-libs/wayland-protocols-1.14 >=x11-libs/libxkbcommon-0.3.0 vulkan? ( media-libs/vulkan-loader[wayland]
+    ) ) X? ( x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXext x11-libs/libXinerama
+    x11-libs/libXrandr x11-libs/libXpresent opengl? ( x11-libs/libXdamage virtual/opengl
+    ) xv? ( x11-libs/libXv ) ) zlib? ( sys-libs/zlib ) zimg? ( >=media-libs/zimg-2.9.2
+    ) cuda? ( x11-drivers/nvidia-drivers[X] ) selinux? ( sec-policy/selinux-mplayer
+    ) tools? ( python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     )'
   emerge.packages: media-video/mpv
   kit: media-kit
   original.package.name: media-video/mpv
   original.package.slot: "0"
-  original.package.version: 0.34.1.20220611
+  original.package.version: 0.34.1.20220627
