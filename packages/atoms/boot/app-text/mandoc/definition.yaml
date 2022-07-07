@@ -1,0 +1,32 @@
+name: mandoc
+version: 1.14.6
+category: app-text
+use_flags:
+- cgi
+- system-man
+requires:
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Suite of tools compiling mdoc and man
+uri:
+- https://mdocml.bsd.lv/
+license: ISC
+labels:
+  BDEPEND: cgi? ( app-text/highlight )
+  DEPEND: sys-libs/zlib system-man? ( !sys-apps/man-db ) cgi? ( sys-libs/zlib[static-libs]
+    )
+  IUSE: cgi system-man
+  RDEPEND: sys-libs/zlib system-man? ( !sys-apps/man-db )
+  emerge.packages: app-text/mandoc
+  kit: text-kit
+  original.package.name: app-text/mandoc
+  original.package.slot: "0"
+  original.package.version: 1.14.6
