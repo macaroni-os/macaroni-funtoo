@@ -2,11 +2,11 @@ name: openjdk-bin
 version: 11.0.15
 category: dev-java-11
 use_flags:
+- -arm
 - -selinux
 - alsa
 - cups
 - headless-awt
-- kernel_linux
 requires:
 - name: eselect-java
   version: '>=0'
@@ -29,12 +29,6 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
-- name: libXrender
-  version: '>=0'
-  category: x11-libs
-- name: libXtst
-  version: '>=0'
-  category: x11-libs
 annotations:
   subsets:
     rules:
