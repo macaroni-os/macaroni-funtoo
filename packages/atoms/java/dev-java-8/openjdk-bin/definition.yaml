@@ -2,9 +2,9 @@ name: openjdk-bin
 version: "8.332"
 category: dev-java-8
 use_flags:
+- -arm
 - -selinux
 - alsa
-- arm
 - cups
 - headless-awt
 requires:
@@ -14,9 +14,6 @@ requires:
 - name: java-config
   version: '>=0'
   category: dev-java-2
-- name: libffi-compat
-  version: '>=0'
-  category: dev-libs-6
 - name: alsa-lib
   version: '>=0'
   category: media-libs
@@ -29,12 +26,6 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
-- name: libXrender
-  version: '>=0'
-  category: x11-libs
-- name: libXtst
-  version: '>=0'
-  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -42,9 +33,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Prebuilt Java JDK binaries provided by AdoptOpenJDK
+description: Prebuilt Java JDK binaries provided by Eclipse Temurin
 uri:
-- https://adoptopenjdk.net
+- https://adoptium.net
 license: GPL-2-with-classpath-exception
 labels:
   BDEPEND: app-arch/unzip
