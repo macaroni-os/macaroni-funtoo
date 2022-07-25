@@ -1,5 +1,5 @@
 name: mpv
-version: 0.34.1.20220627
+version: 0.34.1.20220709
 category: media-video
 use_flags:
 - -archive
@@ -105,7 +105,7 @@ labels:
     ) xv? ( x11-libs/libXv ) ) zlib? ( sys-libs/zlib ) zimg? ( >=media-libs/zimg-2.9.2
     ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
     ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     virtual/pkgconfig dev-python/docutils cuda? ( >=media-libs/nv-codec-headers-8.2.15.7
     ) doc? ( dev-python/rst2pdf ) dvb? ( virtual/linuxtv-dvb-headers ) test? ( >=dev-util/cmocka-1.0.0
     )'
@@ -113,7 +113,7 @@ labels:
     dvb dvd +egl gamepad gbm +iconv jack javascript jpeg lcms libass libcaca libmpv
     +lua luajit openal +opengl pipewire pulseaudio raspberry-pi rubberband sdl selinux
     test tools +uchardet vaapi vdpau vulkan wayland +X +xv zlib zimg python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: '!!app-shells/mpv-bash-completion >=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?]
     alsa? ( >=media-libs/alsa-lib-1.0.18 ) archive? ( >=app-arch/libarchive-3.4.0:=
     ) bluray? ( >=media-libs/libbluray-0.3.0:= ) cdda? ( dev-libs/libcdio-paranoia
@@ -136,10 +136,10 @@ labels:
     ) cuda? ( x11-drivers/nvidia-drivers[X] ) selinux? ( sec-policy/selinux-mplayer
     ) tools? ( python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
     ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     )'
   emerge.packages: media-video/mpv
   kit: media-kit
   original.package.name: media-video/mpv
   original.package.slot: "0"
-  original.package.version: 0.34.1.20220627
+  original.package.version: 0.34.1.20220709
