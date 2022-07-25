@@ -1,5 +1,5 @@
 name: libplacebo
-version: 4.192.1
+version: 4.208.0
 category: media-libs
 use_flags:
 - -glslang
@@ -29,8 +29,10 @@ uri:
 - https://code.videolan.org/videolan/libplacebo
 license: LGPL-2.1+
 labels:
-  BDEPEND: virtual/pkgconfig vulkan? ( || ( dev-lang/python:3.8[xml] dev-lang/python:3.9[xml]
-    dev-lang/python:3.7[xml] ) || ( ( dev-lang/python:3.8[xml] dev-python/mako[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: virtual/pkgconfig vulkan? ( || ( dev-lang/python:3.10[xml] dev-lang/python:3.8[xml]
+    dev-lang/python:3.9[xml] dev-lang/python:3.7[xml] ) || ( ( dev-lang/python:3.10[xml]
+    dev-python/mako[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8[xml] dev-python/mako[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9[xml] dev-python/mako[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7[xml] dev-python/mako[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
@@ -45,4 +47,4 @@ labels:
   kit: media-kit
   original.package.name: media-libs/libplacebo
   original.package.slot: "0"
-  original.package.version: 4.192.1
+  original.package.version: 4.208.0
