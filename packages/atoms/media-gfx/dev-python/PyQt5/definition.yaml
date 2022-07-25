@@ -1,5 +1,5 @@
 name: PyQt5
-version: 5.15.6
+version: 5.15.7
 category: dev-python
 use_flags:
 - -bluetooth
@@ -65,13 +65,14 @@ uri:
 - https://www.riverbankcomputing.com/software/pyqt/ https://pypi.org/project/PyQt5/
 license: GPL-3
 labels:
-  BDEPEND: '>=dev-python/PyQt-builder-1.10[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    >=dev-python/sip-6.4[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  BDEPEND: '>=dev-python/PyQt-builder-1.10[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/sip-6.4[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     >=dev-qt/qtcore-5.15:5 dbus? ( virtual/pkgconfig )'
   DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     >=dev-qt/qtcore-5.15:5 >=dev-qt/qtxml-5.15:5 bluetooth? ( >=dev-qt/qtbluetooth-5.15:5
-    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     >=dev-qt/qtdbus-5.15:5 ) declarative? ( >=dev-qt/qtdeclarative-5.15:5[widgets?]
     ) designer? ( >=dev-qt/designer-5.15:5 ) gui? ( >=dev-qt/qtgui-5.15:5[gles2-only=]
     ) help? ( >=dev-qt/qthelp-5.15:5 ) location? ( >=dev-qt/qtlocation-5.15:5 ) multimedia?
@@ -86,11 +87,12 @@ labels:
   IUSE: bluetooth dbus debug declarative designer examples gles2-only gui help location
     multimedia network opengl positioning printsupport sensors serialport speech sql
     +ssl svg testlib webchannel websockets widgets x11extras xmlpatterns python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     >=dev-qt/qtcore-5.15:5 >=dev-qt/qtxml-5.15:5 bluetooth? ( >=dev-qt/qtbluetooth-5.15:5
-    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     >=dev-qt/qtdbus-5.15:5 ) declarative? ( >=dev-qt/qtdeclarative-5.15:5[widgets?]
     ) designer? ( >=dev-qt/designer-5.15:5 ) gui? ( >=dev-qt/qtgui-5.15:5[gles2-only=]
     ) help? ( >=dev-qt/qthelp-5.15:5 ) location? ( >=dev-qt/qtlocation-5.15:5 ) multimedia?
@@ -101,9 +103,9 @@ labels:
     ) sql? ( >=dev-qt/qtsql-5.15:5 ) svg? ( >=dev-qt/qtsvg-5.15:5 ) testlib? ( >=dev-qt/qttest-5.15:5
     ) webchannel? ( >=dev-qt/qtwebchannel-5.15:5 ) websockets? ( >=dev-qt/qtwebsockets-5.15:5
     ) widgets? ( >=dev-qt/qtwidgets-5.15:5 ) x11extras? ( >=dev-qt/qtx11extras-5.15:5
-    ) xmlpatterns? ( >=dev-qt/qtxmlpatterns-5.15:5 ) >=dev-python/PyQt5-sip-12.9:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) xmlpatterns? ( >=dev-qt/qtxmlpatterns-5.15:5 ) >=dev-python/PyQt5-sip-12.9:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
   emerge.packages: dev-python/PyQt5
-  kit: geaaru-kit
+  kit: qt-kit
   original.package.name: dev-python/PyQt5
   original.package.slot: "0"
-  original.package.version: 5.15.6
+  original.package.version: 5.15.7
