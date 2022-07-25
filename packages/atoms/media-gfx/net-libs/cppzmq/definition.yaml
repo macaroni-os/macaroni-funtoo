@@ -1,5 +1,5 @@
 name: cppzmq
-version: 0+pre150606.2
+version: 4.8.1
 category: net-libs
 requires:
 - name: zeromq
@@ -17,9 +17,13 @@ uri:
 - https://github.com/zeromq/cppzmq
 license: MIT
 labels:
-  RDEPEND: '>=net-libs/zeromq-3'
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: '>=net-libs/zeromq-4.3.1 test? ( >=dev-cpp/catch-2.5.0 <dev-cpp/catch-2
+    )'
+  IUSE: test
+  RDEPEND: '>=net-libs/zeromq-4.3.1'
   emerge.packages: net-libs/cppzmq
   kit: net-kit
   original.package.name: net-libs/cppzmq
   original.package.slot: "0"
-  original.package.version: 0_pre150606
+  original.package.version: 4.8.1
