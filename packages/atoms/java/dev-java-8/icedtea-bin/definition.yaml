@@ -3,10 +3,10 @@ version: 3.12.0
 category: dev-java-8
 use_flags:
 - -gtk
+- -headless-awt
 - -selinux
 - alsa
 - cups
-- headless-awt
 - multilib
 requires:
 - name: eselect-java
@@ -42,6 +42,15 @@ requires:
 - name: ttf-fonts
   version: '>=0'
   category: virtual
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXrender
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
