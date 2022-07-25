@@ -95,6 +95,7 @@ artefacts:
   uses:
     disabled:
       - static-libs
+      - source
   packages:
     - dev-java/ant-core:0
 
@@ -143,6 +144,7 @@ artefacts:
       - x64-macos
       - doc
       - selinux
+      - arm
   packages:
     - dev-java/oracle-jdk-bin:1.8
     - dev-java/openjdk-jre-bin:8
@@ -150,6 +152,18 @@ artefacts:
     - dev-java/openjdk-bin:11
     - dev-java/openjdk-bin:8
     - dev-java/maven-bin:3.6
+
+- tree: packages/atoms/java
+  uses:
+    disabled:
+      - pax_kernel
+      - x64-macos
+      - doc
+      - selinux
+      - arm
+      - gtk
+  packages:
+    - dev-java/icedtea-bin:8
 
 - tree: packages/atoms/java
   packages:
