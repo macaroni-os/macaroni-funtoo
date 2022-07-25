@@ -2,10 +2,10 @@ name: icedtea-bin
 version: 3.12.0
 category: dev-java-8
 use_flags:
+- -gtk
 - -selinux
 - alsa
 - cups
-- gtk
 - headless-awt
 - multilib
 requires:
@@ -15,12 +15,21 @@ requires:
 - name: java-config
   version: '>=0'
   category: dev-java-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: alsa-lib
   version: '>=0'
   category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
 - name: lcms
   version: '>=0'
   category: media-libs-2
+- name: cups
+  version: '>=0'
+  category: net-print
 - name: gcc
   version: '>=0'
   category: sys-devel-9.2.0
@@ -33,12 +42,6 @@ requires:
 - name: ttf-fonts
   version: '>=0'
   category: virtual
-- name: gdk-pixbuf
-  version: '>=0'
-  category: x11-libs-2
-- name: gtk+
-  version: '>=0'
-  category: x11-libs-2
 annotations:
   subsets:
     rules:
