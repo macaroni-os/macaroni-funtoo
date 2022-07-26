@@ -425,6 +425,7 @@ artefacts:
     - positioning
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python3_10
     - sensors
     - serialport
     - sh
@@ -454,11 +455,13 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python3_10
     - sh
     enabled:
     - python_targets_python3_7
   packages:
   - dev-python/PyQt5-sip
+  - dev-python/PyQt-builder
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
@@ -728,12 +731,18 @@ artefacts:
   packages:
   - dev-qt/qtmultimedia:5
 - tree: packages/atoms/media-gfx
+  mutations:
+    provides:
+      # Fix migration from geaaru-kit package
+      - category: dev-python-5
+        name: sip
   uses:
     disabled:
     - doc
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python3_10
     - sh
     enabled:
     - python_targets_python3_7
