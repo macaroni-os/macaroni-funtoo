@@ -59,6 +59,9 @@ skipped_resolutions:
     - name: cdrtools
       category: virtual
 
+    - name: virtualbox-modules
+      category: app-emulation
+
     # Force OR condition for app-text/xmlto
     # on use virtual/w3m
     - name: lynx
@@ -74,8 +77,9 @@ skipped_resolutions:
 
 include_files:
 
-#build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
-build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+#build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
+
 
 global_annotations:
   subsets:
@@ -85,177 +89,15 @@ global_annotations:
       portage:
         - "^/var/db/pkg/"
 
+
 artefacts:
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - static-libs
-  #  mutations:
-  #  buildtime_deps:
-  #    packages:
-  #      - category: media-gfx
-  #        name: imagemagick
-  packages:
-    - virtual/imagemagick-tools:0
-
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - static-libs
-    enabled:
-      - branding
-      - cups
-      - dbus
-      - eds
-      - gnome
-      - zeroconf
-      - gstreamer
-      - gtk
-      - kde
-      - mariadb
-      - odk
-      - pdfimport
-  packages:
-    - app-office/libreoffice-bin:0
-
 - tree: packages/atoms/office
   uses:
     disabled:
       - static-libs
   packages:
-    - app-arch/zip:0
-    - app-crypt/mhash:0
-    - app-eselect/eselect-java:0
-    - app-office/dia:0
-    - app-office/libreoffice-l10n:0
-    - app-text/libabw:0
-    - app-text/libebook:0
-    - app-text/libepubgen:0
-    - app-text/libetonyek:0
-    - app-text/liblangtag:0
-    - app-text/libmspub:0
-    - app-text/libmwaw:0
-    - app-text/libodfgen:0
-    - app-text/libqxp:0
-    - app-text/libstaroffice:0
-    - app-text/libwpd:0.10
-    - app-text/libwpg:0.3
-    - app-text/libwps:0
-    - app-text/mythes:0
-    - dev-cpp/clucene:1
-    - dev-cpp/gtest:0
-    - dev-cpp/libcmis:0.5
-    - dev-db/libdbi:0
-    - dev-db/mariadb-connector-c:0
-    - dev-db/unixODBC:0
-    - dev-java/java-config:2
-    - dev-java/javatoolkit:0
-    - dev-libs/librevenge:0
-    - dev-libs/rasqal:0
-    - dev-python/pygobject:2
-    - dev-util/mdds:1.5
-    - gnome-base/libglade:2.0
-    - gnome-extra/libgsf:0
-    - media-gfx/plantuml:0
-    - media-libs/glm:0
-    - media-libs/libart_lgpl:0
-    - media-libs/libcdr:0
-    - media-libs/libfreehand:0
-    - media-libs/libpagemaker:0
-    - media-libs/libvisio:0
-    - media-libs/libwmf:0
-    - media-libs/libzmf:0
-    - sci-libs/colamd:0
-    - sci-libs/suitesparseconfig:0
-    - sci-mathematics/lpsolve:0
+    - dev-libs/libfmt
 
-- tree: packages/atoms/office
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race1
-  packages:
-    - virtual/jpeg-compat:62
-    - sci-libs/suitesparseconfig
-    - media-libs/libfpx
-    - app-text/libnumbertext:0
-    - app-text/libexttextcat:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - json
-  packages:
-    - media-libs/raptor:2
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - postgres
-      - iodbc
-      - static-libs
-  packages:
-    - dev-libs/redland:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - postgres
-      - firebird
-      - mysql
-      - doc
-      - iodbc
-      - static-libs
-  packages:
-    - dev-db/libdbi-drivers:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - ofx
-      - postgres
-      - firebird
-      - mysql
-      - doc
-      - iodbc
-      - static-libs
-      - goffice
-  packages:
-    - app-office/grisbi:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - mysql
-      - quotes
-      - postgres
-      - static-libs
-      - aqbanking
-      - smartcard
-      - ofx
-  packages:
-    - app-office/gnucash:0
-
-- tree: packages/atoms/office
-  uses:
-    disabled:
-      - numpy
-  packages:
-    - dev-python/pygtk:2
-
-- tree: packages/atoms/office
-  ignore_build_deps: true
-  uses:
-    disabled:
-      - opencl
-      - corefonts
-      - lqr
-      - fftw
-  packages:
-    - media-gfx/imagemagick:0
 
 include_layers:
 - layers/macaroni-funtoo-office.yaml
@@ -300,6 +142,7 @@ reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
+    - dev-lang/python:2.7
     - dev-lang/python:3.7
     - dev-lang/ruby:2.6
     - dev-lang/ruby:2.7
@@ -310,6 +153,9 @@ reposcan_contraints:
     - virtual/jdk:11
     - virtual/jre:1.8
     - virtual/jre:11
+
+    # Temporary
+    - <x11-libs/libX11-9999
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
@@ -348,7 +194,6 @@ reposcan_disabled_use_flags:
   - x86-winnt
   - kernel-builtin
   - kernel_Winnt
-  - kernel_FreeBSD
   - man
   - minimal
   # Cryptographic library for embedded systems
@@ -430,5 +275,6 @@ reposcan_disabled_use_flags:
   - ppc64
 
 reposcan_disabled_keywords:
-  - ~amd64
+  #- ~amd64
   - -*
+  - next
