@@ -25,7 +25,7 @@ main () {
 
   for i in ${modules[@]} ; do
     yq w -i ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml 'labels.[kernel.version]' ${RELEASE}
-    luet tree bump -f ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml
+    luet-build tree bump -f ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml
   done
 }
 
