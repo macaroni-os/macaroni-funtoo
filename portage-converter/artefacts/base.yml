@@ -413,7 +413,6 @@ artefacts:
   packages:
   - dev-python/idna
   - dev-python/markupsafe
-  - dev-python/more-itertools
   - dev-python/mwparserfromhell
   - dev-python/packaging
   - dev-python/pbr
@@ -1108,13 +1107,10 @@ artefacts:
     - python_targets_python2_7
   packages:
   - dev-python/configparser
-  - dev-python/functools32
   - dev-python/idna-compat
   - dev-python/markupsafe-compat
-  - dev-python/more-itertools-compat
   - dev-python/mwparserfromhell-compat
   - dev-python/packaging-compat
-  - dev-python/pyrsistent-compat
   - dev-python/setuptools-compat
   - dev-python/setuptools_scm-compat
   - dev-python/testtools-compat
@@ -4000,20 +3996,6 @@ artefacts:
   packages:
   - kde-plasma/kwin:5
 - tree: packages/atoms/base
-  mutations:
-    uses:
-      - static-libs
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-    enabled:
-    - nls
-    - static-libs
-  packages:
-  - sys-apps/attr
-- tree: packages/atoms/base
   uses:
     disabled:
     - debug
@@ -5917,8 +5899,6 @@ artefacts:
   - dev-python/docutils
   - dev-python/extras
   - dev-python/ipaddress
-  - dev-python/namespace-zope
-  - dev-python/pyrsistent
   - dev-python/setuptools
   - dev-python/toml
   - dev-python/wheel
@@ -6380,18 +6360,6 @@ artefacts:
     - gdbm
   packages:
   - dev-libs/apr-util:1
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - python_targets_pypy3
-    - sh
-    enabled:
-    - python_targets_python2_7
-    - python_targets_python3_7
-  packages:
-  - dev-python/regex
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -7154,12 +7122,10 @@ artefacts:
     - python_targets_python3_7
   packages:
   - dev-python/PySocks
-  - dev-python/attrs
   - dev-python/certifi
   - dev-python/chardet
   - dev-python/pycparser
   - dev-python/pyxdg
-  - dev-python/zope-interface
 - tree: packages/atoms/base
   mutations:
     runtime_deps:
@@ -7633,9 +7599,6 @@ artefacts:
   packages:
   - dev-python/contextlib2
   - dev-python/pathlib2
-  - dev-python/rfc3339-validator
-  - dev-python/rfc3986-validator
-  - dev-python/webcolors
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -9876,9 +9839,6 @@ artefacts:
     - python_targets_python3_7
   packages:
   - dev-python/backports
-  - dev-python/jsonpointer
-  - dev-python/rfc3987
-  - dev-python/strict-rfc3339
   - virtual/python-enum34
   - virtual/python-ipaddress
 - tree: packages/atoms/base
