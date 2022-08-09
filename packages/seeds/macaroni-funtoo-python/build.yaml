@@ -18,5 +18,6 @@ prelude:
   mkdir /etc/portage/package.use/ -p &&
   cp -rvf patches/* /var/git/meta-repo/kits/python-modules-kit/dev-python/tempita/ &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
+  emerge -t -j $JOBS dev-python/m2r &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
