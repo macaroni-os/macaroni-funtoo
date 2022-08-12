@@ -21,6 +21,8 @@ prelude:
   cp -rvf patches/m2r/* /var/git/meta-repo/kits/python-modules-kit/dev-python/m2r/ &&
   cp -rvf patches/m2r-compat/ /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
+  emerge -t -j $JOBS dev-python/docutils &&
   emerge -t -j $JOBS dev-python/m2r &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
   rm -rf /var/cache/portage/distfiles/*
+# Force install of docutils to add docutils-compat missing for now on up races
