@@ -43,12 +43,12 @@ requires:
 - name: iputils
   version: '>=0'
   category: net-misc
+- name: wpa_supplicant
+  version: '>=0'
+  category: net-wireless
 - name: util-linux
   version: '>=0'
   category: sys-apps
-- name: readline
-  version: '>=0'
-  category: sys-libs
 - name: libudev
   version: '>=0'
   category: virtual
@@ -91,7 +91,7 @@ labels:
     dev-python/pygobject:3[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
     x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
-    ) virtual/pkgconfig'
+    ) virtual/pkgconfig sys-apps/shadow'
   IUSE: audit bluetooth connection-sharing consolekit dhclient +dhcpcd elogind gnutls
     +introspection iwd json kernel_linux +nss +modemmanager ncurses ofono ovs policykit
     +ppp resolvconf selinux teamd test +vala +wext +wifi kernel_linux test
