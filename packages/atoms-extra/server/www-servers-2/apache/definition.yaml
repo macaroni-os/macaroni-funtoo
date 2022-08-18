@@ -67,8 +67,8 @@ labels:
     ) ) suexec? ( suexec-caps? ( sys-libs/libcap ) ) >=app-portage/elt-patches-20170815
     !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
     ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 ssl? ( || ( dev-libs/openssl:0
-    dev-libs/libressl:0 ) ) >=dev-libs/apr-1.5.1:= !www-apache/mod_macro dev-lang/perl
-    =dev-libs/apr-util-1*:=[gdbm=,ldap?] dev-libs/libpcre apache2_modules_deflate?
+    dev-libs/libressl:0 ) ) sys-apps/shadow >=dev-libs/apr-1.5.1:= !www-apache/mod_macro
+    dev-lang/perl =dev-libs/apr-util-1*:=[gdbm=,ldap?] dev-libs/libpcre apache2_modules_deflate?
     ( sys-libs/zlib ) apache2_modules_mime? ( app-misc/mime-types ) gdbm? ( sys-libs/gdbm:=
     ) ldap? ( =net-nds/openldap-2* ) ssl? ( !libressl? ( >=dev-libs/openssl-1.0.2:0=
     ) libressl? ( dev-libs/libressl:0= ) ) !=www-servers/apache-1* virtual/pkgconfig
