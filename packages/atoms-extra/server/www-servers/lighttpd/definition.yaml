@@ -43,6 +43,9 @@ requires:
 - name: libpcre
   version: '>=0'
   category: dev-libs-3
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: rrdtool
   version: '>=0'
   category: net-analyzer
@@ -76,7 +79,7 @@ labels:
     ) libressl? ( dev-libs/libressl:= ) ) sqlite? ( dev-db/sqlite:3 ) webdav? ( dev-libs/libxml2
     sys-fs/e2fsprogs ) xattr? ( kernel_linux? ( sys-apps/attr ) ) zlib? ( >=sys-libs/zlib-1.1
     ) doc? ( dev-python/docutils ) test? ( virtual/perl-Test-Harness dev-libs/fcgi
-    )
+    ) sys-apps/shadow
   IUSE: bzip2 dbi doc fam gdbm geoip ipv6 kerberos ldap libev libressl lua minimal
     mmap memcached mysql pcre php postgres rrdtool sasl selinux ssl sqlite test webdav
     xattr zlib
