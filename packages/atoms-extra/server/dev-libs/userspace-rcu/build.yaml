@@ -6,10 +6,6 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Temporary patch ebuild
-- >-
-  sed -e 's|"${FILES.*||g' -i
-  /var/git/meta-repo/kits/dev-kit/dev-libs/userspace-rcu/userspace-rcu-0.13.1.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -25,8 +21,7 @@ prelude:
   emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- end }}
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
-  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
-  ) }}
+  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
