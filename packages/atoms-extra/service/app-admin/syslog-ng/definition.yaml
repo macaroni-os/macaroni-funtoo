@@ -5,7 +5,6 @@ use_flags:
 - -amqp
 - -libressl
 - -python_single_target_python2_7
-- -python_single_target_python3_7
 - -spoof-source
 - caps
 - dbi
@@ -15,6 +14,7 @@ use_flags:
 - json
 - mongodb
 - python
+- python_single_target_python3_7
 - redis
 - smtp
 - systemd
@@ -23,6 +23,12 @@ requires:
 - name: libdbi
   version: '>=0'
   category: dev-db
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: geoip
   version: '>=0'
   category: dev-libs
