@@ -3,7 +3,7 @@
 TARGET_PKG=${TARGET_PKG:-packages/toolchain/core}
 SOURCE_PKGS_DIR=${SOURCE_PKGS_DIR:-packages/atoms/core}
 
-packages=$(luet tree pkglist -t $SOURCE_PKGS_DIR | grep -v "\-portage$")
+packages=$(luet-build tree pkglist -t $SOURCE_PKGS_DIR | grep -v "\-portage$")
 
 definition_file=${TARGET_PKG}/definition.yaml
 
