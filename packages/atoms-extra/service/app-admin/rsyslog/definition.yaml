@@ -9,7 +9,6 @@ use_flags:
 - -jemalloc
 - -kerberos
 - -mdblookup
-- -normalize
 - -omudpspoof
 - -postgres
 - -rabbitmq
@@ -27,6 +26,7 @@ use_flags:
 - kubernetes
 - mongodb
 - mysql
+- normalize
 - omhttpfs
 - openssl
 - redis
@@ -45,10 +45,7 @@ requires:
 - name: hiredis
   version: '>=0'
   category: dev-libs
-- name: libestr
-  version: '>=0'
-  category: dev-libs
-- name: libfastjson
+- name: liblognorm
   version: '>=0'
   category: dev-libs
 - name: librdkafka
