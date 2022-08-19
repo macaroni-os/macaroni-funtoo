@@ -1,0 +1,32 @@
+name: czmq
+version: 3.0.2
+category: net-libs
+requires:
+- name: zeromq
+  version: '>=0'
+  category: net-libs
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: High-level C Binding for ZeroMQ
+uri:
+- http://czmq.zeromq.org
+license: LGPL-3
+labels:
+  DEPEND: sys-apps/util-linux net-libs/zeromq app-text/asciidoc app-text/xmlto >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: doc static-libs test
+  RDEPEND: sys-apps/util-linux net-libs/zeromq
+  emerge.packages: net-libs/czmq
+  kit: net-kit
+  original.package.name: net-libs/czmq
+  original.package.slot: "0"
+  original.package.version: 3.0.2
