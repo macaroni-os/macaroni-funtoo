@@ -1,0 +1,24 @@
+name: libfastjson
+version: 0.99.8
+category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fork of the json-c library, which is optimized for liblognorm processing
+uri:
+- https://www.rsyslog.com/tag/libfastjson/
+license: MIT
+labels:
+  DEPEND: '>=sys-devel/autoconf-archive-2015.02.04 >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: static-libs
+  emerge.packages: dev-libs/libfastjson
+  kit: dev-kit
+  original.package.name: dev-libs/libfastjson
+  original.package.slot: "0"
+  original.package.version: 0.99.8
