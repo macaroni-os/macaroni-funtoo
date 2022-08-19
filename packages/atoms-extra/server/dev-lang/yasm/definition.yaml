@@ -3,15 +3,10 @@ version: 1.3.0+1
 category: dev-lang
 use_flags:
 - nls
-- python
-- python_targets_python2_7
 requires:
-- name: python
+- name: libintl
   version: '>=0'
-  category: dev-lang-2.7
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -21,7 +16,7 @@ annotations:
       - ^/var/db/pkg/
 description: An assembler for x86 and x86_64 instruction sets
 uri:
-- http://yasm.tortall.net/
+- https://yasm.tortall.net/
 license: BSD-2 BSD || ( Artistic GPL-2 LGPL-2 )
 labels:
   BDEPEND: nls? ( sys-devel/gettext )
