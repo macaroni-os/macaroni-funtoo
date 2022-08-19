@@ -1,9 +1,13 @@
 name: libevent
-version: "2.1.12+1"
+version: 2.1.12+1
 category: dev-libs
 use_flags:
 - -libressl
 - ssl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
