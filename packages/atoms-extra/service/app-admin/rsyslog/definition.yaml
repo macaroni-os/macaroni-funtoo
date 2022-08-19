@@ -1,5 +1,5 @@
 name: rsyslog
-version: 8.2206.0+1
+version: 8.2206.0
 category: app-admin
 use_flags:
 - -elibc_musl
@@ -17,6 +17,7 @@ use_flags:
 - -rfc5424hmac
 - -test
 - -xxhash
+- -zeromq
 - clickhouse
 - curl
 - dbi
@@ -34,7 +35,6 @@ use_flags:
 - ssl
 - systemd
 - uuid
-- zeromq
 requires:
 - name: libdbi
   version: '>=0'
@@ -57,9 +57,6 @@ requires:
 - name: net-snmp
   version: '>=0'
   category: net-analyzer
-- name: czmq
-  version: '>=0'
-  category: net-libs
 - name: systemd
   version: '>=0'
   category: sys-apps

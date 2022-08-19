@@ -224,9 +224,11 @@ artefacts:
       - systemd
       - usertools
       - uuid
-      - zeromq
       - normalize
     disabled:
+      # Disable until the next build cycle
+      # there are no ebuilds to satisfy ">=net-libs/czmq-4:=[drafts]"
+      - zeromq
       - rabbitmq
       - debug
       - doc
