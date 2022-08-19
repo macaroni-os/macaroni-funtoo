@@ -6,12 +6,8 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Temporary until FL-10337 is done
-- >-
-  cp patches/libmemcached-1.0.18-r3.ebuild
-  /var/git/meta-repo/kits/dev-kit/dev-libs/libmemcached &&
-  cp patches/files/*
-  /var/git/meta-repo/kits/dev-kit/dev-libs/libmemcached/files
+- cp patches/libmemcached-1.0.18-r3.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/libmemcached
+  && cp patches/files/* /var/git/meta-repo/kits/dev-kit/dev-libs/libmemcached/files
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -34,6 +30,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: memcached
+- name: conntrack-tools
   version: '>=0'
-  category: net-misc
+  category: net-firewall
