@@ -37,6 +37,9 @@ skipped_resolutions:
     - name: openrc
       category: sys-apps
 
+    - name: zfs-kmod
+      category: sys-fs
+
     # Force OR condition for app-text/xmlto
     # on use virtual/w3m
     - name: lynx
@@ -183,21 +186,19 @@ artefacts:
       - test
       - python_targets_python2_7
   packages:
-    - app-admin/cloud-init
     - dev-python/beautifulsoup
 
 - tree: packages/atoms-extra/server
   mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: beautifulsoup
+    provides:
+      - category: app-emulation
+        name: cloud-init
   uses:
     disabled:
       - test
       - python_targets_python2_7
   packages:
-    - dev-python/webtest
+    - app-admin/cloud-init
 
 #- tree: packages/atoms-extra/server
 #  mutations:
@@ -233,8 +234,20 @@ artefacts:
     - net-analyzer/macchanger
     - sys-fs/growpart
     - dev-libs/libdaemon
-    - virtual/linux-sources
     - dev-libs/oniguruma
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race3
+  uses:
+    disabled:
+      - test
+      - firmware
+  packages:
+    - virtual/linux-sources
 
 - tree: packages/atoms-extra/server
   uses:
@@ -522,7 +535,7 @@ artefacts:
     - lzo
     - pam
     - plugins
-    - ssl
+    - openssl
   packages:
   - net-vpn/openvpn
 
@@ -644,6 +657,8 @@ artefacts:
   - dev-python/pyserial
   - dev-python/pyjwt
   - dev-python/oauthlib
+  - dev-python/webob
+  - dev-python/waitress
 
 - tree: packages/atoms-extra/server
   uses:
@@ -1134,6 +1149,16 @@ artefacts:
     - seccomp
   packages:
   - app-emulation/runc
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+    - video_cards_amdgpu
+  packages:
+  - sys-process/criu
 - tree: packages/atoms-extra/server
   uses:
     disabled:
@@ -1145,7 +1170,6 @@ artefacts:
   - net-misc/cni-plugins
   - sys-block/parted
   - sys-auth/oath-toolkit
-  - sys-process/criu
   - dev-python/zc-lockfile
   - dev-util/cunit
   - dev-python/simplejson
@@ -1232,6 +1256,8 @@ artefacts:
   - sys-fs/lxcfs
 - tree: packages/atoms-extra/server
   mutations:
+    uses:
+      - caps
     buildtime_deps:
       packages:
         - category: sys-devel-1.14
@@ -1242,15 +1268,19 @@ artefacts:
     disabled:
     - apparmor
     - doc
-    - man
     - nios2
     - selinux
     - sh
+    # TODO: check if enable it.
+    - io-uring
     enabled:
     - caps
     - pam
     - ssl
+    - templates
+    - seccomp
     - tools
+    - man
   packages:
   - app-emulation/lxc
   finalizer:
@@ -1548,12 +1578,6 @@ artefacts:
     - dev-util/lttng-ust
 
 - tree: packages/atoms-extra/server
-  mutations:
-    buildtime_deps:
-      packages:
-        - name: automake
-          category: sys-devel-1.13
-          version: '>=0'
   uses:
     disabled:
       - sasl
@@ -1659,10 +1683,7 @@ reposcan_contraints:
     - dev-db/postgresql:13
     - dev-db/postgresql:11
 
-    # Temporary
-    - <=app-emulation/lxd-4.14
-    - <app-emulation/lxc-4.0.10
-    - <sys-cluster/singularity-3.8.7
+    #- <sys-cluster/singularity-3.8.7
 
     # Using nodejs-14 LTS for now
     - <net-libs/nodejs-15.0
