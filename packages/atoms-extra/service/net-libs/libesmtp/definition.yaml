@@ -1,0 +1,31 @@
+name: libesmtp
+version: 1.0.6
+category: net-libs
+use_flags:
+- -libressl
+- -ssl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: lib that implements the client side of the SMTP protocol
+uri:
+- http://brianstafford.info/libesmtp/
+license: LGPL-2.1 GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) )
+  IUSE: debug libressl ntlm ssl static-libs threads
+  RDEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) )
+  emerge.packages: net-libs/libesmtp
+  kit: net-kit
+  original.package.name: net-libs/libesmtp
+  original.package.slot: "0"
+  original.package.version: 1.0.6-r3
