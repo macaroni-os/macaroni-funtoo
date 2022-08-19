@@ -1,14 +1,17 @@
 name: lxc
-version: 4.0.9
+version: 4.0.12
 category: app-emulation
 use_flags:
 - -apparmor
 - -doc
+- -io-uring
 - -man
 - -selinux
 - caps
 - pam
+- seccomp
 - ssl
+- caps
 requires:
 - name: pax-utils
   version: '>=0'
@@ -38,21 +41,22 @@ annotations:
 description: A userspace interface for the Linux kernel containment features
 uri:
 - https://linuxcontainers.org/ https://github.com/lxc/lxc
-license: LGPL-3
+license: GPL-2 LGPL-2.1 LGPL-3
 labels:
-  BDEPEND: doc? ( app-doc/doxygen ) man? ( app-text/docbook-sgml-utils ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-  DEPEND: app-misc/pax-utils sys-apps/util-linux sys-libs/libcap sys-libs/libseccomp
-    virtual/awk caps? ( sys-libs/libcap ) pam? ( sys-libs/pam ) selinux? ( sys-libs/libselinux
-    ) ssl? ( dev-libs/openssl:0= ) >=sys-kernel/linux-headers-4 apparmor? ( sys-apps/apparmor
+  BDEPEND: virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) man? ( app-text/docbook-sgml-utils
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: app-misc/pax-utils sys-apps/util-linux sys-libs/libcap virtual/awk caps?
+    ( sys-libs/libcap ) io-uring? ( >=sys-libs/liburing-2:= ) pam? ( sys-libs/pam
+    ) seccomp? ( sys-libs/libseccomp ) selinux? ( sys-libs/libselinux ) ssl? ( dev-libs/openssl:0=
+    ) >=sys-kernel/linux-headers-4 apparmor? ( sys-apps/apparmor )
+  IUSE: apparmor +caps doc io-uring man pam seccomp selinux +ssl +tools kernel_linux
+  RDEPEND: app-misc/pax-utils sys-apps/util-linux sys-libs/libcap virtual/awk caps?
+    ( sys-libs/libcap ) io-uring? ( >=sys-libs/liburing-2:= ) pam? ( sys-libs/pam
+    ) seccomp? ( sys-libs/libseccomp ) selinux? ( sys-libs/libselinux ) ssl? ( dev-libs/openssl:0=
     )
-  IUSE: apparmor +caps doc man pam selinux +ssl +tools kernel_linux
-  RDEPEND: app-misc/pax-utils sys-apps/util-linux sys-libs/libcap sys-libs/libseccomp
-    virtual/awk caps? ( sys-libs/libcap ) pam? ( sys-libs/pam ) selinux? ( sys-libs/libselinux
-    ) ssl? ( dev-libs/openssl:0= )
   emerge.packages: app-emulation/lxc
   kit: core-kit
   original.package.name: app-emulation/lxc
   original.package.slot: "0"
-  original.package.version: 4.0.9
+  original.package.version: 4.0.12-r1
