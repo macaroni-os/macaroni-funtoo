@@ -11,12 +11,15 @@ use_flags:
 - -jack-sdk
 - -lv2
 - -pipewire-alsa
-- -ssl
 - -systemd
 - -v4l
 - -zeroconf
 - X
+- ssl
 requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: alsa-lib
   version: '>=0'
   category: media-libs
