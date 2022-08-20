@@ -6,6 +6,17 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Trying to temporary fix this error:
+# In file included from ../pipewire-0.3.56/src/modules/module-avb/avdecc.c:28:
+# /usr/include/linux/net_tstamp.h:158:2: error: unknown type name ‘clockid_t’
+#  158 |  clockid_t clockid; /* reference clockid */
+- >-
+  KV=5.4.20 &&
+  wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${KV}.tar.xz &&
+  tar xJf linux-${KV}.tar.xz &&
+  cd linux-${KV} &&
+  make headers_install INSTALL_HDR_PATH=/usr &&
+  cd .. && rm -rf linux-${KV}
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
