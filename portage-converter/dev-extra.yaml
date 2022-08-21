@@ -172,6 +172,16 @@ artefacts:
     - net-libs/http-parser
     - net-misc/ipcalc
 
+
+- tree: packages/atoms-extra/dev
+  uses:
+    enabled:
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
+    - dev-python/pyhamcrest
+    - dev-python/pyhamcrest-compat
+
 - tree: packages/atoms-extra/dev
   mutations:
     buildtime_deps:
