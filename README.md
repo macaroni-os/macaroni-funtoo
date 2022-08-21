@@ -4,7 +4,7 @@ Funtoo Macaroni Repository Tree
 Branches behavior:
 * `master`: single packages tree based on 1.4-prime release.
 
-* `next-release`: Related to the new `next-release` release of Funtoo.
+* `next`: Related to the new `next-release` release of Funtoo.
   This branch will be based on only single packages and
   integrated with `luet-portage-converter`.
 
