@@ -18,6 +18,7 @@ prelude:
   luet cleanup &&
   ego sync &&
   cd /var/git/meta-repo/kits &&
+  chown root:root -R /var/git/meta-repo/kits &&
   ls -l &&
   for i in $(ls .) ; do
   echo $i ;
