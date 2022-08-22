@@ -172,6 +172,18 @@ artefacts:
     - net-libs/http-parser
     - net-misc/ipcalc
 
+- tree: packages/atoms-extra/dev
+  uses:
+    enabled:
+      - python_targets_python3_7
+      - python_targets_python2_7
+  mutations:
+    buildtime_deps:
+      packages:
+        - name: pathspec
+          category: dev-python
+  packages:
+    - dev-python/hatchling
 
 - tree: packages/atoms-extra/dev
   uses:
