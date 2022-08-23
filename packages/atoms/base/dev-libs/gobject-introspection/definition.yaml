@@ -1,5 +1,5 @@
 name: gobject-introspection
-version: 1.70.0+3
+version: 1.70.0+4
 category: dev-libs
 use_flags:
 - -doc
@@ -42,27 +42,34 @@ labels:
     dev-python/markdown[python_targets_python3_7(-)] ) python_single_target_python3_9?
     ( dev-python/mako[python_targets_python3_9(-)] dev-python/markdown[python_targets_python3_9(-)]
     ) python_single_target_python3_8? ( dev-python/mako[python_targets_python3_8(-)]
-    dev-python/markdown[python_targets_python3_8(-)] ) ) virtual/pkgconfig python_single_target_python3_7?
-    ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    dev-python/markdown[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-python/mako[python_targets_python3_10(-)] dev-python/markdown[python_targets_python3_10(-)]
+    ) ) virtual/pkgconfig python_single_target_python3_7? ( dev-lang/python:3.7[xml]
+    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) >=dev-util/meson-0.55.3 doc? ( >=dev-util/gtk-doc-1.19 app-text/docbook-xml-dtd:4.3
     app-text/docbook-xml-dtd:4.5 ) sys-devel/bison sys-devel/flex dev-util/desktop-file-utils
     x11-misc/shared-mime-info'
   IUSE: cairo doc doctool python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: '>=dev-libs/gobject-introspection-common-1.70.0 >=dev-libs/glib-2.64.0:2
     virtual/libffi:= doctool? ( python_single_target_python3_7? ( dev-python/mako[python_targets_python3_7(-)]
     dev-python/markdown[python_targets_python3_7(-)] ) python_single_target_python3_9?
     ( dev-python/mako[python_targets_python3_9(-)] dev-python/markdown[python_targets_python3_9(-)]
     ) python_single_target_python3_8? ( dev-python/mako[python_targets_python3_8(-)]
-    dev-python/markdown[python_targets_python3_8(-)] ) ) virtual/pkgconfig python_single_target_python3_7?
-    ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    dev-python/markdown[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-python/mako[python_targets_python3_10(-)] dev-python/markdown[python_targets_python3_10(-)]
+    ) ) virtual/pkgconfig python_single_target_python3_7? ( dev-lang/python:3.7[xml]
+    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
     )'
   emerge.packages: dev-libs/gobject-introspection
   kit: gnome-kit
   original.package.name: dev-libs/gobject-introspection
-  original.package.version: 1.70.0
+  original.package.slot: "0"
+  original.package.version: 1.70.0-r1
