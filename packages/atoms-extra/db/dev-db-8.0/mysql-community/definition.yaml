@@ -1,5 +1,5 @@
 name: mysql-community
-version: 8.0.29
+version: 8.0.30
 category: dev-db-8.0
 use_flags:
 - -cjk
@@ -60,7 +60,7 @@ labels:
     >=dev-libs/protobuf-3.8:= net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc?
     ( dev-libs/jemalloc:0= ) kernel_linux? ( dev-libs/libaio:0= sys-process/procps:0=
     ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:0= ) ) sys-devel/gcc
-    virtual/yacc server? ( net-libs/rpcsvc-proto )'
+    virtual/yacc server? ( net-libs/rpcsvc-proto ) sys-apps/shadow'
   IUSE: cjk cracklib debug jemalloc latin1 numa +perl profiling router selinux +server
     tcmalloc kernel_linux
   RDEPEND: '>=app-arch/lz4-0_p131:= app-arch/zstd:= sys-libs/ncurses:0= >=sys-libs/zlib-1.2.3:0=
@@ -75,4 +75,4 @@ labels:
   kit: core-server-kit
   original.package.name: dev-db/mysql-community
   original.package.slot: "8.0"
-  original.package.version: 8.0.29
+  original.package.version: 8.0.30
