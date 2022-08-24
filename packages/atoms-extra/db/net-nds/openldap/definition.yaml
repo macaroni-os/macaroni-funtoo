@@ -1,5 +1,5 @@
 name: openldap
-version: 2.4.47
+version: 2.4.59
 category: net-nds
 use_flags:
 - -gnutls
@@ -35,38 +35,30 @@ uri:
 - http://www.OpenLDAP.org/
 license: OPENLDAP GPL-2
 labels:
-  DEPEND: ssl? ( !gnutls? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0=[-mgorny(-)]
-    ) libressl? ( dev-libs/libressl:0=[-mgorny(-)] ) ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:=[-mgorny(-)]
-    >=dev-libs/libgcrypt-1.5.3:0=[-mgorny(-)] ) ) sasl? ( dev-libs/cyrus-sasl:= )
-    !minimal? ( sys-devel/libtool sys-libs/e2fsprogs-libs >=dev-db/lmdb-0.9.18:= tcpd?
-    ( sys-apps/tcp-wrappers ) odbc? ( !iodbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc
-    ) ) slp? ( net-libs/openslp ) perl? ( dev-lang/perl:=[-build(-)] ) samba? ( !libressl?
-    ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) ) berkdb? ( <sys-libs/db-6.0:=
-    || ( sys-libs/db:5.3 sys-libs/db:5.1 sys-libs/db:4.8 sys-libs/db:4.7 sys-libs/db:4.6
-    sys-libs/db:4.5 sys-libs/db:4.4 ) ) smbkrb5passwd? ( !libressl? ( dev-libs/openssl:0=
-    ) libressl? ( dev-libs/libressl:0= ) kerberos? ( app-crypt/heimdal ) ) kerberos?
-    ( virtual/krb5 kinit? ( !app-crypt/heimdal ) ) cxx? ( dev-libs/cyrus-sasl:= )
-    ) sys-apps/groff ssl? ( || ( dev-libs/openssl:0 dev-libs/libressl:0 ) ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-  IUSE: crypt samba slp tcpd experimental minimal +berkdb overlays perl gnutls iodbc
-    sasl ssl odbc debug ipv6 libressl +syslog selinux static-libs test smbkrb5passwd
-    kerberos kinit pbkdf2 sha2 -cxx abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
-    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 ssl
-  RDEPEND: ssl? ( !gnutls? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0=[-mgorny(-)]
-    ) libressl? ( dev-libs/libressl:0=[-mgorny(-)] ) ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:=[-mgorny(-)]
-    >=dev-libs/libgcrypt-1.5.3:0=[-mgorny(-)] ) ) sasl? ( dev-libs/cyrus-sasl:= )
-    !minimal? ( sys-devel/libtool sys-libs/e2fsprogs-libs >=dev-db/lmdb-0.9.18:= tcpd?
-    ( sys-apps/tcp-wrappers ) odbc? ( !iodbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc
-    ) ) slp? ( net-libs/openslp ) perl? ( dev-lang/perl:=[-build(-)] ) samba? ( !libressl?
-    ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) ) berkdb? ( <sys-libs/db-6.0:=
-    || ( sys-libs/db:5.3 sys-libs/db:5.1 sys-libs/db:4.8 sys-libs/db:4.7 sys-libs/db:4.6
-    sys-libs/db:4.5 sys-libs/db:4.4 ) ) smbkrb5passwd? ( !libressl? ( dev-libs/openssl:0=
-    ) libressl? ( dev-libs/libressl:0= ) kerberos? ( app-crypt/heimdal ) ) kerberos?
-    ( virtual/krb5 kinit? ( !app-crypt/heimdal ) ) cxx? ( dev-libs/cyrus-sasl:= )
-    ) selinux? ( sec-policy/selinux-ldap )
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0 )'
+  DEPEND: ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.1h-r2:0= ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:=
+    >=dev-libs/libgcrypt-1.5.3:0= ) ) sasl? ( dev-libs/cyrus-sasl:= ) !minimal? (
+    dev-libs/libltdl sys-fs/e2fsprogs >=dev-db/lmdb-0.9.18:= tcpd? ( sys-apps/tcp-wrappers
+    ) odbc? ( !iodbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc ) ) perl? ( dev-lang/perl:=[-build(-)]
+    ) samba? ( dev-libs/openssl:0= ) berkdb? ( <sys-libs/db-6.0:= || ( sys-libs/db:5.3
+    sys-libs/db:4.8 ) ) smbkrb5passwd? ( dev-libs/openssl:0= kerberos? ( app-crypt/heimdal
+    ) ) kerberos? ( virtual/krb5 kinit? ( !app-crypt/heimdal ) ) cxx? ( dev-libs/cyrus-sasl:=
+    ) ) sys-apps/groff sys-apps/shadow
+  IUSE: crypt samba tcpd experimental minimal +berkdb overlays perl gnutls iodbc sasl
+    ssl odbc debug ipv6 +syslog selinux static-libs test smbkrb5passwd kerberos kinit
+    pbkdf2 sha2 cxx ssl
+  RDEPEND: ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.1h-r2:0= ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:=
+    >=dev-libs/libgcrypt-1.5.3:0= ) ) sasl? ( dev-libs/cyrus-sasl:= ) !minimal? (
+    dev-libs/libltdl sys-fs/e2fsprogs >=dev-db/lmdb-0.9.18:= tcpd? ( sys-apps/tcp-wrappers
+    ) odbc? ( !iodbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc ) ) perl? ( dev-lang/perl:=[-build(-)]
+    ) samba? ( dev-libs/openssl:0= ) berkdb? ( <sys-libs/db-6.0:= || ( sys-libs/db:5.3
+    sys-libs/db:4.8 ) ) smbkrb5passwd? ( dev-libs/openssl:0= kerberos? ( app-crypt/heimdal
+    ) ) kerberos? ( virtual/krb5 kinit? ( !app-crypt/heimdal ) ) cxx? ( dev-libs/cyrus-sasl:=
+    ) ) selinux? ( sec-policy/selinux-ldap ) virtual/tmpfiles
   emerge.packages: net-nds/openldap
   kit: net-kit
   original.package.name: net-nds/openldap
   original.package.slot: "0"
-  original.package.version: 2.4.47-r2
+  original.package.version: 2.4.59-r1
