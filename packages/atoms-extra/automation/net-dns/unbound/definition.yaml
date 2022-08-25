@@ -2,6 +2,8 @@ name: unbound
 version: 1.12.0
 category: net-dns
 use_flags:
+- -dnscrypt
+- -dnstap
 - -libressl
 - -python_single_target_python3_10
 - -python_single_target_python3_8
@@ -10,8 +12,6 @@ use_flags:
 - -selinux
 - -systemd
 - -test
-- dnscrypt
-- dnstap
 - ecdsa
 - python
 - python_single_target_python3_7
@@ -22,13 +22,7 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
-- name: fstrm
-  version: '>=0'
-  category: dev-libs
-- name: libsodium
-  version: '>=0'
-  category: dev-libs
-- name: protobuf-c
+- name: libevent
   version: '>=0'
   category: dev-libs
 - name: dnssec-root
