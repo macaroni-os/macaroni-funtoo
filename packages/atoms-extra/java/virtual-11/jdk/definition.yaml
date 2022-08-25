@@ -1,5 +1,5 @@
 name: jdk
-version: "11+1"
+version: 11+2
 category: virtual-11
 requires:
 - name: openjdk-bin
@@ -19,10 +19,11 @@ description: Virtual for Java Development Kit (JDK)
 uri:
 - ""
 labels:
-  RDEPEND: '|| ( dev-java/oracle-jdk-bin:11[gentoo-vm(+)] dev-java/openjdk-bin:11[gentoo-vm(+)]
-    dev-java/openjdk:11[gentoo-vm(+)] )'
+  IUSE: headless-awt
+  RDEPEND: '|| ( dev-java/openjdk-bin:11[gentoo-vm(+),headless-awt=] dev-java/openjdk:11[gentoo-vm(+),headless-awt=]
+    )'
   emerge.packages: virtual/jdk:11
   kit: java-kit
   original.package.name: virtual/jdk
   original.package.slot: "11"
-  original.package.version: "11"
+  original.package.version: 11-r2
