@@ -145,6 +145,19 @@ artefacts:
     - dev-vcs/python-gitlab
 
 - tree: packages/atoms-extra/automation
+  mutations:
+    uses:
+      - "-modules"
+  uses:
+    disabled:
+      - doc
+      - debug
+      - systemd
+      - modules
+  packages:
+    - net-misc/openvswitch
+
+- tree: packages/atoms-extra/automation
   uses:
     disabled:
       - doc
@@ -152,7 +165,6 @@ artefacts:
       - systemd
   packages:
     - net-misc/ovn
-    - net-misc/openvswitch
 
 - tree: packages/atoms-extra/automation
   uses:
