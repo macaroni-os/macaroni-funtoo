@@ -9,7 +9,10 @@ prelude:
 # Temporary fix
 - >-
   ego sync &&
-  cp ovn-22.06.0.ebuild /var/git/meta-repo/kits/net-kit/net-misc/ovn/
+  cp ovn-22.06.0.ebuild /var/git/meta-repo/kits/net-kit/net-misc/ovn/ &&
+  cd /var/git/meta-repo/kits/net-kit/net-misc/ovn/ &&
+  rm Manifest &&
+  ebuild ovn-22.06.0.ebuild digest
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
