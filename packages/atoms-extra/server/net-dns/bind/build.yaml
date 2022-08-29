@@ -8,8 +8,10 @@ env:
 prelude:
 # bind need named group
 - >-
+  luet repo update &&
   luet i macaroni/entities-catalog -y &&
-  entities merge -s /usr/share/macaroni/entities/ -e named
+  entities merge -s /usr/share/macaroni/entities/ -e named &&
+  luet cleanup
 
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
