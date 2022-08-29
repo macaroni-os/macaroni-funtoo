@@ -3,6 +3,9 @@ version: 7.43.0.2
 category: dev-python
 use_flags:
 - -curl_ssl_gnutls
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -python_targets_python3_9
 - -test
 - python_targets_python2_7
 - python_targets_python3_7
@@ -32,21 +35,26 @@ uri:
 - https://github.com/pycurl/pycurl https://pypi.org/project/pycurl/ http://pycurl.io/
 license: LGPL-2.1
 labels:
-  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
   DEPEND: '>=net-misc/curl-7.25.0-r1[ssl=] ssl? ( net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_libressl(-)=,curl_ssl_nss(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)]
-    curl_ssl_gnutls? ( >=net-libs/gnutls-2.11.0 ) ) test? ( dev-python/bottle[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    dev-python/flaky[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    dev-python/nose[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    curl_ssl_gnutls? ( >=net-libs/gnutls-2.11.0 ) ) test? ( dev-python/bottle[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    dev-python/flaky[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    dev-python/nose[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_libressl(-)=,curl_ssl_nss(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-),http2]
-    >=dev-python/bottle-0.12.7[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+    >=dev-python/bottle-0.12.7[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     )'
   IUSE: curl_ssl_gnutls curl_ssl_libressl curl_ssl_nss +curl_ssl_openssl examples
-    ssl test python_targets_python3_7 python_targets_python2_7
+    ssl test python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python2_7 python_targets_python3_10
   RDEPEND: '>=net-misc/curl-7.25.0-r1[ssl=] ssl? ( net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_libressl(-)=,curl_ssl_nss(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)]
     curl_ssl_gnutls? ( >=net-libs/gnutls-2.11.0 ) ) python_targets_python3_7? ( dev-lang/python:3.7
-    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]'
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]'
   emerge.packages: dev-python/pycurl
   kit: python-modules-kit
   original.package.name: dev-python/pycurl
