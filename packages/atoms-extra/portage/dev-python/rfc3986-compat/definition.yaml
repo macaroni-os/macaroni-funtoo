@@ -1,0 +1,33 @@
+name: rfc3986-compat
+version: 1.5.0
+category: dev-python
+use_flags:
+- python_targets_python2_7
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-2.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+uri:
+- http://rfc3986.readthedocs.io https://pypi.org/project/rfc3986/
+license: Apache-2.0
+labels:
+  BDEPEND: python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+  IUSE: python_targets_python2_7
+  RDEPEND: '!<dev-python/rfc3986-2 python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]'
+  emerge.packages: dev-python/rfc3986-compat
+  kit: python-modules-kit
+  original.package.name: dev-python/rfc3986-compat
+  original.package.slot: "0"
+  original.package.version: 1.5.0
