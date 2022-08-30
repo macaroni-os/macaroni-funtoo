@@ -4,11 +4,15 @@ category: dev-python
 use_flags:
 - -libressl
 - -python_targets_pypy3
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - python_targets_python2_7
 - python_targets_python3_7
 requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: python-typing
   version: '>=0'
   category: virtual
@@ -19,7 +23,6 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A Python crypto and SSL toolkit
 uri:
 - https://gitlab.com/m2crypto/m2crypto https://pypi.org/project/M2Crypto/
 license: MIT
@@ -27,15 +30,16 @@ labels:
   BDEPEND: '>=dev-lang/swig-2.0.9 python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0=
     ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]'
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
+    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]'
   IUSE: libressl python_targets_pypy3 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python2_7
-  RDEPEND: libressl? ( dev-libs/libressl:0= ) !libressl? ( dev-libs/openssl:0= ) virtual/python-typing[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]
+    python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
+  RDEPEND: libressl? ( dev-libs/libressl:0= ) !libressl? ( dev-libs/openssl:0= ) virtual/python-typing[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
-    ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
   emerge.packages: dev-python/m2crypto
   kit: python-modules-kit
   original.package.name: dev-python/m2crypto
