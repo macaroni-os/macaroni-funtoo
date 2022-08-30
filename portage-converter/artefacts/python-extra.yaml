@@ -1,4 +1,18 @@
 artefacts:
+
+- tree: packages/atoms-extra/python
+  uses:
+    disabled:
+    - nios2
+    - python_targets_pypy3
+    - sh
+    enabled:
+    - python_targets_python2_7
+    - python_targets_python3_7
+  packages:
+  - dev-python/docutils
+  - dev-python/docutils-compat
+
 - tree: packages/atoms-extra/python
   annotations:
     subsets:

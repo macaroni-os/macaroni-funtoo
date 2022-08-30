@@ -228,6 +228,11 @@ artefacts:
     - dev-python/hatchling
 
 - tree: packages/atoms-extra/portage
+  mutations:
+    buildtime_deps:
+      packages:
+        - name: hatchling
+          category: dev-python
   uses:
     enabled:
       - python_targets_python3_7
@@ -235,6 +240,13 @@ artefacts:
   packages:
     - dev-python/pyhamcrest
     - dev-python/pyhamcrest-compat
+
+- tree: packages/atoms-extra/portage
+  uses:
+    enabled:
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
     - dev-python/aiodns
     - dev-python/aiosignal
     - dev-python/aiohttp
