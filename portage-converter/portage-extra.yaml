@@ -83,6 +83,11 @@ artefacts:
     - dev-python/pycurl
 
 - tree: packages/atoms-extra/portage
+  mutations:
+    buildtime_deps:
+      packages:
+        - name: m2r-compat
+          category: dev-python
   uses:
     enabled:
       - conch
