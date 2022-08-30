@@ -1,5 +1,5 @@
 name: pluggy
-version: 1.0.0
+version: 1.0.0+1
 category: dev-python
 use_flags:
 - -python_targets_pypy3
@@ -21,6 +21,13 @@ requires:
 - name: importlib_metadata
   version: '>=0'
   category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 uri:
 - https://github.com/pytest-dev/pluggy https://pypi.org/project/pluggy/
 license: MIT
