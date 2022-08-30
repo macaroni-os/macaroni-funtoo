@@ -1,5 +1,5 @@
 name: gpep517
-version: "9"
+version: 9+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -13,6 +13,13 @@ requires:
 - name: tomli
   version: '>=0'
   category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 uri:
 - https://pypi.org/project/gpep517/
 license: MIT
