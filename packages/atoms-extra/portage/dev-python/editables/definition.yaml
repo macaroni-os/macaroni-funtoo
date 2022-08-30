@@ -1,5 +1,5 @@
 name: editables
-version: "0.3"
+version: 0.3+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -13,6 +13,13 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 uri:
 - https://github.com/pfmoore/editables https://pypi.org/project/editables/
 license: MIT
