@@ -1,5 +1,5 @@
 name: pyhamcrest-compat
-version: 1.9.0
+version: 1.9.0+1
 category: dev-python
 use_flags:
 - python_targets_python2_7
@@ -10,6 +10,13 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 uri:
 - https://pypi.org/project/PyHamcrest/
 license: BSD
