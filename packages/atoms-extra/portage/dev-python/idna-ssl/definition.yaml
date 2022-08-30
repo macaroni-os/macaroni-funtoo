@@ -2,6 +2,9 @@ name: idna-ssl
 version: 1.1.0
 category: dev-python
 use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -python_targets_python3_9
 - python_targets_python3_7
 requires:
 - name: python-exec
@@ -22,12 +25,17 @@ uri:
 - https://github.com/aio-libs/idna-ssl https://pypi.org/project/idna_ssl/
 license: MIT
 labels:
-  DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    python_targets_python3_7? ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-  IUSE: python_targets_python3_7
-  RDEPEND: dev-python/idna[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    python_targets_python3_7? ( dev-lang/python:3.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+  DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
+    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  IUSE: python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10
+  RDEPEND: dev-python/idna[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
+    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
   emerge.packages: dev-python/idna-ssl
   kit: python-modules-kit
   original.package.name: dev-python/idna-ssl
