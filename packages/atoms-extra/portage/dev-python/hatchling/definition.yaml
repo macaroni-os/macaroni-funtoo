@@ -1,5 +1,5 @@
 name: hatchling
-version: 1.8.0
+version: 1.8.0+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -25,6 +25,13 @@ requires:
 - name: tomli
   version: '>=0'
   category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 uri:
 - https://pypi.org/project/hatchling/
 license: MIT
