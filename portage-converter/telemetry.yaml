@@ -120,11 +120,37 @@ artefacts:
     - app-metrics/node_exporter-bin
     - app-metrics/redis_exporter-bin
     - app-metrics/mysqld_exporter-bin
-    - app-metrics/memcached_exporter-bin
     - app-metrics/consul_exporter-bin
     - app-metrics/blackbox_exporter-bin
     - www-apps/grafana-bin
     - app-metrics/prometheus-bin
+
+- tree: packages/atoms-extra/telemetry
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - sasl
+      - libressl
+      - examples
+      - static-libs
+      - debug
+      - test
+  packages:
+    - app-metrics/memcached_exporter-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e memcached_exporter
 
 - tree: packages/atoms-extra/telemetry
   annotations:

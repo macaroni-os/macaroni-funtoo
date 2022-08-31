@@ -144,6 +144,18 @@ artefacts:
     - sys-apps/lsb-release
 
 - tree: packages/atoms-extra/service
+  packages:
+    - net-dns/coredns
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e coredns
+
+- tree: packages/atoms-extra/service
   mutations:
     buildtime_deps:
       packages:
