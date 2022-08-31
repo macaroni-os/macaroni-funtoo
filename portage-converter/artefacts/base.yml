@@ -600,6 +600,16 @@ artefacts:
   packages:
   - sys-apps/coreutils
 - tree: packages/atoms/base
+  mutations:
+    uses:
+      - ssl
+      - -libressl
+    runtime_deps:
+      # It seems that is linked also when zstd is
+      # disabled
+      packages:
+        - category: app-arch
+          name: zstd
   uses:
     disabled:
     - debug
@@ -610,6 +620,7 @@ artefacts:
     - sh
     - static-libs
     enabled:
+    - pkcs7
     - python
     - python_targets_python2_7
     - python_targets_python3_7

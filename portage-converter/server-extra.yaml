@@ -1543,6 +1543,27 @@ artefacts:
   uses:
     disabled:
       - debug
+      - sasl
+      - selinux
+      - test
+    enabled:
+      - seccomp
+  packages:
+    - net-misc/memcached
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e memcached
+
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+      - debug
       - firebird
       - iodbc
       - kerberos
