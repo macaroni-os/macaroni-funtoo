@@ -26,7 +26,7 @@ prelude:
 # Apply macaroni customization
 - >-
   sed -i
-  -e 's|^VERSION_ID.*|VERSION_ID={{ ( index .Values.labels "macaroni.version" ) }}|g'
+  -e 's|^DISTRIB_RELEASE.*|DISTRIB_RELEASE={{ ( index .Values.labels "macaroni.version" ) }}|g'
   -e 's|^LSB_VERSION.*|LSB_VERSION="funtoo-macaroni-{{ ( index .Values.labels "macaroni.version" ) }}-amd64"|g'
   lsb-release &&
   cp lsb-release /pkgdir/{{ .Values.name }}/etc/
