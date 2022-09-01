@@ -1,5 +1,5 @@
 name: nano
-version: "6.3"
+version: "6.4"
 category: app-editors
 use_flags:
 - -slang
@@ -21,16 +21,14 @@ license: GPL-3
 labels:
   BDEPEND: nls? ( sys-devel/gettext ) virtual/pkgconfig
   DEPEND: '!static? ( >=sys-libs/ncurses-5.9-r1:0=[unicode?] sys-libs/ncurses:0= magic?
-    ( sys-apps/file ) nls? ( virtual/libintl ) !ncurses? ( slang? ( sys-libs/slang
-    ) ) ) static? ( >=sys-libs/ncurses-5.9-r1:0=[unicode?] sys-libs/ncurses:0=[static-libs(+)]
-    magic? ( sys-apps/file[static-libs(+)] ) nls? ( virtual/libintl ) !ncurses? (
-    slang? ( sys-libs/slang[static-libs(+)] ) ) )'
-  IUSE: debug justify +magic minimal ncurses nls slang +spell static unicode
+    ( sys-apps/file ) nls? ( virtual/libintl ) ) static? ( >=sys-libs/ncurses-5.9-r1:0=[unicode?]
+    sys-libs/ncurses:0=[static-libs(+)] magic? ( sys-apps/file[static-libs(+)] ) nls?
+    ( virtual/libintl ) )'
+  IUSE: debug justify +magic minimal ncurses nls +spell static unicode
   RDEPEND: '!static? ( >=sys-libs/ncurses-5.9-r1:0=[unicode?] sys-libs/ncurses:0=
-    magic? ( sys-apps/file ) nls? ( virtual/libintl ) !ncurses? ( slang? ( sys-libs/slang
-    ) ) )'
+    magic? ( sys-apps/file ) nls? ( virtual/libintl ) )'
   emerge.packages: app-editors/nano
   kit: core-kit
   original.package.name: app-editors/nano
   original.package.slot: "0"
-  original.package.version: "6.3"
+  original.package.version: "6.4"
