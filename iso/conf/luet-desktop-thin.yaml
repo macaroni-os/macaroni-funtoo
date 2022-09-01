@@ -7,6 +7,19 @@ general:
 
   client_timeout: 0
 
+
+system:
+  rootfs: "/"
+  database_engine: "boltdb"
+  database_path: /var/cache/luet
+
+tar_flows:
+  max_openfiles: 50
+  copy_buffer_size: 64
+
+repos_confdir:
+- /etc/luet/repos.conf.d
+
 repositories:
 - name: "geaaru-repo-index"
   description: "Geaaru Repository index"
@@ -15,7 +28,8 @@ repositories:
   cached: true
   priority: 1
   urls:
-    - https://raw.githubusercontent.com/geaaru/repo-index/gh-pages
+    - "https://cdn.macaroni.funtoo.org/mottainai/geaaru-repo-index"
+    - "https://raw.githubusercontent.com/geaaru/repo-index/gh-pages"
 
 solver:
   implementation: "solverv2"
