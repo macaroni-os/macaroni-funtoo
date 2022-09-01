@@ -1,5 +1,5 @@
 name: systemd
-version: "249.12"
+version: "251.4"
 category: sys-apps
 use_flags:
 - -apparmor
@@ -79,10 +79,12 @@ labels:
   BDEPEND: app-arch/xz-utils:0 dev-util/gperf >=dev-util/meson-0.46 >=dev-util/intltool-0.50
     >=sys-apps/coreutils-8.16 sys-devel/m4 virtual/pkgconfig[-mgorny(-)] test? ( sys-apps/dbus
     ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets
-    dev-libs/libxslt:0 || ( ( dev-lang/python:3.8 dev-python/lxml[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    dev-libs/libxslt:0 || ( ( dev-lang/python:3.10 dev-python/lxml[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/lxml[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/lxml[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/lxml[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) || ( ( dev-lang/python:3.8 dev-python/jinja[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ) || ( ( dev-lang/python:3.10 dev-python/jinja[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/jinja[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/jinja[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/jinja[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig virtual/pkgconfig
@@ -113,4 +115,4 @@ labels:
   kit: geaaru-kit
   original.package.name: sys-apps/systemd
   original.package.slot: "0"
-  original.package.version: "249.12"
+  original.package.version: "251.4"
