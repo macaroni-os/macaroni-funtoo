@@ -16,7 +16,6 @@ prelude:
   luet cleanup --purge-repos &&
   eselect java-vm set system 1 &&
   mkdir /etc/portage/package.use/ -p &&
-  rm -vrf /var/git/meta-repo/kits/python-modules-kit/dev-python/m2r/* &&
   cp -rvf patches/tempita/* /var/git/meta-repo/kits/python-modules-kit/dev-python/tempita/ &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS dev-python/docutils &&
