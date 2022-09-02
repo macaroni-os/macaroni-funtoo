@@ -1,5 +1,5 @@
 name: shaderc
-version: "2022.1"
+version: "2022.2"
 category: media-libs
 use_flags:
 - -doc
@@ -24,17 +24,17 @@ uri:
 license: Apache-2.0
 labels:
   BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
-  DEPEND: '>=dev-util/glslang-10.11.0.0_pre20200924 >=dev-util/spirv-tools-2020.5_pre20201107
-    || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) >=dev-util/spirv-headers-1.5.4
-    doc? ( dev-ruby/asciidoctor ) test? ( dev-cpp/gtest || ( ( dev-lang/python:3.8
-    dev-python/nose[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  DEPEND: dev-util/glslang dev-util/spirv-tools || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) dev-util/spirv-headers doc? ( dev-ruby/asciidoctor
+    ) test? ( dev-cpp/gtest || ( ( dev-lang/python:3.10 dev-python/nose[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/nose[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/nose[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/nose[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) )'
+    ) ) )
   IUSE: doc test
-  RDEPEND: '>=dev-util/glslang-10.11.0.0_pre20200924 >=dev-util/spirv-tools-2020.5_pre20201107'
+  RDEPEND: dev-util/glslang dev-util/spirv-tools
   emerge.packages: media-libs/shaderc
   kit: media-kit
   original.package.name: media-libs/shaderc
   original.package.slot: "0"
-  original.package.version: "2022.1"
+  original.package.version: "2022.2"
