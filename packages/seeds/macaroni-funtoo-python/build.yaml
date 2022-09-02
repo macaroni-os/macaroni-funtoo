@@ -18,8 +18,6 @@ prelude:
   mkdir /etc/portage/package.use/ -p &&
   rm -vrf /var/git/meta-repo/kits/python-modules-kit/dev-python/m2r/* &&
   cp -rvf patches/tempita/* /var/git/meta-repo/kits/python-modules-kit/dev-python/tempita/ &&
-  cp -rvf patches/m2r/* /var/git/meta-repo/kits/python-modules-kit/dev-python/m2r/ &&
-  cp -rvf patches/m2r-compat/ /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS dev-python/docutils &&
   emerge -t -j $JOBS dev-python/m2r &&
