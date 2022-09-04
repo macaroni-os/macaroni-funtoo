@@ -6,11 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Temporary fix KEYWORDS
 - >-
   eval 'mkdir -p /etc/portage/package.license' &&
-  echo "www-client/vivaldi Vivaldi" > /etc/portage/package.license/99-browser-vivaldi.license &&
-  sed -e 's|^KEYWORDS.*|KEYWORDS="*"|g' -i /var/git/meta-repo/kits/browser-kit/www-client/vivaldi/vivaldi-5.3.2679.73_p1.ebuild
+  echo "www-client/vivaldi Vivaldi" > /etc/portage/package.license/99-browser-vivaldi.license
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
