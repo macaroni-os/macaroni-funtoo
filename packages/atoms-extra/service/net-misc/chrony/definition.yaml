@@ -1,15 +1,18 @@
 name: chrony
-version: "4.0"
+version: 4.0+1
 category: net-misc
 use_flags:
-- -caps
 - -html
 - -libedit
 - -nettle
 - -pps
 - -seccomp
 - -selinux
+- caps
 requires:
+- name: libcap
+  version: '>=0'
+  category: sys-libs
 - name: tmpfiles
   version: '>=0'
   category: virtual
