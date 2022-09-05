@@ -263,6 +263,14 @@ artefacts:
 
 - tree: packages/atoms-extra/service
   uses:
+    disabled:
+      - libressl
+      - selinux
+  packages:
+    - net-misc/openntpd
+
+- tree: packages/atoms-extra/service
+  uses:
     enabled:
       - caps
       - dbi
