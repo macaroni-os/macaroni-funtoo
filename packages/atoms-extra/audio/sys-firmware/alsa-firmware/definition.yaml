@@ -1,0 +1,41 @@
+name: alsa-firmware
+version: 1.2.4
+category: sys-firmware
+use_flags:
+- alsa_cards_hdsp
+- alsa_cards_hdspm
+- alsa_cards_usb-usx2y
+requires:
+- name: alsa-tools
+  version: '>=0'
+  category: media-sound-0.9
+- name: fxload
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Advanced Linux Sound Architecture firmware
+uri:
+- https://alsa-project.org/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  IUSE: alsa_cards_cs46xx alsa_cards_pcxhr alsa_cards_vx222 alsa_cards_usb-usx2y alsa_cards_hdsp
+    alsa_cards_hdspm alsa_cards_mixart alsa_cards_asihpi alsa_cards_sb16 alsa_cards_korg1212
+    alsa_cards_maestro3 alsa_cards_ymfpci alsa_cards_wavefront alsa_cards_msnd-pinnacle
+    alsa_cards_aica alsa_cards_ca0132 alsa_cards_darla20 alsa_cards_gina20 alsa_cards_layla20
+    alsa_cards_darla24 alsa_cards_gina24 alsa_cards_layla24 alsa_cards_mona alsa_cards_mia
+    alsa_cards_indigo alsa_cards_indigoio alsa_cards_echo3g alsa_cards_emu1212 alsa_cards_emu1616
+    alsa_cards_emu1820 alsa_cards_emu10k1
+  RDEPEND: alsa_cards_usb-usx2y? ( sys-apps/fxload ) alsa_cards_hdsp? ( media-sound/alsa-tools
+    ) alsa_cards_hdspm? ( media-sound/alsa-tools )
+  emerge.packages: sys-firmware/alsa-firmware
+  kit: core-kit
+  original.package.name: sys-firmware/alsa-firmware
+  original.package.slot: "0"
+  original.package.version: 1.2.4
