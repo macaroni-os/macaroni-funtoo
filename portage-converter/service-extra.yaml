@@ -144,6 +144,11 @@ artefacts:
     - sys-apps/lsb-release
 
 - tree: packages/atoms-extra/service
+  mutations:
+    runtime_deps:
+      packages:
+        - category: entities-catalog
+          name: macaroni
   packages:
     - net-dns/coredns
   finalizer:
