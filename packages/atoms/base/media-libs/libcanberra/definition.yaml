@@ -1,5 +1,5 @@
 name: libcanberra
-version: 0.30+3
+version: 0.30+4
 category: media-libs
 use_flags:
 - -tdb
@@ -45,18 +45,18 @@ uri:
 - http://git.0pointer.net/libcanberra.git/
 license: LGPL-2.1+
 labels:
+  BDEPEND: app-arch/xz-utils virtual/pkgconfig virtual/pkgconfig
   DEPEND: dev-libs/libltdl:0[-mgorny(-)] media-libs/libvorbis[-mgorny(-)] alsa? (
     media-libs/alsa-lib:=[-mgorny(-)] udev? ( virtual/libudev:=[-mgorny(-)] ) ) gstreamer?
-    ( media-libs/gstreamer:1.0[-mgorny(-)] ) gtk? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
+    ( media-libs/gstreamer:1.0[-mgorny(-)] ) gtk2? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
     >=x11-libs/gtk+-2.20.0:2[-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) gtk3? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
     x11-libs/gtk+:3[X,-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) pulseaudio? ( >=media-sound/pulseaudio-0.9.11[-mgorny(-)]
-    ) tdb? ( sys-libs/tdb:=[-mgorny(-)] ) app-arch/xz-utils virtual/pkgconfig >=app-portage/elt-patches-20170815
-    virtual/pkgconfig
-  IUSE: alsa gnome gstreamer +gtk +gtk3 oss pulseaudio +sound tdb udev abi_x86_32
+    ) tdb? ( sys-libs/tdb:=[-mgorny(-)] )
+  IUSE: alsa gnome gstreamer +gtk2 +gtk3 oss pulseaudio +sound tdb udev abi_x86_32
     abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
   RDEPEND: dev-libs/libltdl:0[-mgorny(-)] media-libs/libvorbis[-mgorny(-)] alsa? (
     media-libs/alsa-lib:=[-mgorny(-)] udev? ( virtual/libudev:=[-mgorny(-)] ) ) gstreamer?
-    ( media-libs/gstreamer:1.0[-mgorny(-)] ) gtk? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
+    ( media-libs/gstreamer:1.0[-mgorny(-)] ) gtk2? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
     >=x11-libs/gtk+-2.20.0:2[-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) gtk3? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
     x11-libs/gtk+:3[X,-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) pulseaudio? ( >=media-sound/pulseaudio-0.9.11[-mgorny(-)]
     ) tdb? ( sys-libs/tdb:=[-mgorny(-)] ) gnome? ( gnome-base/dconf gnome-base/gsettings-desktop-schemas
@@ -64,4 +64,5 @@ labels:
   emerge.packages: media-libs/libcanberra
   kit: media-kit
   original.package.name: media-libs/libcanberra
-  original.package.version: 0.30-r5
+  original.package.slot: "0"
+  original.package.version: 0.30-r6
