@@ -2,6 +2,7 @@ requires:
   - name: "kernel"
     category: "seed-5.10"
     version: ">=0"
+package_dir: /{{ .Values.name }}
 env:
 - KVER={{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }}
 - GIT_HASH=e3ef10e3a6b3a002af800d658efa904e0d30f1a2
@@ -21,4 +22,6 @@ prelude:
   make
 steps:
 - >-
-  cd {{ .Values.name }} && make install
+  cd {{ .Values.name }} &&
+  sed -e 's|^MODDESTDIR.*|MODDESTDIR := /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/kernel/drivers/net/wireless/realtek/rtw89/|g' -i Makefile &&
+  make install
