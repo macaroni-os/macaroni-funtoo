@@ -1,5 +1,5 @@
 name: libdv
-version: 1.0.0+3
+version: 1.0.0+4
 category: media-libs
 requires:
 - name: popt
@@ -17,11 +17,15 @@ uri:
 - http://libdv.sourceforge.net/
 license: GPL-2
 labels:
-  DEPEND: dev-libs/popt virtual/pkgconfig >=app-portage/elt-patches-20170317 >=app-portage/elt-patches-20170815
-  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
-    abi_s390_32 abi_s390_64
-  RDEPEND: dev-libs/popt
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/popt:= media-libs/libsdl
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  RDEPEND: dev-libs/popt:=
   emerge.packages: media-libs/libdv
   kit: media-kit
   original.package.name: media-libs/libdv
-  original.package.version: 1.0.0-r4
+  original.package.slot: "0"
+  original.package.version: 1.0.0-r5
