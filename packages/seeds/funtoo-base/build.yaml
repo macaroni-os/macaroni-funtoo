@@ -23,6 +23,11 @@ prelude:
   entities list users &&
   entities list groups
 #steps:
+# temporary patch until the next kits upgrade
+- >-
+  rm /var/git/meta-repo/kits/core-kit/sys-apps/less/less-608.ebuild &&
+  wget -O /var/git/meta-repo/kits/core-kit/sys-apps/less/less-608.ebuild
+  https://raw.githubusercontent.com/funtoo/core-kit/93972aaea7013cf0f397b3fa5fbd6a2f398b7b7b/sys-apps/less/less-608.ebuild
 - >-
   emerge --unmerge
   sys-fs/lvm2
