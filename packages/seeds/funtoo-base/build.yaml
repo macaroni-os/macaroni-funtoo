@@ -53,6 +53,13 @@ prelude:
   cp patches/babl/babl-0.1.78.ebuild /var/git/meta-repo/kits/gnome-kit/media-libs/babl/babl-0.1.78.ebuild
 
 - >-
+  wget -O /var/git/meta-repo/kits/core-gl-kit/media-libs/mesa/mesa-20.2.4-r2.ebuild
+  https://raw.githubusercontent.com/funtoo/core-gl-kit/next/media-libs/mesa/mesa-20.2.4-r2.ebuild &&
+  cd /var/git/meta-repo/kits/core-gl-kit/media-libs/mesa/ &&
+  rm Manifest &&
+  ebuild mesa-20.2.4-r2.ebuild digest && cd -
+
+- >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
   emerge -t -j $JOBS -DN @world &&
