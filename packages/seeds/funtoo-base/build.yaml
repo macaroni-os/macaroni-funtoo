@@ -49,6 +49,10 @@ prelude:
   ebuild /var/git/meta-repo/kits/media-kit/media-fonts/noto/noto-20220613.ebuild digest
 
 - >-
+  cp -rvf patches/babl/files /var/git/meta-repo/kits/gnome-kit/media-libs/babl/ &&
+  cp patches/babl/babl-0.1.78.ebuild /var/git/meta-repo/kits/gnome-kit/media-libs/babl/babl-0.1.78.ebuild
+
+- >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
   emerge -t -j $JOBS -DN @world &&
