@@ -70,11 +70,11 @@ steps:
   whip hook eclass_db.db_fix_so &&
   cd / && rm -rf /luetbuild &&
   emerge -t -j $JOBS {{ ( index .Values.labels "emerge.packages" ) }} &&
-  rm -rf /var/cache/portage/distfiles/*
+  rm -rf /var/cache/portage/distfiles/* &&
+  mkdir /layer
 
 # TODO: fix this hook
 # whip hook perl.postinst &&
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
 
-excludes:
-- ^/.*
+package_dir: /layer

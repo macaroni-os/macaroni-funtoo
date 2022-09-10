@@ -65,11 +65,11 @@ steps:
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   whip hook eclass_db.db_fix_so &&
-  cd / && rm -rf /luetbuild
+  cd / && rm -rf /luetbuild &&
+  mkdir /layer
 
 # TODO: fix this hook
 # whip hook perl.postinst &&
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
 
-excludes:
-- ^/.*
+package_dir: /layer
