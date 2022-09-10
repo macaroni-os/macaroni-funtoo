@@ -64,6 +64,10 @@ prelude:
   cp patches/gedit/gedit-3.36.2.ebuild /var/git/meta-repo/kits/gnome-kit/app-editors/gedit/gedit-3.36.2.ebuild
 
 - >-
+  cp -rvf patches/eog/files /var/git/meta-repo/kits/gnome-kit/media-gfx/eog/ &&
+  cp patches/eog/eog-3.36.3.ebuild /var/git/meta-repo/kits/gnome-kit/media-gfx/eog/eog-3.36.3.ebuild
+
+- >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
   emerge -t -j $JOBS -DN @world &&

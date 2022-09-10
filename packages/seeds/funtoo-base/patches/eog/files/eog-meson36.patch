@@ -1,0 +1,20 @@
+diff --git a/data/meson.build.orig b/data/meson.build
+index 17c9140..0228c3c 100644
+--- a/data/meson.build.orig
++++ b/data/meson.build
+@@ -23,7 +23,6 @@ desktop_in = configure_file(
+ )
+ 
+ i18n.merge_file(
+-  desktop,
+   type: 'desktop',
+   input: desktop_in,
+   output: desktop,
+@@ -35,7 +34,6 @@ i18n.merge_file(
+ appdata = 'eog.appdata.xml'
+ 
+ i18n.merge_file(
+-  appdata,
+   input: appdata + '.in',
+   output: appdata,
+   po_dir: po_dir,
