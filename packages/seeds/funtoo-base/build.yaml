@@ -73,6 +73,10 @@ prelude:
   rm Manifest && ebuild gtk-vnc-1.3.1.ebuild digest && cd -
 
 - >-
+  cp -rvf patches/totem/files /var/git/meta-repo/kits/gnome-kit/media-video/totem/ &&
+  cp -vf patches/totem/totem-3.34.1.ebuild /var/git/meta-repo/kits/gnome-kit/media-video/totem
+
+- >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
   emerge -t -j $JOBS -DN @world &&
