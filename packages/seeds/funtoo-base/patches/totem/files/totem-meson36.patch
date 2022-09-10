@@ -1,0 +1,24 @@
+diff --git a/data/meson.build.orig b/data/meson.build
+index aecc657..5d9eea8 100644
+--- a/data/meson.build.orig
++++ b/data/meson.build
+@@ -68,7 +68,6 @@ desktop_in = configure_file(
+ )
+ 
+ i18n.merge_file (
+-  desktop,
+   type: 'desktop',
+   input: desktop_in,
+   output: desktop,
+diff --git a/data/appdata/meson.build.orig b/data/appdata/meson.build
+index 7f82d37..c6bcc57 100644
+--- a/data/appdata/meson.build.orig
++++ b/data/appdata/meson.build
+@@ -1,6 +1,6 @@
+ appdata = 'org.gnome.Totem.appdata.xml'
+ 
+-i18n.merge_file ('appdata',
++i18n.merge_file (
+                  input: appdata + '.in',
+                  output: appdata,
+                  install: true,
