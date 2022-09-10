@@ -77,6 +77,10 @@ prelude:
   cp -vf patches/totem/totem-3.34.1.ebuild /var/git/meta-repo/kits/gnome-kit/media-video/totem
 
 - >-
+  cp -rvf patches/gnome-shell/files /var/git/meta-repo/kits/gnome-kit/gnome-base/gnome-shell &&
+  cp -vf patches/gnome-shell/gnome-shell-3.36.7-r1.ebuild /var/git/meta-repo/kits/gnome-kit/gnome-base/gnome-shell/
+
+- >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
   emerge -t -j $JOBS -DN @world &&

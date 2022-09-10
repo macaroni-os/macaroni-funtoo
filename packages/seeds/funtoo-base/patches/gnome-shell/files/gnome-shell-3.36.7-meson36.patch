@@ -1,0 +1,50 @@
+diff --git a/data/meson.build.orig b/data/meson.build
+index 803e682..bdacd24 100644
+--- a/data/meson.build.orig
++++ b/data/meson.build
+@@ -16,7 +16,7 @@ desktopconf.set('bindir', bindir)
+ desktopconf.set('systemd_hidden', have_systemd ? 'true' : 'false')
+ 
+ foreach desktop_file : desktop_files
+-  i18n.merge_file('desktop',
++  i18n.merge_file(
+     input: configure_file(
+       input: desktop_file + '.in.in',
+       output: desktop_file + '.in',
+diff --git a/./src/calendar-server/meson.build.orig b/./src/calendar-server/meson.build
+index 7363282..8b4ef41 100644
+--- a/./src/calendar-server/meson.build.orig
++++ b/./src/calendar-server/meson.build
+@@ -27,7 +27,7 @@ configure_file(
+   install_dir: servicedir
+ )
+ 
+-i18n.merge_file('evolution-calendar.desktop',
++i18n.merge_file(
+   input: 'evolution-calendar.desktop.in',
+   output: 'evolution-calendar.desktop',
+   po_dir: po_dir,
+diff --git a/./subprojects/extensions-app/data/metainfo/meson.build.orig b/./subprojects/extensions-app/data/metainfo/meson.build
+index dcdb03b..bd87123 100644
+--- a/./subprojects/extensions-app/data/metainfo/meson.build.orig
++++ b/./subprojects/extensions-app/data/metainfo/meson.build
+@@ -1,5 +1,5 @@
+ metainfo = app_id + '.metainfo.xml'
+-i18n.merge_file(metainfo,
++i18n.merge_file(
+   input: metainfo + '.in',
+   output: metainfo,
+   po_dir: po_dir,
+diff --git a/./subprojects/extensions-app/data/meson.build.orig b/./subprojects/extensions-app/data/meson.build
+index 0568faf..9bcd421 100644
+--- a/./subprojects/extensions-app/data/meson.build.orig
++++ b/./subprojects/extensions-app/data/meson.build
+@@ -13,7 +13,7 @@ desktopconf.set('bindir', bindir)
+ desktopconf.set('app_id', app_id)
+ desktopconf.set('prgname', prgname)
+ 
+-i18n.merge_file('desktop',
++i18n.merge_file(
+   input: configure_file(
+     input: app_id + '.desktop.in.in',
+     output: app_id + '.desktop.in',
