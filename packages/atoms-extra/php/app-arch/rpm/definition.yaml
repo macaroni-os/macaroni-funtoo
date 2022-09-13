@@ -1,5 +1,5 @@
 name: rpm
-version: 4.17.1
+version: 4.17.1.1
 category: app-arch
 use_flags:
 - -doc
@@ -76,12 +76,13 @@ labels:
     ) dbus? ( sys-apps/dbus ) sqlite? ( dev-db/sqlite:3 ) python? ( python_single_target_python3_7?
     ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
     ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
-    nls? ( virtual/libintl ) zstd? ( app-arch/zstd:= ) dev-lang/perl:='
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    ) nls? ( virtual/libintl ) zstd? ( app-arch/zstd:= ) dev-lang/perl:='
   IUSE: acl audit caps +berkdb doc dbus nls openmp python selinux +sqlite test +zstd
     +lua_single_target_lua5-3 python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: '!app-arch/rpm5 app-arch/libarchive:= >=app-arch/bzip2-1.0.1 app-arch/xz-utils
     >=app-crypt/gnupg-1.2 >=dev-lang/perl-5.8.8 dev-libs/elfutils dev-libs/libgcrypt:=
     >=dev-libs/popt-1.7 sys-apps/file >=sys-libs/zlib-1.2.3-r1 virtual/libintl =dev-lua/lua-5.3*
@@ -89,11 +90,12 @@ labels:
     ) dbus? ( sys-apps/dbus ) sqlite? ( dev-db/sqlite:3 ) python? ( python_single_target_python3_7?
     ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
     ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
-    nls? ( virtual/libintl ) zstd? ( app-arch/zstd:= ) selinux? ( sec-policy/selinux-rpm
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    ) nls? ( virtual/libintl ) zstd? ( app-arch/zstd:= ) selinux? ( sec-policy/selinux-rpm
     ) dev-lang/perl:='
   emerge.packages: app-arch/rpm
   kit: core-kit
   original.package.name: app-arch/rpm
   original.package.slot: "0"
-  original.package.version: 4.17.1
+  original.package.version: 4.17.1.1
