@@ -4,13 +4,15 @@ build:
 release:
   header: |
     ## Funtoo Macaroni Phoenix {{ .Tag }}!
-
 changelog:
   sort: asc
   groups:
+    - title: New packages
+      regexp: ".*new.*"
+      order: 1
     - title: Packages
       regexp: ".*Bump.*"
-      order: 1
+      order: 2
     - title: Others
       order: 9999
   filters:
@@ -18,4 +20,5 @@ changelog:
       - '^.github'
       - '^github'
       - '^portage-converter'
+      - '^.gorelease'
       - '^Revert.*'
