@@ -1,0 +1,6 @@
+install:
+- >-
+  depmod -a {{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} || true
+shell:
+  - bash
+  - -c

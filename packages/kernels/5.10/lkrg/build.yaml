@@ -1,0 +1,33 @@
+requires:
+  - name: "kernel"
+    category: "seed-5.10"
+    version: ">=0"
+env:
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  epro list &&
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  {{- else }}
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  {{- end }}
+- |
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }}
+  {{- else }}
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }}
+  {{- end }}
+- |
+  eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
+  luet-portage --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
+
+excludes:
+# Funtoo/Portage stuff
+- ^/var/db/pkg/
+- ^/var/cache/portage/
+- ^/var/git/
+
+# Devel files
+#- ^/usr/include
