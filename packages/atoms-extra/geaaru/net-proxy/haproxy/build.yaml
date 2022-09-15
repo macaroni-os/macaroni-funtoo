@@ -9,6 +9,11 @@ prelude:
 - >-
   eval 'mkdir -p /etc/portage/package.mask/ || true' &&
   echo ">=net-proxy/haproxy-2.6.0" > /etc/portage/package.mask/10-haproxy.mask
+# Temporary fix until FL-10497 is gone
+- >-
+  sed -e 's|^ssl|tls-compression|g'
+  -e 's|zlib?|tls-compression?|g' -i
+  /var/git/meta-repo/kits/core-server-kit/net-proxy/haproxy/haproxy-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
