@@ -9,7 +9,8 @@ steps:
 - mkdir -p /{{.Values.name}}/usr/bin
 - mkdir -p /{{.Values.name}}/etc/skel/Desktop
 - cp -rf Installer.sh /{{.Values.name}}/usr/bin/installer.sh && chmod +x /{{.Values.name}}/usr/bin/installer.sh
-- cp -rfv Installer.desktop /{{.Values.name}}/etc/skel/Desktop/Installer.desktop && chmod +x /{{.Values.name}}/etc/skel/Desktop/Installer.desktop
+# Using install icon
+#- cp -rfv Installer.desktop /{{.Values.name}}/etc/skel/Desktop/Installer.desktop && chmod +x /{{.Values.name}}/etc/skel/Desktop/Installer.desktop
 - mkdir -p /{{.Values.name}}/usr/share/pixmaps
 - cp -rfv installer-desktop-icon.png /{{.Values.name}}/usr/share/pixmaps
 # Branding
