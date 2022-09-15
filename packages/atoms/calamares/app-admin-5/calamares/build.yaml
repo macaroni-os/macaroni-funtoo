@@ -8,9 +8,9 @@ env:
 prelude:
 # Until pushed to funtoo upstream
 - >-
-  cp calamares-3.2.45.ebuild /var/git/meta-repo/kits/kde-kit/app-admin/calamares &&
+  cp calamares-{{ ( index .Values.labels "original.package.version" ) }}.ebuild /var/git/meta-repo/kits/kde-kit/app-admin/calamares &&
   cd /var/git/meta-repo/kits/kde-kit/app-admin/calamares/ &&
-  ebuild calamares-3.2.45.ebuild digest
+  ebuild calamares-{{ ( index .Values.labels "original.package.version" ) }}.ebuild digest
 
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
