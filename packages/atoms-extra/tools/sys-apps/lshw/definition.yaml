@@ -1,0 +1,37 @@
+name: lshw
+version: 02.18b
+category: sys-apps
+use_flags:
+- gtk
+- sqlite
+requires:
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: hwids
+  version: '>=0'
+  category: sys-apps
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Hardware Lister
+uri:
+- https://www.ezix.org/project/wiki/HardwareLiSter
+license: GPL-2
+labels:
+  DEPEND: gtk? ( x11-libs/gtk+:2 ) sqlite? ( dev-db/sqlite:3 ) gtk? ( virtual/pkgconfig
+    ) sqlite? ( virtual/pkgconfig )
+  IUSE: gtk sqlite static
+  RDEPEND: gtk? ( x11-libs/gtk+:2 ) sqlite? ( dev-db/sqlite:3 ) sys-apps/hwids
+  emerge.packages: sys-apps/lshw
+  kit: core-hw-kit
+  original.package.name: sys-apps/lshw
+  original.package.slot: "0"
+  original.package.version: 02.18b-r1
