@@ -133,7 +133,7 @@ def run():
     #configure_services(install_path)
 
     if len(luet_packages2remove) > 0:
-        args = ["luet", "uninstall", "-y"]
+        args = ["luet", "uninstall", "-y", "--nodeps" ]
         # args = args + luet_packages2remove
         # libcalamares.utils.target_env_call(args)
         # Temporary trying to remove every package singolary
