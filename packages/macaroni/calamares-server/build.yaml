@@ -7,13 +7,13 @@ steps:
   cp -rfv modules-conf/* /{{.Values.name}}/etc/calamares/ &&
   cp -rfv macaroni /{{.Values.name}}/usr/lib64/calamares/modules/
 #cp -rfv Installer.desktop /{{.Values.name}}/etc/skel/Desktop/Installer.desktop &&
+# chmod +x /{{.Values.name}}/etc/skel/Desktop/Installer.desktop &&
 # Desktop icons, launcher
 - >-
   mkdir -p /{{.Values.name}}/usr/bin &&
   mkdir -p /{{.Values.name}}/etc/skel/Desktop &&
   cp -rf Installer.sh /{{.Values.name}}/usr/bin/installer.sh &&
   chmod +x /{{.Values.name}}/usr/bin/installer.sh &&
-  chmod +x /{{.Values.name}}/etc/skel/Desktop/Installer.desktop &&
   mkdir -p /{{.Values.name}}/usr/share/pixmaps &&
   mkdir -p /{{ .Values.name }}/home/macaroni/ &&
   cp xinitrc /{{ .Values.name }}/home/macaroni/.xinitrc &&
