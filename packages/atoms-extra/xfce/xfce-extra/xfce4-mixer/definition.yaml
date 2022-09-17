@@ -1,0 +1,50 @@
+name: xfce4-mixer
+version: 4.15.0_pre20211111
+category: xfce-extra
+use_flags:
+- keybinder
+- pulseaudio
+- sndio
+requires:
+- name: keybinder
+  version: '>=0'
+  category: dev-libs-3
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A volume control application and panel plug-in for Xfce
+uri:
+- https://git.xfce.org/apps/xfce4-mixer/
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=dev-libs/glib-2.42 media-libs/gst-plugins-base:1.0[alsa?] >=x11-libs/gtk+-3.14.0:3
+    >=xfce-base/libxfce4ui-4.12 >=xfce-base/libxfce4util-4.12 >=xfce-base/xfce4-panel-4.12
+    >=xfce-base/xfconf-4.12 keybinder? ( dev-libs/keybinder:3 ) pulseaudio? ( media-sound/pulseaudio
+    ) sndio? ( media-sound/sndio ) dev-util/intltool dev-util/xfce4-dev-tools sys-devel/gettext
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: alsa debug +keybinder pulseaudio sndio
+  RDEPEND: '>=dev-libs/glib-2.42 media-libs/gst-plugins-base:1.0[alsa?] >=x11-libs/gtk+-3.14.0:3
+    >=xfce-base/libxfce4ui-4.12 >=xfce-base/libxfce4util-4.12 >=xfce-base/xfce4-panel-4.12
+    >=xfce-base/xfconf-4.12 keybinder? ( dev-libs/keybinder:3 ) pulseaudio? ( media-sound/pulseaudio
+    ) sndio? ( media-sound/sndio )'
+  emerge.packages: xfce-extra/xfce4-mixer
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-mixer
+  original.package.slot: "0"
+  original.package.version: 4.15.0_pre20211111
