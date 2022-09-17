@@ -1,0 +1,74 @@
+name: tumbler
+version: 4.16.0
+category: xfce-extra
+use_flags:
+- curl
+- epub
+- ffmpeg
+- gstreamer
+- jpeg
+- odf
+- pdf
+- raw
+requires:
+- name: libgepub
+  version: '>=0'
+  category: app-text
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: libgsf
+  version: '>=0'
+  category: gnome-extra
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: libopenraw
+  version: '>=0'
+  category: media-libs
+- name: gst-plugins-meta
+  version: '>=0'
+  category: media-plugins-1.0
+- name: ffmpegthumbnailer
+  version: '>=0'
+  category: media-video
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: thunar
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A thumbnail service for Thunar
+uri:
+- https://docs.xfce.org/xfce/thunar/start
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.50:2 media-libs/freetype:2= media-libs/libpng:0= >=sys-apps/dbus-1.6
+    >=x11-libs/gdk-pixbuf-2.14:2 curl? ( >=net-misc/curl-7.25:= ) epub? ( app-text/libgepub
+    ) ffmpeg? ( >=media-video/ffmpegthumbnailer-2.0.8:= ) gstreamer? ( media-libs/gstreamer:1.0
+    media-libs/gst-plugins-base:1.0 ) jpeg? ( virtual/jpeg:0= ) odf? ( >=gnome-extra/libgsf-1.14.20:=
+    ) pdf? ( >=app-text/poppler-0.12.4[cairo] ) raw? ( >=media-libs/libopenraw-0.0.8:=[gtk]
+    ) dev-util/gdbus-codegen dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig'
+  IUSE: curl epub ffmpeg gstreamer jpeg odf pdf raw
+  RDEPEND: '>=dev-libs/glib-2.50:2 media-libs/freetype:2= media-libs/libpng:0= >=sys-apps/dbus-1.6
+    >=x11-libs/gdk-pixbuf-2.14:2 curl? ( >=net-misc/curl-7.25:= ) epub? ( app-text/libgepub
+    ) ffmpeg? ( >=media-video/ffmpegthumbnailer-2.0.8:= ) gstreamer? ( media-libs/gstreamer:1.0
+    media-libs/gst-plugins-base:1.0 ) jpeg? ( virtual/jpeg:0= ) odf? ( >=gnome-extra/libgsf-1.14.20:=
+    ) pdf? ( >=app-text/poppler-0.12.4[cairo] ) raw? ( >=media-libs/libopenraw-0.0.8:=[gtk]
+    ) >=xfce-base/thunar-1.4 gstreamer? ( media-plugins/gst-plugins-meta:1.0 )'
+  emerge.packages: xfce-extra/tumbler
+  kit: xfce-kit
+  original.package.name: xfce-extra/tumbler
+  original.package.slot: "0"
+  original.package.version: 4.16.0
