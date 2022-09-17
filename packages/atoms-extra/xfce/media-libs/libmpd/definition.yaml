@@ -1,0 +1,29 @@
+name: libmpd
+version: 11.8.17
+category: media-libs
+use_flags:
+- -doc
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library handling connections to a MPD server
+uri:
+- http://gmpc.wikia.com/wiki/Libmpd
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.16:2 virtual/pkgconfig doc? ( app-doc/doxygen )'
+  IUSE: doc static-libs
+  RDEPEND: '>=dev-libs/glib-2.16:2'
+  emerge.packages: media-libs/libmpd
+  kit: media-kit
+  original.package.name: media-libs/libmpd
+  original.package.slot: "0"
+  original.package.version: 11.8.17-r1
