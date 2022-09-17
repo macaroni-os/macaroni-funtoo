@@ -1,0 +1,29 @@
+name: xfce4-stopwatch-plugin
+version: 0.5.0
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: This panel plugin keeps track of elapsed time.
+uri:
+- https://docs.xfce.org/panel-plugins/xfce4-stopwatch-plugin
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: x11-libs/libX11 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.12:= >=xfce-base/libxfce4util-4.12:=
+    >=xfce-base/xfce4-panel-4.12:= dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: x11-libs/libX11 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.12:= >=xfce-base/libxfce4util-4.12:=
+    >=xfce-base/xfce4-panel-4.12:=
+  emerge.packages: xfce-extra/xfce4-stopwatch-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-stopwatch-plugin
+  original.package.slot: "0"
+  original.package.version: 0.5.0
