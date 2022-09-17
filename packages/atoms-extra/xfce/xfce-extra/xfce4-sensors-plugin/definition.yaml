@@ -1,0 +1,48 @@
+name: xfce4-sensors-plugin
+version: 1.4.1
+category: xfce-extra
+use_flags:
+- hddtemp
+- libnotify
+- lm-sensors
+- video_cards_nvidia
+requires:
+- name: hddtemp
+  version: '>=0'
+  category: app-admin
+- name: nvidia-drivers
+  version: '>=0'
+  category: x11-drivers
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A panel plug-in for acpi, lm-sensors and hddtemp sensors
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool virtual/pkgconfig
+  DEPEND: '>=x11-libs/gtk+-3.20:3= >=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/xfce4-panel-4.12:=
+    hddtemp? ( app-admin/hddtemp || ( net-analyzer/openbsd-netcat net-analyzer/netcat
+    ) ) libnotify? ( >=x11-libs/libnotify-0.7:= ) lm-sensors? ( >=sys-apps/lm-sensors-3.1.0:=
+    ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )'
+  IUSE: +acpi hddtemp libnotify lm-sensors video_cards_nvidia
+  RDEPEND: '>=x11-libs/gtk+-3.20:3= >=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/xfce4-panel-4.12:=
+    hddtemp? ( app-admin/hddtemp || ( net-analyzer/openbsd-netcat net-analyzer/netcat
+    ) ) libnotify? ( >=x11-libs/libnotify-0.7:= ) lm-sensors? ( >=sys-apps/lm-sensors-3.1.0:=
+    ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )'
+  emerge.packages: xfce-extra/xfce4-sensors-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-sensors-plugin
+  original.package.slot: "0"
+  original.package.version: 1.4.1
