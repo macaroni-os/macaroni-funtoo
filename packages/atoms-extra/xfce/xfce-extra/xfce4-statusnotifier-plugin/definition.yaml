@@ -1,0 +1,30 @@
+name: xfce4-statusnotifier-plugin
+version: 0.2.2
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A panel area for fd.o Status Notifiers (systray replacement)
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-statusnotifier-plugin
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.24 >=dev-libs/libdbusmenu-16.04.0:=[gtk3] >=x11-libs/gtk+-3.18:3
+    x11-libs/libX11 >=xfce-base/libxfce4ui-4.12:= >=xfce-base/libxfce4util-4.12:=
+    >=xfce-base/xfce4-panel-4.12:= >=xfce-base/xfconf-4.12:= dev-util/gdbus-codegen'
+  RDEPEND: '>=dev-libs/glib-2.24 >=dev-libs/libdbusmenu-16.04.0:=[gtk3] >=x11-libs/gtk+-3.18:3
+    x11-libs/libX11 >=xfce-base/libxfce4ui-4.12:= >=xfce-base/libxfce4util-4.12:=
+    >=xfce-base/xfce4-panel-4.12:= >=xfce-base/xfconf-4.12:='
+  emerge.packages: xfce-extra/xfce4-statusnotifier-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-statusnotifier-plugin
+  original.package.slot: "0"
+  original.package.version: 0.2.2
