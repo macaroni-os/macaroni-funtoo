@@ -1,0 +1,29 @@
+name: xfce4-notes-plugin
+version: 1.9.0
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Xfce4 panel sticky notes plugin
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool virtual/pkgconfig
+  DEPEND: '>=dev-libs/glib-2.30:2 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.14:=
+    >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:= >=xfce-base/xfconf-4.14:='
+  RDEPEND: '>=dev-libs/glib-2.30:2 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.14:=
+    >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:= >=xfce-base/xfconf-4.14:='
+  emerge.packages: xfce-extra/xfce4-notes-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-notes-plugin
+  original.package.slot: "0"
+  original.package.version: 1.9.0
