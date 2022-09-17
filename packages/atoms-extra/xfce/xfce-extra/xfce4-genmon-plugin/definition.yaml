@@ -1,0 +1,27 @@
+name: xfce4-genmon-plugin
+version: 4.1.1
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Cyclically spawned executable output on the panel
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
+license: LGPL-2.1+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: '>=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/xfce4-panel-4.12:='
+  RDEPEND: '>=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/xfce4-panel-4.12:='
+  emerge.packages: xfce-extra/xfce4-genmon-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-genmon-plugin
+  original.package.slot: "0"
+  original.package.version: 4.1.1
