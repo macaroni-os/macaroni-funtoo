@@ -1,0 +1,54 @@
+name: pm-utils
+version: 1.4.1
+category: sys-power
+use_flags:
+- alsa
+- amd64
+- ntp
+- video_cards_intel
+- video_cards_radeon
+- x86
+requires:
+- name: radeontool
+  version: '>=0'
+  category: app-laptop
+- name: alsa-utils
+  version: '>=0'
+  category: media-sound-0.9
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: pm-quirks
+  version: '>=0'
+  category: sys-power
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Suspend and hibernation utilities
+uri:
+- https://pm-utils.freedesktop.org/
+license: GPL-2
+labels:
+  DEPEND: '!<app-laptop/laptop-mode-tools-1.55-r1 !sys-power/powermgmt-base[-pm-utils(+)]
+    sys-apps/dbus >=sys-apps/util-linux-2.13 sys-power/pm-quirks alsa? ( media-sound/alsa-utils
+    ) ntp? ( || ( net-misc/ntp net-misc/openntpd ) ) amd64? ( !video_cards_intel?
+    ( sys-apps/vbetool ) ) x86? ( !video_cards_intel? ( sys-apps/vbetool ) ) video_cards_radeon?
+    ( app-laptop/radeontool )'
+  IUSE: alsa debug ntp video_cards_intel video_cards_radeon
+  RDEPEND: '!<app-laptop/laptop-mode-tools-1.55-r1 !sys-power/powermgmt-base[-pm-utils(+)]
+    sys-apps/dbus >=sys-apps/util-linux-2.13 sys-power/pm-quirks alsa? ( media-sound/alsa-utils
+    ) ntp? ( || ( net-misc/ntp net-misc/openntpd ) ) amd64? ( !video_cards_intel?
+    ( sys-apps/vbetool ) ) x86? ( !video_cards_intel? ( sys-apps/vbetool ) ) video_cards_radeon?
+    ( app-laptop/radeontool )'
+  emerge.packages: sys-power/pm-utils
+  kit: core-kit
+  original.package.name: sys-power/pm-utils
+  original.package.slot: "0"
+  original.package.version: 1.4.1-r7
