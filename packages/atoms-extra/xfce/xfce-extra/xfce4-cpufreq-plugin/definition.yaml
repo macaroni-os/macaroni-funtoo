@@ -1,0 +1,29 @@
+name: xfce4-cpufreq-plugin
+version: 1.2.7
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A panel plugin for showing information about cpufreq settings
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-cpufreq-plugin
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: '>=dev-libs/glib-2.20:= >=x11-libs/gtk+-3.20:3= >=xfce-base/libxfce4ui-4.14:=
+    >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:='
+  RDEPEND: '>=dev-libs/glib-2.20:= >=x11-libs/gtk+-3.20:3= >=xfce-base/libxfce4ui-4.14:=
+    >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:='
+  emerge.packages: xfce-extra/xfce4-cpufreq-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-cpufreq-plugin
+  original.package.slot: "0"
+  original.package.version: 1.2.7
