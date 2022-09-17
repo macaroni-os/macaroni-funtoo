@@ -1,0 +1,210 @@
+name: libav
+version: 13_pre20171219
+category: media-video
+use_flags:
+- -doc
+- -libressl
+- -test
+- X
+- aac
+- alsa
+- amr
+- bs2b
+- bzip2
+- cdio
+- cpu_flags_x86_mmx
+- encode
+- faac
+- fdk
+- fontconfig
+- frei0r
+- gsm
+- ieee1394
+- jack
+- jpeg2k
+- mp3
+- openssl
+- opus
+- pulseaudio
+- rtmp
+- sdl
+- speex
+- ssl
+- theora
+- truetype
+- twolame
+- v4l
+- vaapi
+- vdpau
+- vorbis
+- vpx
+- wavpack
+- webp
+- x264
+- x265
+- xvid
+- zlib
+requires:
+- name: libcdio-paranoia
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: faac
+  version: '>=0'
+  category: media-libs
+- name: fdk-aac
+  version: '>=0'
+  category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: libbs2b
+  version: '>=0'
+  category: media-libs
+- name: libdc1394
+  version: '>=0'
+  category: media-libs-2
+- name: libsdl
+  version: '>=0'
+  category: media-libs
+- name: libtheora
+  version: '>=0'
+  category: media-libs
+- name: libvpx
+  version: '>=0'
+  category: media-libs
+- name: libwebp
+  version: '>=0'
+  category: media-libs
+- name: opencore-amr
+  version: '>=0'
+  category: media-libs
+- name: openjpeg
+  version: '>=0'
+  category: media-libs-2
+- name: opus
+  version: '>=0'
+  category: media-libs
+- name: speex
+  version: '>=0'
+  category: media-libs
+- name: vo-aacenc
+  version: '>=0'
+  category: media-libs
+- name: vo-amrwbenc
+  version: '>=0'
+  category: media-libs
+- name: x264
+  version: '>=0'
+  category: media-libs
+- name: x265
+  version: '>=0'
+  category: media-libs
+- name: xvid
+  version: '>=0'
+  category: media-libs
+- name: frei0r-plugins
+  version: '>=0'
+  category: media-plugins
+- name: gsm
+  version: '>=0'
+  category: media-sound
+- name: lame
+  version: '>=0'
+  category: media-sound
+- name: twolame
+  version: '>=0'
+  category: media-sound
+- name: wavpack
+  version: '>=0'
+  category: media-sound
+- name: rtmpdump
+  version: '>=0'
+  category: media-video
+- name: libva
+  version: '>=0'
+  category: x11-libs
+- name: libvdpau
+  version: '>=0'
+  category: x11-libs
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Complete solution to record, convert and stream audio and video
+uri:
+- https://libav.org/
+license: LGPL-2.1 gpl? ( GPL-3 )
+labels:
+  DEPEND: '!media-video/ffmpeg:0 alsa? ( >=media-libs/alsa-lib-1.0.27.2[-mgorny(-)]
+    ) amr? ( >=media-libs/opencore-amr-0.1.3-r1[-mgorny(-)] ) bs2b? ( >=media-libs/libbs2b-3.1.0-r1[-mgorny(-)]
+    ) bzip2? ( >=app-arch/bzip2-1.0.6-r4[-mgorny(-)] ) cdio? ( >=dev-libs/libcdio-paranoia-0.90_p1-r1[-mgorny(-)]
+    ) encode? ( aac? ( >=media-libs/vo-aacenc-0.1.3[-mgorny(-)] ) amr? ( >=media-libs/vo-amrwbenc-0.1.2-r1[-mgorny(-)]
+    ) faac? ( >=media-libs/faac-1.28-r3[-mgorny(-)] ) mp3? ( >=media-sound/lame-3.99.5-r1[-mgorny(-)]
+    ) theora? ( >=media-libs/libtheora-1.1.1[encode,-mgorny(-)] >=media-libs/libogg-1.3.0[-mgorny(-)]
+    ) twolame? ( >=media-sound/twolame-0.3.13-r1[-mgorny(-)] ) vorbis? ( >=media-libs/libvorbis-1.3.3-r1[-mgorny(-)]
+    >=media-libs/libogg-1.3.0[-mgorny(-)] ) webp? ( >=media-libs/libwebp-0.3.0[-mgorny(-)]
+    ) wavpack? ( >=media-sound/wavpack-4.60.1-r1[-mgorny(-)] ) x264? ( >=media-libs/x264-0.0.20130506:=[-mgorny(-)]
+    ) x265? ( >=media-libs/x265-1.2:=[-mgorny(-)] ) xvid? ( >=media-libs/xvid-1.3.2-r1[-mgorny(-)]
+    ) ) fdk? ( >=media-libs/fdk-aac-0.1.2[-mgorny(-)] ) frei0r? ( media-plugins/frei0r-plugins
+    ) gsm? ( >=media-sound/gsm-1.0.13-r1[-mgorny(-)] ) ieee1394? ( >=media-libs/libdc1394-2.2.1[-mgorny(-)]
+    >=sys-libs/libraw1394-2.1.0-r1[-mgorny(-)] ) jack? ( >=media-sound/jack-audio-connection-kit-0.121.3-r1[-mgorny(-)]
+    ) jpeg2k? ( >=media-libs/openjpeg-1.5.0:0[-mgorny(-)] ) opus? ( >=media-libs/opus-1.0.2-r2[-mgorny(-)]
+    ) pulseaudio? ( >=media-sound/pulseaudio-2.1-r1[-mgorny(-)] ) rtmp? ( >=media-video/rtmpdump-2.4_p20131018[-mgorny(-)]
+    ) ssl? ( openssl? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0[-mgorny(-)] )
+    libressl? ( dev-libs/libressl[-mgorny(-)] ) ) !openssl? ( >=net-libs/gnutls-2.12.23-r6[-mgorny(-)]
+    ) ) sdl? ( >=media-libs/libsdl-1.2.15-r4[sound,video,-mgorny(-)] ) speex? ( >=media-libs/speex-1.2_rc1-r1[-mgorny(-)]
+    ) truetype? ( >=media-libs/freetype-2.5.0.1:2[-mgorny(-)] ) fontconfig? ( >=media-libs/fontconfig-2.10[-mgorny(-)]
+    ) vaapi? ( >=x11-libs/libva-1.2.1-r1[-mgorny(-)] ) vdpau? ( >=x11-libs/libvdpau-0.7[-mgorny(-)]
+    ) vpx? ( >=media-libs/libvpx-1.2.0_pre20130625[-mgorny(-)] ) X? ( >=x11-libs/libxcb-1.9.1[-mgorny(-)]
+    ) zlib? ( >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] ) >=sys-devel/make-3.81 doc? (
+    app-text/texi2html ) ieee1394? ( >=virtual/pkgconfig-0-r1[-mgorny(-)] ) cpu_flags_x86_mmx?
+    ( >=dev-lang/nasm-2.13 ) rtmp? ( >=virtual/pkgconfig-0-r1[-mgorny(-)] ) ssl? (
+    >=virtual/pkgconfig-0-r1[-mgorny(-)] ) test? ( sys-devel/bc ) truetype? ( >=virtual/pkgconfig-0-r1[-mgorny(-)]
+    ) fontconfig? ( >=virtual/pkgconfig-0-r1[-mgorny(-)] ) v4l? ( sys-kernel/linux-headers
+    )'
+  IUSE: aac alsa amr bs2b +bzip2 cdio cpudetection custom-cflags debug doc +encode
+    faac fdk frei0r fontconfig +gpl gsm +hardcoded-tables ieee1394 jack jpeg2k libressl
+    mp3 +network openssl opus oss pic pulseaudio rtmp sdl speex ssl static-libs test
+    theora threads tools truetype twolame v4l vaapi vdpau vorbis vpx X wavpack webp
+    x264 x265 xvid +zlib altivec armv5te armv6 armv6t2 armvfp neon cpu_flags_x86_3dnow
+    cpu_flags_x86_3dnowext cpu_flags_x86_mmx cpu_flags_x86_mmxext cpu_flags_x86_sse
+    cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1
+    cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_xop cpu_flags_x86_fma3 cpu_flags_x86_fma4
+    cpu_flags_x86_avx2 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '!media-video/ffmpeg:0 alsa? ( >=media-libs/alsa-lib-1.0.27.2[-mgorny(-)]
+    ) amr? ( >=media-libs/opencore-amr-0.1.3-r1[-mgorny(-)] ) bs2b? ( >=media-libs/libbs2b-3.1.0-r1[-mgorny(-)]
+    ) bzip2? ( >=app-arch/bzip2-1.0.6-r4[-mgorny(-)] ) cdio? ( >=dev-libs/libcdio-paranoia-0.90_p1-r1[-mgorny(-)]
+    ) encode? ( aac? ( >=media-libs/vo-aacenc-0.1.3[-mgorny(-)] ) amr? ( >=media-libs/vo-amrwbenc-0.1.2-r1[-mgorny(-)]
+    ) faac? ( >=media-libs/faac-1.28-r3[-mgorny(-)] ) mp3? ( >=media-sound/lame-3.99.5-r1[-mgorny(-)]
+    ) theora? ( >=media-libs/libtheora-1.1.1[encode,-mgorny(-)] >=media-libs/libogg-1.3.0[-mgorny(-)]
+    ) twolame? ( >=media-sound/twolame-0.3.13-r1[-mgorny(-)] ) vorbis? ( >=media-libs/libvorbis-1.3.3-r1[-mgorny(-)]
+    >=media-libs/libogg-1.3.0[-mgorny(-)] ) webp? ( >=media-libs/libwebp-0.3.0[-mgorny(-)]
+    ) wavpack? ( >=media-sound/wavpack-4.60.1-r1[-mgorny(-)] ) x264? ( >=media-libs/x264-0.0.20130506:=[-mgorny(-)]
+    ) x265? ( >=media-libs/x265-1.2:=[-mgorny(-)] ) xvid? ( >=media-libs/xvid-1.3.2-r1[-mgorny(-)]
+    ) ) fdk? ( >=media-libs/fdk-aac-0.1.2[-mgorny(-)] ) frei0r? ( media-plugins/frei0r-plugins
+    ) gsm? ( >=media-sound/gsm-1.0.13-r1[-mgorny(-)] ) ieee1394? ( >=media-libs/libdc1394-2.2.1[-mgorny(-)]
+    >=sys-libs/libraw1394-2.1.0-r1[-mgorny(-)] ) jack? ( >=media-sound/jack-audio-connection-kit-0.121.3-r1[-mgorny(-)]
+    ) jpeg2k? ( >=media-libs/openjpeg-1.5.0:0[-mgorny(-)] ) opus? ( >=media-libs/opus-1.0.2-r2[-mgorny(-)]
+    ) pulseaudio? ( >=media-sound/pulseaudio-2.1-r1[-mgorny(-)] ) rtmp? ( >=media-video/rtmpdump-2.4_p20131018[-mgorny(-)]
+    ) ssl? ( openssl? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0[-mgorny(-)] )
+    libressl? ( dev-libs/libressl[-mgorny(-)] ) ) !openssl? ( >=net-libs/gnutls-2.12.23-r6[-mgorny(-)]
+    ) ) sdl? ( >=media-libs/libsdl-1.2.15-r4[sound,video,-mgorny(-)] ) speex? ( >=media-libs/speex-1.2_rc1-r1[-mgorny(-)]
+    ) truetype? ( >=media-libs/freetype-2.5.0.1:2[-mgorny(-)] ) fontconfig? ( >=media-libs/fontconfig-2.10[-mgorny(-)]
+    ) vaapi? ( >=x11-libs/libva-1.2.1-r1[-mgorny(-)] ) vdpau? ( >=x11-libs/libvdpau-0.7[-mgorny(-)]
+    ) vpx? ( >=media-libs/libvpx-1.2.0_pre20130625[-mgorny(-)] ) X? ( >=x11-libs/libxcb-1.9.1[-mgorny(-)]
+    ) zlib? ( >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] )'
+  emerge.packages: media-video/libav
+  kit: media-kit
+  original.package.name: media-video/libav
+  original.package.slot: "0"
+  original.package.version: 13_pre20171219
