@@ -1,0 +1,44 @@
+name: ffmpegthumbnailer
+version: 2.2.0
+category: media-video
+use_flags:
+- gtk
+- jpeg
+- libav
+- png
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: libav
+  version: '>=0'
+  category: media-video
+- name: jpeg
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Lightweight video thumbnailer that can be used by file managers
+uri:
+- https://github.com/dirkvdb/ffmpegthumbnailer
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: gtk? ( dev-libs/glib:2= ) jpeg? ( virtual/jpeg:0= ) !libav? ( >=media-video/ffmpeg-2.7:0=
+    ) libav? ( >=media-video/libav-11:0= ) png? ( media-libs/libpng:0= )
+  IUSE: gnome gtk jpeg libav png test
+  RDEPEND: gtk? ( dev-libs/glib:2= ) jpeg? ( virtual/jpeg:0= ) !libav? ( >=media-video/ffmpeg-2.7:0=
+    ) libav? ( >=media-video/libav-11:0= ) png? ( media-libs/libpng:0= )
+  emerge.packages: media-video/ffmpegthumbnailer
+  kit: media-kit
+  original.package.name: media-video/ffmpegthumbnailer
+  original.package.slot: "0"
+  original.package.version: 2.2.0-r1
