@@ -1,0 +1,61 @@
+name: xfwm4
+version: 4.16.1
+category: xfce-base
+use_flags:
+- opengl
+- startup-notification
+- xcomposite
+- xpresent
+requires:
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXdamage
+  version: '>=0'
+  category: x11-libs
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXpresent
+  version: '>=0'
+  category: x11-libs
+- name: libwnck
+  version: '>=0'
+  category: x11-libs-3
+- name: libxfce4ui
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Window manager for the Xfce desktop environment
+uri:
+- https://www.xfce.org/projects/
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.20 >=x11-libs/gtk+-3.22:3 x11-libs/libX11 x11-libs/libXext
+    x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libXres
+    x11-libs/pango >=x11-libs/libwnck-3.14:3 >=xfce-base/libxfce4util-4.10:= >=xfce-base/libxfce4ui-4.12:=
+    >=xfce-base/xfconf-4.13:= opengl? ( media-libs/libepoxy:=[X(+)] ) startup-notification?
+    ( x11-libs/startup-notification ) xpresent? ( x11-libs/libXpresent ) xcomposite?
+    ( x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes ) dev-util/intltool
+    sys-devel/gettext x11-libs/libICE x11-libs/libSM xfce-base/exo virtual/pkgconfig'
+  IUSE: opengl startup-notification +xcomposite +xpresent
+  RDEPEND: '>=dev-libs/glib-2.20 >=x11-libs/gtk+-3.22:3 x11-libs/libX11 x11-libs/libXext
+    x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libXres
+    x11-libs/pango >=x11-libs/libwnck-3.14:3 >=xfce-base/libxfce4util-4.10:= >=xfce-base/libxfce4ui-4.12:=
+    >=xfce-base/xfconf-4.13:= opengl? ( media-libs/libepoxy:=[X(+)] ) startup-notification?
+    ( x11-libs/startup-notification ) xpresent? ( x11-libs/libXpresent ) xcomposite?
+    ( x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes )'
+  emerge.packages: xfce-base/xfwm4
+  kit: xfce-kit
+  original.package.name: xfce-base/xfwm4
+  original.package.slot: "0"
+  original.package.version: 4.16.1
