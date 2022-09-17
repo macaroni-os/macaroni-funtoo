@@ -1,0 +1,55 @@
+name: xfce4-panel
+version: 4.16.3
+category: xfce-base
+use_flags:
+- dbusmenu
+- introspection
+- vala
+requires:
+- name: libdbusmenu
+  version: '>=0'
+  category: dev-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libwnck
+  version: '>=0'
+  category: x11-libs-3
+- name: exo
+  version: '>=0'
+  category: xfce-base
+- name: garcon
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Panel for the Xfce desktop environment
+uri:
+- https://www.xfce.org/projects/
+license: GPL-2+ LGPL-2.1+
+labels:
+  BDEPEND: dev-util/gdbus-codegen
+  DEPEND: '>=dev-libs/glib-2.50 >=x11-libs/cairo-1 >=x11-libs/gtk+-3.22:3[introspection?]
+    x11-libs/libX11 x11-libs/libwnck:3 >=xfce-base/exo-0.11.2:= >=xfce-base/garcon-0.5:=
+    >=xfce-base/libxfce4ui-4.15.8:= >=xfce-base/libxfce4util-4.15.6:=[introspection?]
+    >=xfce-base/xfconf-4.13.2:= dbusmenu? ( >=dev-libs/libdbusmenu-16.04.0[gtk3] )
+    introspection? ( dev-libs/gobject-introspection:= ) vala? ( || ( dev-lang/vala:0.50
+    dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40
+    dev-lang/vala:0.36 ) ) dev-lang/perl dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig'
+  IUSE: +dbusmenu introspection vala
+  RDEPEND: '>=dev-libs/glib-2.50 >=x11-libs/cairo-1 >=x11-libs/gtk+-3.22:3[introspection?]
+    x11-libs/libX11 x11-libs/libwnck:3 >=xfce-base/exo-0.11.2:= >=xfce-base/garcon-0.5:=
+    >=xfce-base/libxfce4ui-4.15.8:= >=xfce-base/libxfce4util-4.15.6:=[introspection?]
+    >=xfce-base/xfconf-4.13.2:= dbusmenu? ( >=dev-libs/libdbusmenu-16.04.0[gtk3] )
+    introspection? ( dev-libs/gobject-introspection:= )'
+  emerge.packages: xfce-base/xfce4-panel
+  kit: xfce-kit
+  original.package.name: xfce-base/xfce4-panel
+  original.package.slot: "0"
+  original.package.version: 4.16.3
