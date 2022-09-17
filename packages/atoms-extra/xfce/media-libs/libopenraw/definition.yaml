@@ -1,0 +1,41 @@
+name: libopenraw
+version: 0.1.3
+category: media-libs
+use_flags:
+- -test
+- gtk
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A decoding library for RAW image formats
+uri:
+- https://libopenraw.freedesktop.org/wiki/
+license: GPL-3 LGPL-3
+labels:
+  DEPEND: dev-libs/libxml2 virtual/jpeg:0 gtk? ( dev-libs/glib:2 >=x11-libs/gdk-pixbuf-2.24.0:2
+    ) >=dev-libs/boost-1.35 virtual/pkgconfig test? ( net-misc/curl )
+  IUSE: gtk static-libs test
+  RDEPEND: dev-libs/libxml2 virtual/jpeg:0 gtk? ( dev-libs/glib:2 >=x11-libs/gdk-pixbuf-2.24.0:2
+    )
+  emerge.packages: media-libs/libopenraw
+  kit: media-kit
+  original.package.name: media-libs/libopenraw
+  original.package.slot: "0"
+  original.package.version: 0.1.3
