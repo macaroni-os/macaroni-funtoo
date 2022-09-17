@@ -1,0 +1,38 @@
+name: xfce4-terminal
+version: 0.8.9.2
+category: x11-terms
+use_flags:
+- utempter
+requires:
+- name: libutempter
+  version: '>=0'
+  category: sys-libs
+- name: vte
+  version: '>=0'
+  category: x11-libs-2.91
+- name: libxfce4ui
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A terminal emulator for the Xfce desktop environment
+uri:
+- https://docs.xfce.org/apps/terminal/start
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.38:2= >=x11-libs/gtk+-3.20.8:3= x11-libs/libX11:= >=x11-libs/vte-0.38:2.91=
+    >=xfce-base/libxfce4ui-4.10:=[gtk3(+)] utempter? ( sys-libs/libutempter:= ) dev-libs/libxml2
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig'
+  IUSE: utempter
+  RDEPEND: '>=dev-libs/glib-2.38:2= >=x11-libs/gtk+-3.20.8:3= x11-libs/libX11:= >=x11-libs/vte-0.38:2.91=
+    >=xfce-base/libxfce4ui-4.10:=[gtk3(+)] utempter? ( sys-libs/libutempter:= )'
+  emerge.packages: x11-terms/xfce4-terminal
+  kit: xfce-kit
+  original.package.name: x11-terms/xfce4-terminal
+  original.package.slot: "0"
+  original.package.version: 0.8.9.2
