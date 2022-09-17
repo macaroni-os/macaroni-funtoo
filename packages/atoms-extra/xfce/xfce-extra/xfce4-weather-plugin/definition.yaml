@@ -1,0 +1,39 @@
+name: xfce4-weather-plugin
+version: 0.10.1
+category: xfce-extra
+use_flags:
+- upower
+requires:
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+- name: upower
+  version: '>=0'
+  category: sys-power
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A weather plug-in for the Xfce desktop environment
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-weather-plugin
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.42 dev-libs/libxml2 >=net-libs/libsoup-2.42 >=x11-libs/gtk+-3.22:3
+    >=xfce-base/libxfce4ui-4.14:= >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:=
+    upower? ( >=sys-power/upower-0.9.23 ) dev-util/intltool virtual/pkgconfig'
+  IUSE: upower
+  RDEPEND: '>=dev-libs/glib-2.42 dev-libs/libxml2 >=net-libs/libsoup-2.42 >=x11-libs/gtk+-3.22:3
+    >=xfce-base/libxfce4ui-4.14:= >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:=
+    upower? ( >=sys-power/upower-0.9.23 )'
+  emerge.packages: xfce-extra/xfce4-weather-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-weather-plugin
+  original.package.slot: "0"
+  original.package.version: 0.10.1
