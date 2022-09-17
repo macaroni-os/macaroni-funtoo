@@ -1,0 +1,29 @@
+name: xfce4-appfinder
+version: 4.16.1
+category: xfce-base
+requires:
+- name: garcon
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A tool to find and launch installed applications for the Xfce desktop
+uri:
+- https://docs.xfce.org/xfce/xfce4-appfinder/start
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=xfce-base/garcon-0.3:= >=xfce-base/libxfce4util-4.15.2:=
+    >=xfce-base/libxfce4ui-4.14:=[gtk3(+)] >=xfce-base/xfconf-4.14:= !xfce-base/xfce-utils
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig'
+  RDEPEND: '>=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=xfce-base/garcon-0.3:= >=xfce-base/libxfce4util-4.15.2:=
+    >=xfce-base/libxfce4ui-4.14:=[gtk3(+)] >=xfce-base/xfconf-4.14:= !xfce-base/xfce-utils'
+  emerge.packages: xfce-base/xfce4-appfinder
+  kit: xfce-kit
+  original.package.name: xfce-base/xfce4-appfinder
+  original.package.slot: "0"
+  original.package.version: 4.16.1
