@@ -1,0 +1,35 @@
+name: xfce4-hdaps
+version: 1.0.3
+category: xfce-extra
+requires:
+- name: hdapsd
+  version: '>=0'
+  category: app-laptop
+- name: tp_smapi
+  version: '>=0'
+  category: app-laptop
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Show the status of the IBM Hard Drive Active Protection System
+uri:
+- http://michael.orlitzky.com/code/xfce4-hdaps.xhtml
+license: AGPL-3+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: '>=x11-libs/gtk+-3.20:3 x11-libs/libX11 >=xfce-base/libxfce4ui-4.14 >=xfce-base/libxfce4util-4.14
+    >=xfce-base/xfce4-panel-4.14:='
+  RDEPEND: '>=x11-libs/gtk+-3.20:3 x11-libs/libX11 >=xfce-base/libxfce4ui-4.14 >=xfce-base/libxfce4util-4.14
+    >=xfce-base/xfce4-panel-4.14:= app-laptop/hdapsd app-laptop/tp_smapi'
+  emerge.packages: xfce-extra/xfce4-hdaps
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-hdaps
+  original.package.slot: "0"
+  original.package.version: 1.0.3
