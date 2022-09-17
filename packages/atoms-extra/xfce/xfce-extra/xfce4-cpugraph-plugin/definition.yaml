@@ -1,0 +1,29 @@
+name: xfce4-cpugraph-plugin
+version: 1.2.6
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A system load plug-in for the Xfce panel
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-cpugraph-plugin
+license: BSD-2 GPL-2+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: '>=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.14:= >=xfce-base/libxfce4util-4.14:=
+    >=xfce-base/xfce4-panel-4.14:='
+  RDEPEND: '>=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.14:= >=xfce-base/libxfce4util-4.14:=
+    >=xfce-base/xfce4-panel-4.14:='
+  emerge.packages: xfce-extra/xfce4-cpugraph-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-cpugraph-plugin
+  original.package.slot: "0"
+  original.package.version: 1.2.6
