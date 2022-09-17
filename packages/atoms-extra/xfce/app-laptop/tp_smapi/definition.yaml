@@ -1,0 +1,33 @@
+name: tp_smapi
+version: "0.43"
+category: app-laptop
+use_flags:
+- kernel_linux
+requires:
+- name: dmidecode
+  version: '>=0'
+  category: sys-apps
+- name: modutils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: IBM ThinkPad SMAPI BIOS driver
+uri:
+- https://github.com/evgeni/tp_smapi
+license: GPL-2
+labels:
+  DEPEND: sys-apps/dmidecode kernel_linux? ( virtual/modutils ) sys-apps/sed kernel_linux?
+    ( virtual/linux-sources virtual/libelf )
+  IUSE: hdaps kernel_linux kernel_linux
+  RDEPEND: sys-apps/dmidecode kernel_linux? ( virtual/modutils )
+  emerge.packages: app-laptop/tp_smapi
+  kit: core-hw-kit
+  original.package.name: app-laptop/tp_smapi
+  original.package.slot: "0"
+  original.package.version: "0.43"
