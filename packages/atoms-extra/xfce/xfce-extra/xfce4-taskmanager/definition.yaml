@@ -1,0 +1,36 @@
+name: xfce4-taskmanager
+version: 1.2.3
+category: xfce-extra
+requires:
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXmu
+  version: '>=0'
+  category: x11-libs
+- name: libwnck
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Easy to use task manager
+uri:
+- https://goodies.xfce.org/projects/applications/xfce4-taskmanager
+license: GPL-2+
+labels:
+  DEPEND: x11-libs/cairo:= x11-libs/libX11:= x11-libs/libXmu:= x11-libs/gtk+:3= x11-libs/libwnck:3=
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  RDEPEND: x11-libs/cairo:= x11-libs/libX11:= x11-libs/libXmu:= x11-libs/gtk+:3= x11-libs/libwnck:3=
+  emerge.packages: xfce-extra/xfce4-taskmanager
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-taskmanager
+  original.package.slot: "0"
+  original.package.version: 1.2.3
