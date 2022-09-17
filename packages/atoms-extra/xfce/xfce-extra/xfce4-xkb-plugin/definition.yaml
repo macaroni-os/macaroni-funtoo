@@ -1,0 +1,41 @@
+name: xfce4-xkb-plugin
+version: 0.8.2
+category: xfce-extra
+requires:
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: setxkbmap
+  version: '>=0'
+  category: x11-apps
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+- name: xfce4-settings
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: XKB layout switching panel plug-in for the Xfce desktop environment
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-xkb-plugin
+license: BSD-2 GPL-2+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: gnome-base/librsvg:= x11-libs/gtk+:3= x11-libs/libwnck:3= x11-libs/libX11:=
+    >=x11-libs/libxklavier-5.3:= xfce-base/garcon:= >=xfce-base/libxfce4ui-4.12:=
+    >=xfce-base/libxfce4util-4.12:= >=xfce-base/xfce4-panel-4.12:= >=xfce-base/xfconf-4.12.1:=
+  RDEPEND: gnome-base/librsvg:= x11-libs/gtk+:3= x11-libs/libwnck:3= x11-libs/libX11:=
+    >=x11-libs/libxklavier-5.3:= xfce-base/garcon:= >=xfce-base/libxfce4ui-4.12:=
+    >=xfce-base/libxfce4util-4.12:= >=xfce-base/xfce4-panel-4.12:= >=xfce-base/xfconf-4.12.1:=
+    x11-apps/setxkbmap >=xfce-base/xfce4-settings-4.11
+  emerge.packages: xfce-extra/xfce4-xkb-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-xkb-plugin
+  original.package.slot: "0"
+  original.package.version: 0.8.2
