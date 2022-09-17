@@ -1,0 +1,45 @@
+name: xfdesktop
+version: 4.16.0
+category: xfce-base
+use_flags:
+- libnotify
+- thunar
+requires:
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libwnck
+  version: '>=0'
+  category: x11-libs-3
+- name: garcon
+  version: '>=0'
+  category: xfce-base
+- name: thunar
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Desktop manager for the Xfce desktop environment
+uri:
+- https://www.xfce.org/projects/
+license: GPL-2+
+labels:
+  DEPEND: '>=x11-libs/cairo-1.12 >=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=x11-libs/libwnck-3.14:3
+    x11-libs/libX11 >=xfce-base/exo-0.11:= >=xfce-base/garcon-0.6:= >=xfce-base/libxfce4ui-4.13:=
+    >=xfce-base/libxfce4util-4.13:= >=xfce-base/xfconf-4.12.1:= libnotify? ( >=x11-libs/libnotify-0.7:=
+    ) thunar? ( >=xfce-base/thunar-1.7:= ) dev-util/intltool sys-devel/gettext virtual/pkgconfig'
+  IUSE: debug libnotify +thunar
+  RDEPEND: '>=x11-libs/cairo-1.12 >=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=x11-libs/libwnck-3.14:3
+    x11-libs/libX11 >=xfce-base/exo-0.11:= >=xfce-base/garcon-0.6:= >=xfce-base/libxfce4ui-4.13:=
+    >=xfce-base/libxfce4util-4.13:= >=xfce-base/xfconf-4.12.1:= libnotify? ( >=x11-libs/libnotify-0.7:=
+    ) thunar? ( >=xfce-base/thunar-1.7:= )'
+  emerge.packages: xfce-base/xfdesktop
+  kit: xfce-kit
+  original.package.name: xfce-base/xfdesktop
+  original.package.slot: "0"
+  original.package.version: 4.16.0
