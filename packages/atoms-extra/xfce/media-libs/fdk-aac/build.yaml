@@ -6,6 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  eval 'mkdir -p /etc/portage/package.license' &&
+  echo "media-libs/fdk-aac FraunhoferFDK" > /etc/portage/package.license/00-fdk-aac.license
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
