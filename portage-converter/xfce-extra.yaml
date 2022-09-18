@@ -103,6 +103,20 @@ artefacts:
     - sys-power/pm-quirks
 
 - tree: packages/atoms-extra/xfce
+  uses:
+    disabled:
+      - libav
+  packages:
+    - media-video/ffmpegthumbnailer
+
+# NOTE: this packages are deps of libav
+#       that for now i prefer to have
+- tree: packages/atoms-extra/xfce
+  packages:
+    - media-libs/libbs2b
+    - media-libs/vo-aacenc
+
+- tree: packages/atoms-extra/xfce
   packages:
     - x11-terms/xfce4-terminal
     - xfce-base/libxfce4util
