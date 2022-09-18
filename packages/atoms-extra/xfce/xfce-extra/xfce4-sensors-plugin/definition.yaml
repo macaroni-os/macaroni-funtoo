@@ -2,9 +2,9 @@ name: xfce4-sensors-plugin
 version: 1.4.1
 category: xfce-extra
 use_flags:
+- -lm-sensors
 - hddtemp
 - libnotify
-- lm-sensors
 - video_cards_nvidia
 requires:
 - name: hddtemp
@@ -16,6 +16,9 @@ requires:
 - name: libnotify
   version: '>=0'
   category: x11-libs
+- name: libxfce4ui
+  version: '>=0'
+  category: xfce-base
 - name: xfce4-panel
   version: '>=0'
   category: xfce-base
