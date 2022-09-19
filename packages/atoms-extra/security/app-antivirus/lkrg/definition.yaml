@@ -1,0 +1,30 @@
+name: lkrg
+version: 0.9.5
+category: app-antivirus
+use_flags:
+- kernel_linux
+requires:
+- name: modutils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux Kernel Runtime Guard
+uri:
+- https://lkrg.org
+license: GPL-2
+labels:
+  DEPEND: kernel_linux? ( virtual/modutils ) sys-apps/sed kernel_linux? ( virtual/linux-sources
+    virtual/libelf )
+  IUSE: kernel_linux kernel_linux kernel_linux
+  RDEPEND: kernel_linux? ( virtual/modutils )
+  emerge.packages: app-antivirus/lkrg
+  kit: security-kit
+  original.package.name: app-antivirus/lkrg
+  original.package.slot: "0"
+  original.package.version: 0.9.5
