@@ -1,0 +1,25 @@
+name: psr-log
+version: 1.1.0
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Common interface for logging libraries
+uri:
+- https://github.com/php-fig/log
+license: MIT
+labels:
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader
+  emerge.packages: dev-php/psr-log
+  kit: core-server-kit
+  original.package.name: dev-php/psr-log
+  original.package.slot: "0"
+  original.package.version: 1.1.0
