@@ -1,0 +1,26 @@
+name: reactphp-promise
+version: 2.8.0
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A lightweight implementation of CommonJS Promises/A for PHP
+uri:
+- https://reactphp.org/promise/
+license: MIT
+labels:
+  BDEPEND: dev-php/theseer-Autoload
+  RDEPEND: dev-php/fedora-autoloader >=dev-lang/php-7.2:*
+  emerge.packages: dev-php/reactphp-promise
+  kit: core-server-kit
+  original.package.name: dev-php/reactphp-promise
+  original.package.slot: "0"
+  original.package.version: 2.8.0
