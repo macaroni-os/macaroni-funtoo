@@ -1,0 +1,30 @@
+name: symfony-config
+version: 2.8.20
+category: dev-php
+use_flags:
+- -test
+requires:
+- name: symfony-filesystem
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Symfony Config Component
+uri:
+- https://github.com/symfony/config
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/fedora-autoloader dev-php/symfony-filesystem
+    >=dev-php/phpunit-5.7.15 )
+  IUSE: test
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader dev-php/symfony-filesystem
+  emerge.packages: dev-php/symfony-config
+  kit: core-server-kit
+  original.package.name: dev-php/symfony-config
+  original.package.slot: "0"
+  original.package.version: 2.8.20
