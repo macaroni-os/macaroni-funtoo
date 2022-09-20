@@ -1,0 +1,29 @@
+name: jsonlint
+version: 1.7.1
+category: dev-php
+use_flags:
+- -test
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: JSON Lint for PHP
+uri:
+- https://github.com/Seldaek/jsonlint
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/fedora-autoloader dev-php/phpunit )
+  IUSE: test
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader
+  emerge.packages: dev-php/jsonlint
+  kit: core-server-kit
+  original.package.name: dev-php/jsonlint
+  original.package.slot: "0"
+  original.package.version: 1.7.1
