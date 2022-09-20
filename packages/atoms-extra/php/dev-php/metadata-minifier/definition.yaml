@@ -1,0 +1,26 @@
+name: metadata-minifier
+version: 1.0.0
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Small utility library that handles metadata minification and expansion
+uri:
+- https://github.com/composer/metadata-minifier
+license: MIT
+labels:
+  BDEPEND: dev-php/theseer-Autoload
+  RDEPEND: dev-php/fedora-autoloader >=dev-lang/php-7.2:*
+  emerge.packages: dev-php/metadata-minifier
+  kit: core-server-kit
+  original.package.name: dev-php/metadata-minifier
+  original.package.slot: "0"
+  original.package.version: 1.0.0
