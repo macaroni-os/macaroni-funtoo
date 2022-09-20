@@ -9,7 +9,11 @@ prelude:
 # Temporary
 - >-
   luet repo update &&
-  luet upgrade
+  luet upgrade &&
+  eselect kernel set 1 &&
+  luet i -y kernel/macaroni-lts-modules --relax --nodeps && luet cleanup &&
+  export kver=$(luet s kernel-5.10/macaroni-lts-full -o json | jq .stones[0].labels.\"package.version\" -r) &&
+  cd /lib/modules/${kver}-macaroni && ln -s /usr/src/linux-${kver}-macaroni build
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
