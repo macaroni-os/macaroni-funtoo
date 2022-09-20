@@ -1,0 +1,29 @@
+name: symfony-process
+version: 3.2.6
+category: dev-php
+use_flags:
+- -test
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Symfony Process Component
+uri:
+- https://github.com/symfony/process
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/fedora-autoloader dev-php/phpunit )
+  IUSE: test
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader
+  emerge.packages: dev-php/symfony-process
+  kit: core-server-kit
+  original.package.name: dev-php/symfony-process
+  original.package.slot: "0"
+  original.package.version: 3.2.6
