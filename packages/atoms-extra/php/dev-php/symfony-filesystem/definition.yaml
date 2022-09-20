@@ -1,0 +1,30 @@
+name: symfony-filesystem
+version: 3.2.8
+category: dev-php
+use_flags:
+- -test
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Symfony Filesystem Component
+uri:
+- https://github.com/symfony/filesystem
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/fedora-autoloader >=dev-php/phpunit-5.7.15
+    )
+  IUSE: test
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader
+  emerge.packages: dev-php/symfony-filesystem
+  kit: core-server-kit
+  original.package.name: dev-php/symfony-filesystem
+  original.package.slot: "0"
+  original.package.version: 3.2.8
