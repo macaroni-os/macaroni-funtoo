@@ -1,0 +1,26 @@
+name: semver
+version: 3.2.4
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Semantic versioning utilities, constraint parsing, and checking
+uri:
+- https://github.com/composer/semver
+license: MIT
+labels:
+  BDEPEND: dev-php/theseer-Autoload
+  RDEPEND: dev-php/fedora-autoloader >=dev-lang/php-7.2:*
+  emerge.packages: dev-php/semver
+  kit: core-server-kit
+  original.package.name: dev-php/semver
+  original.package.slot: "0"
+  original.package.version: 3.2.4
