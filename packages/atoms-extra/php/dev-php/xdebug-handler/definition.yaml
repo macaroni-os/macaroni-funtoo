@@ -1,0 +1,25 @@
+name: xdebug-handler
+version: 2.0.1
+category: dev-php
+requires:
+- name: psr-log
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Restart a CLI process without loading the xdebug extension
+uri:
+- https://github.com/composer/xdebug-handler
+license: MIT
+labels:
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader >=dev-php/psr-log-1.0.2
+  emerge.packages: dev-php/xdebug-handler
+  kit: core-server-kit
+  original.package.name: dev-php/xdebug-handler
+  original.package.slot: "0"
+  original.package.version: 2.0.1
