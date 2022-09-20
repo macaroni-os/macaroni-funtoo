@@ -1,0 +1,25 @@
+name: fedora-autoloader
+version: 1.0.0
+category: dev-php
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fedora's Static PSR-4, PSR-0, and classmap autoloader
+uri:
+- https://github.com/php-fedora/autoloader
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/phpunit )
+  IUSE: test
+  RDEPEND: dev-lang/php:*
+  emerge.packages: dev-php/fedora-autoloader
+  kit: core-server-kit
+  original.package.name: dev-php/fedora-autoloader
+  original.package.slot: "0"
+  original.package.version: 1.0.0
