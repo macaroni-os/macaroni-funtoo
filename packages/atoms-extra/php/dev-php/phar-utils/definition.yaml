@@ -1,0 +1,25 @@
+name: phar-utils
+version: 1.0.1
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PHAR file format utilities, for when PHP phars you up
+uri:
+- https://github.com/Seldaek/phar-utils
+license: MIT
+labels:
+  RDEPEND: dev-lang/php:*[phar] dev-php/fedora-autoloader
+  emerge.packages: dev-php/phar-utils
+  kit: core-server-kit
+  original.package.name: dev-php/phar-utils
+  original.package.slot: "0"
+  original.package.version: 1.0.1
