@@ -1,0 +1,32 @@
+name: symfony-console
+version: 2.8.52
+category: dev-php
+requires:
+- name: psr-log
+  version: '>=0'
+  category: dev-php
+- name: symfony-event-dispatcher
+  version: '>=0'
+  category: dev-php
+- name: symfony-process
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Subtree split of the Symfony Console Component
+uri:
+- https://github.com/symfony/console
+license: MIT
+labels:
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader >=dev-php/psr-log-1.0.2 >=dev-php/symfony-event-dispatcher-2.1.0
+    >=dev-php/symfony-process-2.8.12
+  emerge.packages: dev-php/symfony-console
+  kit: core-server-kit
+  original.package.name: dev-php/symfony-console
+  original.package.slot: "0"
+  original.package.version: 2.8.52
