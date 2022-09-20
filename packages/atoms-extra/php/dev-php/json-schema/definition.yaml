@@ -1,0 +1,29 @@
+name: json-schema
+version: 5.2.10
+category: dev-php
+use_flags:
+- -test
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PHP implementation of JSON schema
+uri:
+- https://github.com/justinrainbow/json-schema
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/fedora-autoloader dev-php/phpunit )
+  IUSE: test
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader
+  emerge.packages: dev-php/json-schema
+  kit: core-server-kit
+  original.package.name: dev-php/json-schema
+  original.package.slot: "0"
+  original.package.version: 5.2.10
