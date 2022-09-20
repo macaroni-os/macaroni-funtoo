@@ -1,0 +1,34 @@
+name: symfony-dependency-injection
+version: 2.8.20
+category: dev-php
+use_flags:
+- -test
+requires:
+- name: symfony-config
+  version: '>=0'
+  category: dev-php
+- name: symfony-yaml
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Symfony DependencyInjection Component
+uri:
+- https://github.com/symfony/dependency-injection
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/fedora-autoloader >=dev-php/symfony-config-2.1.0
+    >=dev-php/symfony-yaml-2.1.0 >=dev-php/phpunit-5.7.15 )
+  IUSE: test
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader >=dev-php/symfony-config-2.1.0
+    >=dev-php/symfony-yaml-2.1.0
+  emerge.packages: dev-php/symfony-dependency-injection
+  kit: core-server-kit
+  original.package.name: dev-php/symfony-dependency-injection
+  original.package.slot: "0"
+  original.package.version: 2.8.20
