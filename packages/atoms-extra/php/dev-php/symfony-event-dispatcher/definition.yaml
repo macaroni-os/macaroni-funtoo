@@ -1,0 +1,30 @@
+name: symfony-event-dispatcher
+version: 2.1.0
+category: dev-php
+use_flags:
+- -test
+requires:
+- name: symfony-dependency-injection
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Symfony EventDispatcher Component
+uri:
+- https://github.com/symfony/event-dispatcher
+license: MIT
+labels:
+  DEPEND: test? ( dev-lang/php:* dev-php/fedora-autoloader >=dev-php/symfony-dependency-injection-2.1.0
+    dev-php/phpunit )
+  IUSE: test
+  RDEPEND: dev-lang/php:* dev-php/fedora-autoloader >=dev-php/symfony-dependency-injection-2.1.0
+  emerge.packages: dev-php/symfony-event-dispatcher
+  kit: core-server-kit
+  original.package.name: dev-php/symfony-event-dispatcher
+  original.package.slot: "0"
+  original.package.version: 2.1.0-r1
