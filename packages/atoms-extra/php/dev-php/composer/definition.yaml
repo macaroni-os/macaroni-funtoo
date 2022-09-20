@@ -1,0 +1,64 @@
+name: composer
+version: 2.4.1
+category: dev-php
+requires:
+- name: ca-bundle
+  version: '>=0'
+  category: dev-php
+- name: json-schema
+  version: '>=0'
+  category: dev-php
+- name: jsonlint
+  version: '>=0'
+  category: dev-php
+- name: metadata-minifier
+  version: '>=0'
+  category: dev-php
+- name: phar-utils
+  version: '>=0'
+  category: dev-php
+- name: reactphp-promise
+  version: '>=0'
+  category: dev-php
+- name: semver
+  version: '>=0'
+  category: dev-php
+- name: spdx-licenses
+  version: '>=0'
+  category: dev-php
+- name: symfony-console
+  version: '>=0'
+  category: dev-php
+- name: symfony-filesystem
+  version: '>=0'
+  category: dev-php
+- name: symfony-finder
+  version: '>=0'
+  category: dev-php
+- name: xdebug-handler
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Dependency Manager for PHP
+uri:
+- https://github.com/composer/composer
+license: MIT
+labels:
+  BDEPEND: dev-php/theseer-Autoload
+  RDEPEND: dev-lang/php:*[curl] >=dev-php/ca-bundle-1.0 dev-php/fedora-autoloader
+    >=dev-php/jsonlint-1.4 >=dev-php/json-schema-5.2.10 >=dev-php/metadata-minifier-1.0
+    >=dev-php/phar-utils-1.0 >=dev-php/psr-log-1.0 >=dev-php/reactphp-promise-2.7
+    >=dev-php/semver-3.0 >=dev-php/spdx-licenses-1.2 >=dev-php/symfony-console-2.8.52
+    >=dev-php/symfony-filesystem-2.8.52 >=dev-php/symfony-finder-2.8.52 >=dev-php/symfony-process-2.8.52
+    >=dev-php/xdebug-handler-2
+  emerge.packages: dev-php/composer
+  kit: core-server-kit
+  original.package.name: dev-php/composer
+  original.package.slot: "0"
+  original.package.version: 2.4.1
