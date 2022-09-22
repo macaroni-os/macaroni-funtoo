@@ -1,0 +1,25 @@
+name: sebastian-environment
+version: 2.0.0
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Helps writing PHP code that has runtime-specific execution paths
+uri:
+- http://phpunit.de
+license: BSD
+labels:
+  RDEPEND: dev-php/fedora-autoloader >=dev-lang/php-5.6:*
+  emerge.packages: dev-php/sebastian-environment
+  kit: core-server-kit
+  original.package.name: dev-php/sebastian-environment
+  original.package.slot: "0"
+  original.package.version: 2.0.0
