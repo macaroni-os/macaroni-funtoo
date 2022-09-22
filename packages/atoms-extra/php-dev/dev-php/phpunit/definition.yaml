@@ -1,0 +1,57 @@
+name: phpunit
+version: 5.7.15
+category: dev-php
+requires:
+- name: PHP_CodeCoverage
+  version: '>=0'
+  category: dev-php
+- name: PHP_Timer
+  version: '>=0'
+  category: dev-php
+- name: myclabs-deepcopy
+  version: '>=0'
+  category: dev-php
+- name: phpspec-prophecy
+  version: '>=0'
+  category: dev-php
+- name: phpunit-mock-objects
+  version: '>=0'
+  category: dev-php
+- name: sebastian-global-state
+  version: '>=0'
+  category: dev-php
+- name: sebastian-object-enumerator
+  version: '>=0'
+  category: dev-php
+- name: sebastian-resource-operations
+  version: '>=0'
+  category: dev-php
+- name: symfony-yaml
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A PHP Unit Testing framework
+uri:
+- http://phpunit.de
+license: BSD
+labels:
+  RDEPEND: dev-php/fedora-autoloader >=dev-php/File_Iterator-1.4.0 <dev-php/File_Iterator-2.0
+    >=dev-php/Text_Template-1.2.0 <dev-php/Text_Template-2.0 >=dev-php/PHP_CodeCoverage-4.0.4
+    <dev-php/PHP_CodeCoverage-5.0 >=dev-php/PHP_Timer-1.0.6 <dev-php/PHP_Timer-2.0
+    <dev-php/myclabs-deepcopy-2.0 <dev-php/phpspec-prophecy-2.0 <dev-php/phpunit-mock-objects-4.0
+    <dev-php/sebastian-comparator-2.0 <dev-php/sebastian-diff-2.0 <dev-php/sebastian-environment-3.0
+    <dev-php/sebastian-exporter-3.0 <dev-php/sebastian-global-state-2.0 <dev-php/sebastian-object-enumerator-3.0
+    <dev-php/sebastian-resource-operations-2.0 <dev-php/sebastian-version-3.0 <dev-php/symfony-yaml-4.0
+    || ( dev-lang/php:5.6[cli,json,unicode,xml] dev-lang/php:7.0[cli,json,unicode,xml]
+    dev-lang/php:7.1[cli,json,unicode,xml] )
+  emerge.packages: dev-php/phpunit
+  kit: core-server-kit
+  original.package.name: dev-php/phpunit
+  original.package.slot: "0"
+  original.package.version: 5.7.15-r2
