@@ -1,0 +1,26 @@
+name: PHP_TokenStream
+version: 1.4.11
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Wrapper around PHP's tokenizer extension
+uri:
+- http://phpunit.de
+license: BSD
+labels:
+  RDEPEND: dev-php/fedora-autoloader || ( dev-lang/php:5.6[tokenizer] dev-lang/php:7.0[tokenizer]
+    dev-lang/php:7.1[tokenizer] )
+  emerge.packages: dev-php/PHP_TokenStream
+  kit: core-server-kit
+  original.package.name: dev-php/PHP_TokenStream
+  original.package.slot: "0"
+  original.package.version: 1.4.11
