@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  eselect php set apache2 php8.1 &&
+  eselect php set cli php8.1 &&
+  eselect php list
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
