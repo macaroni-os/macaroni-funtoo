@@ -1,0 +1,35 @@
+name: phpspec-prophecy
+version: 1.8.0
+category: dev-php
+requires:
+- name: doctrine-instantiator
+  version: '>=0'
+  category: dev-php
+- name: phpdocumentor-reflection-docblock
+  version: '>=0'
+  category: dev-php
+- name: sebastian-comparator
+  version: '>=0'
+  category: dev-php
+- name: sebastian-recursion-context
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Highly opinionated mocking framework
+uri:
+- https://github.com/phpspec/prophecy
+license: MIT
+labels:
+  RDEPEND: dev-php/fedora-autoloader <dev-php/doctrine-instantiator-2 <dev-php/phpdocumentor-reflection-docblock-4
+    <dev-php/sebastian-comparator-3 <dev-php/sebastian-recursion-context-4 >=dev-lang/php-5.6:*
+  emerge.packages: dev-php/phpspec-prophecy
+  kit: core-server-kit
+  original.package.name: dev-php/phpspec-prophecy
+  original.package.slot: "0"
+  original.package.version: 1.8.0
