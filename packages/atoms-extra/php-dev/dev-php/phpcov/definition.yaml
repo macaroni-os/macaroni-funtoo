@@ -1,0 +1,25 @@
+name: phpcov
+version: 5.0.0
+category: dev-php
+requires:
+- name: xdebug
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: CLI frontend for PHP_CodeCoverage
+uri:
+- https://github.com/sebastianbergmann/phpcov
+license: BSD
+labels:
+  RDEPEND: dev-lang/php:*[phar] dev-php/xdebug
+  emerge.packages: dev-php/phpcov
+  kit: core-server-kit
+  original.package.name: dev-php/phpcov
+  original.package.slot: "0"
+  original.package.version: 5.0.0
