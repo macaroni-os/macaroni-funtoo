@@ -1,0 +1,29 @@
+name: phpdepend
+version: 2.5.0
+category: dev-php
+requires:
+- name: php
+  version: '>=0'
+  category: dev-lang-8.1
+- name: symfony-dependency-injection
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Static code analysis for PHP
+uri:
+- http://www.pdepend.org/
+license: BSD
+labels:
+  RDEPEND: dev-lang/php dev-php/fedora-autoloader >=dev-php/symfony-config-2.3 >=dev-php/symfony-dependency-injection-2.3
+    >=dev-php/symfony-filesystem-2.3
+  emerge.packages: dev-php/phpdepend
+  kit: core-server-kit
+  original.package.name: dev-php/phpdepend
+  original.package.slot: "0"
+  original.package.version: 2.5.0-r1
