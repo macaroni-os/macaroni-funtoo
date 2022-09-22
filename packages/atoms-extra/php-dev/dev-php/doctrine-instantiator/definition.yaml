@@ -1,0 +1,25 @@
+name: doctrine-instantiator
+version: 1.1.0
+category: dev-php
+requires:
+- name: fedora-autoloader
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility to instantiate objects in PHP without invoking their constructors
+uri:
+- https://github.com/doctrine//instantiator
+license: MIT
+labels:
+  RDEPEND: dev-php/fedora-autoloader >=dev-lang/php-7.1:*
+  emerge.packages: dev-php/doctrine-instantiator
+  kit: core-server-kit
+  original.package.name: dev-php/doctrine-instantiator
+  original.package.slot: "0"
+  original.package.version: 1.1.0
