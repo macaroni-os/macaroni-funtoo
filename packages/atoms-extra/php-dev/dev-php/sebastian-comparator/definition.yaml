@@ -1,0 +1,29 @@
+name: sebastian-comparator
+version: 1.2.4
+category: dev-php
+requires:
+- name: sebastian-diff
+  version: '>=0'
+  category: dev-php
+- name: sebastian-exporter
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Compare PHP values for equality
+uri:
+- http://phpunit.de
+license: BSD
+labels:
+  RDEPEND: dev-php/fedora-autoloader <dev-php/sebastian-diff-2.0 <dev-php/sebastian-exporter-3.0
+    >=dev-lang/php-5.6:*
+  emerge.packages: dev-php/sebastian-comparator
+  kit: core-server-kit
+  original.package.name: dev-php/sebastian-comparator
+  original.package.slot: "0"
+  original.package.version: 1.2.4
