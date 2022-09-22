@@ -1,0 +1,45 @@
+name: PHP_CodeCoverage
+version: 4.0.7
+category: dev-php
+requires:
+- name: File_Iterator
+  version: '>=0'
+  category: dev-php
+- name: PHP_TokenStream
+  version: '>=0'
+  category: dev-php
+- name: Text_Template
+  version: '>=0'
+  category: dev-php
+- name: sebastian-code-unit-reverse-lookup
+  version: '>=0'
+  category: dev-php
+- name: sebastian-environment
+  version: '>=0'
+  category: dev-php
+- name: sebastian-version
+  version: '>=0'
+  category: dev-php
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Collection, processing, and rendering for PHP code coverage
+uri:
+- http://phpunit.de
+license: BSD
+labels:
+  RDEPEND: dev-php/fedora-autoloader >=dev-php/File_Iterator-1.3 <dev-php/File_Iterator-2.0
+    >=dev-php/Text_Template-1.2 <dev-php/Text_Template-2.0 >=dev-php/PHP_TokenStream-1.4
+    <dev-php/PHP_TokenStream-3.0 >=dev-php/sebastian-environment-1.3.2 <dev-php/sebastian-environment-3.0
+    >=dev-php/sebastian-version-1.0 <dev-php/sebastian-version-3.0 dev-php/sebastian-code-unit-reverse-lookup
+    <dev-php/sebastian-code-unit-reverse-lookup-2.0 || ( dev-lang/php:5.6[xml,xmlwriter]
+    dev-lang/php:7.0[xml,xmlwriter] dev-lang/php:7.1[xml,xmlwriter] )
+  emerge.packages: dev-php/PHP_CodeCoverage
+  kit: core-server-kit
+  original.package.name: dev-php/PHP_CodeCoverage
+  original.package.slot: "0"
+  original.package.version: 4.0.7-r1
