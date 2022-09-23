@@ -1,0 +1,61 @@
+name: vscodium-bin
+version: 1.71.0.22245
+category: app-editors
+use_flags:
+- hunspell
+- libsecret
+requires:
+- name: libsecret
+  version: '>=0'
+  category: app-crypt
+- name: hunspell
+  version: '>=0'
+  category: app-text
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: cups
+  version: '>=0'
+  category: net-print
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Community-driven, freely-licensed binary distribution of Microsoft’s
+  editor VSCode
+uri:
+- https://vscodium.com/
+license: MIT
+labels:
+  DEPEND: media-libs/libpng >=x11-libs/gtk+-3.0 x11-libs/cairo x11-libs/libXtst dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: libsecret hunspell
+  RDEPEND: media-libs/libpng >=x11-libs/gtk+-3.0 x11-libs/cairo x11-libs/libXtst >=net-print/cups-2.0.0
+    x11-libs/libnotify x11-libs/libXScrnSaver dev-libs/nss hunspell? ( app-text/hunspell
+    ) libsecret? ( app-crypt/libsecret[crypt] )
+  emerge.packages: app-editors/vscodium-bin
+  kit: editors-kit
+  original.package.name: app-editors/vscodium-bin
+  original.package.slot: "0"
+  original.package.version: 1.71.0.22245
