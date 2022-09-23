@@ -6,6 +6,15 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  ebuild="/var/git/meta-repo/kits/core-server-kit/dev-php/PHP_CodeCoverage/PHP_CodeCoverage-4.0.7-r1.ebuild" &&
+  sed -i '/dev-lang\/php:5..*/d' ${ebuild} &&
+  sed -i '/dev-lang\/php:7.0.*/d' ${ebuild} &&
+  sed -i -e 's|php:7.1|php:7.4|g' ${ebuild} &&
+  ebuild="/var/git/meta-repo/kits/core-server-kit/dev-php/PHP_TokenStream/PHP_TokenStream-1.4.11.ebuild" &&
+  sed -i '/dev-lang\/php:5..*/d' ${ebuild} &&
+  sed -i '/dev-lang\/php:7.0.*/d' ${ebuild} &&
+  sed -i -e 's|php:7.1|php:7.4|g' ${ebuild}
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
