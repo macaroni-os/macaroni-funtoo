@@ -1,5 +1,5 @@
 name: ipxe
-version: 1.0.0
+version: 1.21.1
 category: sys-firmware
 use_flags:
 - amd64
@@ -18,6 +18,9 @@ uri:
 - http://ipxe.org/
 license: GPL-2
 labels:
+  BDEPEND: '!binary? ( amd64? ( app-arch/xz-utils dev-lang/perl iso? ( app-cdr/cdrtools
+    sys-boot/syslinux ) ) x86? ( app-arch/xz-utils dev-lang/perl iso? ( app-cdr/cdrtools
+    sys-boot/syslinux ) ) )'
   DEPEND: '!binary? ( amd64? ( app-arch/xz-utils dev-lang/perl sys-libs/zlib iso?
     ( sys-boot/syslinux virtual/cdrtools ) ) x86? ( app-arch/xz-utils dev-lang/perl
     sys-libs/zlib iso? ( sys-boot/syslinux virtual/cdrtools ) ) )'
@@ -26,4 +29,4 @@ labels:
   kit: core-hw-kit
   original.package.name: sys-firmware/ipxe
   original.package.slot: "0"
-  original.package.version: 1.0.0_p20190728
+  original.package.version: 1.21.1
