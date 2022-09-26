@@ -4,6 +4,7 @@
 # Author: Daniele Rondina <geaaru@funtoo.org>
 
 BUMPER_DIR="${BUMPER_DIR:-}"
+DESCR_POSTFIX="${DESCR_POSTFIX:-}"
 
 main () {
   local version=""
@@ -13,7 +14,7 @@ main () {
 
   if [ -z "${BUMPER_DIR}" ] ; then
     echo "Missing BUMPER_DIR variable with the package directory to parse"
-    return 1
+    exit 1
   fi
 
   echo "Running bumper for directory ${BUMPER_DIR}..."
@@ -29,7 +30,7 @@ main () {
     pushd ${dir}
 
     git add .
-    git commit -m "${cat}/${name}: Bump v.${version}" .
+    git commit -m "${cat}/${name}: Bump v.${version}${DESCR_POSTFIX}" .
 
     popd
 
