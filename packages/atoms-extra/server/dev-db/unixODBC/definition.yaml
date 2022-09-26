@@ -1,0 +1,36 @@
+name: unixODBC
+version: 2.3.7
+category: dev-db
+requires:
+- name: readline
+  version: '>=0'
+  category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A complete ODBC driver manager
+uri:
+- http://www.unixodbc.org/
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: '|| ( dev-libs/libltdl:0[-mgorny(-)] >=sys-devel/libtool-2.4.2-r1[-mgorny(-)]
+    ) >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] >=sys-libs/ncurses-5.9-r3:0=[-mgorny(-)]
+    >=virtual/libiconv-0-r1[-mgorny(-)] sys-devel/flex'
+  IUSE: +minimal odbcmanual static-libs unicode abi_x86_32 abi_x86_64 abi_x86_x32
+    abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '|| ( dev-libs/libltdl:0[-mgorny(-)] >=sys-devel/libtool-2.4.2-r1[-mgorny(-)]
+    ) >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] >=sys-libs/ncurses-5.9-r3:0=[-mgorny(-)]
+    >=virtual/libiconv-0-r1[-mgorny(-)]'
+  emerge.packages: dev-db/unixODBC
+  kit: dev-kit
+  original.package.name: dev-db/unixODBC
+  original.package.slot: "0"
+  original.package.version: 2.3.7
