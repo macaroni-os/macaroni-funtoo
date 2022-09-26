@@ -1,5 +1,5 @@
 name: qtmultimedia
-version: 5.15.2+2
+version: 5.15.2+3
 category: dev-qt-5
 use_flags:
 - -gles2-only
@@ -39,22 +39,22 @@ uri:
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
-  DEPEND: '>=dev-qt/qtcore-5.15.2-r3 ~dev-qt/qtgui-5.15.2[gles2-only=] ~dev-qt/qtnetwork-5.15.2
+  DEPEND: =dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2*[gles2-only=] =dev-qt/qtnetwork-5.15.2*
     alsa? ( media-libs/alsa-lib ) gstreamer? ( dev-libs/glib:2 media-libs/gstreamer:1.0
     media-libs/gst-plugins-bad:1.0 media-libs/gst-plugins-base:1.0 ) pulseaudio? (
-    media-sound/pulseaudio[glib] ) qml? ( ~dev-qt/qtdeclarative-5.15.2 gles2-only?
-    ( ~dev-qt/qtgui-5.15.2[egl] ) openal? ( media-libs/openal ) ) widgets? ( ~dev-qt/qtopengl-5.15.2
-    ~dev-qt/qtwidgets-5.15.2[gles2-only=] ) gstreamer? ( x11-base/xorg-proto ) test?
-    ( ~dev-qt/qttest-5.15.2 )'
+    media-sound/pulseaudio[glib] ) qml? ( =dev-qt/qtdeclarative-5.15.2* gles2-only?
+    ( =dev-qt/qtgui-5.15.2*[egl] ) openal? ( media-libs/openal ) ) widgets? ( =dev-qt/qtwidgets-5.15.2*[gles2-only=]
+    media-libs/libglvnd ) gstreamer? ( x11-base/xorg-proto ) test? ( =dev-qt/qttest-5.15.2*
+    )
   IUSE: alsa gles2-only gstreamer openal pulseaudio qml widgets debug test
-  RDEPEND: '>=dev-qt/qtcore-5.15.2-r3 ~dev-qt/qtgui-5.15.2[gles2-only=] ~dev-qt/qtnetwork-5.15.2
+  RDEPEND: =dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2*[gles2-only=] =dev-qt/qtnetwork-5.15.2*
     alsa? ( media-libs/alsa-lib ) gstreamer? ( dev-libs/glib:2 media-libs/gstreamer:1.0
     media-libs/gst-plugins-bad:1.0 media-libs/gst-plugins-base:1.0 ) pulseaudio? (
-    media-sound/pulseaudio[glib] ) qml? ( ~dev-qt/qtdeclarative-5.15.2 gles2-only?
-    ( ~dev-qt/qtgui-5.15.2[egl] ) openal? ( media-libs/openal ) ) widgets? ( ~dev-qt/qtopengl-5.15.2
-    ~dev-qt/qtwidgets-5.15.2[gles2-only=] )'
+    media-sound/pulseaudio[glib] ) qml? ( =dev-qt/qtdeclarative-5.15.2* gles2-only?
+    ( =dev-qt/qtgui-5.15.2*[egl] ) openal? ( media-libs/openal ) ) widgets? ( =dev-qt/qtwidgets-5.15.2*[gles2-only=]
+    media-libs/libglvnd )
   emerge.packages: dev-qt/qtmultimedia:5
   kit: qt-kit
   original.package.name: dev-qt/qtmultimedia
   original.package.slot: "5"
-  original.package.version: 5.15.2
+  original.package.version: 5.15.2_p20220907
