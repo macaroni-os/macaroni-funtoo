@@ -1,19 +1,21 @@
 name: freeradius
-version: 3.0.20+1
+version: 3.0.20+2
 category: net-dialup
 use_flags:
 - -firebird
-- -iodbc
 - -kerberos
 - -ldap
 - -libressl
-- -odbc
 - -oracle
+- -python_single_target_python3_10
 - -python_single_target_python3_8
+- -python_single_target_python3_9
 - -samba
+- iodbc
 - memcached
 - mongo
 - mysql
+- odbc
 - pam
 - pcap
 - postgres
@@ -26,12 +28,18 @@ use_flags:
 - ssl
 - systemd
 requires:
+- name: libiodbc
+  version: '>=0'
+  category: dev-db
 - name: mysql-connector-c
   version: '>=0'
   category: dev-db
 - name: postgresql
   version: '>=0'
   category: dev-db-13
+- name: unixODBC
+  version: '>=0'
+  category: dev-db
 - name: perl
   version: '>=0'
   category: dev-lang
@@ -73,7 +81,9 @@ labels:
     >=sys-devel/libtool-2.4 virtual/pkgconfig'
   DEPEND: '!net-dialup/cistronradius dev-lang/perl:= sys-libs/gdbm:= sys-libs/talloc
     python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) ) readline? ( sys-libs/readline:0= ) pcap? ( net-libs/libpcap ) memcached? (
     dev-libs/libmemcached ) mysql? ( dev-db/mysql-connector-c ) mongo? ( >=dev-libs/mongo-c-driver-1.13.0-r1
     ) postgres? ( dev-db/postgresql:= ) firebird? ( dev-db/firebird ) pam? ( sys-libs/pam
@@ -84,10 +94,13 @@ labels:
     ) oracle? ( dev-db/oracle-instantclient-basic )'
   IUSE: debug firebird iodbc kerberos ldap libressl memcached mysql odbc oracle pam
     pcap postgres python readline rest samba sqlite ssl redis systemd mongo python_single_target_python3_7
-    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_8
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: '!net-dialup/cistronradius dev-lang/perl:= sys-libs/gdbm:= sys-libs/talloc
     python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) ) readline? ( sys-libs/readline:0= ) pcap? ( net-libs/libpcap ) memcached? (
     dev-libs/libmemcached ) mysql? ( dev-db/mysql-connector-c ) mongo? ( >=dev-libs/mongo-c-driver-1.13.0-r1
     ) postgres? ( dev-db/postgresql:= ) firebird? ( dev-db/firebird ) pam? ( sys-libs/pam
