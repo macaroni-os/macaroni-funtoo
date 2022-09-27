@@ -1,0 +1,58 @@
+name: sddm
+version: 0.19.0
+category: x11-misc
+use_flags:
+- -consolekit
+- -systemd
+- -test
+- elogind
+- pam
+requires:
+- name: qtdbus
+  version: '>=0'
+  category: dev-qt-5
+- name: qtdeclarative
+  version: '>=0'
+  category: dev-qt-5
+- name: elogind
+  version: '>=0'
+  category: sys-auth
+- name: pam
+  version: '>=0'
+  category: sys-libs
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple Desktop Display Manager
+uri:
+- https://github.com/sddm/sddm
+license: GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain
+labels:
+  DEPEND: '>=dev-qt/qtcore-5.9.4:5 >=dev-qt/qtdbus-5.9.4:5 >=dev-qt/qtdeclarative-5.9.4:5
+    >=dev-qt/qtgui-5.9.4:5 >=dev-qt/qtnetwork-5.9.4:5 >=x11-base/xorg-server-1.15.1
+    x11-libs/libxcb[xkb] consolekit? ( >=sys-auth/consolekit-0.9.4 ) elogind? ( sys-auth/elogind
+    ) pam? ( sys-libs/pam ) systemd? ( sys-apps/systemd:= ) !systemd? ( sys-power/upower
+    ) dev-python/docutils >=dev-qt/linguist-tools-5.9.4:5 kde-frameworks/extra-cmake-modules
+    virtual/pkgconfig test? ( >=dev-qt/qttest-5.9.4:5 ) sys-devel/make >=dev-util/cmake-3.9.6
+    virtual/pkgconfig sys-apps/shadow'
+  IUSE: consolekit elogind +pam systemd test
+  RDEPEND: '>=dev-qt/qtcore-5.9.4:5 >=dev-qt/qtdbus-5.9.4:5 >=dev-qt/qtdeclarative-5.9.4:5
+    >=dev-qt/qtgui-5.9.4:5 >=dev-qt/qtnetwork-5.9.4:5 >=x11-base/xorg-server-1.15.1
+    x11-libs/libxcb[xkb] consolekit? ( >=sys-auth/consolekit-0.9.4 ) elogind? ( sys-auth/elogind
+    ) pam? ( sys-libs/pam ) systemd? ( sys-apps/systemd:= ) !systemd? ( sys-power/upower
+    )'
+  emerge.packages: x11-misc/sddm
+  kit: desktop-kit
+  original.package.name: x11-misc/sddm
+  original.package.slot: "0"
+  original.package.version: 0.19.0
