@@ -21,11 +21,14 @@ main () {
     virtualbox-guest-additions
     virtualbox-modules
     zfs-kmod
+    lkrg
   )
 
   for i in ${modules[@]} ; do
-    yq w -i ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml 'labels.[kernel.version]' ${RELEASE}
-    luet-build tree bump -f ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml
+    if [ -d ${REPO_DIR}/packages/kernels/${BRANCH}/${i} ] ; then
+      yq w -i ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml 'labels.[kernel.version]' ${RELEASE}
+      luet-build tree bump -f ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml
+    fi
   done
 }
 
