@@ -92,29 +92,33 @@ include_layers:
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
 artefacts:
 
 - tree: packages/atoms-extra/java
   uses:
     enabled:
       - alsa
+      - headless-awt
     disabled:
       - selinux
-      - headless-awt
       - cups
       #- system-java
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-java/openjdk-jre-bin:8
     - dev-java/openjdk-jre-bin:11
+    - dev-java/openjdk-jre-bin:17
+    - dev-java/openjdk-jre-bin:18
     - dev-java/openjdk-bin:8
     - dev-java/openjdk-bin:11
+    - dev-java/openjdk-bin:17
+    - dev-java/openjdk-bin:18
     - dev-java/maven-bin:3.6
 
 - tree: packages/atoms-extra/java
@@ -127,15 +131,34 @@ artefacts:
       packages:
         - category: dev-java-11
           name: openjdk-bin
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - virtual/jdk:11
+
+- tree: packages/atoms-extra/java
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-java-17
+          name: openjdk-bin
+    buildtime_deps:
+      packages:
+        - category: dev-java-17
+          name: openjdk-bin
+  packages:
+    - virtual/jdk:17
+
+- tree: packages/atoms-extra/java
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-java-18
+          name: openjdk-bin
+    buildtime_deps:
+      packages:
+        - category: dev-java-18
+          name: openjdk-bin
+  packages:
+    - virtual/jdk:18
 
 - tree: packages/atoms-extra/java
   mutations:
@@ -147,15 +170,34 @@ artefacts:
       packages:
         - category: dev-java-11
           name: openjdk-jre-bin
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - virtual/jre:11
+
+- tree: packages/atoms-extra/java
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-java-17
+          name: openjdk-jre-bin
+    buildtime_deps:
+      packages:
+        - category: dev-java-17
+          name: openjdk-jre-bin
+  packages:
+    - virtual/jre:17
+
+- tree: packages/atoms-extra/java
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-java-18
+          name: openjdk-jre-bin
+    buildtime_deps:
+      packages:
+        - category: dev-java-18
+          name: openjdk-jre-bin
+  packages:
+    - virtual/jre:18
 
 #- tree: packages/atoms-extra/java
 #  annotations:
@@ -174,13 +216,6 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race3
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - media-libs/alsa-lib
     - media-libs/alsa-ucm-conf
