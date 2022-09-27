@@ -1,0 +1,28 @@
+name: jre
+version: "18"
+category: virtual-18
+requires:
+- name: jdk
+  version: '>=0'
+  category: virtual-18
+- name: openjdk-jre-bin
+  version: '>=0'
+  category: dev-java-18
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Runtime Environment (JRE)
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( virtual/jdk:18 dev-java/oracle-jre-bin:18[gentoo-vm(+)] dev-java/openjdk-jre-bin:18[gentoo-vm(+)]
+    dev-java/openjdk-jre:18[gentoo-vm(+)] )'
+  emerge.packages: virtual/jre:18
+  kit: java-kit
+  original.package.name: virtual/jre
+  original.package.slot: "18"
+  original.package.version: "18"
