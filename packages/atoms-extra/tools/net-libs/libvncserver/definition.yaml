@@ -1,5 +1,5 @@
 name: libvncserver
-version: 0.9.12
+version: 0.9.13
 category: net-libs
 use_flags:
 - -libressl
@@ -47,24 +47,19 @@ uri:
 - https://libvnc.github.io/
 license: GPL-2
 labels:
-  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
-  DEPEND: gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0=[-mgorny(-)] ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:0=[-mgorny(-)]
-    >=dev-libs/libgcrypt-1.5.3:0=[-mgorny(-)] ) !gnutls? ( ssl? ( !libressl? ( >=dev-libs/openssl-1.0.2:0=[-mgorny(-)]
-    ) libressl? ( >=dev-libs/libressl-2.7.0:0=[-mgorny(-)] ) ) ) jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)]
-    ) lzo? ( dev-libs/lzo ) png? ( >=media-libs/libpng-1.6.10:0=[-mgorny(-)] ) sasl?
-    ( dev-libs/cyrus-sasl ) sdl? ( media-libs/libsdl2 ) systemd? ( sys-apps/systemd:=
-    ) zlib? ( >=sys-libs/zlib-1.2.8-r1:0=[-mgorny(-)] )
-  IUSE: +24bpp gcrypt gnutls ipv6 +jpeg libressl lzo +png sasl sdl ssl static-libs
-    systemd test +threads +zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0=[-mgorny(-)] ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:0=[-mgorny(-)]
-    >=dev-libs/libgcrypt-1.5.3:0=[-mgorny(-)] ) !gnutls? ( ssl? ( !libressl? ( >=dev-libs/openssl-1.0.2:0=[-mgorny(-)]
-    ) libressl? ( >=dev-libs/libressl-2.7.0:0=[-mgorny(-)] ) ) ) jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)]
-    ) lzo? ( dev-libs/lzo ) png? ( >=media-libs/libpng-1.6.10:0=[-mgorny(-)] ) sasl?
-    ( dev-libs/cyrus-sasl ) sdl? ( media-libs/libsdl2 ) systemd? ( sys-apps/systemd:=
-    ) zlib? ( >=sys-libs/zlib-1.2.8-r1:0=[-mgorny(-)] )
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0= ) ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.2:0=
+    ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:0= ) ) jpeg? ( >=virtual/jpeg-0-r2:0
+    ) lzo? ( dev-libs/lzo ) png? ( >=media-libs/libpng-1.6.10:0= ) sasl? ( dev-libs/cyrus-sasl
+    ) systemd? ( sys-apps/systemd:= ) zlib? ( >=sys-libs/zlib-1.2.8-r1:0= )
+  IUSE: +24bpp +filetransfer gcrypt gnutls ipv6 +jpeg lzo +png sasl ssl systemd +threads
+    +zlib
+  RDEPEND: gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0= ) ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.2:0=
+    ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:0= ) ) jpeg? ( >=virtual/jpeg-0-r2:0
+    ) lzo? ( dev-libs/lzo ) png? ( >=media-libs/libpng-1.6.10:0= ) sasl? ( dev-libs/cyrus-sasl
+    ) systemd? ( sys-apps/systemd:= ) zlib? ( >=sys-libs/zlib-1.2.8-r1:0= )
   emerge.packages: net-libs/libvncserver
-  kit: net-kit
+  kit: desktop-kit
   original.package.name: net-libs/libvncserver
   original.package.slot: "0"
-  original.package.version: 0.9.12
+  original.package.version: 0.9.13-r2
