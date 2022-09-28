@@ -118,12 +118,31 @@ artefacts:
       - debug
       - test
   packages:
-    - app-metrics/node_exporter-bin
     - app-metrics/redis_exporter-bin
     - app-metrics/mysqld_exporter-bin
     - app-metrics/consul_exporter-bin
     - app-metrics/blackbox_exporter-bin
     - app-metrics/prometheus-bin
+
+- tree: packages/atoms-extra/telemetry
+  uses:
+    disabled:
+      - sasl
+      - libressl
+      - examples
+      - static-libs
+      - debug
+      - test
+  packages:
+    - app-metrics/node_exporter-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e node_exporter
 
 - tree: packages/atoms-extra/telemetry
   uses:
