@@ -1,0 +1,11 @@
+[Unit]
+Description=Memcached Exporter
+After=network.target
+
+[Service]
+User=memcached_exporter
+Group=memcached_exporter
+ExecStart=/usr/bin/memcached_exporter $EXPORTER_OPTS
+
+[Install]
+WantedBy=multi-user.target
