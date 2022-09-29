@@ -346,11 +346,13 @@ artefacts:
     - wayland
     - xa
     - ocl-icd
-    - glvnd
     - xvmc
     - opengl
     - egl
     enabled:
+    # Disable glvnd is not catched correctly
+    # by the ebuild
+    - glvnd
     - X
     - drm
     - gbm
