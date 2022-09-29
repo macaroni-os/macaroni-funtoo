@@ -7,7 +7,6 @@ use_flags:
 - -kernel_linux
 - -lprng-compat
 - -selinux
-- -systemd
 - -usb
 - -xinetd
 - -zeroconf
@@ -16,6 +15,7 @@ use_flags:
 - dbus
 - pam
 - ssl
+- systemd
 requires:
 - name: libpaper
   version: '>=0'
@@ -23,9 +23,6 @@ requires:
 - name: python
   version: '>=0'
   category: dev-lang-3.7
-- name: gnutls
-  version: '>=0'
-  category: net-libs
 - name: zlib
   version: '>=0'
   category: sys-libs
