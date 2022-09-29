@@ -2,19 +2,16 @@ name: ghostscript-gpl
 version: 9.53.3
 category: app-text
 use_flags:
-- -cups
-- -dbus
 - -gtk
 - -l10n_ja
 - -l10n_ko
 - -l10n_zh-CN
 - -l10n_zh-TW
-- -unicode
 - X
+- cups
+- dbus
+- unicode
 requires:
-- name: libpaper
-  version: '>=0'
-  category: app-text
 - name: fontconfig
   version: '>=0'
   category: media-libs-1.0
@@ -24,6 +21,9 @@ requires:
 - name: openjpeg
   version: '>=0'
   category: media-libs-2
+- name: cups
+  version: '>=0'
+  category: net-print
 - name: jpeg
   version: '>=0'
   category: virtual
