@@ -187,6 +187,48 @@ artefacts:
     - media-libs/alsa-lib
 
 - tree: packages/atoms-extra/xorg
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: app-text
+          name: qpdf
+    # Break build cycle
+    buildtime_deps:
+      ignore:
+        - category: app-text
+          name: qpdf
+        - category: app-text
+          name: ghostscript-gpl
+  uses:
+    disabled:
+    - ldap
+    - nios2
+    - pclm
+    - perl
+    - sh
+    - test
+    enabled:
+    - dbus
+    - foomatic
+    - jpeg
+    - png
+    - postscript
+    - tiff
+    - zeroconf
+  packages:
+  - net-print/cups-filters
+
+- tree: packages/atoms-extra/xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: net-print
+          name: cups-filters
+  replacements:
+    buildtime_deps:
+      ignore:
+        - category: net-misc
+          name: cups
   uses:
     disabled:
     - l10n_de
@@ -197,6 +239,7 @@ artefacts:
     - nios2
     - sh
     - static-libs
+    - postscript
     enabled:
     - X
     - cups
@@ -239,25 +282,6 @@ artefacts:
   packages:
   - net-print/cups
 
-- tree: packages/atoms-extra/xorg
-  uses:
-    disabled:
-    - ldap
-    - nios2
-    - pclm
-    - perl
-    - sh
-    - test
-    enabled:
-    - dbus
-    - foomatic
-    - jpeg
-    - png
-    - postscript
-    - tiff
-    - zeroconf
-  packages:
-  - net-print/cups-filters
 
 - tree: packages/atoms-extra/xorg
   uses:

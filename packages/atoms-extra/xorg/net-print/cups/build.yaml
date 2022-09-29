@@ -10,7 +10,7 @@ prelude:
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  USE="cups {{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- end }}
