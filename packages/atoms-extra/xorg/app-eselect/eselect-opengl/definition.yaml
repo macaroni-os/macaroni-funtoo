@@ -1,0 +1,31 @@
+name: eselect-opengl
+version: 1.3.1
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility to change the OpenGL interface being used
+uri:
+- https://www.gentoo.org/
+license: GPL-2
+labels:
+  DEPEND: app-arch/xz-utils
+  RDEPEND: '>=app-admin/eselect-1.2.4 !<media-libs/mesa-10.3.4 !=media-libs/mesa-10.3.5
+    !=media-libs/mesa-10.3.7 !<x11-proto/glproto-1.4.17 !<=x11-base/xorg-server-1.12.4
+    !=x11-base/xorg-server-1.15.2 !=x11-base/xorg-server-1.15.2 !~x11-base/xorg-server-1.16.3
+    !=x11-base/xorg-server-1.16.4 !=x11-base/xorg-server-1.16.4 !~x11-base/xorg-server-1.17.0
+    !=x11-base/xorg-server-1.17.1 !<x11-drivers/ati-drivers-14.9 !=x11-drivers/ati-drivers-14.12
+    !<=app-emulation/emul-linux-x86-opengl-20140508'
+  emerge.packages: app-eselect/eselect-opengl
+  kit: core-gl-kit
+  original.package.name: app-eselect/eselect-opengl
+  original.package.slot: "0"
+  original.package.version: 1.3.1-r4
