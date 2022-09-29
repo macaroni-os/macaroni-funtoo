@@ -1,0 +1,53 @@
+name: doxygen
+version: 1.9.5
+category: app-doc
+use_flags:
+- -clang
+- -doc
+- -dot
+- -doxysearch
+- -latex
+- -qt5
+- -sqlite
+requires:
+- name: ghostscript-gpl
+  version: '>=0'
+  category: app-text
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Documentation system for most programming languages
+uri:
+- https://www.doxygen.nl/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: sys-devel/flex sys-devel/bison doc? ( || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) ) app-text/ghostscript-gpl dev-lang/perl
+    media-libs/libpng:0= virtual/libiconv clang? ( >=sys-devel/clang-4.0.0:= ) dot?
+    ( media-gfx/graphviz media-libs/freetype ) doxysearch? ( dev-libs/xapian:= ) latex?
+    ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils
+    dev-texlive/texlive-latex dev-texlive/texlive-latexextra ) qt5? ( dev-qt/qtgui:5
+    dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) sqlite? ( dev-db/sqlite:3 )
+  IUSE: clang debug doc dot doxysearch latex qt5 sqlite userland_GNU
+  RDEPEND: app-text/ghostscript-gpl dev-lang/perl media-libs/libpng:0= virtual/libiconv
+    clang? ( >=sys-devel/clang-4.0.0:= ) dot? ( media-gfx/graphviz media-libs/freetype
+    ) doxysearch? ( dev-libs/xapian:= ) latex? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra
+    dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra
+    ) qt5? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) sqlite? ( dev-db/sqlite:3
+    )
+  emerge.packages: app-doc/doxygen
+  kit: core-kit
+  original.package.name: app-doc/doxygen
+  original.package.slot: "0"
+  original.package.version: 1.9.5
