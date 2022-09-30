@@ -21,8 +21,7 @@ prelude:
   emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- end }}
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
-  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages"
-  ) }}
+  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
 # Needed to generate the file /var/lib/eselect-php/mod_php.conf with eselect php set ...
 - mkdir -p /pkgdir/{{ .Values.name }}/var/lib/eselect-php
@@ -31,6 +30,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: libjpeg-turbo
+- name: mta
   version: '>=0'
-  category: media-libs
+  category: virtual
