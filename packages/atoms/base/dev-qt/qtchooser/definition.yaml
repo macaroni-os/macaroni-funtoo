@@ -1,5 +1,5 @@
 name: qtchooser
-version: 66+3
+version: 66+4
 category: dev-qt
 use_flags:
 - -test
@@ -17,7 +17,9 @@ license: '|| ( LGPL-2.1 GPL-3 )'
 labels:
   DEPEND: test? ( dev-qt/qtcore:5 dev-qt/qttest:5 )
   IUSE: test
+  RDEPEND: '!<dev-qt/qtcore-5.15.2-r10:5'
   emerge.packages: dev-qt/qtchooser
   kit: qt-kit
   original.package.name: dev-qt/qtchooser
-  original.package.version: "66"
+  original.package.slot: "0"
+  original.package.version: 66-r1
