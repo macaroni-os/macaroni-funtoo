@@ -1,0 +1,32 @@
+name: liberation-fonts
+version: 2.1.0
+category: media-fonts
+use_flags:
+- -fontforge
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Helvetica/Times/Courier replacement TrueType font set, courtesy of
+  Red Hat
+uri:
+- https://github.com/liberationfonts/liberation-fonts
+license: OFL-1.1
+labels:
+  BDEPEND: fontforge? ( || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) media-gfx/fontforge || ( ( dev-lang/python:3.10 dev-python/fonttools[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/fonttools[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/fonttools[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/fonttools[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) )
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: fontforge X X
+  emerge.packages: media-fonts/liberation-fonts
+  kit: media-kit
+  original.package.name: media-fonts/liberation-fonts
+  original.package.slot: "0"
+  original.package.version: 2.1.0
