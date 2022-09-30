@@ -1,5 +1,5 @@
 name: qtnetwork
-version: 5.15.2+3
+version: 5.15.2+4
 category: dev-qt-5
 use_flags:
 - -connman
@@ -28,17 +28,17 @@ uri:
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
-  DEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= sys-libs/zlib:= connman? ( ~dev-qt/qtdbus-5.15.2
-    ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( ~dev-qt/qtdbus-5.15.2
-    ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( !libressl? ( >=dev-libs/openssl-1.1.1:0=[bindist=]
-    ) libressl? ( dev-libs/libressl:0= ) ) test? ( ~dev-qt/qttest-5.15.2 )'
-  IUSE: bindist connman gssapi libressl libproxy networkmanager sctp +ssl debug test
-  RDEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= sys-libs/zlib:= connman? ( ~dev-qt/qtdbus-5.15.2
-    ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( ~dev-qt/qtdbus-5.15.2
-    ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( !libressl? ( >=dev-libs/openssl-1.1.1:0=[bindist=]
-    ) libressl? ( dev-libs/libressl:0= ) ) connman? ( net-misc/connman ) networkmanager?
-    ( net-misc/networkmanager )'
+  DEPEND: =dev-qt/qtcore-5.15.2*:5= sys-libs/zlib:= connman? ( =dev-qt/qtdbus-5.15.2*
+    ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( =dev-qt/qtdbus-5.15.2*
+    ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( >=dev-libs/openssl-1.1.1:0=[bindist(-)=]
+    ) test? ( =dev-qt/qttest-5.15.2* )
+  IUSE: bindist connman gssapi libproxy networkmanager sctp +ssl debug test
+  RDEPEND: =dev-qt/qtcore-5.15.2*:5= sys-libs/zlib:= connman? ( =dev-qt/qtdbus-5.15.2*
+    ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( =dev-qt/qtdbus-5.15.2*
+    ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( >=dev-libs/openssl-1.1.1:0=[bindist(-)=]
+    ) connman? ( net-misc/connman ) networkmanager? ( net-misc/networkmanager )
   emerge.packages: dev-qt/qtnetwork:5
   kit: qt-kit
   original.package.name: dev-qt/qtnetwork
-  original.package.version: 5.15.2-r1
+  original.package.slot: "5"
+  original.package.version: 5.15.2_p20220928
