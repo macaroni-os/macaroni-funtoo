@@ -175,8 +175,16 @@ artefacts:
       - nls
   packages:
     - x11-libs/pango
+
+- tree: packages/atoms-extra/xorg
+  uses:
+    enabled:
+      - X
+      - nls
+      - introspection
+  packages:
     - dev-libs/atk
-    - app-accessibility/at-spi2-core
+    - app-accessibility/at-spi2-core:2
 
 - tree: packages/atoms-extra/xorg
   uses:
