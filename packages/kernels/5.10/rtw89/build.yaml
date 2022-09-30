@@ -9,7 +9,6 @@ env:
 prelude:
 # macaroni-lts-full installs modules.order and modules.builtin
 - >-
-  luet repo update &&
   luet i kernel-5.10/macaroni-lts-full kernel-5.10/macaroni-lts-modules --nodeps --relax --finalizer-env "BUILD_ISO=1" &&
   luet cleanup
 - >-
