@@ -1,5 +1,5 @@
 name: qtprintsupport
-version: 5.15.2+3
+version: 5.15.2+4
 category: dev-qt-5
 use_flags:
 - -cups
@@ -23,13 +23,14 @@ license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) dev-lang/perl
     virtual/pkgconfig
-  DEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= ~dev-qt/qtgui-5.15.2[gles2-only=] ~dev-qt/qtwidgets-5.15.2[gles2-only=]
-    cups? ( >=net-print/cups-1.4 ) test? ( ~dev-qt/qtnetwork-5.15.2 ) test? ( ~dev-qt/qttest-5.15.2
-    )'
+  DEPEND: =dev-qt/qtcore-5.15.2*:5= =dev-qt/qtgui-5.15.2*[gles2-only=] =dev-qt/qtwidgets-5.15.2*[gles2-only=]
+    cups? ( >=net-print/cups-1.4 ) test? ( =dev-qt/qtnetwork-5.15.2* ) test? ( =dev-qt/qttest-5.15.2*
+    )
   IUSE: cups gles2-only test debug test
-  RDEPEND: '>=dev-qt/qtcore-5.15.2-r3:5= ~dev-qt/qtgui-5.15.2[gles2-only=] ~dev-qt/qtwidgets-5.15.2[gles2-only=]
-    cups? ( >=net-print/cups-1.4 )'
+  RDEPEND: =dev-qt/qtcore-5.15.2*:5= =dev-qt/qtgui-5.15.2*[gles2-only=] =dev-qt/qtwidgets-5.15.2*[gles2-only=]
+    cups? ( >=net-print/cups-1.4 )
   emerge.packages: dev-qt/qtprintsupport:5
   kit: qt-kit
   original.package.name: dev-qt/qtprintsupport
-  original.package.version: 5.15.2-r1
+  original.package.slot: "5"
+  original.package.version: 5.15.2_p20220928
