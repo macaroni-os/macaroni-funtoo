@@ -1,5 +1,5 @@
 name: dnsmasq
-version: "2.86"
+version: "2.87"
 category: net-dns
 use_flags:
 - -conntrack
@@ -44,7 +44,7 @@ labels:
     ) dnssec? ( dev-libs/nettle:=[gmp] static? ( >=dev-libs/nettle-3.4[static-libs(+)]
     ) ) sys-apps/shadow
   IUSE: auth-dns conntrack dbus +dhcp dhcp-tools dnssec +dumpfile id idn libidn2 +inotify
-    ipv6 lua nettlehash nls script selinux static tftp lua_single_target_luajit lua_single_target_lua5-1
+    ipv6 lua nettlehash nls +script selinux static tftp lua_single_target_luajit lua_single_target_lua5-1
     lua_single_target_lua5-2 lua_single_target_lua5-3 lua_single_target_lua5-4
   RDEPEND: dbus? ( sys-apps/dbus:= ) idn? ( !libidn2? ( net-dns/libidn:0= ) libidn2?
     ( >=net-dns/libidn2-2.0:= ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:=
@@ -57,4 +57,4 @@ labels:
   kit: net-kit
   original.package.name: net-dns/dnsmasq
   original.package.slot: "0"
-  original.package.version: "2.86"
+  original.package.version: "2.87"
