@@ -1,17 +1,20 @@
 name: at-spi2-core
-version: 2.36.0
+version: 2.36.0+1
 category: app-accessibility-2
 use_flags:
-- -introspection
 - X
+- introspection
 requires:
-- name: glib
+- name: gobject-introspection
   version: '>=0'
-  category: dev-libs-2
+  category: dev-libs
 - name: dbus
   version: '>=0'
   category: sys-apps
 - name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libX11
   version: '>=0'
   category: x11-libs
 - name: libXtst
