@@ -1,0 +1,10 @@
+requires:
+  - name: "kernel-{{ ( index .Values.labels "kernel.branch" ) }}"
+    category: "zfs-kmod"
+    version: ">=0"
+env:
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /zfs-comon
+includes:
+- ^/usr/share/doc/.*
+- ^/usr/src/.*
