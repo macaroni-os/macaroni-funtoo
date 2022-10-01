@@ -1,6 +1,6 @@
 requires:
-  - name: "kernel-{{ ( index .Values.labels "kernel.branch" ) }}"
-    category: "zfs-kmod"
+  - name: "zfs-kmod"
+    category: "sys-fs-{{ ( index .Values.labels "kernel.branch" ) }}"
     version: ">=0"
 env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
