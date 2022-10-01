@@ -12,6 +12,7 @@ kits=(
   "java"
   "php"
   "service"
+  "xorg"
 )
 
 for i in ${kits[@]} ; do
