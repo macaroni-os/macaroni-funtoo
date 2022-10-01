@@ -1,0 +1,27 @@
+requires:
+  - name: "kernel"
+    category: "seed-5.15"
+    version: ">=0"
+package_dir: /{{ .Values.name }}
+env:
+- KVER={{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }}
+- GIT_HASH=e3ef10e3a6b3a002af800d658efa904e0d30f1a2
+prelude:
+# macaroni-lts-full installs modules.order and modules.builtin
+- >-
+  luet i kernel-5.10/macaroni-lts-full kernel-5.10/macaroni-lts-modules --nodeps --relax --finalizer-env "BUILD_ISO=1" &&
+  luet cleanup
+- >-
+  ln -s
+  /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }}
+  /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }}/build
+- >-
+  git clone https://github.com/lwfinger/rtw89.git &&
+  cd {{ .Values.name }} &&
+  git checkout "${GIT_HASH%\+*}" &&
+  make
+steps:
+- >-
+  cd {{ .Values.name }} &&
+  sed -e 's|^MODDESTDIR.*|MODDESTDIR := /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/kernel/drivers/net/wireless/realtek/rtw89/|g' -i Makefile &&
+  make install
