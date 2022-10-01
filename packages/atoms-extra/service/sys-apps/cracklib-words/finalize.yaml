@@ -1,0 +1,6 @@
+shell:
+- /bin/bash
+- -c
+install:
+- if type create-cracklib-dict >/dev/null ; then echo "Regenerating cracklib dictionary"
+  ; create-cracklib-dict /usr/share/dict/* > /dev/null ; fi
