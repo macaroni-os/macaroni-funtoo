@@ -7,7 +7,7 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  luet i -y --sync-repos kernel/macaroni-lts-modules --relax --nodeps && luet cleanup &&
+  luet i -y --sync-repos kernel-5.15/macaroni-lts-modules --relax --nodeps && luet cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
 - >-
