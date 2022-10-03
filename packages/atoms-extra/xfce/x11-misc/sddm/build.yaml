@@ -23,6 +23,10 @@ prelude:
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
   --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
+# Customize sdd default parameters with Macaroni settings. Uid 500 is the Macaroni user.
+- >-
+  sed -i -e 's|^MinimumUid=.*|MinimumUid=500|g' -e 's|^Current=.*|Current=elarun|g'
+  /usr/share/sddm/sddm.conf.d/00default.conf
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
