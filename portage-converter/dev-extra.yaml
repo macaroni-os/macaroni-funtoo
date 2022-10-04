@@ -373,12 +373,9 @@ artefacts:
     - dev-python/oauth2client
 
 - tree: packages/atoms-extra/dev
-  uses:
-    enabled:
   packages:
     - dev-python/google-api-python-client
     - dev-python/dbus-python
-    - dev-python/aiohttp
     - dev-python/psutil
     - dev-python/async_timeout
     - dev-python/aiodns
@@ -391,6 +388,15 @@ artefacts:
     - media-gfx/pngquant
     - sys-power/cpupower
       #    - dev-python/netaddr
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-python
+          name: charset_normalizer
+  packages:
+    - dev-python/aiohttp
 
 - tree: packages/atoms-extra/dev
   uses:
