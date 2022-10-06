@@ -42,6 +42,9 @@ requires:
 - name: libltdl
   version: '>=0'
   category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: gconf
   version: '>=0'
   category: gnome-base-2
@@ -113,7 +116,7 @@ labels:
     virtual/pkgconfig system-wide? ( || ( dev-util/unifdef sys-freebsd/freebsd-ubin
     ) ) >=sys-devel/gettext-0.19.3 >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
     || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 virtual/pkgconfig virtual/pkgconfig'
+    >=sys-devel/libtool-2.4 virtual/pkgconfig sys-apps/shadow virtual/pkgconfig'
   IUSE: +alsa +alsa-plugin +asyncns bluetooth +caps dbus doc equalizer elogind gconf
     +gdbm +glib gtk ipv6 jack libsamplerate libressl lirc native-headset cpu_flags_arm_neon
     ofono-headset +orc oss qt5 realtime selinux sox ssl systemd system-wide tcpd test
@@ -140,4 +143,5 @@ labels:
   emerge.packages: media-sound/pulseaudio
   kit: gnome-kit
   original.package.name: media-sound/pulseaudio
+  original.package.slot: "0"
   original.package.version: "14.0"
