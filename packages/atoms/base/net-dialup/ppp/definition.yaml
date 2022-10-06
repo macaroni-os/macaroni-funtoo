@@ -8,12 +8,15 @@ use_flags:
 - gtk
 - pam
 requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: pam
   version: '>=0'
   category: virtual
 - name: gtk+
   version: '>=0'
-  category: x11-libs-3
+  category: x11-libs-2
 annotations:
   subsets:
     rules:
@@ -36,4 +39,5 @@ labels:
   emerge.packages: net-dialup/ppp
   kit: core-kit
   original.package.name: net-dialup/ppp
+  original.package.slot: "0"
   original.package.version: 2.4.7-r7
