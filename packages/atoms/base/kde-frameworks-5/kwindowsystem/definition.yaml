@@ -2,18 +2,24 @@ name: kwindowsystem
 version: 5.78.0+3
 category: kde-frameworks-5
 use_flags:
-- -X
 - -doc
-- -nls
 - -prefix
 - -test
+- X
+- nls
 requires:
 - name: qtwidgets
+  version: '>=0'
+  category: dev-qt-5
+- name: qtx11extras
   version: '>=0'
   category: dev-qt-5
 - name: kf-env
   version: '>=0'
   category: kde-frameworks-5
+- name: libXfixes
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -42,4 +48,5 @@ labels:
   emerge.packages: kde-frameworks/kwindowsystem:5
   kit: kde-kit
   original.package.name: kde-frameworks/kwindowsystem
+  original.package.slot: "5"
   original.package.version: 5.78.0
