@@ -6,6 +6,13 @@ use_flags:
 - -static
 - acl
 - nls
+requires:
+- name: acl
+  version: '>=0'
+  category: virtual
+- name: libintl
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -28,4 +35,5 @@ labels:
   emerge.packages: sys-apps/sed
   kit: core-kit
   original.package.name: sys-apps/sed
+  original.package.slot: "0"
   original.package.version: "4.8"
