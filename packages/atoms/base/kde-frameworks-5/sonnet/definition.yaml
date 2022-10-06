@@ -5,11 +5,20 @@ use_flags:
 - -aspell
 - -designer
 - -doc
-- -hunspell
-- -nls
 - -prefix
 - -test
+- hunspell
+- nls
 requires:
+- name: hunspell
+  version: '>=0'
+  category: app-text
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
 - name: qtwidgets
   version: '>=0'
   category: dev-qt-5
@@ -45,4 +54,5 @@ labels:
   emerge.packages: kde-frameworks/sonnet:5
   kit: kde-kit
   original.package.name: kde-frameworks/sonnet
+  original.package.slot: "5"
   original.package.version: 5.78.0
