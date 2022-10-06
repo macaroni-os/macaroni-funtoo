@@ -8,6 +8,9 @@ requires:
 - name: libnl
   version: '>=0'
   category: dev-libs-3
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: wireless-regdb
   version: '>=0'
   category: net-wireless
@@ -23,8 +26,9 @@ uri:
 - https://wireless.wiki.kernel.org/en/developers/regulatory/crda
 license: ISC
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) ||
-    ( ( dev-lang/python:3.8 dev-python/m2crypto[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) || ( ( dev-lang/python:3.10 dev-python/m2crypto[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/m2crypto[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/m2crypto[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/m2crypto[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ) virtual/pkgconfig virtual/pkgconfig'
