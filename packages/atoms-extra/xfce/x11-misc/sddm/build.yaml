@@ -26,7 +26,8 @@ prelude:
 # Customize sdd default parameters with Macaroni settings. Uid 500 is the Macaroni user.
 - >-
   sed -i -e 's|^MinimumUid=.*|MinimumUid=500|g' -e 's|^Current=.*|Current=elarun|g'
-  /pkgdir/{{ .Values.name }}/usr/share/sddm/sddm.conf.d/00default.conf
+  /pkgdir/{{ .Values.name }}/usr/share/sddm/sddm.conf.d/00default.conf &&
+  sed -i -e '/pam_systemd.so/d' /pkgdir/{{ .Values.name }}/etc/pam.d/sddm-greeter
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
