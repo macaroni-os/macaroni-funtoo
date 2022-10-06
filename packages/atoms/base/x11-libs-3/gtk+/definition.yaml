@@ -2,18 +2,21 @@ name: gtk+
 version: 3.24.23+3
 category: x11-libs-3
 use_flags:
-- -X
-- -cloudprint
-- -colord
-- -cups
 - -doc
 - -prefix
 - -test
 - -wayland
-- -xinerama
+- X
+- cloudprint
+- colord
+- cups
 - introspection
+- xinerama
 requires:
-- name: atk
+- name: at-spi2-atk
+  version: '>=0'
+  category: app-accessibility-2
+- name: json-glib
   version: '>=0'
   category: dev-libs
 - name: gtk-update-icon-cache
@@ -22,12 +25,30 @@ requires:
 - name: libepoxy
   version: '>=0'
   category: media-libs
-- name: dbus
+- name: rest
   version: '>=0'
-  category: sys-apps
+  category: net-libs-0.7
+- name: cups
+  version: '>=0'
+  category: net-print
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
 - name: pango
   version: '>=0'
   category: x11-libs
+- name: colord
+  version: '>=0'
+  category: x11-misc
 - name: shared-mime-info
   version: '>=0'
   category: x11-misc
@@ -80,4 +101,5 @@ labels:
   emerge.packages: x11-libs/gtk+:3
   kit: gnome-kit
   original.package.name: x11-libs/gtk+
+  original.package.slot: "3"
   original.package.version: 3.24.23-r2
