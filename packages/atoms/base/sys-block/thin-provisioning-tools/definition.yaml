@@ -4,6 +4,13 @@ category: sys-block
 use_flags:
 - -static
 - -test
+requires:
+- name: expat
+  version: '>=0'
+  category: dev-libs
+- name: libaio
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -27,4 +34,5 @@ labels:
   emerge.packages: sys-block/thin-provisioning-tools
   kit: core-kit
   original.package.name: sys-block/thin-provisioning-tools
+  original.package.slot: "0"
   original.package.version: 0.8.5
