@@ -12,9 +12,12 @@ use_flags:
 - ssl
 - zlib
 requires:
-- name: zlib
+- name: libxml2
   version: '>=0'
-  category: sys-libs
+  category: dev-libs-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: libintl
   version: '>=0'
   category: virtual
@@ -52,4 +55,5 @@ labels:
   emerge.packages: net-libs/neon
   kit: core-kit
   original.package.name: net-libs/neon
+  original.package.slot: "0"
   original.package.version: 0.30.2
