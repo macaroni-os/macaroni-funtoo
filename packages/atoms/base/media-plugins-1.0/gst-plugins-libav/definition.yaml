@@ -2,12 +2,16 @@ name: gst-plugins-libav
 version: 1.18.4
 category: media-plugins-1.0
 use_flags:
-- -libav
-- orc
+- -prefix
+- -test
+- nls
 requires:
 - name: gst-plugins-base
   version: '>=0'
   category: media-libs-1.0
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
 annotations:
   subsets:
     rules:
