@@ -2,11 +2,11 @@ name: libksysguard
 version: 5.20.5+3
 category: kde-plasma-5
 use_flags:
-- -X
 - -designer
 - -prefix
 - -test
 - -webengine
+- X
 requires:
 - name: kconfigwidgets
   version: '>=0'
@@ -20,6 +20,9 @@ requires:
 - name: knewstuff
   version: '>=0'
   category: kde-frameworks-5
+- name: libXres
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -59,4 +62,5 @@ labels:
   emerge.packages: kde-plasma/libksysguard:5
   kit: kde-kit
   original.package.name: kde-plasma/libksysguard
+  original.package.slot: "5"
   original.package.version: 5.20.5
