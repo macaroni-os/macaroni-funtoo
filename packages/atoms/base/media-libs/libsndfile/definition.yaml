@@ -10,6 +10,12 @@ requires:
 - name: alsa-lib
   version: '>=0'
   category: media-libs
+- name: flac
+  version: '>=0'
+  category: media-libs
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
 annotations:
   subsets:
     rules:
@@ -22,8 +28,9 @@ uri:
 - http://www.mega-nerd.com/libsndfile
 license: LGPL-2.1
 labels:
-  BDEPEND: virtual/pkgconfig test? ( || ( >=dev-lang/python-2.7.5-r2:2.7 dev-lang/python:3.7
-    >=dev-python/pypy3-7.3.0:0 ) )
+  BDEPEND: virtual/pkgconfig test? ( || ( dev-lang/python:3.10 >=dev-lang/python-2.7.5-r2:2.7
+    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 >=dev-python/pypy3-7.3.0:0
+    ) )
   DEPEND: '!minimal? ( >=media-libs/flac-1.2.1-r5[-mgorny(-)] >=media-libs/libogg-1.3.0[-mgorny(-)]
     >=media-libs/libvorbis-1.3.3-r1[-mgorny(-)] ) alsa? ( media-libs/alsa-lib ) sqlite?
     ( >=dev-db/sqlite-3.2 )'
@@ -35,4 +42,5 @@ labels:
   emerge.packages: media-libs/libsndfile
   kit: media-kit
   original.package.name: media-libs/libsndfile
+  original.package.slot: "0"
   original.package.version: 1.0.28-r4
