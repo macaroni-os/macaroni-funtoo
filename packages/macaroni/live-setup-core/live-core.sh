@@ -7,11 +7,12 @@ if [ -n "$DEBUG" ] ; then
 fi
 
 EROOT=${EROOT:-""}
-ENTITIES_EXTRA=${ENTITIES_EXTRA:-"avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video vboxsf vboxusers vboxguest kvm"}
+ENTITIES_EXTRA=${ENTITIES_EXTRA:-"avahi-autoipd ddclient dhcpcd fdm pulse sddm pulse-access ushare utmp video vboxsf vboxusers vboxguest kvm nullmail"}
 LIVE_USER=macaroni
 CMDLINE=${CMDLINE:-$(cat /proc/cmdline 2> /dev/null)}
 SCRIPTS_DIR=${SCRIPTS_DIR:-/usr/share/macaroni/live-setup/scripts.d/}
 DEF_TIMEZONE=${DEF_TIMEZONE:-"Europe/Rome"}
+DISPLAYMANAGER=${DISPLAYMANAGER:-"gdm"}
 
 run_scripts() {
   for i in `ls -1 ${SCRIPTS_DIR}*.sh` ; do
