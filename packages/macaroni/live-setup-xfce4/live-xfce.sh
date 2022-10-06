@@ -5,6 +5,7 @@ if [ -n "$DEBUG" ] ; then
 fi
 
 EROOT=${EROOT:-""}
+DISPLAYMANAGER="sddm"
 ENABLED_BOOT_SERVICES=(
   "dbus"
   "binfmt"
