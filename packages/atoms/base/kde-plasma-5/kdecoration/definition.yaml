@@ -2,12 +2,15 @@ name: kdecoration
 version: 5.20.5+3
 category: kde-plasma-5
 use_flags:
-- -prefix
 - -test
+- prefix
 requires:
 - name: qtgui
   version: '>=0'
   category: dev-qt-5
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
 - name: ki18n
   version: '>=0'
   category: kde-frameworks-5
@@ -34,4 +37,5 @@ labels:
   emerge.packages: kde-plasma/kdecoration:5
   kit: kde-kit
   original.package.name: kde-plasma/kdecoration
+  original.package.slot: "5"
   original.package.version: 5.20.5
