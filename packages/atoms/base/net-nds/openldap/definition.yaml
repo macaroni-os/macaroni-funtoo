@@ -6,13 +6,11 @@ use_flags:
 - -iodbc
 - -kerberos
 - -kinit
-- -libressl
 - -minimal
 - -odbc
 - -perl
 - -samba
 - -selinux
-- -slp
 - -smbkrb5passwd
 - berkdb
 - cxx
@@ -20,9 +18,30 @@ use_flags:
 - ssl
 - tcpd
 requires:
+- name: lmdb
+  version: '>=0'
+  category: dev-db
 - name: cyrus-sasl
   version: '>=0'
   category: dev-libs-2
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+- name: e2fsprogs
+  version: '>=0'
+  category: sys-fs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -32,7 +51,7 @@ annotations:
       - ^/var/db/pkg/
 description: LDAP suite of application and development tools
 uri:
-- http://www.OpenLDAP.org/
+- https://www.OpenLDAP.org/
 license: OPENLDAP GPL-2
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
