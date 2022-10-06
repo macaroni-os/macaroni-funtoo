@@ -1,11 +1,14 @@
 name: grep
-version: 3.7+3
+version: "3.6"
 category: sys-apps
 use_flags:
 - -static
 - nls
 - pcre
 requires:
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
 - name: libiconv
   version: '>=0'
   category: virtual
@@ -34,4 +37,5 @@ labels:
   emerge.packages: sys-apps/grep
   kit: core-kit
   original.package.name: sys-apps/grep
-  original.package.version: "3.7"
+  original.package.slot: "0"
+  original.package.version: "3.6"
