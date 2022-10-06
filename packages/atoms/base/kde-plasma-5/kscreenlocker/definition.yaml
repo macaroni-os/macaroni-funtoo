@@ -2,14 +2,11 @@ name: kscreenlocker
 version: 5.20.5+3
 category: kde-plasma-5
 use_flags:
-- -pam
 - -prefix
 - -test
+- pam
 requires:
 - name: kidletime
-  version: '>=0'
-  category: kde-frameworks-5
-- name: kwayland
   version: '>=0'
   category: kde-frameworks-5
 - name: plasma
@@ -18,6 +15,9 @@ requires:
 - name: solid
   version: '>=0'
   category: kde-frameworks-5
+- name: pam
+  version: '>=0'
+  category: sys-libs
 - name: libXi
   version: '>=0'
   category: x11-libs
@@ -60,4 +60,5 @@ labels:
   emerge.packages: kde-plasma/kscreenlocker:5
   kit: kde-kit
   original.package.name: kde-plasma/kscreenlocker
+  original.package.slot: "5"
   original.package.version: 5.20.5
