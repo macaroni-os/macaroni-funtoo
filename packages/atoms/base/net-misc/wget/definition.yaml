@@ -2,10 +2,10 @@ name: wget
 version: 1.21.3
 category: net-misc
 use_flags:
-- -cookie_check
+- -cookie-check
 - -gnutls
 - -idn
-- -libressl
+- -metalink
 - -static
 - -test
 - -uuid
@@ -13,6 +13,13 @@ use_flags:
 - pcre
 - ssl
 - zlib
+requires:
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -26,8 +33,9 @@ uri:
 license: GPL-3
 labels:
   BDEPEND: app-arch/xz-utils dev-lang/perl sys-apps/texinfo virtual/pkgconfig nls?
-    ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
-    ) dev-perl/HTTP-Daemon dev-perl/HTTP-Message dev-perl/IO-Socket-SSL )
+    ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) dev-perl/HTTP-Daemon dev-perl/HTTP-Message dev-perl/IO-Socket-SSL
+    )
   DEPEND: '!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:=
     ) metalink? ( app-crypt/gpgme media-libs/libmetalink ) pcre? ( dev-libs/libpcre2
     ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid?
