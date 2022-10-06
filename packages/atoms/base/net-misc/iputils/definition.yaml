@@ -2,13 +2,20 @@ name: iputils
 version: 20210722+3
 category: net-misc
 use_flags:
-- -caps
 - -idn
 - -static
 - -test
 - -traceroute6
+- caps
 - filecaps
 - nls
+requires:
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -34,4 +41,5 @@ labels:
   emerge.packages: net-misc/iputils
   kit: core-kit
   original.package.name: net-misc/iputils
+  original.package.slot: "0"
   original.package.version: "20210722"
