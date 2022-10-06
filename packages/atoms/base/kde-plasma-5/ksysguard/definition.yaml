@@ -2,19 +2,28 @@ name: ksysguard
 version: 5.20.5+3
 category: kde-plasma-5
 use_flags:
-- -handbook
 - -lm-sensors
-- -network
-- -networkmanager
 - -prefix
 - -test
+- handbook
+- network
+- networkmanager
 requires:
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
 - name: kinit
+  version: '>=0'
+  category: kde-frameworks-5
+- name: networkmanager-qt
   version: '>=0'
   category: kde-frameworks-5
 - name: libksysguard
   version: '>=0'
   category: kde-plasma-5
+- name: libpcap
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
@@ -56,4 +65,5 @@ labels:
   emerge.packages: kde-plasma/ksysguard:5
   kit: kde-kit
   original.package.name: kde-plasma/ksysguard
+  original.package.slot: "5"
   original.package.version: 5.20.5
