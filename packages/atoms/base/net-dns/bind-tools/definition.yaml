@@ -2,20 +2,26 @@ name: bind-tools
 version: 9.18.7
 category: net-dns
 use_flags:
-- -gost
+- -doc
 - -gssapi
 - -idn
 - -libedit
-- -libidn2
-- -libressl
-- -seccomp
+- caps
 - readline
-- ssl
 - xml
 requires:
+- name: libuv
+  version: '>=0'
+  category: dev-libs
 - name: libxml2
   version: '>=0'
   category: dev-libs-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: libcap
+  version: '>=0'
+  category: sys-libs
 annotations:
   subsets:
     rules:
@@ -25,7 +31,7 @@ annotations:
       - ^/var/db/pkg/
 description: 'bind tools: dig, nslookup, host, nsupdate, dnssec-keygen'
 uri:
-- http://www.isc.org/software/bind
+- https://www.isc.org/software/bind
 license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
 labels:
   BDEPEND: doc? ( dev-python/sphinx ) virtual/pkgconfig >=app-portage/elt-patches-20170815
