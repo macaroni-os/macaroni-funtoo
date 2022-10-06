@@ -3,9 +3,12 @@ version: 5.78.0+3
 category: kde-frameworks-5
 use_flags:
 - -doc
-- -qml
 - -test
+- qml
 requires:
+- name: qtdeclarative
+  version: '>=0'
+  category: dev-qt-5
 - name: qtgui
   version: '>=0'
   category: dev-qt-5
@@ -44,4 +47,5 @@ labels:
   emerge.packages: kde-frameworks/prison:5
   kit: kde-kit
   original.package.name: kde-frameworks/prison
+  original.package.slot: "5"
   original.package.version: 5.78.0
