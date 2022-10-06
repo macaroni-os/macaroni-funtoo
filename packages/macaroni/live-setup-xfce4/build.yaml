@@ -5,7 +5,3 @@ steps:
   mkdir -p /integration/var/lib/macaroni/
 - cp -rfv live-xfce.sh /integration/var/lib/macaroni/
 - chmod +x /integration/var/lib/macaroni/live-xfce.sh
-# This is needed because `mos kernel gi` is skipped.
-# TODO: fix luet-geniso to avoid this.
-- cd boot && ln -s kernel-* bzImage || true
-- cd boot && ln -s initramfs-* Initrd || true
