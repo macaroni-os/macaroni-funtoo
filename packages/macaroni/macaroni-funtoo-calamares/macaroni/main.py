@@ -21,6 +21,7 @@ luet_packages2remove = [
     "system/macaroni-funtoo-calamares",
     "virtual/calamares",
     "app-admin-5/calamares",
+    "dev-qt-5/designer"
 ]
 
 
