@@ -18,7 +18,7 @@ steps:
 - cp -rfv branding/* /{{.Values.name}}/etc/calamares/branding/default/
 
 - >-
-  mkdir -p /{{ .Values.name }}/usr/share/polkit-1/
+  mkdir -p /{{ .Values.name }}/usr/share/polkit-1/ &&
   cp -rv overrides/com.github.calamares.calamares.policy /{{ .Values.name }}/usr/share/polkit-1/actions/
 
 package_dir: /{{.Values.name}}
