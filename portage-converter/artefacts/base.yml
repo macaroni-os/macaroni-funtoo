@@ -3923,6 +3923,14 @@ artefacts:
     - wayland
   packages:
   - x11-drivers/nvidia-drivers
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+          - "^/opt/nvidia/nvidia-drivers-.*/src/"
+        portage:
+          - "^/var/db/pkg/"
   finalizer:
     shell:
       - "/bin/bash"
