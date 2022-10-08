@@ -1,0 +1,173 @@
+packages:
+
+  keep_luet_db: "true"
+  rootfs:
+  - system/entities
+  - system/luet-geaaru-testing
+  - utils/yq
+  - utils/jq
+
+  - app-admin/whip
+  - app-admin/macaronictl
+  - macaroni/live-setup-xfce4
+  - macaroni-release/funtoo
+  - system/macaroni-funtoo-calamares
+
+  - virtual/sh
+  - virtual/base
+  - vritual/grub
+  - virtual/openrc
+  - virtual/macaroni-kernel-lts
+
+  - virtual-entities/base
+
+  - kernel-5.10/macaroni-lts-initramfs
+  - kernel-5.10/macaroni-lts-full
+  - kernel-5.10/macaroni-lts-modules
+
+  - pkglist/funtoo-base
+
+  - app-editors/vim
+
+  # Extra kernel modules
+  - sys-fs-5.10/zfs-kmod
+  - kernel-5.10/rtw89
+  - kernel-5.10/virtualbox-guest-additions
+  - x11-drivers-5.10/nvidia-kernel-modules
+  - sys-kernel/linux-firmware
+  - sys-kernel/dracut
+  - sys-fs/mdadm
+  - www-client/firefox-bin
+
+  - sys-apps/shadow
+  - sys-apps/iproute2
+  - sys-apps/corenetwork
+  - net-misc/dhcpcd
+  - net-libs/libmnl
+
+  - sys-process/procps
+  - sys-process/htop
+  - sys-apps/ethtool
+  - sys-apps/less
+  - net-wireless/wpa_supplicant
+  - net-wireless/wireless-regdb
+  - sys-fs/eudev
+  - sys-apps/kbd
+  - media-fonts/noto-emoji
+
+  # TODO: fix this dependency soon
+  # Ibus-settings require py2.7
+  - dev-lang-2.7/python
+
+  # needed for /bin/hostname
+  - sys-apps/net-tools
+  # needed for format vfat uefi partition
+  - sys-fs/dosfstools
+  - sys-boot/efibootmgr
+
+  # Add support to multiple filesystem to ISO
+  - sys-fs/btrfs-progs
+  - sys-fs/xfsprogs
+  - sys-fs/reiserfsprogs
+  - sys-fs/zfs
+
+  # Add plymouth
+  - sys-boot/plymouth
+  - sys-boot/plymouth-openrc-plugin
+  - x11-themes/plymouth-funtoo
+
+  - x11-apps/setxkbmap
+  - x11-apps/xrandr
+
+  # Package to add on virtual/xorg-base
+  - x11-drivers/xf86-video-vmware
+  - x11-drivers/xf86-video-nouveau
+  - x11-drivers/xf86-video-fbdev
+  - x11-drivers/xf86-video-ati
+  - x11-drivers/xf86-video-amdgpu
+  - x11-drivers/xf86-video-intel
+  - x11-drivers/xf86-video-vbox
+  - x11-drivers/xf86-video-vesa
+  - x11-base/xorg-drivers
+  - x11-drivers/xf86-input-mouse
+  - x11-drivers/xf86-input-synaptics
+  - x11-drivers/xf86-input-vmmouse
+  - x11-drivers/xf86-input-wacom
+  - x11-drivers/xf86-input-keyboard
+  - x11-drivers/xf86-input-evdev
+
+  - net-misc/wget
+
+  # Needed for the font cache generation
+  - media-fonts/encodings
+
+  # Libraries missing on runtime deps (for issue on macaroni specs or funtoo)
+  # htop, wpa_supplicant
+  - dev-libs-3/libnl
+  # probably virtual/libusb to fix
+  - dev-libs-1/libusb
+  # grub
+  - sys-fs-3/fuse
+  - sys-fs/fuse
+  # Apache
+  - dev-libs-1/apr-util
+  # kadmind
+  - dev-libs/libverto
+  # thin-tools etc.
+  - dev-libs/libaio
+  - media-gfx/fontforge
+
+  # calamares plugin requires these packages
+  - x11-libs/xcb-util-wm
+  - x11-libs/xcb-util-image
+  - x11-libs/xcb-util-renderutil
+
+  - dev-qt-5/qtwayland
+  - x11-wm/twm
+  - x11-terms/xterm
+  - sys-libs/libutempter
+  - sys-apps/which
+
+  # Needed by /usr/lib64/dri/*.so
+  - sys-devel/llvm-common
+  - sys-devel-11/llvm
+
+# equery belongs libstd-008055cc7d873802.so (fix ldconfig)
+# * Searching for libstd-008055cc7d873802.so ... 
+#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/libstd-008055cc7d873802.so)
+#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/rustlib/x86_64-unknown-linux-gnu/lib/libstd-008055cc7d873802.so)
+  # rust-bin 
+
+    # Dependency of calamares
+  - kde-frameworks-5/plasma
+
+  - net-libs/libproxy
+
+  uefi:
+  - live/systemd-boot
+  - system/macaroni-live-boot
+  isoimage:
+  - live/syslinux
+  - system/macaroni-live-boot
+
+# Repositories packages from repository-index
+repository:
+  packages:
+  - repository/mottainai-stable
+  - repository/macaroni-funtoo-dev
+  - repository/macaroni-commons-dev
+
+initramfs:
+  kernel_file: "bzImage"
+  rootfs_file: "Initrd"
+
+overlay: "true"
+image_prefix: "Macaroni-Funtoo-Xfce-Testing-0."
+image_date: "true"
+
+overlay_hooks:
+  - /var/lib/macaroni/build-iso-hook.sh
+
+luet:
+  config: conf/luet-devel.yaml
+  #config: conf/luet-desktop-thin.yaml
