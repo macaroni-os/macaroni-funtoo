@@ -14,6 +14,11 @@ prelude:
     mkdir /pkgdir/{{ .Values.name }}/etc/ld.so.conf.d -p &&
     echo "/opt/nvidia/nvidia-drivers-${PACKAGE_VERSION}/lib64" >
     /pkgdir/{{ .Values.name }}/etc/ld.so.conf.d/07-nvidia.conf
+  # Temporary fix until this is fixed on ebuild directly
+  - >-
+    sed -i -e 's|sbin|bin|g'
+    /pkgdir/{{ .Values.name }}/etc/X11/xinit/xinitrc.d/95-nvidia-settings
+
 
 package_dir: /pkgdir/{{ .Values.name }}
 requires:
