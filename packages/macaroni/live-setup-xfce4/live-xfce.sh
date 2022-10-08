@@ -6,6 +6,7 @@ fi
 
 EROOT=${EROOT:-""}
 DISPLAYMANAGER="sddm"
+PLYMOUTH_THEME="funtoo"
 ENABLED_BOOT_SERVICES=(
   "dbus"
   "binfmt"
