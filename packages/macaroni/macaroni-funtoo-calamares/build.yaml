@@ -17,8 +17,10 @@ steps:
 - mkdir -p /{{.Values.name}}/etc/calamares/branding/default/
 - cp -rfv branding/* /{{.Values.name}}/etc/calamares/branding/default/
 
+# Override existing calamares policy. I prefer maintain this in a separated
+# package instead of patch directly calamares.
 - >-
-  mkdir -p /{{ .Values.name }}/usr/share/polkit-1/ &&
-  cp -rv overrides/com.github.calamares.calamares.policy /{{ .Values.name }}/usr/share/polkit-1/actions/
+  mkdir -p /{{ .Values.name }}/usr/share/macaroni/polkit-1/actions/ &&
+  cp -rv overrides/com.github.calamares.calamares.policy /{{ .Values.name }}/usr/share/macaroni/polkit-1/actions/
 
 package_dir: /{{.Values.name}}
