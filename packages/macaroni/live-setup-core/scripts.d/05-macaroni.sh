@@ -20,5 +20,14 @@ setup_macaroni() {
   #       hook.
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
+  override_pkexec_polkit || return 1
+
+  return 0
+}
+
+override_pkexec_polkit() {
+  cp -vf /usr/share/macaroni/polkit-1/actions/com.github.calamares.calamares.policy \
+    /usr/share/polkit-1/actions/ || return 1
+
   return 0
 }
