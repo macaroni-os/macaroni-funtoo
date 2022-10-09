@@ -7,6 +7,7 @@ fi
 EROOT=${EROOT:-""}
 DISPLAYMANAGER="gdm"
 PLYMOUTH_THEME="funtoo"
+DEFAULT_XSESSION="gnome"
 ENABLED_BOOT_SERVICES=(
   "dbus"
   "binfmt"
