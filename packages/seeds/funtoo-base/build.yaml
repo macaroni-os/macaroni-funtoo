@@ -60,6 +60,12 @@ prelude:
   ebuild mesa-20.2.4-r2.ebuild digest && cd -
 
 - >-
+  cp -rvf patches/meson/meson-0.36.1.ebuild /var/git/meta-repo/kits/core-kit/dev-util/meson/ &&
+  cd /var/git/meta-repo/kits/core-kit/dev-util/meson/ &&
+  rm Manifest &&
+  ebuild meson-0.63.1.ebuild digest && cd -
+
+- >-
   cp -rvf patches/gedit/files /var/git/meta-repo/kits/gnome-kit/app-editors/gedit/ &&
   cp patches/gedit/gedit-3.36.2.ebuild /var/git/meta-repo/kits/gnome-kit/app-editors/gedit/gedit-3.36.2.ebuild
 
@@ -93,4 +99,5 @@ prelude:
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
   emerge -t -j $JOBS -DN @world &&
   emerge -t -j $JOBS -D @world &&
+  emerge -t -j $JOBS -uDN @world &&
   rm -rf /var/cache/portage/distfiles/*
