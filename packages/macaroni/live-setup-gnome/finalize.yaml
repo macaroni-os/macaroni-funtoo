@@ -1,0 +1,9 @@
+install:
+- /var/lib/macaroni/live-gnome.sh
+# This is needed because `mos kernel gi` is skipped.
+# TODO: fix luet-geniso to avoid this.
+- cd boot && ln -s kernel-* bzImage || true
+- cd boot && ln -s initramfs-* Initrd || true
+shell:
+- bash
+- -c

@@ -1,0 +1,10 @@
+image: "macaronios/funtoo-minimal:latest-amd64"
+package_dir: /integration
+steps:
+- >-
+  mkdir -p /integration/var/lib/macaroni/
+- cp -rfv live-gnome.sh /integration/var/lib/macaroni/
+- chmod +x /integration/var/lib/macaroni/live-gnome.sh
+- >-
+  mkdir -p /integration/usr/share/macaroni/live-setup/ &&
+  cp -rfv scripts.d/ /integration/usr/share/macaroni/live-setup/
