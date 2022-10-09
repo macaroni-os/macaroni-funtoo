@@ -9,7 +9,9 @@ steps:
 
 - >-
   mkdir -p /integration/usr/share/macaroni/live-setup/ &&
-  cp -rfv scripts.d /integration/usr/share/macaroni/live-setup/
+  cp -rfv scripts.d /integration/usr/share/macaroni/live-setup/ &&
+  cp postinst.sh /integration/usr/share/macaroni/live-setup/ &&
+  chmod a+x /integration/usr/share/macaroni/live-setup/postinst.sh
 
 - >-
   cp -rvf entities /integration/var/lib/macaroni/ &&
