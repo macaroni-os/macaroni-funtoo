@@ -27,6 +27,8 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+# Ignore firmware available on sys-kernel/linux-firmware
+- ^/lib/firmware/ess/maestro3_assp_kernel.fw
 requires:
 - name: macaroni-funtoo-race7
   version: '>=0'
