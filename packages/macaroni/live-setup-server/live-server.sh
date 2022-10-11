@@ -25,6 +25,7 @@ ENABLED_SERVICES=(
   "metalog"
   "NetworkManager"
   "xdm"
+  "sshd"
   "virtualbox-guest-additions"
 )
 ENABLED_SYSINIT_SERVICES=(
