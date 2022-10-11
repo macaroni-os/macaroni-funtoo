@@ -2,13 +2,9 @@
 # encoding: utf-8
 
 import os
-import subprocess
 import shutil
 import libcalamares
-import re
 
-
-RE_IS_COMMENT = re.compile("^ *#")
 
 # List of the packages to remove
 # on the installed rootfs at the
@@ -21,18 +17,8 @@ luet_packages2remove = [
     "macaroni/calamares-server",
     "virtual/calamares",
     "app-admin-5/calamares",
+    "dev-qt-5/designer"
 ]
-
-
-def is_comment(line):
-    """
-    Does the @p line look like a comment? Whitespace, followed by a #
-    is a comment-only line.
-    """
-    return bool(RE_IS_COMMENT.match(line))
-
-RE_TRAILING_COMMENT = re.compile("#.*$")
-RE_REST_OF_LINE = re.compile("\\s.*$")
 
 
 def setup_locales(install_path):
@@ -89,33 +75,13 @@ def setup_audio(root_install_path):
         shutil.copy2(asound_state_orig, asound_state_alsa_dest_2)
 
 
-def configure_services(root_install_path):
-    def is_virtualbox():
-        """
-        Return a virtualization environment identifier using
-        systemd-detect-virt. This code is systemd only.
-        """
-        proc = subprocess.run(['/usr/bin/systemd-detect-virt'],
-                              stdout=subprocess.PIPE)
-        exit_st = proc.returncode
-        outcome = proc.stdout
-        if exit_st == 0:
-            return outcome.decode().strip() == 'oracle'
-
-    if is_virtualbox():
-        libcalamares.utils.target_env_call(
-            ['systemctl', '--no-reload', 'enable',
-             'virtualbox-guest-additions.service'])
-    else:
-        libcalamares.utils.target_env_call(
-            ['systemctl', '--no-reload', 'disable',
-             'virtualbox-guest-additions.service'])
-        libcalamares.utils.target_env_call(
-            ['rm', '-rf', '/etc/xdg/autostart/vboxclient.desktop'])
-
-    install_data_dir = os.path.join(root_install_path, 'install-data')
-    if os.path.isdir(install_data_dir):
-        shutil.rmtree(install_data_dir, True)
+def run_postinst_script(root_install_path):
+    hostname = libcalamares.globalstorage.value('hostname')
+    libcalamares.utils.debug(
+        'Found target hostname {!s}'.format(hostname))
+    libcalamares.utils.target_env_call(
+        ['/usr/share/macaroni/live-setup/postinst.sh',
+         root_install_path, hostname])
 
 
 def run():
@@ -124,6 +90,7 @@ def run():
     install_path = libcalamares.globalstorage.value('rootMountPoint')
     setup_locales(install_path)
     setup_audio(install_path)
+    run_postinst_script(install_path)
 
     # Temporary. I hope to find a better way.
     libcalamares.utils.target_env_call([
@@ -133,17 +100,18 @@ def run():
     #configure_services(install_path)
 
     if len(luet_packages2remove) > 0:
-        args = ["luet", "uninstall", "-y", "--nodeps" ]
-        # args = args + luet_packages2remove
-        # libcalamares.utils.target_env_call(args)
-        # Temporary trying to remove every package singolary
-        for pkg in luet_packages2remove:
-            libcalamares.utils.target_env_call(args + [pkg])
+        args = ["luet", "uninstall", "-y", "--force" ]
+        args = args + luet_packages2remove
+        libcalamares.utils.target_env_call(args)
 
     # It's better run this after that is uninstalled macaroni initramfs package.
     libcalamares.utils.target_env_call([
         'macaronictl', 'kernel', 'gi', '--all',
         '--set-links', '--purge', '--grub',
+    ])
+
+    libcalamares.utils.target_env_call([
+        'chmod', 'u-s', '/usr/bin/pkexec',
     ])
 
     libcalamares.utils.target_env_call(['env-update'])
