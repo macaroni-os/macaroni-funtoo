@@ -1,13 +1,10 @@
 name: nvidia-kernel-modules
-version: 515.48.07+6
+version: 515.48.07+7
 category: x11-drivers-5.4
-annotations:
-  subsets:
-    rules:
-      devel:
-      - ^/usr/include/
-      portage:
-      - ^/var/db/pkg/
+requires:
+- name: nvidia-drivers-common
+  version: '>=0'
+  category: kernel
 labels:
   emerge.packages: x11-drivers/nvidia-kernel-modules
   kernel.suffix: macaroni
