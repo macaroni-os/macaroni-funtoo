@@ -22,15 +22,12 @@ steps:
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet-portage --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
-- >-
-  mkdir -p /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
-  entities dump -t /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/entities/ &&
-  qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist
 
 excludes:
 # Funtoo/Portage stuff
 - ^/var/cache/portage/
 - ^/var/git/
 
-# Devel files
-#- ^/usr/include
+# Exclude files available from kernel/virtualbox-common
+- ^/etc/modprobe.d/
+- ^/usr/lib/modules-load.d/
