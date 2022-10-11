@@ -1,0 +1,9 @@
+requires:
+  - name: "virtualbox-modules"
+    category: "kernel-{{ ( index .Values.labels "kernel.branch" ) }}"
+    version: ">=0"
+package_dir: /virtualbox-modules
+includes:
+- ^/usr/share/doc/.*
+- ^/etc/modprobe.d/.*
+- ^/usr/lib/modules-load.d/.*
