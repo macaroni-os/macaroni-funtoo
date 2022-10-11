@@ -1,15 +1,8 @@
 install:
-# Force ldconfig reload to ensure the load of file
-# etc/ld.so.conf.d/05gcc-x86_64-pc-linux-gnu.conf
-- >-
-  ldconfig &&
-  source /etc/profile && env &&
-  source /var/lib/macaroni/live-functions.sh && prepare
+- /var/lib/macaroni/live-server.sh
 # This is needed because `mos kernel gi` is skipped.
 - cd boot && ln -s kernel-* bzImage || true
 - cd boot && ln -s initramfs-* Initrd || true
-- chmod a+rx /var/
-- whip hook gtk.mime_update_db
 shell:
 - bash
 - -c
