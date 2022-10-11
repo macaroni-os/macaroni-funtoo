@@ -119,6 +119,15 @@ artefacts:
       - pdfimport
   packages:
     - app-office/libreoffice-bin:0
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
 
 - tree: packages/atoms/office
   uses:
