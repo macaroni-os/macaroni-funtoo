@@ -1,5 +1,5 @@
 name: mysql-community
-version: 8.0.30
+version: 8.0.31
 category: dev-db-8.0
 use_flags:
 - -cjk
@@ -68,11 +68,10 @@ labels:
     >=dev-libs/protobuf-3.8:= net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc?
     ( dev-libs/jemalloc:0= ) kernel_linux? ( dev-libs/libaio:0= sys-process/procps:0=
     ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:0= ) ) !dev-db/mariadb
-    !dev-db/mariadb-galera !dev-db/percona-server !dev-db/mysql-cluster !dev-db/mysql:0
-    !dev-db/mysql:5.7 selinux? ( sec-policy/selinux-mysql ) !prefix? ( dev-db/mysql-init-scripts
-    )'
+    !dev-db/mariadb-galera !dev-db/percona-server !dev-db/mysql-cluster selinux? (
+    sec-policy/selinux-mysql ) !prefix? ( dev-db/mysql-init-scripts )'
   emerge.packages: dev-db/mysql-community:8.0
   kit: core-server-kit
   original.package.name: dev-db/mysql-community
   original.package.slot: "8.0"
-  original.package.version: 8.0.30
+  original.package.version: 8.0.31
