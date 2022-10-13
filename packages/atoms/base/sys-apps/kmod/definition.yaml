@@ -3,20 +3,28 @@ version: 29+2
 category: sys-apps
 use_flags:
 - -doc
-- -libressl
 - -lzma
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -python_targets_python3_9
+- pkcs7
 - python
-- python_targets_python2_7
 - python_targets_python3_7
-- ssl
 - zlib
+- zstd
 requires:
+- name: zstd
+  version: '>=0'
+  category: app-arch
 - name: python
   version: '>=0'
   category: dev-lang-3.7
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -30,22 +38,22 @@ uri:
 license: LGPL-2
 labels:
   BDEPEND: doc? ( dev-util/gtk-doc dev-util/gtk-doc-am ) lzma? ( virtual/pkgconfig
-    ) python? ( dev-python/cython[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) python? ( dev-python/cython[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     virtual/pkgconfig ) zlib? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815
     !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
     ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
   DEPEND: '!sys-apps/module-init-tools !sys-apps/modutils !<sys-apps/openrc-0.13.8
     !<sys-apps/systemd-216-r3 lzma? ( >=app-arch/xz-utils-5.0.4-r1 ) python? ( python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
-    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     ) pkcs7? ( >=dev-libs/openssl-1.1.0:0= ) zlib? ( >=sys-libs/zlib-1.2.6 ) zstd?
     ( >=app-arch/zstd-1.4.4 )'
   IUSE: debug doc +lzma +pkcs7 python static-libs +tools +zlib zstd python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: '!sys-apps/module-init-tools !sys-apps/modutils !<sys-apps/openrc-0.13.8
     !<sys-apps/systemd-216-r3 lzma? ( >=app-arch/xz-utils-5.0.4-r1 ) python? ( python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
-    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     ) pkcs7? ( >=dev-libs/openssl-1.1.0:0= ) zlib? ( >=sys-libs/zlib-1.2.6 ) zstd?
     ( >=app-arch/zstd-1.4.4 )'
   emerge.packages: sys-apps/kmod
