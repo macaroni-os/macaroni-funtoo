@@ -7,3 +7,6 @@ env:
 package_dir: /zfs-kmod
 excludes:
 - ^/lib/modules/
+- /usr/src/spl-{{ ( index .Values.labels "zfs.version" ) }}/*-macaroni
+- /usr/src/zfs-{{ ( index .Values.labels "zfs.version" ) }}/*-macaroni/*
+
