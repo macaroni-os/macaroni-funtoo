@@ -33,21 +33,39 @@ def setup_locales(install_path):
 
     if not locale_conf:
         locale_conf = {
-            'LANG': 'en_US.utf-8',
-            'LC_NUMERIC': 'en_US.utf-8',
-            'LC_TIME': 'en_US.utf-8',
-            'LC_MONETARY': 'en_US.utf-8',
-            'LC_PAPER': 'en_US.utf-8',
-            'LC_NAME': 'en_US.utf-8',
-            'LC_ADDRESS': 'en_US.utf-8',
-            'LC_TELEPHONE': 'en_US.utf-8',
-            'LC_MEASUREMENT': 'en_US.utf-8',
-            'LC_IDENTIFICATION': 'en_US.utf-8'
+            'LANG': 'en_US.UTF-8',
+            'LC_NUMERIC': 'en_US.UTF-8',
+            'LC_TIME': 'en_US.UTF-8',
+            'LC_MONETARY': 'en_US.UTF-8',
+            'LC_PAPER': 'en_US.UTF-8',
+            'LC_NAME': 'en_US.UTF-8',
+            'LC_ADDRESS': 'en_US.UTF-8',
+            'LC_TELEPHONE': 'en_US.UTF-8',
+            'LC_MEASUREMENT': 'en_US.UTF-8',
+            'LC_IDENTIFICATION': 'en_US.UTF-8'
         }
 
     target_locale_gen = "{!s}/etc/locale.gen".format(install_path)
     target_locale_gen_bak = target_locale_gen + ".bak"
     target_etc_default_path = "{!s}/etc/env.d/02locale".format(install_path)
+    locales_supported_path = "{!s}/usr/share/i18n/SUPPORTED".format(install_path)
+
+    locales_map = {}
+    if os.path.exists(locales_supported_path):
+        # POST: create a map with all locales and charmap
+        with open(locales_supported_path) as fp:
+            lines = fp.readlines()
+            for line in lines:
+                fields = line.split()
+                locales_map[fields[0]] = fields[1]
+
+    print("LOCALE_GEN_FILE", target_locale_gen)
+    print("LOCALE_ENV_FILE", target_etc_default_path)
+
+    if locale_conf['LANG'] in locales_map:
+        charmap = locales_map[locale_conf['LANG']]
+    else:
+        charmap = 'UTF-8'
 
     # restore backup if available
     if os.path.exists(target_locale_gen_bak):
@@ -55,15 +73,26 @@ def setup_locales(install_path):
         libcalamares.utils.debug(
                 "Restored backup {!s} -> {!s}"
                 .format(target_locale_gen_bak, target_locale_gen))
+    elif locale_conf['LANG'] != 'en_US.utf-8':
+        # Append the selected lang to the existing
+        # /etc/locale.gen. I want mantain en_US.UTF-8 and C.UTF-8
+        with open(target_locale_gen, "a") as lg:
+            lg.write("{!s} {!s}\n".format(locale_conf['LANG'], charmap))
 
-    libcalamares.utils.target_env_call(['locale-gen', '-A'])
+    #libcalamares.utils.target_env_call(['locale-gen', '-A'])
+    libcalamares.utils.target_env_call(['locale-gen'])
 
-    # write /etc/default/locale if /etc/default exists and is a dir
-    if os.path.isdir(target_etc_default_path):
-        with open(os.path.join(target_etc_default_path, "locale"), "w") as edl:
-            for k, v in locale_conf.items():
-                edl.write("{!s}={!s}\n".format(k, v))
-        libcalamares.utils.debug('{!s} done'.format(target_etc_default_path))
+    # Try to generate the string for eselect locale
+    eselect_str = '%s.%s' % (
+        locale_conf['LANG'].split(".")[0],
+        charmap.lower().replace("-", ""),
+    )
+    libcalamares.utils.target_env_call(
+        ['eselect', 'locale', 'list'],
+    )
+    libcalamares.utils.target_env_call(
+        ['eselect', 'locale', 'set', eselect_str],
+    )
 
 
 def setup_audio(root_install_path):
