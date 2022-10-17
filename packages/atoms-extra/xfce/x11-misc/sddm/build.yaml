@@ -8,7 +8,9 @@ env:
 prelude:
 # Temporary until FL-10580 is done
 - >-
-  rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
+  rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask &&
+  mkdir -p /etc/portage/patches/x11-misc/sddm &&
+  cp sddm-0.19.0-QTBUG-88431.patch /etc/portage/patches/x11-misc/sddm/
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
