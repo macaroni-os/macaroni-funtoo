@@ -46,3 +46,9 @@ prelude:
   ebuild libical-3.0.11.ebuild digest
 - >-
   cp patches/text-kit/* /var/git/meta-repo/kits/text-kit/ -rfv
+# Enable meson-0.63
+- >-
+  sed -i -e '/dev-util\/meson/d' /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo &&
+  sed -i -e 's|^RDEPEND|#RDEPEND|g' /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-2.6.1-r2.ebuild
+# Drop package.mask with elogind use flag for x11-misc/sddm
+- rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
