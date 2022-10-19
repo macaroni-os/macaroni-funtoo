@@ -13,6 +13,8 @@ prelude:
   {{ ( index .Values.labels "build_repos" ) }} &&
   luet install --force --config ./luet.yaml --skip-finalizers --sync-repos --solver-type solverv2
   system/luet-geaaru
+  virtual/base
+  virtual/sh
   toolchain/base
   toolchain/meta-repo
   toolchain/meta-geaaru-kit
