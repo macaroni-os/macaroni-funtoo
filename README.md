@@ -4,6 +4,9 @@ Funtoo Macaroni Repository Tree
 Branches behavior:
 * `master`: single packages tree based on 1.4-prime release.
 
+* `terragon`: related to the `next` release of Funtoo but
+  oriented to Container and with openRC.
+
 * `next`: Related to the new `next-release` release of Funtoo.
   This branch will be based on only single packages and
   integrated with `luet-portage-converter`.
