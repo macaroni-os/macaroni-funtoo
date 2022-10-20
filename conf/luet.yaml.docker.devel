@@ -1,0 +1,30 @@
+general:
+  debug: false
+
+  client_timeout: 0
+
+  # spinner every 30m
+  spinner_ms: 1800000
+
+  show_build_output: true
+
+system:
+  tmpdir_base: "/luetmp"
+
+solver:
+  implementation: "solverv2"
+
+subsets:
+  enabled:
+    - portage
+    - devel
+
+repositories:
+- name: "geaaru-repo-index"
+  description: "Geaaru Repository index"
+  type: "http"
+  enable: true
+  cached: true
+  priority: 1
+  urls:
+  - "https://raw.githubusercontent.com/geaaru/repo-index/gh-pages"

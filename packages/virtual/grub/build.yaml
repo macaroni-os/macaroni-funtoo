@@ -1,0 +1,7 @@
+image: "macaronios/funtoo-minimal"
+prelude:
+- >-
+  mkdir -p /{{ .Values.name }}/etc/dracut.conf.d &&
+  ls -l &&
+  mv 99-macaroni.conf /{{ .Values.name }}/etc/dracut.conf.d/
+package_dir: /{{ .Values.name }}

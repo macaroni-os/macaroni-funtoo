@@ -1,0 +1,26 @@
+shell:
+- "/bin/bash"
+- "-c"
+install:
+- ldconfig
+- if [ ! -e /bin/sh ] ; then cd /bin ; ln -s bash sh ; fi
+- if [ ! -e /usr/bin/awk ] ; then cd /usr/bin ; ln -s gawk awk ; fi
+- if [ ! -e /var/lib/portage ] ; then mkdir -p /var/lib/portage ; fi
+- if [ ! -e /etc/portage/ ] ; then mkdir /etc/portage ; fi
+- >-
+  if [ ! -e /etc/portage/make.conf ] ; then
+  export ARCH={{ ( index .Values.labels "gcc_arch" ) }} ;
+  echo "CHOST=\"${ARCH}-pc-linux-gnu\"" > /etc/portage/make.conf ;
+  fi
+- if [ ! -e /etc/modules-load.d ] ; then mkdir /etc/modules-load.d ; fi
+# Move this to whip soon.
+- |
+  export EROOT=${EROOT:-/} ; \
+  export GCC_VERSION={{ ( index .Values.labels "gcc_version" ) }} ; \
+  mkdir -p ${EROOT}etc/ld.so.conf.d || true ; \
+  echo "
+  /usr/lib/gcc/x86_64-pc-linux-gnu/${GCC_VERSION}/32
+  /usr/lib/gcc/x86_64-pc-linux-gnu/${GCC_VERSION}
+  " > ${EROOT}etc/ld.so.conf.d/05gcc-x86_64-pc-linux-gnu.conf
+- chmod a+rx /var
+- ldconfig
