@@ -1,0 +1,33 @@
+requires:
+  - name: funtoo-stage3
+    category: "seed"
+    version: ">=0"
+env:
+- JOBS=10
+- GIT_HISTORY_ENTRIES=10000
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+- LUET_YES=true
+- LUET_NOLOCK=true
+prelude:
+- >-
+  mv kits-versions / &&
+  curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh &&
+  luet install --sync-repos
+  dev-util/pkgs-checker-minimal utils/yq utils/jq system/luet-devkit &&
+  luet install system/entities --sync-repos && luet upgrade &&
+  luet cleanup &&
+  ego sync &&
+  cd /var/git/meta-repo/kits &&
+  chown root:root -R /var/git/meta-repo/kits &&
+  ls -l &&
+  for i in $(ls .) ; do
+  echo $i ;
+  if [ -e /kits-versions/$i.yml ] ; then
+  hash=$(yq r /kits-versions/$i.yml 'commit') ;
+  echo "For kit $i set hash $hash" ;
+  pushd $i ;
+  git pull -ff --depth=$GIT_HISTORY_ENTRIES ;
+  git checkout $hash || exit 1 ;
+  popd ;
+  fi ;
+  done
