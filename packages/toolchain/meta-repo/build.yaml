@@ -1,0 +1,16 @@
+requires:
+  - name: funtoo-kits
+    category: "seed"
+    version: ">=0"
+env:
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  mkdir -p /{{ .Values.name }}/var/git/ &&
+  cp -rvf /var/git/meta-repo/ /{{ .Values.name }}/var/git/ &&
+  mkdir -p /{{ .Values.name }}/etc/portage/repos.conf/ &&
+  mkdir -p /{{ .Values.name }}/etc/portage/make.profile/ &&
+  cp -rvf /etc/portage/repos.conf/* /{{ .Values.name }}/etc/portage/repos.conf/ &&
+  cp -rvf /etc/portage/make.profile/* /{{ .Values.name }}/etc/portage/make.profile/
+
