@@ -1,5 +1,5 @@
 name: rtmpdump
-version: 2.4+4
+version: 2.4+5
 category: media-video
 use_flags:
 - -gnutls
@@ -21,16 +21,13 @@ uri:
 - https://rtmpdump.mplayerhq.hu/
 license: GPL-2 LGPL-2.1
 labels:
-  DEPEND: ssl? ( gnutls? ( >=net-libs/gnutls-2.12.23-r6[-mgorny(-),nettle(+)] ) !gnutls?
-    ( !libressl? ( dev-libs/openssl:0=[-mgorny(-)] ) libressl? ( dev-libs/libressl:0=[-mgorny(-)]
-    ) ) >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] )
-  IUSE: gnutls ssl libressl abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: ssl? ( gnutls? ( >=net-libs/gnutls-2.12.23-r6[-mgorny(-),nettle(+)] ) !gnutls?
-    ( !libressl? ( dev-libs/openssl:0=[-mgorny(-)] ) libressl? ( dev-libs/libressl:0=[-mgorny(-)]
-    ) ) >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] )
+  DEPEND: ssl? ( gnutls? ( net-libs/gnutls dev-libs/nettle ) !gnutls? ( dev-libs/openssl
+    ) >=sys-libs/zlib-1.2.8-r1 )
+  IUSE: gnutls ssl static-libs +tools
+  RDEPEND: ssl? ( gnutls? ( net-libs/gnutls dev-libs/nettle ) !gnutls? ( dev-libs/openssl
+    ) >=sys-libs/zlib-1.2.8-r1 )
   emerge.packages: media-video/rtmpdump
   kit: media-kit
   original.package.name: media-video/rtmpdump
   original.package.slot: "0"
-  original.package.version: 2.4_p20161210-r3
+  original.package.version: 2.4_p20210219
