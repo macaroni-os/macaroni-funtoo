@@ -1,0 +1,31 @@
+requires:
+- category: "seed"
+  name: "funtoo-kit-geaaru"
+  version: ">=0"
+env:
+- JOBS=10
+- GENTOO_MIRRORS=https://direct.funtoo.org
+prelude:
+- >-
+  cp -rvf package.use /etc/portage/ &&
+  cp -v make.conf /etc/portage &&
+  echo 'CHOST="{{ ( index .Values.labels "arch" ) }}-pc-linux-gnu"' > /etc/portage/make.conf &&
+  epro flavor minimal &&
+  epro mix-in +btrfs +vmware-guest &&
+  epro list
+- >-
+  luet upgrade --sync-repos &&
+  luet i repository/macaroni-commons-dev &&
+  luet i --force --sync-repos macaroni/entities-catalog
+  system/entities &&
+  luet cleanup --purge-repos &&
+  rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
+  entities merge -s /usr/share/macaroni/entities -a &&
+  entities list users &&
+  entities list groups &&
+  export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
+  emerge -t -j $JOBS -DN @world &&
+  emerge -t -j $JOBS -D @world &&
+  emerge -t -j $JOBS -uDN @world &&
+  rm -rf /var/cache/portage/distfiles/*
