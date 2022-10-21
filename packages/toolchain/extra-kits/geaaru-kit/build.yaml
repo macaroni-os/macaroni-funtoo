@@ -1,0 +1,11 @@
+requires:
+- category: "seed"
+  name: "funtoo-kit-geaaru"
+  version: ">=0"
+package_dir: /{{ .Values.name }}
+prelude:
+- >-
+  mkdir /{{ .Values.name }}/etc/portage/repos.conf -p &&
+  mkdir /{{ .Values.name }}/var/git/extra-kits/ -p &&
+  cp -rf /var/git/extra-kits/geaaru-kit /{{ .Values.name }}/var/git/extra-kits/ &&
+  cp geaaru-kit /{{ .Values.name }}/etc/portage/repos.conf/
