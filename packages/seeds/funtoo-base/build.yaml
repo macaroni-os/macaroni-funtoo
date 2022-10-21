@@ -9,7 +9,7 @@ prelude:
 - >-
   cp -rvf package.use /etc/portage/ &&
   echo 'CHOST="{{ ( index .Values.labels "arch" ) }}-pc-linux-gnu"' > /etc/portage/make.conf &&
-  epro flavor minimal &&
+  epro flavor core &&
   epro mix-in +btrfs +vmware-guest &&
   epro list
 - >-
