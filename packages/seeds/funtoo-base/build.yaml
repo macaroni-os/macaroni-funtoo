@@ -11,7 +11,8 @@ prelude:
   echo 'CHOST="{{ ( index .Values.labels "arch" ) }}-pc-linux-gnu"' > /etc/portage/make.conf &&
   epro flavor core &&
   epro mix-in +btrfs +vmware-guest &&
-  epro list
+  epro list &&
+  echo "UTC" > /etc/timezone
 - >-
   luet upgrade --sync-repos &&
   luet i repository/macaroni-commons-dev &&
