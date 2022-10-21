@@ -1,28 +1,25 @@
 name: w3m
-version: 0.5.3+6
+version: 0.5.3+7
 category: www-client
 use_flags:
 - -gdk-pixbuf
 - -gpm
-- -imlib
 - -libressl
 - -xface
 - X
+- imlib
 - ssl
 requires:
 - name: boehm-gc
   version: '>=0'
   category: dev-libs
-- name: ncurses
+- name: openssl
   version: '>=0'
-  category: sys-libs
-- name: zlib
+  category: dev-libs
+- name: imlib2
   version: '>=0'
-  category: sys-libs
+  category: media-libs
 - name: libXdmcp
-  version: '>=0'
-  category: x11-libs
-- name: libXext
   version: '>=0'
   category: x11-libs
 annotations:
@@ -32,7 +29,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Text based WWW browser, supports tables and frames
+description: 'Debian''s w3m: WWW browsable pager'
 uri:
 - https://github.com/tats/w3m
 license: w3m
