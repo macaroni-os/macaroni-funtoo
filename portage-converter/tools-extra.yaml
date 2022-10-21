@@ -170,6 +170,18 @@ artefacts:
     - net-misc/remmina
 
 - tree: packages/atoms-extra/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race6
+  uses:
+    disabled:
+      - vim-syntax
+  packages:
+    - sys-power/hibernate-script
+
+- tree: packages/atoms-extra/tools
   uses:
     disabled:
       - kwallet
