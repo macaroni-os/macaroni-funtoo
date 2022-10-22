@@ -1,0 +1,40 @@
+name: eselect
+version: 1.4.14
+category: app-admin
+use_flags:
+- -doc
+requires:
+- name: coreutils
+  version: '>=0'
+  category: sys-apps
+- name: file
+  version: '>=0'
+  category: sys-apps
+- name: sed
+  version: '>=0'
+  category: sys-apps
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Gentoo's multi-purpose configuration and management tool
+uri:
+- https://wiki.gentoo.org/wiki/Project:Eselect
+license: GPL-2+ || ( GPL-2+ CC-BY-SA-3.0 )
+labels:
+  DEPEND: sys-apps/sed || ( sys-apps/coreutils sys-freebsd/freebsd-bin app-misc/realpath
+    ) doc? ( dev-python/docutils )
+  IUSE: doc emacs vim-syntax
+  RDEPEND: sys-apps/sed || ( sys-apps/coreutils sys-freebsd/freebsd-bin app-misc/realpath
+    ) sys-apps/file sys-libs/ncurses:0
+  emerge.packages: app-admin/eselect
+  kit: core-kit
+  original.package.name: app-admin/eselect
+  original.package.slot: "0"
+  original.package.version: 1.4.14
