@@ -1,0 +1,28 @@
+name: libksba
+version: 1.5.0
+category: dev-libs
+requires:
+- name: libgpg-error
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X.509 and CMS (PKCS#7) library
+uri:
+- http://www.gnupg.org/related_software/libksba
+license: LGPL-3+ GPL-2+ GPL-3
+labels:
+  BDEPEND: sys-devel/bison
+  DEPEND: '>=dev-libs/libgpg-error-1.8'
+  IUSE: static-libs
+  RDEPEND: '>=dev-libs/libgpg-error-1.8'
+  emerge.packages: dev-libs/libksba
+  kit: core-kit
+  original.package.name: dev-libs/libksba
+  original.package.slot: "0"
+  original.package.version: 1.5.0
