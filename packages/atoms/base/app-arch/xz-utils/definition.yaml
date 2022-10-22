@@ -1,0 +1,24 @@
+name: xz-utils
+version: 5.2.7
+category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: utils for managing LZMA compressed files
+uri:
+- https://tukaani.org/xz/
+license: public-domain LGPL-2.1+ GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: '!<app-arch/lzma-4.63 !<app-arch/p7zip-4.57 !<app-i18n/man-pages-de-2.16'
+  IUSE: elibc_FreeBSD +extra-filters nls static-libs +split-usr
+  RDEPEND: '!<app-arch/lzma-4.63 !<app-arch/p7zip-4.57 !<app-i18n/man-pages-de-2.16'
+  emerge.packages: app-arch/xz-utils
+  kit: core-kit
+  original.package.name: app-arch/xz-utils
+  original.package.slot: "0"
+  original.package.version: 5.2.7
