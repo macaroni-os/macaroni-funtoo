@@ -36,7 +36,7 @@ steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
   cat /etc/luet/luet.yaml &&
-  luet install virtual/base --relax --nodeps &&
+  luet miner ri virtual/base virtual/sh &&
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
   eselect gcc set 1 &&
