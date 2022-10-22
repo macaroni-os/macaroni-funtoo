@@ -1,0 +1,29 @@
+name: zstd
+version: 1.5.2
+category: app-arch
+use_flags:
+- -lz4
+requires:
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: zstd fast compression library
+uri:
+- https://facebook.github.io/zstd/
+license: '|| ( BSD GPL-2 )'
+labels:
+  DEPEND: app-arch/xz-utils lz4? ( app-arch/lz4 )
+  IUSE: lz4 static-libs +threads
+  RDEPEND: app-arch/xz-utils lz4? ( app-arch/lz4 )
+  emerge.packages: app-arch/zstd
+  kit: core-kit
+  original.package.name: app-arch/zstd
+  original.package.slot: "0"
+  original.package.version: 1.5.2
