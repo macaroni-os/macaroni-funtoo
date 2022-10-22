@@ -1,0 +1,41 @@
+name: grep
+version: "3.8"
+category: sys-apps
+use_flags:
+- -static
+- nls
+- pcre
+requires:
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: libiconv
+  version: '>=0'
+  category: virtual
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNU regular expression matcher
+uri:
+- https://www.gnu.org/software/grep/
+license: GPL-3
+labels:
+  BDEPEND: app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext )
+  DEPEND: '!static? ( pcre? ( >=dev-libs/libpcre-7.8-r1 ) ) nls? ( virtual/libintl
+    ) virtual/libiconv static? ( pcre? ( >=dev-libs/libpcre-7.8-r1[static-libs(+)]
+    ) )'
+  IUSE: nls pcre static
+  RDEPEND: '!static? ( pcre? ( >=dev-libs/libpcre-7.8-r1 ) ) nls? ( virtual/libintl
+    ) virtual/libiconv'
+  emerge.packages: sys-apps/grep
+  kit: core-kit
+  original.package.name: sys-apps/grep
+  original.package.slot: "0"
+  original.package.version: "3.8"
