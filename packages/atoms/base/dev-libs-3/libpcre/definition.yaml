@@ -1,0 +1,32 @@
+name: libpcre
+version: "8.44"
+category: dev-libs-3
+use_flags:
+- -bzip2
+- -libedit
+- -readline
+- -zlib
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl-compatible regular expression library
+uri:
+- http://www.pcre.org/
+license: BSD
+labels:
+  DEPEND: bzip2? ( app-arch/bzip2 ) zlib? ( sys-libs/zlib ) libedit? ( dev-libs/libedit
+    ) readline? ( sys-libs/readline:0= ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+  IUSE: bzip2 +cxx +jit libedit pcre16 +pcre32 +readline +recursion-limit static-libs
+    unicode zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: bzip2? ( app-arch/bzip2 ) zlib? ( sys-libs/zlib ) libedit? ( dev-libs/libedit
+    ) readline? ( sys-libs/readline:0= )
+  emerge.packages: dev-libs/libpcre:3
+  kit: core-kit
+  original.package.name: dev-libs/libpcre
+  original.package.slot: "3"
+  original.package.version: "8.44"
