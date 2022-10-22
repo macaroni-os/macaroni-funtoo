@@ -1,0 +1,30 @@
+name: patch
+version: 2.7.6
+category: sys-devel
+use_flags:
+- -test
+- xattr
+requires:
+- name: attr
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility to apply diffs to files
+uri:
+- https://www.gnu.org/software/patch/patch.html
+license: GPL-3+
+labels:
+  DEPEND: xattr? ( sys-apps/attr ) test? ( sys-apps/ed )
+  IUSE: static test xattr
+  RDEPEND: xattr? ( sys-apps/attr )
+  emerge.packages: sys-devel/patch
+  kit: core-kit
+  original.package.name: sys-devel/patch
+  original.package.slot: "0"
+  original.package.version: 2.7.6-r4
