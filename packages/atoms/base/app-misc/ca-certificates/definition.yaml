@@ -1,0 +1,26 @@
+name: ca-certificates
+version: "20211016"
+category: app-misc
+requires:
+- name: debianutils
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Common CA Certificates PEM files
+uri:
+- https://packages.debian.org/sid/ca-certificates
+license: MPL-1.1
+labels:
+  BDEPEND: '!app-misc/c_rehash sys-apps/debianutils'
+  RDEPEND: '!app-misc/c_rehash sys-apps/debianutils'
+  emerge.packages: app-misc/ca-certificates
+  kit: core-kit
+  original.package.name: app-misc/ca-certificates
+  original.package.slot: "0"
+  original.package.version: 20211016-r1
