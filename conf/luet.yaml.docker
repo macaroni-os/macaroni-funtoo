@@ -14,6 +14,20 @@ system:
 solver:
   implementation: "solverv2"
 
+repos_confdir:
+  - /etc/luet/repos.conf.d
+subsets_defdir:
+  - /etc/luet/subsets.def.d
+
+tar_flows:
+  max_openfiles: 50
+  copy_buffer_size: 64
+
+#subsets:
+#  enabled:
+#    - portage
+#    - devel
+
 repositories:
 - name: "geaaru-repo-index"
   description: "Geaaru Repository index"
@@ -22,4 +36,5 @@ repositories:
   cached: true
   priority: 1
   urls:
+  - "https://cdn.macaroni.funtoo.org/mottainai/geaaru-repo-index"
   - "https://raw.githubusercontent.com/geaaru/repo-index/gh-pages"
