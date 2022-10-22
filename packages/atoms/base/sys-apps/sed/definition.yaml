@@ -1,0 +1,39 @@
+name: sed
+version: "4.8"
+category: sys-apps
+use_flags:
+- -selinux
+- -static
+- acl
+- nls
+requires:
+- name: acl
+  version: '>=0'
+  category: virtual
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Super-useful stream editor
+uri:
+- http://sed.sourceforge.net/
+license: GPL-3
+labels:
+  BDEPEND: app-arch/xz-utils nls? ( sys-devel/gettext )
+  DEPEND: '!static? ( acl? ( virtual/acl ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux
+    ) ) static? ( acl? ( virtual/acl[static-libs(+)] ) nls? ( virtual/libintl[static-libs(+)]
+    ) selinux? ( sys-libs/libselinux[static-libs(+)] ) )'
+  IUSE: acl nls selinux static
+  RDEPEND: '!static? ( acl? ( virtual/acl ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux
+    ) )'
+  emerge.packages: sys-apps/sed
+  kit: core-kit
+  original.package.name: sys-apps/sed
+  original.package.slot: "0"
+  original.package.version: "4.8"
