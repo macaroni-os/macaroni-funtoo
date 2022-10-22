@@ -1,0 +1,35 @@
+name: tar
+version: "1.34"
+category: app-arch
+use_flags:
+- -elibc_glibc
+- -selinux
+- acl
+- nls
+- xattr
+requires:
+- name: acl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Use this to make tarballs :)
+uri:
+- https://www.gnu.org/software/tar/
+license: GPL-3+
+labels:
+  BDEPEND: nls? ( sys-devel/gettext )
+  DEPEND: acl? ( virtual/acl ) selinux? ( sys-libs/libselinux ) xattr? ( elibc_glibc?
+    ( sys-apps/attr ) )
+  IUSE: acl elibc_glibc minimal nls selinux userland_GNU xattr
+  RDEPEND: acl? ( virtual/acl ) selinux? ( sys-libs/libselinux )
+  emerge.packages: app-arch/tar
+  kit: core-kit
+  original.package.name: app-arch/tar
+  original.package.slot: "0"
+  original.package.version: "1.34"
