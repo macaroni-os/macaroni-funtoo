@@ -1,0 +1,32 @@
+name: libgpg-error
+version: "1.41"
+category: dev-libs
+use_flags:
+- nls
+requires:
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Contains error handling functions used by GnuPG software
+uri:
+- https://www.gnupg.org/related_software/libgpg-error
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: nls? ( >=virtual/libintl-0-r1 )
+  IUSE: common-lisp nls static-libs
+  RDEPEND: nls? ( >=virtual/libintl-0-r1 )
+  emerge.packages: dev-libs/libgpg-error
+  kit: core-kit
+  original.package.name: dev-libs/libgpg-error
+  original.package.slot: "0"
+  original.package.version: "1.41"
