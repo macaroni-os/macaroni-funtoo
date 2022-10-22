@@ -1,0 +1,40 @@
+name: less
+version: "608"
+category: sys-apps
+use_flags:
+- pcre
+requires:
+- name: editor-wrapper
+  version: '>=0'
+  category: app-misc
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: groff
+  version: '>=0'
+  category: sys-apps
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Excellent text file viewer
+uri:
+- http://www.greenwoodsoftware.com/less/
+license: '|| ( GPL-3 BSD-2 )'
+labels:
+  DEPEND: '>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:0= pcre? ( dev-libs/libpcre2
+    ) sys-apps/groff'
+  IUSE: pcre unicode
+  RDEPEND: '>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:0= pcre? ( dev-libs/libpcre2
+    ) sys-apps/groff'
+  emerge.packages: sys-apps/less
+  kit: core-kit
+  original.package.name: sys-apps/less
+  original.package.slot: "0"
+  original.package.version: "608"
