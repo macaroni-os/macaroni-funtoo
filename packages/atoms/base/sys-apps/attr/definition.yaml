@@ -1,0 +1,25 @@
+name: attr
+version: 2.4.48
+category: sys-apps
+use_flags:
+- nls
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Extended attributes tools
+uri:
+- https://savannah.nongnu.org/projects/attr
+license: LGPL-2.1
+labels:
+  DEPEND: nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+  IUSE: debug nls static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  emerge.packages: sys-apps/attr
+  kit: core-kit
+  original.package.name: sys-apps/attr
+  original.package.slot: "0"
+  original.package.version: 2.4.48-r3
