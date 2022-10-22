@@ -1,0 +1,53 @@
+name: pam
+version: 1.3.1.20190226
+category: sys-libs
+use_flags:
+- -audit
+- -nis
+- -selinux
+- berkdb
+- cracklib
+- filecaps
+- nls
+requires:
+- name: cracklib
+  version: '>=0'
+  category: sys-libs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux-PAM (Pluggable Authentication Modules)
+uri:
+- https://github.com/linux-pam/linux-pam
+license: '|| ( BSD GPL-2 )'
+labels:
+  BDEPEND: app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xml-dtd:4.3 app-text/docbook-xml-dtd:4.4
+    app-text/docbook-xml-dtd:4.5 dev-libs/libxslt sys-devel/flex virtual/pkgconfig
+    nls? ( sys-devel/gettext ) app-arch/xz-utils app-portage/portage-utils >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: audit? ( >=sys-process/audit-2.2.2 ) berkdb? ( >=sys-libs/db-4.8.30-r1:=
+    ) cracklib? ( >=sys-libs/cracklib-2.9.1-r1 ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
+    ) nis? ( >=net-libs/libtirpc-0.2.4-r2 ) nls? ( >=virtual/libintl-0-r1 ) filecaps?
+    ( sys-libs/libcap )
+  IUSE: audit berkdb +cracklib debug elogind minimal mktemp nis nls +nullok pam_krb5
+    pam_ssh passwdqc +pie securetty selinux +sha512 static-libs +filecaps
+  RDEPEND: audit? ( >=sys-process/audit-2.2.2 ) berkdb? ( >=sys-libs/db-4.8.30-r1:=
+    ) cracklib? ( >=sys-libs/cracklib-2.9.1-r1 ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
+    ) nis? ( >=net-libs/libtirpc-0.2.4-r2 ) nls? ( >=virtual/libintl-0-r1 ) !sys-auth/openpam
+    !sys-auth/pam_userdb !<sys-auth/pambase-20190426
+  emerge.packages: sys-libs/pam
+  kit: core-kit
+  original.package.name: sys-libs/pam
+  original.package.slot: "0"
+  original.package.version: 1.3.1.20190226
