@@ -1,0 +1,79 @@
+name: util-linux
+version: 2.38.1
+category: sys-apps
+use_flags:
+- -audit
+- -cryptsetup
+- -hardlink
+- -kill
+- -magic
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -rtas
+- -selinux
+- -slang
+- -su
+- -udev
+- caps
+- cramfs
+- logger
+- ncurses
+- nls
+- pam
+- python
+- python_targets_python3_7
+- python_targets_python3_9
+- readline
+requires:
+- name: libcap-ng
+  version: '>=0'
+  category: sys-libs
+- name: pam
+  version: '>=0'
+  category: sys-libs
+- name: libc
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Various useful Linux utilities
+uri:
+- https://www.kernel.org/pub/linux/utils/util-linux/ https://github.com/karelzak/util-linux
+license: GPL-2 GPL-3 LGPL-2.1 BSD-4 MIT public-domain
+labels:
+  BDEPEND: virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: virtual/libc:= audit? ( >=sys-process/audit-2.6:= ) caps? ( sys-libs/libcap-ng
+    ) cramfs? ( sys-libs/zlib:= ) cryptsetup? ( sys-fs/cryptsetup ) hardlink? ( dev-libs/libpcre2:=
+    ) ncurses? ( sys-libs/ncurses:=[unicode(+)?] magic? ( sys-apps/file:0= ) ) nls?
+    ( virtual/libintl ) pam? ( sys-libs/pam ) python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) readline? ( sys-libs/readline:0= ) rtas? ( sys-libs/librtas ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
+    ) slang? ( sys-libs/slang ) udev? ( virtual/libudev:= ) virtual/os-headers
+  IUSE: audit build +caps +cramfs cryptsetup fdformat hardlink kill +logger magic
+    ncurses nls pam python +readline rtas selinux slang static-libs su +suid tty-helpers
+    udev unicode +split-usr python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10
+  RDEPEND: virtual/libc:= audit? ( >=sys-process/audit-2.6:= ) caps? ( sys-libs/libcap-ng
+    ) cramfs? ( sys-libs/zlib:= ) cryptsetup? ( sys-fs/cryptsetup ) hardlink? ( dev-libs/libpcre2:=
+    ) ncurses? ( sys-libs/ncurses:=[unicode(+)?] magic? ( sys-apps/file:0= ) ) nls?
+    ( virtual/libintl ) pam? ( sys-libs/pam ) python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) readline? ( sys-libs/readline:0= ) rtas? ( sys-libs/librtas ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
+    ) slang? ( sys-libs/slang ) udev? ( virtual/libudev:= ) hardlink? ( !app-arch/hardlink
+    ) logger? ( !>=app-admin/sysklogd-2.0[logger] ) kill? ( !sys-apps/coreutils[kill]
+    !sys-process/procps[kill] ) su? ( !<sys-apps/shadow-4.7-r2 !>=sys-apps/shadow-4.7-r2[su]
+    ) !net-wireless/rfkill
+  emerge.packages: sys-apps/util-linux
+  kit: core-kit
+  original.package.name: sys-apps/util-linux
+  original.package.slot: "0"
+  original.package.version: 2.38.1
