@@ -1,0 +1,24 @@
+name: libltdl
+version: 2.4.6
+category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A shared library tool for developers
+uri:
+- https://www.gnu.org/software/libtool/
+license: GPL-2
+labels:
+  DEPEND: app-arch/xz-utils
+  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '!<sys-devel/libtool-2.4.3-r2:2'
+  emerge.packages: dev-libs/libltdl
+  kit: core-kit
+  original.package.name: dev-libs/libltdl
+  original.package.slot: "0"
+  original.package.version: 2.4.6
