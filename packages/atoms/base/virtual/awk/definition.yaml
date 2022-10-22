@@ -1,0 +1,25 @@
+name: awk
+version: "1"
+category: virtual
+requires:
+- name: gawk
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for awk implementation
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( >=sys-apps/gawk-4.0.1-r1 sys-apps/mawk sys-apps/nawk sys-apps/busybox
+    ) !<sys-apps/gawk-4.0.1-r1'
+  emerge.packages: virtual/awk
+  kit: core-kit
+  original.package.name: virtual/awk
+  original.package.slot: "0"
+  original.package.version: "1"
