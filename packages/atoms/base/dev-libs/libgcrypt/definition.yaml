@@ -1,0 +1,32 @@
+name: libgcrypt
+version: 1.9.2
+category: dev-libs
+use_flags:
+- -doc
+requires:
+- name: libgpg-error
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: General purpose crypto library based on the code used in GnuPG
+uri:
+- https://www.gnupg.org/
+license: LGPL-2.1 MIT
+labels:
+  BDEPEND: doc? ( virtual/texi2dvi )
+  DEPEND: '>=dev-libs/libgpg-error-1.25'
+  IUSE: +asm cpu_flags_arm_neon cpu_flags_x86_aes cpu_flags_x86_avx cpu_flags_x86_avx2
+    cpu_flags_x86_padlock cpu_flags_x86_sha cpu_flags_x86_sse4_1 doc o-flag-munging
+    static-libs
+  RDEPEND: '>=dev-libs/libgpg-error-1.25'
+  emerge.packages: dev-libs/libgcrypt
+  kit: core-kit
+  original.package.name: dev-libs/libgcrypt
+  original.package.slot: "0"
+  original.package.version: 1.9.2
