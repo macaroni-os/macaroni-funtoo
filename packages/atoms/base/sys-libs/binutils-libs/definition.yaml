@@ -1,0 +1,24 @@
+name: binutils-libs
+version: 2.36.1
+category: sys-libs
+requires:
+- name: binutils
+  version: '>=0'
+  category: sys-devel-2.36
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Core binutils libraries (libbfd, libopcodes, libiberty) -- skeleton package
+uri:
+- ""
+labels:
+  RDEPEND: =sys-devel/binutils-2.36.1_p3-r1
+  emerge.packages: sys-libs/binutils-libs
+  kit: core-kit
+  original.package.name: sys-libs/binutils-libs
+  original.package.slot: "0"
+  original.package.version: 2.36.1_p3-r1
