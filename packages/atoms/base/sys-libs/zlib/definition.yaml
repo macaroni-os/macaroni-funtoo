@@ -1,0 +1,27 @@
+name: zlib
+version: 1.2.13
+category: sys-libs
+use_flags:
+- minizip
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Standard (de)compression library
+uri:
+- https://zlib.net/
+license: ZLIB
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: minizip? ( !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    )
+  IUSE: minizip static-libs
+  emerge.packages: sys-libs/zlib
+  kit: core-kit
+  original.package.name: sys-libs/zlib
+  original.package.slot: "0"
+  original.package.version: 1.2.13
