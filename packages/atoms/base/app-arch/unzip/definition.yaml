@@ -1,0 +1,30 @@
+name: unzip
+version: "6.0"
+category: app-arch
+use_flags:
+- -natspec
+- bzip2
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: unzipper for pkzip-compressed files
+uri:
+- http://www.info-zip.org/
+license: Info-ZIP
+labels:
+  DEPEND: bzip2? ( app-arch/bzip2 ) natspec? ( dev-libs/libnatspec )
+  IUSE: bzip2 natspec unicode
+  RDEPEND: bzip2? ( app-arch/bzip2 ) natspec? ( dev-libs/libnatspec )
+  emerge.packages: app-arch/unzip
+  kit: core-kit
+  original.package.name: app-arch/unzip
+  original.package.slot: "0"
+  original.package.version: 6.0_p27
