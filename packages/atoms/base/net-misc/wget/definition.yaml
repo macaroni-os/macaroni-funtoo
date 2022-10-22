@@ -1,0 +1,58 @@
+name: wget
+version: 1.21.3
+category: net-misc
+use_flags:
+- -cookie-check
+- -gnutls
+- -idn
+- -metalink
+- -static
+- -test
+- -uuid
+- nls
+- pcre
+- ssl
+- zlib
+requires:
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Network utility to retrieve files from the WWW
+uri:
+- https://www.gnu.org/software/wget/
+license: GPL-3
+labels:
+  BDEPEND: app-arch/xz-utils dev-lang/perl sys-apps/texinfo virtual/pkgconfig nls?
+    ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) dev-perl/HTTP-Daemon dev-perl/HTTP-Message dev-perl/IO-Socket-SSL
+    )
+  DEPEND: '!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:=
+    ) metalink? ( app-crypt/gpgme media-libs/libmetalink ) pcre? ( dev-libs/libpcre2
+    ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid?
+    ( sys-apps/util-linux ) zlib? ( sys-libs/zlib ) ) static? ( cookie-check? ( net-libs/libpsl
+    ) idn? ( >=net-dns/libidn2-0.14:=[static-libs(+)] ) metalink? ( app-crypt/gpgme
+    media-libs/libmetalink ) pcre? ( dev-libs/libpcre2[static-libs(+)] ) ssl? ( gnutls?
+    ( net-libs/gnutls:=[static-libs(+)] ) !gnutls? ( dev-libs/openssl:=[static-libs(+)]
+    ) ) uuid? ( sys-apps/util-linux[static-libs(+)] ) zlib? ( sys-libs/zlib[static-libs(+)]
+    ) )'
+  IUSE: cookie-check debug gnutls idn ipv6 metalink nls ntlm pcre +ssl static test
+    uuid zlib
+  RDEPEND: '!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:=
+    ) metalink? ( app-crypt/gpgme media-libs/libmetalink ) pcre? ( dev-libs/libpcre2
+    ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid?
+    ( sys-apps/util-linux ) zlib? ( sys-libs/zlib ) )'
+  emerge.packages: net-misc/wget
+  kit: core-kit
+  original.package.name: net-misc/wget
+  original.package.slot: "0"
+  original.package.version: 1.21.3
