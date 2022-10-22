@@ -1,0 +1,86 @@
+name: portage
+version: 3.0.14
+category: sys-apps
+use_flags:
+- -apidoc
+- -build
+- -doc
+- -elibc_glibc
+- -elibc_musl
+- -elibc_uclibc
+- -kernel_linux
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -rsync-verify
+- -selinux
+- -test
+- python_targets_python3_7
+- python_targets_python3_9
+- xattr
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+- name: tar
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: pax-utils
+  version: '>=0'
+  category: app-misc
+- name: bash
+  version: '>=0'
+  category: app-shells
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
+- name: findutils
+  version: '>=0'
+  category: sys-apps
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Portage is the package management and distribution system for Gentoo
+uri:
+- https://wiki.gentoo.org/wiki/Project:Portage
+license: GPL-2
+labels:
+  BDEPEND: test? ( dev-vcs/git ) python_targets_python3_7? ( dev-lang/python:3.7[bzip2(+),threads(+)]
+    ) python_targets_python3_9? ( dev-lang/python:3.9[bzip2(+),threads(+)] ) python_targets_python3_8?
+    ( dev-lang/python:3.8[bzip2(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[bzip2(+),threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  DEPEND: '!build? ( python_targets_python3_7? ( dev-lang/python:3.7[ssl(+)] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[ssl(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[ssl(+)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[ssl(+)] ) ) >=app-arch/tar-1.27
+    dev-lang/python-exec:2 >=sys-apps/sed-4.0.5 sys-devel/patch doc? ( app-text/xmlto
+    ~app-text/docbook-xml-dtd-4.4 ) apidoc? ( dev-python/sphinx dev-python/sphinx-epytext
+    )'
+  IUSE: apidoc build doc gentoo-dev +ipc +native-extensions -rsync-verify selinux
+    test xattr python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10 kernel_linux
+  RDEPEND: app-arch/zstd >=app-arch/tar-1.27 dev-lang/python-exec:2 >=sys-apps/findutils-4.4
+    !build? ( >=sys-apps/sed-4.0.5 app-shells/bash:0[readline] >=app-admin/eselect-1.2
+    rsync-verify? ( >=app-crypt/openpgp-keys-gentoo-release-20180706 >=app-crypt/gnupg-2.2.4-r2[ssl(-)]
+    ) ) elibc_glibc? ( >=sys-apps/sandbox-2.2 ) elibc_musl? ( >=sys-apps/sandbox-2.2
+    ) elibc_uclibc? ( >=sys-apps/sandbox-2.2 ) kernel_linux? ( sys-apps/util-linux
+    ) >=app-misc/pax-utils-0.1.17 selinux? ( >=sys-libs/libselinux-2.0.94[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) xattr? ( kernel_linux? ( >=sys-apps/install-xattr-0.3 ) ) !<app-admin/logrotate-3.8.0
+    !<app-portage/gentoolkit-0.4.6 !<app-portage/repoman-2.3.10 !~app-portage/repoman-3.0.0
+    python_targets_python3_7? ( dev-lang/python:3.7[bzip2(+),threads(+)] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[bzip2(+),threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[bzip2(+),threads(+)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[bzip2(+),threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    virtual/tmpfiles
+  emerge.packages: sys-apps/portage
+  kit: core-kit
+  original.package.name: sys-apps/portage
+  original.package.slot: "0"
+  original.package.version: 3.0.14-r7
