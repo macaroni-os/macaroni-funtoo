@@ -1,0 +1,26 @@
+name: sysvinit
+version: "2.95"
+category: sys-apps
+use_flags:
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: /sbin/init - parent of all processes
+uri:
+- https://savannah.nongnu.org/projects/sysvinit
+license: GPL-2
+labels:
+  DEPEND: selinux? ( >=sys-libs/libselinux-1.28 ) virtual/os-headers
+  IUSE: selinux ibm static kernel_FreeBSD
+  RDEPEND: selinux? ( >=sys-libs/libselinux-1.28 ) selinux? ( sec-policy/selinux-shutdown
+    ) !<sys-apps/openrc-0.13
+  emerge.packages: sys-apps/sysvinit
+  kit: core-kit
+  original.package.name: sys-apps/sysvinit
+  original.package.slot: "0"
+  original.package.version: 2.95-r1
