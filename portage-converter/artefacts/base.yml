@@ -740,9 +740,23 @@ artefacts:
     - sh
     - test
   packages:
-  - sys-devel/automake:1.16
   - dev-libs/libksba
   - dev-libs/npth
+
+- tree: packages/atoms/base
+  mutations:
+    provides:
+      - category: sys-devel-1.13
+        name: automake
+      - category: sys-devel-1.14
+        name: automake
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - sys-devel/automake:1.16
 
 - tree: packages/atoms/base
   uses:
@@ -815,6 +829,15 @@ artefacts:
   - sys-apps/file
 
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
+      ignore:
+        - name: python
+          category: dev-lang-3.9
   uses:
     disabled:
     - audit
@@ -1104,6 +1127,15 @@ artefacts:
   - app-crypt/pinentry
 
 - tree: packages/atoms/base
+  mutations:
+    uses:
+    - -curl_ssl_gnutls
+    - -curl_ssl_libressl
+    - -curl_ssl_mbedtls
+    - -curl_ssl_nss
+    - -curl_ssl_winssl
+    - -metalink
+    - curl_ssl_openssl
   uses:
     disabled:
     - adns
@@ -1263,3 +1295,78 @@ artefacts:
     - sh
   packages:
   - sys-apps/groff
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - valgrind
+  packages:
+  - dev-libs/libtasn1
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cpu_flags_arm_neon
+    - cpu_flags_x86_aes
+    - cpu_flags_x86_sha
+    - doc
+    - nios2
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - asm
+    - gmp
+  packages:
+  - dev-libs/nettle
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - hpack-tools
+    - jemalloc
+    - libressl
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - utils
+    enabled:
+    - cxx
+    - threads
+    - xml
+  packages:
+  - net-libs/nghttp2
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - dane
+    - doc
+    - examples
+    - guile
+    - nios2
+    - seccomp
+    - sh
+    - sslv2
+    - sslv3
+    - static-libs
+    - test
+    - test-full
+    - tools
+    - valgrind
+    enabled:
+    - cxx
+    - idn
+    - nls
+    - openssl
+    - pkcs11
+    - tls-heartbeat
+  packages:
+  - net-libs/gnutls
