@@ -1,0 +1,59 @@
+name: openrc
+version: 0.44.10
+category: sys-apps
+use_flags:
+- -audit
+- -prefix
+- -selinux
+- bash
+- ncurses
+- pam
+requires:
+- name: bash
+  version: '>=0'
+  category: app-shells
+- name: corenetwork
+  version: '>=0'
+  category: sys-apps
+- name: sysvinit
+  version: '>=0'
+  category: sys-apps
+- name: pam
+  version: '>=0'
+  category: sys-libs
+- name: psmisc
+  version: '>=0'
+  category: sys-process
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: OpenRC manages the services, startup and shutdown of a host
+uri:
+- https://github.com/openrc/openrc/
+license: BSD-2
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: ncurses? ( sys-libs/ncurses:0= ) pam? ( sys-libs/pam ) audit? ( sys-process/audit
+    ) sys-process/psmisc !<sys-process/procps-3.3.9-r2 selinux? ( sys-apps/policycoreutils
+    >=sys-libs/libselinux-2.6 ) !<sys-apps/baselayout-2.1-r1 virtual/os-headers ncurses?
+    ( virtual/pkgconfig )
+  IUSE: audit +bash debug ncurses pam newnet prefix -netifrc selinux static-libs unicode
+    zsh-completion
+  RDEPEND: ncurses? ( sys-libs/ncurses:0= ) pam? ( sys-libs/pam ) audit? ( sys-process/audit
+    ) sys-process/psmisc !<sys-process/procps-3.3.9-r2 selinux? ( sys-apps/policycoreutils
+    >=sys-libs/libselinux-2.6 ) !<sys-apps/baselayout-2.1-r1 bash? ( app-shells/bash
+    ) sys-apps/corenetwork !prefix? ( >=sys-apps/sysvinit-2.86-r6[selinux?] virtual/tmpfiles
+    ) selinux? ( >=sec-policy/selinux-base-policy-2.20170204-r4 >=sec-policy/selinux-openrc-2.20170204-r4
+    ) !<app-shells/gentoo-bashcomp-20180302 !<app-shells/gentoo-zsh-completions-20180228
+  emerge.packages: sys-apps/openrc
+  kit: core-kit
+  original.package.name: sys-apps/openrc
+  original.package.slot: "0"
+  original.package.version: 0.44.10-r1
