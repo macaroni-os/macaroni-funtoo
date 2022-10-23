@@ -1,0 +1,12 @@
+requires:
+- category: "seed"
+  name: "macaroni-funtoo-base"
+  version: "{{ .Values.version }}"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist &&
+  pkgs-checker portage gen-pkgs-uses
+  --luet-portage-converter-format
+  --filter-opts /usr/share/pkgs-checker/gen-uses-filter.yaml
+  --treePath packages/atoms/base-extra > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/lpc-artefacts.yaml
