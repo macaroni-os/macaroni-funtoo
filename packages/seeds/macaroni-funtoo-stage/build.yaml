@@ -6,7 +6,7 @@ prelude:
   export LUET_VERSION={{ ( index .Values.labels "luet_version" ) }} &&
   apk add wget bash &&
   mkdir /macaroni-funtoo &&
-  wget https://github.com/geaaru/luet/releases/download/v${LUET_VERSION}-geaaru/luet-v${LUET_VERSION}-geaaru-linux-amd64 -O /usr/bin/luet &&
+  wget https://github.com/geaaru/luet/releases/download/v${LUET_VERSION}-geaaru/luet-v${LUET_VERSION}-geaaru-Linux-x86_64 -O /usr/bin/luet &&
   chmod a+x /usr/bin/luet &&
   luet upgrade --sync-repos  &&
   luet install --force --config ./luet.yaml --sync-repos
