@@ -1,0 +1,27 @@
+name: libtasn1
+version: "4.13"
+category: dev-libs
+use_flags:
+- -test
+- -valgrind
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: ASN.1 library
+uri:
+- https://www.gnu.org/software/libtasn1/
+license: GPL-3 LGPL-2.1
+labels:
+  BDEPEND: sys-apps/help2man virtual/yacc test? ( valgrind? ( dev-util/valgrind )
+    ) >=app-portage/elt-patches-20170815
+  IUSE: doc static-libs test valgrind abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  emerge.packages: dev-libs/libtasn1
+  kit: core-kit
+  original.package.name: dev-libs/libtasn1
+  original.package.slot: "0"
+  original.package.version: "4.13"
