@@ -11,7 +11,7 @@ ENV USER=root
 SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos", "--relax"]
 RUN repository/mottainai-stable
 RUN repository/macaroni-commons
-RUN repository/macaroni-funtoo
+RUN repository/macaroni-terragon
 
 RUN system/entities
 
@@ -21,15 +21,12 @@ RUN system/luet-geaaru
 RUN sys-apps/shadow
 RUN sys-apps/sed
 RUN app-shells/bash
-RUN sys-devel-9.2.0/gcc
-
-RUN virtual-entities/base
-
-RUN sys-apps/iproute2
-RUN sys-apps/sysvinit
+RUN sys-devel-11.3.0/gcc
+RUN sys-libs-2.2/glibc
 
 RUN sys-apps/coreutils
-RUN sys-apps/openrc
+
+RUN virtual-entities/base
 
 SHELL ["/bin/bash", "-c"]
 
