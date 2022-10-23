@@ -1,0 +1,29 @@
+name: help2man
+version: 1.47.10
+category: sys-apps
+use_flags:
+- nls
+requires:
+- name: Locale-gettext
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNU utility to convert program --help output to a man page
+uri:
+- https://www.gnu.org/software/help2man/
+license: GPL-3
+labels:
+  DEPEND: dev-lang/perl nls? ( dev-perl/Locale-gettext )
+  IUSE: nls
+  RDEPEND: dev-lang/perl nls? ( dev-perl/Locale-gettext )
+  emerge.packages: sys-apps/help2man
+  kit: core-kit
+  original.package.name: sys-apps/help2man
+  original.package.slot: "0"
+  original.package.version: 1.47.10
