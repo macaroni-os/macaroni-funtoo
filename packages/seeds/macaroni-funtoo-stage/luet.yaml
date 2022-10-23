@@ -1,0 +1,30 @@
+general:
+  debug: false
+  color: false
+  enable_emoji: true
+  client_timeout: 0
+solver:
+  implementation: "solverv2"
+system:
+  database_engine: "boltdb"
+  rootfs: /macaroni-funtoo
+  tmpdir_base: "/var/tmp/luet"
+repos_confdir:
+  - /etc/luet/repos.conf.d
+
+subsets:
+  enabled:
+    - portage
+    - devel
+
+config_from_host: false
+repositories:
+- name: "geaaru-repo-index"
+  description: "Geaaru Repository Index"
+  type: "http"
+  enable: true
+  cached: true
+  priority: 1
+  urls:
+  - "https://cdn.macaroni.funtoo.org/mottainai/geaaru-repo-index"
+  - "https://raw.githubusercontent.com/geaaru/repo-index/gh-pages"

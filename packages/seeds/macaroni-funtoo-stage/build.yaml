@@ -1,0 +1,41 @@
+image: "alpine"
+prelude:
+- >-
+  export LUET_YES=true &&
+  export LUET_NOLOCK=true &&
+  export LUET_VERSION={{ ( index .Values.labels "luet_version" ) }} &&
+  apk add wget bash &&
+  mkdir /macaroni-funtoo &&
+  wget https://github.com/geaaru/luet/releases/download/v${LUET_VERSION}-geaaru/luet-v${LUET_VERSION}-geaaru-linux-amd64 -O /usr/bin/luet &&
+  chmod a+x /usr/bin/luet &&
+  luet upgrade --sync-repos  &&
+  luet install --force --config ./luet.yaml --sync-repos
+  repository/macaroni-terragon-dev
+  repository/macaroni-commons
+  repository/mottainai-stable &&
+  luet install --force --config ./luet.yaml --skip-finalizers --sync-repos --solver-type solverv2
+  system/luet-geaaru
+  toolchain/base
+  toolchain/meta-repo
+  toolchain/meta-geaaru-kit
+  virtual/base
+  system/entities
+  utils/yq &&
+  luet cleanup --config ./luet.yaml &&
+  mkdir -p /macaroni-funtoo/etc/luet &&
+  /macaroni-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
+  cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
+  cd /macaroni-funtoo/bin &&
+  ln -s bash sh &&
+  cd - &&
+  touch /macaroni-funtoo/etc/passwd &&
+  touch /macaroni-funtoo/etc/shadow &&
+  touch /macaroni-funtoo/etc/group &&
+  touch /macaroni-funtoo/etc/gshadow &&
+  /macaroni-funtoo/usr/bin/entities merge -s /macaroni-funtoo/usr/share/macaroni/entities/ -a
+  --users-file /macaroni-funtoo/etc/passwd
+  --shadow-file /macaroni-funtoo/etc/shadow
+  --groups-file /macaroni-funtoo/etc/group
+  --gshadow-file /macaroni-funtoo/etc/gshadow
+# We need to run entities before base image to set users/groups
+# and to avoid errors related with user identification
