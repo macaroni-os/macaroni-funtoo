@@ -296,6 +296,16 @@ artefacts:
   - dev-lang/python-exec:2
 
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
+        - name: python
+          category: dev-lang-3.9
+        - name: python-exec
+          category: dev-lang-2
   uses:
     disabled:
     - nios2
@@ -312,6 +322,14 @@ artefacts:
   - sys-libs/libcap-ng
 
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
+        - name: python
+          category: dev-lang-3.9
   uses:
     disabled:
     - nios2
@@ -835,7 +853,6 @@ artefacts:
       ignore:
         - name: python
           category: dev-lang-3.7
-      ignore:
         - name: python
           category: dev-lang-3.9
   uses:
