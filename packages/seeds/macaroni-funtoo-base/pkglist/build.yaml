@@ -5,6 +5,7 @@ requires:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
+  mkdir -p /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/ &&
   qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist &&
   pkgs-checker portage gen-pkgs-uses
   --luet-portage-converter-format
