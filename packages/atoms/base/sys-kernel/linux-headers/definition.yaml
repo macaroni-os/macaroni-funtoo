@@ -1,0 +1,22 @@
+name: linux-headers
+version: "5.10"
+category: sys-kernel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux system headers
+uri:
+- https://www.kernel.org/ https://www.gentoo.org/
+license: GPL-2
+labels:
+  DEPEND: app-arch/xz-utils dev-lang/perl
+  IUSE: headers-only
+  emerge.packages: sys-kernel/linux-headers
+  kit: core-kit
+  original.package.name: sys-kernel/linux-headers
+  original.package.slot: "0"
+  original.package.version: "5.10"
