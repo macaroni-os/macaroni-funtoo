@@ -1,0 +1,28 @@
+name: os-headers
+version: "0"
+category: virtual
+use_flags:
+- -elibc_mingw
+- -kernel_Winnt
+- kernel_linux
+- prefix
+- prefix-guest
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for operating system headers
+uri:
+- ""
+labels:
+  RDEPEND: '!prefix-guest? ( || ( kernel_linux? ( sys-kernel/linux-headers:0 ) kernel_Winnt?
+    ( elibc_mingw? ( dev-util/mingw64-runtime ) ) !prefix? ( sys-freebsd/freebsd-lib
+    ) ) ) prefix-guest? ( !sys-kernel/linux-headers !sys-freebsd/freebsd-lib )'
+  emerge.packages: virtual/os-headers
+  kit: core-kit
+  original.package.name: virtual/os-headers
+  original.package.slot: "0"
+  original.package.version: 0-r1
