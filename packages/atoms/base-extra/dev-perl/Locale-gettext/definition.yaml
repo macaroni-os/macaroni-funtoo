@@ -1,0 +1,29 @@
+name: Locale-gettext
+version: 1.70.0
+category: dev-perl
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Perl module for accessing the GNU locale utilities
+uri:
+- https://metacpan.org/release/gettext
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: sys-devel/gettext virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
+  RDEPEND: sys-devel/gettext dev-lang/perl:=
+  emerge.packages: dev-perl/Locale-gettext
+  kit: perl-kit
+  original.package.name: dev-perl/Locale-gettext
+  original.package.slot: "0"
+  original.package.version: 1.70.0
