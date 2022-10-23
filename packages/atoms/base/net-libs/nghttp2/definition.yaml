@@ -1,0 +1,40 @@
+name: nghttp2
+version: 1.50.0
+category: net-libs
+use_flags:
+- -cxx
+- -hpack-tools
+- -jemalloc
+- -libressl
+- -test
+- -utils
+- -xml
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: HTTP/2 C Library
+uri:
+- https://nghttp2.org/
+license: MIT
+labels:
+  DEPEND: cxx? ( !libressl? ( >=dev-libs/openssl-1.0.2:0=[-bindist] ) libressl? (
+    dev-libs/libressl:= ) dev-libs/boost:=[threads(+)] ) hpack-tools? ( >=dev-libs/jansson-2.5
+    ) jemalloc? ( dev-libs/jemalloc ) utils? ( !libressl? ( >=dev-libs/openssl-1.0.2:0=[-bindist]
+    ) libressl? ( dev-libs/libressl:= ) >=dev-libs/libev-4.15 >=sys-libs/zlib-1.2.3
+    net-dns/c-ares:= ) xml? ( >=dev-libs/libxml2-2.7.7:2 ) virtual/pkgconfig test?
+    ( >=dev-util/cunit-2.1 )
+  IUSE: cxx debug hpack-tools jemalloc libressl static-libs test +threads utils xml
+  RDEPEND: cxx? ( !libressl? ( >=dev-libs/openssl-1.0.2:0=[-bindist] ) libressl? (
+    dev-libs/libressl:= ) dev-libs/boost:=[threads(+)] ) hpack-tools? ( >=dev-libs/jansson-2.5
+    ) jemalloc? ( dev-libs/jemalloc ) utils? ( !libressl? ( >=dev-libs/openssl-1.0.2:0=[-bindist]
+    ) libressl? ( dev-libs/libressl:= ) >=dev-libs/libev-4.15 >=sys-libs/zlib-1.2.3
+    net-dns/c-ares:= ) xml? ( >=dev-libs/libxml2-2.7.7:2 )
+  emerge.packages: net-libs/nghttp2
+  kit: core-kit
+  original.package.name: net-libs/nghttp2
+  original.package.slot: "0"
+  original.package.version: 1.50.0
