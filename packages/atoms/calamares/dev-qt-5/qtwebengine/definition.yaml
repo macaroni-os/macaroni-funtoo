@@ -1,5 +1,5 @@
 name: qtwebengine
-version: 5.15.5+3
+version: 5.15.5+4
 category: dev-qt-5
 use_flags:
 - -designer
@@ -89,36 +89,37 @@ labels:
     net-libs/nodejs[ssl(+)] sys-devel/bison ppc64? ( >=dev-util/gn-0.1807 ) dev-lang/perl
     virtual/pkgconfig'
   DEPEND: app-arch/snappy:= dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/expat
-    dev-libs/libevent:= dev-libs/libxml2[icu] dev-libs/libxslt dev-libs/re2:= ~dev-qt/qtcore-5.15.2
-    ~dev-qt/qtdeclarative-5.15.2 ~dev-qt/qtgui-5.15.2 ~dev-qt/qtnetwork-5.15.2 ~dev-qt/qtprintsupport-5.15.2
-    ~dev-qt/qtwebchannel-5.15.2[qml] media-libs/fontconfig media-libs/freetype media-libs/harfbuzz:=
-    media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:0= >=media-libs/libvpx-1.5:=[svc(+)]
-    media-libs/libwebp:= media-libs/mesa[egl,X(+)] media-libs/opus sys-apps/dbus sys-apps/pciutils
-    sys-libs/zlib[minizip] virtual/libudev x11-libs/libdrm x11-libs/libX11 x11-libs/libXcomposite
-    x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi
-    x11-libs/libXrandr x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst
-    alsa? ( media-libs/alsa-lib ) designer? ( ~dev-qt/designer-5.15.2 ) geolocation?
-    ( ~dev-qt/qtpositioning-5.15.2 ) kerberos? ( virtual/krb5 ) pulseaudio? ( media-sound/pulseaudio:=
-    ) system-ffmpeg? ( media-video/ffmpeg:0= ) system-icu? ( >=dev-libs/icu-67.1:=
-    ) widgets? ( ~dev-qt/qtdeclarative-5.15.2[widgets] ~dev-qt/qtwidgets-5.15.2 )
-    test? ( ~dev-qt/qttest-5.15.5 )
-  IUSE: alsa bindist designer geolocation kerberos pulseaudio +system-ffmpeg +system-icu
-    widgets debug test
+    dev-libs/libevent:= dev-libs/libxml2[icu] dev-libs/libxslt dev-libs/re2:= =dev-qt/qtcore-5.15.2*
+    =dev-qt/qtdeclarative-5.15.2* =dev-qt/qtgui-5.15.2* =dev-qt/qtnetwork-5.15.2*
+    =dev-qt/qtprintsupport-5.15.2* =dev-qt/qtwebchannel-5.15.2*[qml] media-libs/fontconfig
+    media-libs/freetype media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libjpeg-turbo:=
+    media-libs/libpng:0= >=media-libs/libvpx-1.5:=[svc(+)] media-libs/libwebp:= media-libs/mesa[egl,X(+)]
+    media-libs/opus sys-apps/dbus sys-apps/pciutils sys-libs/zlib[minizip] virtual/libudev
+    x11-libs/libdrm x11-libs/libxkbfile x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXcursor
+    x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr
+    x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst alsa? ( media-libs/alsa-lib
+    ) designer? ( =dev-qt/designer-5.15.2* ) geolocation? ( =dev-qt/qtpositioning-5.15.2*
+    ) kerberos? ( virtual/krb5 ) pulseaudio? ( media-sound/pulseaudio:= ) system-ffmpeg?
+    ( media-video/ffmpeg:0= ) system-icu? ( >=dev-libs/icu-67.1:= ) widgets? ( =dev-qt/qtdeclarative-5.15.2*[widgets]
+    =dev-qt/qtwidgets-5.15.2* ) test? ( =dev-qt/qttest-5.15.5* )
+  IUSE: alsa bindist designer geolocation kerberos pulseaudio +memsaver +system-ffmpeg
+    +system-icu widgets debug test
   RDEPEND: app-arch/snappy:= dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/expat
-    dev-libs/libevent:= dev-libs/libxml2[icu] dev-libs/libxslt dev-libs/re2:= ~dev-qt/qtcore-5.15.2
-    ~dev-qt/qtdeclarative-5.15.2 ~dev-qt/qtgui-5.15.2 ~dev-qt/qtnetwork-5.15.2 ~dev-qt/qtprintsupport-5.15.2
-    ~dev-qt/qtwebchannel-5.15.2[qml] media-libs/fontconfig media-libs/freetype media-libs/harfbuzz:=
-    media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:0= >=media-libs/libvpx-1.5:=[svc(+)]
-    media-libs/libwebp:= media-libs/mesa[egl,X(+)] media-libs/opus sys-apps/dbus sys-apps/pciutils
-    sys-libs/zlib[minizip] virtual/libudev x11-libs/libdrm x11-libs/libX11 x11-libs/libXcomposite
-    x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi
-    x11-libs/libXrandr x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst
-    alsa? ( media-libs/alsa-lib ) designer? ( ~dev-qt/designer-5.15.2 ) geolocation?
-    ( ~dev-qt/qtpositioning-5.15.2 ) kerberos? ( virtual/krb5 ) pulseaudio? ( media-sound/pulseaudio:=
-    ) system-ffmpeg? ( media-video/ffmpeg:0= ) system-icu? ( >=dev-libs/icu-67.1:=
-    ) widgets? ( ~dev-qt/qtdeclarative-5.15.2[widgets] ~dev-qt/qtwidgets-5.15.2 )
+    dev-libs/libevent:= dev-libs/libxml2[icu] dev-libs/libxslt dev-libs/re2:= =dev-qt/qtcore-5.15.2*
+    =dev-qt/qtdeclarative-5.15.2* =dev-qt/qtgui-5.15.2* =dev-qt/qtnetwork-5.15.2*
+    =dev-qt/qtprintsupport-5.15.2* =dev-qt/qtwebchannel-5.15.2*[qml] media-libs/fontconfig
+    media-libs/freetype media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libjpeg-turbo:=
+    media-libs/libpng:0= >=media-libs/libvpx-1.5:=[svc(+)] media-libs/libwebp:= media-libs/mesa[egl,X(+)]
+    media-libs/opus sys-apps/dbus sys-apps/pciutils sys-libs/zlib[minizip] virtual/libudev
+    x11-libs/libdrm x11-libs/libxkbfile x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXcursor
+    x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr
+    x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst alsa? ( media-libs/alsa-lib
+    ) designer? ( =dev-qt/designer-5.15.2* ) geolocation? ( =dev-qt/qtpositioning-5.15.2*
+    ) kerberos? ( virtual/krb5 ) pulseaudio? ( media-sound/pulseaudio:= ) system-ffmpeg?
+    ( media-video/ffmpeg:0= ) system-icu? ( >=dev-libs/icu-67.1:= ) widgets? ( =dev-qt/qtdeclarative-5.15.2*[widgets]
+    =dev-qt/qtwidgets-5.15.2* )
   emerge.packages: dev-qt/qtwebengine:5
   kit: qt-kit
   original.package.name: dev-qt/qtwebengine
   original.package.slot: "5"
-  original.package.version: 5.15.5
+  original.package.version: 5.15.5-r2
