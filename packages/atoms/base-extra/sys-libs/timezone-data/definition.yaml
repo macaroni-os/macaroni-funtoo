@@ -1,0 +1,29 @@
+name: timezone-data
+version: 2022e
+category: sys-libs
+use_flags:
+- nls
+requires:
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)
+uri:
+- https://www.iana.org/time-zones
+license: BSD public-domain
+labels:
+  DEPEND: nls? ( virtual/libintl )
+  IUSE: nls leaps-timezone elibc_FreeBSD
+  RDEPEND: nls? ( virtual/libintl ) !sys-libs/glibc[vanilla(+)]
+  emerge.packages: sys-libs/timezone-data
+  kit: core-hw-kit
+  original.package.name: sys-libs/timezone-data
+  original.package.slot: "0"
+  original.package.version: 2022e
