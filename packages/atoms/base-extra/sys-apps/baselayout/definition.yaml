@@ -1,0 +1,22 @@
+name: baselayout
+version: 2.6.1
+category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Filesystem baselayout and init scripts
+uri:
+- ""
+license: GPL-2
+labels:
+  IUSE: build kernel_FreeBSD kernel_linux +split-usr
+  RDEPEND: '!>=dev-util/meson-0.60'
+  emerge.packages: sys-apps/baselayout
+  kit: core-kit
+  original.package.name: sys-apps/baselayout
+  original.package.slot: "0"
+  original.package.version: 2.6.1-r2
