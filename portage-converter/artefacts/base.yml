@@ -1387,3 +1387,36 @@ artefacts:
     - tls-heartbeat
   packages:
   - net-libs/gnutls
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - headers-only
+    - nios2
+    - sh
+  packages:
+  - sys-kernel/linux-headers
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - nls
+  packages:
+  - sys-apps/diffutils
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - guile
+    - nios2
+    - sh
+    - static
+    enabled:
+    - nls
+  packages:
+  - sys-devel/make
+
