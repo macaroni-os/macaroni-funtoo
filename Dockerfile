@@ -11,7 +11,8 @@ ENV USER=root
 SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos", "--relax"]
 RUN repository/mottainai-stable
 RUN repository/macaroni-commons
-RUN repository/macaroni-terragon
+# Temporary using dev rep until is stable
+RUN repository/macaroni-terragon-dev
 
 RUN system/entities
 
