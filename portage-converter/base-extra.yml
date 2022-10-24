@@ -147,6 +147,18 @@ artefacts:
     - sh
   packages:
     - dev-util/re2c
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-util
+          name: pkgconf
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
     - virtual/pkgconfig
 
 - tree: packages/atoms/base
