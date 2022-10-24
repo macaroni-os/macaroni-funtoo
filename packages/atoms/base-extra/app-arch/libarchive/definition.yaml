@@ -4,7 +4,6 @@ category: app-arch
 use_flags:
 - -blake2
 - -expat
-- -kernel_linux
 - -libressl
 - -lz4
 - -lzo
@@ -14,6 +13,7 @@ use_flags:
 - bzip2
 - e2fsprogs
 - iconv
+- kernel_linux
 - lzma
 - xattr
 - zlib
@@ -30,6 +30,9 @@ requires:
 - name: openssl
   version: '>=0'
   category: dev-libs
+- name: attr
+  version: '>=0'
+  category: sys-apps
 - name: acl
   version: '>=0'
   category: virtual
