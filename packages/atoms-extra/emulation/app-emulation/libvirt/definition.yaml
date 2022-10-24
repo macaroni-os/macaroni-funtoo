@@ -1,5 +1,5 @@
 name: libvirt
-version: 8.7.0
+version: 8.8.0
 category: app-emulation
 use_flags:
 - -apparmor
@@ -127,16 +127,15 @@ labels:
     ) nfs? ( net-fs/nfs-utils ) numa? ( >sys-process/numactl-2.0.2 sys-process/numad
     ) parted? ( >=sys-block/parted-1.8[device-mapper] sys-fs/lvm2[-device-mapper-only(-)]
     ) pcap? ( >=net-libs/libpcap-1.0.0 ) policykit? ( >=sys-auth/polkit-0.9 ) qemu?
-    ( >=app-emulation/qemu-1.5.0 dev-libs/yajl ) rbd? ( sys-cluster/ceph ) sasl? (
-    dev-libs/cyrus-sasl ) selinux? ( >=sys-libs/libselinux-2.0.85 ) virt-network?
-    ( net-dns/dnsmasq[script] net-firewall/ebtables >=net-firewall/iptables-1.4.10[ipv6]
-    net-misc/radvd sys-apps/iproute2[-minimal] ) virtualbox? ( || ( app-emulation/virtualbox
-    >=app-emulation/virtualbox-bin-2.2.0 ) ) wireshark-plugins? ( net-analyzer/wireshark:=
-    ) xen? ( >=app-emulation/xen-4.6.0 app-emulation/xen-tools:= ) udev? ( virtual/udev
-    >=x11-libs/libpciaccess-0.10.9 ) zfs? ( sys-fs/zfs ) || ( dev-lang/python:3.10
-    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) app-text/xhtml1
-    dev-lang/perl dev-libs/libxslt dev-perl/XML-XPath dev-python/docutils virtual/pkgconfig
-    sys-apps/shadow
+    ( >=app-emulation/qemu-4.2 dev-libs/yajl ) rbd? ( sys-cluster/ceph ) sasl? ( dev-libs/cyrus-sasl
+    ) selinux? ( >=sys-libs/libselinux-2.0.85 ) virt-network? ( net-dns/dnsmasq[script]
+    net-firewall/ebtables >=net-firewall/iptables-1.4.10[ipv6] net-misc/radvd sys-apps/iproute2[-minimal]
+    ) virtualbox? ( || ( app-emulation/virtualbox >=app-emulation/virtualbox-bin-2.2.0
+    ) ) wireshark-plugins? ( net-analyzer/wireshark:= ) xen? ( >=app-emulation/xen-4.6.0
+    app-emulation/xen-tools:= ) udev? ( virtual/udev >=x11-libs/libpciaccess-0.10.9
+    ) zfs? ( sys-fs/zfs ) || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) app-text/xhtml1 dev-lang/perl dev-libs/libxslt dev-perl/XML-XPath
+    dev-python/docutils virtual/pkgconfig sys-apps/shadow
   IUSE: apparmor audit +caps +dbus dtrace firewalld fuse glusterfs iscsi iscsi-direct
     +libvirtd lvm libssh lxc +macvtap nfs nls numa openvz parted pcap policykit +qemu
     rbd sasl selinux +udev +vepa virtualbox virt-network wireshark-plugins xen zfs
@@ -153,15 +152,15 @@ labels:
     ) nfs? ( net-fs/nfs-utils ) numa? ( >sys-process/numactl-2.0.2 sys-process/numad
     ) parted? ( >=sys-block/parted-1.8[device-mapper] sys-fs/lvm2[-device-mapper-only(-)]
     ) pcap? ( >=net-libs/libpcap-1.0.0 ) policykit? ( >=sys-auth/polkit-0.9 ) qemu?
-    ( >=app-emulation/qemu-1.5.0 dev-libs/yajl ) rbd? ( sys-cluster/ceph ) sasl? (
-    dev-libs/cyrus-sasl ) selinux? ( >=sys-libs/libselinux-2.0.85 ) virt-network?
-    ( net-dns/dnsmasq[script] net-firewall/ebtables >=net-firewall/iptables-1.4.10[ipv6]
-    net-misc/radvd sys-apps/iproute2[-minimal] ) virtualbox? ( || ( app-emulation/virtualbox
-    >=app-emulation/virtualbox-bin-2.2.0 ) ) wireshark-plugins? ( net-analyzer/wireshark:=
-    ) xen? ( >=app-emulation/xen-4.6.0 app-emulation/xen-tools:= ) udev? ( virtual/udev
-    >=x11-libs/libpciaccess-0.10.9 ) zfs? ( sys-fs/zfs )
+    ( >=app-emulation/qemu-4.2 dev-libs/yajl ) rbd? ( sys-cluster/ceph ) sasl? ( dev-libs/cyrus-sasl
+    ) selinux? ( >=sys-libs/libselinux-2.0.85 ) virt-network? ( net-dns/dnsmasq[script]
+    net-firewall/ebtables >=net-firewall/iptables-1.4.10[ipv6] net-misc/radvd sys-apps/iproute2[-minimal]
+    ) virtualbox? ( || ( app-emulation/virtualbox >=app-emulation/virtualbox-bin-2.2.0
+    ) ) wireshark-plugins? ( net-analyzer/wireshark:= ) xen? ( >=app-emulation/xen-4.6.0
+    app-emulation/xen-tools:= ) udev? ( virtual/udev >=x11-libs/libpciaccess-0.10.9
+    ) zfs? ( sys-fs/zfs )
   emerge.packages: app-emulation/libvirt
   kit: core-kit
   original.package.name: app-emulation/libvirt
   original.package.slot: "0"
-  original.package.version: 8.7.0
+  original.package.version: 8.8.0
