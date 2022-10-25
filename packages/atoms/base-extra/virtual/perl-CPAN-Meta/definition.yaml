@@ -1,0 +1,32 @@
+name: perl-CPAN-Meta
+version: 2.150.10
+category: virtual
+requires:
+- name: perl-CPAN-Meta-YAML
+  version: '>=0'
+  category: virtual
+- name: perl-JSON-PP
+  version: '>=0'
+  category: virtual
+- name: perl-Parse-CPAN-Meta
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for CPAN-Meta
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/CPAN-Meta-2.150.10
+    ) dev-lang/perl:= !<perl-core/CPAN-Meta-2.150.10 !>perl-core/CPAN-Meta-2.150.10-r999
+    >=virtual/perl-CPAN-Meta-YAML-0.11.0 >=virtual/perl-JSON-PP-2.271.30 >=virtual/perl-Parse-CPAN-Meta-1.441.400'
+  emerge.packages: virtual/perl-CPAN-Meta
+  kit: perl-kit
+  original.package.name: virtual/perl-CPAN-Meta
+  original.package.slot: "0"
+  original.package.version: 2.150.10-r4
