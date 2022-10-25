@@ -1,0 +1,25 @@
+name: perl-Exporter
+version: 5.740.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Exporter
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Exporter-5.740.0 ) dev-lang/perl:=
+    !<perl-core/Exporter-5.740.0 !>perl-core/Exporter-5.740.0-r999'
+  emerge.packages: virtual/perl-Exporter
+  kit: perl-kit
+  original.package.name: virtual/perl-Exporter
+  original.package.slot: "0"
+  original.package.version: 5.740.0
