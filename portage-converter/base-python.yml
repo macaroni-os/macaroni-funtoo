@@ -173,12 +173,37 @@ artefacts:
   packages:
   - dev-python/appi
   - dev-python/charset_normalizer
-  - dev-python/flit_core
   - dev-python/gpep517
   - dev-python/semantic_version
   - dev-python/setuptools-rust
   - dev-python/tomli
   - dev-python/typing-extensions
+
+
+- tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+      # it uses gpep517 that require tomli
+      packages:
+        - category: dev-python
+          name: gpep517
+        - category: dev-python
+          name: installer
+        - category: dev-python
+          name: tomli
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_7
+    - python_targets_python3_9
+  packages:
+  - dev-python/appi
+  - dev-python/charset_normalizer
+  - dev-python/flit_core
 
 - tree: packages/atoms/base-python
   uses:
@@ -317,7 +342,7 @@ artefacts:
     buildtime_deps:
         # Cryptography uses setuptools-rust
         # that requires dev-python/typing-extensions
-        # and other dependencies
+        # and other dependencies as RDEPEND
       packages:
         - category: dev-python
           name: typing-extensions
