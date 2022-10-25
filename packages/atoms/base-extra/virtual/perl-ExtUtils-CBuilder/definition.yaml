@@ -1,0 +1,25 @@
+name: perl-ExtUtils-CBuilder
+version: 0.280.234
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for ExtUtils-CBuilder
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/ExtUtils-CBuilder-0.280.234 ) dev-lang/perl:=
+    !<perl-core/ExtUtils-CBuilder-0.280.234 !>perl-core/ExtUtils-CBuilder-0.280.234-r999'
+  emerge.packages: virtual/perl-ExtUtils-CBuilder
+  kit: perl-kit
+  original.package.name: virtual/perl-ExtUtils-CBuilder
+  original.package.slot: "0"
+  original.package.version: 0.280.234
