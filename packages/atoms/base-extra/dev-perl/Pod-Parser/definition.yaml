@@ -1,0 +1,31 @@
+name: Pod-Parser
+version: 1.630.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: POD filters and translators
+uri:
+- https://metacpan.org/release/Pod-Parser
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  BDEPEND: virtual/perl-File-Spec virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple
+    ) dev-lang/perl:=
+  DEPEND: dev-lang/perl:=
+  IUSE: test
+  RDEPEND: virtual/perl-File-Spec dev-lang/perl:=
+  emerge.packages: dev-perl/Pod-Parser
+  kit: perl-kit
+  original.package.name: dev-perl/Pod-Parser
+  original.package.slot: "0"
+  original.package.version: 1.630.0-r1
