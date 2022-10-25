@@ -1,0 +1,26 @@
+name: rust-bin
+version: 1.64.0
+category: dev-lang-stable
+use_flags:
+- -prefix
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Systems programming language from Mozilla
+uri:
+- https://www.rust-lang.org/
+license: '|| ( MIT Apache-2.0 ) BSD-1 BSD-2 BSD-4 UoI-NCSA'
+labels:
+  BDEPEND: prefix? ( dev-util/patchelf )
+  DEPEND: app-eselect/eselect-rust
+  IUSE: clippy cpu_flags_x86_sse2 doc prefix rustfmt rls wasm abi_x86_32 abi_x86_64
+    abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  emerge.packages: dev-lang/rust-bin:stable
+  kit: lang-kit
+  original.package.name: dev-lang/rust-bin
+  original.package.slot: stable
+  original.package.version: 1.64.0
