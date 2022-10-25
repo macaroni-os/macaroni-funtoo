@@ -1,0 +1,25 @@
+name: perl-Module-Metadata
+version: 1.0.37
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Module-Metadata
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Module-Metadata-1.0.37 ) dev-lang/perl:=
+    !<perl-core/Module-Metadata-1.0.37 !>perl-core/Module-Metadata-1.0.37-r999'
+  emerge.packages: virtual/perl-Module-Metadata
+  kit: perl-kit
+  original.package.name: virtual/perl-Module-Metadata
+  original.package.slot: "0"
+  original.package.version: 1.0.37
