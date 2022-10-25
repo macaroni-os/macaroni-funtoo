@@ -445,6 +445,86 @@ artefacts:
     - virtual/python-enum34
     - virtual/python-ipaddress
 
+- tree: packages/atoms/base-python
+  uses:
+    disabled:
+    - doc
+    - latex
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_7
+    - python_targets_python3_9
+  packages:
+  - dev-python/sphinx
+
+- tree: packages/atoms/base-python
+  uses:
+    disabled:
+    - nios2
+    - python_targets_pypy3
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_7
+    - python_targets_python3_9
+  packages:
+  - dev-python/sphinx_rtd_theme
+  - dev-python/sphinxcontrib-applehelp
+  - dev-python/sphinxcontrib-devhelp
+  - dev-python/sphinxcontrib-htmlhelp
+  - dev-python/sphinxcontrib-jsmath
+  - dev-python/sphinxcontrib-qthelp
+  - dev-python/sphinxcontrib-serializinghtml
+
+- tree: packages/atoms/base-python
+  uses:
+    disabled:
+    - nios2
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_7
+    - python_targets_python3_9
+  packages:
+  - sys-apps/usbutils
+
+- tree: packages/atoms/base-python
+  uses:
+    disabled:
+    - debug
+    - doc
+    - examples
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - udev
+  packages:
+  - dev-libs/libusb:1
+
+- tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs-1
+          name: libusb
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - virtual/libusb:1
+
 include_layers:
 - layers/macaroni-funtoo-race1.yaml
 
