@@ -1,0 +1,25 @@
+name: perl-Carp
+version: 1.500.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Carp
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/Carp-1.500.0
+    ) dev-lang/perl:= !<perl-core/Carp-1.500.0 !>perl-core/Carp-1.500.0-r999'
+  emerge.packages: virtual/perl-Carp
+  kit: perl-kit
+  original.package.name: virtual/perl-Carp
+  original.package.slot: "0"
+  original.package.version: 1.500.0-r3
