@@ -1,0 +1,37 @@
+name: gptfdisk
+version: 1.0.9
+category: sys-apps
+use_flags:
+- -kernel_linux
+- -static
+- ncurses
+requires:
+- name: popt
+  version: '>=0'
+  category: dev-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GPT partition table manipulator for Linux
+uri:
+- https://www.rodsbooks.com/gdisk/
+license: GPL-2
+labels:
+  DEPEND: '!static? ( dev-libs/popt ncurses? ( sys-libs/ncurses:=[unicode(+)] ) kernel_linux?
+    ( sys-apps/util-linux ) ) static? ( dev-libs/popt[static-libs(+)] ncurses? ( sys-libs/ncurses:=[unicode(+),static-libs(+)]
+    ) kernel_linux? ( sys-apps/util-linux[static-libs(+)] ) ) virtual/pkgconfig'
+  IUSE: ncurses static
+  RDEPEND: '!static? ( dev-libs/popt ncurses? ( sys-libs/ncurses:=[unicode(+)] ) kernel_linux?
+    ( sys-apps/util-linux ) )'
+  emerge.packages: sys-apps/gptfdisk
+  kit: core-kit
+  original.package.name: sys-apps/gptfdisk
+  original.package.slot: "0"
+  original.package.version: 1.0.9-r1
