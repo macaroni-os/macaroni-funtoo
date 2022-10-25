@@ -1,0 +1,25 @@
+name: perl-Digest-SHA
+version: 6.20.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Digest-SHA
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/Digest-SHA-6.20.0
+    ) dev-lang/perl:= !<perl-core/Digest-SHA-6.20.0 !>perl-core/Digest-SHA-6.20.0-r999'
+  emerge.packages: virtual/perl-Digest-SHA
+  kit: perl-kit
+  original.package.name: virtual/perl-Digest-SHA
+  original.package.slot: "0"
+  original.package.version: 6.20.0-r1
