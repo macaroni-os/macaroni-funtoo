@@ -36,7 +36,7 @@ steps:
 - >-
   cp -rvf package.license /etc/portage/ &&
   cat /etc/luet/luet.yaml &&
-  luet install virtual/base --relax --nodeps &&
+  luet install virtual/base virtual/sh --relax --nodeps &&
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
   eselect gcc set 1 &&
