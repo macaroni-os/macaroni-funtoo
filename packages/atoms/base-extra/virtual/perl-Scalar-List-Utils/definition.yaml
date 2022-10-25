@@ -1,0 +1,25 @@
+name: perl-Scalar-List-Utils
+version: 1.550.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Scalar::Util and List::Util, also distributed as Scalar::List::Utils
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Scalar-List-Utils-1.550.0 ) dev-lang/perl:=
+    !<perl-core/Scalar-List-Utils-1.550.0 !>perl-core/Scalar-List-Utils-1.550.0-r999'
+  emerge.packages: virtual/perl-Scalar-List-Utils
+  kit: perl-kit
+  original.package.name: virtual/perl-Scalar-List-Utils
+  original.package.slot: "0"
+  original.package.version: 1.550.0
