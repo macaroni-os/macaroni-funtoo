@@ -1,0 +1,84 @@
+env:
+- JOBS={{ ( index .Values.labels "jobs" ) | default "3" }}
+- LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages"
+- LUET_PORTAGE_IGNORE_TAR_WARNING=1
+- LUET_PORTAGE_PKGMETA=1
+- LUET_PORTAGE_PKGFILES=1
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+prelude:
+- |
+  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
+  chown portage:portage -R /var/cache/portage/ && \
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  {{- else }}
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  {{- end }}
+- |
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  {{- else }}
+  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  {{- end }}
+- eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
+  --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
+- rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
+package_dir: /pkgdir/{{ .Values.name }}
+excludes:
+- ^/var/cache/portage/
+- ^/var/git/
+requires:
+- name: perl-CPAN-Meta
+  version: '>=0'
+  category: virtual
+- name: perl-CPAN-Meta-YAML
+  version: '>=0'
+  category: virtual
+- name: perl-Data-Dumper
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-CBuilder
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-Install
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-MakeMaker
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-Manifest
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-ParseXS
+  version: '>=0'
+  category: virtual
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-File-Temp
+  version: '>=0'
+  category: virtual
+- name: perl-Getopt-Long
+  version: '>=0'
+  category: virtual
+- name: perl-Module-Metadata
+  version: '>=0'
+  category: virtual
+- name: perl-Parse-CPAN-Meta
+  version: '>=0'
+  category: virtual
+- name: perl-Perl-OSType
+  version: '>=0'
+  category: virtual
+- name: perl-Test-Harness
+  version: '>=0'
+  category: virtual
+- name: perl-Text-ParseWords
+  version: '>=0'
+  category: virtual
+- name: perl-podlators
+  version: '>=0'
+  category: virtual
+- name: perl-version
+  version: '>=0'
+  category: virtual
