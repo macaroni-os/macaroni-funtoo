@@ -1,0 +1,29 @@
+name: hwids
+version: "20210613"
+category: sys-apps
+use_flags:
+- udev
+requires:
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Hardware (PCI, USB, OUI, IAB) IDs databases
+uri:
+- https://github.com/gentoo/hwids
+license: '|| ( GPL-2 BSD ) public-domain'
+labels:
+  BDEPEND: virtual/pkgconfig
+  IUSE: +net +pci +udev +usb
+  RDEPEND: udev? ( virtual/udev ) !<sys-apps/pciutils-3.1.9-r2 !<sys-apps/usbutils-005-r1
+  emerge.packages: sys-apps/hwids
+  kit: core-kit
+  original.package.name: sys-apps/hwids
+  original.package.slot: "0"
+  original.package.version: "20210613"
