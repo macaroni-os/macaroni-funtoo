@@ -1,0 +1,25 @@
+name: perl-Pod-Parser
+version: 1.630.0
+category: virtual
+requires:
+- name: Pod-Parser
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Pod-Parser
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( ~dev-perl/Pod-Parser-1.630.0 <dev-lang/perl-5.32 ) dev-lang/perl:=
+    !perl-core/Pod-Parser'
+  emerge.packages: virtual/perl-Pod-Parser
+  kit: perl-kit
+  original.package.name: virtual/perl-Pod-Parser
+  original.package.slot: "0"
+  original.package.version: 1.630.0-r5
