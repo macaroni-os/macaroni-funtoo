@@ -1,0 +1,25 @@
+name: perl-MIME-Base64
+version: 3.150.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for MIME-Base64
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/MIME-Base64-3.150.0
+    ) dev-lang/perl:= !<perl-core/MIME-Base64-3.150.0 !>perl-core/MIME-Base64-3.150.0-r999'
+  emerge.packages: virtual/perl-MIME-Base64
+  kit: perl-kit
+  original.package.name: virtual/perl-MIME-Base64
+  original.package.slot: "0"
+  original.package.version: 3.150.0-r7
