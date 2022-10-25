@@ -1,0 +1,24 @@
+name: udev
+version: "217"
+category: virtual
+use_flags:
+- -systemd
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual to select between different udev daemon providers
+uri:
+- ""
+labels:
+  IUSE: systemd
+  RDEPEND: '!systemd? ( || ( >=sys-fs/eudev-2.1.1 >=sys-fs/udev-217 ) ) systemd? (
+    >=sys-apps/systemd-217:0 )'
+  emerge.packages: virtual/udev
+  kit: core-kit
+  original.package.name: virtual/udev
+  original.package.slot: "0"
+  original.package.version: "217"
