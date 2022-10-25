@@ -305,6 +305,7 @@ artefacts:
   packages:
   - virtual/perl-ExtUtils-MakeMaker
   - virtual/os-headers
+  - dev-util/gperf
 
 - tree: packages/atoms/base-extra
   uses:
@@ -364,6 +365,8 @@ artefacts:
     - sh
   packages:
   - dev-libs/nspr
+  - dev-util/intltool
+  - dev-perl/XML-Parser
 
 - tree: packages/atoms/base-extra
   uses:
@@ -408,6 +411,184 @@ artefacts:
     - nls
   packages:
   - sys-process/psmisc
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    enabled:
+    - compat
+    - udev
+  packages:
+  - sys-fs/dosfstools
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - libedit
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - icu
+    - nls
+    - readline
+  packages:
+  - sys-fs/xfsprogs
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - introspection
+    - nios2
+    - selinux
+    - sh
+    - test
+    - user
+    enabled:
+    - hwdb
+    - kmod
+    - rule-generator
+    - static-libs
+  packages:
+  - sys-fs/eudev
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-fs
+          name: eudev
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - systemd
+    enabled:
+    - static-libs
+  packages:
+  - virtual/libudev
+  - virtual/udev
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - debug
+    - doc
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    - zstd
+    enabled:
+    - lzma
+    - pkcs7
+    - python
+    - python_targets_python3_7
+    - python_targets_python3_9
+    - tools
+    - zlib
+  packages:
+  - sys-apps/kmod
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - ncurses
+  packages:
+  - sys-apps/gptfdisk
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - net
+    - pci
+    - udev
+    - usb
+  packages:
+  - sys-apps/hwids
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - kerberos
+    - nios2
+    - sh
+  packages:
+  - dev-perl/Authen-SASL
+  - dev-perl/Digest-HMAC
+  - perl-core/File-Temp
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - kerberos
+    - nios2
+    - sh
+  packages:
+  - virtual/perl-Digest-SHA
+  - virtual/perl-Digest-MD5
+  - virtual/perl-CPAN-Meta
+  - virtual/perl-CPAN-Meta-YAML
+  - virtual/perl-Carp
+  - virtual/perl-Data-Dumper
+  - virtual/perl-Encode
+  - virtual/perl-Exporter
+  - virtual/perl-ExtUtils-CBuilder
+  - virtual/perl-ExtUtils-Install
+  - virtual/perl-ExtUtils-Manifest
+  - virtual/perl-ExtUtils-ParseXS
+  - virtual/perl-File-Spec
+  - virtual/perl-File-Temp
+  - virtual/perl-Getopt-Long
+  - virtual/perl-IO
+  - virtual/perl-JSON-PP
+  - virtual/perl-MIME-Base64
+  - virtual/perl-Module-Metadata
+  - virtual/perl-Parse-CPAN-Meta
+  - virtual/perl-Perl-OSType
+  - virtual/perl-Pod-Parser
+  - virtual/perl-Scalar-List-Utils
+  - virtual/perl-Test-Harness
+  - virtual/perl-Text-ParseWords
+  - virtual/perl-podlators
+  - virtual/perl-version
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/Error
+  - dev-perl/Module-Build
+  - dev-perl/Pod-Parser
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - static
+  packages:
+  - sys-fs/mdadm
 
 include_layers:
 - layers/macaroni-funtoo-base.yaml
