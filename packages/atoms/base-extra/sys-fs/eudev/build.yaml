@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary patch that disable set of default runlevel.
+- >-
+  sed -i -e
+  's|add_initd_to_runlevel udev|echo add_initd_to_runlevel udev|g'
+  /var/git/meta-repo/kits/core-kit/sys-fs/eudev/eudev-3.2.9-r3.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
