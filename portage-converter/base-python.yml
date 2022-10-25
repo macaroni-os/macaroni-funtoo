@@ -313,6 +313,20 @@ artefacts:
   - dev-python/pycparser
 
 - tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+        # Cryptography uses setuptools-rust
+        # that requires dev-python/typing-extensions
+        # and other dependencies
+      packages:
+        - category: dev-python
+          name: typing-extensions
+        - category: dev-python
+          name: wheel
+        - category: dev-python
+          name: semantic_version
+        - category: dev-python
+          name: toml
   uses:
     disabled:
     - debug
