@@ -7,8 +7,7 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 # Enable masked lxd 5.7
-- ->
-  sed -i -e 's|^KEYWORDS.*|KEYWORDS="*"|g' /var/git/meta-repo/kits/core-kit/app-emulation/lxd/lxd-5.7.ebuild
+- sed -i -e 's|^KEYWORDS.*|KEYWORDS="*"|g' /var/git/meta-repo/kits/core-kit/app-emulation/lxd/lxd-5.7.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
