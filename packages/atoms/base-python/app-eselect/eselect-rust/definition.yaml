@@ -1,0 +1,25 @@
+name: eselect-rust
+version: "20200419"
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Eselect module for management of multiple Rust versions
+uri:
+- https://wiki.gentoo.org/wiki/Project:Rust
+license: GPL-2
+labels:
+  RDEPEND: '>=app-admin/eselect-1.2.3'
+  emerge.packages: app-eselect/eselect-rust
+  kit: lang-kit
+  original.package.name: app-eselect/eselect-rust
+  original.package.slot: "0"
+  original.package.version: "20200419"
