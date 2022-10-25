@@ -1,0 +1,25 @@
+name: perl-Data-Dumper
+version: 2.174.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Data-Dumper
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/Data-Dumper-2.174.0
+    ) dev-lang/perl:= !<perl-core/Data-Dumper-2.174.0 !>perl-core/Data-Dumper-2.174.0-r999'
+  emerge.packages: virtual/perl-Data-Dumper
+  kit: perl-kit
+  original.package.name: virtual/perl-Data-Dumper
+  original.package.slot: "0"
+  original.package.version: 2.174.0-r1
