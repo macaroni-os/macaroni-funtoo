@@ -131,6 +131,9 @@ artefacts:
     disabled:
       - jemalloc
       - system-boot
+  mutations:
+    uses:
+      - systemd
   annotations:
     subsets:
       rules:
@@ -139,7 +142,7 @@ artefacts:
         portage:
           - "^/var/db/pkg/"
   packages:
-    - dev-db/arangodb
+    - dev-db/arangodb:3
   finalizer:
     shell:
       - "/bin/bash"
