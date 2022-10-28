@@ -62,6 +62,23 @@ build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
 artefacts:
 
+# No more available in base
+- tree: packages/atoms-extra/net
+  uses:
+    disabled:
+    - nios2
+    - python_targets_pypy3
+    - python_targets_python3_8
+    - python_targets_python3_9
+    - sh
+    - test
+    enabled:
+    - python_targets_python2_7
+    - python_targets_python3_7
+  packages:
+  - dev-python/namespace-zope
+  - dev-python/zope-interface
+
 - tree: packages/atoms-extra/net
   annotations:
     subsets:
