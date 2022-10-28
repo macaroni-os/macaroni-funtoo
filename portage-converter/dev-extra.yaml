@@ -94,16 +94,24 @@ include_layers:
 artefacts:
 
 - tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      # it uses gpep517 that require tomli
+      packages:
+        - category: dev-python
+          name: gpep517
+        - category: dev-python
+          name: installer
   uses:
     disabled:
     - debug
     - nios2
     - sh
     - test
+    - python_targets_python2_7
     enabled:
     - dbus
     - libnotify
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - x11-terms/terminator
