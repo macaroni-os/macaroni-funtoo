@@ -1,0 +1,29 @@
+name: dhcpcd
+version: 9.4.1
+category: net-misc
+use_flags:
+- udev
+requires:
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A fully featured, yet light weight RFC2131 compliant DHCP client
+uri:
+- https://github.com/NetworkConfiguration/dhcpcd/ https://roy.marples.name/projects/dhcpcd/
+license: BSD-2
+labels:
+  DEPEND: udev? ( virtual/udev ) sys-apps/shadow
+  IUSE: debug +embedded ipv6 privsep +udev
+  RDEPEND: udev? ( virtual/udev )
+  emerge.packages: net-misc/dhcpcd
+  kit: net-kit
+  original.package.name: net-misc/dhcpcd
+  original.package.slot: "0"
+  original.package.version: 9.4.1
