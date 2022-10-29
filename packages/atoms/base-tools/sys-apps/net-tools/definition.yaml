@@ -1,0 +1,27 @@
+name: net-tools
+version: "1.60"
+category: sys-apps
+use_flags:
+- -selinux
+- hostname
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Standard Linux networking tools
+uri:
+- http://net-tools.sourceforge.net/
+license: GPL-2
+labels:
+  DEPEND: selinux? ( sys-libs/libselinux ) selinux? ( virtual/pkgconfig ) app-arch/xz-utils
+  IUSE: +arp +hostname ipv6 nis nls plipconfig selinux slattach static
+  RDEPEND: selinux? ( sys-libs/libselinux ) hostname? ( !sys-apps/coreutils[hostname]
+    ) !<sys-apps/openrc-0.9.9.3
+  emerge.packages: sys-apps/net-tools
+  kit: core-kit
+  original.package.name: sys-apps/net-tools
+  original.package.slot: "0"
+  original.package.version: 1.60_p20180626073013
