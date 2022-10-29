@@ -1,0 +1,29 @@
+name: libintl-perl
+version: 1.280.0
+category: dev-perl
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: High-Level Interface to Uniforum Message Translation
+uri:
+- http://guido-flohr.net/projects/libintl-perl https://metacpan.org/release/libintl-perl
+license: GPL-3
+labels:
+  DEPEND: virtual/libintl virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
+  RDEPEND: virtual/libintl dev-lang/perl:=
+  emerge.packages: dev-perl/libintl-perl
+  kit: perl-kit
+  original.package.name: dev-perl/libintl-perl
+  original.package.slot: "0"
+  original.package.version: 1.280.0
