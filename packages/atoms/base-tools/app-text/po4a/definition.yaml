@@ -1,0 +1,60 @@
+name: po4a
+version: "0.61"
+category: app-text
+use_flags:
+- -test
+requires:
+- name: opensp
+  version: '>=0'
+  category: app-text
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: Locale-gettext
+  version: '>=0'
+  category: dev-perl
+- name: SGMLSpm
+  version: '>=0'
+  category: dev-perl
+- name: TermReadKey
+  version: '>=0'
+  category: dev-perl
+- name: Text-WrapI18N
+  version: '>=0'
+  category: dev-perl
+- name: Unicode-LineBreak
+  version: '>=0'
+  category: dev-perl
+- name: YAML-Tiny
+  version: '>=0'
+  category: dev-perl
+- name: perl-Pod-Parser
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools to ease the translation of documentation
+uri:
+- https://po4a.org/
+license: GPL-2+
+labels:
+  BDEPEND: dev-lang/perl:=
+  DEPEND: app-text/opensp dev-libs/libxslt dev-perl/Locale-gettext dev-perl/SGMLSpm
+    dev-perl/TermReadKey dev-perl/Text-WrapI18N dev-perl/Unicode-LineBreak dev-perl/YAML-Tiny
+    sys-devel/gettext >virtual/perl-Pod-Parser-1.630.0-r4 app-text/docbook-xml-dtd:4.1.2
+    app-text/docbook-xsl-stylesheets dev-perl/Module-Build test? ( app-text/docbook-sgml-dtd:4.1
+    dev-perl/Test-Pod virtual/latex-base ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: app-text/opensp dev-libs/libxslt dev-perl/Locale-gettext dev-perl/SGMLSpm
+    dev-perl/TermReadKey dev-perl/Text-WrapI18N dev-perl/Unicode-LineBreak dev-perl/YAML-Tiny
+    sys-devel/gettext >virtual/perl-Pod-Parser-1.630.0-r4 dev-lang/perl:=
+  emerge.packages: app-text/po4a
+  kit: perl-kit
+  original.package.name: app-text/po4a
+  original.package.slot: "0"
+  original.package.version: "0.61"
