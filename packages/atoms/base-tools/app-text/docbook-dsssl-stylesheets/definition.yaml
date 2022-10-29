@@ -1,0 +1,26 @@
+name: docbook-dsssl-stylesheets
+version: "1.79"
+category: app-text
+requires:
+- name: docbook-sgml-dtd
+  version: '>=0'
+  category: app-text-3.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: DSSSL Stylesheets for DocBook
+uri:
+- https://github.com/docbook/wiki/wiki
+license: MIT
+labels:
+  DEPEND: '>=app-text/sgml-common-0.6.3-r2'
+  RDEPEND: app-text/sgml-common app-text/docbook-sgml-dtd:3.0
+  emerge.packages: app-text/docbook-dsssl-stylesheets
+  kit: text-kit
+  original.package.name: app-text/docbook-dsssl-stylesheets
+  original.package.slot: "0"
+  original.package.version: 1.79-r3
