@@ -1,0 +1,55 @@
+name: man-db
+version: 2.8.5
+category: sys-apps
+use_flags:
+- -selinux
+- berkdb
+- gdbm
+- nls
+- seccomp
+- zlib
+requires:
+- name: libpipeline
+  version: '>=0'
+  category: dev-libs
+- name: groff
+  version: '>=0'
+  category: sys-apps
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: gdbm
+  version: '>=0'
+  category: sys-libs
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: a man replacement that utilizes berkdb instead of flat files
+uri:
+- http://www.nongnu.org/man-db/
+license: GPL-3
+labels:
+  DEPEND: '!sys-apps/man >=dev-libs/libpipeline-1.5.0 sys-apps/groff berkdb? ( sys-libs/db:=
+    ) gdbm? ( sys-libs/gdbm:= ) !berkdb? ( !gdbm? ( sys-libs/gdbm:= ) ) seccomp? (
+    sys-libs/libseccomp ) zlib? ( sys-libs/zlib ) app-arch/xz-utils virtual/pkgconfig
+    nls? ( >=app-text/po4a-0.45 sys-devel/gettext ) sys-apps/shadow virtual/pkgconfig'
+  IUSE: berkdb +gdbm +manpager nls +seccomp selinux static-libs zlib
+  RDEPEND: '!sys-apps/man >=dev-libs/libpipeline-1.5.0 sys-apps/groff berkdb? ( sys-libs/db:=
+    ) gdbm? ( sys-libs/gdbm:= ) !berkdb? ( !gdbm? ( sys-libs/gdbm:= ) ) seccomp? (
+    sys-libs/libseccomp ) zlib? ( sys-libs/zlib ) selinux? ( sec-policy/selinux-mandb
+    )'
+  emerge.packages: sys-apps/man-db
+  kit: core-kit
+  original.package.name: sys-apps/man-db
+  original.package.slot: "0"
+  original.package.version: 2.8.5-r1
