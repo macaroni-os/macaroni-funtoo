@@ -1,0 +1,32 @@
+name: bison
+version: 3.4.1
+category: sys-devel
+use_flags:
+- -examples
+- -test
+- nls
+requires:
+- name: m4
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A general-purpose (yacc-compatible) parser generator
+uri:
+- https://www.gnu.org/software/bison/
+license: GPL-2
+labels:
+  DEPEND: '>=sys-devel/m4-1.4.16 sys-devel/flex examples? ( dev-lang/perl ) nls? (
+    sys-devel/gettext ) test? ( dev-lang/perl )'
+  IUSE: examples nls static test
+  RDEPEND: '>=sys-devel/m4-1.4.16'
+  emerge.packages: sys-devel/bison
+  kit: core-kit
+  original.package.name: sys-devel/bison
+  original.package.slot: "0"
+  original.package.version: 3.4.1
