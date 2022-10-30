@@ -6,6 +6,8 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  emerge  app-text/build-docbook-catalog  app-text/docbook-xml-dtd:4.5  app-text/docbook-xml-dtd:4.2 -j
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
