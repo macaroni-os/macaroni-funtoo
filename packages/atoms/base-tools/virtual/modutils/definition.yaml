@@ -1,0 +1,24 @@
+name: modutils
+version: "0"
+category: virtual
+requires:
+- name: kmod
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for utilities to manage Linux kernel modules
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( sys-apps/kmod[tools] sys-apps/modutils )'
+  emerge.packages: virtual/modutils
+  kit: core-kit
+  original.package.name: virtual/modutils
+  original.package.slot: "0"
+  original.package.version: "0"
