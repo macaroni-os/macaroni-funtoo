@@ -909,6 +909,11 @@ artefacts:
 
 
 - tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: virtual
+          name: yacc
   uses:
     disabled:
     - nios2
@@ -918,7 +923,6 @@ artefacts:
     - pam
   packages:
   - sys-apps/kbd
-
 
 - tree: packages/atoms/base-tools
   uses:
