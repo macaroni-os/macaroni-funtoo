@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Ensure that yacc link is always present
+- >-
+  if [ ! -e /usr/bin/yacc ] ; then
+  cd /usr/bin ;
+  ln -s yacc.bison yacc ;
+  cd - ;
+  fi
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
