@@ -55,6 +55,7 @@ steps:
 - >-
   cat /etc/luet/luet.yaml &&
   luet install virtual/base --relax --nodeps &&
+  luet upgrade &&
   luet cleanup --purge-repos &&
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
