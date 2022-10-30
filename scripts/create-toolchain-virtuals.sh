@@ -4,16 +4,15 @@ SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 
 kits=(
   "base"
-  "boot"
-  "java"
-  "office"
-  "emulation"
-  "media-gfx"
-  "server"
-  "xorg-extra"
-  "calamares"
-  "python"
-  "games"
+  "base-extra"
+  "base-python"
+  "base-tools"
+#  "boot"
+#  "java"
+#  "emulation"
+#  "server"
+#  "xorg-extra"
+#  "python"
 )
 
 for i in ${kits[@]} ; do
