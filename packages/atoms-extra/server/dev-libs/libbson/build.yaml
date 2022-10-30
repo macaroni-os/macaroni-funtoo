@@ -6,6 +6,12 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary workaround until next build cycle
+- >-
+  luet repo update &&
+  luet rm toolchain/extra-python &&
+  luet i toolchain/extra-python &&
+  luet cleanup --purge-repos
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
