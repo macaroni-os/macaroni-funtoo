@@ -8,6 +8,7 @@ env:
 prelude:
 # Avoid build cycle for this from luet specs.
 - >-
+  emerge  app-text/build-docbook-catalog  app-text/docbook-xml-dtd:4.5  app-text/docbook-xml-dtd:4.2 -j &&
   USE="static-libs mime xattr" emerge dev-libs/glib -j ${JOBS}
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
