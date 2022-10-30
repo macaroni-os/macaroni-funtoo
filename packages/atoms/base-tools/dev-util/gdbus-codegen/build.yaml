@@ -6,6 +6,7 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Avoid build cycle for this from luet specs.
 - >-
   USE="static-libs mime xattr" emerge dev-libs/glib -j ${JOBS}
 - |
