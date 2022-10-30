@@ -1,1 +1,1 @@
-DHCLIENT_OPTS="-I"
+dhclient_opts="-I"
