@@ -97,23 +97,6 @@ artefacts:
   packages:
   - dev-libs/libxslt
 
-- tree: packages/atoms/base-tools
-  uses:
-    disabled:
-    - dbus
-    - fam
-    - gtk-doc
-    - nios2
-    - selinux
-    - sh
-    - systemtap
-    - test
-    enabled:
-    - mime
-    - static-libs
-    - xattr
-  packages:
-  - dev-libs/glib:2
 
 - tree: packages/atoms/base-tools
   mutations:
@@ -384,30 +367,6 @@ artefacts:
 - tree: packages/atoms/base-tools
   uses:
     disabled:
-    - clvm
-    - cman
-    - corosync
-    - device-mapper-only
-    - lvm1
-    - lvm2create_initrd
-    - nios2
-    - openais
-    - sanlock
-    - selinux
-    - sh
-    - static-libs
-    - systemd
-    enabled:
-    - readline
-    - static
-    - thin
-    - udev
-  packages:
-  - sys-fs/lvm2
-
-- tree: packages/atoms/base-tools
-  uses:
-    disabled:
     - emacs
     - nios2
     - qt5
@@ -645,7 +604,6 @@ artefacts:
     - sh
     - test
   packages:
-  - app-text/po4a
   - x11-misc/shared-mime-info
 
 - tree: packages/atoms/base-tools
@@ -1001,6 +959,15 @@ artefacts:
   - net-misc/ifenslave
 
 - tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - app-text/po4a
+
+- tree: packages/atoms/base-tools
   mutations:
     buildtime_deps:
       packages:
@@ -1023,6 +990,58 @@ artefacts:
   - virtual/package-manager
   - virtual/pager
   - virtual/service-manager
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - dbus
+    - fam
+    - gtk-doc
+    - nios2
+    - selinux
+    - sh
+    - systemtap
+    - test
+    enabled:
+    - mime
+    - static-libs
+    - xattr
+  packages:
+  - dev-libs/glib:2
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-block
+          name: thin-provisioning-tools
+        - category: dev-libs
+          name: boost
+        - category: dev-libs
+          name: libaio
+  uses:
+    disabled:
+    - clvm
+    - cman
+    - corosync
+    - device-mapper-only
+    - lvm1
+    - lvm2create_initrd
+    - nios2
+    - openais
+    - sanlock
+    - selinux
+    - sh
+    - static-libs
+    - systemd
+    - static
+    enabled:
+    - readline
+    - thin
+    - udev
+  packages:
+  - sys-fs/lvm2
+
 
 include_layers:
 - layers/macaroni-funtoo-race2.yaml
