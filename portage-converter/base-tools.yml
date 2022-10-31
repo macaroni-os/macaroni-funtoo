@@ -126,6 +126,7 @@ artefacts:
     - sh
   packages:
   - app-text/docbook-sgml-dtd:3.0
+  - app-text/docbook-sgml-dtd:4.5
   - app-text/yelp-tools
 
 - tree: packages/atoms/base-tools
@@ -198,18 +199,6 @@ artefacts:
   - dev-util/gdbus-codegen
   - dev-util/itstool
 
-- tree: packages/atoms/base-tools
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-    enabled:
-    - asn1
-    - libffi
-    - trust
-  packages:
-  - app-crypt/p11-kit
 
 - tree: packages/atoms/base-tools
   uses:
@@ -541,27 +530,6 @@ artefacts:
   packages:
   - net-libs/libtirpc
 
-
-- tree: packages/atoms/base-tools
-  uses:
-    disabled:
-    - debug
-    - doc
-    - emacs
-    - nios2
-    - python_single_target_python3_10
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_targets_python3_10
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_single_target_python3_9
-    - python_targets_python3_7
-    - python_targets_python3_9
-  packages:
-  - dev-util/gtk-doc
-
 - tree: packages/atoms/base-tools
   uses:
     disabled:
@@ -783,7 +751,6 @@ artefacts:
     - sh
   packages:
   - sys-devel/autoconf-archive
-  - dev-util/gtk-doc-am
   - virtual/man
   - sys-apps/install-xattr
   - sys-apps/man-pages-posix
@@ -1008,39 +975,6 @@ artefacts:
     - xattr
   packages:
   - dev-libs/glib:2
-
-- tree: packages/atoms/base-tools
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: sys-block
-          name: thin-provisioning-tools
-        - category: dev-libs
-          name: boost
-        - category: dev-libs
-          name: libaio
-  uses:
-    disabled:
-    - clvm
-    - cman
-    - corosync
-    - device-mapper-only
-    - lvm1
-    - lvm2create_initrd
-    - nios2
-    - openais
-    - sanlock
-    - selinux
-    - sh
-    - static-libs
-    - systemd
-    - static
-    enabled:
-    - readline
-    - thin
-    - udev
-  packages:
-  - sys-fs/lvm2
 
 
 include_layers:
