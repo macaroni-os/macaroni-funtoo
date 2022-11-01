@@ -135,6 +135,11 @@ artefacts:
       - tftp
   packages:
 - tree: packages/atoms-extra/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-libs
+          name: jemalloc
   uses:
     enabled:
       - ipv6
