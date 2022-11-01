@@ -7864,6 +7864,11 @@ artefacts:
   packages:
   - media-gfx/graphviz
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - abi_mips_n32
@@ -7906,6 +7911,14 @@ artefacts:
     - tcpd
   packages:
   - net-nds/openldap
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e ldap
 - tree: packages/atoms/base
   uses:
     disabled:
