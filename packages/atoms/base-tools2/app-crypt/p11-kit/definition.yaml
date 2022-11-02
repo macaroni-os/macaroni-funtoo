@@ -1,0 +1,40 @@
+name: p11-kit
+version: 0.24.1
+category: app-crypt
+use_flags:
+- asn1
+- libffi
+- trust
+requires:
+- name: ca-certificates
+  version: '>=0'
+  category: app-misc
+- name: libffi
+  version: '>=0'
+  category: dev-libs
+- name: libtasn1
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Provides a standard configuration setup for installing PKCS#11
+uri:
+- https://p11-glue.github.io/p11-glue/p11-kit.html https://github.com/p11-glue/p11-kit
+license: MIT
+labels:
+  BDEPEND: app-arch/xz-utils
+  DEPEND: asn1? ( >=dev-libs/libtasn1-3.4 ) libffi? ( >=dev-libs/libffi-3.0.0 ) trust?
+    ( app-misc/ca-certificates ) virtual/pkgconfig dev-util/gtk-doc
+  IUSE: +asn1 debug +libffi +trust
+  RDEPEND: asn1? ( >=dev-libs/libtasn1-3.4 ) libffi? ( >=dev-libs/libffi-3.0.0 ) trust?
+    ( app-misc/ca-certificates )
+  emerge.packages: app-crypt/p11-kit
+  kit: gnome-kit
+  original.package.name: app-crypt/p11-kit
+  original.package.slot: "0"
+  original.package.version: 0.24.1
