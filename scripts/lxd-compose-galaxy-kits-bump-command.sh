@@ -5,7 +5,7 @@
 #              the current reposcan file or with the
 #              override of the commit_sha1 bump new kits.
 
-LCG_KITS_FILE=${LCG_KITS_FILE:-/lxd-compose-galaxy/envs/funtoo/commands/reposcan-funtoo-kits.yml}
+LCG_KITS_FILE=${LCG_KITS_FILE:-/lxd-compose-galaxy/envs/funtoo/commands/reposcan-funtoo-next-kits.yml}
 LCG_CMD_FILE=${LCG_CMD_FILE:-/tmp/reposcan.yml}
 MFUNTOO_TREE=${MFUNTOO_TREE:-.}
 KITS_2UPGRADE="${KITS_2UPGRADE:-}"
