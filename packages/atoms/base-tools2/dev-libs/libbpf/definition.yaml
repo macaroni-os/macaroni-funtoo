@@ -1,0 +1,27 @@
+name: libbpf
+version: "0.3"
+category: dev-libs
+requires:
+- name: libelf
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Stand-alone build of libbpf from the Linux kernel
+uri:
+- https://github.com/libbpf/libbpf
+license: GPL-2 LGPL-2.1 BSD-2
+labels:
+  DEPEND: virtual/libelf !<=dev-util/bcc-0.7.0 sys-kernel/linux-headers
+  IUSE: +static-libs
+  RDEPEND: virtual/libelf !<=dev-util/bcc-0.7.0
+  emerge.packages: dev-libs/libbpf
+  kit: dev-kit
+  original.package.name: dev-libs/libbpf
+  original.package.slot: "0"
+  original.package.version: "0.3"
