@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+- >-
+  luet i app-admin/whip macaroni/whip-catalog whip-profiles/macaroni &&
+  whip hook eclass_db.db_fix_so &&
+  whip hook perl.postinst
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
