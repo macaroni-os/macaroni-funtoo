@@ -6,6 +6,8 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# TEMPORARY Fix: to move on seed setup
+- ldconfig && eval 'locale-gen || true' && build-docbook-catalog
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
