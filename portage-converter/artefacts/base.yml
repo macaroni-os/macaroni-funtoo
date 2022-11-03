@@ -323,13 +323,16 @@ artefacts:
 
 - tree: packages/atoms/base
   replacements:
-    # Break cycle
+    # Break cycle and avoid inject of python
+    # stuff for normal use
     runtime_deps:
       ignore:
         - name: python
           category: dev-lang-3.7
         - name: python
           category: dev-lang-3.9
+        - category: dev-lang-2
+          name: python-exec
   uses:
     disabled:
     - nios2
