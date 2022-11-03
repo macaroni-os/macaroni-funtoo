@@ -30,7 +30,8 @@ RUN virtual-entities/base
 
 SHELL ["/bin/bash", "-c"]
 
-RUN luet cleanup --purge-repos
+RUN luet rm -y system/entities && \
+  luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
