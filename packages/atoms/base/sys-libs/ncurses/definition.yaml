@@ -1,5 +1,5 @@
 name: ncurses
-version: "6.3"
+version: 6.3+1
 category: sys-libs
 use_flags:
 - -gpm
@@ -16,13 +16,13 @@ uri:
 license: MIT
 labels:
   DEPEND: gpm? ( sys-libs/gpm[-mgorny(-)] )
-  IUSE: ada +cxx debug doc gpm minimal profile static-libs test threads tinfo trace
-    unicode abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
-    abi_s390_32 abi_s390_64
+  IUSE: ada +cxx debug doc gpm minimal profile static-libs test +tinfo trace +unicode
+    abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64 +split-usr
   RDEPEND: gpm? ( sys-libs/gpm[-mgorny(-)] ) !<=sys-libs/ncurses-5.9-r4:5 !<sys-libs/slang-2.3.2_pre23
     !<x11-terms/rxvt-unicode-9.06-r3 !<x11-terms/st-0.6-r1
   emerge.packages: sys-libs/ncurses
   kit: core-kit
   original.package.name: sys-libs/ncurses
   original.package.slot: "0"
-  original.package.version: "6.3"
+  original.package.version: 6.3_p20221008
