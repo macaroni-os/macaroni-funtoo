@@ -1,5 +1,5 @@
 name: gpgme
-version: 1.15.1
+version: 1.18.0
 category: app-crypt-1
 use_flags:
 - -python_targets_python3_8
@@ -30,18 +30,18 @@ uri:
 license: GPL-2 LGPL-2.1
 labels:
   BDEPEND: python? ( dev-lang/swig ) >=app-portage/elt-patches-20170815
-  DEPEND: '>=app-crypt/gnupg-2 >=dev-libs/libassuan-2.5.3:= >=dev-libs/libgpg-error-1.36:=
-    python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    ) qt5? ( dev-qt/qtcore:5 ) qt5? ( dev-qt/qttest:5 )'
-  IUSE: common-lisp static-libs +cxx python qt5 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8
-  RDEPEND: '>=app-crypt/gnupg-2 >=dev-libs/libassuan-2.5.3:= >=dev-libs/libgpg-error-1.36:=
-    python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    ) qt5? ( dev-qt/qtcore:5 )'
+  DEPEND: app-crypt/gnupg dev-libs/libassuan dev-libs/libgpg-error python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) qt5? ( dev-qt/qtcore:5 ) test? ( qt5? ( dev-qt/qttest:5 ) )
+  IUSE: common-lisp static-libs +cxx python qt5 test python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: app-crypt/gnupg dev-libs/libassuan dev-libs/libgpg-error python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) qt5? ( dev-qt/qtcore:5 )
   emerge.packages: app-crypt/gpgme:1
-  kit: security-kit
+  kit: core-kit
   original.package.name: app-crypt/gpgme
   original.package.slot: "1"
-  original.package.version: 1.15.1
+  original.package.version: 1.18.0
