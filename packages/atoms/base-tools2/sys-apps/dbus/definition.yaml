@@ -1,0 +1,47 @@
+name: dbus
+version: 1.12.20
+category: sys-apps
+use_flags:
+- -X
+- -doc
+- -elogind
+- -prefix
+- -selinux
+- -systemd
+- -test
+requires:
+- name: expat
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A message bus system, a simple way for applications to talk to each other
+uri:
+- https://dbus.freedesktop.org/
+license: '|| ( AFL-2.1 GPL-2 )'
+labels:
+  BDEPEND: app-text/xmlto app-text/docbook-xml-dtd:4.4 sys-devel/autoconf-archive
+    virtual/pkgconfig doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig test? (
+    !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+  DEPEND: '>=dev-libs/expat-2.1.0 elogind? ( sys-auth/elogind ) selinux? ( sys-libs/libselinux
+    ) systemd? ( sys-apps/systemd:0= ) X? ( x11-libs/libX11 x11-libs/libXt ) dev-libs/expat
+    test? ( || ( dev-lang/python:3.10 >=dev-lang/python-2.7.5-r2:2.7 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) >=dev-libs/glib-2.40:2 ) sys-apps/shadow'
+  IUSE: debug doc elogind kernel_linux selinux static-libs systemd test user-session
+    X kernel_linux test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=dev-libs/expat-2.1.0 elogind? ( sys-auth/elogind ) selinux? ( sys-libs/libselinux
+    ) systemd? ( sys-apps/systemd:0= ) X? ( x11-libs/libX11 x11-libs/libXt ) selinux?
+    ( sec-policy/selinux-dbus )'
+  emerge.packages: sys-apps/dbus
+  kit: core-kit
+  original.package.name: sys-apps/dbus
+  original.package.slot: "0"
+  original.package.version: 1.12.20
