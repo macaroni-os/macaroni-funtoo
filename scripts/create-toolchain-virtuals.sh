@@ -7,12 +7,7 @@ kits=(
   "base-extra"
   "base-python"
   "base-tools"
-#  "boot"
-#  "java"
-#  "emulation"
-#  "server"
-#  "xorg-extra"
-#  "python"
+  "base-tools2"
 )
 
 for i in ${kits[@]} ; do
