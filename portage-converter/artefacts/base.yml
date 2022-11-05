@@ -919,7 +919,6 @@ artefacts:
   - dev-python/more-itertools-compat
   - dev-python/mwparserfromhell-compat
   - dev-python/packaging-compat
-  - dev-python/pyrsistent-compat
   - dev-python/setuptools-compat
   - dev-python/setuptools_scm-compat
 - tree: packages/atoms/base
@@ -1768,6 +1767,11 @@ artefacts:
   packages:
   - dev-util/gdbus-codegen
 - tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        - name: gentoo-functions
+          category: sys-apps
   uses:
     disabled:
     - audit
@@ -1917,7 +1921,6 @@ artefacts:
     - python_targets_python3_7
   packages:
   - dev-python/ipaddress
-  - dev-python/pyrsistent
   - dev-python/setuptools
   - dev-python/toml
   - dev-python/wheel
