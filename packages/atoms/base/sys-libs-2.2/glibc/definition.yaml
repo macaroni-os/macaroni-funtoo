@@ -20,9 +20,6 @@ requires:
 - name: libidn2
   version: '>=0'
   category: net-dns
-- name: gentoo-functions
-  version: '>=0'
-  category: sys-apps
 - name: grep
   version: '>=0'
   category: sys-apps
@@ -41,9 +38,10 @@ uri:
 - https://www.gnu.org/software/libc/
 license: LGPL-2.1+ BSD HPND ISC inner-net rc PCRE
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) >=app-misc/pax-utils-0.1.10
-    sys-devel/bison doc? ( sys-apps/texinfo ) !compile-locales? ( app-arch/gzip sys-apps/grep
-    virtual/awk ) >=sys-devel/binutils-2.27 >=sys-devel/gcc-6 virtual/pkgconfig'
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) >=app-misc/pax-utils-0.1.10 sys-devel/bison doc? ( sys-apps/texinfo ) !compile-locales?
+    ( app-arch/gzip sys-apps/grep virtual/awk ) >=sys-devel/binutils-2.27 >=sys-devel/gcc-6
+    virtual/pkgconfig'
   DEPEND: gd? ( media-libs/gd:2= ) nscd? ( selinux? ( audit? ( sys-process/audit )
     caps? ( sys-libs/libcap ) ) ) suid? ( caps? ( sys-libs/libcap ) ) selinux? ( sys-libs/libselinux
     ) systemtap? ( dev-util/systemtap ) !<net-misc/openssh-8.1_p1-r2 compile-locales?
