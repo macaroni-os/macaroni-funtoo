@@ -1,0 +1,40 @@
+name: docbook2X
+version: 0.8.8
+category: app-text
+requires:
+- name: docbook-xml-dtd
+  version: '>=0'
+  category: app-text-4.5
+- name: docbook-xsl-stylesheets
+  version: '>=0'
+  category: app-text
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: XML-LibXML
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools to convert docbook to man and info
+uri:
+- http://docbook2x.sourceforge.net/
+license: MIT
+labels:
+  DEPEND: dev-lang/perl dev-libs/libxslt dev-perl/XML-NamespaceSupport dev-perl/XML-SAX
+    dev-perl/XML-LibXML app-text/docbook-xsl-stylesheets =app-text/docbook-xml-dtd-4.2*
+    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: test
+  RDEPEND: dev-lang/perl dev-libs/libxslt dev-perl/XML-NamespaceSupport dev-perl/XML-SAX
+    dev-perl/XML-LibXML app-text/docbook-xsl-stylesheets =app-text/docbook-xml-dtd-4.2*
+  emerge.packages: app-text/docbook2X
+  kit: text-kit
+  original.package.name: app-text/docbook2X
+  original.package.slot: "0"
+  original.package.version: 0.8.8-r4
