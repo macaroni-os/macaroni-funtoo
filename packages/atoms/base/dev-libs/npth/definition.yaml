@@ -1,5 +1,5 @@
 name: npth
-version: 1.6+3
+version: 1.6+4
 category: dev-libs
 annotations:
   subsets:
@@ -13,9 +13,12 @@ uri:
 - https://git.gnupg.org/cgi-bin/gitweb.cgi?p=npth.git
 license: LGPL-2.1+
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815'
-  IUSE: static-libs
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  IUSE: test
   emerge.packages: dev-libs/npth
   kit: core-kit
   original.package.name: dev-libs/npth
-  original.package.version: 1.6-r1
+  original.package.slot: "0"
+  original.package.version: 1.6-r2
