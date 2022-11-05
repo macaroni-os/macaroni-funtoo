@@ -1,0 +1,37 @@
+name: wavemon
+version: 0.8.0
+category: net-wireless
+use_flags:
+- caps
+requires:
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Ncurses based monitor for IEEE 802.11 wireless LAN cards
+uri:
+- https://github.com/uoaerg/wavemon/
+license: GPL-3
+labels:
+  DEPEND: dev-libs/libnl:3 sys-libs/ncurses:0= caps? ( sys-libs/libcap ) virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: caps
+  RDEPEND: dev-libs/libnl:3 sys-libs/ncurses:0= caps? ( sys-libs/libcap )
+  emerge.packages: net-wireless/wavemon
+  kit: net-kit
+  original.package.name: net-wireless/wavemon
+  original.package.slot: "0"
+  original.package.version: 0.8.0
