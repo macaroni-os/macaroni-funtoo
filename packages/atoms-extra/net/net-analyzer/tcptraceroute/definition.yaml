@@ -1,0 +1,31 @@
+name: tcptraceroute
+version: "1.5"
+category: net-analyzer
+requires:
+- name: libnet
+  version: '>=0'
+  category: net-libs-1.1
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: tcptraceroute is a traceroute implementation using TCP packets
+uri:
+- https://github.com/mct/tcptraceroute
+license: GPL-2
+labels:
+  DEPEND: net-libs/libnet:1.1 net-libs/libpcap >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  RDEPEND: net-libs/libnet:1.1 net-libs/libpcap
+  emerge.packages: net-analyzer/tcptraceroute
+  kit: net-kit
+  original.package.name: net-analyzer/tcptraceroute
+  original.package.slot: "0"
+  original.package.version: 1.5_beta7-r2
