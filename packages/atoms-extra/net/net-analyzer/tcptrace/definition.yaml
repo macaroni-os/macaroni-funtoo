@@ -1,0 +1,29 @@
+name: tcptrace
+version: 6.6.7
+category: net-analyzer
+requires:
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Tool for analyzing network packet dumps
+uri:
+- http://www.tcptrace.org/
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: net-libs/libpcap
+  RDEPEND: net-libs/libpcap
+  emerge.packages: net-analyzer/tcptrace
+  kit: net-kit
+  original.package.name: net-analyzer/tcptrace
+  original.package.slot: "0"
+  original.package.version: 6.6.7_p5
