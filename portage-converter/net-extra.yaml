@@ -60,6 +60,14 @@ include_layers:
 
 build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
 
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
 artefacts:
 
 # No more available in base
@@ -79,7 +87,7 @@ artefacts:
   - dev-python/namespace-zope
   - dev-python/zope-interface
 
-- tree: packages/atoms/base
+- tree: packages/atoms-extra/net
   uses:
     disabled:
     - nios2
@@ -93,7 +101,7 @@ artefacts:
   packages:
   - dev-python/pyrsistent
 
-- tree: packages/atoms/base
+- tree: packages/atoms-extra/net
   uses:
     disabled:
     - nios2
@@ -104,13 +112,6 @@ artefacts:
   - dev-python/pyrsistent-compat
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - dbus
@@ -122,13 +123,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - sys-apps/ethtool
     # TODO: fix distfiles on funtoo
@@ -141,13 +135,6 @@ artefacts:
     - net-vpn/wireguard-tools
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - gnutls
@@ -158,13 +145,6 @@ artefacts:
     - net-vpn/vpnc
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - gnutls
@@ -190,13 +170,6 @@ artefacts:
       - pcapnav
     disabled:
       - debug
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-analyzer/tcpreplay
 
@@ -205,13 +178,6 @@ artefacts:
     uses:
       # Needed for tcpreplay
       - libopts
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     disabled:
       - static-libs
@@ -229,13 +195,6 @@ artefacts:
       - smi
       - suid
       - test
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-analyzer/tcpdump
   finalizer:
@@ -256,13 +215,6 @@ artefacts:
     disabled:
       - cairo
       - test
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-analyzer/tcpflow
 
@@ -279,13 +231,6 @@ artefacts:
     disabled:
       - netgroups
       - static-libs
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - sys-apps/tcp-wrappers
 
@@ -298,13 +243,6 @@ artefacts:
   uses:
     disabled:
       - static
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-misc/vconfig
     - net-analyzer/tcping
@@ -319,13 +257,6 @@ artefacts:
   uses:
     disabled:
       - static
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-analyzer/traceroute
 
@@ -335,13 +266,6 @@ artefacts:
       - python
       - python_targets_python2_7
       - python_targets_python3_7
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-libs/libdnet
 
@@ -355,24 +279,10 @@ artefacts:
       - libressl
       - static-libs
       - test
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-libs/libevent
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   mutations:
     buildtime_deps:
       packages:
@@ -382,13 +292,6 @@ artefacts:
     - net-libs/http-parser
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - daemon
@@ -401,13 +304,6 @@ artefacts:
     - net-p2p/rtorrent
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - dbus
@@ -529,13 +425,6 @@ artefacts:
       - tcpd
       - ucd-compat
       - zlib
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-analyzer/net-snmp
 
@@ -545,13 +434,6 @@ artefacts:
       packages:
         - category: dev-lang
           name: go
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-util/promu
       #    - www-apps/gitea
@@ -562,13 +444,6 @@ artefacts:
       packages:
         - category: dev-util
           name: promu
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - app-metrics/snmp_exporter
     - app-metrics/node_exporter
@@ -583,13 +458,6 @@ artefacts:
     - app-metrics/redis_exporter
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - openmp
@@ -602,13 +470,6 @@ artefacts:
     - net-wireless/wavemon
 
 - tree: packages/atoms-extra/net
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   uses:
     enabled:
       - openmp
@@ -630,13 +491,6 @@ artefacts:
   uses:
     enabled:
       - python_targets_python3_7
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - app-text/asciidoc
 
@@ -651,13 +505,6 @@ artefacts:
       - tcpd
     disabled:
       - selinux
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-ftp/atftp
 
@@ -712,13 +559,6 @@ artefacts:
       - sqlite
       - softquota
       - vroot
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-ftp/proftpd
 
@@ -728,13 +568,6 @@ artefacts:
       packages:
         - category: app-crypt
           name: mit-krb5
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - virtual/krb5
 
@@ -759,13 +592,6 @@ artefacts:
       - selinux
       - test
       - xinetd
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - app-crypt/mit-krb5
 
@@ -778,13 +604,6 @@ artefacts:
   uses:
     disabled:
       - prefix
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - sys-apps/keyutils
     - dev-util/cppunit
@@ -799,13 +618,6 @@ artefacts:
       - glib
       - static-libs
       - tevent
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - dev-libs/libverto
     - net-libs/libnfnetlink
@@ -820,13 +632,6 @@ artefacts:
     disabled:
       - debug
       - doc
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-firewall/nftables
 
@@ -839,13 +644,6 @@ artefacts:
   uses:
     disabled:
       - static-libs
-  annotations:
-    subsets:
-      rules:
-        devel:
-          - "^/usr/include/"
-        portage:
-          - "^/var/db/pkg/"
   packages:
     - net-libs/libnfnetlink
     - dev-libs/jansson
