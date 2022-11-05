@@ -1,5 +1,5 @@
 name: zope-interface
-version: 5.5.0
+version: 5.5.1
 category: dev-python
 use_flags:
 - -python_targets_pypy3
@@ -13,6 +13,13 @@ requires:
 - name: namespace-zope
   version: '>=0'
   category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Interfaces for Python
 uri:
 - https://pypi.org/project/zope.interface/ https://github.com/zopefoundation/zope.interface
@@ -37,4 +44,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/zope-interface
   original.package.slot: "0"
-  original.package.version: 5.5.0
+  original.package.version: 5.5.1
