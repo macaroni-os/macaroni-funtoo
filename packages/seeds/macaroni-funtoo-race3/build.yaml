@@ -48,6 +48,7 @@ steps:
   && luet cleanup &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
+  eselect rust cleanup &&
   mkdir -p /var/lib/portage &&
   epro list &&
   eval 'rm /etc/localtime || true' &&
@@ -55,6 +56,9 @@ steps:
   env-update &&
   ldconfig &&
   eval 'locale-gen || true' &&
+  build-docbook-catalog &&
+  whip hook eclass_db.db_fix_so &&
+  whip hook perl.postinst &&
   cd / && rm -rf /luetbuild &&
   mkdir /layer
 
