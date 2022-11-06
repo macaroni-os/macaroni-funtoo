@@ -1,0 +1,26 @@
+name: netkit-telnetd
+version: "0.17"
+category: net-misc
+requires:
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Standard Linux telnet client and server
+uri:
+- https://launchpad.net/netkit-telnet
+license: BSD
+labels:
+  DEPEND: '>=sys-libs/ncurses-5.2:= !net-misc/telnet-bsd'
+  RDEPEND: '>=sys-libs/ncurses-5.2:= !net-misc/telnet-bsd'
+  emerge.packages: net-misc/netkit-telnetd
+  kit: net-kit
+  original.package.name: net-misc/netkit-telnetd
+  original.package.slot: "0"
+  original.package.version: 0.17-r12
