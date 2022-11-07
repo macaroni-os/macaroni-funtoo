@@ -1,6 +1,10 @@
 name: libbsd
 version: 0.11.7
 category: dev-libs
+requires:
+- name: libmd
+  version: '>=0'
+  category: app-crypt
 annotations:
   subsets:
     rules:
@@ -8,7 +12,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: An library to provide useful functions commonly found on BSD systems
+description: Library to provide useful functions commonly found on BSD systems
 uri:
 - https://libbsd.freedesktop.org/wiki/ https://gitlab.freedesktop.org/libbsd/libbsd
 license: BSD BSD-2 BSD-4 ISC
