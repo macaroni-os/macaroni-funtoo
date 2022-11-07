@@ -1,0 +1,44 @@
+name: memcached
+version: 1.6.8
+category: net-misc
+use_flags:
+- -sasl
+- -selinux
+- -test
+- seccomp
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libevent
+  version: '>=0'
+  category: dev-libs
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: High-performance, distributed memory object caching system
+uri:
+- http://memcached.org/
+license: BSD
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: '>=dev-libs/libevent-1.4:= dev-lang/perl sasl? ( dev-libs/cyrus-sasl ) seccomp?
+    ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-memcached ) test? ( virtual/perl-Test-Harness
+    >=dev-perl/Cache-Memcached-1.24 ) sys-apps/shadow'
+  IUSE: debug sasl seccomp selinux slabs-reassign test
+  RDEPEND: '>=dev-libs/libevent-1.4:= dev-lang/perl sasl? ( dev-libs/cyrus-sasl )
+    seccomp? ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-memcached )'
+  emerge.packages: net-misc/memcached
+  kit: net-kit
+  original.package.name: net-misc/memcached
+  original.package.slot: "0"
+  original.package.version: 1.6.8
