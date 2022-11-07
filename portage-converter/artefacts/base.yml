@@ -1,5 +1,19 @@
 artefacts:
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: app-crypt
+          name: libmd
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/libbsd
+
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -7,7 +21,6 @@ artefacts:
     - static-libs
   packages:
   - app-arch/lz4
-  - dev-libs/libbsd
   - dev-libs/libksba
   - dev-libs/libuv
   - dev-libs/npth
