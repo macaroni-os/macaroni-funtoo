@@ -1,0 +1,33 @@
+name: apr
+version: 1.7.0
+category: dev-libs-1
+use_flags:
+- -doc
+- -elibc_glibc
+- -elibc_mintlib
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Apache Portable Runtime Library
+uri:
+- https://apr.apache.org/
+license: Apache-2.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: elibc_glibc? ( >=sys-apps/util-linux-2.16 ) elibc_mintlib? ( >=sys-apps/util-linux-2.18
+    ) >=sys-devel/libtool-2.4.2 doc? ( app-doc/doxygen )
+  IUSE: doc elibc_FreeBSD older-kernels-compatibility selinux static-libs +urandom
+  RDEPEND: elibc_glibc? ( >=sys-apps/util-linux-2.16 ) elibc_mintlib? ( >=sys-apps/util-linux-2.18
+    ) selinux? ( sec-policy/selinux-base-policy )
+  emerge.packages: dev-libs/apr:1
+  kit: dev-kit
+  original.package.name: dev-libs/apr
+  original.package.slot: "1"
+  original.package.version: 1.7.0-r1
