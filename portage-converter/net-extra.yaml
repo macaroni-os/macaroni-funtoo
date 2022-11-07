@@ -810,6 +810,115 @@ artefacts:
   packages:
   - net-dialup/ppp
 
+
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+      - test
+  packages:
+    - net-analyzer/macchanger
+
+
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - pud
+    - sh
+    - gtk
+  packages:
+  - net-misc/olsrd
+
+# wvstreams need patch
+#- tree: packages/atoms-extra/net
+#  uses:
+#    disabled:
+#    - boost
+#    - debug
+#    - doc
+#    - nios2
+#    - sh
+#    enabled:
+#    - dbus
+#    - pam
+#    - ssl
+#  packages:
+#  - net-libs/wvstreams
+
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - sys-process/cronbase
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        if [ -d /usr/share/macaroni/entities ] ; then
+        entities merge --specs-dir /usr/share/macaroni/entities/ -e cron ;
+        chown root:cron /var/spool/cron ;
+        else
+        echo "Add macaroni/entities-catalog package and merge cron entities!" ;
+        fi
+
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-process
+          name: cronbase
+  uses:
+    disabled:
+      - selinux
+  packages:
+    - sys-process/cronie
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        if [ -d /usr/share/macaroni/entities ] ; then
+        entities --version 1>/dev/null 2>&1 ;
+        if [ $? -eq 0 ] ; then
+        entities merge --specs-dir /usr/share/macaroni/entities/ -e crontab ;
+        fi ;
+        else
+        echo "Add macaroni/entities-catalog package and merge cronbase entities!" ;
+        fi
+
+
+- tree: packages/atoms-extra/net
+  packages:
+    - net-misc/dhcp
+    - app-admin/logrotate
+    - net-vpn/wireguard-tools
+
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - sys-apps/setserial
+    - virtual/cron
+
 include_layers:
 - layers/macaroni-funtoo-race4.yaml
 
