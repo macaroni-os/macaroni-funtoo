@@ -1,0 +1,28 @@
+name: olsrd
+version: 0.9.7
+category: net-misc
+use_flags:
+- -gtk
+- -pud
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An implementation of the Optimized Link State Routing protocol
+uri:
+- http://www.olsr.org/
+license: BSD LGPL-2.1
+labels:
+  DEPEND: gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) pud? ( sci-geosciences/gpsd
+    )
+  IUSE: gtk pud
+  RDEPEND: gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) pud? ( sci-geosciences/gpsd
+    )
+  emerge.packages: net-misc/olsrd
+  kit: net-kit
+  original.package.name: net-misc/olsrd
+  original.package.slot: "0"
+  original.package.version: 0.9.7
