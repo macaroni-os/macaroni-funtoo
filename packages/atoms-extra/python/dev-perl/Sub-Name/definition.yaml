@@ -1,0 +1,34 @@
+name: Sub-Name
+version: 0.210.0
+category: dev-perl
+use_flags:
+- -test
+- suggested
+requires:
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+- name: perl-XSLoader
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    devel:
+    - ^/usr/include/
+    portage:
+    - ^/var/db/pkg/
+description: (Re)name a sub
+uri:
+- https://metacpan.org/release/Sub-Name
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-Exporter-5.570.0 virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker
+    test? ( suggested? ( dev-perl/Devel-CheckBin ) virtual/perl-File-Spec virtual/perl-Module-Metadata
+    >=virtual/perl-Test-Simple-0.880.0 virtual/perl-if ) dev-lang/perl:='
+  IUSE: test suggested
+  RDEPEND: '>=virtual/perl-Exporter-5.570.0 virtual/perl-XSLoader dev-lang/perl:='
+  emerge.packages: dev-perl/Sub-Name
+  kit: perl-kit
+  original.package.name: dev-perl/Sub-Name
+  original.package.slot: "0"
+  original.package.version: 0.210.0
