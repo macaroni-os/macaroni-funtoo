@@ -1,0 +1,38 @@
+name: whois
+version: 5.4.3
+category: net-misc
+use_flags:
+- -idn
+- iconv
+- nls
+requires:
+- name: libiconv
+  version: '>=0'
+  category: virtual
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: improved Whois Client
+uri:
+- https://www.linux.it/~md/software/
+license: GPL-2
+labels:
+  BDEPEND: app-arch/xz-utils >=dev-lang/perl-5 virtual/pkgconfig nls? ( sys-devel/gettext
+    )
+  DEPEND: iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl
+    )
+  IUSE: iconv idn nls
+  RDEPEND: iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl
+    )
+  emerge.packages: net-misc/whois
+  kit: core-kit
+  original.package.name: net-misc/whois
+  original.package.slot: "0"
+  original.package.version: 5.4.3
