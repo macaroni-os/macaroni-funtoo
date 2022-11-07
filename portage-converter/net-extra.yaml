@@ -194,29 +194,29 @@ artefacts:
   packages:
     - dev-libs/libdnet
 
-- tree: packages/atoms-extra/net
-  mutations:
-    runtime_deps:
-      packages:
-        - category: macaroni
-          name: entities-catalog
-  uses:
-    disabled:
-    - libressl
-    - nios2
-    - selinux
-    - sh
-  packages:
-  - net-misc/openntpd
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    install:
-      - >-
-        eval 'mkdir -p /var/lib/openntpd/chroot || true' &&
-        entities merge --specs-dir /usr/share/macaroni/entities/
-        -e ntp
+#- tree: packages/atoms-extra/net
+#  mutations:
+#    runtime_deps:
+#      packages:
+#        - category: macaroni
+#          name: entities-catalog
+#  uses:
+#    disabled:
+#    - libressl
+#    - nios2
+#    - selinux
+#    - sh
+#  packages:
+#  - net-misc/openntpd
+#  finalizer:
+#    shell:
+#      - "/bin/bash"
+#      - "-c"
+#    install:
+#      - >-
+#        eval 'mkdir -p /var/lib/openntpd/chroot || true' &&
+#        entities merge --specs-dir /usr/share/macaroni/entities/
+#        -e ntp
 
 - tree: packages/atoms-extra/net
   uses:
@@ -494,40 +494,8 @@ artefacts:
   packages:
     - net-p2p/rtorrent
 
-- tree: packages/atoms-extra/net
-  uses:
-    disabled:
-    - caps
-    - debug
-    - libressl
-    - nios2
-    - ntp-cron
-    - parse-clocks
-    - samba
-    - selinux
-    - sh
-    - snmp
-    - vim-syntax
-    enabled:
-    - ipv6
-    - openntpd
-    - readline
-    - ssl
-    - threads
-    - zeroconf
-  packages:
-  - net-misc/ntp
 
 - tree: packages/atoms-extra/net
-  uses:
-    disabled:
-    - libressl
-    - nios2
-    - sh
-  packages:
-  - net-vpn/openfortivpn
-
-- tree: packages/atoms/server
   mutations:
     runtime_deps:
       packages:
@@ -537,10 +505,7 @@ artefacts:
     disabled:
     - down-root
     - examples
-    - inotify
-    - iproute2
     - libressl
-    - lz4
     - mbedtls
     - nios2
     - pkcs11
@@ -550,6 +515,9 @@ artefacts:
     - systemd
     - test
     enabled:
+    - inotify
+    - lz4
+    - iproute2
     - lzo
     - pam
     - plugins
@@ -710,23 +678,25 @@ artefacts:
   packages:
   - net-firewall/ipset
 
-- tree: packages/atoms-extra/net
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
-  uses:
-    disabled:
-    - debug
-    - embedded
-    - nios2
-    - obsolete
-    - sh
-    enabled:
-    - syslog
-  packages:
-  - net-misc/ntpclient
+#- tree: packages/atoms-extra/net
+#  mutations:
+#    buildtime_deps:
+#      packages:
+#        - category: seed
+#          name: macaroni-funtoo-race4
+#  uses:
+#    disabled:
+#    - debug
+#    - embedded
+#    - nios2
+#    - obsolete
+#    - sh
+#    enabled:
+#    - syslog
+#  packages:
+#  - net-misc/ntpclient
+#  TODO: open an issue and move to
+#        https://github.com/troglobit/sntpd fork
 
 - tree: packages/atoms-extra/net
   uses:
@@ -771,6 +741,57 @@ artefacts:
       - zlib
   packages:
     - net-analyzer/net-snmp
+
+- tree: packages/atoms-extra/net
+  uses:
+    disabled:
+    - caps
+    - debug
+    - libressl
+    - nios2
+    - ntp-cron
+    - parse-clocks
+    - samba
+    - selinux
+    - sh
+    - snmp
+    - vim-syntax
+    - zeroconf
+    - openntpd
+    enabled:
+    - ipv6
+    - readline
+    - ssl
+    - threads
+  packages:
+  - net-misc/ntp
+
+- tree: packages/atoms-extra/net
+  uses:
+    disabled:
+    - libressl
+    - nios2
+    - sh
+  packages:
+  - net-vpn/openfortivpn
+
+- tree: packages/atoms-extra/net
+  uses:
+    disabled:
+    - activefilter
+    - atm
+    - eap-tls
+    - libressl
+    - nios2
+    - radius
+    - gtk
+    - sh
+    enabled:
+    - ipv6
+    - dhcp
+    - pam
+  packages:
+  - net-dialup/ppp
 
 include_layers:
 - layers/macaroni-funtoo-race4.yaml
