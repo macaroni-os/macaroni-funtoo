@@ -706,8 +706,25 @@ artefacts:
     - nios2
     - obsolete
     - sh
+    - elibc_Darwin
   packages:
   - net-misc/netkit-telnetd:0
+
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs
+          name: libbsd
+  uses:
+    disabled:
+    - debug
+    - embedded
+    - nios2
+    - obsolete
+    - sh
+    - elibc_Darwin
+  packages:
   - net-analyzer/openbsd-netcat:0
 
 - tree: packages/atoms-extra/net
