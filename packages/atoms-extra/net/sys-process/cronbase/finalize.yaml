@@ -1,0 +1,7 @@
+shell:
+- /bin/bash
+- -c
+install:
+- if [ -d /usr/share/macaroni/entities ] ; then entities merge --specs-dir /usr/share/macaroni/entities/
+  -e cron ; chown root:cron /var/spool/cron ; else echo "Add macaroni/entities-catalog
+  package and merge cron entities!" ; fi
