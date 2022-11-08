@@ -5,16 +5,30 @@ release:
   header: |
     ## Funtoo Macaroni {{ .Tag }}!
 
-    # target_commitish: 12d90fd1515c559622b725ea5dcc5c0f0adf57c6
+    A new release of Eagle branch is out!
+
+    See the above list for all upgrade details.
+
+    Many thanks to all [Funtoo](https://www.funtoo.org/) devs that are the sap of all this.
+
+    Enjoy!
+
+    Any user that want support our work for Macaroni could be do this through the new
+    Github [Sponsor](https://github.com/sponsors/geaaru) or in alternative to
+    add a :star: to our projects.
+
 changelog:
   sort: asc
   groups:
     - title: New packages
       regexp: ".*new.*"
       order: 1
-    - title: Updates
+    - title: Packages
       regexp: ".*Bump.*"
       order: 2
+    - title: Reverts
+      regexp: '^Revert.*'
+      order: 3
     - title: Others
       order: 9999
   filters:
@@ -23,4 +37,3 @@ changelog:
       - '^github'
       - '^portage-converter'
       - '^.gorelease'
-      - '^Revert.*'
