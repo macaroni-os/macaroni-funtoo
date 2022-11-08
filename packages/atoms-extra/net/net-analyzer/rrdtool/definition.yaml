@@ -1,0 +1,63 @@
+name: rrdtool
+version: 1.7.0
+category: net-analyzer
+use_flags:
+- -dbi
+- -graph
+- -lua
+- -perl
+- -python
+- -python_targets_python2_7
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -python_targets_python3_9
+- -rados
+- -tcl
+- -tcpd
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A system to store and display time-series data
+uri:
+- http://oss.oetiker.ch/rrdtool/
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.28.7:2[static-libs(+)?] >=dev-libs/libxml2-2.7.8:2[static-libs(+)?]
+    dbi? ( dev-db/libdbi[static-libs(+)?] ) graph? ( >=media-libs/libpng-1.5.10:0=[static-libs(+)?]
+    >=x11-libs/cairo-1.10.2[svg,static-libs(+)?] >=x11-libs/pango-1.28 ) lua? ( dev-lang/lua:*[deprecated]
+    ) perl? ( dev-lang/perl:= ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    ) rados? ( sys-cluster/ceph ) tcl? ( dev-lang/tcl:0= ) tcpd? ( sys-apps/tcp-wrappers
+    ) sys-apps/groff virtual/pkgconfig virtual/awk >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: dbi doc graph lua perl python rados rrdcgi ruby static-libs tcl tcpd python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
+  RDEPEND: '>=dev-libs/glib-2.28.7:2[static-libs(+)?] >=dev-libs/libxml2-2.7.8:2[static-libs(+)?]
+    dbi? ( dev-db/libdbi[static-libs(+)?] ) graph? ( >=media-libs/libpng-1.5.10:0=[static-libs(+)?]
+    >=x11-libs/cairo-1.10.2[svg,static-libs(+)?] >=x11-libs/pango-1.28 ) lua? ( dev-lang/lua:*[deprecated]
+    ) perl? ( dev-lang/perl:= ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    ) rados? ( sys-cluster/ceph ) tcl? ( dev-lang/tcl:0= ) tcpd? ( sys-apps/tcp-wrappers
+    )'
+  emerge.packages: net-analyzer/rrdtool
+  kit: net-kit
+  original.package.name: net-analyzer/rrdtool
+  original.package.slot: "0"
+  original.package.version: 1.7.0-r1
