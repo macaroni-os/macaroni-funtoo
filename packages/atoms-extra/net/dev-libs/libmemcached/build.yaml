@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Add patch to compile with automake 1.16
+- >-
+  cp patches/libmemcached-1.0.18-r3.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/libmemcached
+  && cp patches/files/* /var/git/meta-repo/kits/dev-kit/dev-libs/libmemcached/files
+
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
