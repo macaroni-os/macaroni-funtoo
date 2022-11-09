@@ -429,6 +429,22 @@ artefacts:
     - ruby_targets_ruby27
   packages:
   - virtual/ruby-ssl
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-ruby
+          name: rubygems
+  uses:
+    disabled:
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - sh
+    enabled:
+    - ruby_targets_ruby27
+  packages:
   - virtual/rubygems
 
 - tree: packages/atoms-extra/lang
