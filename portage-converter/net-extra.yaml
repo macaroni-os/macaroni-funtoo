@@ -1206,6 +1206,47 @@ artefacts:
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e lighttpd
 
+- tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - examples
+    - test
+    - static-libs
+    enabled:
+    - perl
+  packages:
+  - net-firewall/ebtables
+
+- tree: packages/atoms-extra/net
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+  packages:
+  - net-misc/socat
+  - net-proxy/cntlm
+
+- tree: packages/atoms-extra/net
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - cthelper
+    - cttimeout
+    - libtirpc
+  packages:
+  - net-firewall/conntrack-tools
 
 include_layers:
 - layers/macaroni-funtoo-race4.yaml
