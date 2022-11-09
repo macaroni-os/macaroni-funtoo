@@ -1,0 +1,29 @@
+name: expect
+version: 5.45.4
+category: dev-tcltk
+requires:
+- name: tcl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: tool for automating interactive applications
+uri:
+- http://expect.nist.gov/
+license: BSD
+labels:
+  DEPEND: '>=dev-lang/tcl-8.2:0[threads?] >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  IUSE: debug doc threads
+  RDEPEND: '>=dev-lang/tcl-8.2:0[threads?]'
+  emerge.packages: dev-tcltk/expect
+  kit: lang-kit
+  original.package.name: dev-tcltk/expect
+  original.package.slot: "0"
+  original.package.version: 5.45.4
