@@ -95,6 +95,8 @@ prelude:
   cp -vf patches/gnome-music/gnome-music-3.36.6.ebuild /var/git/meta-repo/kits/gnome-kit/media-sound/gnome-music/
 
 - >-
+  sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
+- >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   emerge -j $JOBS @world -D --with-bdeps y  -pv -t -e &&
   emerge -t -j $JOBS -DN @world &&
