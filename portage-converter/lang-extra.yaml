@@ -114,6 +114,7 @@ artefacts:
   packages:
     - dev-lang/yasm
     - sys-devel/clang:11
+    - sys-libs/libunwind
 
 - tree: packages/atoms-extra/lang
   uses:
@@ -175,7 +176,16 @@ artefacts:
   packages:
   - sys-libs/libcxx
 
-- tree: packages/atoms/xorg-extra
+- tree: packages/atoms-extra/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-libs
+          name: libunwind
+    runtime_deps:
+      packages:
+        - category: sys-libs
+          name: libunwind
   uses:
     disabled:
     - nios2
