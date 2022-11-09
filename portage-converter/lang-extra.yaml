@@ -197,6 +197,269 @@ artefacts:
   packages:
   - sys-libs/libcxxabi
 
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    - java
+    - libressl
+    - odbc
+    - wxwidgets
+    - doc
+    - emacs
+  packages:
+  - dev-lang/erlang
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - debug
+    - emacs
+  packages:
+  - dev-tcltk/expect
+  - dev-lang/tcl
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  uses:
+    enabled:
+      - icu
+      - inspector
+      - npm
+      - snapshot
+      - ssl
+      - system-icu
+      - system-ssl
+    disabled:
+      - debug
+      - doc
+      - lto
+      - pax-kernel
+      - systemtap
+      - test
+  packages:
+    - net-libs/nodejs
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - debug
+    - emacs
+    - static
+    - luajit
+  packages:
+    - dev-lang/lua
+    - dev-lua/lua:5.3
+    - dev-lua/luasocket
+    - dev-lua/luaexpat
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang
+          name: lua
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - debug
+    - emacs
+    - static
+    - luajit
+  packages:
+    - dev-lua/LuaBitOp
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - debug
+    - emacs
+    - static
+    - luajit
+  packages:
+    - dev-lua/luajson
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+    uses:
+      - -ruby_targets_ruby25
+      - -ruby_targets_ruby26
+      - -ruby_targets_ruby30
+      - -ruby_targets_ruby31
+      - ruby_targets_ruby27
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - sh
+    - test
+    enabled:
+    - ruby_targets_ruby27
+  packages:
+  - app-eselect/eselect-ruby
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - sh
+    - test
+    enabled:
+    - ruby_targets_ruby27
+  packages:
+  - dev-ruby/json:2
+  - dev-ruby/minitest:5
+  - dev-ruby/test-unit:2
+  - dev-ruby/xmlrpc
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - sh
+    - test
+    enabled:
+    - doc
+    - ruby_targets_ruby27
+  packages:
+  - dev-ruby/bundler:2
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - sh
+    - test
+    enabled:
+    - ruby_targets_ruby27
+  packages:
+  - dev-ruby/did_you_mean:2.6
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - ruby_targets_ruby24
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - sh
+    - test
+    enabled:
+    - ruby_targets_ruby27
+  packages:
+  - dev-ruby/kpeg:1
+  - dev-ruby/net-telnet:1
+  - dev-ruby/power_assert
+  - dev-ruby/rake
+  - dev-ruby/rdoc
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    uses:
+      - -ruby_targets_ruby25
+      - -ruby_targets_ruby26
+      - -ruby_targets_ruby30
+      - -ruby_targets_ruby31
+      - ruby_targets_ruby27
+  uses:
+    disabled:
+    - debug
+    - doc
+    - examples
+    - jemalloc
+    - jit
+    - libressl
+    - nios2
+    - rubytests
+    - sh
+    - socks5
+    - static-libs
+    - systemtap
+    - tk
+    - xemacs
+    enabled:
+    - berkdb
+    - gdbm
+    - ipv6
+    - rdoc
+    - ssl
+  packages:
+  - dev-lang/ruby:2.7
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - sh
+    enabled:
+    - ruby_targets_ruby27
+  packages:
+  - virtual/ruby-ssl
+  - virtual/rubygems
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - server
+    - sh
+    - test
+    enabled:
+    - ruby_targets_ruby27
+  packages:
+  - dev-ruby/rubygems
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - ruby_targets_ruby25
+    - ruby_targets_ruby26
+    - ruby_targets_ruby30
+    - sh
+    - test
+    enabled:
+    - ruby_targets_ruby27
+  packages:
+  - dev-ruby/racc
+
 include_layers:
 - layers/macaroni-funtoo-race5.yaml
 
@@ -244,9 +507,11 @@ reposcan_contraints:
     - dev-lang/python:3.9
     - dev-lang/python:3.7
     - sys-devel/gcc:11.3.0
+    - dev-lua/lua:5.3
 
     - sys-devel/llvm:11
     - sys-devel/clang:11
+    - dev-lang/ruby:2.7
 
 reposcan_disabled_use_flags:
   - build
@@ -295,6 +560,9 @@ reposcan_disabled_use_flags:
   - debug
 
   - systemd
+
+  - ruby_targets_ruby25
+  - ruby_targets_ruby26
 
   # Disable efl/e17
   - ecore
