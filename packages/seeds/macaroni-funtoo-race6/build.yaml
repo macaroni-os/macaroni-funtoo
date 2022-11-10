@@ -1,0 +1,68 @@
+image: scratch
+env:
+- LUET_YES=true
+- LUET_NOLOCK=true
+- HTTP_TIMEOUT=0
+copy:
+  - package:
+      category: seed
+      name: macaroni-funtoo-stage
+      version: ">=0"
+    source: "/macaroni-funtoo"
+    destination: "/"
+# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
+steps:
+- >-
+  if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
+  if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi &&
+  if [ ! -e /etc/group ] ; then touch /etc/group ; fi &&
+  if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi &&
+  if [ ! -d /tmp ] ; then mkdir /tmp ; fi &&
+  if [ ! -d /var ] ; then mkdir /var ; fi &&
+  if [ ! -d /root ] ; then mkdir /root ; fi &&
+  chmod a+x /var &&
+  chmod a+rwx /tmp
+- luet install virtual-entities/base --force --relax
+- >-
+  luet install --relax --force
+  system/luet-devkit
+  utils/jq
+  utils/yq
+  dev-util/pkgs-checker-minimal
+  kernel/macaroni-lts-sources &&
+  eselect kernel set 1 &&
+  luet cleanup
+
+# Using steps to trace what files are generated
+# by gcc-config/binutils-config.
+# steps:
+# sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
+- >-
+  cat /etc/luet/luet.yaml &&
+  luet miner ri virtual/base virtual/sh &&
+  luet repo update && luet upgrade &&
+  luet i
+  toolchain/base-extra
+  toolchain/base-python
+  toolchain/base-tools
+  toolchain/base-tools2
+  toolchain/extra-net
+  toolchain/extra-lang
+  && luet cleanup &&
+  /usr/bin/gcc-config 1 &&
+  eselect gcc set 1 &&
+  eselect rust cleanup &&
+  mkdir -p /var/lib/portage &&
+  epro list &&
+  eval 'rm /etc/localtime || true' &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  env-update &&
+  ldconfig &&
+  eval 'locale-gen || true' &&
+  build-docbook-catalog &&
+  whip hook eclass_db.db_fix_so &&
+  whip hook perl.postinst &&
+  cd / && rm -rf /luetbuild &&
+  mkdir /layer
+
+package_dir: /layer
