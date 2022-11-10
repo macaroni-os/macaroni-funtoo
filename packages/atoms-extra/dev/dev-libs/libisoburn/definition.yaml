@@ -1,0 +1,51 @@
+name: libisoburn
+version: 1.5.0
+category: dev-libs
+use_flags:
+- -frontend-optional
+- -launch-frontend
+- -launch-frontend-setuid
+- -libedit
+- acl
+- readline
+- xattr
+- zlib
+requires:
+- name: libburn
+  version: '>=0'
+  category: dev-libs
+- name: libisofs
+  version: '>=0'
+  category: dev-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Creation/expansion of ISO-9660 filesystems on CD/DVD media supported
+  by libburn
+uri:
+- https://dev.lovelyhq.com/libburnia/web/wikis/home
+license: GPL-2 GPL-3
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: '>=dev-libs/libburn-1.5.0 >=dev-libs/libisofs-1.5.0 readline? ( sys-libs/readline:0=
+    ) !readline? ( libedit? ( dev-libs/libedit ) ) acl? ( virtual/acl ) xattr? ( sys-apps/attr
+    ) zlib? ( sys-libs/zlib ) launch-frontend? ( dev-lang/tcl:0 dev-lang/tk:0 ) launch-frontend-setuid?
+    ( dev-lang/tcl:0 dev-lang/tk:0 ) frontend-optional? ( dev-tcltk/bwidget )'
+  IUSE: acl debug external-filters external-filters-setuid frontend-optional launch-frontend
+    launch-frontend-setuid libedit readline static-libs xattr zlib
+  RDEPEND: '>=dev-libs/libburn-1.5.0 >=dev-libs/libisofs-1.5.0 readline? ( sys-libs/readline:0=
+    ) !readline? ( libedit? ( dev-libs/libedit ) ) acl? ( virtual/acl ) xattr? ( sys-apps/attr
+    ) zlib? ( sys-libs/zlib ) launch-frontend? ( dev-lang/tcl:0 dev-lang/tk:0 ) launch-frontend-setuid?
+    ( dev-lang/tcl:0 dev-lang/tk:0 ) frontend-optional? ( dev-tcltk/bwidget )'
+  emerge.packages: dev-libs/libisoburn
+  kit: dev-kit
+  original.package.name: dev-libs/libisoburn
+  original.package.slot: "0"
+  original.package.version: 1.5.0
