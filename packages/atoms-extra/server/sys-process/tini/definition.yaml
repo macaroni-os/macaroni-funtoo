@@ -1,0 +1,22 @@
+name: tini
+version: 0.19.0
+category: sys-process
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A tiny but valid init for containers
+uri:
+- https://github.com/krallin/tini
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  IUSE: +args +static
+  emerge.packages: sys-process/tini
+  kit: core-kit
+  original.package.name: sys-process/tini
+  original.package.slot: "0"
+  original.package.version: 0.19.0
