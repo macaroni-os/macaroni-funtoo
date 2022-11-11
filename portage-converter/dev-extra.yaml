@@ -221,6 +221,42 @@ artefacts:
     - dev-libs/libburn
     - dev-libs/libisofs
 
+- tree: packages/atoms-extra/dev
+  uses:
+    disabled:
+      - debug
+      - examples
+      - test
+  packages:
+    - sys-fs/squashfs-tools
+    - dev-util/xdelta
+
+- tree: packages/atoms-extra/dev
+  uses:
+    disabled:
+      - debug
+      - examples
+      - test
+      - sqlite
+  packages:
+    - app-portage/eix
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race6
+  uses:
+    disabled:
+      - debug
+      - examples
+      - test
+      - sqlite
+  packages:
+    - app-shells/push
+    - app-shells/quoter
+
 include_layers:
 - layers/macaroni-funtoo-race6.yaml
 
