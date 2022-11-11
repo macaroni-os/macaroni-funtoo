@@ -1,0 +1,23 @@
+name: docker-cli
+version: 20.10.17
+category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: the command line binary for docker
+uri:
+- https://www.docker.com/
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.16.6 dev-go/go-md2man >=dev-lang/go-1.10'
+  IUSE: hardened
+  RDEPEND: '!<app-emulation/docker-20.10.1'
+  emerge.packages: app-emulation/docker-cli
+  kit: core-kit
+  original.package.name: app-emulation/docker-cli
+  original.package.slot: "0"
+  original.package.version: 20.10.17
