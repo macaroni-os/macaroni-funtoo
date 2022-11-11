@@ -1,0 +1,36 @@
+name: fuse
+version: 3.6.1
+category: sys-fs-3
+use_flags:
+- -test
+requires:
+- name: fuse-common
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An interface for filesystems implemented in userspace
+uri:
+- https://github.com/libfuse/libfuse
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig'
+  DEPEND: virtual/pkgconfig test? ( || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) || ( ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/pytest[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/pytest[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/pytest[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) )
+  IUSE: test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '>=sys-fs/fuse-common-3.3.0-r1'
+  emerge.packages: sys-fs/fuse:3
+  kit: core-kit
+  original.package.name: sys-fs/fuse
+  original.package.slot: "3"
+  original.package.version: 3.6.1
