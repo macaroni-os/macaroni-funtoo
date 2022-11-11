@@ -1,0 +1,206 @@
+funtoo-stage:
+
+  kits:
+    core-kit:
+      specs:
+        - base.yaml
+        - base-custom.yaml
+
+    core-server-kit:
+      specs:
+        - base.yaml
+
+    perl-kit:
+      specs:
+        - base.yaml
+
+    python-kit:
+      specs:
+        - base.yaml
+
+    python-modules-kit:
+      specs:
+        - base.yaml
+
+    security-kit:
+      specs:
+        - base.yaml
+
+# grep "kit:" packages/atoms-extra/java/* -r | awk '{ print $3 }' | sort | uniq
+extra-pkgs:
+  kits:
+
+    core-hw-kit:
+      specs:
+        - base-extra.yml
+
+
+    core-kit:
+      specs:
+        - base-extra.yml
+        - base-python.yml
+        - base-tools.yml
+        - base-tools2.yml
+        - dev-extra.yaml
+        - lang-extra.yaml
+        - net-extra.yaml
+        - server-extra.yaml
+
+    browser-kit:
+      specs:
+
+    dev-kit:
+      specs:
+        - base-extra.yml
+        - base-tools.yml
+        - base-tools2.yml
+        - dev-extra.yaml
+        - lang-extra.yaml
+        - net-extra.yaml
+        - server-extra.yaml
+
+    core-gl-kit:
+      specs:
+
+    core-server-kit:
+      specs:
+        - base-tools2.yml
+        - lang-extra.yaml
+        - net-extra.yaml
+        - server-extra.yaml
+
+    lang-kit:
+      specs:
+        - base-python.yml
+        - base-tools.yml
+        - server-extra.yaml
+
+    lisp-scheme-kit:
+      specs:
+        - base-tools2.yml
+
+    media-kit:
+      specs:
+
+    text-kit:
+      specs:
+        - base-tools.yml
+        - base-tools2.yml
+        - dev-extra.yaml
+        - net-extra.yaml
+        - server-extra.yaml
+
+    net-kit:
+      specs:
+        - base-tools.yml
+        - base-tools2.yml
+        - dev-extra.yaml
+        - lang-extra.yaml
+        - net-extra.yaml
+        - server-extra.yaml
+
+    perl-kit:
+      specs:
+        - base-extra.yml
+        - base-tools.yml
+        - net-extra.yaml
+
+    python-modules-kit:
+      specs:
+        - base-extra.yml
+        - base-python.yml
+        - dev-extra.yaml
+        - server-extra.yaml
+
+    security-kit:
+      specs:
+        - base-extra.yml
+        - net-extra.yaml
+        - server-extra.yaml
+
+    science-kit:
+      specs:
+
+
+    editors-kit:
+      specs:
+        - base-tools.yml
+        - dev-extra.yaml
+
+    geaaru-kit:
+      specs:
+        - server-extra.yaml
+
+    gnome-kit:
+      specs:
+        - base-tools.yml
+        - base-tools2.yml
+        - server-extra.yaml
+
+    desktop-kit:
+      specs:
+        - base-tools.yml
+
+    java-kit:
+      specs:
+
+    llvm-kit:
+      specs:
+        - lang-extra.yaml
+
+    ruby-kit:
+      specs:
+        - lang-extra.yaml
+
+seeds:
+  - name: macaroni-funtoo-base
+    prefix: packages/atoms
+    specs:
+      - file: base-extra.yml
+        dir: base-extra
+
+  - name: macaroni-funtoo-race1
+    prefix: packages/atoms
+    specs:
+      - file: base-python.yml
+        dir: base-python
+
+  - name: macaroni-funtoo-race2
+    prefix: packages/atoms
+    specs:
+      - file: base-tools.yml
+        dir: base-tools
+
+  - name: macaroni-funtoo-race3
+    prefix: packages/atoms
+    specs:
+      - file: base-tool2.yml
+        dir: base-tools
+
+  - name: macaroni-funtoo-race4
+    prefix: packages/atoms-extra
+    specs:
+
+      - file: net-extra.yaml
+        dir: net
+
+  - name: macaroni-funtoo-race5
+    prefix: packages/atoms-extra
+    specs:
+
+      - file: lang-extra.yaml
+        dir: lang
+
+  - name: macaroni-funtoo-race6
+    prefix: packages/atoms-extra
+    specs:
+
+      - file: dev-extra.yaml
+        dir: dev
+
+  - name: macaroni-funtoo-race7
+    prefix: packages/atoms-extra
+    specs:
+
+      - file: server-extra.yaml
+        dir: server

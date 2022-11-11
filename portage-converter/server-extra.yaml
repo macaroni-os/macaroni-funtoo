@@ -1,0 +1,908 @@
+skipped_resolutions:
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: systemd-tmpfiles
+      category: sys-apps
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+    - name: cdrtools
+      category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
+build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+
+- tree: packages/atoms-extra/server
+  mutations:
+    provides:
+      - category: app-emulation
+        name: cloud-init
+  uses:
+    disabled:
+      - test
+      - python_targets_python2_7
+      - python_targets_python3_7
+  packages:
+    - app-admin/cloud-init
+
+- tree: packages/atoms-extra/server
+  packages:
+    - dev-libs/jemalloc
+
+- tree: packages/atoms-extra/server
+  uses:
+    enabled:
+      - dbus
+      - dhcp
+      - dumpfile
+      - inotify
+      - ipv6
+      - nls
+      - dnssec
+    disabled:
+      - auth-dns
+      - conntrack
+      - dhcp-tools
+      - id
+      - idn
+      - libidn2
+      - lua
+      - lua_single_target_lua5-1
+      - lua_single_target_lua5-2
+      - lua_single_target_lua5-3
+      - lua_single_target_lua5-4
+      - lua_single_target_luajit
+      - nettlehash
+      - script
+      - selinux
+      - static
+      - tftp
+  packages:
+- tree: packages/atoms-extra/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-libs
+          name: jemalloc
+  uses:
+    enabled:
+      - ipv6
+      - readline
+      - ssl
+      - xml
+    disabled:
+      - doc
+      - gost
+      - gssapi
+      - idn
+      - libedit
+      - libidn2
+      - libressl
+      - seccomp
+      - urandom
+  packages:
+    - net-dns/bind-tools
+
+- tree: packages/atoms-extra/server
+  uses:
+    enabled:
+      - berkdb
+      - caps
+      - dlz
+      - xml
+      - zlib
+    disabled:
+      - python
+      - dnsrps
+      - dnstap
+      - doc
+      - fixed-rrset
+      - geoip
+      - gssapi
+      - json
+      - ldap
+      - libressl
+      - lmdb
+      - mysql
+      - odbc
+      - postgres
+      - selinux
+      - static-libs
+      - urandom
+  packages:
+    - net-dns/bind
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
+  uses:
+    disabled:
+      - test
+  packages:
+    - virtual/logger
+    - virtual/mta
+    - sys-fs/growpart
+    - dev-libs/libdaemon
+    - dev-libs/oniguruma
+    - app-eselect/eselect-postgresql
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
+  uses:
+    disabled:
+      - test
+  packages:
+    - sys-kernel/dummy-sources
+    - dev-util/glib-utils
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+      - test
+      - ruby_targets_ruby30
+      - ruby_targets_ruby31
+  packages:
+    - app-text/asciidoctor
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-kernel
+          name: dummy-sources
+  uses:
+    disabled:
+      - test
+      - firmware
+  packages:
+    - virtual/linux-sources
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - debug
+    - dhcp
+    - eap
+    - farp
+    - gcrypt
+    - ldap
+    - mysql
+    - nios2
+    - pkcs11
+    - selinux
+    - sh
+    - sqlite
+    - strongswan_plugins_aesni
+    - strongswan_plugins_blowfish
+    - strongswan_plugins_ccm
+    - strongswan_plugins_chapoly
+    - strongswan_plugins_ctr
+    - strongswan_plugins_forecast
+    - strongswan_plugins_gcm
+    - strongswan_plugins_ha
+    - strongswan_plugins_ipseckey
+    - strongswan_plugins_newhope
+    - strongswan_plugins_ntru
+    - strongswan_plugins_padlock
+    - strongswan_plugins_rdrand
+    - strongswan_plugins_save-keys
+    - strongswan_plugins_unbound
+    - strongswan_plugins_whitelist
+    - systemd
+    enabled:
+    - caps
+    - constraints
+    - curl
+    - gmp
+    - networkmanager
+    - non-root
+    - openssl
+    - pam
+    - strongswan_plugins_led
+    - strongswan_plugins_lookip
+    - strongswan_plugins_systime-fix
+    - strongswan_plugins_unity
+    - strongswan_plugins_vici
+  packages:
+  - net-vpn/strongswan
+
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    - regression-test
+    - static-libs
+  packages:
+    - dev-libs/userspace-rcu
+    - dev-util/lttng-ust
+    - dev-util/lttng-tools
+
+- tree: packages/atoms-extra/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+      - debug
+      - emacs
+      - infiniband
+      - libressl
+      - static-libs
+      - test
+      - vim-syntax
+    enabled:
+      - bd-xlator
+      - crypt-xlator
+      - fuse
+      - georeplication
+      - glupy
+      - ipv6
+      - libtirpc
+      - qemu-block
+      - rsyslog
+      - syslog
+      - systemtap
+      - xml
+      - python_single_target_python3_7
+      - elibc_glibc
+  packages:
+    - sys-cluster/glusterfs
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e gluster
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - apparmor
+    - device-mapper
+    - hardened
+    - nios2
+    - selinux
+    - sh
+    - test
+    enabled:
+    - btrfs
+    - cri
+    - seccomp
+  packages:
+  - app-emulation/containerd
+
+- tree: packages/atoms-extra/server
+  mutations:
+    uses:
+      - overlay
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+    - apparmor
+    - aufs
+    - device-mapper
+    - hardened
+    - nios2
+    - seccomp
+    - sh
+    enabled:
+    - btrfs
+    - cli
+    - container-init
+    - overlay
+  packages:
+  - app-emulation/docker
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e docker
+      - >-
+        eval 'mkdir /var/lib/docker -p || true' &&
+        chown root:docker /var/lib/docker
+
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+    - static-libs
+    enabled:
+    - perl
+    - python
+    - python_targets_python3_9
+  packages:
+  - sys-libs/libapparmor
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - args
+    - static
+  packages:
+  - sys-process/tini
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - example
+    enabled:
+    - suid
+    - network
+  packages:
+  - sys-cluster/singularity
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - app-emulation/docker-proxy
+  - dev-go/go-md2man
+  - sys-fs/lxcfs
+
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-go
+          name: go-md2man
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+    enabled:
+    - kmem
+    - seccomp
+  packages:
+  - app-emulation/runc
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+    - video_cards_amdgpu
+  packages:
+  - sys-process/criu
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+  packages:
+  - app-emulation/docker-cli
+  - net-misc/cni-plugins
+  - sys-block/parted
+  - dev-util/cunit
+  - www-servers/caddy
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - test
+    - nss
+  packages:
+  - dev-libs/xmlsec
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - examples
+    - test
+    - static-libs
+  packages:
+  - dev-libs/hiredis
+
+- tree: packages/atoms-extra/server
+  mutations:
+    uses:
+      - caps
+    buildtime_deps:
+      packages:
+        - category: sys-fs
+          name: lxcfs
+  uses:
+    disabled:
+    - apparmor
+    - doc
+    - nios2
+    - selinux
+    - sh
+    # TODO: check if enable it.
+    - io-uring
+    enabled:
+    - caps
+    - pam
+    - ssl
+    - templates
+    - seccomp
+    - tools
+    - man
+  packages:
+  - app-emulation/lxc
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e lxc
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-emulation
+          name: lxc
+  uses:
+    disabled:
+    - apparmor
+    - nios2
+    - sh
+    - test
+    enabled:
+    - ipv6
+    - nls
+    - dnsmasq
+    - daemon
+  packages:
+  - app-emulation/lxd
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e lxd
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+      - sasl
+      - libressl
+      - icu
+      - examples
+      - static-libs
+      - debug
+      - test
+  packages:
+    - dev-libs/mongo-c-driver
+
+- tree: packages/atoms-extra/server
+  mutations:
+    uses:
+      - python_single_target_python3_9
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+      - shell
+      - ssl
+      - tools
+      - icu
+      - nls
+      - pam
+      - python
+      - readline
+      - server
+      - ssl
+      - xml
+      - zlib
+      - uuid
+    disabled:
+      - python_targets_python3_7
+      - python_single_target_python3_7
+      - systemd
+      - debug
+      - doc
+      - kerberos
+      - ldap
+      - llvm
+      - perl
+      - selinux
+      - static-libs
+      - tcl
+      - threads
+  packages:
+    - dev-db/postgresql:13
+    - dev-db/postgresql:11
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/postgresql || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e postgres
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+      - debug
+      - firebird
+      - kerberos
+      - ldap
+      - libressl
+      - oracle
+      - samba
+      - systemd
+      - python_targets_python2_7
+      - python_single_target_python3_7
+      - python_targets_python3_7
+    enabled:
+      - odbc
+      - iodbc
+      - memcache
+      - memcached
+      - mongo
+      - mysql
+      - pam
+      - pcap
+      - postgres
+      - python
+      - readline
+      - redis
+      - rest
+      - sqlite
+      - ssl
+      - python_single_target_python3_9
+      - python_targets_python3_9
+  packages:
+    - net-dialup/freeradius
+
+
+- tree: packages/atoms-extra/server
+  mutations:
+    runtime_deps:
+      packages:
+        - name: entities-catalog
+          category: macaroni
+  packages:
+    - net-dns/coredns
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e coredns
+
+- tree: packages/atoms-extra/server
+  packages:
+    - net-analyzer/fail2ban
+
+- tree: packages/atoms-extra/server
+  mutations:
+    uses:
+      - policykit
+  uses:
+    disabled:
+      - debug
+      - doc
+      - selinux
+  packages:
+    - sys-auth/elogind
+
+- tree: packages/atoms-extra/server
+  uses:
+    enabled:
+      - elogind
+      - introspection
+      - pam
+    disabled:
+      - spidermonkey
+      - debug
+      - kde
+      - doc
+      - selinux
+      - examples
+  packages:
+    - sys-auth/polkit
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
+  packages:
+    - dev-lang/duktape
+
+
+include_layers:
+- layers/macaroni-funtoo-race7.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.24-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - dev-lang/python:3.7
+    - sys-devel/gcc:11.3.0
+    - dev-lua/lua:5.3
+
+    - sys-devel/llvm:11
+    - sys-devel/clang:11
+    - dev-lang/ruby:2.7
+
+    - dev-db/postgresql:13
+    - dev-db/postgresql:11
+
+reposcan_disabled_use_flags:
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - systemd
+
+  - ruby_targets_ruby25
+  - ruby_targets_ruby26
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
