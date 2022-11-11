@@ -1,0 +1,29 @@
+name: protobuf-c
+version: 1.4.1
+category: dev-libs
+requires:
+- name: protobuf
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+uri:
+- https://github.com/protobuf-c/protobuf-c
+license: BSD-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: '>=dev-libs/protobuf-3:0='
+  IUSE: static-libs
+  RDEPEND: '>=dev-libs/protobuf-3:0='
+  emerge.packages: dev-libs/protobuf-c
+  kit: dev-kit
+  original.package.name: dev-libs/protobuf-c
+  original.package.slot: "0"
+  original.package.version: 1.4.1
