@@ -1,0 +1,36 @@
+name: ossp-uuid
+version: 1.6.2
+category: dev-libs
+use_flags:
+- -perl
+- -php
+- -php_targets_php5-6
+- -php_targets_php7-0
+- -php_targets_php7-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An ISO-C:1999 API with CLI for generating DCE, ISO/IEC and RFC compliant
+  UUID
+uri:
+- http://www.ossp.org/pkg/lib/uuid/
+license: ISC
+labels:
+  DEPEND: perl? ( dev-lang/perl:= ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php? ( php_targets_php5-6?
+    ( dev-lang/php:5.6 ) php_targets_php7-0? ( dev-lang/php:7.0 ) php_targets_php7-1?
+    ( dev-lang/php:7.1 ) )
+  IUSE: +cxx perl php static-libs php_targets_php5-6 php_targets_php7-0 php_targets_php7-1
+  RDEPEND: perl? ( dev-lang/perl:= ) php? ( !dev-php/pecl-uuid ) php? ( php_targets_php5-6?
+    ( dev-lang/php:5.6 ) php_targets_php7-0? ( dev-lang/php:7.0 ) php_targets_php7-1?
+    ( dev-lang/php:7.1 ) )
+  emerge.packages: dev-libs/ossp-uuid
+  kit: dev-kit
+  original.package.name: dev-libs/ossp-uuid
+  original.package.slot: "0"
+  original.package.version: 1.6.2-r6
