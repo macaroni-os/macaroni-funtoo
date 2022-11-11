@@ -131,9 +131,47 @@ artefacts:
   packages:
     - dev-python/automat
     - dev-python/pyserial
-    - sys-apps/metatools
     - dev-python/cffi
+    - dev-python/mistune
 
+- tree: packages/atoms-extra/dev
+  # FL-10708
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pyyaml
+        - category: dev-python
+          name: mistune
+  uses:
+    enabled:
+      - conch
+      - crypt
+      - soap
+      - python_targets_python3_9
+    disabled:
+      - examples
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
+    - sys-apps/metatools
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: mistune
+  uses:
+    enabled:
+      - python_targets_python3_9
+    disabled:
+      - examples
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
+    - dev-python/m2r
+    - dev-python/cffi
 
 - tree: packages/atoms-extra/dev
   mutations:
