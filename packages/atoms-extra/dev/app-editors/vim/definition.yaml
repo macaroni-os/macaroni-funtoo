@@ -1,5 +1,5 @@
 name: vim
-version: 9.0.0801
+version: 9.0.0801+1
 category: app-editors
 use_flags:
 - -X
@@ -12,7 +12,6 @@ use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- -python_single_target_python3_9
 - -racket
 - -ruby
 - -selinux
@@ -22,6 +21,7 @@ use_flags:
 - gpm
 - nls
 - python
+- python_single_target_python3_9
 requires:
 - name: vim-core
   version: '>=0'
@@ -29,6 +29,12 @@ requires:
 - name: eselect-vi
   version: '>=0'
   category: app-eselect
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: cscope
   version: '>=0'
   category: dev-util
