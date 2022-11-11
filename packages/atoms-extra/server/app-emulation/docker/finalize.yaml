@@ -1,0 +1,6 @@
+shell:
+- /bin/bash
+- -c
+install:
+- entities merge --specs-dir /usr/share/macaroni/entities/ -e docker
+- eval 'mkdir /var/lib/docker -p || true' && chown root:docker /var/lib/docker
