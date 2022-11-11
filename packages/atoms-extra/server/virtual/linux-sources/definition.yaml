@@ -1,0 +1,29 @@
+name: linux-sources
+version: "3"
+category: virtual
+use_flags:
+- -firmware
+requires:
+- name: dummy-sources
+  version: '>=0'
+  category: sys-kernel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Linux kernel sources
+uri:
+- ""
+labels:
+  IUSE: firmware
+  RDEPEND: firmware? ( sys-kernel/linux-firmware ) || ( sys-kernel/dummy-sources sys-kernel/debian-sources
+    sys-kernel/debian-sources-lts sys-kernel/gentoo-sources sys-kernel/ck-sources
+    sys-kernel/vanilla-sources )
+  emerge.packages: virtual/linux-sources
+  kit: core-kit
+  original.package.name: virtual/linux-sources
+  original.package.slot: "0"
+  original.package.version: "3"
