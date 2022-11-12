@@ -689,25 +689,35 @@ artefacts:
   packages:
     - net-analyzer/fail2ban
 
-- tree: packages/atoms-extra/server
-  mutations:
-    uses:
-      - policykit
-  uses:
-    disabled:
-      - debug
-      - doc
-      - selinux
-  packages:
-    - sys-auth/elogind
+#- tree: packages/atoms-extra/server
+#  mutations:
+#    uses:
+#      - policykit
+#  uses:
+#    disabled:
+#      - debug
+#      - doc
+#      - selinux
+#  packages:
+#    - sys-auth/elogind
+
 
 - tree: packages/atoms-extra/server
   uses:
     enabled:
-      - elogind
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-libs/gobject-introspection
+    - dev-python/virtualenv
+
+- tree: packages/atoms-extra/server
+  uses:
+    enabled:
       - introspection
       - pam
     disabled:
+      - elogind
       - spidermonkey
       - debug
       - kde
