@@ -236,6 +236,71 @@ artefacts:
 - tree: packages/atoms-extra/server
   uses:
     disabled:
+    - ap
+    - bindist
+    - eap-sim
+    - eapol_test
+    - fasteap
+    - libressl
+    - macsec
+    - nios2
+    - p2p
+    - privsep
+    - ps3
+    - selinux
+    - sh
+    - smartcard
+    - tdls
+    - uncommon-eap-types
+    - wimax
+    - wps
+    - qt5
+    enabled:
+    - dbus
+    - fils
+    - hs2-0
+    - readline
+  packages:
+  - net-wireless/wpa_supplicant
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - audit
+    - consolekit
+    - gnutls
+    - iwd
+    - json
+    - nios2
+    - ofono
+    - ovs
+    - selinux
+    - sh
+    - teamd
+    - test
+    - bluetooth
+    - connection-sharing
+    - dhcpcd
+    - elogind
+    - introspection
+    - modemmanager
+    - ppp
+    - policykit
+    - resolvconf
+    - vala
+    - ncurses
+    enabled:
+    - nss
+    - dhclient
+    - wext
+    - wifi
+  packages:
+  - net-misc/networkmanager
+
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
     - debug
     - dhcp
     - eap
@@ -735,7 +800,30 @@ artefacts:
           name: macaroni-funtoo-race7
   packages:
     - dev-lang/duktape
+    - app-crypt/argon2
 
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+    - gcrypt
+    - kernel
+    - libressl
+    - nettle
+    - nios2
+    - reencrypt
+    - sh
+    - static
+    - static-libs
+    - urandom
+    enabled:
+    - pwquality
+    - argon2
+    - luks1_default
+    - nls
+    - openssl
+    - udev
+  packages:
+  - sys-fs/cryptsetup
 
 include_layers:
 - layers/macaroni-funtoo-race7.yaml

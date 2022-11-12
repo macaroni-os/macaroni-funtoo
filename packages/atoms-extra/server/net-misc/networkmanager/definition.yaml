@@ -6,7 +6,6 @@ use_flags:
 - -bluetooth
 - -concheck
 - -connection-sharing
-- -dhclient
 - -dhcpcd
 - -elogind
 - -gnutls
@@ -17,7 +16,6 @@ use_flags:
 - -libedit
 - -modemmanager
 - -nftables
-- -nss
 - -ofono
 - -ovs
 - -policykit
@@ -30,17 +28,25 @@ use_flags:
 - -test
 - -tools
 - -vala
-- -wifi
+- dhclient
+- nss
+- wifi
 requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
+- name: nss
+  version: '>=0'
+  category: dev-libs
 - name: libndp
   version: '>=0'
   category: net-libs
-- name: dbus
+- name: dhcp
   version: '>=0'
-  category: sys-apps
+  category: net-misc
+- name: wpa_supplicant
+  version: '>=0'
+  category: net-wireless
 - name: util-linux
   version: '>=0'
   category: sys-apps
