@@ -1,0 +1,7 @@
+shell:
+- /bin/bash
+- -c
+install:
+- eval 'mkdir -p /var/lib/mongodb || true' && entities merge --specs-dir /usr/share/macaroni/entities/
+  -e mongodb
+- chown mongodb:mongodb /var/lib/mongodb && chown mongodb:mongodb /var/log/mongodb
