@@ -1,0 +1,56 @@
+name: alsa-lib
+version: 1.2.4
+category: media-libs
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python
+- python_single_target_python3_9
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: alsa-topology-conf
+  version: '>=0'
+  category: media-libs
+- name: alsa-ucm-conf
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Advanced Linux Sound Architecture Library
+uri:
+- https://alsa-project.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: doc? ( >=app-doc/doxygen-1.2.6 ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) media-libs/alsa-topology-conf media-libs/alsa-ucm-conf
+  IUSE: alisp debug doc elibc_uclibc python +thread-safety python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) media-libs/alsa-topology-conf media-libs/alsa-ucm-conf
+  emerge.packages: media-libs/alsa-lib
+  kit: core-kit
+  original.package.name: media-libs/alsa-lib
+  original.package.slot: "0"
+  original.package.version: 1.2.4
