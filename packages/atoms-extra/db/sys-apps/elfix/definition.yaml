@@ -1,0 +1,32 @@
+name: elfix
+version: 0.9.5
+category: sys-apps
+use_flags:
+- -ptpax
+- xtpax
+requires:
+- name: pypax
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A suite of tools to work with ELF objects on Hardened Gentoo
+uri:
+- https://www.gentoo.org/proj/en/hardened/pax-quickstart.xml https://dev.gentoo.org/~blueness/elfix/
+license: GPL-3
+labels:
+  DEPEND: ~dev-python/pypax-0.9.5[ptpax=,xtpax=] ptpax? ( dev-libs/elfutils ) xtpax?
+    ( sys-apps/attr )
+  IUSE: +ptpax +xtpax
+  RDEPEND: ~dev-python/pypax-0.9.5[ptpax=,xtpax=] ptpax? ( dev-libs/elfutils ) xtpax?
+    ( sys-apps/attr )
+  emerge.packages: sys-apps/elfix
+  kit: dev-kit
+  original.package.name: sys-apps/elfix
+  original.package.slot: "0"
+  original.package.version: 0.9.5
