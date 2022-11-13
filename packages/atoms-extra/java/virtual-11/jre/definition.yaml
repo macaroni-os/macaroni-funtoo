@@ -1,0 +1,27 @@
+name: jre
+version: "11"
+category: virtual-11
+requires:
+- name: jdk
+  version: '>=0'
+  category: virtual-11
+- name: openjdk-jre-bin
+  version: '>=0'
+  category: dev-java-11
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Runtime Environment (JRE)
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( virtual/jdk:11 dev-java/openjdk-jre-bin:11[gentoo-vm(+)] )'
+  emerge.packages: virtual/jre:11
+  kit: java-kit
+  original.package.name: virtual/jre
+  original.package.slot: "11"
+  original.package.version: 11-r1
