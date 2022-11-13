@@ -1,0 +1,26 @@
+name: jdk
+version: "17"
+category: virtual-17
+requires:
+- name: openjdk-bin
+  version: '>=0'
+  category: dev-java-17
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Development Kit (JDK)
+uri:
+- ""
+labels:
+  IUSE: headless-awt
+  RDEPEND: '|| ( dev-java/oracle-jdk-bin:17[gentoo-vm(+),headless-awt=] dev-java/openjdk-bin:17[gentoo-vm(+),headless-awt=]
+    dev-java/openjdk:17[gentoo-vm(+),headless-awt=] )'
+  emerge.packages: virtual/jdk:17
+  kit: java-kit
+  original.package.name: virtual/jdk
+  original.package.slot: "17"
+  original.package.version: 17-r1
