@@ -7,23 +7,26 @@ use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- -python_single_target_python3_9
 - -test
 - elibc_glibc
 - fuse
 - georeplication
 - libtirpc
+- python_single_target_python3_9
 - xml
 requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: libaio
   version: '>=0'
   category: dev-libs
 - name: libxml2
   version: '>=0'
   category: dev-libs-2
-- name: openssl
-  version: '>=0'
-  category: dev-libs
 - name: userspace-rcu
   version: '>=0'
   category: dev-libs
@@ -33,9 +36,6 @@ requires:
 - name: rpcsvc-proto
   version: '>=0'
   category: net-libs
-- name: util-linux
-  version: '>=0'
-  category: sys-apps
 - name: fuse
   version: '>=0'
   category: sys-fs-3
