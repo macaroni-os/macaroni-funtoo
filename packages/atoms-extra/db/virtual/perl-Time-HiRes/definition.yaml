@@ -1,0 +1,25 @@
+name: perl-Time-HiRes
+version: 1.976.400
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Time-HiRes
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Time-HiRes-1.976.400 ) dev-lang/perl:=
+    !<perl-core/Time-HiRes-1.976.400 !>perl-core/Time-HiRes-1.976.400-r999'
+  emerge.packages: virtual/perl-Time-HiRes
+  kit: perl-kit
+  original.package.name: virtual/perl-Time-HiRes
+  original.package.slot: "0"
+  original.package.version: 1.976.400
