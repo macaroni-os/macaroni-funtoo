@@ -1,0 +1,43 @@
+name: mariadb-connector-c
+version: 3.1.12
+category: dev-db
+use_flags:
+- -curl
+- -gnutls
+- -kerberos
+- -libressl
+- -ssl
+requires:
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C client library for MariaDB/MySQL
+uri:
+- https://mariadb.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: sys-libs/zlib:= virtual/libiconv:= curl? ( net-misc/curl:0= ) kerberos?
+    ( || ( app-crypt/mit-krb5 app-crypt/heimdal ) ) ssl? ( gnutls? ( >=net-libs/gnutls-3.3.24:0=
+    ) !gnutls? ( libressl? ( dev-libs/libressl:0= ) !libressl? ( dev-libs/openssl:0=
+    ) ) )
+  IUSE: +curl gnutls kerberos libressl +ssl static-libs test
+  RDEPEND: sys-libs/zlib:= virtual/libiconv:= curl? ( net-misc/curl:0= ) kerberos?
+    ( || ( app-crypt/mit-krb5 app-crypt/heimdal ) ) ssl? ( gnutls? ( >=net-libs/gnutls-3.3.24:0=
+    ) !gnutls? ( libressl? ( dev-libs/libressl:0= ) !libressl? ( dev-libs/openssl:0=
+    ) ) )
+  emerge.packages: dev-db/mariadb-connector-c
+  kit: dev-kit
+  original.package.name: dev-db/mariadb-connector-c
+  original.package.slot: "0"
+  original.package.version: 3.1.12
