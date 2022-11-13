@@ -23,6 +23,11 @@ prelude:
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
   --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
+# Patch dhclient not yet on last tag.
+- >-
+  mkdir -p /pkgdir/{{ .Values.name }}/etc/conf.d/ &&
+  cp dhclient-netif /pkgdir/{{ .Values.name }}/etc/netif.d/dhclient &&
+  cp dhclient-conf.d /pkgdir/{{ .Values.name }}/etc/conf.d/dhclient
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
