@@ -759,18 +759,17 @@ artefacts:
   packages:
     - net-analyzer/fail2ban
 
-#- tree: packages/atoms-extra/server
-#  mutations:
-#    uses:
-#      - policykit
-#  uses:
-#    disabled:
-#      - debug
-#      - doc
-#      - selinux
-#  packages:
-#    - sys-auth/elogind
-
+- tree: packages/atoms-extra/server
+  mutations:
+    uses:
+      - policykit
+  uses:
+    disabled:
+      - debug
+      - doc
+      - selinux
+  packages:
+    - sys-auth/elogind
 
 - tree: packages/atoms-extra/server
   uses:
