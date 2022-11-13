@@ -1,0 +1,28 @@
+name: jre
+version: "17"
+category: virtual-17
+requires:
+- name: jdk
+  version: '>=0'
+  category: virtual-17
+- name: openjdk-jre-bin
+  version: '>=0'
+  category: dev-java-17
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Runtime Environment (JRE)
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( virtual/jdk:17 dev-java/oracle-jre-bin:17[gentoo-vm(+)] dev-java/openjdk-jre-bin:17[gentoo-vm(+)]
+    dev-java/openjdk-jre:17[gentoo-vm(+)] )'
+  emerge.packages: virtual/jre:17
+  kit: java-kit
+  original.package.name: virtual/jre
+  original.package.slot: "17"
+  original.package.version: 17-r1
