@@ -1,0 +1,29 @@
+name: font-alias
+version: 1.0.3
+category: media-fonts
+use_flags:
+- -ppc-aix
+- -x86-winnt
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X.Org font aliases
+uri:
+- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/font/font-alias
+license: MIT
+labels:
+  DEPEND: x11-apps/mkfontscale >=media-fonts/font-util-1.1.1-r1 >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a
+    sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) x86-winnt?
+    ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0
+    ) virtual/pkgconfig
+  emerge.packages: media-fonts/font-alias
+  kit: core-gl-kit
+  original.package.name: media-fonts/font-alias
+  original.package.slot: "0"
+  original.package.version: 1.0.3-r1
