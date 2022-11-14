@@ -1,0 +1,25 @@
+name: libpaper
+version: 1.1.24
+category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for handling paper characteristics
+uri:
+- http://packages.debian.org/unstable/source/libpaper
+license: GPL-2
+labels:
+  DEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || (
+    >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  emerge.packages: app-text/libpaper
+  kit: text-kit
+  original.package.name: app-text/libpaper
+  original.package.slot: "0"
+  original.package.version: 1.1.24_p5
