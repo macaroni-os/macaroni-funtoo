@@ -97,7 +97,6 @@ artefacts:
       - cups
       #- system-java
   packages:
-    - dev-java/java-config:2
     - dev-java/openjdk-jre-bin:8
     - dev-java/openjdk-jre-bin:11
     - dev-java/openjdk-jre-bin:17
@@ -105,6 +104,13 @@ artefacts:
     - dev-java/openjdk-bin:11
     - dev-java/openjdk-bin:17
     - dev-java/maven-bin:3.8
+
+- tree: packages/atoms-extra/java
+  uses:
+    enabled:
+      - python_targets_python3_9
+  packages:
+    - dev-java/java-config:2
 
 - tree: packages/atoms-extra/java
   mutations:
