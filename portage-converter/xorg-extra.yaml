@@ -134,6 +134,21 @@ artefacts:
     - media-libs/jbig2dec
     - media-libs/lcms:2
     - dev-libs/libpthread-stubs
+    - media-libs/libjpeg-turbo
+
+
+- tree: packages/atoms-extra/xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: media-libs
+          name: libjpeg-turbo
+  uses:
+    enabled:
+      - X
+      - nls
+      - ipv6
+  packages:
     - virtual/jpeg
 
 - tree: packages/atoms-extra/xorg
@@ -391,6 +406,20 @@ artefacts:
   packages:
     - media-fonts/liberation-fonts
 
+
+- tree: packages/atoms-extra/xorg
+  uses:
+    disabled:
+      - cairo
+      - cjk
+      - curl
+      - introspection
+      - jpeg2k
+      - lcms
+      - nss
+      - qt5
+  packages:
+    - app-text/poppler
 
 include_layers:
 - layers/macaroni-funtoo-race9.yaml
