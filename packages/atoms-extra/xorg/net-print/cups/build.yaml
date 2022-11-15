@@ -10,9 +10,9 @@ prelude:
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t || true
   {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t || true
   {{- end }}
 # Avoid to use --nodeps to handle PDEPEND and right use flags for ghostscript-gpl
 - >-
