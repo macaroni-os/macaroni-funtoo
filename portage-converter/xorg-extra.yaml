@@ -196,10 +196,6 @@ artefacts:
       ignore:
         - category: app-text
           name: qpdf
-        - category: app-text
-          name: ghostscript-gpl
-        - category: net-print
-          name: cups
   uses:
     disabled:
     - ldap
@@ -220,11 +216,6 @@ artefacts:
   - net-print/cups-filters
 
 - tree: packages/atoms-extra/xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: net-print
-          name: cups-filters
   replacements:
     buildtime_deps:
       ignore:
@@ -255,11 +246,6 @@ artefacts:
 
 
 - tree: packages/atoms-extra/xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: app-text
-          name: ghostscript-gpl
   uses:
     disabled:
     - abi_mips_n32
@@ -412,12 +398,12 @@ artefacts:
     disabled:
       - cairo
       - cjk
-      - curl
-      - introspection
-      - jpeg2k
-      - lcms
+      - debug
+      - doc
       - nss
+      - png
       - qt5
+      - tiff
   packages:
     - app-text/poppler
 
