@@ -15,6 +15,9 @@ prelude:
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- end }}
 # Avoid to use --nodeps to handle PDEPEND and right use flags for ghostscript-gpl
+- >-
+  eval 'mkdir /etc/portage/package.use/ -p || true' &&
+  echo "app-text/ghostscript-gpl cups" > /etc/portage/package.use/00-cups.use
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }}
