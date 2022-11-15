@@ -2,7 +2,14 @@ name: libglvnd
 version: 1.3.2
 category: media-libs
 use_flags:
-- -X
+- X
+requires:
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+- name: glproto
+  version: '>=0'
+  category: x11-proto
 annotations:
   subsets:
     rules:

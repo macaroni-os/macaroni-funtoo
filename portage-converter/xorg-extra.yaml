@@ -360,6 +360,22 @@ artefacts:
   packages:
   - media-libs/mesa
 
+- tree: packages/atoms-extra/xorg
+  uses:
+    disabled:
+      - tls
+    enabled:
+      - headers
+      - X
+      - egl
+      - gles
+      - gles2
+      - glx
+      - asm
+  packages:
+    - media-libs/libglvnd
+
+
 # Using chrome --headless requires fonts
 # /var/lib/grafana/plugins/grafana-image-renderer/chrome-linux/chrome  --no-sandbox --headless     --print-to-pdf=gen.pdf http://www.google.com
 
@@ -569,7 +585,7 @@ reposcan_disabled_use_flags:
 
   - heif
 
-  - X
+  #- X
 
   # Disabled for mesa lib
   - vulkan-overlay

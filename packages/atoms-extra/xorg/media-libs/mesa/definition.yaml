@@ -2,7 +2,6 @@ name: mesa
 version: 22.0.1
 category: media-libs
 use_flags:
-- -X
 - -lm-sensors
 - -opencl
 - -selinux
@@ -19,6 +18,7 @@ use_flags:
 - -xvmc
 - -zink
 - -zstd
+- X
 - llvm
 requires:
 - name: expat
@@ -30,7 +30,16 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
+- name: libXfixes
+  version: '>=0'
+  category: x11-libs
+- name: libXxf86vm
+  version: '>=0'
+  category: x11-libs
 - name: libdrm
+  version: '>=0'
+  category: x11-libs
+- name: libxshmfence
   version: '>=0'
   category: x11-libs
 annotations:
