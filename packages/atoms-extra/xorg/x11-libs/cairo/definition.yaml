@@ -2,11 +2,11 @@ name: cairo
 version: 1.16.0
 category: x11-libs
 use_flags:
-- -X
 - -gles2
 - -glib
 - -opengl
 - -xcb
+- X
 requires:
 - name: lzo
   version: '>=0'
@@ -20,6 +20,12 @@ requires:
 - name: binutils-libs
   version: '>=0'
   category: sys-libs
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+- name: libXrender
+  version: '>=0'
+  category: x11-libs
 - name: pixman
   version: '>=0'
   category: x11-libs

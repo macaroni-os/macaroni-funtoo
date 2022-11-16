@@ -2,7 +2,6 @@ name: cups
 version: 2.2.11+3
 category: net-print
 use_flags:
-- -X
 - -java
 - -kerberos
 - -kernel_linux
@@ -12,6 +11,7 @@ use_flags:
 - -usb
 - -xinetd
 - -zeroconf
+- X
 - acl
 - dbus
 - pam
@@ -26,15 +26,15 @@ requires:
 - name: gnutls
   version: '>=0'
   category: net-libs
-- name: dbus
-  version: '>=0'
-  category: sys-apps
 - name: zlib
   version: '>=0'
   category: sys-libs
 - name: pam
   version: '>=0'
   category: virtual
+- name: xdg-utils
+  version: '>=0'
+  category: x11-misc
 annotations:
   subsets:
     rules:
