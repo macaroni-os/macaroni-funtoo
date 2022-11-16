@@ -1,14 +1,24 @@
 name: harfbuzz
-version: 2.8.2
+version: 2.8.2+1
 category: media-libs
 use_flags:
-- -cairo
 - -doc
 - -glib
-- -graphite
-- -icu
 - -introspection
-- -truetype
+- cairo
+- graphite
+- icu
+- truetype
+requires:
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: graphite2
+  version: '>=0'
+  category: media-gfx
+- name: cairo
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
