@@ -71,7 +71,7 @@ skipped_resolutions:
     - name: oracle-jdk-bin
       category: dev-java
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -85,6 +85,16 @@ artefacts:
 # NOTE: Using for example grafana render plugin inside container
 #       need X libraries. So these libraries are important in the
 #       container context too.
+
+
+- tree: packages/atoms-extra/xorg
+  uses:
+    enabled:
+      - python_single_target_python3_9
+      - python_targets_python3_9
+      - python
+  packages:
+    - dev-python/mako
 
 - tree: packages/atoms-extra/xorg
   uses:
@@ -281,6 +291,14 @@ artefacts:
 
 
 - tree: packages/atoms-extra/xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        # NOTE: it seems a luet-portage-converter bug.
+        - category: x11-libs
+          name: libXrandr
+        - category: dev-python
+          name: mako
   uses:
     disabled:
     - alternate-path
@@ -357,6 +375,9 @@ artefacts:
     - gles2
     - glx
     - llvm
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_9
   packages:
   - media-libs/mesa
 
@@ -381,7 +402,7 @@ artefacts:
 
 - tree: packages/atoms-extra/xorg
   uses:
-    enabled:
+    disabled:
       - X
   packages:
     - media-fonts/font-adobe-100dpi
@@ -391,10 +412,17 @@ artefacts:
     - media-fonts/font-adobe-utopia-type1
     - media-fonts/encodings
     - media-fonts/font-alias
+
+- tree: packages/atoms-extra/xorg
+  uses:
+    enabled:
+      - X
+  packages:
     - x11-apps/mkfontdir
     - x11-apps/mkfontscale
     - media-fonts/font-util
     - x11-apps/bdftopcf
+
 
 - tree: packages/atoms-extra/xorg
   mutations:
@@ -407,6 +435,16 @@ artefacts:
       - X
   packages:
     - media-fonts/liberation-fonts
+
+- tree: packages/atoms-extra/xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race9
+  packages:
+    - virtual/perl-File-Path
+    - virtual/perl-parent
 
 
 - tree: packages/atoms-extra/xorg
