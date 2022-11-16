@@ -175,6 +175,38 @@ artefacts:
     - media-libs/alsa-ucm-conf
     - media-libs/alsa-topology-conf
 
+- tree: packages/atoms-extra/java
+  uses:
+    disabled:
+      - perl
+      - test
+  packages:
+    - media-gfx/graphite2
+
+- tree: packages/atoms-extra/java
+  uses:
+    enabled:
+      # Needed for pango
+      - X
+      - glib
+      - svg
+      - xcb
+  packages:
+    - x11-libs/cairo
+
+- tree: packages/atoms-extra/java
+  uses:
+    enabled:
+      # Needed for xorg
+      - graphite
+      - icu
+      - truetype
+      - cairo
+      # Needed for pango
+      - glib
+  packages:
+    - media-libs/harfbuzz
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
