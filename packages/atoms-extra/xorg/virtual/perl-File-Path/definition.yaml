@@ -1,0 +1,25 @@
+name: perl-File-Path
+version: 2.160.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for File-Path
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/File-Path-2.160.0
+    ) dev-lang/perl:= !<perl-core/File-Path-2.160.0 !>perl-core/File-Path-2.160.0-r999'
+  emerge.packages: virtual/perl-File-Path
+  kit: perl-kit
+  original.package.name: virtual/perl-File-Path
+  original.package.slot: "0"
+  original.package.version: 2.160.0-r1
