@@ -186,6 +186,13 @@ artefacts:
 - tree: packages/atoms-extra/xorg
   uses:
     enabled:
+      - nls
+  packages:
+    - net-dns/libidn
+
+- tree: packages/atoms-extra/xorg
+  uses:
+    enabled:
       - X
       - nls
       - introspection
@@ -226,6 +233,13 @@ artefacts:
   - net-print/cups-filters
 
 - tree: packages/atoms-extra/xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        # Maybe a luet-portage-converter bug or
+        # related to ignore rule?
+        - category: net-dns
+          name: libidn
   replacements:
     buildtime_deps:
       ignore:
