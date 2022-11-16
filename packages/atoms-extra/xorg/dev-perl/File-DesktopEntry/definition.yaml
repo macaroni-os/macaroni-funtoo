@@ -1,0 +1,38 @@
+name: File-DesktopEntry
+version: 0.220.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: File-BaseDir
+  version: '>=0'
+  category: dev-perl
+- name: URI
+  version: '>=0'
+  category: dev-perl
+- name: perl-File-Path
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Object to handle .desktop files
+uri:
+- https://metacpan.org/release/File-DesktopEntry
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp virtual/perl-Encode >=dev-perl/File-BaseDir-0.30.0 virtual/perl-File-Path
+    virtual/perl-File-Spec dev-perl/URI >=virtual/perl-ExtUtils-MakeMaker-6.300.0
+    test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: virtual/perl-Carp virtual/perl-Encode >=dev-perl/File-BaseDir-0.30.0 virtual/perl-File-Path
+    virtual/perl-File-Spec dev-perl/URI dev-lang/perl:=
+  emerge.packages: dev-perl/File-DesktopEntry
+  kit: perl-kit
+  original.package.name: dev-perl/File-DesktopEntry
+  original.package.slot: "0"
+  original.package.version: 0.220.0
