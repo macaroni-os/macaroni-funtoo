@@ -1,0 +1,27 @@
+name: edk2-ovmf
+version: "202105"
+category: sys-firmware
+use_flags:
+- -amd64
+- -binary
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: UEFI firmware for 64-bit x86 virtual machines
+uri:
+- https://github.com/tianocore/edk2
+license: BSD-2 MIT
+labels:
+  DEPEND: '!binary? ( amd64? ( app-emulation/qemu >=dev-lang/nasm-2.0.7 >=sys-power/iasl-20160729
+    || ( dev-lang/python:3.10[sqlite] dev-lang/python:3.8[sqlite] dev-lang/python:3.9[sqlite]
+    dev-lang/python:3.7[sqlite] ) ) )'
+  IUSE: +binary
+  emerge.packages: sys-firmware/edk2-ovmf
+  kit: core-hw-kit
+  original.package.name: sys-firmware/edk2-ovmf
+  original.package.slot: "0"
+  original.package.version: 202105-r1
