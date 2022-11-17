@@ -1,0 +1,25 @@
+name: seabios
+version: 1.14.0
+category: sys-firmware
+use_flags:
+- -binary
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open Source implementation of a 16-bit x86 BIOS
+uri:
+- https://www.seabios.org/
+license: LGPL-3 GPL-3
+labels:
+  DEPEND: '!binary? ( >=sys-power/iasl-20060912 || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) )'
+  IUSE: +binary debug +seavgabios
+  emerge.packages: sys-firmware/seabios
+  kit: core-hw-kit
+  original.package.name: sys-firmware/seabios
+  original.package.slot: "0"
+  original.package.version: 1.14.0-r2
