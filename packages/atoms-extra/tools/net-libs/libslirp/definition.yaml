@@ -1,0 +1,28 @@
+name: libslirp
+version: 4.3.1
+category: net-libs
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A general purpose TCP-IP emulator used by virtual machine hypervisors
+  to provide virtual networking services.
+uri:
+- https://gitlab.freedesktop.org/slirp/libslirp
+license: BSD
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: dev-libs/glib:=
+  RDEPEND: dev-libs/glib:=
+  emerge.packages: net-libs/libslirp
+  kit: core-kit
+  original.package.name: net-libs/libslirp
+  original.package.slot: "0"
+  original.package.version: 4.3.1
