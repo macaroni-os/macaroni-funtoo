@@ -1,0 +1,46 @@
+name: multipath-tools
+version: 0.8.1
+category: sys-fs
+use_flags:
+- -rbd
+- -systemd
+requires:
+- name: json-c
+  version: '>=0'
+  category: dev-libs
+- name: libaio
+  version: '>=0'
+  category: dev-libs
+- name: userspace-rcu
+  version: '>=0'
+  category: dev-libs
+- name: lvm2
+  version: '>=0'
+  category: sys-fs
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Device mapper target autoconfig
+uri:
+- http://christophe.varoqui.free.fr/
+license: GPL-2
+labels:
+  DEPEND: dev-libs/json-c:= dev-libs/libaio dev-libs/userspace-rcu:= >=sys-fs/lvm2-2.02.45
+    >=virtual/udev-171 sys-libs/readline:0= rbd? ( sys-cluster/ceph ) systemd? ( sys-apps/systemd
+    ) virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig
+  IUSE: systemd rbd kernel_linux
+  RDEPEND: dev-libs/json-c:= dev-libs/libaio dev-libs/userspace-rcu:= >=sys-fs/lvm2-2.02.45
+    >=virtual/udev-171 sys-libs/readline:0= rbd? ( sys-cluster/ceph ) systemd? ( sys-apps/systemd
+    )
+  emerge.packages: sys-fs/multipath-tools
+  kit: core-kit
+  original.package.name: sys-fs/multipath-tools
+  original.package.slot: "0"
+  original.package.version: 0.8.1
