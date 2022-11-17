@@ -23,3 +23,7 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+requires:
+- name: edk2-ovmf
+  version: '>=0'
+  category: sys-firmware
