@@ -68,14 +68,10 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-    # Avoid injection of tools of Xorg stuff for grafana
-    - name: fontconfig
-      category: media-libs
-
     - name: oracle-jdk-bin
       category: dev-java
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -177,14 +173,75 @@ artefacts:
     - media-libs/alsa-topology-conf
     - dev-libs/libpthread-stubs
 
+# Using chrome --headless requires fonts
+# /var/lib/grafana/plugins/grafana-image-renderer/chrome-linux/chrome  --no-sandbox --headless     --print-to-pdf=gen.pdf http://www.google.com
+
+- tree: packages/atoms-extra/java
+  uses:
+    disabled:
+      - X
+  packages:
+    - media-fonts/encodings
+
+- tree: packages/atoms-extra/xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  uses:
+    enabled:
+      - X
+  packages:
+    - media-fonts/liberation-fonts
+
+- tree: packages/atoms-extra/java
+  uses:
+    enabled:
+      - X
+  packages:
+    - x11-apps/mkfontdir
+    - x11-apps/mkfontscale
+    - media-fonts/font-util
+
+
+
+- tree: packages/atoms-extra/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  uses:
+    enabled:
+      - X
+      - nls
+      - ipv6
+  packages:
+    - virtual/ttf-fonts
+
+- tree: packages/atoms-extra/java
+  uses:
+    disabled:
+      - doc
+      - test
+      - ppc-aix
+      - x86-winnt
+  packages:
+    - x11-libs/libX11
+
 - tree: packages/atoms-extra/java
   uses:
     disabled:
       - static-libs
       - libkms
       - valgrind
+      - doc
   packages:
     - x11-base/xcb-proto
+    - x11-libs/libXext
+    - media-libs/fontconfig
+    - app-eselect/fontconfig
 
 - tree: packages/atoms-extra/java
   mutations:
@@ -209,6 +266,21 @@ artefacts:
     - media-gfx/graphite2
 
 - tree: packages/atoms-extra/java
+  mutations:
+    buildtime_deps:
+    # fontconfig is needed to catch correctly font integration
+    # Without it doesn't supply cairo_ft_font_options_substitute and other symbols.
+      packages:
+        - category: x11-libs
+          name: libfontenc
+        - category: media-fonts
+          name: font-util
+        - category: media-fonts
+          name: encodings
+        - category: x11-apps
+          name: mkfontdir
+        - category: x11-apps
+          name: mkfontscale
   uses:
     enabled:
       # Needed for pango
