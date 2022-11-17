@@ -105,25 +105,10 @@ artefacts:
   packages:
     - x11-libs/libXrandr
     - x11-libs/libXfixes
-    - x11-libs/libXext
     - x11-libs/libXdamage
     - x11-libs/libXcomposite
     - x11-libs/libdrm
-    - x11-base/xcb-proto
 
-- tree: packages/atoms-extra/xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: x11-base
-          name: xcb-proto
-  uses:
-    disabled:
-      - static-libs
-      - libkms
-      - valgrind
-  packages:
-    - x11-libs/libxcb
 
 - tree: packages/atoms-extra/xorg
   mutations:
@@ -140,10 +125,8 @@ artefacts:
     - x11-proto/xproto
     - x11-proto/glproto
     - x11-proto/dri2proto
-    - virtual/ttf-fonts
     - media-libs/jbig2dec
     - media-libs/lcms:2
-    - dev-libs/libpthread-stubs
     - media-libs/libjpeg-turbo
 
 
@@ -168,12 +151,6 @@ artefacts:
   packages:
     - x11-libs/libxkbcommon
 
-- tree: packages/atoms-extra/xorg
-  uses:
-    enabled:
-      - ipv6
-  packages:
-    - x11-libs/libX11
 
 - tree: packages/atoms-extra/xorg
   uses:
@@ -416,7 +393,7 @@ artefacts:
 
 - tree: packages/atoms-extra/xorg
   uses:
-    disabled:
+    enabled:
       - X
   packages:
     - media-fonts/font-adobe-100dpi
@@ -424,31 +401,10 @@ artefacts:
     - media-fonts/font-adobe-utopia-100dpi
     - media-fonts/font-adobe-utopia-75dpi
     - media-fonts/font-adobe-utopia-type1
-    - media-fonts/encodings
     - media-fonts/font-alias
-
-- tree: packages/atoms-extra/xorg
-  uses:
-    enabled:
-      - X
-  packages:
-    - x11-apps/mkfontdir
-    - x11-apps/mkfontscale
-    - media-fonts/font-util
     - x11-apps/bdftopcf
-
-
-- tree: packages/atoms-extra/xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race9
-  uses:
-    enabled:
-      - X
-  packages:
     - media-fonts/liberation-fonts
+
 
 - tree: packages/atoms-extra/xorg
   mutations:
