@@ -104,6 +104,7 @@ artefacts:
     - dev-java/openjdk-bin:11
     - dev-java/openjdk-bin:17
     - dev-java/maven-bin:3.8
+    - app-eselect/eselect-java
 
 - tree: packages/atoms-extra/java
   uses:
@@ -174,6 +175,30 @@ artefacts:
     - media-libs/alsa-lib
     - media-libs/alsa-ucm-conf
     - media-libs/alsa-topology-conf
+    - dev-libs/libpthread-stubs
+
+- tree: packages/atoms-extra/java
+  uses:
+    disabled:
+      - static-libs
+      - libkms
+      - valgrind
+  packages:
+    - x11-base/xcb-proto
+
+- tree: packages/atoms-extra/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: x11-base
+          name: xcb-proto
+  uses:
+    disabled:
+      - static-libs
+      - libkms
+      - valgrind
+  packages:
+    - x11-libs/libxcb
 
 - tree: packages/atoms-extra/java
   uses:
@@ -368,8 +393,6 @@ reposcan_disabled_use_flags:
   - cluster
 
   - heif
-
-  - X
 
   # Disabled for mesa lib
   - vulkan-overlay
