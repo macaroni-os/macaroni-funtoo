@@ -11,29 +11,27 @@ ENV USER=root
 SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos", "--relax"]
 RUN repository/mottainai-stable
 RUN repository/macaroni-commons-testing
-RUN repository/macaroni-funtoo-testing
+RUN repository/macaroni-terragon-testing
 
 RUN system/entities
 
 SHELL ["/usr/bin/luet", "install", "-y", "--relax", "--force"]
 
-RUN system/luet-geaaru
+RUN system/luet-geaaru-testing
 RUN sys-apps/shadow
 RUN sys-apps/sed
 RUN app-shells/bash
-RUN sys-devel-9.2.0/gcc
+RUN sys-devel-11.3.0/gcc
+RUN sys-libs-2.2/glibc
+
+RUN sys-apps/coreutils
 
 RUN virtual-entities/base
 
-RUN sys-apps/iproute2
-RUN sys-apps/sysvinit
-
-RUN sys-apps/coreutils
-RUN sys-apps/openrc
-
 SHELL ["/bin/bash", "-c"]
 
-RUN luet cleanup --purge-repos && mkdir /tmp
+RUN luet rm -y system/entities macaroni/entities-catalog && \
+  luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
