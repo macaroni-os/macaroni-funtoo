@@ -1,8 +1,9 @@
 prelude:
-# Fix includes
+# Fix includes and remove nullmailer with conflicts
 - >-
   whip hook eclass_db.db_fix_so &&
-  eselect postgresql set 13
+  eselect postgresql set 13 &&
+  emerge --unmerge mail-mta/nullmailer
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
