@@ -1,0 +1,21 @@
+name: edk2-ovmf-bin
+version: "202202"
+category: sys-firmware
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: UEFI firmware for 64-bit x86 virtual machines
+uri:
+- https://github.com/tianocore/edk2
+license: BSD-2 MIT
+labels:
+  RDEPEND: '!sys-firmware/edk2-ovmf'
+  emerge.packages: sys-firmware/edk2-ovmf-bin
+  kit: core-hw-kit
+  original.package.name: sys-firmware/edk2-ovmf-bin
+  original.package.slot: "0"
+  original.package.version: "202202"
