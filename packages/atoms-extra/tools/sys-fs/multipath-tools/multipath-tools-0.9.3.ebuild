@@ -72,10 +72,18 @@ src_install() {
 	dodir /sbin /usr/share/man/man{5,8}
 	emake \
 		DESTDIR="${D}" \
+		RUN=run \
+		prefix="${EPREFIX}" \
+		LIB="$(get_libdir)" \
 		SYSTEMD=$(get_systemd_pv) \
 		unitdir="$(systemd_get_systemunitdir)" \
 		libudevdir='${prefix}'/"$(get_udevdir)" \
 		install
+
+	rmdir "${ED}"/usr/include
+	rmdir "${ED}"/usr/share
+	mv "${ED}"/include "${ED}"/usr/include || die
+	mv "${ED}"/share "${ED}"/usr/share || die
 
 	newinitd "${FILESDIR}"/rc-multipathd multipathd
 	newinitd "${FILESDIR}"/multipath.rc multipath
