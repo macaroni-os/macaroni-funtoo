@@ -1,4 +1,8 @@
 prelude:
+# Fix includes
+- >-
+  whip hook eclass.db_fix_so &&
+  eselect postgresql set 13
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -24,6 +28,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-funtoo-race10
+- name: tinycdb
   version: '>=0'
-  category: seed
+  category: dev-db
