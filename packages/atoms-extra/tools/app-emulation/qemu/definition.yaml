@@ -13,7 +13,6 @@ use_flags:
 - -jemalloc
 - -numa
 - -opengl
-- -pin-upstream-blobs
 - -pulseaudio
 - -python_targets_python3_10
 - -python_targets_python3_7
@@ -51,6 +50,7 @@ use_flags:
 - nfs
 - nls
 - pam
+- pin-upstream-blobs
 - png
 - python
 - python_targets_python3_9
@@ -135,13 +135,10 @@ requires:
 - name: usbredir
   version: '>=0'
   category: sys-apps
-- name: edk2-ovmf
+- name: edk2-ovmf-bin
   version: '>=0'
   category: sys-firmware
 - name: ipxe
-  version: '>=0'
-  category: sys-firmware
-- name: seabios
   version: '>=0'
   category: sys-firmware
 - name: seabios-bin
