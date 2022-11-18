@@ -1,4 +1,8 @@
 prelude:
+- >-
+  cp libiscsi-1.19.0.ebuild /var/git/meta-repo/kits/net-kit/net-libs/libiscsi &&
+  cd /var/git/meta-repo/kits/net-kit/net-libs/libiscsi &&
+  ebuild libiscsi-1.19.0.ebuild digest
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
