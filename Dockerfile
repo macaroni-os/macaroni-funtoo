@@ -11,8 +11,7 @@ ENV USER=root
 SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos", "--relax"]
 RUN repository/mottainai-stable
 RUN repository/macaroni-commons
-# Temporary using dev rep until is stable
-RUN repository/macaroni-terragon-dev
+RUN repository/macaroni-terragon
 
 RUN system/entities
 
@@ -31,7 +30,8 @@ RUN virtual-entities/base
 
 SHELL ["/bin/bash", "-c"]
 
-RUN luet cleanup --purge-repos
+RUN luet rm -y system/entities macaroni/entities-catalog && \
+  luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
