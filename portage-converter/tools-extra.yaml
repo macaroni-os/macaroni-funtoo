@@ -102,6 +102,25 @@ artefacts:
 #    - app-crypt/sbsigntools
 #    - sys-apps/lshw
 
+
+- tree: packages/atoms-extra/tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-libs-3
+          name: libnl
+        - category: sys-libs
+          name: libunwind
+  uses:
+    disabled:
+      - lm-sensors
+      - hwloc
+      - openvz
+      - debug
+      - vserver
+  packages:
+    - sys-process/htop
+
 - tree: packages/atoms-extra/tools
   mutations:
     runtime_deps:
