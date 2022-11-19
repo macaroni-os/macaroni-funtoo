@@ -259,6 +259,20 @@ artefacts:
     - app-eselect/eselect-ctags
 
 - tree: packages/atoms-extra/dev
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-libs
+          name: libseccomp
+  uses:
+    disabled:
+      - json
+      - xml
+      - yaml
+  packages:
+    - dev-util/ctags
+
+- tree: packages/atoms-extra/dev
   uses:
     disabled:
       - debug
