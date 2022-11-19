@@ -156,6 +156,13 @@ artefacts:
 
 
 - tree: packages/atoms/base-tools2
+  mutations:
+    runtime_deps:
+      # $# ldd /sbin/ss
+      # libtirpc.so.3 => not found
+      packages:
+        - category: net-libs
+          name: libtirpc
   uses:
     disabled:
     - atm
