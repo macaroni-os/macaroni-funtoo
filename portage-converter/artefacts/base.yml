@@ -325,7 +325,6 @@ artefacts:
   - app-eselect/eselect-python
   - app-eselect/eselect-rust
   - app-eselect/eselect-vi
-  - app-misc/c_rehash
   - app-misc/ca-certificates
   - app-misc/mime-types
   - app-portage/elt-patches
@@ -1556,6 +1555,11 @@ artefacts:
   packages:
   - app-text/xmlto
 - tree: packages/atoms/base
+  mutations:
+    provides:
+      - name: c_rehash
+        version: '>=0'
+        category: app-misc
   uses:
     disabled:
     - bindist
