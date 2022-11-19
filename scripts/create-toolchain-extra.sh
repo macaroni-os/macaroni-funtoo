@@ -11,6 +11,7 @@ kits=(
   "telemetry"
   "java"
   "xorg"
+  "tools"
 )
 
 for i in ${kits[@]} ; do
