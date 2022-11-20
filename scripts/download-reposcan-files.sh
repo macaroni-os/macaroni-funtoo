@@ -7,41 +7,41 @@ CDN_PREFIX=${CDN_PREFIX:-https://images.macaroni.funtoo.org}
 STABLE=${STABLE:-1}
 
 KITS=(
-  "browser-kit-1.4-release"
-  "core-gl-kit-2.0-release"
-  "core-hw-kit-1.4-release"
-  "core-kit-1.4-release"
-  "core-server-kit-1.4-release"
-  "desktop-kit-1.4-release"
-  "dev-kit-1.4-release"
-  "editors-kit-1.4-release"
-  "games-kit-1.4-release"
-  "gnome-kit-3.36-prime"
-  "haskell-kit-1.4-release"
-  "java-kit-1.4-release"
-  "kde-kit-5.20-release"
-  "lang-kit-1.4-release"
-  "lisp-scheme-kit-1.4-release"
-  "llvm-kit-1.4-release"
-  "mate-kit-1.24-prime"
-  "media-kit-1.4-release"
-  "ml-lang-kit-1.4-release"
-  "net-kit-1.4-release"
-  "nokit-1.4-release"
-  "perl-kit-5.32-release"
-  "python-kit-3.7-release"
-  "python-modules-kit-1.4-release"
-  "qt-kit-5.15.2-release"
-  "ruby-kit-2.7-prime"
-  "science-kit-1.4-release"
-  "security-kit-1.4-release"
-  "text-kit-1.4-release"
-  "xfce-kit-4.16-release"
+  "browser-kit-next"
+  "core-gl-kit-next"
+  "core-hw-kit-next"
+  "core-kit-next"
+  "core-server-kit-next"
+  "desktop-kit-next"
+  "dev-kit-next"
+  "editors-kit-next"
+  "games-kit-next"
+  "geaaru-kit-funtoo"
+  "gnome-kit-next-3.36-prime"
+  "haskell-kit-next"
+  "java-kit-next"
+  "kde-kit-next-5.24-release"
+  "lang-kit-next"
+  "lisp-scheme-kit-next"
+  "llvm-kit-next"
+  "mate-kit-next-1.24-prime"
+  "media-kit-next"
+  "ml-lang-kit-next"
+  "net-kit-next"
+  "perl-kit-next"
+  "python-kit-next"
+  "python-modules-kit-next"
+  "qt-kit-next-5.15.2-release"
+  "ruby-kit-next"
+  "science-kit-next"
+  "security-kit-next"
+  "text-kit-next"
+  "xfce-kit-next-4.16-release"
 )
 
-NAMESPACE=macaroni-funtoo-dev-reposcan
+NAMESPACE=macaroni-terragon-dev-reposcan
 if [ "$STABLE" = "1" ] ; then
-  NAMESPACE=macaroni-funtoo-reposcan
+  NAMESPACE=macaroni-terragon-reposcan
 fi
 
 mkdir -p ./kit_cache
