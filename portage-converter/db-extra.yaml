@@ -355,29 +355,29 @@ artefacts:
   packages:
     - dev-db/redis
 
-#- tree: packages/atoms-extra/db
-#  uses:
-#    disabled:
-#      - jemalloc
-#      - system-boot
-#      - systemd
-#  annotations:
-#    subsets:
-#      rules:
-#        devel:
-#          - "^/usr/include/"
-#        portage:
-#          - "^/var/db/pkg/"
-#  packages:
-#    - dev-db/arangodb:3
-#  finalizer:
-#    shell:
-#      - "/bin/bash"
-#      - "-c"
-#    install:
-#      - >-
-#        entities merge --specs-dir /usr/share/macaroni/entities/
-#        -e arangodb3
+- tree: packages/atoms-extra/db
+  uses:
+    disabled:
+      - jemalloc
+      - system-boot
+      - systemd
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  packages:
+    - dev-db/arangodb:3
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e arangodb3
 
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
