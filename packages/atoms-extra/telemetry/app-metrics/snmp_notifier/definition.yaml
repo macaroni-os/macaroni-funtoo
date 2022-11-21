@@ -1,0 +1,21 @@
+name: snmp_notifier
+version: 1.0.0
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A webhook to relay Prometheus alerts as SNMP traps
+uri:
+- https://github.com/maxwo/snmp_notifier
+license: Apache-2.0
+labels:
+  DEPEND: virtual/pkgconfig sys-apps/shadow
+  emerge.packages: app-metrics/snmp_notifier
+  kit: geaaru-kit
+  original.package.name: app-metrics/snmp_notifier
+  original.package.slot: "0"
+  original.package.version: 1.0.0
