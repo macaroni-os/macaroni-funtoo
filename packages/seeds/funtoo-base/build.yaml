@@ -94,6 +94,30 @@ prelude:
   cp -rvf patches/gnome-music/files /var/git/meta-repo/kits/gnome-kit/media-sound/gnome-music/ &&
   cp -vf patches/gnome-music/gnome-music-3.36.6.ebuild /var/git/meta-repo/kits/gnome-kit/media-sound/gnome-music/
 
+# Fix dconf
+- >-
+  sed -i -e 's|-Denable-man=true|$(meson_use man)|g' -e 's|^IUSE=.*|IUSE="+man"|g' /var/git/meta-repo/kits/gnome-kit/gnome-base/dconf/dconf-0.36.0.ebuild
+
+# Fix gnome-session
+- >-
+  cp -rvf patches/gnome-session/* /var/git/meta-repo/kits/gnome-kit/gnome-base/gnome-session/
+
+# Fix gnome-weather
+- >-
+  cp -rvf patches/gnome-weather/* /var/git/meta-repo/kits/gnome-kit/gnome-extra/gnome-weather/
+
+# Fix graphene
+- >-
+  sed -i -e '/-Dbenchmarks=false/d' /var/git/meta-repo/kits/media-kit/media-libs/graphene/graphene-1.10.0.ebuild
+
+# Fix sys-apps/accountsservice
+- >-
+  cp -rvf patches/accountsservice/* /var/git/meta-repo/kits/gnome-kit/sys-apps/accountsservice/
+
+# Fix gnome-bluetooth
+- >-
+  cp -rvf patches/gnome-bluetooth/* /var/git/meta-repo/kits/gnome-kit/net-wireless/gnome-bluetooth/
+
 - >-
   sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
 - >-
