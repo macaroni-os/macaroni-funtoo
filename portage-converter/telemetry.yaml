@@ -134,6 +134,18 @@ artefacts:
       - debug
       - test
   packages:
+    - app-metrics/snmp_notifier
+
+- tree: packages/atoms-extra/telemetry
+  uses:
+    disabled:
+      - sasl
+      - libressl
+      - examples
+      - static-libs
+      - debug
+      - test
+  packages:
     - app-metrics/node_exporter-bin
   finalizer:
     shell:
