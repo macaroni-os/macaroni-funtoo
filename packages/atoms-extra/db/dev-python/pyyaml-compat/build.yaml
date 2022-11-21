@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporay fix until the tree is updated
+- >-
+  sed -i -e 's|!<dev-python/pyyaml-6.0.0|!<dev-python/pyyaml-6.0|g'
+  /var/git/meta-repo/kits/python-modules-kit/dev-python/pyyaml-compat/pyyaml-compat-5.4.1.ebuild
+
 - |
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
