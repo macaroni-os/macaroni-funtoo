@@ -1,0 +1,18 @@
+--- a/data/meson.build.old	2022-11-20 18:27:37.211562360 -0000
++++ b/data/meson.build	2022-11-20 18:29:02.131558792 -0000
+@@ -33,7 +33,6 @@
+   endif
+ 
+   desktop_target = i18n.merge_file(
+-    desktop,
+     type: 'desktop',
+     input: desktop_in,
+     output: desktop,
+@@ -61,7 +60,6 @@
+   )
+ 
+   i18n.merge_file(
+-    session,
+     type: 'desktop',
+     input: desktop_in,
+     output: session,
