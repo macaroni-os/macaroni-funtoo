@@ -46,7 +46,7 @@ prelude:
   /var/git/meta-repo/kits/media-kit/media-fonts/noto/noto-20220613.ebuild &&
   cd /var/git/meta-repo/kits/media-kit/media-fonts/noto &&
   rm Manifest &&
-  ebuild /var/git/meta-repo/kits/media-kit/media-fonts/noto/noto-20220613.ebuild digest
+  ebuild /var/git/meta-repo/kits/media-kit/media-fonts/noto/noto-20220613.ebuild digest && cd -
 
 - >-
   cp -rvf patches/babl/files /var/git/meta-repo/kits/gnome-kit/media-libs/babl/ &&
@@ -117,6 +117,43 @@ prelude:
 # Fix gnome-bluetooth
 - >-
   cp -rvf patches/gnome-bluetooth/* /var/git/meta-repo/kits/gnome-kit/net-wireless/gnome-bluetooth/
+
+# Fix gvfs
+- >-
+  cp -rvf patches/gvf/* /var/git/meta-repo/kits/gnome-kit/gnome-base/gvfs/
+
+# Fix gnome-backgrounds
+- cp -rvf patches/gnome-backgrounds/* /var/git/meta-repo/kits/gnome-kit/x11-themes/gnome-backgrounds/
+
+# Update gstreams-meson.eclass
+- cp -vf patches/eclass/* /var/git/meta-repo/kits/core-kit/eclass/
+
+# dconf-editor
+- cp -rvf patches/dconf-editor/* /var/git/meta-repo/kits/gnome-kit/gnome-base/dconf-editor/
+
+# gnome-dictionary
+- cp -rvf patches/gnome-dictionary/* /var/git/meta-repo/kits/gnome-kit/app-dicts/gnome-dictionary/
+
+# gnome-font-viewer
+- cp -rvf patches/gnome-font-viewer/* /var/git/meta-repo/kits/gnome-kit/media-gfx/gnome-font-viewer/
+
+# nautilus-sendto
+- cp -rvf patches/nautilus-sendto/* /var/git/meta-repo/kits/gnome-kit/gnome-extra/nautilus-sendto/
+
+# tali
+- cp -rvf patches/tali/* /var/git/meta-repo/kits/gnome-kit/games-board/tali/
+
+# hitori
+- cp -rvf patches/hitori/* /var/git/meta-repo/kits/gnome-kit/games-puzzle/hitori/
+
+# gnome-characters
+- cp -rvf patches/gnome-characters/* /var/git/meta-repo/kits/gnome-kit/gnome-extra/gnome-characters/
+
+  # gnome-screenshot (todo: fix gnome3_icon_cache_update)
+- cp -rvf patches/gnome-screenshot/* /var/git/meta-repo/kits/gnome-kit/media-gfx/gnome-screenshot/
+
+# gnome-sound-recorder
+- cp -rvf patches/gnome-sound-recorder/* /var/git/meta-repo/kits/gnome-kit/media-sound/gnome-sound-recorder/
 
 - >-
   sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
