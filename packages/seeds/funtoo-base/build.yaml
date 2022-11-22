@@ -120,7 +120,7 @@ prelude:
 
 # Fix gvfs
 - >-
-  cp -rvf patches/gvf/* /var/git/meta-repo/kits/gnome-kit/gnome-base/gvfs/
+  cp -rvf patches/gvfs/* /var/git/meta-repo/kits/gnome-kit/gnome-base/gvfs/
 
 # Fix gnome-backgrounds
 - cp -rvf patches/gnome-backgrounds/* /var/git/meta-repo/kits/gnome-kit/x11-themes/gnome-backgrounds/
@@ -154,6 +154,13 @@ prelude:
 
 # gnome-sound-recorder
 - cp -rvf patches/gnome-sound-recorder/* /var/git/meta-repo/kits/gnome-kit/media-sound/gnome-sound-recorder/
+
+# gnome-mahjongg
+- cp -rvf patches/gnome-mahjongg/* /var/git/meta-repo/kits/gnome-kit/games-board/gnome-mahjongg/
+# gnome-mines
+- cp -rvf patches/gnome-mines/* /var/git/meta-repo/kits/gnome-kit/games-board/gnome-mines/
+# gnome-tetravex
+- cp -rvf patches/gnome-tetravex/* /var/git/meta-repo/kits/gnome-kit/games-puzzle/games-tetravex/
 
 - >-
   sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
