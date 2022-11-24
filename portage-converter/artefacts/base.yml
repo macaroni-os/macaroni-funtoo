@@ -948,6 +948,14 @@ artefacts:
     - xattr
   packages:
   - sys-apps/portage
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e portage
 
 - tree: packages/atoms/base
   uses:
