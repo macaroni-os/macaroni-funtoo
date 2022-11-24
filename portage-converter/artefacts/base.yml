@@ -1065,6 +1065,11 @@ artefacts:
   - app-shells/bash
 
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
   uses:
     disabled:
     - nios2
@@ -1081,6 +1086,15 @@ artefacts:
     - python_targets_python3_9
   packages:
   - app-admin/ego
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      # ego use sync user when executed as root.
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e sync
 
 - tree: packages/atoms/base
   uses:
