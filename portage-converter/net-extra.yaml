@@ -85,6 +85,15 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - app-crypt/libmd
+
+- tree: packages/atoms-extra/net
   packages:
     - sys-apps/ethtool
     - net-analyzer/arpwatch
@@ -92,6 +101,7 @@ artefacts:
     - net-analyzer/tcptrace
     - net-wireless/wireless-tools
     - net-vpn/wireguard-tools
+    - dev-libs/libbsd
 
 - tree: packages/atoms-extra/net
   uses:
