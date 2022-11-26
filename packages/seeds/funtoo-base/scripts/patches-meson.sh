@@ -112,5 +112,7 @@ cp -rvf patches/gnome-settings-daemon/* /var/git/meta-repo/kits/gnome-kit/gnome-
 cp -rvf patches/gnome-disk-utility/* /var/git/meta-repo/kits/gnome-kit/sys-apps/gnome-disk-utility/
 # cheese
 cp -rvf patches/cheese/* /var/git/meta-repo/kits/gnome-kit/media-video/cheese/
+# gnome2048
+cp -rvf patches/gnome2048/* /var/git/meta-repo/kits/gnome-kit/games-puzzle/gnome2048/
 
 sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
