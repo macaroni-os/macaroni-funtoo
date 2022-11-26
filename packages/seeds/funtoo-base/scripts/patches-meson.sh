@@ -110,5 +110,7 @@ cp -rvf patches/bijiben/* /var/git/meta-repo/kits/gnome-kit/app-misc/bijiben/
 cp -rvf patches/gnome-settings-daemon/* /var/git/meta-repo/kits/gnome-kit/gnome-base/gnome-settings-daemon/
 # gnome-disk-utility
 cp -rvf patches/gnome-disk-utility/* /var/git/meta-repo/kits/gnome-kit/sys-apps/gnome-disk-utility/
+# cheese
+cp -rvf patches/cheese/* /var/git/meta-repo/kits/gnome-kit/media-video/cheese/
 
 sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
