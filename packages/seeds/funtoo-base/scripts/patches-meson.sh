@@ -118,5 +118,7 @@ cp -rvf patches/gnome2048/* /var/git/meta-repo/kits/gnome-kit/games-puzzle/gnome
 cp -rvf patches/gnome-maps/* /var/git/meta-repo/kits/gnome-kit/sci-geosciences/gnome-maps/
 # gnome-photos
 cp -rvf patches/gnome-photos/* /var/git/meta-repo/kits/gnome-kit/media-gfx/gnome-photos/
+# gnome-documents
+cp -rvf patches/gnome-documents/* /var/git/meta-repo/kits/gnome-kit/gnome-extra/gnome-documents/
 
 sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
