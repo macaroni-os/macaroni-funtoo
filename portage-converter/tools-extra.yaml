@@ -255,6 +255,18 @@ artefacts:
 #    - app-misc/neofetch
 
 - tree: packages/atoms-extra/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race10
+    uses:
+      # Disable for now. See FL-10767
+      - "-doc"
+  packages:
+    - app-arch/upx-bin
+
+- tree: packages/atoms-extra/tools
   packages:
     - media-gfx/ascii-image-converter
     - sys-apps/fchroot
