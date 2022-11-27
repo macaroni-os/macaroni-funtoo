@@ -120,5 +120,7 @@ cp -rvf patches/gnome-maps/* /var/git/meta-repo/kits/gnome-kit/sci-geosciences/g
 cp -rvf patches/gnome-photos/* /var/git/meta-repo/kits/gnome-kit/media-gfx/gnome-photos/
 # gnome-documents
 cp -rvf patches/gnome-documents/* /var/git/meta-repo/kits/gnome-kit/gnome-extra/gnome-documents/
+# gnome-control-center
+cp -rvf patches/gnome-control-center/* /var/git/meta-repo/kits/gnome-kit/gnome-base/gnome-control-center/
 
 sed -i -e 's|enable-introspection|introspection|g' /var/git/meta-repo/kits/gnome-kit/app-text/libgepub/libgepub-0.6.0.ebuild
