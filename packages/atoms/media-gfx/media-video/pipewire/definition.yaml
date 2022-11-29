@@ -1,5 +1,5 @@
 name: pipewire
-version: 0.3.59
+version: 0.3.61
 category: media-video
 use_flags:
 - -bluetooth
@@ -69,7 +69,7 @@ labels:
     !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7
     !media-plugins/alsa-plugins[pulseaudio] ) !pipewire-alsa? ( media-plugins/alsa-plugins[pulseaudio]
     ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
-    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi )
+    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi ) >=sys-kernel/linux-headers-4.19-r1
   IUSE: bluetooth doc echo-cancel extra gstreamer jack-client jack-sdk lv2 pipewire-alsa
     ssl systemd test v4l X zeroconf examples
   RDEPEND: media-libs/alsa-lib sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=[unicode(+)]
@@ -86,4 +86,4 @@ labels:
   kit: gnome-kit
   original.package.name: media-video/pipewire
   original.package.slot: "0"
-  original.package.version: 0.3.59
+  original.package.version: 0.3.61
