@@ -6123,6 +6123,22 @@ artefacts:
   packages:
   - app-text/gspell
   - gui-libs/tepl:4
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - abi_x86_64
+  packages:
+  - app-crypt/libmd
 - tree: packages/atoms/base
   uses:
     disabled:
