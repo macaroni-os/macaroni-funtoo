@@ -55,6 +55,7 @@ artefacts:
       - >-
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e mysql
+
 - tree: packages/atoms/server
   mutations:
     runtime_deps:
@@ -69,8 +70,6 @@ artefacts:
           name: psutil
         - category: dev-python
           name: cheetah3
-        - category: dev-util
-          name: scons
   uses:
     enabled:
       - python_targets_python3_7
