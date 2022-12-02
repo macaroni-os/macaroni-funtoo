@@ -57,7 +57,8 @@ steps:
   eselect gcc set 1 &&
   eselect binutils set 1 &&
   mkdir -p /var/lib/portage &&
-  cp -rvf patches/* /var/git/meta-repo/kits/python-modules-kit/dev-python/tempita/ &&
+  rm -rf /var/git/meta-repo/kits/python-modules-kit/dev-python/automat/* &&
+  cp -rvf patches/automat* /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
   mkdir -p /etc/portage/package.use &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   epro list &&
