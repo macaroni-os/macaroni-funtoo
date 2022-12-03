@@ -3,17 +3,21 @@ version: 0.4.6
 category: dev-python
 use_flags:
 - -python_targets_pypy3
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: python
+- name: colorama-compat
   version: '>=0'
-  category: dev-lang-2.7
-- name: python-exec
+  category: dev-python
+- name: gpep517
   version: '>=0'
-  category: dev-lang-2
+  category: dev-python
+- name: hatchling
+  version: '>=0'
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -21,9 +25,8 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: ANSI escape character sequences for colored terminal text & cursor positioning
 uri:
-- https://github.com/tartley/colorama https://pypi.org/project/colorama/
+- https://pypi.org/project/colorama/
 license: BSD
 labels:
   BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
