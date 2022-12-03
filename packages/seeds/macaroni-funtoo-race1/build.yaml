@@ -58,7 +58,9 @@ steps:
   eselect binutils set 1 &&
   mkdir -p /var/lib/portage &&
   rm -rf /var/git/meta-repo/kits/python-modules-kit/dev-python/automat/* &&
+  rm -rf /var/git/meta-repo/kits/python-modules-kit/dev-python/dnspython/* &&
   cp -rvf patches/automat* /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
+  cp -rvf patches/dnspython* /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
   mkdir -p /etc/portage/package.use &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   epro list &&
