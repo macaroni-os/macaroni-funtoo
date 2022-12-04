@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary patch
+- >-
+  sed -i -e '/-6.21.04-no-nls.patch/d' -e '/-6.24.01-use-autoconf-2.69.patch/d'
+  /var/git/meta-repo/kits/core-kit/app-shells/tcsh/tcsh-6.24.02.ebuild
+
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
