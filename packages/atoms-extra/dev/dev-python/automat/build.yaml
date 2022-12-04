@@ -8,7 +8,8 @@ env:
 prelude:
 - >-
   rm -rf /var/git/meta-repo/kits/python-modules-kit/dev-python/automat/* &&
-  cp -rvf patches/automat* /var/git/meta-repo/kits/python-modules-kit/dev-python/
+  cp -rvf patches/automat* /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
+  emerge docutils -t
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
