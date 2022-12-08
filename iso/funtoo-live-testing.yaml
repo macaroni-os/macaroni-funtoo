@@ -15,21 +15,30 @@ packages:
   - virtual/openrc
   - virtual/gnome
   - virtual/grub
-  - virtual/macaroni-kernel-lts
+  #- virtual/macaroni-kernel-lts
+  - kernel-5.15/macaroni-lts-full
+  - kernel-5.15/macaroni-lts-modules
+
 
   - virtual-entities/base
 
   - www-client/firefox-bin
-  - kernel/macaroni-lts-initramfs
+  #- kernel/macaroni-lts-initramfs
+  - kernel-5.15/macaroni-lts-initramfs
   - gnome-base/gnome
 
   - app-editors/vim
 
   # Extra kernel modules
-  - sys-fs-5.10/zfs-kmod
-  - kernel-5.10/rtw89
-  - kernel-5.10/virtualbox-guest-additions
-  - x11-drivers-5.10/nvidia-kernel-modules
+  #- sys-fs-5.10/zfs-kmod
+  #- kernel-5.10/rtw89
+  #- kernel-5.10/virtualbox-guest-additions
+  #- x11-drivers-5.10/nvidia-kernel-modules
+
+  - sys-fs-5.15/zfs-kmod
+  - kernel-5.15/rtw89
+  - kernel-5.15/virtualbox-guest-additions
+  - x11-drivers-5.15/nvidia-kernel-modules
   - sys-kernel/linux-firmware
   - sys-kernel/dracut
   - sys-fs/mdadm
