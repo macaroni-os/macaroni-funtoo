@@ -1,5 +1,5 @@
 name: pinentry
-version: 1.1.1
+version: 1.2.1
 category: app-crypt
 use_flags:
 - -caps
@@ -36,17 +36,16 @@ labels:
   BDEPEND: sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
     !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
     ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-  DEPEND: '>=app-eselect/eselect-pinentry-0.7.2 >=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3
-    >=dev-libs/libgpg-error-1.17 caps? ( sys-libs/libcap ) efl? ( dev-libs/efl[X]
-    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:0= ) qt5?
-    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )'
+  DEPEND: dev-libs/libassuan dev-libs/libgcrypt dev-libs/libgpg-error efl? ( dev-libs/efl[X]
+    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5?
+    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
   IUSE: caps efl emacs gnome-keyring gtk ncurses qt5
-  RDEPEND: '>=app-eselect/eselect-pinentry-0.7.2 >=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3
-    >=dev-libs/libgpg-error-1.17 caps? ( sys-libs/libcap ) efl? ( dev-libs/efl[X]
-    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:0= ) qt5?
-    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) gtk? ( app-crypt/gcr )'
+  RDEPEND: dev-libs/libassuan dev-libs/libgcrypt dev-libs/libgpg-error efl? ( dev-libs/efl[X]
+    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5?
+    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) gtk? ( app-crypt/gcr:0[gtk]
+    )
   emerge.packages: app-crypt/pinentry
   kit: core-kit
   original.package.name: app-crypt/pinentry
   original.package.slot: "0"
-  original.package.version: 1.1.1
+  original.package.version: 1.2.1
