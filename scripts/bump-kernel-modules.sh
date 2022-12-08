@@ -24,12 +24,26 @@ main () {
     lkrg
   )
 
+  common_modules=(
+    nvidia-drivers
+    zfs-common
+    virtualbox-modules
+  )
+
   for i in ${modules[@]} ; do
     if [ -d ${REPO_DIR}/packages/kernels/${BRANCH}/${i} ] ; then
       yq w -i ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml 'labels.[kernel.version]' ${RELEASE}
       luet-build tree bump -f ${REPO_DIR}/packages/kernels/${BRANCH}/${i}/definition.yaml
     fi
   done
+
+  if [ ${BRANCH} = "5.10" ] ; then
+    for i in ${common_modules[@]} ; do
+      if [ -d ${REPO_DIR}/packages/kernels/common/${i} ] ; then
+        luet-build tree bump -f ${REPO_DIR}/packages/kernels/common/${i}/definition.yaml
+      fi
+    done
+  fi
 }
 
 main $@
