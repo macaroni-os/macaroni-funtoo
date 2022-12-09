@@ -22,7 +22,12 @@ steps:
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
   luet-portage --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
-
+# It seems that the compression is not handled correct from the ebuild
+# I run manually compression for every module
+- >-
+  for i in /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/video/*.ko ; do
+  zstd ${i} -o ${i}.zst --rm ;
+  done
 excludes:
 # Funtoo/Portage stuff
 - ^/var/db/pkg/
