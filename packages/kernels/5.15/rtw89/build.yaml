@@ -25,3 +25,10 @@ steps:
   cd {{ .Values.name }} &&
   sed -e 's|^MODDESTDIR.*|MODDESTDIR := /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/kernel/drivers/net/wireless/realtek/rtw89/|g' -i Makefile &&
   make install
+
+# It seems that the compression is not handled correct from the ebuild
+# I run manually compression for every module
+- >-
+  for i in /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/kernel/drivers/net/wireless/realtek/rtw89/*.ko ; do
+  zstd ${i} -o ${i}.zst --rm ;
+  done
