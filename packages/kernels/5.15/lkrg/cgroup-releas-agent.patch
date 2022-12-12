@@ -1,0 +1,20 @@
+commit 264747411860f6ef5ce7979ee054e0b72a9e83c9
+Author: mrl5 <31549762+mrl5@users.noreply.github.com>
+Date:   Mon Sep 5 21:11:11 2022 +0200
+
+    fix: umh - allow openrc cgroup release agent [#230]
+    
+    closes #230
+
+diff --git a/src/modules/exploit_detection/syscalls/p_call_usermodehelper/p_call_usermodehelper.c b/src/modules/exploit_detection/syscalls/p_call_usermodehelper/p_call_usermodehelper.c
+index 43d9b3f..7e3f335 100644
+--- a/src/modules/exploit_detection/syscalls/p_call_usermodehelper/p_call_usermodehelper.c
++++ b/src/modules/exploit_detection/syscalls/p_call_usermodehelper/p_call_usermodehelper.c
+@@ -44,6 +44,7 @@ static const char * const p_umh_global[] = {
+    "/bin/true",
+    "/etc/acpi/events/RadioPower.sh",
+    "/etc/acpi/wireless-rtl-ac-dc-power.sh",
++   "/lib/rc/sh/cgroup-release-agent.sh",
+    "/lib/systemd/systemd-cgroups-agent",
+    "/lib/systemd/systemd-coredump",
+    "/sbin/bridge-stp",
