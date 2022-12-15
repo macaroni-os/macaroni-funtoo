@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Using last version because 4.3.4 is broken
+- >-
+  cd /var/git/meta/kits/net-kit/net-im/telegram-desktop-bin &&
+  rm *.ebuild &&
+  wget https://raw.githubusercontent.com/funtoo/net-kit/1.4-release/net-im/telegram-desktop-bin/telegram-desktop-bin-4.4.1.ebuild &&
+  ebuild telegram-desktop-bin-4.4.1.ebuild digest
+
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
