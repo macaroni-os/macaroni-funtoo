@@ -15,6 +15,8 @@ kits=(
   "audio"
   "security"
   "xfce"
+  "web"
+  "php-dev"
 )
 
 for i in ${kits[@]} ; do
