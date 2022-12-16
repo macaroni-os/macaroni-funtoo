@@ -30,7 +30,10 @@ RUN virtual-entities/base
 
 SHELL ["/bin/bash", "-c"]
 
-RUN luet rm -y system/entities macaroni/entities-catalog && \
+RUN luet i -y app-admin/macaronictl && \
+  macaronictl env-update && \
+  luet rm -y system/entities macaroni/entities-catalog app-admin/macaronictl && \
+  mkdir /tmp && \
   luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
