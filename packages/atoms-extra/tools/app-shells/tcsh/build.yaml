@@ -1,4 +1,7 @@
 prelude:
+# Temporary fix until the tree is updated
+- >-
+  sed -i -e 's|NewThings||g' /var/git/meta-repo/kits/core-kit/app-shells/tcsh/*.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
