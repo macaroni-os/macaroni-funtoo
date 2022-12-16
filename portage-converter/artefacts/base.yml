@@ -1347,6 +1347,12 @@ artefacts:
   packages:
   - app-accessibility/flite
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        # Temporary fix for luet-portage-converter issue.
+        - category: x11-libs
+          name: libXt
   uses:
     disabled:
     - cscope
@@ -1365,6 +1371,7 @@ artefacts:
     - vim-pager
     enabled:
     - X
+    - crypt
     - acl
     - gpm
     - nls
