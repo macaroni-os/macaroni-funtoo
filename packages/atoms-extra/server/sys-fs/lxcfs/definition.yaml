@@ -1,5 +1,5 @@
 name: lxcfs
-version: 4.0.12
+version: 5.0.2
 category: sys-fs
 requires:
 - name: fuse
@@ -17,13 +17,11 @@ uri:
 - https://linuxcontainers.org/lxcfs/introduction/ https://github.com/lxc/lxcfs/
 license: Apache-2.0 LGPL-2+
 labels:
-  BDEPEND: sys-apps/help2man >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+  BDEPEND: sys-apps/help2man dev-python/jinja >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
   DEPEND: sys-fs/fuse:3
   RDEPEND: sys-fs/fuse:3
   emerge.packages: sys-fs/lxcfs
   kit: core-kit
   original.package.name: sys-fs/lxcfs
   original.package.slot: "0"
-  original.package.version: 4.0.12
+  original.package.version: 5.0.2
