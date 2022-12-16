@@ -49,6 +49,7 @@ steps:
   toolchain/extra-security
   toolchain/extra-xfce
   toolchain/extra-php-dev
+  app-admin/macaronictl
   dev-util/pkgs-checker-minimal
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
@@ -70,10 +71,9 @@ steps:
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
   epro list &&
+  macaronictl env-update
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
-  env-update &&
-  ldconfig &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   cd / && rm -rf /luetbuild &&
