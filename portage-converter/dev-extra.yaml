@@ -131,7 +131,6 @@ artefacts:
   packages:
     - dev-python/automat
     - dev-python/pyserial
-    - dev-python/cffi
     - dev-python/mistune
 
 - tree: packages/atoms-extra/dev
@@ -171,16 +170,6 @@ artefacts:
       - python_targets_python2_7
   packages:
     - dev-python/m2r
-    - dev-python/cffi
-
-- tree: packages/atoms-extra/dev
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: cffi
-  packages:
-    - virtual/python-cffi-0
 
 - tree: packages/atoms-extra/dev
   mutations:
@@ -191,6 +180,7 @@ artefacts:
   packages:
     - app-text/discount
     - net-misc/ipcalc
+    - virtual/python-cffi-0
 
 - tree: packages/atoms-extra/dev
   mutations:
@@ -369,8 +359,6 @@ artefacts:
     buildtime_deps:
       packages:
         - name: pathspec
-          category: dev-python
-        - name: pluggy
           category: dev-python
   packages:
     - dev-python/hatchling
