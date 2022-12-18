@@ -2,11 +2,11 @@ name: libcanberra
 version: 0.30+4
 category: media-libs
 use_flags:
+- -gtk2
 - -tdb
 - alsa
 - gnome
 - gstreamer
-- gtk
 - gtk3
 - pulseaudio
 - sound
@@ -18,6 +18,9 @@ requires:
 - name: gsettings-desktop-schemas
   version: '>=0'
   category: gnome-base
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
 - name: gstreamer
   version: '>=0'
   category: media-libs-1.0
@@ -30,6 +33,12 @@ requires:
 - name: libudev
   version: '>=0'
   category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libX11
+  version: '>=0'
+  category: x11-libs
 - name: sound-theme-freedesktop
   version: '>=0'
   category: x11-themes
@@ -42,7 +51,7 @@ annotations:
       - ^/var/db/pkg/
 description: Portable sound event library
 uri:
-- http://git.0pointer.net/libcanberra.git/
+- http://0pointer.de/lennart/projects/libcanberra/
 license: LGPL-2.1+
 labels:
   BDEPEND: app-arch/xz-utils virtual/pkgconfig virtual/pkgconfig
