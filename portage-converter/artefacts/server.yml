@@ -313,6 +313,11 @@ artefacts:
   packages:
   - net-misc/ntp
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-libs-3
+          name: libnl
   uses:
     disabled:
     - debug
@@ -326,6 +331,7 @@ artefacts:
     - unicode
   packages:
   - sys-process/htop
+
 - tree: packages/atoms/server
   uses:
     disabled:
