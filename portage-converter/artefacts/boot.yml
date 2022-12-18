@@ -30,6 +30,15 @@ artefacts:
     provides:
       - category: utils
         name: grub2
+    runtime_deps:
+      packages:
+        - category: sys-fs
+          name: fuse
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: sys-fs-3
+          name: fuse
   uses:
     disabled:
     - device-mapper
