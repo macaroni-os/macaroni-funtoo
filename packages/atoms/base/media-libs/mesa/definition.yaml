@@ -37,6 +37,9 @@ requires:
 - name: libglvnd
   version: '>=0'
   category: media-libs
+- name: llvm
+  version: '>=0'
+  category: sys-devel-11
 - name: zlib
   version: '>=0'
   category: sys-libs
@@ -105,11 +108,9 @@ labels:
     ) video_cards_gallium-i915? ( x11-libs/libdrm[video_cards_intel] ) video_cards_i915?
     ( x11-libs/libdrm[video_cards_intel] ) llvm? ( sys-devel/llvm:11= ) >=dev-util/meson-0.48.1
     opencl? ( >=sys-devel/gcc-4.6 ) sys-devel/gettext virtual/pkgconfig valgrind?
-    ( dev-util/valgrind ) sys-devel/bison sys-devel/flex || ( ( dev-lang/python:3.8
-    dev-python/importlib_metadata[python_targets_python3_8(-),python_single_target_python3_8(+)]
-    ) ( dev-lang/python:3.9 dev-python/importlib_metadata[python_targets_python3_9(-),python_single_target_python3_9(+)]
-    ) ( dev-lang/python:3.7 dev-python/importlib_metadata[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) || ( ( dev-lang/python:3.8 >=dev-python/mako-1.0.7[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ( dev-util/valgrind ) sys-devel/bison sys-devel/flex || ( ( dev-lang/python:3.10
+    >=dev-python/mako-1.0.7[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 >=dev-python/mako-1.0.7[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 >=dev-python/mako-1.0.7[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 >=dev-python/mako-1.0.7[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 !!sys-devel/llvm:0'
