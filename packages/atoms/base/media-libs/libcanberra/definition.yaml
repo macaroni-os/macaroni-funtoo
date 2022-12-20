@@ -2,11 +2,11 @@ name: libcanberra
 version: 0.30+4
 category: media-libs
 use_flags:
-- -gtk2
 - -tdb
 - alsa
 - gnome
 - gstreamer
+- gtk2
 - gtk3
 - pulseaudio
 - sound
@@ -33,6 +33,9 @@ requires:
 - name: libudev
   version: '>=0'
   category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
