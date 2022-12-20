@@ -505,6 +505,11 @@ artefacts:
 
 - tree: packages/atoms-extra/tools
   mutations:
+    runtime_deps:
+      packages:
+        - category: sys-libs
+          name: libunwind
+  mutations:
     uses:
       - -modules
   uses:
@@ -522,11 +527,6 @@ artefacts:
     - net-misc/openvswitch
 
 - tree: packages/atoms-extra/tools
-  mutations:
-    runtime_deps:
-      packages:
-        - category: sys-libs
-          name: libunwind
   uses:
     disabled:
       - debug
