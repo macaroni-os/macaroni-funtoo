@@ -1,0 +1,27 @@
+name: evisum
+version: 0.6.0
+category: sys-process
+requires:
+- name: efl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: System and process monitor written with EFL
+uri:
+- https://www.enlightenment.org/
+license: GPL-2 ISC
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: dev-libs/efl dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: '|| ( dev-libs/efl[X] dev-libs/efl[wayland] )'
+  emerge.packages: sys-process/evisum
+  kit: desktop-kit
+  original.package.name: sys-process/evisum
+  original.package.slot: "0"
+  original.package.version: 0.6.0
