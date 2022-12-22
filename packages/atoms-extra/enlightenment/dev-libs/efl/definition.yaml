@@ -1,10 +1,11 @@
 name: efl
-version: 1.26.3
+version: 1.26.3+1
 category: dev-libs
 use_flags:
 - -avif
 - -connman
 - -doc
+- -drm
 - -elogind
 - -fribidi
 - -gles2-only
@@ -21,9 +22,9 @@ use_flags:
 - -tslib
 - -unwind
 - -vnc
+- -wayland
 - -xpresent
 - X
-- drm
 - fontconfig
 - gstreamer
 - jpeg2k
@@ -41,7 +42,6 @@ use_flags:
 - system-lz4
 - tiff
 - v4l
-- wayland
 - webp
 - xpm
 - zeroconf
@@ -59,9 +59,6 @@ requires:
   version: '>=0'
   category: dev-libs
 - name: libinput
-  version: '>=0'
-  category: dev-libs
-- name: wayland
   version: '>=0'
   category: dev-libs
 - name: librsvg
@@ -91,13 +88,16 @@ requires:
 - name: libXcomposite
   version: '>=0'
   category: x11-libs
+- name: libXdamage
+  version: '>=0'
+  category: x11-libs
 - name: libXdmcp
   version: '>=0'
   category: x11-libs
 - name: libXpm
   version: '>=0'
   category: x11-libs
-- name: libdrm
+- name: libXrandr
   version: '>=0'
   category: x11-libs
 annotations:
