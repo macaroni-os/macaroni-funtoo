@@ -1,8 +1,9 @@
 name: enlightenment
-version: 0.25.4
+version: 0.25.4+1
 category: x11-wm-0.17
 use_flags:
 - -connman
+- -wayland
 - acpi
 - bluetooth
 - exif
@@ -11,7 +12,6 @@ use_flags:
 - pam
 - policykit
 - udisks
-- wayland
 - xwayland
 requires:
 - name: geoclue
@@ -35,7 +35,10 @@ requires:
 - name: acpid
   version: '>=0'
   category: sys-power
-- name: pixman
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
   version: '>=0'
   category: x11-libs
 - name: xcb-util-keysyms
