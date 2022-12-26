@@ -1,0 +1,31 @@
+name: libfakekey
+version: "0.1"
+category: x11-libs
+use_flags:
+- -doc
+requires:
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Helper library for the x11-misc/matchbox-keyboard package
+uri:
+- https://www.yoctoproject.org/tools-resources/projects/matchbox
+license: GPL-2
+labels:
+  DEPEND: x11-libs/libXtst doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: debug doc
+  RDEPEND: x11-libs/libXtst
+  emerge.packages: x11-libs/libfakekey
+  kit: desktop-kit
+  original.package.name: x11-libs/libfakekey
+  original.package.slot: "0"
+  original.package.version: 0.1-r3
