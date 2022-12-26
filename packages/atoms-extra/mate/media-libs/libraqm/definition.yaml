@@ -1,0 +1,41 @@
+name: libraqm
+version: 0.7.0
+category: media-libs
+use_flags:
+- -gtk-doc
+requires:
+- name: fribidi
+  version: '>=0'
+  category: dev-libs
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Raqm is a small library that encapsulates the logic for complex text
+  layout and provides a convenient API.
+uri:
+- https://host-oman.github.io/libraqm/
+license: MIT
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: media-libs/freetype media-libs/harfbuzz dev-libs/fribidi gtk-doc? ( dev-util/gtk-doc
+    )
+  IUSE: test gtk-doc
+  RDEPEND: media-libs/freetype media-libs/harfbuzz dev-libs/fribidi gtk-doc? ( dev-util/gtk-doc
+    )
+  emerge.packages: media-libs/libraqm
+  kit: media-kit
+  original.package.name: media-libs/libraqm
+  original.package.slot: "0"
+  original.package.version: 0.7.0
