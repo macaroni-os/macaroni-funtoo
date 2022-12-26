@@ -1,0 +1,70 @@
+name: dropbox
+version: 161.4.4923
+category: net-misc
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_8
+- -python_single_target_python3_9
+- gnome
+- python_single_target_python3_7
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: pygtk
+  version: '>=0'
+  category: dev-python-2
+- name: nautilus
+  version: '>=0'
+  category: gnome-base
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Dropbox command-line client and Funtoo-optimized installer with GUI setup
+uri:
+- http://dropbox.com/
+license: CC-BY-ND-3.0 FTL MIT LGPL-2 openssl dropbox
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 app-arch/xz-utils'
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) !gnome-extra/nautilus-dropbox gnome? ( gnome-base/nautilus dev-libs/glib dev-libs/libffi
+    dev-python/pygtk[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    x11-libs/gtk+ x11-libs/libnotify x11-libs/libXinerama ) gnome? ( virtual/pkgconfig
+    dev-python/docutils[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: gnome python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) !gnome-extra/nautilus-dropbox gnome? ( gnome-base/nautilus dev-libs/glib dev-libs/libffi
+    dev-python/pygtk[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    x11-libs/gtk+ x11-libs/libnotify x11-libs/libXinerama )
+  emerge.packages: net-misc/dropbox
+  kit: net-kit
+  original.package.name: net-misc/dropbox
+  original.package.slot: "0"
+  original.package.version: 161.4.4923
