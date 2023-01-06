@@ -1,4 +1,16 @@
 prelude:
+# The libxml2 python stuff are now installed under the directory
+# /usr/lib64/python3.7/ instead of /usr/lib/python3.7. This doesn't
+# permit a correct to find the libxml2 module correctly in Macaroni
+# because /usr/lib is not a symbolic link to /usr/lib64 like in Funtoo.
+# This workaround fix portage emerge until I will study a better
+# solution.
+- >-
+  echo "PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" > /etc/env.d/99python &&
+  echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" >> /etc/env.d/99python &&
+  macaronictl env-update &&
+  source /etc/profile
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
