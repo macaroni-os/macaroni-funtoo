@@ -55,6 +55,13 @@ steps:
   eselect kernel set 1 &&
   luet cleanup
 
+# The libxml2 python stuff are now installed under the directory
+# /usr/lib64/python3.7/ instead of /usr/lib/python3.7. This doesn't
+# permit a correct to find the libxml2 module correctly in Macaroni
+# because /usr/lib is not a symbolic link to /usr/lib64 like in Funtoo.
+# This workaround fix portage emerge until I will study a better
+# solution.
+
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
 # steps:
@@ -71,7 +78,10 @@ steps:
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
   epro list &&
-  macaronictl env-update
+  echo "PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" > /etc/env.d/99python &&
+  echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" >> /etc/env.d/99python &&
+  macaronictl env-update &&
+  source /etc/profile &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   eval 'locale-gen || true' &&
