@@ -4,6 +4,7 @@ prelude:
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
+  USE="static-libs" emerge x11-drivers/nvidia-drivers -j --nodeps && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
   {{- else }}
