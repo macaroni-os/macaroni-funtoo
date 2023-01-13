@@ -1,5 +1,5 @@
 name: util-linux
-version: 2.38.1
+version: 2.38.1+1
 category: sys-apps
 use_flags:
 - -audit
@@ -8,6 +8,7 @@ use_flags:
 - -kill
 - -magic
 - -python_targets_python3_10
+- -python_targets_python3_7
 - -python_targets_python3_8
 - -rtas
 - -selinux
@@ -21,14 +22,22 @@ use_flags:
 - nls
 - pam
 - python
-- python_targets_python3_7
 - python_targets_python3_9
 - readline
 requires:
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: libcap-ng
   version: '>=0'
   category: sys-libs
 - name: pam
+  version: '>=0'
+  category: sys-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+- name: zlib
   version: '>=0'
   category: sys-libs
 - name: libc
@@ -51,9 +60,9 @@ labels:
     ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
   DEPEND: virtual/libc:= audit? ( >=sys-process/audit-2.6:= ) caps? ( sys-libs/libcap-ng
     ) cramfs? ( sys-libs/zlib:= ) cryptsetup? ( sys-fs/cryptsetup ) hardlink? ( dev-libs/libpcre2:=
-    ) ncurses? ( sys-libs/ncurses:=[unicode(+)?] magic? ( sys-apps/file:0= ) ) nls?
-    ( virtual/libintl ) pam? ( sys-libs/pam ) python? ( python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ) ncurses? ( sys-libs/ncurses:= magic? ( sys-apps/file:0= ) ) nls? ( virtual/libintl
+    ) pam? ( sys-libs/pam ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     ) readline? ( sys-libs/readline:0= ) rtas? ( sys-libs/librtas ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
     ) slang? ( sys-libs/slang ) udev? ( virtual/libudev:= ) virtual/os-headers
@@ -63,9 +72,9 @@ labels:
     python_targets_python3_10
   RDEPEND: virtual/libc:= audit? ( >=sys-process/audit-2.6:= ) caps? ( sys-libs/libcap-ng
     ) cramfs? ( sys-libs/zlib:= ) cryptsetup? ( sys-fs/cryptsetup ) hardlink? ( dev-libs/libpcre2:=
-    ) ncurses? ( sys-libs/ncurses:=[unicode(+)?] magic? ( sys-apps/file:0= ) ) nls?
-    ( virtual/libintl ) pam? ( sys-libs/pam ) python? ( python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ) ncurses? ( sys-libs/ncurses:= magic? ( sys-apps/file:0= ) ) nls? ( virtual/libintl
+    ) pam? ( sys-libs/pam ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     ) readline? ( sys-libs/readline:0= ) rtas? ( sys-libs/librtas ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
     ) slang? ( sys-libs/slang ) udev? ( virtual/libudev:= ) hardlink? ( !app-arch/hardlink
