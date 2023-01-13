@@ -1,5 +1,5 @@
 name: portage
-version: 3.0.14
+version: 3.0.14+1
 category: sys-apps
 use_flags:
 - -apidoc
@@ -10,11 +10,11 @@ use_flags:
 - -elibc_uclibc
 - -kernel_linux
 - -python_targets_python3_10
+- -python_targets_python3_7
 - -python_targets_python3_8
 - -rsync-verify
 - -selinux
 - -test
-- python_targets_python3_7
 - python_targets_python3_9
 - xattr
 requires:
@@ -33,12 +33,6 @@ requires:
 - name: bash
   version: '>=0'
   category: app-shells
-- name: python
-  version: '>=0'
-  category: dev-lang-3.7
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
 - name: findutils
   version: '>=0'
   category: sys-apps
