@@ -5,27 +5,24 @@ use_flags:
 - -dane
 - -doc
 - -guile
-- -idn
-- -pkcs11
 - -seccomp
 - -test
 - -test-full
 - -tools
 - -valgrind
+- idn
 - nls
+- pkcs11
 requires:
-- name: gmp
+- name: p11-kit
   version: '>=0'
-  category: dev-libs
-- name: libtasn1
-  version: '>=0'
-  category: dev-libs
-- name: libunistring
-  version: '>=0'
-  category: dev-libs
+  category: app-crypt
 - name: nettle
   version: '>=0'
   category: dev-libs
+- name: libidn2
+  version: '>=0'
+  category: net-dns
 - name: libintl
   version: '>=0'
   category: virtual
