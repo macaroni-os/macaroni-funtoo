@@ -1,12 +1,13 @@
 name: gpgme
-version: 1.18.0
+version: 1.18.0+1
 category: app-crypt-1
 use_flags:
 - -python_targets_python3_10
+- -python_targets_python3_7
 - -python_targets_python3_8
 - -qt5
+- -test
 - python
-- python_targets_python3_7
 - python_targets_python3_9
 requires:
 - name: gnupg
@@ -27,7 +28,7 @@ annotations:
       - ^/var/db/pkg/
 description: GnuPG Made Easy is a library for making GnuPG easier to use
 uri:
-- http://www.gnupg.org/related_software/gpgme
+- https://www.gnupg.org/related_software/gpgme
 license: GPL-2 LGPL-2.1
 labels:
   BDEPEND: python? ( dev-lang/swig ) >=app-portage/elt-patches-20170815
