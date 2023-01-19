@@ -3,7 +3,7 @@
 # Description: Script for download reposcan JSON files used by
 #              luet-portage-converter tool.
 
-CDN_PREFIX=${CDN_PREFIX:-https://images.macaroni.funtoo.org}
+CDN_PREFIX=${CDN_PREFIX:-https://images.macaronios.org}
 
 KITS=(
   "geaaru-kit-funtoo"
