@@ -9,8 +9,8 @@ prelude:
 # TEMPORARY Fix: to move on seed setup
 - ldconfig && eval 'locale-gen || true' && build-docbook-catalog
 - >-
-  echo "PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" > /etc/env.d/99python &&
-  echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" >> /etc/env.d/99python &&
+  echo "PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" > /etc/env.d/99python &&
+  echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" >> /etc/env.d/99python &&
   macaronictl env-update
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
