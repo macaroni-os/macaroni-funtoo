@@ -13,7 +13,6 @@ prelude:
   echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" >> /etc/env.d/99python &&
   macaronictl env-update
 - |
-  source /etc/profile && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
@@ -22,6 +21,7 @@ prelude:
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- end }}
 - |
+  source /etc/profile && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- else }}
