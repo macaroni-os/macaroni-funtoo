@@ -13,7 +13,7 @@ prelude:
   echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" >> /etc/env.d/99python &&
   macaronictl env-update
 - |
-  source /etc/profile &&
+  source /etc/profile && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
