@@ -8,7 +8,12 @@ env:
 prelude:
 # TEMPORARY Fix: to move on seed setup
 - ldconfig && eval 'locale-gen || true' && build-docbook-catalog
+- >-
+  echo "PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" > /etc/env.d/99python &&
+  echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.7/site-packages/\"" >> /etc/env.d/99python &&
+  macaronictl env-update
 - |
+  source /etc/profile &&
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
