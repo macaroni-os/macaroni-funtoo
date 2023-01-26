@@ -105,6 +105,7 @@ artefacts:
   packages:
     - dev-lang/go-bootstrap
     - sys-devel/llvm-common
+    - sys-devel/clang-common
 
 - tree: packages/atoms-extra/lang
   uses:
@@ -114,7 +115,19 @@ artefacts:
   packages:
     - dev-lang/yasm
     - sys-devel/clang:11
+    - sys-devel/clang-runtime:11
     - sys-libs/libunwind
+
+- tree: packages/atoms-extra/lang
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - debug
+    - test
+  packages:
+    - sys-libs/compiler-rt:11.0.0
+    - sys-libs/compiler-rt-sanitizers:11.0.0
 
 - tree: packages/atoms-extra/lang
   uses:
@@ -525,7 +538,6 @@ reposcan_requires_slot: true
 reposcan_contraints:
   packages:
     - dev-lang/python:3.9
-    - dev-lang/python:3.7
     - sys-devel/gcc:11.3.0
     - dev-lua/lua:5.3
 
@@ -561,6 +573,7 @@ reposcan_disabled_use_flags:
   - python_single_target_pypy3
   - python_targets_python2_7
   - python_targets_python3_6
+  - python_targets_python3_7
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
