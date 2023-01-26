@@ -1,0 +1,38 @@
+name: encfs
+version: 1.9.5
+category: sys-fs
+use_flags:
+- -libressl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: tinyxml2
+  version: '>=0'
+  category: dev-libs
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An implementation of encrypted filesystem in user-space using FUSE
+uri:
+- https://vgough.github.io/encfs/
+license: GPL-3 LGPL-3
+labels:
+  DEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) dev-libs/tinyxml2:0=
+    sys-fs/fuse:= sys-libs/zlib dev-lang/perl sys-devel/gettext virtual/pkgconfig
+    sys-devel/make >=dev-util/cmake-3.9.6'
+  IUSE: libressl nls
+  RDEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= )
+    dev-libs/tinyxml2:0= sys-fs/fuse:= sys-libs/zlib'
+  emerge.packages: sys-fs/encfs
+  kit: core-kit
+  original.package.name: sys-fs/encfs
+  original.package.slot: "0"
+  original.package.version: 1.9.5
