@@ -197,6 +197,13 @@ artefacts:
     - net-analyzer/traceroute
 
 - tree: packages/atoms-extra/net
+  mutations:
+    buildtime_deps:
+      packages:
+        # libdnet requires libbsd but
+        # is not present on DEPEND or BDEPEND
+        - category: dev-libs
+          name: libbsd
   uses:
     enabled:
       - python
@@ -724,11 +731,6 @@ artefacts:
   - net-misc/netkit-telnetd:0
 
 - tree: packages/atoms-extra/net
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-libs
-          name: libbsd
   uses:
     disabled:
     - debug
@@ -1338,6 +1340,7 @@ reposcan_disabled_use_flags:
   - python_single_target_pypy3
   - python_targets_python2_7
   - python_targets_python3_6
+  - python_targets_python3_7
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
