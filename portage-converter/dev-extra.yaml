@@ -335,7 +335,6 @@ artefacts:
     - dev-python/pycares
     - dev-python/yarl
     - dev-python/pathspec
-    - dev-python/pluggy
     - dev-python/service_identity
     - dev-python/hyperlink
     - dev-python/constantly
@@ -349,6 +348,21 @@ artefacts:
     - dev-python/httpcore
     - dev-python/curio
     - dev-python/colorama
+    - dev-python/pip
+
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pip
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/pluggy
 
 - tree: packages/atoms-extra/dev
   uses:
@@ -466,7 +480,6 @@ reposcan_requires_slot: true
 reposcan_contraints:
   packages:
     - dev-lang/python:3.9
-    - dev-lang/python:3.7
     - sys-devel/gcc:11.3.0
     - dev-lua/lua:5.3
 
