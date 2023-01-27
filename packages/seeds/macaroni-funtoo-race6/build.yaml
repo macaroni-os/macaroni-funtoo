@@ -42,6 +42,7 @@ steps:
   luet miner ri virtual/base virtual/sh &&
   luet repo update && luet upgrade &&
   luet i
+  app-admin/macaronictl
   toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
@@ -56,8 +57,9 @@ steps:
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
-  env-update &&
-  ldconfig &&
+  echo "PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" > /etc/env.d/99python &&
+  echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" >> /etc/env.d/99python &&
+  macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   whip hook eclass_db.db_fix_so &&
