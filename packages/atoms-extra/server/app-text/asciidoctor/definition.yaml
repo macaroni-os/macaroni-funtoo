@@ -7,6 +7,7 @@ use_flags:
 - -ruby_targets_ruby31
 - -test
 - ruby_targets_ruby27
+- ruby_targets_ruby32
 requires:
 - name: ruby
   version: '>=0'
@@ -27,13 +28,18 @@ uri:
 - https://github.com/asciidoctor/asciidoctor
 license: MIT
 labels:
-  BDEPEND: ruby_targets_ruby31? ( test? ( dev-util/cucumber[ruby_targets_ruby31(-)]
-    dev-ruby/rspec-expectations:*[ruby_targets_ruby31(-)] dev-ruby/asciimath[ruby_targets_ruby31(-)]
-    dev-ruby/coderay[ruby_targets_ruby31(-)] dev-ruby/concurrent-ruby[ruby_targets_ruby31(-)]
-    dev-ruby/erubis[ruby_targets_ruby31(-)] dev-ruby/haml[ruby_targets_ruby31(-)]
-    dev-ruby/nokogiri[ruby_targets_ruby31(-)] dev-ruby/rouge[ruby_targets_ruby31(-)]
-    dev-ruby/slim[ruby_targets_ruby31(-)] dev-ruby/tilt[ruby_targets_ruby31(-)] )
-    ) ruby_targets_ruby30? ( test? ( dev-util/cucumber[ruby_targets_ruby30(-)] dev-ruby/rspec-expectations:*[ruby_targets_ruby30(-)]
+  BDEPEND: ruby_targets_ruby32? ( test? ( dev-util/cucumber[ruby_targets_ruby32(-)]
+    dev-ruby/rspec-expectations:*[ruby_targets_ruby32(-)] dev-ruby/asciimath[ruby_targets_ruby32(-)]
+    dev-ruby/coderay[ruby_targets_ruby32(-)] dev-ruby/concurrent-ruby[ruby_targets_ruby32(-)]
+    dev-ruby/erubis[ruby_targets_ruby32(-)] dev-ruby/haml[ruby_targets_ruby32(-)]
+    dev-ruby/nokogiri[ruby_targets_ruby32(-)] dev-ruby/rouge[ruby_targets_ruby32(-)]
+    dev-ruby/slim[ruby_targets_ruby32(-)] dev-ruby/tilt[ruby_targets_ruby32(-)] )
+    ) ruby_targets_ruby31? ( test? ( dev-util/cucumber[ruby_targets_ruby31(-)] dev-ruby/rspec-expectations:*[ruby_targets_ruby31(-)]
+    dev-ruby/asciimath[ruby_targets_ruby31(-)] dev-ruby/coderay[ruby_targets_ruby31(-)]
+    dev-ruby/concurrent-ruby[ruby_targets_ruby31(-)] dev-ruby/erubis[ruby_targets_ruby31(-)]
+    dev-ruby/haml[ruby_targets_ruby31(-)] dev-ruby/nokogiri[ruby_targets_ruby31(-)]
+    dev-ruby/rouge[ruby_targets_ruby31(-)] dev-ruby/slim[ruby_targets_ruby31(-)] dev-ruby/tilt[ruby_targets_ruby31(-)]
+    ) ) ruby_targets_ruby30? ( test? ( dev-util/cucumber[ruby_targets_ruby30(-)] dev-ruby/rspec-expectations:*[ruby_targets_ruby30(-)]
     dev-ruby/asciimath[ruby_targets_ruby30(-)] dev-ruby/coderay[ruby_targets_ruby30(-)]
     dev-ruby/concurrent-ruby[ruby_targets_ruby30(-)] dev-ruby/erubis[ruby_targets_ruby30(-)]
     dev-ruby/haml[ruby_targets_ruby30(-)] dev-ruby/nokogiri[ruby_targets_ruby30(-)]
@@ -43,25 +49,32 @@ labels:
     dev-ruby/concurrent-ruby[ruby_targets_ruby27(-)] dev-ruby/erubis[ruby_targets_ruby27(-)]
     dev-ruby/haml[ruby_targets_ruby27(-)] dev-ruby/nokogiri[ruby_targets_ruby27(-)]
     dev-ruby/rouge[ruby_targets_ruby27(-)] dev-ruby/slim[ruby_targets_ruby27(-)] dev-ruby/tilt[ruby_targets_ruby27(-)]
-    ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0
-    ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)]
-    ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27?
-    ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby31? ( test?
-    ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rake[ruby_targets_ruby30(-)]
-    ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby31?
+    ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31?
+    ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( doc?
+    ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31?
+    ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( test?
+    ( dev-ruby/rake[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31?
     ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)]
-    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby31?
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby32?
+    ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)]
+    ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27?
+    ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
+  DEPEND: ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31?
     ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)]
-    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
-  DEPEND: ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0
-    ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)]
-    ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27?
-    ( virtual/rubygems[ruby_targets_ruby27(-)] )
-  IUSE: ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 doc test test
-  RDEPEND: ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0
-    ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)]
-    ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27?
-    ( virtual/rubygems[ruby_targets_ruby27(-)] )
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+  IUSE: ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32
+    doc test test
+  RDEPEND: ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31?
+    ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)]
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
   emerge.packages: app-text/asciidoctor
   kit: text-kit
   original.package.name: app-text/asciidoctor
