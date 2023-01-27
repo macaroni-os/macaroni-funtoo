@@ -58,7 +58,7 @@ steps:
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   echo "PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" > /etc/env.d/99python &&
   echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" >> /etc/env.d/99python &&
-  macaronictl env-update
+  macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   whip hook eclass_db.db_fix_so &&
