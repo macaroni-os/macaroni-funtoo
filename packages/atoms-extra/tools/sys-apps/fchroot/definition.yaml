@@ -1,10 +1,10 @@
 name: fchroot
-version: 1.0.0
+version: 1.0.0+1
 category: sys-apps
 use_flags:
 - -python_targets_python3_10
+- -python_targets_python3_7
 - -python_targets_python3_8
-- python_targets_python3_7
 - python_targets_python3_9
 requires:
 - name: qemu
@@ -12,7 +12,13 @@ requires:
   category: app-emulation
 - name: python
   version: '>=0'
-  category: dev-lang-3.7
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 annotations:
   subsets:
     rules:
