@@ -772,6 +772,12 @@ artefacts:
     - sys-auth/elogind
 
 - tree: packages/atoms-extra/server
+  mutations:
+    uses:
+      - python_targets_python3_9
+      - -python_targets_python3_7
+      - -python_targets_python3_8
+      - -python_targets_python3_10
   uses:
     enabled:
       - python_targets_python3_9
@@ -785,8 +791,8 @@ artefacts:
     enabled:
       - introspection
       - pam
-    disabled:
       - elogind
+    disabled:
       - spidermonkey
       - debug
       - kde
@@ -874,7 +880,6 @@ reposcan_requires_slot: true
 reposcan_contraints:
   packages:
     - dev-lang/python:3.9
-    - dev-lang/python:3.7
     - sys-devel/gcc:11.3.0
     - dev-lua/lua:5.3
 
@@ -912,6 +917,7 @@ reposcan_disabled_use_flags:
   - python_single_target_pypy3
   - python_targets_python2_7
   - python_targets_python3_6
+  - python_targets_python3_7
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
