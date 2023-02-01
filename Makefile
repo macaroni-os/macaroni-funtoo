@@ -17,7 +17,7 @@ VALIDATE_OPTIONS?=
 ARCH?=amd64
 REPO_NAME?=macaroni-funtoo-terragon
 REPO_DESC?="Macaroni OS Funtoo Terragon"
-REPO_URL?=https://cdn.macaroni.funtoo.org/mottainai/macaroni-funtoo-terragon/
+REPO_URL?=https://cdn.macaronios.org/mottainai/macaroni-funtoo-terragon/
 REPO_VALUES?=values/amd64.yaml
 export REPO_VALUES
 
