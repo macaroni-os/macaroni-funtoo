@@ -43,6 +43,7 @@ steps:
   toolchain/extra-java
   app-admin/whip
   macaroni/whip-catalog
+  app-admin/macaronictl
   whip-profiles/macaroni
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
@@ -66,8 +67,7 @@ steps:
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
-  env-update &&
-  ldconfig &&
+  macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   whip hook eclass_db.db_fix_so &&
