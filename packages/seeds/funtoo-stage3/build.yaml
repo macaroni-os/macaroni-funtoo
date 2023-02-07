@@ -8,7 +8,7 @@ prelude:
 - apk --no-cache add ca-certificates tar wget xz rsync curl
 - curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh
 - >-
-  luet install repository/macaroni-distfiles --relax &&
+  luet install repository/macaroni-distfiles &&
   luet repo update
 - |
   mkdir /{{ .Values.name }} && \
