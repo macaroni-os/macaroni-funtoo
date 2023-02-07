@@ -7,7 +7,7 @@ prelude:
   export HTTP_TIMEOUT=0 &&
   export LUET_YES=true &&
   curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh &&
-  luet install repository/macaroni-distfiles --relax &&
+  luet install repository/macaroni-distfiles &&
   luet repo update
 - |
   mkdir /{{ .Values.name }} && \
