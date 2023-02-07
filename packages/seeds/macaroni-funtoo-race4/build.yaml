@@ -25,10 +25,10 @@ steps:
   chmod a+x /var &&
   chmod a+x /var/lock &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force --relax
+- luet install virtual-entities/base --force
 - >-
   luet repo update &&
-  luet install --relax --force
+  luet install --force
   system/luet-devkit
   utils/jq
   utils/yq
@@ -54,7 +54,7 @@ steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
   cat /etc/luet/luet.yaml &&
-  luet install virtual/base --relax --nodeps &&
+  luet install virtual/base --nodeps &&
   luet upgrade &&
   luet cleanup --purge-repos &&
   /usr/bin/gcc-config 1 &&

@@ -25,7 +25,7 @@ steps:
   chmod a+x /var &&
   chmod a+x /var/lock &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force --relax
+- luet install virtual-entities/base --force
 - >-
   luet repo update &&
   luet upgrade &&
@@ -50,7 +50,7 @@ steps:
 - >-
   export JOBS={{ ( index .Values.labels "emerge.jobs" ) }} &&
   cat /etc/luet/luet.yaml &&
-  luet install virtual/base --relax --nodeps &&
+  luet install virtual/base --nodeps &&
   luet cleanup --purge-repos &&
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
