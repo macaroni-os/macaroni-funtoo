@@ -13,6 +13,10 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+
+# etc-update is splitted
+- /usr/sbin/etc-update
+- /etc/etc-update.conf
 requires:
 - name: funtoo-base
   version: '>=0'
