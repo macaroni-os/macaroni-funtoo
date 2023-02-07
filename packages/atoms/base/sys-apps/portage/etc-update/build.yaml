@@ -2,14 +2,10 @@ prelude:
 - >-
   eval 'rm -rf /pkgdir/ || true' &&
   mkdir -p /pkgdir/{{ .Values.name }}/etc &&
-  mkdir -p /pkgdir/{{ .Values.name }}/usr/bin/ &&
-  cp -a /usr/sbin/etc-update /pkgdir/{{ .Values.name }}/usr/bin/ &&
+  mkdir -p /pkgdir/{{ .Values.name }}/usr/sbin/ &&
+  cp -a /usr/sbin/etc-update /pkgdir/{{ .Values.name }}/usr/sbin/ &&
   cp -a /etc/etc-update.conf /pkgdir/{{ .Values.name }}/etc/
 package_dir: /pkgdir/{{ .Values.name }}
-excludes:
-# etc-update is splitted
-- /usr/sbin/etc-update
-- /etc/etc-update.conf
 requires:
 - name: portage
   version: '>=0'
