@@ -8,14 +8,14 @@ ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 COPY --from=0 /funtoo-minimal/ /
 ENV USER=root
 
-SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos", "--relax"]
+SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos"]
 RUN repository/mottainai-stable
 RUN repository/macaroni-commons-testing
 RUN repository/macaroni-funtoo-testing
 
 RUN system/entities
 
-SHELL ["/usr/bin/luet", "install", "-y", "--relax", "--force"]
+SHELL ["/usr/bin/luet", "install", "-y", "--force"]
 
 RUN system/luet-geaaru-testing
 RUN sys-apps/shadow
