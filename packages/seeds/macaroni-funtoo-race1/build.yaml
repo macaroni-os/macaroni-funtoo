@@ -48,8 +48,7 @@ steps:
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
-  env-update &&
-  ldconfig &&
+  macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   cd / && rm -rf /luetbuild &&
