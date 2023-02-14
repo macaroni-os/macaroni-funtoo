@@ -17,8 +17,8 @@ SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
 REPO_NAME?=macaroni-funtoo
-REPO_DESC?="Macaroni OS Funtoo"
-REPO_URL?=https://cdn.macaroni.funtoo.org/mottainai/macaroni-funtoo/
+REPO_DESC?="Macaroni OS Phoenix"
+REPO_URL?=https://dl.macaronios.org/repos/macaroni-funtoo/
 REPO_VALUES?=values/amd64.yaml
 export REPO_VALUES
 
