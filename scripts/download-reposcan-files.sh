@@ -19,7 +19,7 @@ KITS=(
   "gnome-kit-3.36-prime"
   "haskell-kit-1.4-release"
   "java-kit-1.4-release"
-  "kde-kit-5.20-release"
+  "kde-kit-5.22-release"
   "lang-kit-1.4-release"
   "lisp-scheme-kit-1.4-release"
   "llvm-kit-1.4-release"
