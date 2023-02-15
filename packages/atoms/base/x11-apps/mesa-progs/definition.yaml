@@ -1,5 +1,5 @@
 name: mesa-progs
-version: 8.4.0+3
+version: 8.5.0
 category: x11-apps
 requires:
 - name: mesa
@@ -20,8 +20,8 @@ uri:
 - https://www.mesa3d.org/ https://mesa.freedesktop.org/
 license: LGPL-2
 labels:
-  DEPEND: media-libs/mesa[egl?,gles2?] virtual/opengl x11-libs/libX11 media-libs/glew
-    virtual/glu x11-base/xorg-proto >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+  DEPEND: media-libs/mesa[egl?,gles2?] virtual/opengl x11-libs/libX11 virtual/glu
+    x11-base/xorg-proto >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
     || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
     >=sys-devel/libtool-2.4
   IUSE: egl gles2
@@ -29,4 +29,5 @@ labels:
   emerge.packages: x11-apps/mesa-progs
   kit: core-gl-kit
   original.package.name: x11-apps/mesa-progs
-  original.package.version: 8.4.0
+  original.package.slot: "0"
+  original.package.version: 8.5.0
