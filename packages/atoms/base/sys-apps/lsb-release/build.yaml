@@ -14,8 +14,9 @@ prelude:
   -e 's|^DISTRIB_RELEASE.*|DISTRIB_RELEASE={{ ( index .Values.labels "macaroni.version" ) }}|g'
   -e 's|^LSB_VERSION.*|LSB_VERSION="funtoo-macaroni-{{ ( index .Values.labels "macaroni.version" ) }}-amd64"|g'
   lsb-release &&
-  cp lsb-release /pkgdir/{{ .Values.name }}/etc/
-
+  cp lsb-release /pkgdir/{{ .Values.name }}/etc/ &&
+  mkdir -p /pkgdir/{{ .Values.name }}/etc/env.d/ &&
+  echo 'CONFIG_PROTECT_MASK="/etc/lsb-release"' > /pkgdir/{{ .Values.name }}/etc/env.d/50lsb-release
 package_dir: /pkgdir/{{ .Values.name }}
 requires:
   - name: funtoo-base
