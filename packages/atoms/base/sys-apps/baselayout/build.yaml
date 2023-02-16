@@ -16,7 +16,6 @@ prelude:
   cp os-release /pkgdir/{{ .Values.name }}/etc/os-release &&
   mv /pkgdir/{{ .Values.name }}/etc/issue /pkgdir/{{ .Values.name }}/etc/issue.simple &&
   cp issue /pkgdir/{{ .Values.name }}/etc/issue &&
-  mkdir /pkgdir/{{ .Values.name }}/ &&
   sed -i -e 's|^CONFIG_PROTECT_MASK.*|CONFIG_PROTECT_MASK="/etc/gentoo-release /etc/os-release"|g'
   /pkgdir/{{ .Values.name }}/etc/env.d/50baselayout
 package_dir: /pkgdir/{{ .Values.name }}
