@@ -558,6 +558,28 @@ artefacts:
   packages:
     - sys-devel/binutils-config
 
+
+- tree: packages/atoms-extra/tools
+  uses:
+    enabled:
+      - python_single_target_python3_9
+      - python_targets_python3_9
+    disabled:
+      - doc
+      - test
+  packages:
+    - dev-python/j2cli
+    - app-admin/ansible
+    - app-admin/ansible-base
+
+- tree: packages/atoms-extra/tools
+  uses:
+    disabled:
+      - selinux
+      - examples
+  packages:
+    - sys-process/lsof
+
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
 
