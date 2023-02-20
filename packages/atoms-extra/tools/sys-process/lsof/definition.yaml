@@ -1,0 +1,31 @@
+name: lsof
+version: 4.93.2
+category: sys-process
+use_flags:
+- -selinux
+- rpc
+requires:
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Lists open files for running Unix processes
+uri:
+- https://github.com/lsof-org/lsof
+license: lsof
+labels:
+  DEPEND: rpc? ( net-libs/libtirpc ) selinux? ( sys-libs/libselinux ) rpc? ( virtual/pkgconfig
+    )
+  IUSE: examples ipv6 rpc selinux
+  RDEPEND: rpc? ( net-libs/libtirpc ) selinux? ( sys-libs/libselinux )
+  emerge.packages: sys-process/lsof
+  kit: core-kit
+  original.package.name: sys-process/lsof
+  original.package.slot: "0"
+  original.package.version: 4.93.2
