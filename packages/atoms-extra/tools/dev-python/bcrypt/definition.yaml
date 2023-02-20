@@ -1,0 +1,60 @@
+name: bcrypt
+version: 3.1.6
+category: dev-python
+use_flags:
+- -python_targets_python2_7
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -test
+- python_targets_python3_9
+requires:
+- name: cffi
+  version: '>=0'
+  category: dev-python
+- name: six
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Modern password hashing for software and servers
+uri:
+- https://github.com/pyca/bcrypt/ https://pypi.org/project/bcrypt/
+license: Apache-2.0
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+  DEPEND: python_targets_python3_7? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_9? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_8? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python2_7? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_10? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) >=dev-python/six-1.4.1[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    test? ( >=dev-python/pytest-3.2.1[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    )
+  IUSE: test python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python2_7 python_targets_python3_10
+  RDEPEND: python_targets_python3_7? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_9? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_8? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python2_7? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_10? ( >=dev-python/cffi-1.1:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python2_7(-)?,-python_single_target_python2_7(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) >=dev-python/six-1.4.1[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    !dev-python/py-bcrypt python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+  emerge.packages: dev-python/bcrypt
+  kit: python-modules-kit
+  original.package.name: dev-python/bcrypt
+  original.package.slot: "0"
+  original.package.version: 3.1.6
