@@ -8,32 +8,33 @@ ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 COPY --from=0 /funtoo-minimal/ /
 ENV USER=root
 
-SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos"]
-RUN repository/mottainai-stable
-RUN repository/macaroni-commons-dev
-RUN repository/macaroni-funtoo-systemd-dev
+RUN [ \
+  "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "repository/mottainai-testing", \
+  "repository/macaroni-commons-dev", \
+  "repository/macaroni-funtoo-systemd-dev"]
 
-RUN system/entities
-
-SHELL ["/usr/bin/luet", "install", "-y", "--force"]
-
-RUN system/luet-geaaru-testing
-RUN sys-apps/shadow
-RUN sys-apps/sed
-RUN app-shells/bash
-RUN sys-devel-9.2.0/gcc
-
-RUN sys-libs/ncurses
-RUN sys-apps/systemd
-RUN sys-apps/coreutils
-RUN sys-apps/iproute2
-
-RUN virtual/base
-RUN virtual-entities/base
+RUN [ \
+  "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "system/entities", \
+  "system/luet-geaaru-thin", \
+  "sys-apps/shadow", \
+  "sys-apps/sed", \
+  "app-shells/bash", \
+  "sys-devel-9.2.0/gcc", \
+  "sys-libs/ncurses", \
+  "sys-apps/systemd", \
+  "sys-apps/coreutils", \
+  "sys-apps/iproute2", \
+  "virtual/base", \
+  "virtual-entities/base", \
+  "app-admin/macaronictl-thin" ]
 
 SHELL ["/bin/bash", "-c"]
 
-RUN luet cleanup --purge-repos
+RUN macaronictl env-update && \
+      luet rm dev-lang-2.7/python macaroni/entities-catalog virtual-entities/base --nodeps -y && \
+      luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
