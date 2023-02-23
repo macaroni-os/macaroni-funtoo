@@ -14,6 +14,9 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+# Avoid conflict with dev-python/backports
+- /usr/lib64/python2.7/site-packages/backports/__init__.pyc
+- /usr/lib64/python2.7/site-packages/backports/__init__.pyo
 requires:
 - name: funtoo-base
   version: '>=0'
