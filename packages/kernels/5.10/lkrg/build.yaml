@@ -10,7 +10,7 @@ steps:
   mkdir -p /etc/portage/patches/app-antivirus/lkrg/ &&
   cp cgroup-releas-agent.patch /etc/portage/patches/app-antivirus/lkrg/
 - >-
-  luet i -y --sync-repos kernel/macaroni-lts-modules --nodeps && luet cleanup &&
+  luet i -y --sync-repos kernel-5.10/macaroni-lts-modules --nodeps && luet cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
 - >-
