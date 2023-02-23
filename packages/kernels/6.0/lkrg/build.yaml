@@ -7,9 +7,6 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  mkdir -p /etc/portage/patches/app-antivirus/lkrg/ &&
-  cp cgroup-releas-agent.patch /etc/portage/patches/app-antivirus/lkrg/
-- >-
   luet i -y --sync-repos kernel-6.0/macaroni-modules --nodeps && luet cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
