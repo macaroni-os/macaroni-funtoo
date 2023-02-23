@@ -1,5 +1,5 @@
 name: PHP_TokenStream
-version: 1.4.11+1
+version: 3.1.1
 category: dev-php
 requires:
 - name: fedora-autoloader
@@ -17,10 +17,13 @@ uri:
 - http://phpunit.de
 license: BSD
 labels:
-  RDEPEND: dev-php/fedora-autoloader || ( dev-lang/php:5.6[tokenizer] dev-lang/php:7.0[tokenizer]
-    dev-lang/php:7.1[tokenizer] )
+  BDEPEND: test? ( dev-php/fedora-autoloader || ( dev-lang/php:7.2[tokenizer(-)] dev-lang/php:7.3[tokenizer(-)]
+    dev-lang/php:7.4[tokenizer(-)] ) dev-php/phpunit )
+  IUSE: test
+  RDEPEND: dev-php/fedora-autoloader || ( dev-lang/php:7.2[tokenizer(-)] dev-lang/php:7.3[tokenizer(-)]
+    dev-lang/php:7.4[tokenizer(-)] )
   emerge.packages: dev-php/PHP_TokenStream
   kit: core-server-kit
   original.package.name: dev-php/PHP_TokenStream
   original.package.slot: "0"
-  original.package.version: 1.4.11
+  original.package.version: 3.1.1
