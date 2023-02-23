@@ -1,5 +1,5 @@
 name: xfce4-terminal
-version: 0.8.9.2
+version: 1.0.4
 category: x11-terms
 use_flags:
 - utempter
@@ -25,14 +25,16 @@ uri:
 - https://docs.xfce.org/apps/terminal/start
 license: GPL-2+
 labels:
-  DEPEND: '>=dev-libs/glib-2.38:2= >=x11-libs/gtk+-3.20.8:3= x11-libs/libX11:= >=x11-libs/vte-0.38:2.91=
-    >=xfce-base/libxfce4ui-4.10:=[gtk3(+)] utempter? ( sys-libs/libutempter:= ) dev-libs/libxml2
-    dev-util/intltool sys-devel/gettext virtual/pkgconfig'
+  BDEPEND: dev-libs/libxml2 dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: '>=dev-libs/glib-2.42:2= >=x11-libs/gtk+-3.22:3= x11-libs/libX11:= >=x11-libs/vte-0.51.3:2.91=
+    >=xfce-base/libxfce4ui-4.16:=[gtk3(+)] >=xfce-base/xfconf-4.16:= utempter? ( sys-libs/libutempter:=
+    )'
   IUSE: utempter
-  RDEPEND: '>=dev-libs/glib-2.38:2= >=x11-libs/gtk+-3.20.8:3= x11-libs/libX11:= >=x11-libs/vte-0.38:2.91=
-    >=xfce-base/libxfce4ui-4.10:=[gtk3(+)] utempter? ( sys-libs/libutempter:= )'
+  RDEPEND: '>=dev-libs/glib-2.42:2= >=x11-libs/gtk+-3.22:3= x11-libs/libX11:= >=x11-libs/vte-0.51.3:2.91=
+    >=xfce-base/libxfce4ui-4.16:=[gtk3(+)] >=xfce-base/xfconf-4.16:= utempter? ( sys-libs/libutempter:=
+    )'
   emerge.packages: x11-terms/xfce4-terminal
   kit: xfce-kit
   original.package.name: x11-terms/xfce4-terminal
   original.package.slot: "0"
-  original.package.version: 0.8.9.2
+  original.package.version: 1.0.4-r1
