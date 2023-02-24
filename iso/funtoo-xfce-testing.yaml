@@ -45,7 +45,6 @@ packages:
   - sys-apps/iproute2
   - sys-apps/corenetwork
   - net-misc/dhcpcd
-  - net-libs/libmnl
 
   - sys-process/procps
   - sys-process/htop
@@ -103,20 +102,13 @@ packages:
   # Needed for the font cache generation
   - media-fonts/encodings
 
-  # Libraries missing on runtime deps (for issue on macaroni specs or funtoo)
-  # htop, wpa_supplicant
-  - dev-libs-3/libnl
-  # probably virtual/libusb to fix
-  - dev-libs-1/libusb
   # grub
   - sys-fs-3/fuse
-  - sys-fs/fuse
-  # Apache
+  # Apache (check ebuild)
   - dev-libs-1/apr-util
   # kadmind
   - dev-libs/libverto
   # thin-tools etc.
-  - dev-libs/libaio
   - media-gfx/fontforge
 
   # calamares plugin requires these packages
@@ -149,7 +141,7 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/mottainai-stable
+  - repository/mottainai-testing
   - repository/macaroni-funtoo-dev
   - repository/macaroni-commons-dev
 
