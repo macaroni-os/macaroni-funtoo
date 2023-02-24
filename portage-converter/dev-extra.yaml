@@ -133,11 +133,11 @@ artefacts:
       - xml
       - python_single_target_python3_7
       - python_targets_python3_7
-      - python_targets_python2_7
     disabled:
       - lzma
       - multitarget
       - source-highlight
+      - python_targets_python2_7
       - test
       - vanilla
   packages:
@@ -161,13 +161,14 @@ artefacts:
       - crypt
       - soap
       - python_targets_python3_7
-      - python_targets_python2_7
     disabled:
       - examples
+      - python_targets_python2_7
   packages:
     - dev-python/automat
     - dev-python/pyserial
     - sys-apps/metatools
+    - dev-python/service_identity
 
 - tree: packages/atoms-extra/dev
   uses:
@@ -179,6 +180,7 @@ artefacts:
       - python_single_target_python3_7
     disabled:
       - examples
+      - python_targets_python2_7
   packages:
     - dev-util/geany
     - dev-util/geany-plugins
@@ -199,6 +201,7 @@ artefacts:
   uses:
     enabled:
       - python_targets_python3_7
+    disabled:
       - python_targets_python2_7
   mutations:
     buildtime_deps:
@@ -216,6 +219,7 @@ artefacts:
   uses:
     enabled:
       - python_targets_python3_7
+    disabled:
       - python_targets_python2_7
   packages:
     - dev-python/pyhamcrest
@@ -500,7 +504,6 @@ reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
-    - dev-lang/python:2.7
     - dev-lang/python:3.7
     - dev-lang/ruby:2.6
     - dev-lang/ruby:2.7
@@ -543,11 +546,13 @@ reposcan_disabled_use_flags:
   - gtk-doc
   - gles2-only
   - python_single_target_python3_6
+  - python_single_target_python3_7
   - python_single_target_python3_9
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
   - python_single_target_pypy3
+  - python_targets_python2_7
   - python_targets_python3_6
   - python_targets_python3_9
   - python_targets_python3_8

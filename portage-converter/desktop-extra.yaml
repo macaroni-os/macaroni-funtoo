@@ -102,8 +102,8 @@ artefacts:
       - "-c"
     install:
       - >-
-        source /etc/profile && ldconfig &&
-        env-update &&
+        source /etc/profile &&
+        macaronictl env-update &&
         whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
 
   packages:
