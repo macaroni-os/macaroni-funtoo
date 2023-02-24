@@ -151,6 +151,6 @@ def run():
         'chmod', 'u-s', '/usr/bin/pkexec',
     ])
 
-    libcalamares.utils.target_env_call(['env-update'])
+    libcalamares.utils.target_env_call(['macaronictl', 'env-update'])
 
     return None
