@@ -225,6 +225,24 @@ artefacts:
     - dev-python/pyhamcrest
     - dev-python/pyhamcrest-compat
 
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-python
+          name: gpep517
+        - category: dev-python
+          name: installer
+        - category: dev-python
+          name: hatchling
+  uses:
+    enabled:
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
+    - dev-python/colorama
+
 - tree: packages/atoms-extra/dev
   mutations:
     buildtime_deps:
