@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/macaroni-os/macaroni-site/blob/master/site/static/images/logo.png">
+</p>
+
 # macaroni-funtoo
 Funtoo Macaroni Repository Tree
 
