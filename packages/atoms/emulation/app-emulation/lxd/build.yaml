@@ -6,6 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary patch until the next race
+- >-
+  cp -rvf 5.x /var/git/meta-repo/kits/core-kit/app-emulation/lxd/files/
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
