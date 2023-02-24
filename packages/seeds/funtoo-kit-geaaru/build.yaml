@@ -8,6 +8,7 @@ package_dir: /{{ .Values.name }}
 prelude:
 - >-
   cp geaaru-kit /etc/portage/repos.conf/ &&
+  mkdir -p /{{ .Values.name }}/ &&
   eval 'emerge --sync || true' &&
   cd /var/git/extra-kits/geaaru-kit &&
   git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' &&
