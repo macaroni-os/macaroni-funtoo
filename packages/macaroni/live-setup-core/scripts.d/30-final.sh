@@ -3,7 +3,6 @@
 setup_final() {
   locale-gen
 
-  env-update
-  ldconfig
+  macaronictl env-update
   source /etc/profile
 }
