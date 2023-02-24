@@ -228,8 +228,7 @@ setup_openrc_network() {
 setup_xorg_server() {
   mkdir -p /etc/X11/ || true
 
-  env-update
-  ldconfig
+  macaronictl env-update
   source /etc/profile
 
   whip hook fonts.convert_pfb
