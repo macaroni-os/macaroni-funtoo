@@ -6,9 +6,12 @@ use_flags:
 - -test
 - cddb
 requires:
-- name: libiconv
+- name: libcddb
   version: '>=0'
-  category: virtual
+  category: media-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
 annotations:
   subsets:
     rules:
@@ -33,4 +36,5 @@ labels:
   emerge.packages: dev-libs/libcdio
   kit: dev-kit
   original.package.name: dev-libs/libcdio
+  original.package.slot: "0"
   original.package.version: 2.1.0-r1
