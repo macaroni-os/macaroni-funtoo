@@ -6,14 +6,10 @@ use_flags:
 - -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- kernel_linux
 - python_targets_python3_7
 - ssl
 - -modules
 requires:
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
 - name: openssl
   version: '>=0'
   category: dev-libs
@@ -26,15 +22,15 @@ requires:
 - name: zope-interface
   version: '>=0'
   category: dev-python
-- name: modutils
-  version: '>=0'
-  category: virtual
 - name: tmpfiles
   version: '>=0'
   category: virtual
 - name: libunwind
   version: '>=0'
   category: sys-libs-7
+- name: unbound
+  version: '>=0'
+  category: net-dns
 annotations:
   subsets:
     rules:
