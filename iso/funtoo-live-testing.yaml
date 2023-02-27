@@ -3,6 +3,7 @@ packages:
   keep_luet_db: "true"
   rootfs:
   - system/entities
+  - app-admin/macaronictl-thin
   - system/luet-geaaru-testing
   - utils/yq
   - utils/jq
@@ -19,11 +20,9 @@ packages:
   - kernel-5.15/macaroni-lts-full
   - kernel-5.15/macaroni-lts-modules
 
-
   - virtual-entities/base
 
   - www-client/firefox-bin
-  #- kernel/macaroni-lts-initramfs
   - kernel-5.15/macaroni-lts-initramfs
   - gnome-base/gnome
 
@@ -51,7 +50,6 @@ packages:
   - sys-apps/iproute2
   - sys-apps/corenetwork
   - net-misc/dhcpcd
-  - net-libs/libmnl
 
   - gnome-extra/polkit-gnome
   - sys-process/procps
@@ -111,13 +109,6 @@ packages:
   # Needed for the font cache generation
   - media-fonts/encodings
 
-  # Libraries missing on runtime deps (for issue on macaroni specs or funtoo)
-  # htop, wpa_supplicant
-  - dev-libs-3/libnl
-  # cd-info, cdda-player, etc.
-  - media-libs/libcddb
-  # probably virtual/libusb to fix
-  - dev-libs-1/libusb
   # gjs-console, gjs (libmozjs-68)
   - dev-lang-68/spidermonkey
   # gnome-system-monitor, etc
@@ -126,7 +117,6 @@ packages:
   - dev-cpp/cairomm
   # grub
   - sys-fs-3/fuse
-  - sys-fs/fuse
   # Apache
   - dev-libs-1/apr-util
   # kadmind
