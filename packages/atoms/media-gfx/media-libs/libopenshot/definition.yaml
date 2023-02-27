@@ -1,9 +1,12 @@
 name: libopenshot
-version: 0.2.5
+version: 0.2.5+1
 category: media-libs
 use_flags:
 - -doc
 - -libav
+- -python_single_target_python3_10
+- -python_single_target_python3_8
+- -python_single_target_python3_9
 - -test
 - imagemagick
 - python
@@ -33,6 +36,9 @@ requires:
 - name: cppzmq
   version: '>=0'
   category: net-libs
+- name: jsoncpp
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -51,13 +57,20 @@ labels:
     >=media-libs/libopenshot-audio-0.1.9_pre20190502:0= imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
     ) libav? ( media-video/libav:0=[encode,x264,xvid,vpx,mp3,theora] ) !libav? ( media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora]
     ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) )
   IUSE: doc examples +imagemagick libav +python test python_single_target_python3_7
-    python_targets_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: net-libs/cppzmq dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets]
     >=media-libs/libopenshot-audio-0.1.9_pre20190502:0= imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
     ) libav? ( media-video/libav:0=[encode,x264,xvid,vpx,mp3,theora] ) !libav? ( media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora]
     ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) )
   emerge.packages: media-libs/libopenshot
   kit: geaaru-kit
