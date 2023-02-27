@@ -230,6 +230,20 @@ artefacts:
     - sys-block/zram-init
 
 - tree: packages/atoms-extra/automation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
+  uses:
+    disabled:
+      - examples
+      - rpc
+      - selinux
+  packages:
+    - sys-process/lsof
+
+- tree: packages/atoms-extra/automation
   packages:
     - sys-fs/growpart
   mutations:
