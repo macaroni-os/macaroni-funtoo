@@ -257,14 +257,57 @@ artefacts:
 
 - tree: packages/atoms/office
   ignore_build_deps: true
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-office
+    uses:
+      # Add use flags not used
+      # on deps section.
+      - hdri
+      - q8
+      - q32
   uses:
+    enabled:
+      - X
+      - bzip2
+      - cxx
+      - djvu
+      - fontconfig
+      - fpx
+      - graphviz
+      - hdri
+      - jbig
+      - jpeg
+      - jpeg2k
+      - lcms
+      - lzma
+      - openexr
+      - openmp
+      - pango
+      - perl
+      - png
+      - postscript
+      - raw
+      - svg
+      - tiff
+      - truetype
+      - webp
+      - wmf
+      - xml
+      - zip
+      - zlib
     disabled:
-      - opencl
       - corefonts
-      - lqr
       - fftw
+      - heif
+      - lqr
+      - opencl
+      - static-libs
+      - test
   packages:
-    - media-gfx/imagemagick:0
+    - media-gfx/imagemagick
 
 include_layers:
 - layers/macaroni-funtoo-office.yaml
