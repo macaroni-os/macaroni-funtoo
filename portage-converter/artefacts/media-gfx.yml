@@ -806,34 +806,6 @@ artefacts:
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
-    - altivec
-    - cpu_flags_x86_3dnow
-    - css
-    - debug
-    - nios2
-    - oss
-    - sh
-    enabled:
-    - alsa
-    - cpu_flags_x86_mmx
-    - ieee1394
-    - opengl
-  packages:
-  - media-video/cinelerra
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    install:
-      - >-
-        source /etc/profile &&
-        macaronictl env-update &&
-        whip hook gtk.mime_update_db &&
-        whip hook gtk.glib_update_schemas &&
-        whip hook gtk.gtk_update_icons
-- tree: packages/atoms/media-gfx
-  uses:
-    disabled:
     - nios2
     - sh
     enabled:
