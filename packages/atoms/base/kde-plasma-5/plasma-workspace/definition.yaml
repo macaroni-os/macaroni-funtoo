@@ -1,19 +1,19 @@
 name: plasma-workspace
-version: 5.22.5
+version: 5.22.5+1
 category: kde-plasma-5
 use_flags:
 - -appstream
-- -calendar
-- -fontconfig
 - -geolocation
 - -gps
-- -handbook
 - -prefix
 - -qalculate
 - -screencast
-- -semantic-desktop
 - -telemetry
 - -test
+- calendar
+- fontconfig
+- handbook
+- semantic-desktop
 requires:
 - name: iso-codes
   version: '>=0'
@@ -27,6 +27,9 @@ requires:
 - name: kio-extras
   version: '>=0'
   category: kde-apps-5
+- name: baloo
+  version: '>=0'
+  category: kde-frameworks-5
 - name: kactivities-stats
   version: '>=0'
   category: kde-frameworks-5
@@ -34,6 +37,9 @@ requires:
   version: '>=0'
   category: kde-frameworks-5
 - name: kdesu
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kholidays
   version: '>=0'
   category: kde-frameworks-5
 - name: knotifyconfig
@@ -54,13 +60,16 @@ requires:
 - name: prison
   version: '>=0'
   category: kde-frameworks-5
-- name: ksysguard
-  version: '>=0'
-  category: kde-plasma-5
 - name: kwin
   version: '>=0'
   category: kde-plasma-5
+- name: layer-shell-qt
+  version: '>=0'
+  category: kde-plasma-5
 - name: libkscreen
+  version: '>=0'
+  category: kde-plasma-5
+- name: libksysguard
   version: '>=0'
   category: kde-plasma-5
 - name: libkworkspace
@@ -72,9 +81,9 @@ requires:
 - name: plasma-integration
   version: '>=0'
   category: kde-plasma-5
-- name: phonon
+- name: zlib
   version: '>=0'
-  category: media-libs
+  category: sys-libs
 - name: xmessage
   version: '>=0'
   category: x11-apps
@@ -87,7 +96,10 @@ requires:
 - name: xsetroot
   version: '>=0'
   category: x11-apps
-- name: libXtst
+- name: libXft
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-image
   version: '>=0'
   category: x11-libs
 annotations:
