@@ -1,5 +1,5 @@
 name: qemu
-version: 7.1.0
+version: 7.1.0+2
 category: app-emulation
 use_flags:
 - -accessibility
@@ -11,6 +11,7 @@ use_flags:
 - -jemalloc
 - -numa
 - -pin-upstream-blobs
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -qemu_softmmu_targets_ppc
@@ -67,7 +68,6 @@ use_flags:
 - virtfs
 - vte
 - xattr
-- xfs
 - zstd
 - qemu_softmmu_targets_mips64
 - qemu_softmmu_targets_mips64el
@@ -103,6 +103,9 @@ requires:
   version: '>=0'
   category: dev-libs-2
 - name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: libjpeg-turbo
   version: '>=0'
   category: media-libs
 - name: libpng
@@ -147,13 +150,13 @@ requires:
 - name: seabios
   version: '>=0'
   category: sys-firmware
+- name: seabios-bin
+  version: '>=0'
+  category: sys-firmware
 - name: sgabios
   version: '>=0'
   category: sys-firmware
 - name: multipath-tools
-  version: '>=0'
-  category: sys-fs
-- name: xfsprogs
   version: '>=0'
   category: sys-fs
 - name: libcap-ng
@@ -171,9 +174,6 @@ requires:
 - name: vte
   version: '>=0'
   category: x11-libs-2.91
-- name: entities-catalog
-  version: '>=0'
-  category: macaroni
 annotations:
   subsets:
     rules:
@@ -206,7 +206,7 @@ labels:
     ) gtk? ( x11-libs/gtk+:3 vte? ( x11-libs/vte:2.91 ) ) infiniband? ( sys-cluster/rdma-core
     ) iscsi? ( net-libs/libiscsi ) io-uring? ( sys-libs/liburing:= ) jack? ( virtual/jack
     ) jemalloc? ( dev-libs/jemalloc ) jpeg? ( media-libs/libjpeg-turbo:= ) lzo? (
-    dev-libs/lzo:2 ) multipath? ( sys-fs/multipath-tools ) ncurses? ( sys-libs/ncurses:=[unicode(+)]
+    dev-libs/lzo:2 ) multipath? ( sys-fs/multipath-tools ) ncurses? ( sys-libs/ncurses:=
     sys-libs/ncurses:= ) nfs? ( >=net-fs/libnfs-1.9.3:= ) numa? ( sys-process/numactl
     ) opengl? ( virtual/opengl media-libs/libepoxy media-libs/mesa media-libs/mesa[egl(+),gbm(+)]
     ) pam? ( sys-libs/pam ) png? ( media-libs/libpng:0= ) pulseaudio? ( media-sound/pulseaudio
@@ -246,7 +246,7 @@ labels:
     ) io-uring? ( sys-libs/liburing:=[static-libs(+)] ) jack? ( virtual/jack ) jemalloc?
     ( dev-libs/jemalloc ) jpeg? ( media-libs/libjpeg-turbo:=[static-libs(+)] ) lzo?
     ( dev-libs/lzo:2[static-libs(+)] ) multipath? ( sys-fs/multipath-tools ) ncurses?
-    ( sys-libs/ncurses:=[unicode(+)] sys-libs/ncurses:=[static-libs(+)] ) nfs? ( >=net-fs/libnfs-1.9.3:=[static-libs(+)]
+    ( sys-libs/ncurses:= sys-libs/ncurses:=[static-libs(+)] ) nfs? ( >=net-fs/libnfs-1.9.3:=[static-libs(+)]
     ) numa? ( sys-process/numactl[static-libs(+)] ) opengl? ( virtual/opengl media-libs/libepoxy[static-libs(+)]
     media-libs/mesa[static-libs(+)] media-libs/mesa[egl(+),gbm(+)] ) pam? ( sys-libs/pam
     ) png? ( media-libs/libpng:0=[static-libs(+)] ) pulseaudio? ( media-sound/pulseaudio
@@ -307,7 +307,7 @@ labels:
     ) gtk? ( x11-libs/gtk+:3 vte? ( x11-libs/vte:2.91 ) ) infiniband? ( sys-cluster/rdma-core
     ) iscsi? ( net-libs/libiscsi ) io-uring? ( sys-libs/liburing:= ) jack? ( virtual/jack
     ) jemalloc? ( dev-libs/jemalloc ) jpeg? ( media-libs/libjpeg-turbo:= ) lzo? (
-    dev-libs/lzo:2 ) multipath? ( sys-fs/multipath-tools ) ncurses? ( sys-libs/ncurses:=[unicode(+)]
+    dev-libs/lzo:2 ) multipath? ( sys-fs/multipath-tools ) ncurses? ( sys-libs/ncurses:=
     sys-libs/ncurses:= ) nfs? ( >=net-fs/libnfs-1.9.3:= ) numa? ( sys-process/numactl
     ) opengl? ( virtual/opengl media-libs/libepoxy media-libs/mesa media-libs/mesa[egl(+),gbm(+)]
     ) pam? ( sys-libs/pam ) png? ( media-libs/libpng:0= ) pulseaudio? ( media-sound/pulseaudio
