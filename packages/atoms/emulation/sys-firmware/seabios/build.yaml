@@ -27,6 +27,9 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+# Skip files available on seabios-bin (related to version 1.16)
+- ^/usr/share/seavgabios/vgabios-.*
+- ^/usr/share/seabios/bios-256k.bin
 requires:
 - name: multipath-tools
   version: '>=0'
