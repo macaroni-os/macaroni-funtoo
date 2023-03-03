@@ -403,6 +403,27 @@ artefacts:
     - urandom
   packages:
   - dev-libs/libsodium
+
+- tree: packages/atoms/media-gfx
+  uses:
+    disabled:
+    - bindist
+    - debug
+    - designer
+    - geolocation
+    - kerberos
+    - nios2
+    - sh
+    - test
+    enabled:
+    - alsa
+    - pulseaudio
+    - system-ffmpeg
+    - system-icu
+    - widgets
+  packages:
+  - dev-qt/qtwebengine:5
+
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
