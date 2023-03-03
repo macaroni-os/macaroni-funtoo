@@ -418,6 +418,14 @@ artefacts:
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
+      - debug
+  packages:
+    # Needed for openshot
+    - dev-python/PyQtWebEngine
+
+- tree: packages/atoms/media-gfx
+  uses:
+    disabled:
     - bluetooth
     - debug
     - designer
@@ -425,7 +433,6 @@ artefacts:
     - gles2-only
     - help
     - location
-    - multimedia
     - networkauth
     - nios2
     - positioning
@@ -437,7 +444,6 @@ artefacts:
     - sh
     - sql
     - testlib
-    - webchannel
     - websockets
     - x11extras
     - xmlpatterns
@@ -453,6 +459,9 @@ artefacts:
     - svg
     - webkit
     - widgets
+    # Needed for openshot
+    - webchannel
+    - multimedia
   packages:
   - dev-python/PyQt5
 - tree: packages/atoms/media-gfx
