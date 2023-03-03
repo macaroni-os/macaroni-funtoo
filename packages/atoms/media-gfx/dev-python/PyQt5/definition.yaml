@@ -1,12 +1,11 @@
 name: PyQt5
-version: 5.15.9
+version: 5.15.9+1
 category: dev-python
 use_flags:
 - -bluetooth
 - -designer
 - -help
 - -location
-- -multimedia
 - -positioning
 - -python_targets_python3_10
 - -python_targets_python3_8
@@ -16,18 +15,19 @@ use_flags:
 - -speech
 - -sql
 - -testlib
-- -webchannel
 - -websockets
 - -x11extras
 - -xmlpatterns
 - dbus
 - declarative
 - gui
+- multimedia
 - network
 - opengl
 - printsupport
 - python_targets_python3_7
 - svg
+- webchannel
 - widgets
 requires:
 - name: PyQt5-sip
@@ -39,16 +39,16 @@ requires:
 - name: qtdbus
   version: '>=0'
   category: dev-qt-5
-- name: qtdeclarative
-  version: '>=0'
-  category: dev-qt-5
-- name: qtopengl
+- name: qtmultimedia
   version: '>=0'
   category: dev-qt-5
 - name: qtprintsupport
   version: '>=0'
   category: dev-qt-5
 - name: qtsvg
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwebchannel
   version: '>=0'
   category: dev-qt-5
 - name: qtxml
