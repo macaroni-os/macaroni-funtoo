@@ -1,5 +1,5 @@
 name: gvfs
-version: 1.44.1+3
+version: 1.44.1+4
 category: gnome-base
 use_flags:
 - -elogind
@@ -28,6 +28,9 @@ requires:
 - name: libimobiledevice
   version: '>=0'
   category: app-pda
+- name: libplist
+  version: '>=0'
+  category: app-pda
 - name: libcdio-paranoia
   version: '>=0'
   category: dev-libs
@@ -49,9 +52,15 @@ requires:
 - name: samba
   version: '>=0'
   category: net-fs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
 - name: openssh
   version: '>=0'
   category: net-misc
+- name: dbus
+  version: '>=0'
+  category: sys-apps
 - name: fuse
   version: '>=0'
   category: sys-fs-3
@@ -103,4 +112,5 @@ labels:
   emerge.packages: gnome-base/gvfs
   kit: gnome-kit
   original.package.name: gnome-base/gvfs
+  original.package.slot: "0"
   original.package.version: 1.44.1
