@@ -1,8 +1,12 @@
 name: zfs-kmod
 version: 2.1.9+1
-category: sys-fs-5.4
+category: kernel-5.4
 annotations:
   kernel_module: true
+provides:
+- name: zfs-kmod
+  version: 2.1.9+1
+  category: sys-fs-5.4
 requires:
 - name: zfs-common
   version: '>=0'
