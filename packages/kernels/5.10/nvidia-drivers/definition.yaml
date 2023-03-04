@@ -1,6 +1,12 @@
 name: nvidia-kernel-modules
-version: 525.85.05+1
-category: x11-drivers-5.10
+version: 525.85.05+2
+category: kernel-5.10
+annotations:
+  kernel_module: true
+provides:
+- name: nvidia-drivers-modules
+  category: x11-drivers-5.10
+  version: 525.85.05+2
 requires:
 - name: nvidia-drivers-common
   version: '>=0'
