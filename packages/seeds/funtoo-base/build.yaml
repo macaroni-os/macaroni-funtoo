@@ -65,7 +65,7 @@ prelude:
 
 - >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
-  emerge --unmerge sys-kernel/debian-sources x11-drivers/nvidia-kernel-modules &&
+  emerge --unmerge sys-kernel/debian-sources x11-drivers/nvidia-kernel-modules app-emulation/open-vm-tools &&
   emerge -j $JOBS @world -D --with-bdeps y -t -e &&
   emerge -t -j $JOBS -DN @world &&
   emerge -t -j $JOBS -D @world &&
