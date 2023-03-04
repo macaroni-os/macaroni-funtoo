@@ -1,6 +1,6 @@
 requires:
   - name: "nvidia-kernel-modules"
-    category: "x11-drivers-{{ ( index .Values.labels "kernel.branch" ) }}"
+    category: "kernel-{{ ( index .Values.labels "kernel.branch" ) }}"
     version: ">=0"
 env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
