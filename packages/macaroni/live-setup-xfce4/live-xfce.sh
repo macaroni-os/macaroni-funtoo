@@ -28,6 +28,7 @@ ENABLED_SERVICES=(
   "NetworkManager"
   "xdm"
   "virtualbox-guest-additions"
+  "zram-init"
 )
 ENABLED_SYSINIT_SERVICES=(
   "udev-postmount"
