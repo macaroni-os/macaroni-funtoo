@@ -41,12 +41,10 @@ artefacts:
           name: fuse
   uses:
     disabled:
-    - device-mapper
     - doc
     - efiemu
     - grub_platforms_coreboot
     - grub_platforms_efi-32
-    - grub_platforms_emu
     - grub_platforms_ieee1275
     - grub_platforms_loongson
     - grub_platforms_multiboot
@@ -62,6 +60,8 @@ artefacts:
     - test
     enabled:
     - fonts
+    - device-mapper
+    - grub_platforms_emu
     - grub_platforms_efi-64
     - grub_platforms_pc
     - mount
