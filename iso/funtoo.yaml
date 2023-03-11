@@ -3,33 +3,37 @@ packages:
   keep_luet_db: "true"
   rootfs:
   - system/entities
-  - system/luet-geaaru
+  - system/luet-geaaru-thin
   - utils/yq
   - utils/jq
 
   - macaroni/live-setup-gnome
+  - app-admin/macaronictl-thin
   - macaroni-release/funtoo
+  - macaroni/whip-catalog
+  - macaroni/skel-phoenix
+  - whip-profiles/macaroni
 
   - virtual/sh
   - virtual/base
   - virtual/openrc
   - virtual/gnome
   - virtual/grub
-  - virtual/macaroni-kernel-lts
 
   - virtual-entities/base
 
   - www-client/firefox-bin
-  - kernel/macaroni-lts-initramfs
   - gnome-base/gnome
 
   - app-editors/vim
 
-  # Extra kernel modules
-  - sys-fs-5.10/zfs-kmod
-  - kernel-5.10/rtw89
-  - kernel-5.10/virtualbox-guest-additions
-  - x11-drivers-5.10/nvidia-kernel-modules
+  # kernel stuff
+  - kernel-6.1/macaroni-full
+  - kernel-6.1/macaroni-modules
+  - kernel-6.1/macaroni-initramfs
+  - kernel-6.1/zfs-kmod
+  - kernel-6.1/virtualbox-guest-additions
+  - kernel-6.1/nvidia-kernel-modules
   - sys-kernel/linux-firmware
   - sys-kernel/dracut
   - sys-fs/mdadm
@@ -99,12 +103,6 @@ packages:
   - media-fonts/encodings
 
   # Libraries missing on runtime deps (for issue on macaroni specs or funtoo)
-  # htop, wpa_supplicant
-  - dev-libs-3/libnl
-  # cd-info, cdda-player, etc.
-  - media-libs/libcddb
-  # probably virtual/libusb to fix
-  - dev-libs-1/libusb
   # gjs-console, gjs (libmozjs-68)
   - dev-lang-68/spidermonkey
   # gnome-system-monitor, etc
