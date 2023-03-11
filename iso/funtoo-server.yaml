@@ -3,21 +3,23 @@ packages:
   keep_luet_db: "true"
   rootfs:
   - system/entities
-  - system/luet-geaaru
+  - system/luet-geaaru-thin
   - utils/yq
   - utils/jq
 
   - macaroni-release/funtoo
   - macaroni/live-setup-server
+  - app-admin/whip
+  - whip-profiles/macaroni
+  - app-admin/macaronictl-thin
+  - macaroni/whip-catalog
+  - macaroni/skel-phoenix
 
   - virtual/sh
   - virtual/base
   - virtual/openrc
-  - virtual/macaroni-kernel-lts
   # Need for add dracut 99-macaroni.conf file
   - virtual/grub
-
-  - kernel/macaroni-lts-initramfs
 
   - app-editors/vim
   # needed for vim
@@ -28,11 +30,11 @@ packages:
   - sys-apps/diffutils
 
   # Extra kernel modules
-  - sys-fs-5.10/zfs-kmod
+  - kernel-5.10/zfs-kmod
   - kernel-5.10/rtw89
   - kernel-5.10/virtualbox-guest-additions
   - kernel-5.10/virtualbox-modules
-  - x11-drivers-5.10/nvidia-kernel-modules
+  - kernel-5.10/nvidia-kernel-modules
   - sys-kernel/linux-firmware
   - sys-kernel/dracut
   - sys-fs/mdadm
@@ -67,6 +69,8 @@ packages:
   - sys-fs/btrfs-progs
   - sys-fs/xfsprogs
   - sys-fs/zfs
+  - app-antivirus/lkrg
+  - sys-block/zram-init
 
   # Add plymouth
   - sys-boot/plymouth

@@ -3,33 +3,39 @@ packages:
   keep_luet_db: "true"
   rootfs:
   - system/entities
-  - system/luet-geaaru
+  - system/luet-geaaru-thin
   - utils/yq
   - utils/jq
 
+  - app-admin/whip
+  - whip-profiles/macaroni
+  - app-admin/macaronictl-thin
   - macaroni/live-setup-gnome
   - macaroni-release/funtoo
+  - macaroni/whip-catalog
+  - macaroni/skel-phoenix
 
   - virtual/sh
   - virtual/base
   - virtual/openrc
   - virtual/gnome
   - virtual/grub
-  - virtual/macaroni-kernel-lts
 
   - virtual-entities/base
 
   - www-client/firefox-bin
-  - kernel/macaroni-lts-initramfs
   - gnome-base/gnome
 
   - app-editors/vim
 
-  # Extra kernel modules
-  - sys-fs-5.10/zfs-kmod
-  - kernel-5.10/rtw89
-  - kernel-5.10/virtualbox-guest-additions
-  - x11-drivers-5.10/nvidia-kernel-modules
+  # kernel stuff
+  - kernel-6.1/macaroni-full
+  - kernel-6.1/macaroni-modules
+  - kernel-6.1/macaroni-initramfs
+  - kernel-6.1/zfs-kmod
+  - kernel-6.1/virtualbox-guest-additions
+  - kernel-6.1/nvidia-kernel-modules
+  - kernel-6.1/lkrg
   - sys-kernel/linux-firmware
   - sys-kernel/dracut
   - sys-fs/mdadm
@@ -45,6 +51,8 @@ packages:
   - sys-process/htop
   - sys-apps/ethtool
   - sys-apps/less
+  - sys-apps/which
+  - sys-apps/diffutils
   - net-wireless/wpa_supplicant
   - net-wireless/wireless-regdb
   - sys-fs/eudev
@@ -67,6 +75,8 @@ packages:
   - sys-fs/btrfs-progs
   - sys-fs/xfsprogs
   - sys-fs/zfs
+  - app-antivirus/lkrg
+  - sys-block/zram-init
 
   # Add plymouth
   - sys-boot/plymouth
