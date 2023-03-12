@@ -12,6 +12,7 @@ use_flags:
 - -gpg
 - -json
 - -ldap
+- -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -snapper
@@ -32,7 +33,7 @@ requires:
 - name: mit-krb5
   version: '>=0'
   category: app-crypt
-- name: libbsd
+- name: libtasn1
   version: '>=0'
   category: dev-libs
 - name: Parse-Yapp
@@ -65,6 +66,9 @@ requires:
 - name: pam
   version: '>=0'
   category: sys-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
 annotations:
   subsets:
     rules:
@@ -81,6 +85,7 @@ labels:
     >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
     ( dev-lang/python:3.9[threads(+),xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+),xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+),xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig
   DEPEND: '>=app-arch/libarchive-3.1.2 dev-lang/perl:= spotlight? ( dev-libs/icu:=
     ) dev-libs/libbsd dev-libs/libtasn1 dev-libs/popt dev-perl/Parse-Yapp >=net-libs/gnutls-3.4.7
@@ -93,13 +98,15 @@ labels:
     addns? ( dev-python/dnspython:=[python_targets_python3_9(-)] net-dns/bind-tools[gssapi]
     ) ) python_single_target_python3_8? ( dev-python/subunit[python_targets_python3_8(-)]
     addns? ( dev-python/dnspython:=[python_targets_python3_8(-)] net-dns/bind-tools[gssapi]
+    ) ) python_single_target_python3_10? ( dev-python/subunit[python_targets_python3_10(-)]
+    addns? ( dev-python/dnspython:=[python_targets_python3_10(-)] net-dns/bind-tools[gssapi]
     ) ) ceph? ( sys-cluster/ceph ) cluster? ( net-libs/rpcsvc-proto ) cups? ( net-print/cups
     ) debug? ( dev-util/lttng-ust ) dmapi? ( sys-apps/dmapi ) fam? ( virtual/fam )
     gpg? ( app-crypt/gpgme ) json? ( dev-libs/jansson ) ldap? ( net-nds/openldap )
-    pam? ( sys-libs/pam ) python? ( sys-libs/ldb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    sys-libs/talloc[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    sys-libs/tdb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    sys-libs/tevent[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    pam? ( sys-libs/pam ) python? ( sys-libs/ldb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    sys-libs/talloc[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    sys-libs/tdb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    sys-libs/tevent[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     ) snapper? ( sys-apps/dbus ) system-heimdal? ( >=app-crypt/heimdal-1.5[-ssl] )
     system-mitkrb5? ( >=app-crypt/mit-krb5-1.15.1 ) zeroconf? ( net-dns/avahi[dbus]
     ) >=dev-util/cmocka-1.1.3 net-libs/libtirpc || ( net-libs/rpcsvc-proto <sys-libs/glibc-2.26[rpc(+)]
@@ -109,8 +116,9 @@ labels:
   IUSE: acl addc addns ads ceph client cluster cups debug dmapi fam glusterfs gpg
     iprint json ldap ntvfs pam profiling-data python quota +regedit snapper spotlight
     syslog system-heimdal +system-mitkrb5 test winbind zeroconf python_single_target_python3_7
-    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8 kernel_linux
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+    kernel_linux
   RDEPEND: '>=app-arch/libarchive-3.1.2 dev-lang/perl:= spotlight? ( dev-libs/icu:=
     ) dev-libs/libbsd dev-libs/libtasn1 dev-libs/popt dev-perl/Parse-Yapp >=net-libs/gnutls-3.4.7
     net-libs/libnsl sys-libs/e2fsprogs-libs >=sys-libs/ldb-2.2.0[ldap(+)?] <sys-libs/ldb-2.3.0[ldap(+)?]
@@ -122,21 +130,25 @@ labels:
     addns? ( dev-python/dnspython:=[python_targets_python3_9(-)] net-dns/bind-tools[gssapi]
     ) ) python_single_target_python3_8? ( dev-python/subunit[python_targets_python3_8(-)]
     addns? ( dev-python/dnspython:=[python_targets_python3_8(-)] net-dns/bind-tools[gssapi]
+    ) ) python_single_target_python3_10? ( dev-python/subunit[python_targets_python3_10(-)]
+    addns? ( dev-python/dnspython:=[python_targets_python3_10(-)] net-dns/bind-tools[gssapi]
     ) ) ceph? ( sys-cluster/ceph ) cluster? ( net-libs/rpcsvc-proto ) cups? ( net-print/cups
     ) debug? ( dev-util/lttng-ust ) dmapi? ( sys-apps/dmapi ) fam? ( virtual/fam )
     gpg? ( app-crypt/gpgme ) json? ( dev-libs/jansson ) ldap? ( net-nds/openldap )
-    pam? ( sys-libs/pam ) python? ( sys-libs/ldb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    sys-libs/talloc[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    sys-libs/tdb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    sys-libs/tevent[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    pam? ( sys-libs/pam ) python? ( sys-libs/ldb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    sys-libs/talloc[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    sys-libs/tdb[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    sys-libs/tevent[python,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     ) snapper? ( sys-apps/dbus ) system-heimdal? ( >=app-crypt/heimdal-1.5[-ssl] )
     system-mitkrb5? ( >=app-crypt/mit-krb5-1.15.1 ) zeroconf? ( net-dns/avahi[dbus]
     ) client? ( net-fs/cifs-utils[ads?] ) python? ( python_single_target_python3_7?
     ( dev-lang/python:3.7[threads(+),xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+),xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+),xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+),xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) )'
   emerge.packages: net-fs/samba
   kit: core-server-kit
   original.package.name: net-fs/samba
+  original.package.slot: "0"
   original.package.version: 4.13.4-r1
