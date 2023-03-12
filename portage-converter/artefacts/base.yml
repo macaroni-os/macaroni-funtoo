@@ -4610,6 +4610,12 @@ artefacts:
   packages:
   - dev-lua/luasocket
 - tree: packages/atoms/base
+  replacements:
+    # TODO: fix this in the ebuild
+    runtime_deps:
+      ignore:
+        - category: virtual
+          name: rust
   uses:
     disabled:
     - nios2
