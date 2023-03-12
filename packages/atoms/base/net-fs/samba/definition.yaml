@@ -11,7 +11,6 @@ use_flags:
 - -fam
 - -gpg
 - -json
-- -ldap
 - -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
@@ -21,6 +20,7 @@ use_flags:
 - -test
 - client
 - cups
+- ldap
 - pam
 - python
 - python_single_target_python3_7
@@ -51,6 +51,9 @@ requires:
 - name: libnsl
   version: '>=0'
   category: net-libs
+- name: openldap
+  version: '>=0'
+  category: net-nds
 - name: cups
   version: '>=0'
   category: net-print
