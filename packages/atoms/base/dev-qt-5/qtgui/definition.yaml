@@ -2,26 +2,35 @@ name: qtgui
 version: 5.15.2+9
 category: dev-qt-5
 use_flags:
-- -X
-- -dbus
-- -egl
 - -eglfs
 - -evdev
 - -gles2-only
-- -jpeg
-- -libinput
-- -png
+- -linuxfb
 - -test
 - -tslib
 - -tuio
-- -udev
 - -vnc
-- -vulkan
+- X
+- dbus
+- jpeg
+- libinput
+- png
+- udev
+- vulkan
 requires:
-- name: qtcore
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libinput
+  version: '>=0'
+  category: dev-libs
+- name: qtdbus
   version: '>=0'
   category: dev-qt-5
 - name: gtk-update-icon-cache
+  version: '>=0'
+  category: dev-util
+- name: vulkan-headers
   version: '>=0'
   category: dev-util
 - name: fontconfig
@@ -30,6 +39,33 @@ requires:
 - name: harfbuzz
   version: '>=0'
   category: media-libs
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-image
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-keysyms
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-renderutil
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-wm
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -39,7 +75,7 @@ annotations:
       - ^/var/db/pkg/
 description: The GUI module and platform plugins for the Qt5 framework
 uri:
-- https://www.qt.io/
+- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
