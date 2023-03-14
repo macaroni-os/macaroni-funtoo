@@ -25,15 +25,12 @@ RUN sys-devel-9.2.0/gcc
 
 RUN virtual-entities/base
 
-RUN sys-apps/iproute2
-RUN sys-apps/sysvinit
-
-RUN sys-apps/coreutils
-RUN sys-apps/openrc
-
 SHELL ["/bin/bash", "-c"]
 
-RUN luet cleanup --purge-repos
+RUN luet i -y iproute2 sysvinit coreutils sys-apps/openrc virtual/base macaronictl-thin --skip-config-protect && \
+  macaronictl env-update && \
+  luet cleanup --purge-repos && \
+  mkdir /tmp
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
