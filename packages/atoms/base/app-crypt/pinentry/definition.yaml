@@ -2,9 +2,8 @@ name: pinentry
 version: 1.2.1
 category: app-crypt
 use_flags:
-- -caps
 - -efl
-- -gnome-keyring
+- gnome-keyring
 - gtk
 - ncurses
 - qt5
@@ -12,12 +11,15 @@ requires:
 - name: gcr
   version: '>=0'
   category: app-crypt
-- name: eselect-pinentry
+- name: libsecret
   version: '>=0'
-  category: app-eselect
+  category: app-crypt
 - name: libassuan
   version: '>=0'
   category: dev-libs
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
 - name: qtwidgets
   version: '>=0'
   category: dev-qt-5
