@@ -18,23 +18,20 @@ RUN system/entities
 
 SHELL ["/usr/bin/luet", "install", "-y", "--force"]
 
-RUN system/luet-geaaru
+RUN system/luet-geaaru-thin
 RUN sys-apps/shadow
 RUN sys-apps/sed
 RUN app-shells/bash
 RUN sys-devel-9.2.0/gcc
 
-RUN sys-libs/ncurses
-RUN sys-apps/systemd
-RUN sys-apps/coreutils
-RUN sys-apps/iproute2
-
-RUN virtual/base
 RUN virtual-entities/base
 
 SHELL ["/bin/bash", "-c"]
 
-RUN luet cleanup --purge-repos
+RUN luet i -y ncurses sys-apps/systemd coreutils iproute2 virtual/base macaronictl-thin --skip-config-protect && \
+  luet rm -y --nodeps virtual-entities/base dev-lang-2.7/python && \
+  luet cleanup --purge-repos && \
+  mkdir /tmp
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
