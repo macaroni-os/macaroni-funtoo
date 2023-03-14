@@ -2,16 +2,16 @@ name: grub
 version: 2.04+7
 category: sys-boot-2
 use_flags:
-- device-mapper
 - -grub_platforms_efi-32
-- grub_platforms_emu
 - -kernel_linux
 - -libzfs
 - -ppc
 - -ppc64
 - -test
+- device-mapper
 - fonts
 - grub_platforms_efi-64
+- grub_platforms_emu
 - mount
 - nls
 - sdl
@@ -24,9 +24,15 @@ requires:
 - name: freetype
   version: '>=0'
   category: media-libs-2
+- name: libsdl
+  version: '>=0'
+  category: media-libs
 - name: gettext
   version: '>=0'
   category: sys-devel
+- name: lvm2
+  version: '>=0'
+  category: sys-fs
 - name: fuse
   version: '>=0'
   category: sys-fs
