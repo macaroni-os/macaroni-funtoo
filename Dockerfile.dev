@@ -34,8 +34,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN macaronictl env-update && \
       luet rm dev-lang-2.7/python macaroni/entities-catalog virtual-entities/base --nodeps -y && \
-      luet cleanup --purge-repos && \
-      mkdir /tmp
+      luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
