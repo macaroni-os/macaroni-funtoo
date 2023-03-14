@@ -1,17 +1,17 @@
 name: zfs-kmod
-version: 2.1.9+1
+version: 2.1.9+2
 category: kernel-5.4
-annotations:
-  kernel_module: true
-provides:
-- name: zfs-kmod
-  version: 2.1.9+1
-  category: sys-fs-5.4
 requires:
 - name: zfs-common
   version: '>=0'
   category: kernel
+provides:
+- name: zfs-kmod
+  version: 2.1.9+1
+  category: sys-fs-5.4
+annotations:
+  kernel_module: true
 labels:
   emerge.packages: sys-fs/zfs-kmod
   kernel.suffix: macaroni
-  kernel.version: 5.4.231
+  kernel.version: 5.4.236
