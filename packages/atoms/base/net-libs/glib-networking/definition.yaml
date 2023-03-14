@@ -2,11 +2,11 @@ name: glib-networking
 version: 2.70.0
 category: net-libs
 use_flags:
-- -libproxy
 - -prefix
 - -smartcard
 - -test
 - gnome
+- libproxy
 requires:
 - name: ca-certificates
   version: '>=0'
@@ -15,6 +15,9 @@ requires:
   version: '>=0'
   category: gnome-base
 - name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: libproxy
   version: '>=0'
   category: net-libs
 annotations:
