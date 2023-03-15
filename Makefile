@@ -88,11 +88,8 @@ repository:
 repository/mottainai:
 	git clone -b master --single-branch https://github.com/MottainaiCI/repo-stable $(ROOT_DIR)/repository/mottainai
 
-repository/geaaru:
-	git clone -b master --single-branch https://github.com/geaaru/luet-specs $(ROOT_DIR)/repository/geaaru
-
 repository/macaroni-commons:
 	git clone -b master --single-branch https://github.com/funtoo/macaroni-commons $(ROOT_DIR)/repository/macaroni-commons
 
-validate: repository repository/mottainai repository/geaaru repository/macaroni-commons
+validate: repository repository/mottainai repository/macaroni-commons
 	$(LUET) tree validate --tree $(ROOT_DIR)/repository --tree $(TREE) $(VALIDATE_OPTIONS)
