@@ -11,6 +11,7 @@ prelude:
   luet upgrade --sync-repos  &&
   luet install --force --config ./luet.yaml --sync-repos
   {{ ( index .Values.labels "build_repos" ) }} &&
+  luet repo update &&
   luet install --force --config ./luet.yaml --skip-finalizers --sync-repos
   system/luet-geaaru
   toolchain/base
