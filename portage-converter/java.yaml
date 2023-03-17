@@ -145,6 +145,7 @@ artefacts:
       - doc
       - selinux
       - arm
+      - headless-awt
   packages:
     - dev-java/oracle-jdk-bin:1.8
     - dev-java/openjdk-jre-bin:8
@@ -152,6 +153,10 @@ artefacts:
     - dev-java/openjdk-bin:11
     - dev-java/openjdk-bin:8
     - dev-java/maven-bin:3.6
+    - dev-java/openjdk-bin:19
+    - dev-java/openjdk-jre-bin:19
+    - dev-java/openjdk-bin:17
+    - dev-java/openjdk-jre-bin:17
 
 - tree: packages/atoms/java
   uses:
@@ -169,6 +174,42 @@ artefacts:
 - tree: packages/atoms/java
   packages:
     - net-libs/libnet:1.1
+
+- tree: packages/atoms/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-java-17
+          name: openjdk-bin
+  packages:
+    - virtual/jdk:17
+
+- tree: packages/atoms/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-java-19
+          name: openjdk-bin
+  packages:
+    - virtual/jdk:19
+
+- tree: packages/atoms/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-java-17
+          name: openjdk-jre-bin
+  packages:
+    - virtual/jre:17
+
+- tree: packages/atoms/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-java-19
+          name: openjdk-jre-bin
+  packages:
+    - virtual/jre:19
 
 include_layers:
 - layers/macaroni-funtoo-race1.yaml
