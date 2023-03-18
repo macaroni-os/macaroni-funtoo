@@ -16,7 +16,7 @@ luet_packages2remove = [
     "macaroni/live-setup",
     "macaroni/live-setup-xfce4",
     "macaroni/live-setup-gnome",
-    "kernel/macaroni-lts-initramfs",
+    "kernel-5.10/macaroni-initramfs",
     "kernel-5.10/virtualbox-guest-additions",
     "kernel-5.4/virtualbox-guest-additions",
     "system/macaroni-funtoo-calamares",
