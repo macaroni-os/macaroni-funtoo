@@ -1,0 +1,26 @@
+name: mkcert
+version: 1.4.4
+category: app-misc
+requires:
+- name: nss
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A zero-config tool to make locally trusted development certificates
+uri:
+- https://github.com/FiloSottile/mkcert
+license: BSD
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  RDEPEND: dev-libs/nss[utils]
+  emerge.packages: app-misc/mkcert
+  kit: dev-kit
+  original.package.name: app-misc/mkcert
+  original.package.slot: "0"
+  original.package.version: 1.4.4
