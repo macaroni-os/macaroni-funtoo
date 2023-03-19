@@ -6,6 +6,8 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary patch until #FL-11111 is gone
+- cp rpm-4.18.1.ebuild /var/git/meta-repo/kits/core-kit/app-arch/rpm/
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
