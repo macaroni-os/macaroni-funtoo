@@ -3,14 +3,17 @@ version: 5.85.0
 category: kde-frameworks-5
 use_flags:
 - -doc
-- -ios
-- -nls
 - -prefix
 - -test
+- ios
+- nls
 requires:
-- name: qtdbus
+- name: libimobiledevice
   version: '>=0'
-  category: dev-qt-5
+  category: app-pda
+- name: libplist
+  version: '>=0'
+  category: app-pda
 - name: qtdeclarative
   version: '>=0'
   category: dev-qt-5
