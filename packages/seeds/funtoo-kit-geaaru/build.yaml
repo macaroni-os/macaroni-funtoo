@@ -13,4 +13,5 @@ prelude:
   git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' &&
   git fetch -a &&
   git checkout {{ ( index .Values.labels "repo_branch" ) }} &&
-  git checkout {{ ( index .Values.labels "repo_hash" ) }}
+  git checkout {{ ( index .Values.labels "repo_hash" ) }} &&
+  mkdir /{{ .Values.name }}/
