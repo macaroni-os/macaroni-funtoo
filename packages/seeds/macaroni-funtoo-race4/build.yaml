@@ -26,6 +26,7 @@ steps:
 - >-
   luet install --force
   system/luet-devkit
+  app-admin/macaronictl
   utils/jq
   utils/yq
   dev-util/pkgs-checker-minimal
@@ -46,7 +47,6 @@ steps:
   toolchain/base-python
   toolchain/base-tools
   toolchain/base-tools2
-  app-admin/macaronictl
   && luet cleanup &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&

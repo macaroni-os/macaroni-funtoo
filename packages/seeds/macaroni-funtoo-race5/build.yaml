@@ -28,6 +28,7 @@ steps:
   system/luet-devkit
   utils/jq
   utils/yq
+  app-admin/macaronictl
   dev-util/pkgs-checker-minimal
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
@@ -42,7 +43,6 @@ steps:
   luet miner ri virtual/base virtual/sh &&
   luet repo update && luet upgrade &&
   luet i
-  app-admin/macaronictl
   toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
