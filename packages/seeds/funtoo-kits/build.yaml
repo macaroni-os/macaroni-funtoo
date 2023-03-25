@@ -33,3 +33,9 @@ prelude:
   popd ;
   fi ;
   done
+# I want move ahead meson
+- >-
+  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
+  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
+  sed '/meson/d' -i
+  /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo
