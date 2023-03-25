@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary fix for meson until the new meta-repo package will be available
+- >-
+  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
+  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
+  sed '/meson/d' -i
+  /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo &&
+  emerge =dev-util/meson::geaaru-kit
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
