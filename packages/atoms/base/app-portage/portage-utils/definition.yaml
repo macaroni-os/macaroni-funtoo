@@ -2,10 +2,20 @@ name: portage-utils
 version: 0.93.3
 category: app-portage
 use_flags:
-- -libressl
+- -qtegrity
 - -static
 - openmp
 - qmanifest
+requires:
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
+- name: libb2
+  version: '>=0'
+  category: app-crypt
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
