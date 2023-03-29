@@ -2,7 +2,10 @@ name: elfutils
 version: "0.187"
 category: dev-libs
 use_flags:
+- -elibc_musl
 - -lzma
+- -valgrind
+- -zstd
 - bzip2
 - nls
 requires:
@@ -21,7 +24,7 @@ annotations:
       - ^/var/db/pkg/
 description: Libraries/utilities to handle ELF objects (drop in replacement for libelf)
 uri:
-- http://elfutils.org/
+- https://sourceware.org/elfutils/
 license: '|| ( GPL-2+ LGPL-3+ ) utils? ( GPL-3+ )'
 labels:
   BDEPEND: '>=sys-devel/flex-2.5.4a sys-devel/m4 nls? ( sys-devel/gettext )'
