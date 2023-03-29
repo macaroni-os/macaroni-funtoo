@@ -2,13 +2,16 @@ name: kinit
 version: 5.85.0
 category: kde-frameworks-5
 use_flags:
-- -X
-- -caps
 - -man
+- X
+- caps
 requires:
 - name: kio
   version: '>=0'
   category: kde-frameworks-5
+- name: libcap
+  version: '>=0'
+  category: sys-libs
 annotations:
   subsets:
     rules:
