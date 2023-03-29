@@ -4,11 +4,14 @@ category: gnome-base-2
 use_flags:
 - -elogind
 - -systemd
+- -wayland
 - ibus
 - libinput
 - v4l
-- wayland
 requires:
+- name: openrc-settingsd
+  version: '>=0'
+  category: app-admin
 - name: ibus
   version: '>=0'
   category: app-i18n
