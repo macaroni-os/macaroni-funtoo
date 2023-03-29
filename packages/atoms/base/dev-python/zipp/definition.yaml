@@ -1,14 +1,18 @@
 name: zipp
-version: 3.13.0
+version: 3.15.0
 category: dev-python
 use_flags:
-- -doc
 - -python_targets_pypy3
-- -test
-- python_targets_python2_7
+- -python_targets_python2_7
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -python_targets_python3_9
 - python_targets_python3_7
 requires:
-- name: more-itertools
+- name: setuptools_scm
+  version: '>=0'
+  category: dev-python
+- name: toml
   version: '>=0'
   category: dev-python
 annotations:
@@ -20,7 +24,7 @@ annotations:
       - ^/var/db/pkg/
 description: Backport of pathlib-compatible object wrapper for zip files
 uri:
-- https://github.com/jaraco/zipp
+- https://github.com/jaraco/zipp https://pypi.org/project/zipp/
 license: MIT
 labels:
   BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
@@ -38,4 +42,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/zipp
   original.package.slot: "0"
-  original.package.version: 3.13.0
+  original.package.version: 3.15.0
