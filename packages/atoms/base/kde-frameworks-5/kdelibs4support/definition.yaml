@@ -2,19 +2,19 @@ name: kdelibs4support
 version: 5.85.0
 category: kde-frameworks-5
 use_flags:
-- -X
-- -handbook
 - -libressl
 - -prefix
 - -test
+- X
+- handbook
 requires:
+- name: docbook-xml-dtd
+  version: '>=0'
+  category: app-text-4.2
 - name: qttest
   version: '>=0'
   category: dev-qt-5
 - name: kded
-  version: '>=0'
-  category: kde-frameworks-5
-- name: kdoctools
   version: '>=0'
   category: kde-frameworks-5
 - name: kemoticons
