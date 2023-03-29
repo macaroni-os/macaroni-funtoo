@@ -1,19 +1,29 @@
 name: cryptography
-version: 39.0.1
+version: 40.0.1
 category: dev-python
 use_flags:
 - -idna
 - -libressl
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -x86
 - cpu_flags_x86_sse2
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: cryptography-compat
+- name: cffi
   version: '>=0'
   category: dev-python
+- name: six
+  version: '>=0'
+  category: dev-python
+- name: python-enum34
+  version: '>=0'
+  category: virtual
+- name: python-ipaddress
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -21,7 +31,6 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Library providing cryptographic recipes and primitives
 uri:
 - https://github.com/pyca/cryptography https://pypi.org/project/cryptography/
 license: '|| ( Apache-2.0 BSD )'
@@ -51,4 +60,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/cryptography
   original.package.slot: "0"
-  original.package.version: 39.0.1
+  original.package.version: 40.0.1
