@@ -2,19 +2,19 @@ name: kio-extras
 version: 21.08.1
 category: kde-apps-5
 use_flags:
-- -X
 - -activities
-- -handbook
 - -man
-- -mtp
 - -nfs
-- -openexr
-- -phonon
 - -prefix
 - -samba
-- -sftp
-- -taglib
 - -test
+- X
+- handbook
+- mtp
+- openexr
+- phonon
+- sftp
+- taglib
 requires:
 - name: kded
   version: '>=0'
@@ -28,6 +28,24 @@ requires:
 - name: syntax-highlighting
   version: '>=0'
   category: kde-frameworks-5
+- name: libmtp
+  version: '>=0'
+  category: media-libs
+- name: openexr
+  version: '>=0'
+  category: media-libs
+- name: phonon
+  version: '>=0'
+  category: media-libs
+- name: taglib
+  version: '>=0'
+  category: media-libs
+- name: libssh
+  version: '>=0'
+  category: net-libs
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
