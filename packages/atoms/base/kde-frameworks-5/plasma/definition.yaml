@@ -2,12 +2,12 @@ name: plasma
 version: 5.85.0
 category: kde-frameworks-5
 use_flags:
-- -X
 - -doc
 - -gles2-only
 - -prefix
 - -test
-- -wayland
+- X
+- wayland
 requires:
 - name: qtquickcontrols
   version: '>=0'
@@ -21,6 +21,12 @@ requires:
 - name: kirigami
   version: '>=0'
   category: kde-frameworks-5
+- name: kwayland
+  version: '>=0'
+  category: kde-frameworks-5
+- name: opengl
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
