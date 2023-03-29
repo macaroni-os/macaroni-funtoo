@@ -2,12 +2,15 @@ name: kconfig
 version: 5.85.0
 category: kde-frameworks-5
 use_flags:
-- -dbus
 - -doc
-- -nls
 - -prefix
 - -test
+- dbus
+- nls
 requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
 - name: qtgui
   version: '>=0'
   category: dev-qt-5
