@@ -4,9 +4,9 @@ category: dev-qt-5
 use_flags:
 - -localstorage
 - -test
-- -widgets
+- widgets
 requires:
-- name: qtgui
+- name: qtcore
   version: '>=0'
   category: dev-qt-5
 - name: qtnetwork
@@ -15,6 +15,12 @@ requires:
 - name: qttest
   version: '>=0'
   category: dev-qt-5
+- name: qtwidgets
+  version: '>=0'
+  category: dev-qt-5
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
 annotations:
   subsets:
     rules:
@@ -24,7 +30,7 @@ annotations:
       - ^/var/db/pkg/
 description: The QML and Quick modules for the Qt5 framework
 uri:
-- https://www.qt.io/
+- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
