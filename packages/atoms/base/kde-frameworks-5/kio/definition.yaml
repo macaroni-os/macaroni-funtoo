@@ -2,34 +2,40 @@ name: kio
 version: 5.85.0
 category: kde-frameworks-5
 use_flags:
-- -X
-- -acl
 - -designer
 - -doc
-- -handbook
 - -kerberos
-- -kwallet
 - -prefix
 - -test
+- X
+- acl
+- handbook
+- kwallet
 requires:
-- name: libxslt
-  version: '>=0'
-  category: dev-libs
 - name: kbookmarks
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kdoctools
   version: '>=0'
   category: kde-frameworks-5
 - name: kjobwidgets
   version: '>=0'
   category: kde-frameworks-5
-- name: knotifications
+- name: ktextwidgets
   version: '>=0'
   category: kde-frameworks-5
-- name: ktextwidgets
+- name: kwallet
   version: '>=0'
   category: kde-frameworks-5
 - name: solid
   version: '>=0'
   category: kde-frameworks-5
+- name: attr
+  version: '>=0'
+  category: sys-apps
+- name: acl
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
