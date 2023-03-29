@@ -2,11 +2,19 @@ name: nano
 version: "7.2"
 category: app-editors
 use_flags:
-- -slang
 - -static
 - magic
-- ncurses
 - nls
+requires:
+- name: file
+  version: '>=0'
+  category: sys-apps
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
