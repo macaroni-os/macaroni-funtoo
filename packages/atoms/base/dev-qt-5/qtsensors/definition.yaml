@@ -2,10 +2,13 @@ name: qtsensors
 version: 5.15.2+6
 category: dev-qt-5
 use_flags:
-- -qml
 - -test
+- qml
 requires:
 - name: qtdbus
+  version: '>=0'
+  category: dev-qt-5
+- name: qtdeclarative
   version: '>=0'
   category: dev-qt-5
 annotations:
@@ -17,7 +20,7 @@ annotations:
       - ^/var/db/pkg/
 description: Hardware sensor access library for the Qt5 framework
 uri:
-- https://www.qt.io/
+- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
