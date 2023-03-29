@@ -1,13 +1,14 @@
 name: dbus-python
-version: 1.2.18
+version: 1.2.18+1
 category: dev-python
 use_flags:
 - -doc
 - -python_targets_pypy3
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -test
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
 - name: python
@@ -37,22 +38,25 @@ labels:
   DEPEND: '>=sys-apps/dbus-1.8:= >=dev-libs/glib-2.40 python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0=[threads(+)]
     ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
     ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
-    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]
-    virtual/pkgconfig doc? ( || ( ( >=dev-lang/python-2.7.5-r2:2.7[threads(+)] dev-python/sphinx[python_targets_python2_7(-),python_single_target_python2_7(+)]
+    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[threads(+)] ) python_targets_python3_10?
+    ( dev-lang/python:3.10[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    virtual/pkgconfig doc? ( || ( ( dev-lang/python:3.10[threads(+)] dev-python/sphinx[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( >=dev-lang/python-2.7.5-r2:2.7[threads(+)] dev-python/sphinx[python_targets_python2_7(-),python_single_target_python2_7(+)]
     ) ( dev-lang/python:3.8[threads(+)] dev-python/sphinx[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9[threads(+)] dev-python/sphinx[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7[threads(+)] dev-python/sphinx[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ( >=dev-python/pypy3-7.3.0:0[threads(+)] dev-python/sphinx[python_targets_pypy3(-),python_single_target_pypy3(+)]
-    ) ) ) test? ( dev-python/pygobject:3[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]
-    dev-python/tappy[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]
+    ) ) ) test? ( dev-python/pygobject:3[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    dev-python/tappy[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
     >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
   IUSE: doc examples test python_targets_pypy3 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python2_7
+    python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
   RDEPEND: '>=sys-apps/dbus-1.8:= >=dev-libs/glib-2.40 python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0=[threads(+)]
     ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
     ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
-    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]'
+    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[threads(+)] ) python_targets_python3_10?
+    ( dev-lang/python:3.10[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]'
   emerge.packages: dev-python/dbus-python
   kit: python-modules-kit
   original.package.name: dev-python/dbus-python
