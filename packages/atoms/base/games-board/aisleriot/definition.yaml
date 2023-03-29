@@ -3,15 +3,21 @@ version: 3.22.9+3
 category: games-board
 use_flags:
 - -extra
-- -gnome
-- -sound
+- gnome
+- sound
 requires:
 - name: guile
   version: '>=0'
   category: dev-scheme-12
+- name: gconf
+  version: '>=0'
+  category: gnome-base-2
 - name: librsvg
   version: '>=0'
   category: gnome-base-2
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -44,4 +50,5 @@ labels:
   emerge.packages: games-board/aisleriot
   kit: gnome-kit
   original.package.name: games-board/aisleriot
+  original.package.slot: "0"
   original.package.version: 3.22.9
