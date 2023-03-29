@@ -2,7 +2,6 @@ name: ell
 version: "0.56"
 category: dev-libs
 use_flags:
-- -glib
 - -test
 annotations:
   subsets:
@@ -14,13 +13,12 @@ annotations:
 description: Embedded Linux Library provides core, low-level functionality for system
   daemons
 uri:
-- ""
+- https://01.org/ell
 license: LGPL-2.1
 labels:
   DEPEND: test? ( sys-apps/dbus )
   IUSE: pie test kernel_linux abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
     abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: glib? ( dev-libs/glib:2 )
   emerge.packages: dev-libs/ell
   kit: core-kit
   original.package.name: dev-libs/ell
