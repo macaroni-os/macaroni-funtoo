@@ -1,10 +1,7 @@
 name: ca-certificates
-version: 20211016+2
+version: "20230311"
 category: app-misc
 requires:
-- name: c_rehash
-  version: '>=0'
-  category: app-misc
 - name: debianutils
   version: '>=0'
   category: sys-apps
@@ -21,11 +18,9 @@ uri:
 license: MPL-1.1
 labels:
   BDEPEND: '!app-misc/c_rehash sys-apps/debianutils'
-  DEPEND: '|| ( >=dev-lang/python-2.7.5-r2:2.7 dev-lang/python:3.7 )'
-  IUSE: cacert
   RDEPEND: '!app-misc/c_rehash sys-apps/debianutils'
   emerge.packages: app-misc/ca-certificates
   kit: core-kit
   original.package.name: app-misc/ca-certificates
   original.package.slot: "0"
-  original.package.version: 20211016-r1
+  original.package.version: "20230311"
