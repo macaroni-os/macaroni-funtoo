@@ -29,7 +29,11 @@ uri:
 - https://www.freedesktop.org/wiki/Software/libinput/ https://gitlab.freedesktop.org/libinput/libinput
 license: MIT
 labels:
-  BDEPEND: virtual/pkgconfig doc? ( || ( ( dev-lang/python:3.8 dev-python/commonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: virtual/pkgconfig doc? ( || ( ( dev-lang/python:3.10 dev-python/commonmark[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/recommonmark[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/sphinx[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    >=dev-python/sphinx_rtd_theme-0.2.4[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/commonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/recommonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/sphinx[python_targets_python3_8(-),python_single_target_python3_8(+)]
     >=dev-python/sphinx_rtd_theme-0.2.4[python_targets_python3_8(-),python_single_target_python3_8(+)]
