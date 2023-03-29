@@ -27,7 +27,10 @@ uri:
 license: LGPL-2.1+ Apache-2.0
 labels:
   BDEPEND: dev-libs/libxslt dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig
-    test? ( || ( ( dev-lang/python:3.8 dev-python/mock[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    test? ( || ( ( dev-lang/python:3.10 dev-python/mock[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/dbus-python[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    introspection? ( dev-python/pygobject:3[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) ( dev-lang/python:3.8 dev-python/mock[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/dbus-python[python_targets_python3_8(-),python_single_target_python3_8(+)]
     introspection? ( dev-python/pygobject:3[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ) ( dev-lang/python:3.9 dev-python/mock[python_targets_python3_9(-),python_single_target_python3_9(+)]
