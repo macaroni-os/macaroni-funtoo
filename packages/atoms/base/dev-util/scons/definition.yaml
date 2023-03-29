@@ -1,18 +1,16 @@
 name: scons
-version: 4.4.0
+version: 4.5.2
 category: dev-util
 use_flags:
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: python
+- name: setuptools
   version: '>=0'
-  category: dev-lang-3.7
-- name: scons-compat
-  version: '>=0'
-  category: dev-util
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -22,7 +20,7 @@ annotations:
       - ^/var/db/pkg/
 description: Extensible Python-based build utility
 uri:
-- https://www.scons.org/
+- https://www.scons.org/ https://pypi.org/project/SCons/
 license: MIT
 labels:
   BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
@@ -39,4 +37,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-util/scons
   original.package.slot: "0"
-  original.package.version: 4.4.0
+  original.package.version: 4.5.2
