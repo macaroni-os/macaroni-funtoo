@@ -10,6 +10,7 @@ use_flags:
 - -perl
 - -postscript
 - -python_single_target_python2_7
+- -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -qt5
@@ -56,7 +57,7 @@ requires:
   category: virtual
 - name: gtk+
   version: '>=0'
-  category: x11-libs-3
+  category: x11-libs-2
 - name: libXaw
   version: '>=0'
   category: x11-libs
@@ -85,6 +86,7 @@ labels:
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
     ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5
     ) ruby? ( dev-lang/ruby:* ) svg? ( gnome-base/librsvg ) tcl? ( >=dev-lang/tcl-8.3:0=
     ) X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXpm x11-libs/libXt
@@ -95,8 +97,8 @@ labels:
   IUSE: +cairo devil doc examples gdk-pixbuf gtk gts guile java lasi nls pdf perl
     postscript python qt5 ruby static-libs svg tcl X elibc_FreeBSD elibc_FreeBSD java
     python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
-    python_single_target_python2_7 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python2_7
+    python_single_target_python2_7 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
   RDEPEND: '>=dev-libs/expat-2 >=dev-libs/glib-2.11.1:2 dev-libs/libltdl:0 >=media-libs/fontconfig-2.3.95
     >=media-libs/freetype-2.1.10 >=media-libs/gd-2.0.34:=[fontconfig,jpeg,png,truetype,zlib]
     >=media-libs/libpng-1.2:0= sys-libs/zlib virtual/jpeg:0 virtual/libiconv cairo?
@@ -107,6 +109,7 @@ labels:
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
     ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5
     ) ruby? ( dev-lang/ruby:* ) svg? ( gnome-base/librsvg ) tcl? ( >=dev-lang/tcl-8.3:0=
     ) X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXpm x11-libs/libXt
@@ -118,4 +121,5 @@ labels:
   emerge.packages: media-gfx/graphviz
   kit: media-kit
   original.package.name: media-gfx/graphviz
+  original.package.slot: "0"
   original.package.version: 2.44.1
