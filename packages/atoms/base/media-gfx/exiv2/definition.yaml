@@ -3,6 +3,7 @@ version: 0.27.5+2
 category: media-gfx
 use_flags:
 - -doc
+- -test
 - -webready
 - nls
 - png
@@ -32,9 +33,9 @@ uri:
 - https://www.exiv2.org/
 license: GPL-2
 labels:
-  BDEPEND: doc? ( || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
-    ) app-doc/doxygen dev-libs/libxslt media-gfx/graphviz virtual/pkgconfig ) nls?
-    ( sys-devel/gettext ) dev-util/ninja dev-util/cmake
+  BDEPEND: doc? ( || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) app-doc/doxygen dev-libs/libxslt media-gfx/graphviz virtual/pkgconfig
+    ) nls? ( sys-devel/gettext ) dev-util/ninja dev-util/cmake
   DEPEND: test? ( dev-cpp/gtest )
   IUSE: +bmff doc examples nls +png test webready +xmp abi_x86_32 abi_x86_64 abi_x86_x32
     abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
