@@ -1,17 +1,18 @@
 name: importlib_metadata
-version: 6.0.0
+version: 6.1.0
 category: dev-python
 use_flags:
 - -doc
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: importlib_metadata-compat
+- name: typing-extensions
   version: '>=0'
   category: dev-python
-- name: typing-extensions
+- name: zipp
   version: '>=0'
   category: dev-python
 annotations:
@@ -21,9 +22,8 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Read metadata from Python packages
 uri:
-- https://importlib-metadata.readthedocs.io/
+- https://github.com/python/importlib_metadata https://pypi.org/project/importlib-metadata/
 license: Apache-2.0
 labels:
   BDEPEND: doc? ( || ( ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
@@ -54,4 +54,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/importlib_metadata
   original.package.slot: "0"
-  original.package.version: 6.0.0
+  original.package.version: 6.1.0
