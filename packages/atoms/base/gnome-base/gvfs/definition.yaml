@@ -3,7 +3,6 @@ version: 1.44.1+4
 category: gnome-base
 use_flags:
 - -elogind
-- -gnome-keyring
 - -systemd
 - -test
 - afp
@@ -11,6 +10,7 @@ use_flags:
 - bluray
 - cdda
 - fuse
+- gnome-keyring
 - gnome-online-accounts
 - google
 - gphoto2
@@ -26,9 +26,6 @@ use_flags:
 - zeroconf
 requires:
 - name: libimobiledevice
-  version: '>=0'
-  category: app-pda
-- name: libplist
   version: '>=0'
   category: app-pda
 - name: libcdio-paranoia
@@ -52,15 +49,9 @@ requires:
 - name: samba
   version: '>=0'
   category: net-fs
-- name: libsoup
-  version: '>=0'
-  category: net-libs-2.4
 - name: openssh
   version: '>=0'
   category: net-misc
-- name: dbus
-  version: '>=0'
-  category: sys-apps
 - name: fuse
   version: '>=0'
   category: sys-fs-3
