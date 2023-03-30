@@ -55,12 +55,13 @@ annotations:
       - ^/var/db/pkg/
 description: A graph based image processing framework
 uri:
-- http://www.gegl.org/
+- https://gegl.org/
 license: '|| ( GPL-3+ LGPL-3 )'
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) dev-lang/perl
-    >=dev-util/gtk-doc-am-1 >=sys-devel/gettext-0.19.8 >=sys-devel/libtool-2.2 virtual/pkgconfig
-    test? ( || ( ( dev-lang/python:3.8 >=dev-python/pygobject-3.2:3[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) dev-lang/perl >=dev-util/gtk-doc-am-1 >=sys-devel/gettext-0.19.8 >=sys-devel/libtool-2.2
+    virtual/pkgconfig test? ( || ( ( dev-lang/python:3.10 >=dev-python/pygobject-3.2:3[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 >=dev-python/pygobject-3.2:3[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 >=dev-python/pygobject-3.2:3[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 >=dev-python/pygobject-3.2:3[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ) ) vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
