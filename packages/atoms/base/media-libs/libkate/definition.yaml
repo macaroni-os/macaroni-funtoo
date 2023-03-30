@@ -3,6 +3,7 @@ version: 0.4.1+3
 category: media-libs
 use_flags:
 - -doc
+- -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -wxwidgets
@@ -32,14 +33,17 @@ labels:
     >=sys-devel/libtool-2.4
   DEPEND: media-libs/libogg:= media-libs/libpng:0=
   IUSE: debug doc wxwidgets python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: media-libs/libogg:= media-libs/libpng:0= wxwidgets? ( python_single_target_python3_7?
     ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
     ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) dev-python/wxpython:4.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    dev-python/wxpython:4.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     media-libs/liboggz )
   emerge.packages: media-libs/libkate
   kit: media-kit
   original.package.name: media-libs/libkate
+  original.package.slot: "0"
   original.package.version: 0.4.1-r4
