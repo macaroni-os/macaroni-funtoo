@@ -36,14 +36,16 @@ license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
 labels:
   BDEPEND: dev-lang/perl >=dev-util/cmake-3.16 sys-devel/gnuconfig kernel_Darwin?
     ( <sys-libs/libcxx-11.0.0.9999 >=sys-devel/binutils-apple-5.1 ) doc? ( || ( (
-    dev-lang/python:3.8 dev-python/recommonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    dev-lang/python:3.10 dev-python/recommonmark[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/sphinx[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/recommonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/sphinx[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/recommonmark[python_targets_python3_9(-),python_single_target_python3_9(+)]
     dev-python/sphinx[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/recommonmark[python_targets_python3_7(-),python_single_target_python3_7(+)]
     dev-python/sphinx[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) ) libffi? ( virtual/pkgconfig ) || ( dev-lang/python:3.8 dev-lang/python:3.9
-    dev-lang/python:3.7 ) dev-util/ninja dev-util/cmake
+    ) ) ) libffi? ( virtual/pkgconfig ) || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) dev-util/ninja dev-util/cmake
   DEPEND: sys-libs/zlib:0=[-mgorny(-)] exegesis? ( dev-libs/libpfm:= ) gold? ( >=sys-devel/binutils-2.31.1-r4:*[plugins]
     ) libedit? ( dev-libs/libedit:0=[-mgorny(-)] ) libffi? ( >=dev-libs/libffi-3.0.13-r1:0=[-mgorny(-)]
     ) ncurses? ( >=sys-libs/ncurses-5.9-r3:0=[-mgorny(-)] ) xar? ( app-arch/xar )
@@ -64,4 +66,5 @@ labels:
   emerge.packages: sys-devel/llvm:11
   kit: llvm-kit
   original.package.name: sys-devel/llvm
+  original.package.slot: "11"
   original.package.version: 11.0.0
