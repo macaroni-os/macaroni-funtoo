@@ -2,6 +2,7 @@ name: gtk-vnc
 version: 1.0.0+3
 category: net-libs
 use_flags:
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -sasl
@@ -37,21 +38,24 @@ labels:
     >=net-libs/gnutls-3.0:0= >=x11-libs/cairo-1.16.0 x11-libs/libX11 >=x11-libs/gtk+-3.24.12:3[introspection?]
     >=dev-libs/gobject-introspection-1.62.0:= pulseaudio? ( media-sound/pulseaudio
     ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    >=dev-python/pygobject-3:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/pygobject-3:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     sasl? ( dev-libs/cyrus-sasl ) >=dev-lang/perl-5 >=dev-util/intltool-0.40 sys-devel/gettext
     virtual/pkgconfig || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
     dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] )'
   IUSE: +introspection +vala pulseaudio sasl python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8
+    python_targets_python3_8 python_targets_python3_10
   RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libgcrypt-1.4.2:0= dev-libs/libgpg-error
     >=net-libs/gnutls-3.0:0= >=x11-libs/cairo-1.16.0 x11-libs/libX11 >=x11-libs/gtk+-3.24.12:3[introspection?]
     >=dev-libs/gobject-introspection-1.62.0:= pulseaudio? ( media-sound/pulseaudio
     ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    >=dev-python/pygobject-3:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/pygobject-3:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     sasl? ( dev-libs/cyrus-sasl )'
   emerge.packages: net-libs/gtk-vnc
   kit: gnome-kit
   original.package.name: net-libs/gtk-vnc
+  original.package.slot: "0"
   original.package.version: 1.0.0-r2
