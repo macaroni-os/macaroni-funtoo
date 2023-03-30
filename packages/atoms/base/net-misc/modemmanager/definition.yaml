@@ -40,7 +40,8 @@ labels:
     vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)]
     dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)]
     dev-lang/vala:0.36[vapigen(+)] ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils
-    dev-util/desktop-file-utils x11-misc/shared-mime-info virtual/pkgconfig virtual/pkgconfig'
+    dev-util/desktop-file-utils x11-misc/shared-mime-info sys-apps/shadow virtual/pkgconfig
+    virtual/pkgconfig'
   IUSE: elogind +introspection mbim policykit +qmi systemd +udev vala
   RDEPEND: '>=dev-libs/glib-2.36.0:2 udev? ( >=virtual/libgudev-230:= ) introspection?
     ( >=dev-libs/gobject-introspection-0.9.6:= ) mbim? ( >=net-libs/libmbim-1.18.0
@@ -49,4 +50,5 @@ labels:
   emerge.packages: net-misc/modemmanager
   kit: net-kit
   original.package.name: net-misc/modemmanager
+  original.package.slot: "0"
   original.package.version: 1.10.0
