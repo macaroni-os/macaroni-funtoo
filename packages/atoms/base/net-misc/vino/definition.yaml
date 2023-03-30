@@ -2,17 +2,17 @@ name: vino
 version: 3.22.0+3
 category: net-misc
 use_flags:
-- -gnome-keyring
 - crypt
+- gnome-keyring
 - jpeg
 - ssl
 - telepathy
 - zeroconf
 - zlib
 requires:
-- name: libgcrypt
+- name: libsecret
   version: '>=0'
-  category: dev-libs
+  category: app-crypt
 - name: avahi
   version: '>=0'
   category: net-dns
@@ -26,9 +26,6 @@ requires:
   version: '>=0'
   category: virtual
 - name: libSM
-  version: '>=0'
-  category: x11-libs
-- name: libXdamage
   version: '>=0'
   category: x11-libs
 - name: libXtst
@@ -69,4 +66,5 @@ labels:
   emerge.packages: net-misc/vino
   kit: gnome-kit
   original.package.name: net-misc/vino
+  original.package.slot: "0"
   original.package.version: 3.22.0-r1
