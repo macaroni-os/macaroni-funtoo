@@ -63,9 +63,10 @@ labels:
     >=dev-libs/totem-pl-parser-3.4.1 ) upnp-av? ( net-libs/libsoup:2.4 net-libs/dleyna-connector-dbus
     net-misc/dleyna-server ) vimeo? ( >=dev-libs/totem-pl-parser-3.4.1 ) app-text/docbook-xml-dtd:4.5
     app-text/yelp-tools >=dev-util/gdbus-codegen-2.44 >=dev-util/intltool-0.40.0 virtual/pkgconfig
-    lua? ( dev-util/gperf ) upnp-av? ( test? ( || ( >=dev-lang/python-2.7.5-r2:2.7
-    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) || ( ( >=dev-lang/python-2.7.5-r2:2.7
-    dev-python/dbusmock[python_targets_python2_7(-),python_single_target_python2_7(+)]
+    lua? ( dev-util/gperf ) upnp-av? ( test? ( || ( dev-lang/python:3.10 >=dev-lang/python-2.7.5-r2:2.7
+    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) || ( ( dev-lang/python:3.10
+    dev-python/dbusmock[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( >=dev-lang/python-2.7.5-r2:2.7 dev-python/dbusmock[python_targets_python2_7(-),python_single_target_python2_7(+)]
     ) ( dev-lang/python:3.8 dev-python/dbusmock[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/dbusmock[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/dbusmock[python_targets_python3_7(-),python_single_target_python3_7(+)]
@@ -86,4 +87,5 @@ labels:
   emerge.packages: media-plugins/grilo-plugins:0.3
   kit: gnome-kit
   original.package.name: media-plugins/grilo-plugins
+  original.package.slot: "0.3"
   original.package.version: 0.3.12
