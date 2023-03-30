@@ -3,7 +3,6 @@ version: 2.4+5
 category: media-video
 use_flags:
 - -gnutls
-- -libressl
 - ssl
 requires:
 - name: openssl
@@ -16,10 +15,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: RTMP client intended to stream audio or video flash content
+description: RTMP client, librtmp library intended to stream audio or vide o flash
+  content
 uri:
 - https://rtmpdump.mplayerhq.hu/
-license: GPL-2 LGPL-2.1
+license: LGPL-2.1 tools? ( GPL-2 )
 labels:
   DEPEND: ssl? ( gnutls? ( net-libs/gnutls dev-libs/nettle ) !gnutls? ( dev-libs/openssl
     ) >=sys-libs/zlib-1.2.8-r1 )
