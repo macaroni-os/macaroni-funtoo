@@ -2,17 +2,19 @@ name: gst-plugins-v4l2
 version: 1.18.4
 category: media-plugins-1.0
 use_flags:
+- -prefix
+- -test
 - udev
 requires:
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
 - name: gst-plugins-good
   version: '>=0'
   category: media-libs-1.0
 - name: libv4l
   version: '>=0'
   category: media-libs
-- name: libgudev
-  version: '>=0'
-  category: virtual
 annotations:
   subsets:
     rules:
