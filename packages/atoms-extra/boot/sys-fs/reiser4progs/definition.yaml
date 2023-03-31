@@ -1,0 +1,37 @@
+name: reiser4progs
+version: 1.2.1
+category: sys-fs
+use_flags:
+- -static
+- -static-libs
+- readline
+requires:
+- name: libaal
+  version: '>=0'
+  category: sys-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 'reiser4progs: mkfs, fsck, etc...'
+uri:
+- https://sourceforge.net/projects/reiser4/
+license: GPL-2
+labels:
+  DEPEND: '!static? ( >=sys-libs/libaal-1.0.6:= readline? ( sys-libs/readline:0= )
+    ) static-libs? ( >=sys-libs/libaal-1.0.6:=[static-libs(+)] ) static? ( >=sys-libs/libaal-1.0.6:=[static-libs(+)]
+    readline? ( sys-libs/readline:0=[static-libs(+)] ) )'
+  IUSE: debug readline static static-libs
+  RDEPEND: '!static? ( >=sys-libs/libaal-1.0.6:= readline? ( sys-libs/readline:0=
+    ) ) static-libs? ( >=sys-libs/libaal-1.0.6:=[static-libs(+)] )'
+  emerge.packages: sys-fs/reiser4progs
+  kit: core-kit
+  original.package.name: sys-fs/reiser4progs
+  original.package.slot: "0"
+  original.package.version: 1.2.1
