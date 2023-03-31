@@ -802,6 +802,11 @@ artefacts:
   - sys-devel/automake:1.16
 
 - tree: packages/atoms/base
+  mutations:
+    provides:
+      - category: sys-devel-2.36
+        name: binutils
+        version: "2.39"
   uses:
     disabled:
     - 64-bit-bfd
@@ -819,7 +824,7 @@ artefacts:
     - nls
     - plugins
   packages:
-  - sys-devel/binutils:2.36
+  - sys-devel/binutils:2.39
 
 - tree: packages/atoms/base
   uses:
