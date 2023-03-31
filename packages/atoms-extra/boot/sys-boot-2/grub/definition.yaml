@@ -1,5 +1,5 @@
 name: grub
-version: "2.04"
+version: "2.06"
 category: sys-boot-2
 use_flags:
 - -grub_platforms_efi-32
@@ -50,13 +50,12 @@ uri:
 license: GPL-3+ BSD MIT fonts? ( GPL-2-with-font-exception ) themes? ( CC-BY-SA-3.0
   BitstreamVera )
 labels:
-  BDEPEND: app-misc/pax-utils sys-devel/flex sys-devel/bison sys-apps/help2man sys-apps/texinfo
-    fonts? ( media-libs/freetype:2 virtual/pkgconfig ) test? ( app-admin/genromfs
-    app-arch/cpio app-arch/lzop app-emulation/qemu dev-libs/libisoburn sys-apps/miscfiles
-    sys-block/parted sys-fs/squashfs-tools ) themes? ( app-arch/unzip media-libs/freetype:2
-    virtual/pkgconfig ) truetype? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69
+  BDEPEND: sys-devel/flex sys-devel/bison sys-apps/help2man sys-apps/texinfo fonts?
+    ( media-libs/freetype:2 virtual/pkgconfig ) test? ( app-admin/genromfs app-arch/cpio
+    app-arch/lzop app-emulation/qemu dev-libs/libisoburn sys-apps/miscfiles sys-block/parted
+    sys-fs/squashfs-tools ) themes? ( app-arch/unzip media-libs/freetype:2 virtual/pkgconfig
+    ) truetype? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
   DEPEND: app-arch/xz-utils >=sys-libs/ncurses-5.2-r5:0= grub_platforms_emu? ( sdl?
     ( media-libs/libsdl ) ) device-mapper? ( >=sys-fs/lvm2-2.02.45 ) libzfs? ( sys-fs/zfs:=
     ) mount? ( sys-fs/fuse:0 ) truetype? ( media-libs/freetype:2= ) ppc? ( >=sys-apps/ibm-powerpc-utils-1.3.5
@@ -71,9 +70,9 @@ labels:
     ) mount? ( sys-fs/fuse:0 ) truetype? ( media-libs/freetype:2= ) ppc? ( >=sys-apps/ibm-powerpc-utils-1.3.5
     ) ppc64? ( >=sys-apps/ibm-powerpc-utils-1.3.5 ) kernel_linux? ( grub_platforms_efi-32?
     ( sys-boot/efibootmgr ) grub_platforms_efi-64? ( sys-boot/efibootmgr ) ) !sys-boot/grub:0
-    !sys-boot/grub-static nls? ( sys-devel/gettext )
+    nls? ( sys-devel/gettext )
   emerge.packages: sys-boot/grub:2
   kit: core-kit
   original.package.name: sys-boot/grub
   original.package.slot: "2"
-  original.package.version: 2.04-r1
+  original.package.version: 2.06-r2
