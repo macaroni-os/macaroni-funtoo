@@ -1,0 +1,30 @@
+name: efivar
+version: "38"
+category: sys-libs
+use_flags:
+- -test
+requires:
+- name: popt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools and library to manipulate EFI variables
+uri:
+- https://github.com/rhinstaller/efivar
+license: GPL-2
+labels:
+  BDEPEND: app-text/mandoc test? ( sys-boot/grub:2 )
+  DEPEND: dev-libs/popt >=sys-kernel/linux-headers-3.18 virtual/pkgconfig
+  IUSE: test
+  RDEPEND: dev-libs/popt
+  emerge.packages: sys-libs/efivar
+  kit: core-kit
+  original.package.name: sys-libs/efivar
+  original.package.slot: "0"
+  original.package.version: "38"
