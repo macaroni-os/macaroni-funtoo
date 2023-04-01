@@ -1,20 +1,21 @@
 name: git
-version: 2.39.1
+version: 2.40.0
 category: dev-vcs
 use_flags:
 - -cgi
 - -cvs
 - -doc
 - -emacs
-- -gnome-keyring
 - -highlight
 - -libressl
 - -perforce
 - -python_single_target_python2_7
+- -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -test
 - curl
+- gnome-keyring
 - gpg
 - iconv
 - nls
@@ -31,9 +32,9 @@ requires:
 - name: gnupg
   version: '>=0'
   category: app-crypt
-- name: perl
+- name: libsecret
   version: '>=0'
-  category: dev-lang
+  category: app-crypt
 - name: tk
   version: '>=0'
   category: dev-lang
@@ -97,4 +98,4 @@ labels:
   kit: core-kit
   original.package.name: dev-vcs/git
   original.package.slot: "0"
-  original.package.version: 2.39.1
+  original.package.version: 2.40.0
