@@ -32,11 +32,13 @@ labels:
     ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
     >=sys-devel/libtool-2.4'
   DEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18
+    >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm
   IUSE: kernel_linux
   RDEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 x11-libs/libpciaccess x11-libs/libdrm[video_cards_nouveau]
+    >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm x11-libs/libpciaccess
+    x11-libs/libdrm[video_cards_nouveau]
   emerge.packages: x11-drivers/xf86-video-nouveau
   kit: core-gl-kit
   original.package.name: x11-drivers/xf86-video-nouveau
+  original.package.slot: "0"
   original.package.version: 1.0.17-r1
