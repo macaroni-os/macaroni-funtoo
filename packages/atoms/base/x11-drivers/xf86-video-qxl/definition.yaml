@@ -1,9 +1,9 @@
 name: xf86-video-qxl
-version: 0.1.6
+version: 0.1.6+1
 category: x11-drivers
 use_flags:
+- -python_single_target_python2_7
 - -xspice
-- python_single_target_python2_7
 requires:
 - name: spice-protocol
   version: '>=0'
@@ -20,9 +20,6 @@ requires:
 - name: xorg-server
   version: '>=0'
   category: x11-base
-- name: libdrm
-  version: '>=0'
-  category: x11-libs
 - name: util-macros
   version: '>=0'
   category: x11-misc
