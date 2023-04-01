@@ -2,7 +2,6 @@ name: xf86-video-ati
 version: 19.1.0+4
 category: x11-drivers
 use_flags:
-- glamor
 - udev
 requires:
 - name: libtool
@@ -42,8 +41,9 @@ labels:
   IUSE: +glamor udev kernel_linux
   RDEPEND: sys-kernel/linux-headers x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a
     sys-devel/m4 >=x11-misc/util-macros-1.18 x11-libs/libpciaccess x11-libs/libdrm[video_cards_radeon]
-    glamor? ( x11-base/xorg-server[glamor] ) udev? ( virtual/libudev:= )
+    x11-base/xorg-server[glamor(+),-minimal] udev? ( virtual/libudev:= )
   emerge.packages: x11-drivers/xf86-video-ati
   kit: core-gl-kit
   original.package.name: x11-drivers/xf86-video-ati
+  original.package.slot: "0"
   original.package.version: 19.1.0-r1
