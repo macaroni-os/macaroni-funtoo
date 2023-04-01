@@ -129,6 +129,9 @@ requires:
   - name: gnome-dictionary
     category: app-dicts
     version: '>=0'
+  - name: doxygen
+    category: app-doc
+    version: '>=0'
   - name: xmltoman
     category: app-doc
     version: '>=0'
@@ -172,9 +175,6 @@ requires:
     category: app-eselect
     version: '>=0'
   - name: eselect-notify-send
-    category: app-eselect
-    version: '>=0'
-  - name: eselect-opencl
     category: app-eselect
     version: '>=0'
   - name: eselect-opengl
@@ -274,7 +274,7 @@ requires:
     category: app-text-1.0
     version: '>=0'
   - name: enchant
-    category: app-text-2.2
+    category: app-text-2
     version: '>=0'
   - name: docbook-sgml-dtd
     category: app-text-3.0
@@ -284,6 +284,9 @@ requires:
     version: '>=0'
   - name: docbook-sgml-dtd
     category: app-text-4.0
+    version: '>=0'
+  - name: docbook-xml-simple-dtd
+    category: app-text-4.1.2.5
     version: '>=0'
   - name: docbook-xml-dtd
     category: app-text-4.1.2
@@ -420,9 +423,6 @@ requires:
   - name: atkmm
     category: dev-cpp
     version: '>=0'
-  - name: cairomm
-    category: dev-cpp
-    version: '>=0'
   - name: mm-common
     category: dev-cpp
     version: '>=0'
@@ -449,9 +449,6 @@ requires:
     version: '>=0'
   - name: ruby
     category: dev-lang-2.6
-    version: '>=0'
-  - name: python
-    category: dev-lang-2.7
     version: '>=0'
   - name: ruby
     category: dev-lang-2.7
@@ -1053,16 +1050,10 @@ requires:
   - name: commonmark
     category: dev-python
     version: '>=0'
-  - name: configparser
-    category: dev-python
-    version: '>=0'
   - name: contextlib2
     category: dev-python
     version: '>=0'
   - name: cryptography
-    category: dev-python
-    version: '>=0'
-  - name: cryptography-compat
     category: dev-python
     version: '>=0'
   - name: cython
@@ -1074,9 +1065,6 @@ requires:
   - name: docutils
     category: dev-python
     version: '>=0'
-  - name: enum34
-    category: dev-python
-    version: '>=0'
   - name: extras
     category: dev-python
     version: '>=0'
@@ -1086,13 +1074,7 @@ requires:
   - name: idna
     category: dev-python
     version: '>=0'
-  - name: idna-compat
-    category: dev-python
-    version: '>=0'
   - name: importlib_metadata
-    category: dev-python
-    version: '>=0'
-  - name: importlib_metadata-compat
     category: dev-python
     version: '>=0'
   - name: ipaddress
@@ -1107,22 +1089,13 @@ requires:
   - name: markupsafe
     category: dev-python
     version: '>=0'
-  - name: markupsafe-compat
-    category: dev-python
-    version: '>=0'
   - name: mwparserfromhell
-    category: dev-python
-    version: '>=0'
-  - name: mwparserfromhell-compat
     category: dev-python
     version: '>=0'
   - name: numpy
     category: dev-python
     version: '>=0'
   - name: packaging
-    category: dev-python
-    version: '>=0'
-  - name: packaging-compat
     category: dev-python
     version: '>=0'
   - name: pathlib2
@@ -1149,9 +1122,6 @@ requires:
   - name: pygments
     category: dev-python
     version: '>=0'
-  - name: pygments-compat
-    category: dev-python
-    version: '>=0'
   - name: pyopenssl
     category: dev-python
     version: '>=0'
@@ -1176,16 +1146,10 @@ requires:
   - name: setuptools
     category: dev-python
     version: '>=0'
-  - name: setuptools-compat
-    category: dev-python
-    version: '>=0'
   - name: setuptools-rust
     category: dev-python
     version: '>=0'
   - name: setuptools_scm
-    category: dev-python
-    version: '>=0'
-  - name: setuptools_scm-compat
     category: dev-python
     version: '>=0'
   - name: six
@@ -1197,16 +1161,10 @@ requires:
   - name: testtools
     category: dev-python
     version: '>=0'
-  - name: testtools-compat
-    category: dev-python
-    version: '>=0'
   - name: toml
     category: dev-python
     version: '>=0'
   - name: tomli
-    category: dev-python
-    version: '>=0'
-  - name: typing
     category: dev-python
     version: '>=0'
   - name: typing-extensions
@@ -1219,9 +1177,6 @@ requires:
     category: dev-python
     version: '>=0'
   - name: zipp
-    category: dev-python
-    version: '>=0'
-  - name: zipp-compat
     category: dev-python
     version: '>=0'
   - name: designer
@@ -1417,9 +1372,6 @@ requires:
     category: dev-util
     version: '>=0'
   - name: scons
-    category: dev-util
-    version: '>=0'
-  - name: scons-compat
     category: dev-util
     version: '>=0'
   - name: sysprof
@@ -3595,9 +3547,6 @@ requires:
     category: x11-drivers
     version: '>=0'
   - name: xf86-input-evdev
-    category: x11-drivers
-    version: '>=0'
-  - name: xf86-input-keyboard
     category: x11-drivers
     version: '>=0'
   - name: xf86-input-libinput
