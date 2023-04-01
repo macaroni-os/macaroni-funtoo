@@ -1,0 +1,14 @@
+shell:
+- bash
+- -c
+install:
+# TODO: Move these steps to whip
+- >-
+  journalctl --update-catalog &&
+  systemd-hwdb --root="/" update
+
+# TODO: check how execute these commands
+# udevadm control --reload &&
+# systemctl daemon-reexec &&
+# systemctl restart dbus &&
+# systemctl restart systemd-logind
