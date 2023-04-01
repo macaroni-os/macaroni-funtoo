@@ -38,8 +38,10 @@ labels:
     ) )'
   DEPEND: '>=dev-libs/libpthread-stubs-0.3-r1[-mgorny(-)] >=x11-libs/libXau-1.0.7-r1[-mgorny(-)]
     >=x11-libs/libXdmcp-1.1.1-r1[-mgorny(-)] test? ( dev-libs/check[-mgorny(-)] )
-    doc? ( app-doc/doxygen[dot] ) dev-libs/libxslt || ( dev-lang/python:3.8[xml] dev-lang/python:3.9[xml]
-    dev-lang/python:3.7[xml] ) || ( ( dev-lang/python:3.8[xml] >=x11-base/xcb-proto-1.13[-mgorny(-),python_targets_python3_8(-),python_single_target_python3_8(+)]
+    doc? ( app-doc/doxygen[dot] ) dev-libs/libxslt || ( dev-lang/python:3.10[xml]
+    dev-lang/python:3.8[xml] dev-lang/python:3.9[xml] dev-lang/python:3.7[xml] ) ||
+    ( ( dev-lang/python:3.10[xml] >=x11-base/xcb-proto-1.13[-mgorny(-),python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8[xml] >=x11-base/xcb-proto-1.13[-mgorny(-),python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9[xml] >=x11-base/xcb-proto-1.13[-mgorny(-),python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7[xml] >=x11-base/xcb-proto-1.13[-mgorny(-),python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) )'
@@ -50,4 +52,5 @@ labels:
   emerge.packages: x11-libs/libxcb
   kit: core-gl-kit
   original.package.name: x11-libs/libxcb
+  original.package.slot: "0"
   original.package.version: "1.14"
