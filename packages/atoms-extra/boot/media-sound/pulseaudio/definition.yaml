@@ -1,18 +1,16 @@
 name: pulseaudio
-version: "16.1"
+version: 16.1+1
 category: media-sound
 use_flags:
 - -X
 - -aptx
 - -asyncns
 - -bluetooth
-- -dbus
 - -elibc_mingw
 - -elogind
 - -equalizer
 - -fftw
 - -gdbm
-- -glib
 - -gstreamer
 - -gtk
 - -jack
@@ -22,20 +20,28 @@ use_flags:
 - -orc
 - -selinux
 - -sox
-- -ssl
 - -systemd
-- -tcpd
 - -test
-- -udev
 - -valgrind
 - -webrtc-aec
 - -zeroconf
 - alsa
+- dbus
+- glib
+- ssl
+- tcpd
+- udev
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: libatomic_ops
   version: '>=0'
   category: dev-libs
 - name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: openssl
   version: '>=0'
   category: dev-libs
 - name: libsndfile
@@ -44,6 +50,12 @@ requires:
 - name: speexdsp
   version: '>=0'
   category: media-libs
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
 - name: linux-headers
   version: '>=0'
   category: sys-kernel
@@ -54,6 +66,9 @@ requires:
   version: '>=0'
   category: virtual
 - name: tmpfiles
+  version: '>=0'
+  category: virtual
+- name: udev
   version: '>=0'
   category: virtual
 annotations:
