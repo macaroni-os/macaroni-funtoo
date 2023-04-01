@@ -3,11 +3,20 @@ version: 1.4.1
 category: x11-libs
 use_flags:
 - -doc
+- -prefix
+- -test
+- -wayland
 - X
 requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
 - name: libxcb
   version: '>=0'
   category: x11-libs
+- name: compose-tables
+  version: '>=0'
+  category: x11-misc
 annotations:
   subsets:
     rules:
