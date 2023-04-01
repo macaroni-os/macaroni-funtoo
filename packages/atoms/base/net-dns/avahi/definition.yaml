@@ -6,6 +6,7 @@ use_flags:
 - -doc
 - -kernel_linux
 - -mono
+- -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -selinux
@@ -63,14 +64,15 @@ labels:
     ( dev-lang/python:3.7[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) bookmarks? ( >=dev-python/twisted-16.0.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    ) introspection? ( dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    ) )
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) bookmarks? ( >=dev-python/twisted-16.0.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) introspection? ( dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) ) sys-apps/shadow
   IUSE: autoipd bookmarks +dbus doc gdbm gtk howl-compat +introspection ipv6 kernel_linux
     +mdnsresponder-compat mono nls python qt5 selinux systemd test python_single_target_python3_7
-    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: dev-libs/libdaemon dev-libs/libevent:= dev-libs/expat dev-libs/glib:2 gdbm?
     ( sys-libs/gdbm:= ) qt5? ( dev-qt/qtcore:5 ) gtk? ( x11-libs/gtk+:3 ) dbus? (
     sys-apps/dbus ) kernel_linux? ( sys-libs/libcap ) introspection? ( dev-libs/gobject-introspection:=
@@ -78,9 +80,10 @@ labels:
     ( dev-lang/python:3.7[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) bookmarks? ( >=dev-python/twisted-16.0.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
-    ) introspection? ( dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[gdbm] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) bookmarks? ( >=dev-python/twisted-16.0.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) dbus? ( dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) introspection? ( dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     ) ) selinux? ( sec-policy/selinux-avahi )
   emerge.packages: net-dns/avahi
   kit: core-kit
