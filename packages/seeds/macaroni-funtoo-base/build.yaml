@@ -1,8 +1,6 @@
 image: scratch
 env:
-- LUET_YES=true
-- LUET_NOLOCK=true
-- HTTP_TIMEOUT=0
+- PYTHON_TARGETS="python3_7"
 copy:
   - package:
       category: seed
@@ -22,6 +20,9 @@ steps:
   chmod a+x /var &&
   chmod a+rwx /tmp
 - >-
+  HTTP_TIMEOUT=0
+  LUET_NOLOCK=true
+  LUET_YES=true
   luet install --force
   system/luet-devkit
   dev-util/pkgs-checker-minimal
@@ -36,6 +37,9 @@ steps:
 - >-
   cp -rvf package.license /etc/portage/ &&
   cat /etc/luet/luet.yaml &&
+  HTTP_TIMEOUT=0
+  LUET_NOLOCK=true
+  LUET_YES=true
   luet install virtual/base virtual/sh --nodeps &&
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
