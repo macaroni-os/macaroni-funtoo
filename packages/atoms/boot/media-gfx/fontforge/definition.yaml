@@ -1,24 +1,27 @@
 name: fontforge
-version: "20230101"
+version: 20230101+1
 category: media-gfx
 use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_8
+- -python_single_target_python3_9
+- -test
 - -truetype-debugger
+- -woff2
 - X
-- cairo
 - gif
 - gtk
 - jpeg
 - png
 - python
-- python_single_target_python2_7
 - python_single_target_python3_7
 - readline
 - tiff
-- unicode
 requires:
-- name: python
+- name: glib
   version: '>=0'
-  category: dev-lang-2.7
+  category: dev-libs-2
 - name: libltdl
   version: '>=0'
   category: dev-libs
@@ -31,9 +34,6 @@ requires:
 - name: giflib
   version: '>=0'
   category: media-libs
-- name: libuninameslist
-  version: '>=0'
-  category: media-libs
 - name: tiff
   version: '>=0'
   category: media-libs
@@ -43,18 +43,9 @@ requires:
 - name: jpeg
   version: '>=0'
   category: virtual
-- name: cairo
-  version: '>=0'
-  category: x11-libs
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
-- name: libX11
-  version: '>=0'
-  category: x11-libs
-- name: libXi
-  version: '>=0'
-  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -62,9 +53,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: postscript font editor and converter
+description: Free (libre) font editor for Windows, Mac OS X and GNU+Linux
 uri:
-- http://fontforge.github.io/
+- https://fontforge.org/
 license: BSD GPL-3+
 labels:
   BDEPEND: sys-devel/gettext doc? ( >=dev-python/sphinx-2 ) python? ( python_single_target_python3_7?
