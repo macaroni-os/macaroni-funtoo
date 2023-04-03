@@ -14,6 +14,9 @@ prelude:
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
   luet i repository/mottainai-dev &&
+  LUET_VERSION=0.35.3
+  wget https://github.com/geaaru/luet/releases/download/v${LUET_VERSION}-geaaru/luet-v${LUET_VERSION}-geaaru-Linux-x86_64 -O /usr/bin/luet &&
+  chmod a+x /usr/bin/luet &&
   luet repo update &&
   luet upgrade &&
   luet i -y toolchain/java &&
