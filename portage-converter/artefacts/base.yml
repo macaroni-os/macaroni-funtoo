@@ -963,6 +963,11 @@ artefacts:
   packages:
   - sys-apps/groff
 - tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        - name: gentoo-functions
+          category: sys-apps
   uses:
     disabled:
     - audit
@@ -4031,6 +4036,12 @@ artefacts:
   packages:
   - x11-base/xcb-proto
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
   uses:
     disabled:
     - abi_mips_n32
@@ -7247,6 +7258,15 @@ artefacts:
   packages:
   - dev-ruby/bundler:2
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle and avoid inject of python
+    # stuff for normal use
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
+        - category: dev-lang-2
+          name: python-exec
   uses:
     disabled:
     - abi_mips_n32
@@ -7718,6 +7738,14 @@ artefacts:
   packages:
   - sys-fs/eudev
 - tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.7
+        - name: python-exec
+          category: dev-lang-2
   uses:
     disabled:
     - nios2
@@ -8163,7 +8191,6 @@ artefacts:
     - X
     - svg
   packages:
-  - dev-cpp/cairomm
   - dev-cpp/cairomm:1
 - tree: packages/atoms/base
   uses:
@@ -8434,6 +8461,15 @@ artefacts:
   packages:
   - dev-libs/icu
 - tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        # I don't want inject python
+        # if it's really needed or requested.
+        - category: dev-lang-3.7
+          name: python
+        - category: dev-lang-2
+          name: python-exec
   uses:
     disabled:
     - abi_mips_n32
