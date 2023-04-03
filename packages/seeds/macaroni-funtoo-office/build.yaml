@@ -10,6 +10,7 @@ prelude:
 
 # TODO: check why we need to recompile dev-scheme/guile
 - >-
+  export LUET_YES=true &&
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
   luet i repository/mottainai-dev &&
