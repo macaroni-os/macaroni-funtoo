@@ -10,7 +10,6 @@ prelude:
 
 # TODO: check why we need to recompile dev-scheme/guile
 - >-
-  export LUET_YES=true &&
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
   luet i repository/mottainai-dev &&
@@ -18,6 +17,7 @@ prelude:
   wget https://github.com/geaaru/luet/releases/download/v${LUET_VERSION}-geaaru/luet-v${LUET_VERSION}-geaaru-Linux-x86_64 -O /usr/bin/luet &&
   chmod a+x /usr/bin/luet &&
   luet repo update &&
+  export LUET_YES="true" &&
   luet upgrade &&
   luet i -y toolchain/java &&
   luet cleanup --purge-repos &&
