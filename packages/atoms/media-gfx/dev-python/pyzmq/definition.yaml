@@ -1,16 +1,23 @@
 name: pyzmq
-version: 25.0.0
+version: 25.0.2
 category: dev-python
 use_flags:
 - -python_targets_pypy3
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: pyzmq-compat
+- name: cffi
   version: '>=0'
   category: dev-python
+- name: py
+  version: '>=0'
+  category: dev-python
+- name: zeromq
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
@@ -18,10 +25,8 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Lightweight and super-fast messaging library built on top of the ZeroMQ
-  library
 uri:
-- http://www.zeromq.org/bindings:python https://pypi.org/project/pyzmq/
+- https://pyzmq.readthedocs.org https://pypi.org/project/pyzmq/
 license: LGPL-3
 labels:
   BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
@@ -41,4 +46,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/pyzmq
   original.package.slot: "0"
-  original.package.version: 25.0.0
+  original.package.version: 25.0.2
