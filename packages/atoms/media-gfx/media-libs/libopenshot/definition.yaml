@@ -1,26 +1,19 @@
 name: libopenshot
-version: 0.2.7+1
+version: 0.2.7+2
 category: media-libs
 use_flags:
 - -doc
-- -libav
 - -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
-- -test
 - imagemagick
+- opencv
 - python
 - python_single_target_python3_7
 requires:
-- name: python
+- name: jsoncpp
   version: '>=0'
-  category: dev-lang-3.7
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
-- name: qtgui
-  version: '>=0'
-  category: dev-qt-5
+  category: dev-libs
 - name: qtmultimedia
   version: '>=0'
   category: dev-qt-5
@@ -28,6 +21,9 @@ requires:
   version: '>=0'
   category: media-gfx
 - name: libopenshot-audio
+  version: '>=0'
+  category: media-libs
+- name: opencv
   version: '>=0'
   category: media-libs
 - name: ffmpeg
