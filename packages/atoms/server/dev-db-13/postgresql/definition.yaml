@@ -2,41 +2,40 @@ name: postgresql
 version: "13.10"
 category: dev-db-13
 use_flags:
-- -elibc_FreeBSD
-- -elibc_NetBSD
-- -elibc_OpenBSD
-- -elibc_glibc
 - -elibc_musl
-- -elibc_uclibc
 - -kerberos
 - -ldap
 - -llvm
 - -perl
+- -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - -selinux
-- -systemd
 - -tcl
 - -uuid
+- elibc_glibc
 - icu
 - nls
 - pam
 - python
 - python_single_target_python3_7
 - readline
-- server
 - ssl
 - xml
 - zlib
 - python_single_target_python3_7
+- server
 requires:
 - name: eselect-postgresql
   version: '>=0'
   category: app-eselect
-- name: libxslt
+- name: python
   version: '>=0'
-  category: dev-libs
-- name: openssl
+  category: dev-lang-3.7
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: libxslt
   version: '>=0'
   category: dev-libs
 - name: less
@@ -45,12 +44,6 @@ requires:
 - name: pam
   version: '>=0'
   category: sys-libs
-- name: readline
-  version: '>=0'
-  category: sys-libs
-- name: tmpfiles
-  version: '>=0'
-  category: virtual
 - name: entities-catalog
   version: '>=0'
   category: macaroni
@@ -66,7 +59,6 @@ uri:
 - https://www.postgresql.org/
 license: POSTGRESQL GPL-2
 labels:
-  BDEPEND: virtual/pkgconfig
   DEPEND: '>=app-eselect/eselect-postgresql-2.0 sys-apps/less virtual/libintl icu?
     ( dev-libs/icu:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) llvm?
     ( sys-devel/llvm:= sys-devel/clang:= ) pam? ( sys-libs/pam ) perl? ( >=dev-lang/perl-5.8:=
