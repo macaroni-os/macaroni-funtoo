@@ -1,26 +1,28 @@
 name: openvpn
-version: 2.5.8
+version: 2.5.9
 category: net-vpn
 use_flags:
 - -iproute2
 - -kernel_linux
-- -libressl
 - -lz4
 - -mbedtls
+- -openssl
 - -pkcs11
 - -selinux
 - -systemd
 - lzo
 - pam
-- ssl
 requires:
 - name: lzo
   version: '>=0'
   category: dev-libs-2
-- name: openssl
+- name: docutils
   version: '>=0'
-  category: dev-libs
+  category: dev-python
 - name: pam
+  version: '>=0'
+  category: sys-libs
+- name: tmpfiles
   version: '>=0'
   category: virtual
 - name: entities-catalog
@@ -56,4 +58,4 @@ labels:
   kit: net-kit
   original.package.name: net-vpn/openvpn
   original.package.slot: "0"
-  original.package.version: 2.5.8
+  original.package.version: 2.5.9
