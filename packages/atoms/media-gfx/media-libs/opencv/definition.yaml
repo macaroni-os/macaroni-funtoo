@@ -6,22 +6,17 @@ use_flags:
 - -contrib_hdf
 - -cuda
 - -eigen
-- -ffmpeg
 - -gdal
 - -gflags
 - -glog
 - -gphoto2
 - -gstreamer
-- -gtk
 - -ieee1394
 - -java
-- -jpeg
 - -lapack
 - -libav
 - -opencl
 - -openexr
-- -opengl
-- -png
 - -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_8
@@ -29,14 +24,19 @@ use_flags:
 - -qt5
 - -tesseract
 - -threads
-- -tiff
 - -v4l
-- -vaapi
 - -vtk
 - -webp
 - -xine
+- ffmpeg
+- gtk
+- jpeg
+- opengl
+- png
 - python
 - python_targets_python3_7
+- tiff
+- vaapi
 requires:
 - name: python
   version: '>=0'
@@ -44,12 +44,36 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: protobuf
   version: '>=0'
   category: dev-libs
 - name: numpy
   version: '>=0'
   category: dev-python
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: glu
+  version: '>=0'
+  category: virtual
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: opengl
+  version: '>=0'
+  category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
 annotations:
   subsets:
     rules:
