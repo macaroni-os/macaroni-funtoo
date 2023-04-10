@@ -22,6 +22,8 @@ steps:
   chmod a+x /var &&
   chmod a+rwx /tmp
 - >-
+  luet repo update &&
+  luet upgrade --force &&
   luet install --force
   system/luet-devkit
   toolchain/boot
