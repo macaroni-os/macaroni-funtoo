@@ -3,6 +3,10 @@ version: 1.190+2
 category: net-analyzer
 use_flags:
 - -elibc_Darwin
+requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -15,7 +19,7 @@ uri:
 - https://cvsweb.openbsd.org/src/usr.bin/nc/ https://salsa.debian.org/debian/netcat-openbsd
 license: BSD
 labels:
-  DEPEND: virtual/pkgconfig
+  DEPEND: virtual/pkgconfig !elibc_Darwin? ( dev-libs/libbsd )
   IUSE: elibc_Darwin
   RDEPEND: '!elibc_Darwin? ( dev-libs/libbsd ) !net-analyzer/netcat !net-analyzer/netcat6'
   emerge.packages: net-analyzer/openbsd-netcat
