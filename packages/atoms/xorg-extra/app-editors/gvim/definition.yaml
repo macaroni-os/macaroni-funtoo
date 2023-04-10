@@ -1,29 +1,33 @@
 name: gvim
-version: 9.0.1307
+version: 9.0.1425
 category: app-editors
 use_flags:
 - -aqua
+- -crypt
 - -cscope
-- -kernel_linux
 - -lua
-- -luajit
+- -lua_single_target_lua5-1
+- -lua_single_target_lua5-2
+- -lua_single_target_lua5-3
+- -lua_single_target_lua5-4
+- -lua_single_target_luajit
 - -motif
-- -neXt
 - -perl
-- -python_targets_python3_8
+- -python_single_target_python2_7
+- -python_single_target_python3_10
+- -python_single_target_python3_8
+- -python_single_target_python3_9
 - -racket
 - -ruby
 - -selinux
 - -session
+- -sound
 - -tcl
 - acl
-- gnome
-- gtk
-- gtk3
+- kernel_linux
 - nls
 - python
-- python_targets_python2_7
-- python_targets_python3_7
+- python_single_target_python3_7
 requires:
 - name: vim-core
   version: '>=0'
@@ -33,16 +37,19 @@ requires:
   category: app-eselect
 - name: python
   version: '>=0'
-  category: dev-lang-2.7
-- name: python
-  version: '>=0'
   category: dev-lang-3.7
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
+- name: acl
+  version: '>=0'
+  category: sys-apps
 - name: ncurses
   version: '>=0'
   category: sys-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -68,7 +75,7 @@ labels:
     dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2?
     ( dev-lua/lua:5.2 ) lua_single_target_lua5-3? ( dev-lua/lua:5.3 ) lua_single_target_lua5-4?
     ( dev-lua/lua:5.4 ) ) nls? ( sys-devel/gettext )
-  DEPEND: ~app-editors/vim-core-9.0.1307 >=app-eselect/eselect-vi-1.1 >=sys-libs/ncurses-5.2-r2:0=
+  DEPEND: ~app-editors/vim-core-9.0.1425 >=app-eselect/eselect-vi-1.1 >=sys-libs/ncurses-5.2-r2:0=
     x11-libs/libICE x11-libs/libSM x11-libs/libXext x11-libs/libXt acl? ( kernel_linux?
     ( sys-apps/acl ) ) !aqua? ( motif? ( >=x11-libs/motif-2.3:0 ) !motif? ( x11-libs/gtk+:3
     x11-libs/libXft ) ) crypt? ( dev-libs/libsodium:= ) cscope? ( dev-util/cscope
@@ -92,7 +99,7 @@ labels:
     python_single_target_python3_9 python_single_target_python3_8 python_single_target_python2_7
     python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
     python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
-  RDEPEND: ~app-editors/vim-core-9.0.1307 >=app-eselect/eselect-vi-1.1 >=sys-libs/ncurses-5.2-r2:0=
+  RDEPEND: ~app-editors/vim-core-9.0.1425 >=app-eselect/eselect-vi-1.1 >=sys-libs/ncurses-5.2-r2:0=
     x11-libs/libICE x11-libs/libSM x11-libs/libXext x11-libs/libXt acl? ( kernel_linux?
     ( sys-apps/acl ) ) !aqua? ( motif? ( >=x11-libs/motif-2.3:0 ) !motif? ( x11-libs/gtk+:3
     x11-libs/libXft ) ) crypt? ( dev-libs/libsodium:= ) cscope? ( dev-util/cscope
@@ -114,4 +121,4 @@ labels:
   kit: editors-kit
   original.package.name: app-editors/gvim
   original.package.slot: "0"
-  original.package.version: 9.0.1307
+  original.package.version: 9.0.1425
