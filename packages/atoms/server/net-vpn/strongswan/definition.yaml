@@ -1,5 +1,5 @@
 name: strongswan
-version: 5.9.9
+version: 5.9.10
 category: net-vpn
 use_flags:
 - -gcrypt
@@ -8,7 +8,6 @@ use_flags:
 - -selinux
 - -sqlite
 - -strongswan_plugins_unbound
-- -systemd
 - caps
 - curl
 - gmp
@@ -16,6 +15,9 @@ use_flags:
 - openssl
 - pam
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: gmp
   version: '>=0'
   category: dev-libs
@@ -46,7 +48,6 @@ uri:
 - https://www.strongswan.org/
 license: GPL-2 RSA DES
 labels:
-  BDEPEND: virtual/pkgconfig
   DEPEND: dev-libs/glib:2 gmp? ( >=dev-libs/gmp-4.1.5:= ) gcrypt? ( dev-libs/libgcrypt:=
     ) caps? ( sys-libs/libcap ) curl? ( net-misc/curl ) ldap? ( net-nds/openldap:=
     ) openssl? ( >=dev-libs/openssl-0.9.8:=[-bindist(-)] ) mysql? ( dev-db/mysql-connector-c:=
@@ -74,4 +75,4 @@ labels:
   kit: net-kit
   original.package.name: net-vpn/strongswan
   original.package.slot: "0"
-  original.package.version: 5.9.9
+  original.package.version: 5.9.10
