@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Using ebuild from FL-7498 for now
+- >-
+  cp opencv-4.5.5.ebuild /var/git/meta-repo/kits/media-kit/media-libs/opencv/ &&
+  cd /var/git/meta-repo/kits/media-kit/media-libs/opencv/ &&
+  ebuild opencv-4.5.5.ebuild digest && cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
