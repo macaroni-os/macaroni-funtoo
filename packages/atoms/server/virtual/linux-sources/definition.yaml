@@ -1,8 +1,13 @@
 name: linux-sources
 version: "3"
 category: virtual
+use_flags:
+- firmware
 requires:
 - name: dummy-sources
+  version: '>=0'
+  category: sys-kernel
+- name: linux-firmware
   version: '>=0'
   category: sys-kernel
 annotations:
