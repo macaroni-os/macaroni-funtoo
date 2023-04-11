@@ -3,9 +3,13 @@ version: 1.5.2+3
 category: app-text
 use_flags:
 - -doc
-- -elibc_glibc
 - -test
+- elibc_glibc
 - nls
+requires:
+- name: libnsl
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
