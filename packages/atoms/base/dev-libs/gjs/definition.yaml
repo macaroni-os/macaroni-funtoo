@@ -2,15 +2,24 @@ name: gjs
 version: 1.65.4
 category: dev-libs
 use_flags:
-- -elibc_glibc
 - -prefix
 - -test
 - cairo
+- elibc_glibc
 - gtk
 requires:
 - name: spidermonkey
   version: '>=0'
   category: dev-lang-68
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: sysprof
+  version: '>=0'
+  category: dev-util
+- name: cairo
+  version: '>=0'
+  category: x11-libs
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
