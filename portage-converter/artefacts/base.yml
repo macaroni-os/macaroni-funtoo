@@ -901,6 +901,12 @@ artefacts:
   packages:
   - media-libs/cogl:1.0
 - tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        # It seems an issue on ebuild.
+        - category: sys-kernel
+          name: linux-headers
   uses:
     disabled:
     - abi_mips_n32
