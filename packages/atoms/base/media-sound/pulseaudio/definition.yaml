@@ -2,33 +2,29 @@ name: pulseaudio
 version: "16.1"
 category: media-sound
 use_flags:
-- -doc
-- -elibc_glibc
-- -elibc_uclibc
+- -aptx
+- -elibc_mingw
 - -elogind
 - -equalizer
+- -fftw
+- -gstreamer
 - -jack
-- -libressl
-- -libsamplerate
+- -ldac
 - -lirc
 - -ofono-headset
-- -realtime
 - -selinux
-- -system-wide
 - -systemd
 - -test
+- -valgrind
 - X
 - alsa
 - asyncns
 - bluetooth
-- caps
 - dbus
-- gconf
 - gdbm
 - glib
 - gtk
 - orc
-- qt5
 - sox
 - ssl
 - tcpd
@@ -39,15 +35,18 @@ requires:
 - name: orc
   version: '>=0'
   category: dev-lang
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libatomic_ops
+  version: '>=0'
+  category: dev-libs
 - name: libltdl
   version: '>=0'
   category: dev-libs
 - name: openssl
   version: '>=0'
   category: dev-libs
-- name: gconf
-  version: '>=0'
-  category: gnome-base-2
 - name: libsndfile
   version: '>=0'
   category: media-libs
@@ -75,10 +74,22 @@ requires:
 - name: tcp-wrappers
   version: '>=0'
   category: sys-apps
+- name: gdbm
+  version: '>=0'
+  category: sys-libs
 - name: libcap
   version: '>=0'
   category: sys-libs
+- name: libc
+  version: '>=0'
+  category: virtual
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
 - name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libX11
   version: '>=0'
   category: x11-libs
 - name: libXtst
@@ -91,10 +102,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A networked sound server with an advanced plugin system
+description: Daemon component of PulseAudio (networked sound server)
 uri:
 - https://www.freedesktop.org/wiki/Software/PulseAudio/
-license: '!gdbm? ( LGPL-2.1 ) gdbm? ( GPL-2 )'
+license: LGPL-2.1
 labels:
   BDEPEND: dev-lang/perl dev-perl/XML-Parser sys-devel/gettext virtual/libiconv virtual/libintl
     virtual/pkgconfig orc? ( >=dev-lang/orc-0.4.15 ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
