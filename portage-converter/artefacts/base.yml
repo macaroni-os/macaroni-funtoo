@@ -929,6 +929,7 @@ artefacts:
     - test
     enabled:
     - X
+    - elibc_glibc
     - abi_x86_64
     - alsa
     - alsa-plugin
@@ -3240,6 +3241,12 @@ artefacts:
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e polkitd
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      # The ebuild sets glibc as DEPEND but not RDEPEND
+      packages:
+        - category: sys-libs-2.2
+          name: glibc
   uses:
     disabled:
     - abi_mips_n32
@@ -3318,6 +3325,7 @@ artefacts:
     - pie
     - ssp
     - stack_clash_protection
+    - elibc_glibc
   packages:
   - sys-devel/gcc:9.2.0
 - tree: packages/atoms/base
