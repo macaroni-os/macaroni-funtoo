@@ -3,9 +3,13 @@ version: 1.7.0+3
 category: dev-libs-1
 use_flags:
 - -doc
-- -elibc_glibc
 - -elibc_mintlib
 - -selinux
+- elibc_glibc
+requires:
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
 annotations:
   subsets:
     rules:
