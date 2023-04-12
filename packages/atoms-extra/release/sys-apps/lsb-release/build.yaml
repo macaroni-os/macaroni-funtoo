@@ -32,12 +32,11 @@ prelude:
   cp lsb-release /pkgdir/{{ .Values.name }}/etc/ &&
   mkdir -p /pkgdir/{{ .Values.name }}/etc/env.d/ &&
   echo 'CONFIG_PROTECT_MASK="/etc/lsb-release"' > /pkgdir/{{ .Values.name }}/etc/env.d/50lsb-release
-
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-funtoo-race4
+- name: macaroni-funtoo-base
   version: '>=0'
   category: seed
