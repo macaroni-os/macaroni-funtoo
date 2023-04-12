@@ -19,6 +19,7 @@ packages:
   - app-crypt/gpgme:1
   - app-crypt/johntheripper:0
   - app-crypt/libb2:0
+  - app-crypt/libmd:0
   - app-crypt/mit-krb5:0
   - app-crypt/p11-kit:0
   - app-crypt/pinentry:0
@@ -44,7 +45,6 @@ packages:
   - app-metrics/rabbitmq_exporter:0
   - app-metrics/redis_exporter:0
   - app-metrics/snmp_exporter:0
-  - app-misc/c_rehash:0
   - app-misc/ca-certificates:0
   - app-misc/editor-wrapper:0
   - app-misc/mime-types:0
@@ -120,6 +120,7 @@ packages:
   - dev-libs/libpcre2:0
   - dev-libs/libpcre:3
   - dev-libs/libpipeline:0
+  - dev-libs/libpthread-stubs:0
   - dev-libs/libsigc++:2
   - dev-libs/libsigsegv:0
   - dev-libs/libtasn1:0
@@ -219,12 +220,15 @@ packages:
   - dev-python/aiodns:0
   - dev-python/aiohttp:0
   - dev-python/aiosignal:0
+  - dev-python/alabaster-compat:0
   - dev-python/alabaster:0
   - dev-python/appi:0
   - dev-python/async_timeout:0
   - dev-python/attrs:0
+  - dev-python/automat-compat:0
   - dev-python/automat:0
   - dev-python/backports:0
+  - dev-python/calver:0
   - dev-python/certifi:0
   - dev-python/cffi:0
   - dev-python/chardet:0
@@ -239,13 +243,20 @@ packages:
   - dev-python/dbus-python:0
   - dev-python/decorator:0
   - dev-python/defusedxml:0
+  - dev-python/dnspython-compat:0
   - dev-python/dnspython:0
+  - dev-python/docutils-compat:0
   - dev-python/docutils:0
   - dev-python/ecdsa:0
+  - dev-python/editables:0
   - dev-python/enum34:0
+  - dev-python/flit_core:0
   - dev-python/frozenlist:0
   - dev-python/functools32:0
   - dev-python/future:0
+  - dev-python/gpep517:0
+  - dev-python/hatch-vcs:0
+  - dev-python/hatchling:0
   - dev-python/hyperlink:0
   - dev-python/idna-compat:0
   - dev-python/idna-ssl:0
@@ -254,6 +265,7 @@ packages:
   - dev-python/importlib_metadata-compat:0
   - dev-python/importlib_metadata:0
   - dev-python/incremental:0
+  - dev-python/installer:0
   - dev-python/ipaddress:0
   - dev-python/jinja-compat:0
   - dev-python/jinja:0
@@ -263,6 +275,7 @@ packages:
   - dev-python/linecache2:0
   - dev-python/lxml:0
   - dev-python/m2crypto:0
+  - dev-python/m2r-compat:0
   - dev-python/m2r:0
   - dev-python/markupsafe-compat:0
   - dev-python/markupsafe:0
@@ -277,8 +290,12 @@ packages:
   - dev-python/packaging-compat:0
   - dev-python/packaging:0
   - dev-python/pathlib2:0
+  - dev-python/pathspec:0
   - dev-python/pbr:0
+  - dev-python/pluggy-compat:0
+  - dev-python/pluggy:0
   - dev-python/ply:0
+  - dev-python/prometheus_client-compat:0
   - dev-python/prometheus_client:0
   - dev-python/psutil:0
   - dev-python/pyasn1-modules:0
@@ -332,6 +349,7 @@ packages:
   - dev-python/toml:0
   - dev-python/tomli:0
   - dev-python/traceback2:0
+  - dev-python/trove-classifiers:0
   - dev-python/twisted:0
   - dev-python/typing-extensions:0
   - dev-python/typing:0
@@ -377,6 +395,7 @@ packages:
   - dev-texlive/texlive-xetex:0
   - dev-util/boost-build:0
   - dev-util/cmake:0
+  - dev-util/cppunit:0
   - dev-util/desktop-file-utils:0
   - dev-util/gdbus-codegen:0
   - dev-util/glib-utils:0
@@ -623,7 +642,49 @@ packages:
   - virtual/yacc:0
   - www-client/w3m:0
   - www-servers/gunicorn:0
+  - x11-base/xcb-proto:0
+  - x11-base/xorg-proto:0
   - x11-libs/cairo:0
+  - x11-libs/libXau:0
+  - x11-libs/libXdmcp:0
+  - x11-libs/libxcb:0
   - x11-libs/pixman:0
   - x11-misc/shared-mime-info:0
   - x11-misc/xdg-user-dirs:0
+  - x11-proto/applewmproto:0
+  - x11-proto/bigreqsproto:0
+  - x11-proto/compositeproto:0
+  - x11-proto/damageproto:0
+  - x11-proto/dmxproto:0
+  - x11-proto/dri2proto:0
+  - x11-proto/dri3proto:0
+  - x11-proto/evieproto:0
+  - x11-proto/fixesproto:0
+  - x11-proto/fontcacheproto:0
+  - x11-proto/fontsproto:0
+  - x11-proto/glproto:0
+  - x11-proto/inputproto:0
+  - x11-proto/kbproto:0
+  - x11-proto/lg3dproto:0
+  - x11-proto/presentproto:0
+  - x11-proto/printproto:0
+  - x11-proto/randrproto:0
+  - x11-proto/recordproto:0
+  - x11-proto/renderproto:0
+  - x11-proto/resourceproto:0
+  - x11-proto/scrnsaverproto:0
+  - x11-proto/trapproto:0
+  - x11-proto/videoproto:0
+  - x11-proto/windowswmproto:0
+  - x11-proto/xcalibrateproto:0
+  - x11-proto/xcmiscproto:0
+  - x11-proto/xextproto:0
+  - x11-proto/xf86bigfontproto:0
+  - x11-proto/xf86dgaproto:0
+  - x11-proto/xf86driproto:0
+  - x11-proto/xf86miscproto:0
+  - x11-proto/xf86rushproto:0
+  - x11-proto/xf86vidmodeproto:0
+  - x11-proto/xineramaproto:0
+  - x11-proto/xproto:0
+  - x11-proto/xproxymngproto:0
