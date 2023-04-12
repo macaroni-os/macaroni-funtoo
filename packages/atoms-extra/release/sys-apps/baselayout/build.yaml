@@ -7,7 +7,8 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
 # Temporary
-- sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
+- >-
+  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
   /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
