@@ -16,10 +16,6 @@ prelude:
   luet cleanup --purge-repos &&
   eselect java-vm set system 1 &&
   mkdir /etc/portage/package.use/ -p &&
-  rm -rf /var/git/meta-repo/kits/python-modules-kit/dev-python/automat/* &&
-  rm -rf /var/git/meta-repo/kits/python-modules-kit/dev-python/dnspython/* &&
-  cp -rvf patches/automat* /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
-  cp -rvf patches/dnspython* /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
   cp -rvf patches/sqlalchemy-migrate/ /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS dev-python/docutils &&
