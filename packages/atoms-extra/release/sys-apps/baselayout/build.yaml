@@ -6,6 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary
+- sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
+  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -23,9 +26,6 @@ prelude:
 - eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage
   --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
 - rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true
-# Temporary
-- sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
-  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
 
 # Override with macaroni files
 - >-
