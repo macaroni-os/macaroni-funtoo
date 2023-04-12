@@ -3,6 +3,7 @@
 SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 
 kits=(
+  "release"
   "net"
   "dev"
   "python"
