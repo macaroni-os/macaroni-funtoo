@@ -37,6 +37,14 @@ prelude:
   ebuild libical-3.0.11.ebuild digest
 - >-
   cp patches/text-kit/* /var/git/meta-repo/kits/text-kit/ -rfv
+
+# I want move ahead meson
+- >-
+  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
+  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
+  sed '/meson/d' -i
+  /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo
+
 - >-
   cp -rvf kits-patches/core-kit/* /var/git/meta-repo/kits/core-kit/ &&
   sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g' /var/git/meta-repo/kits/core-kit/profiles/base/packages &&
