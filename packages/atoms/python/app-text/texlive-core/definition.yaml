@@ -1,5 +1,5 @@
 name: texlive-core
-version: 2020+4
+version: 2020+5
 category: app-text
 use_flags:
 - -tk
@@ -63,10 +63,11 @@ requires:
   category: x11-libs
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: A complete TeX distribution
 uri:
 - https://tug.org/texlive/
