@@ -1,9 +1,10 @@
 name: pycryptodome
-version: 3.9.8
+version: 3.9.8+1
 category: dev-python
 use_flags:
-- -python_targets_pypy3
-- python_targets_python2_7
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -python_targets_python3_9
 - python_targets_python3_7
 requires:
 - name: gmp
@@ -14,13 +15,14 @@ requires:
   category: virtual
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: A self-contained cryptographic library for Python
 uri:
-- https://www.pycryptodome.org https://github.com/Legrandin/pycryptodome https://pypi.org/project/pycryptodome/
+- https://www.pycryptodome.org/ https://github.com/Legrandin/pycryptodome/ https://pypi.org/project/pycryptodome/
 license: BSD-2 Unlicense
 labels:
   BDEPEND: virtual/python-cffi[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
