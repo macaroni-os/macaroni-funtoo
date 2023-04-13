@@ -1,32 +1,30 @@
 name: dnspython
-version: 2.3.0
+version: 2.3.0+1
 category: dev-python
 use_flags:
 - -python_targets_pypy3
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: ecdsa
+- name: cryptography
   version: '>=0'
   category: dev-python
 - name: idna
   version: '>=0'
   category: dev-python
-- name: pycryptodome
-  version: '>=0'
-  category: dev-python
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: DNS toolkit for Python
 uri:
-- http://www.dnspython.org/ https://pypi.org/project/dnspython/
-license: ISC
+- https://www.dnspython.org https://pypi.org/project/dnspython/
 labels:
   BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
