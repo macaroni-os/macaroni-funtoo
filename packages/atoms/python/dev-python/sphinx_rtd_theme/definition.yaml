@@ -1,8 +1,9 @@
 name: sphinx_rtd_theme
-version: 1.2.0
+version: 1.2.0+1
 category: dev-python
 use_flags:
 - -python_targets_pypy3
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - python_targets_python3_7
@@ -15,10 +16,11 @@ requires:
   category: dev-lang-2
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: ReadTheDocs.org theme for Sphinx
 uri:
 - https://github.com/snide/sphinx_rtd_theme/
