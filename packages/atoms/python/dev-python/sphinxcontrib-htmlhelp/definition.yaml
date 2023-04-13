@@ -1,8 +1,9 @@
 name: sphinxcontrib-htmlhelp
-version: 2.0.1
+version: 2.0.1+1
 category: dev-python
 use_flags:
 - -python_targets_pypy3
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - python_targets_python3_7
@@ -15,10 +16,11 @@ requires:
   category: dev-lang-2
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Sphinx extension which outputs HTML help book
 uri:
 - http://www.sphinx-doc.org
