@@ -1,19 +1,13 @@
 name: pytz
-version: "2023.2"
+version: 2023.2+1
 category: dev-python
 use_flags:
-- -python_targets_pypy3
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: python
-  version: '>=0'
-  category: dev-lang-3.7
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
 - name: setuptools
   version: '>=0'
   category: dev-python
@@ -22,13 +16,14 @@ requires:
   category: sys-libs
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: World timezone definitions for Python
 uri:
-- https://pythonhosted.org/pytz/ https://pypi.org/project/pytz/
+- http://pythonhosted.org/pytz https://pypi.org/project/pytz/
 license: MIT
 labels:
   BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
