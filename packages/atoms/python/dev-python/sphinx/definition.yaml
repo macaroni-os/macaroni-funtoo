@@ -1,8 +1,8 @@
 name: sphinx
-version: 5.3.0
+version: 5.3.0+1
 category: dev-python
 use_flags:
-- -python_targets_pypy3
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - latex
@@ -21,6 +21,9 @@ requires:
   version: '>=0'
   category: dev-python
 - name: imagesize
+  version: '>=0'
+  category: dev-python
+- name: importlib_metadata
   version: '>=0'
   category: dev-python
 - name: jinja
@@ -67,13 +70,14 @@ requires:
   category: dev-texlive
 annotations:
   subsets:
-    devel:
-    - ^/usr/include/
-    portage:
-    - ^/var/db/pkg/
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
 description: Python documentation generator
 uri:
-- http://www.sphinx-doc.org/
+- https://pypi.org/project/Sphinx/
 license: BSD
 labels:
   BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
