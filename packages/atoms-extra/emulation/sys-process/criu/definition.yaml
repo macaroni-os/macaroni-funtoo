@@ -3,6 +3,7 @@ version: 3.17.1
 category: sys-process
 use_flags:
 - -doc
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -selinux
@@ -45,18 +46,20 @@ uri:
 license: GPL-2
 labels:
   DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     dev-libs/protobuf-c dev-libs/libnl:3 net-libs/libnet:1.1 sys-libs/libcap selinux?
     ( sys-libs/libselinux ) setproctitle? ( dev-libs/libbsd ) video_cards_amdgpu?
     ( x11-libs/libdrm[video_cards_amdgpu?] ) doc? ( app-text/asciidoc app-text/xmlto
     )
   IUSE: doc selinux setproctitle static-libs -video_cards_amdgpu kernel_linux python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     dev-libs/protobuf-c dev-libs/libnl:3 net-libs/libnet:1.1 sys-libs/libcap selinux?
     ( sys-libs/libselinux ) setproctitle? ( dev-libs/libbsd ) video_cards_amdgpu?
-    ( x11-libs/libdrm[video_cards_amdgpu?] ) dev-python/protobuf-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ( x11-libs/libdrm[video_cards_amdgpu?] ) dev-python/protobuf-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
   emerge.packages: sys-process/criu
   kit: core-kit
   original.package.name: sys-process/criu
