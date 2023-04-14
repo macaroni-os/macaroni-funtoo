@@ -2,15 +2,12 @@ name: libvncserver
 version: 0.9.14
 category: net-libs
 use_flags:
-- -libressl
-- -systemd
 - gcrypt
 - gnutls
 - jpeg
 - lzo
 - png
 - sasl
-- sdl
 - ssl
 - zlib
 requires:
@@ -26,9 +23,6 @@ requires:
 - name: libpng
   version: '>=0'
   category: media-libs
-- name: libsdl2
-  version: '>=0'
-  category: media-libs
 - name: gnutls
   version: '>=0'
   category: net-libs
@@ -42,10 +36,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: library for creating vnc servers
+description: Library for creating vnc servers
 uri:
 - https://libvnc.github.io/
-license: GPL-2
+license: GPL-2 GPL-2+ LGPL-2.1+ BSD MIT
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
   DEPEND: gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0= ) ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.2:0=
