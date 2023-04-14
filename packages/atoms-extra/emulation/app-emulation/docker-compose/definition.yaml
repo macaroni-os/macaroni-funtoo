@@ -2,6 +2,7 @@ name: docker-compose
 version: 1.29.2
 category: app-emulation
 use_flags:
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -test
@@ -10,7 +11,7 @@ requires:
 - name: PySocks
   version: '>=0'
   category: dev-python
-- name: cached-property
+- name: distro
   version: '>=0'
   category: dev-python
 - name: docker-py
@@ -29,6 +30,9 @@ requires:
   version: '>=0'
   category: dev-python
 - name: paramiko
+  version: '>=0'
+  category: dev-python
+- name: python-dotenv
   version: '>=0'
   category: dev-python
 - name: pyyaml
