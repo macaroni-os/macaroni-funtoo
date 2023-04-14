@@ -3,6 +3,9 @@ version: 7.5.0
 category: dev-python
 use_flags:
 - -doc
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -python_targets_python3_9
 - -test
 - matplotlib
 - nbconvert
@@ -43,44 +46,50 @@ uri:
 license: BSD
 labels:
   BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7[readline,sqlite,threads(+)]
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    ) python_targets_python3_9? ( dev-lang/python:3.9[readline,sqlite,threads(+)]
+    ) python_targets_python3_8? ( dev-lang/python:3.8[readline,sqlite,threads(+)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[readline,sqlite,threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
-  DEPEND: dev-python/backcall[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/decorator[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/jedi[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/pexpect[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/pickleshare[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    >=dev-python/prompt_toolkit-2[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    <dev-python/prompt_toolkit-2.1[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/pygments[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/traitlets[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    matplotlib? ( dev-python/matplotlib[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    ) dev-python/setuptools[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    test? ( >=dev-python/ipykernel-5.1.0[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/nbformat[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/nose[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/numpy[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/requests[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/testpath[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    ) doc? ( >=dev-python/ipykernel-5.1.0[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    >=dev-python/sphinx-2[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+  DEPEND: dev-python/backcall[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/decorator[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/jedi[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pexpect[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pickleshare[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/prompt_toolkit-2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    <dev-python/prompt_toolkit-2.1[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pygments[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/traitlets[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    matplotlib? ( dev-python/matplotlib[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    test? ( >=dev-python/ipykernel-5.1.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/nbformat[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/nose[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/numpy[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/requests[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/testpath[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) doc? ( >=dev-python/ipykernel-5.1.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/sphinx-2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     )
   IUSE: doc examples matplotlib notebook nbconvert qt5 +smp test python_targets_python3_7
-    test
-  RDEPEND: dev-python/backcall[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/decorator[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/jedi[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/pexpect[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/pickleshare[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    >=dev-python/prompt_toolkit-2[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    <dev-python/prompt_toolkit-2.1[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/pygments[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    dev-python/traitlets[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    matplotlib? ( dev-python/matplotlib[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
-    ) nbconvert? ( dev-python/nbconvert[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10 test
+  RDEPEND: dev-python/backcall[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/decorator[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/jedi[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pexpect[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pickleshare[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/prompt_toolkit-2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    <dev-python/prompt_toolkit-2.1[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pygments[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/traitlets[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    matplotlib? ( dev-python/matplotlib[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) nbconvert? ( dev-python/nbconvert[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     ) python_targets_python3_7? ( dev-lang/python:3.7[readline,sqlite,threads(+)]
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,-python_single_target_python3_7(-)]
+    ) python_targets_python3_9? ( dev-lang/python:3.9[readline,sqlite,threads(+)]
+    ) python_targets_python3_8? ( dev-lang/python:3.8[readline,sqlite,threads(+)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[readline,sqlite,threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
   emerge.packages: dev-python/ipython
   kit: python-modules-kit
   original.package.name: dev-python/ipython
