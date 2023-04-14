@@ -13,7 +13,10 @@ prelude:
   cp patches/* -rvf /var/git/meta-repo/kits/net-kit/net-libs/phodav/ &&
   cd /var/git/meta-repo/kits/net-kit/net-libs/phodav/ &&
   ebuild phodav-2.5.ebuild digest
+
 - |
+  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
+  chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
@@ -33,6 +36,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: python-x2go
+- name: pcsc-lite
   version: '>=0'
-  category: net-misc
+  category: sys-apps
