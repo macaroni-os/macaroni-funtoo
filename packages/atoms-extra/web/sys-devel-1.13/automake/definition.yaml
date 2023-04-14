@@ -1,8 +1,6 @@
 name: automake
 version: 1.13.4
 category: sys-devel-1.13
-use_flags:
-- -test
 requires:
 - name: perl
   version: '>=0'
@@ -25,10 +23,9 @@ uri:
 - https://www.gnu.org/software/automake/
 license: GPL-2
 labels:
+  BDEPEND: app-arch/gzip
   DEPEND: dev-lang/perl >=sys-devel/automake-wrapper-10 >=sys-devel/autoconf-2.69:*
-    sys-devel/gnuconfig sys-apps/help2man test? ( || ( >=dev-lang/python-2.7.5-r2:2.7
-    ) )
-  IUSE: test
+    sys-devel/gnuconfig sys-apps/help2man
   RDEPEND: dev-lang/perl >=sys-devel/automake-wrapper-10 >=sys-devel/autoconf-2.69:*
     sys-devel/gnuconfig
   emerge.packages: sys-devel/automake:1.13
