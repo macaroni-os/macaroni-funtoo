@@ -1,10 +1,13 @@
 name: texttable
-version: "1.6.1+1"
+version: 1.6.1+2
 category: dev-python
 use_flags:
+- -python_targets_python2_7
+- -python_targets_python3_10
+- -python_targets_python3_8
+- -python_targets_python3_9
 - -test
 - cjk
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
 - name: cjkwrap
@@ -25,19 +28,24 @@ uri:
 - https://github.com/foutaise/texttable https://pypi.org/project/texttable/
 license: MIT
 labels:
-  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-  DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    test? ( dev-python/pytest[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    dev-python/wcwidth[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    cjk? ( dev-python/cjkwrap[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+  DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    test? ( dev-python/pytest[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    dev-python/wcwidth[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    cjk? ( dev-python/cjkwrap[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     ) )
-  IUSE: cjk test python_targets_python3_7 python_targets_python2_7
-  RDEPEND: dev-python/wcwidth[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    cjk? ( dev-python/cjkwrap[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
-    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python2_7(-)?,-python_single_target_python3_7(-),-python_single_target_python2_7(-)]
+  IUSE: cjk test python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python2_7 python_targets_python3_10
+  RDEPEND: dev-python/wcwidth[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    cjk? ( dev-python/cjkwrap[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
   emerge.packages: dev-python/texttable
   kit: python-modules-kit
   original.package.name: dev-python/texttable
