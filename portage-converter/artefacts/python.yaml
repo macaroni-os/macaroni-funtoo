@@ -1,66 +1,42 @@
 artefacts:
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - python_targets_pypy3
     - sh
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/ecdsa
   - dev-python/pycryptodome
   - dev-python/traceback2
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - sh
     - snappy
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/kafka-python
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - examples
     - nios2
     - sh
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/mysql-connector-python
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -79,52 +55,34 @@ artefacts:
   - dev-python/sphinxcontrib-qthelp
   - dev-python/sphinxcontrib-serializinghtml
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/tempita
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - examples
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/dnspython
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -139,12 +97,6 @@ artefacts:
   packages:
   - dev-python/sphinx
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -157,12 +109,11 @@ artefacts:
   packages:
   - dev-libs/zziplib
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-python
   uses:
     disabled:
     - doc
@@ -171,13 +122,9 @@ artefacts:
     - test
   packages:
   - dev-lisp/asdf
+  - dev-lisp/hyperspec
+  - dev-lisp/uiop
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -202,12 +149,6 @@ artefacts:
   - dev-perl/namespace-autoclean
   - dev-perl/namespace-clean
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - minimal
@@ -220,30 +161,18 @@ artefacts:
   - dev-perl/Specio
   - dev-perl/Sub-Quote
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/decorator
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - cjk
@@ -260,12 +189,6 @@ artefacts:
   packages:
   - app-text/texlive-core
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -280,12 +203,6 @@ artefacts:
   packages:
   - sys-libs/db:4.8
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -296,22 +213,13 @@ artefacts:
   packages:
   - app-text/dvipng
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - sh
   packages:
   - app-text/ps2pkm
-  - dev-libs/ffcall
   - dev-libs/libsigsegv
-  - dev-lisp/hyperspec
-  - dev-lisp/uiop
   - dev-perl/Class-Data-Inheritable
   - dev-perl/Crypt-RC4
   - dev-perl/Devel-Caller
@@ -326,95 +234,85 @@ artefacts:
   - dev-perl/Unicode-Map
   - dev-tex/latexmk
   - sys-apps/ed
-  - virtual/latex-base
-  - virtual/perl-Test-Simple
-  - virtual/texi2dvi
   - x11-misc/imake
   - x11-misc/xorg-cf-files
+
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-python
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - virtual/latex-base
+  - virtual/texi2dvi
+  - virtual/perl-Test-Simple
+  - dev-libs/kpathsea
+  - dev-libs/ffcall
+- tree: packages/atoms/python
   uses:
     disabled:
     - doc
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/Babel
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/linecache2
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
     - examples
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
     - sqlite
   packages:
   - dev-python/sqlalchemy
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
     - nios2
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/sqlalchemy-migrate
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-python
   uses:
     disabled:
     - doc
@@ -425,12 +323,6 @@ artefacts:
   packages:
   - sci-libs/libcerf
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -441,12 +333,6 @@ artefacts:
   packages:
   - dev-perl/File-Which
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -457,12 +343,6 @@ artefacts:
   packages:
   - dev-perl/Ref-Util
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - cjk
@@ -474,59 +354,35 @@ artefacts:
   packages:
   - dev-perl/Spreadsheet-ParseExcel
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/imagesize
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
     - nios2
     - sh
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/python-sqlparse
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   packages:
   - dev-tex/xcolor
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -535,7 +391,6 @@ artefacts:
     - source
     - static-libs
   packages:
-  - dev-libs/kpathsea
   - app-text/teckit:0
   - dev-texlive/texlive-xetex
   - dev-texlive/texlive-mathscience
@@ -557,12 +412,6 @@ artefacts:
   - dev-texlive/texlive-bibtexextra
 
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - examples
@@ -571,70 +420,46 @@ artefacts:
   packages:
   - dev-perl/Perl-Tidy
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/alabaster
   - dev-python/pytz
   - dev-python/snowballstemmer
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - sh
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/prometheus_client
   - dev-python/python-memcached
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
+    - python_targets_python2_7
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/python-dateutil
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - fastcgi
@@ -657,12 +482,6 @@ artefacts:
   packages:
   - dev-lisp/clisp:2
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -674,12 +493,6 @@ artefacts:
   packages:
   - dev-texlive/texlive-basic
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - doc
@@ -699,12 +512,6 @@ artefacts:
   - dev-texlive/texlive-pictures
   - dev-texlive/texlive-plaingeneric
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -715,12 +522,6 @@ artefacts:
   packages:
   - dev-libs/ptexenc
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - examples
@@ -734,12 +535,6 @@ artefacts:
   - dev-perl/Text-CSV_XS
   - dev-perl/Variable-Magic
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
@@ -750,18 +545,12 @@ artefacts:
   packages:
   - dev-perl/File-HomeDir
 - tree: packages/atoms/python
-  annotations:
-    subsets:
-      devel:
-        - "^/usr/include/"
-      portage:
-        - "^/var/db/pkg/"
   uses:
     disabled:
     - nios2
     - sh
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/terminaltables
