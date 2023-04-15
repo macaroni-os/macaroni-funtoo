@@ -1,0 +1,33 @@
+name: playerctl
+version: 2.4.1
+category: media-sound
+use_flags:
+- -doc
+- introspection
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: "\U0001F3A7 mpris media player command-line controller for vlc, mpv,
+  RhythmBox, web browsers, cmus, mpd, spotify and others."
+uri:
+- https://github.com/acrisci/playerctl
+license: GPL-3+
+labels:
+  BDEPEND: doc? ( dev-util/gtk-doc ) dev-util/gdbus-codegen dev-util/glib-utils virtual/pkgconfig
+    >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 introspection? ( dev-libs/gobject-introspection:= )
+  IUSE: doc introspection
+  RDEPEND: dev-libs/glib:2 introspection? ( dev-libs/gobject-introspection:= )
+  emerge.packages: media-sound/playerctl
+  kit: media-kit
+  original.package.name: media-sound/playerctl
+  original.package.slot: "0"
+  original.package.version: 2.4.1
