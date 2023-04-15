@@ -1,0 +1,79 @@
+name: i3
+version: "4.22"
+category: x11-wm
+use_flags:
+- -doc
+- -test
+- prefix
+requires:
+- name: libev
+  version: '>=0'
+  category: dev-libs
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: yajl
+  version: '>=0'
+  category: dev-libs
+- name: AnyEvent-I3
+  version: '>=0'
+  category: dev-perl
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
+- name: startup-notification
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-cursor
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-keysyms
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-wm
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-xrm
+  version: '>=0'
+  category: x11-libs
+- name: xkeyboard-config
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A tiling window manager for X11
+uri:
+- https://i3wm.org/
+license: BSD
+labels:
+  BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test?
+    ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+  DEPEND: dev-libs/libev dev-libs/libpcre dev-libs/yajl x11-libs/cairo[X,xcb(+)] x11-libs/libxcb[xkb]
+    x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util
+    x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm
+    x11-misc/xkeyboard-config test? ( dev-perl/AnyEvent dev-perl/ExtUtils-PkgConfig
+    dev-perl/Inline dev-perl/Inline-C dev-perl/IPC-Run dev-perl/local-lib dev-perl/X11-XCB
+    virtual/perl-Test-Simple x11-base/xorg-server[xephyr] x11-misc/xvfb-run ) doc?
+    ( app-text/asciidoc app-text/xmlto dev-lang/perl )
+  IUSE: doc test test
+  RDEPEND: dev-libs/libev dev-libs/libpcre dev-libs/yajl x11-libs/cairo[X,xcb(+)]
+    x11-libs/libxcb[xkb] x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification
+    x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm
+    x11-libs/xcb-util-xrm x11-misc/xkeyboard-config dev-lang/perl dev-perl/AnyEvent-I3
+    dev-perl/JSON-XS
+  emerge.packages: x11-wm/i3
+  kit: desktop-kit
+  original.package.name: x11-wm/i3
+  original.package.slot: "0"
+  original.package.version: "4.22"
