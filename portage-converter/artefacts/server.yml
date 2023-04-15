@@ -245,8 +245,8 @@ artefacts:
     - nios2
     - sh
     - static-libs
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-libs/snowball-stemmer
@@ -270,9 +270,9 @@ artefacts:
     - python_targets_python3_9
     - sh
     - test
+    - python_targets_python2_7
     enabled:
     - libyaml
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/pyyaml
@@ -342,16 +342,6 @@ artefacts:
     - sh
   packages:
   - app-crypt/trousers
-- tree: packages/atoms/server
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/markdown-compat
-  - dev-util/scons-compat
 - tree: packages/atoms/server
   mutations:
     runtime_deps:
@@ -563,6 +553,7 @@ artefacts:
           name: entities-catalog
     uses:
       - python_single_target_python3_7
+      - server
   uses:
     disabled:
     - debug
@@ -595,6 +586,7 @@ artefacts:
     - ssl
     - xml
     - zlib
+    - elibc_glibc
   packages:
   - dev-db/postgresql:13
   finalizer:
@@ -624,9 +616,9 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-util/scons
@@ -645,10 +637,10 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/psutil
@@ -729,9 +721,9 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/markdown
@@ -767,7 +759,6 @@ artefacts:
   packages:
   - net-misc/ntpclient
 
-
 - tree: packages/atoms/server
   uses:
     disabled:
@@ -778,6 +769,22 @@ artefacts:
     - sh
   packages:
   - net-misc/netkit-telnetd:0
+
+- tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        # It seems a luet-portage-converter issue
+        - category: dev-libs
+          name: libbsd
+  uses:
+    disabled:
+    - debug
+    - embedded
+    - nios2
+    - obsolete
+    - sh
+  packages:
   - net-analyzer/openbsd-netcat:0
 - tree: packages/atoms/server
   uses:

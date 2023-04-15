@@ -113,24 +113,14 @@ artefacts:
 - tree: packages/atoms/xorg-extra
   uses:
     disabled:
-    - examples
-    - nios2
-    - sh
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/notify-python
-- tree: packages/atoms/xorg-extra
-  uses:
-    disabled:
     - nios2
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/psutil
@@ -206,15 +196,17 @@ artefacts:
     - session
     - sh
     - tcl
+    - python_targets_python2_7
     enabled:
     - acl
     - gnome
     - gtk
+    - kernel_linux
     - gtk3
     - nls
     - python
-    - python_targets_python2_7
     - python_targets_python3_7
+    - python_single_target_python3_7
   packages:
   - app-editors/gvim
 - tree: packages/atoms/xorg-extra

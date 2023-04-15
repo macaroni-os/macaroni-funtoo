@@ -23,6 +23,10 @@ artefacts:
     - unwind
     - vector-icons
     - xpm
+    - python_single_target_python2_7
+    - python_targets_python2_7
+    # The python use flag works only with py2.7
+    - python
     enabled:
     - aalib
     - alsa
@@ -32,9 +36,6 @@ artefacts:
     - jpeg2k
     - mng
     - openexr
-    - python
-    - python_single_target_python2_7
-    - python_targets_python2_7
     - udev
     - webp
     - wmf
@@ -50,15 +51,6 @@ artefacts:
     - imagemagick
   packages:
   - media-video/dvdauthor
-- tree: packages/atoms/media-gfx
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/pyzmq-compat
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
@@ -194,6 +186,7 @@ artefacts:
     - sh
     - test
     enabled:
+    - opencv
     - imagemagick
     - python
     - python_single_target_python3_7
@@ -205,9 +198,9 @@ artefacts:
     disabled:
     - doc
     - nios2
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/greenlet
@@ -217,8 +210,8 @@ artefacts:
     - nios2
     - python_targets_pypy3
     - sh
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/httplib2
@@ -508,8 +501,8 @@ artefacts:
     - python_targets_python3_9
     - sh
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/py
@@ -608,6 +601,7 @@ artefacts:
     enabled:
     - python_single_target_python3_7
     - python_targets_python3_7
+    - opencv
   packages:
   - media-video/openshot:1
   finalizer:
@@ -680,6 +674,17 @@ artefacts:
     - visio
   packages:
   - media-gfx/inkscape
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
 - tree: packages/atoms/media-gfx
   uses:
     disabled:
@@ -706,8 +711,8 @@ artefacts:
     - examples
     - nios2
     - sh
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/gevent
@@ -716,8 +721,8 @@ artefacts:
     disabled:
     - nios2
     - sh
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - media-gfx/scour
@@ -763,8 +768,8 @@ artefacts:
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/pyzmq
@@ -951,9 +956,9 @@ artefacts:
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
+    - python_targets_python2_7
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
     - threads
   packages:
