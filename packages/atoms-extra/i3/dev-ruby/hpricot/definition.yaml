@@ -1,0 +1,48 @@
+name: hpricot
+version: 0.8.6
+category: dev-ruby
+use_flags:
+- -doc
+- -test
+- ruby_targets_ruby26
+- ruby_targets_ruby27
+requires:
+- name: fast_xs
+  version: '>=0'
+  category: dev-ruby
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A fast and liberal HTML parser for Ruby
+uri:
+- https://wiki.github.com/hpricot/hpricot
+license: MIT
+labels:
+  DEPEND: ruby_targets_ruby27? ( dev-ruby/rake[ruby_targets_ruby27(-)] dev-ruby/rdoc[ruby_targets_ruby27(-)]
+    dev-ruby/rake-compiler[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-ruby/rake[ruby_targets_ruby26(-)]
+    dev-ruby/rdoc[ruby_targets_ruby26(-)] dev-ruby/rake-compiler[ruby_targets_ruby26(-)]
+    ) test? ( ruby_targets_ruby27? ( dev-ruby/fast_xs[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( dev-ruby/fast_xs[ruby_targets_ruby26(-)] ) ) dev-util/ragel ruby_targets_ruby27?
+    ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27?
+    ( doc? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( doc?
+    ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27?
+    ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)]
+    ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)]
+    ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+  IUSE: test ruby_targets_ruby24 ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27
+    doc test test
+  RDEPEND: ruby_targets_ruby27? ( dev-ruby/fast_xs[ruby_targets_ruby27(-)] ) ruby_targets_ruby26?
+    ( dev-ruby/fast_xs[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)]
+    ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
+  emerge.packages: dev-ruby/hpricot
+  kit: ruby-kit
+  original.package.name: dev-ruby/hpricot
+  original.package.slot: "0"
+  original.package.version: 0.8.6-r5
