@@ -1,0 +1,40 @@
+name: mustache
+version: 1.1.1
+category: dev-ruby
+use_flags:
+- -doc
+- -test
+- ruby_targets_ruby26
+requires:
+- name: ruby
+  version: '>=0'
+  category: dev-lang-2.6
+- name: rubygems
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Mustache is a framework-agnostic way to render logic-free views
+uri:
+- https://mustache.github.com/
+license: MIT
+labels:
+  BDEPEND: ruby_targets_ruby26? ( doc? ( app-text/ronn[ruby_targets_ruby26(-)] ) )
+    ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)]
+    ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)]
+    ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+  DEPEND: ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)]
+    )
+  IUSE: ruby_targets_ruby24 ruby_targets_ruby25 ruby_targets_ruby26 doc test
+  RDEPEND: ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)]
+    )
+  emerge.packages: dev-ruby/mustache
+  kit: ruby-kit
+  original.package.name: dev-ruby/mustache
+  original.package.slot: "0"
+  original.package.version: 1.1.1
