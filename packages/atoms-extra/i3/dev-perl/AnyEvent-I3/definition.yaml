@@ -1,0 +1,30 @@
+name: AnyEvent-I3
+version: 0.170.0
+category: dev-perl
+requires:
+- name: AnyEvent
+  version: '>=0'
+  category: dev-perl
+- name: JSON-XS
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Communicate with the i3 window manager
+uri:
+- https://metacpan.org/release/AnyEvent-I3
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: dev-perl/AnyEvent dev-perl/JSON-XS >=virtual/perl-ExtUtils-MakeMaker-6.360.0
+    dev-lang/perl:=
+  RDEPEND: dev-perl/AnyEvent dev-perl/JSON-XS dev-lang/perl:=
+  emerge.packages: dev-perl/AnyEvent-I3
+  kit: perl-kit
+  original.package.name: dev-perl/AnyEvent-I3
+  original.package.slot: "0"
+  original.package.version: 0.170.0
