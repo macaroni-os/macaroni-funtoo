@@ -1,4 +1,12 @@
 prelude:
+# TODO: investigate about issue with hpricot already available
+# but that requires a recompilation. Maybe, eselect is needed or
+# it's needed fast_xs.
+- >-
+  eselect ruby set ruby26 &&
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  emerge hpricot -j
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
