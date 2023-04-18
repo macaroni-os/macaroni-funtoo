@@ -1,0 +1,180 @@
+packages:
+
+  keep_luet_db: "true"
+  rootfs:
+  - system/entities
+  - system/luet-geaaru-testing
+  - utils/yq
+  - utils/jq
+
+  # TODO: replace with a lxqt setup
+  - macaroni/live-setup-xfce4
+  - app-admin/whip
+  - app-admin/macaronictl-thin
+  - whip-profiles/macaroni
+  - macaroni-release/funtoo
+  - system/macaroni-funtoo-calamares
+  - macaroni/whip-catalog
+  - macaroni/skel-phoenix
+
+  - virtual/sh
+  - virtual/base
+  - virtual/grub
+  - virtual/openrc
+
+  - virtual-entities/base
+
+  - app-editors/vim
+
+  - sys-apps/lsb-release
+  - sys-apps/zram-init
+
+  # kernel stuff
+  - kernel-6.1/macaroni-full
+  - kernel-6.1/macaroni-modules
+  - kernel-6.1/macaroni-initramfs
+  - kernel-6.1/zfs-kmod
+  - kernel-6.1/virtualbox-guest-additions
+  - kernel-6.1/nvidia-kernel-modules
+  - kernel-6.1/lkrg
+
+  - app-antivirus/lkrg
+
+  - sys-kernel/linux-firmware
+  - sys-kernel/dracut
+  - sys-fs/mdadm
+  - www-client/firefox-bin
+
+  - sys-apps/shadow
+  - sys-apps/iproute2
+  - sys-apps/corenetwork
+  - net-misc/dhcpcd
+
+  - sys-process/procps
+  - sys-process/htop
+  - sys-apps/ethtool
+  - sys-apps/less
+  - net-wireless/wpa_supplicant
+  - net-wireless/wireless-regdb
+  - sys-fs/eudev
+  - sys-apps/kbd
+  - media-fonts/noto-emoji
+
+  # needed for /bin/hostname
+  - sys-apps/net-tools
+  # needed for format vfat uefi partition
+  - sys-fs/dosfstools
+  - sys-boot/efibootmgr
+
+  # Add support to multiple filesystem to ISO
+  - sys-fs/btrfs-progs
+  - sys-fs/xfsprogs
+  - sys-fs/reiserfsprogs
+  - sys-fs/zfs
+  - app-antivirus/lkrg
+
+  # Add plymouth
+  - sys-boot/plymouth
+  - sys-boot/plymouth-openrc-plugin
+  - x11-themes/plymouth-funtoo
+
+  - x11-apps/setxkbmap
+  - x11-apps/xrandr
+
+  # Package to add on virtual/xorg-base
+  - x11-drivers/xf86-video-vmware
+  - x11-drivers/xf86-video-nouveau
+  - x11-drivers/xf86-video-fbdev
+  - x11-drivers/xf86-video-ati
+  - x11-drivers/xf86-video-amdgpu
+  - x11-drivers/xf86-video-intel
+  - x11-drivers/xf86-video-vbox
+  - x11-drivers/xf86-video-vesa
+  - x11-base/xorg-drivers
+  - x11-drivers/xf86-input-mouse
+  - x11-drivers/xf86-input-synaptics
+  - x11-drivers/xf86-input-vmmouse
+  - x11-drivers/xf86-input-wacom
+  - x11-drivers/xf86-input-keyboard
+  - x11-drivers/xf86-input-evdev
+
+  - net-misc/wget
+
+  # Needed for the font cache generation
+  - media-fonts/encodings
+
+  # grub
+  - sys-fs-3/fuse
+  # Apache (check ebuild)
+  - dev-libs-1/apr-util
+  # kadmind
+  - dev-libs/libverto
+  # thin-tools etc.
+  - media-gfx/fontforge
+
+  # calamares plugin requires these packages
+  - x11-libs/xcb-util-wm
+  - x11-libs/xcb-util-image
+  - x11-libs/xcb-util-renderutil
+
+  - dev-qt-5/qtwayland
+  - x11-wm/twm
+  - x11-terms/xterm
+  - sys-libs/libutempter
+  - sys-apps/which
+  - sys-apps/diffutils
+
+  # Needed by /usr/lib64/dri/*.so
+  - sys-devel/llvm-common
+  - sys-devel-11/llvm
+
+  # Dependency of calamares
+  - kde-frameworks-5/plasma
+
+  # LXQT stuff
+  - lxqt-base/lxqt-about
+  - lxqt-base/lxqt-admin
+  - lxqt-base/lxqt-globalkeys
+  - lxqt-base/lxqt-notificationd
+  - lxqt-base/lxqt-openssh-askpass
+  - lxqt-base/lxqt-policykit
+  - lxqt-base/lxqt-sudo
+  - lxqt-base/lxqt-config
+  - lxqt-base/lxqt-powermanagement
+  - lxqt-base/lxqt-qtplugin
+  - lxqt-base/lxqt-runner
+  - lxqt-base/lxqt-session
+  - lxqt-base/lxqt-panel
+  - lxqt-base/lxqt-meta
+
+  # LXQT need a wm. This could be replaced by openbox
+  - xfce-base/xfwm4
+
+  uefi:
+  - live/systemd-boot
+  - system/macaroni-live-boot
+  isoimage:
+  - live/syslinux
+  - system/macaroni-live-boot
+
+# Repositories packages from repository-index
+repository:
+  packages:
+  - repository/mottainai-dev
+  - repository/macaroni-funtoo-dev
+  - repository/macaroni-commons-dev
+
+initramfs:
+  kernel_file: "bzImage"
+  rootfs_file: "Initrd"
+
+overlay: "true"
+image_prefix: "Macaroni-Funtoo-Phoenix-LXQt-Testing-0."
+image_date: "true"
+
+overlay_hooks:
+  - /var/lib/macaroni/build-iso-hook.sh
+
+luet:
+  config: conf/luet-devel.yaml
+  #config: conf/luet-desktop-thin.yaml
