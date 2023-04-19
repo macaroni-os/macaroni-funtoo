@@ -112,6 +112,17 @@ artefacts:
   packages:
     - dev-libs/libmemcached
 
+
+- tree: packages/atoms-extra/web
+  uses:
+    disabled:
+      - debug
+      - static-libs
+      # Drop support to python only available for py2.7
+      - python
+  packages:
+    - dev-libs/libgamin
+
 - tree: packages/atoms-extra/web
   uses:
     disabled:
