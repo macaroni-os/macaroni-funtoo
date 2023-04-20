@@ -72,4 +72,6 @@ prelude:
   emerge -t -j $JOBS -D @world &&
   emerge -t -j $JOBS -uDN @world &&
   emerge @preserved-rebuild -t -j $JOBS &&
-  rm -rf /var/cache/portage/distfiles/*
+  rm -rf /var/cache/portage/distfiles/* &&
+  mkdir -p /layer-base
+package_dir: /layer-base
