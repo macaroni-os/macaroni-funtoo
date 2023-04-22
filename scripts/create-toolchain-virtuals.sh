@@ -5,6 +5,7 @@ SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 kits=(
   "base"
   "boot"
+  "release"
   "java"
   "office"
   "emulation"
