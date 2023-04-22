@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# TODO: move to geaaru-kit
+- >-
+  cp virglrenderer-0.10.1.ebuild /var/git/meta-repo/kits/media-kit/media-libs/virglrenderer &&
+  cd /var/git/meta-repo/kits/media-kit/media-libs/virglrenderer &&
+  ebuild virglrenderer-0.10.1.ebuild digest
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
