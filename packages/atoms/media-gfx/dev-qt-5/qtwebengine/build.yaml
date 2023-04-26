@@ -6,9 +6,12 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Need py2.7
+# Need py2.7 and ensure to get the downgraded version of harfbuzz
 - >-
-  luet repo update && luet i -y dev-lang-2.7/python && luet cleanup --purge-repos
+  luet repo update && luet i -y dev-lang-2.7/python &&
+  luet rm harfbuzz --nodeps &&
+  luet i harfbuzz --nodeps &&
+  luet cleanup --purge-repos
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
