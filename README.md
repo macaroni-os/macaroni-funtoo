@@ -11,34 +11,11 @@ Branches behavior:
 * `terragon`: related to the `next` release of Funtoo but
   oriented to Container and with openRC.
 
-* `next`: Related to the new `next-release` release of Funtoo.
-  This branch will be based on only single packages and
-  integrated with `luet-portage-converter` (not yet started).
-
 * `systemd`: related to a not funtoo supported release with SystemD.
   The idea is to use it only for Server ISO release and as experimental
   base rootfs where we will develop an alternative tool that will
   replace SystemD probably written in Golang. Stay tuned!.
 
-
-## News
-
-**Hey, after 1 year of incubation under the Funtoo Foundation the Macaroni OS has now his domain `macaronios.org`
-and his infrastructure. Thanks to the Funtoo Foundation for his support.**
-
-This means that the old domain used will expire soon.
-
-Hereinafter, the changes to do on your `/etc/luet/repos.conf.d/` files if your upgrade is in delay:
-
-| Repository | Previous URL | New URL |
-|------------|--------------|---------|
-| macaroni-commons | https://cdn.macaroni.funtoo.org/mottainai/macaroni-commons/ | https://dl.macaronios.org/repos/macaroni-commons/ |
-| macaroni-funtoo | https://cdn.macaroni.funtoo.org/mottainai/macaroni-commons/ | https://dl.macaronios.org/repos/macaroni-funtoo/ |
-| macaroni-terragon | https://cdn.macaroni.funtoo.org/mottainai/macaroni-terragon/ | https://dl.macaronios.org/repos/macaroni-terragon/ |
-| macaroni-funtoo-systemd | https://cdn.macaroni.funtoo.org/mottainai/macaroni-funtoo-systemd/ | https://dl.macaronios.org/repos/macaroni-funtoo-systemd/ |
-| mottainai-stable | https://cdn.macaroni.funtoo.org/mottainai/mottainai/ | https://dl.macaronios.org/repos/mottainai/ |
-
-This also means that now we need your support and donations to our Github [Sponsor](https://github.com/sponsors/geaaru) to maintain services and infra.
 
 ## Generate packages with `luet-portage-converter`
 
