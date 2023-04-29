@@ -5,6 +5,7 @@ use_flags:
 - -gnome-keyring
 - -kwallet
 - -webkit
+- -x2go
 - appindicator
 - crypt
 - cups
@@ -14,9 +15,11 @@ use_flags:
 - spice
 - ssh
 - vnc
-- x2go
 - zeroconf
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: libappindicator
   version: '>=0'
   category: dev-libs-3
@@ -29,6 +32,9 @@ requires:
 - name: gtk-vnc
   version: '>=0'
   category: net-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
 - name: libssh
   version: '>=0'
   category: net-libs
