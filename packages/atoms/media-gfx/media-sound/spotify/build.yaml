@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# TODO: Temporary fix - FL-11243
+- >-
+  ebuild --force /var/git/meta-repo/kits/media-kit/media-sound/spotify/spotify-1.2.9.743.ebuild manifest &&
+  rm -f /var/cache/portage/distfiles/spotify-1.2.9.743.deb* &&
+  curl http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.9.743.g85d9593d_amd64.deb
+  -o /var/cache/portage/distfiles/spotify-1.2.9.743.deb &&
+  ebuild --force /var/git/meta-repo/kits/media-kit/media-sound/spotify/spotify-1.2.9.743.ebuild manifest
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
