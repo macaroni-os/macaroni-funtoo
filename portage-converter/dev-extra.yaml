@@ -198,6 +198,10 @@ artefacts:
     - net-misc/ipcalc
 
 - tree: packages/atoms-extra/dev
+  packages:
+    - dev-python/trove-classifiers
+
+- tree: packages/atoms-extra/dev
   uses:
     enabled:
       - python_targets_python3_7
@@ -206,11 +210,9 @@ artefacts:
   mutations:
     buildtime_deps:
       packages:
-        - name: pathspec
-          category: dev-python
-        - name: pluggy
-          category: dev-python
         - name: installer
+          category: dev-python
+        - name: trove-classifiers
           category: dev-python
   packages:
     - dev-python/hatchling
@@ -243,7 +245,18 @@ artefacts:
 
 - tree: packages/atoms-extra/dev
   packages:
+    - dev-python/aiofiles
+    - dev-python/brotlipy
+    - dev-python/configobj
+    - dev-python/dict-toolbox
+    - dev-python/jinja
+    - dev-python/msgpack
+    - dev-python/pip
+    - dev-python/rfc3986
+    - dev-python/subpop
+    - dev-python/xmltodict
     - dev-python/httpx
+    - dev-python/beautifulsoup
 
 - tree: packages/atoms-extra/dev
   mutations:
