@@ -1597,6 +1597,14 @@ artefacts:
       - python_targets_python3_7
   packages:
     - net-dialup/freeradius
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e radius
 
 - tree: packages/atoms-extra/server
   packages:
