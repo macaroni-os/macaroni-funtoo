@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Drop unneeded patch - FL-11297
+- >-
+  sed -i -e '/-6.23.02-dircolors.patch/d'
+  /var/git/meta-repo/kits/core-kit/app-shells/tcsh/tcsh-6.24.10.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
