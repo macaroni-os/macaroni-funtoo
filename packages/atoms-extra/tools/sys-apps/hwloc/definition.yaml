@@ -1,13 +1,13 @@
 name: hwloc
-version: 2.9.1
+version: 2.9.1+1
 category: sys-apps
 use_flags:
 - -cuda
+- -nvml
+- -video_cards_nvidia
 - cairo
-- nvml
 - pci
 - udev
-- video_cards_nvidia
 - xml
 requires:
 - name: libxml2
@@ -19,9 +19,6 @@ requires:
 - name: ncurses
   version: '>=0'
   category: sys-libs
-- name: nvidia-drivers
-  version: '>=0'
-  category: x11-drivers
 - name: cairo
   version: '>=0'
   category: x11-libs
