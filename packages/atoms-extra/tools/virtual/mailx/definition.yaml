@@ -1,0 +1,25 @@
+name: mailx
+version: "1"
+category: virtual
+requires:
+- name: mailutils
+  version: '>=0'
+  category: net-mail
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for mail implementations
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( net-mail/mailutils mail-client/mailx mail-client/nail mail-client/s-nail
+    sys-freebsd/freebsd-ubin )'
+  emerge.packages: virtual/mailx
+  kit: core-kit
+  original.package.name: virtual/mailx
+  original.package.slot: "0"
+  original.package.version: "1"
