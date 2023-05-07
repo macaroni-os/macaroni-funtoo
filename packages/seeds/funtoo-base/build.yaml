@@ -58,11 +58,11 @@ prelude:
 
 - bash scripts/patches-meson.sh
 
-# Temporary fix qtdeclaritive
+# Temporary fix librsvg until next race
 - >-
-  cd /var/git/meta-repo/kits/qt-kit/dev-qt/qtdeclarative/ &&
-  wget https://raw.githubusercontent.com/funtoo/qt-kit/ceeab2948e7f39827a65ae50a17c421826d0a5f6/dev-qt/qtdeclarative/qtdeclarative-5.15.2_p20221116.ebuild &&
-  rm Manifest && ebuild qtdeclarative-5.15.2_p20221116.ebuild digest && cd -
+  cd /var/git/meta-repo/kits/gnome-kit/gnome-base/librsvg/ &&
+  wget https://raw.githubusercontent.com/funtoo/gnome-kit/3.36-prime/gnome-base/librsvg/librsvg-2.48.8.ebuild &&
+  rm Manifest && ebuild librsvg-2.48.8.ebuild digest && cd -
 
 - >-
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
