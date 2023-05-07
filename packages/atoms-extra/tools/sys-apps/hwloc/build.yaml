@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary patch this until Funtoo is fixed.
+- >-
+  sed -i -e 's|>=sys-devel/autoconf-2.69-r5|sys-devel/autoconf|g'
+  /var/git/meta-repo/kits/core-hw-kit/sys-apps/hwloc/hwloc-2.9.1.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
