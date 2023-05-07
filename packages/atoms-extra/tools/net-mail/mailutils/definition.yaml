@@ -1,10 +1,9 @@
 name: mailutils
-version: "3.10"
+version: 3.10+1
 category: net-mail
 use_flags:
 - -emacs
 - -kyotocabinet
-- -ldap
 - -python_single_target_python3_10
 - -python_single_target_python3_8
 - -python_single_target_python3_9
@@ -14,6 +13,7 @@ use_flags:
 - gdbm
 - guile
 - kerberos
+- ldap
 - mysql
 - nls
 - pam
@@ -43,9 +43,9 @@ requires:
 - name: gnutls
   version: '>=0'
   category: net-libs
-- name: tcp-wrappers
+- name: openldap
   version: '>=0'
-  category: sys-apps
+  category: net-nds
 - name: gettext
   version: '>=0'
   category: sys-devel
