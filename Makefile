@@ -17,7 +17,7 @@ SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
 REPO_NAME?=macaroni-funtoo
-REPO_DESC?="Macaroni OS Phoenix"
+REPO_DESC?=Macaroni OS Phoenix
 REPO_URL?=https://dl.macaronios.org/repos/macaroni-funtoo/
 REPO_VALUES?=values/amd64.yaml
 export REPO_VALUES
@@ -31,12 +31,7 @@ ifneq ($(strip $(REPO_VALUES)),)
 endif
 
 .PHONY: all
-all: deps build
-
-.PHONY: deps
-deps:
-	@echo "Installing luet"
-	go get -u github.com/mudler/luet
+all: build
 
 .PHONY: clean
 clean:
