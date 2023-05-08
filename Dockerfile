@@ -11,7 +11,7 @@ ENV USER=root
 SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos"]
 RUN repository/mottainai-stable
 RUN repository/macaroni-commons
-RUN repository/macaroni-funtoo
+RUN repository/macaroni-phoenix
 
 RUN system/entities
 
