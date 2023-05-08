@@ -182,6 +182,12 @@ artefacts:
     - media-libs/quirc
 
 - tree: packages/atoms/media-gfx
+  mutations:
+    runtime_deps:
+      packages:
+        - category: media-libs
+          name: quirc
+
   uses:
     enabled:
       - ffmpeg
