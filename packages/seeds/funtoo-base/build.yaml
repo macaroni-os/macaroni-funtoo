@@ -60,7 +60,7 @@ prelude:
 
 # Temporary fix librsvg until next race
 - >-
-  cd /var/git/meta-repo/kits/gnome-kit/gnome-base/librsvg/ &&
+  cd /var/git/meta-repo/kits/gnome-kit/gnome-base/librsvg/ && rm -v *.ebuild &&
   wget https://raw.githubusercontent.com/funtoo/gnome-kit/3.36-prime/gnome-base/librsvg/librsvg-2.48.8.ebuild &&
   rm Manifest && ebuild librsvg-2.48.8.ebuild digest && cd -
 
