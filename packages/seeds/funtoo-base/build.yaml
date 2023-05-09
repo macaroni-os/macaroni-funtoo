@@ -56,6 +56,13 @@ prelude:
   rm Manifest &&
   ebuild mesa-20.2.4-r2.ebuild digest && cd -
 
+# Temporary patch (FL-11318) until next race
+- >-
+  cd /var/git/meta-repo/kits/python-modules-kit/dev-python/gi-docgen/ &&
+  rm *.ebuild &&
+  wget https://raw.githubusercontent.com/funtoo/python-modules-kit/1.4-release/dev-util/gi-docgen/gi-docgen-2023.1.ebuild &&
+  cd -
+
 - bash scripts/patches-meson.sh
 
 # Temporary fix librsvg until next race
