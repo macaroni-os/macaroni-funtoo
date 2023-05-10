@@ -63,6 +63,11 @@ prelude:
   wget https://raw.githubusercontent.com/funtoo/python-modules-kit/1.4-release/dev-util/gi-docgen/gi-docgen-2023.1.ebuild &&
   cd -
 
+# Temporary patch folks and dep to dbusmock (FL-7220)
+- >-
+  sed -i -e "s|dev-libs/libxml2|dev-libs/libxml2\n\tdev-python/dbusmock|g"
+  /var/git/meta-repo/kits/gnome-kit/dev-libs/folks/folks-0.14.0.ebuild
+
 - bash scripts/patches-meson.sh
 
 # Temporary fix librsvg until next race
