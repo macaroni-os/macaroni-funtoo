@@ -1,5 +1,5 @@
 name: fribidi
-version: 1.0.5+3
+version: 1.0.12
 category: dev-libs
 annotations:
   subsets:
@@ -13,11 +13,12 @@ uri:
 - https://fribidi.org/
 license: LGPL-2.1+
 labels:
+  BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
   DEPEND: virtual/pkgconfig[-mgorny(-)]
-  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+  IUSE: doc test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
     abi_s390_32 abi_s390_64
   emerge.packages: dev-libs/fribidi
   kit: dev-kit
   original.package.name: dev-libs/fribidi
   original.package.slot: "0"
-  original.package.version: 1.0.5
+  original.package.version: 1.0.12
