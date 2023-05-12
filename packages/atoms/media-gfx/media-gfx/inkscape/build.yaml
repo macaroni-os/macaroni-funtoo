@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# FL-11333 - Upgrade to 1.2.2 to fix poppler-23 integration
+- >-
+  cp -rvf *.ebuild files/
+  /var/git/meta-repo/kits/media-kit/media-gfx/inkscape/ &&
+  cd /var/git/meta-repo/kits/media-kit/media-gfx/inkscape/ &&
+  ebuild inkscape-1.2.2.ebuild digest &&
+  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
