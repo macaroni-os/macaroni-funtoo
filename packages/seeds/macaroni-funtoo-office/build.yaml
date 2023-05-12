@@ -18,7 +18,7 @@ prelude:
   chmod a+x /usr/bin/luet &&
   luet repo update &&
   luet upgrade -y &&
-  luet i -y toolchain/java &&
+  luet i --sync-repos -y toolchain/java &&
   luet cleanup --purge-repos &&
   eselect java-vm set system 1 &&
   mkdir /etc/portage/package.use/ -p &&
