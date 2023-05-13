@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Add patch needed after the upgrade to harfbuzz 7.2.0
+- >-
+  mkdir -p /etc/portage/patches/dev-qt/qtwebengine/ &&
+  cp -v *.patch /etc/portage/patches/dev-qt/qtwebengine/
 # Need py2.7 and ensure to get the downgraded version of harfbuzz
 - >-
   luet repo update && luet i -y dev-lang-2.7/python &&
