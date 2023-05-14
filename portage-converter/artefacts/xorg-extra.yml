@@ -95,6 +95,13 @@ artefacts:
   packages:
   - x11-terms/guake
 - tree: packages/atoms/xorg-extra
+  mutations:
+    runtime_deps:
+      packages:
+        - category: x11-libs
+          name: libXpm
+        - category: x11-libs
+          name: libXaw
   uses:
     disabled:
     - Xaw3d
