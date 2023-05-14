@@ -33,6 +33,10 @@ setup_general() {
   echo "Creating /etc/inittab..."
   cp /var/lib/macaroni/inittab /etc/inittab -v
 
+  # Ensure that the /root directory is present to
+  # ensure that calamares-pkexec works correctly.
+  mkdir -p /root || true
+
   # The suid is removed when the installation is completed.
   chmod u+s /usr/bin/pkexec
 
