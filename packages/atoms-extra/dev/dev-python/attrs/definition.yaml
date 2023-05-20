@@ -2,16 +2,17 @@ name: attrs
 version: 23.1.0
 category: dev-python
 use_flags:
-- -python_targets_pypy3
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -test
 - python_targets_python3_9
 requires:
-- name: zope-interface
+- name: python
   version: '>=0'
-  category: dev-python
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 annotations:
   subsets:
     rules:
@@ -19,9 +20,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Attributes without boilerplate
+description: Classes Without Boilerplate
 uri:
-- https://github.com/hynek/attrs https://attrs.readthedocs.org/ https://pypi.org/project/attrs/
+- https://pypi.org/project/attrs/
 license: MIT
 labels:
   BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
