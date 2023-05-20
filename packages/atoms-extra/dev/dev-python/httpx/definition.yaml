@@ -7,16 +7,10 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
-- name: brotlipy
-  version: '>=0'
-  category: dev-python
-- name: charset_normalizer
-  version: '>=0'
-  category: dev-python
 - name: httpcore
   version: '>=0'
   category: dev-python
-- name: rfc3986
+- name: idna
   version: '>=0'
   category: dev-python
 annotations:
@@ -26,8 +20,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
+description: The next generation HTTP client.
 uri:
-- https://github.com/encode/httpx https://pypi.org/project/httpx/
+- https://pypi.org/project/httpx/
 license: BSD
 labels:
   BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
