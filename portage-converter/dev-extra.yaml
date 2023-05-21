@@ -72,6 +72,9 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
+    - name: hyper-h2
+      category: dev-python
+
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
@@ -351,7 +354,7 @@ artefacts:
     - dev-python/pip
     - dev-python/rfc3986
     - dev-python/brotlipy
-
+    - dev-python/h2
 
 - tree: packages/atoms-extra/dev
   mutations:
@@ -402,7 +405,30 @@ artefacts:
     - dev-python/pyhamcrest
 
 - tree: packages/atoms-extra/dev
+  replacements:
+    runtime_deps:
+      packages:
+        - from:
+            category: dev-python
+            name: hyper-h2
+          to:
+            category: dev-python
+            name: h2
+    buildtime_deps:
+      packages:
+        - from:
+            category: dev-python
+            name: hyper-h2
+          to:
+            category: dev-python
+            name: h2
   mutations:
+    runtime_deps:
+      packages:
+        # Need this because hyper-h2 is added on global ignore
+        # and the replacements doesn't work
+        - name: h2
+          category: dev-python
     buildtime_deps:
       packages:
         # TODO: check and test what are the all needed bdep
@@ -423,6 +449,8 @@ artefacts:
         - name: zope-interface
           category: dev-python
         - name: pyasn1
+          category: dev-python
+        - name: h2
           category: dev-python
   uses:
     enabled:
