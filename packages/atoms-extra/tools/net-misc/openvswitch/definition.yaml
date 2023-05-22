@@ -1,5 +1,5 @@
 name: openvswitch
-version: 3.0.3
+version: 3.0.4
 category: net-misc
 use_flags:
 - -debug
@@ -52,7 +52,7 @@ labels:
     dev-python/ovs[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     dev-python/twisted[conch,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     dev-python/zope-interface[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    debug? ( dev-lang/perl ) sys-apps/util-linux[caps]
+    net-dns/unbound sys-libs/libunwind debug? ( dev-lang/perl ) sys-apps/util-linux[caps]
   IUSE: debug monitor +ssl systemd python_targets_python3_7 python_targets_python3_9
     python_targets_python3_8 python_targets_python3_10
   RDEPEND: ssl? ( dev-libs/openssl:0= ) python_targets_python3_7? ( dev-lang/python:3.7
@@ -61,9 +61,9 @@ labels:
     dev-python/ovs[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     dev-python/twisted[conch,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     dev-python/zope-interface[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    debug? ( dev-lang/perl ) virtual/tmpfiles
+    net-dns/unbound sys-libs/libunwind debug? ( dev-lang/perl ) virtual/tmpfiles
   emerge.packages: net-misc/openvswitch
   kit: net-kit
   original.package.name: net-misc/openvswitch
   original.package.slot: "0"
-  original.package.version: 3.0.3
+  original.package.version: 3.0.4
