@@ -1,5 +1,5 @@
 name: hplip
-version: 3.22.10
+version: 3.22.10+1
 category: net-print
 use_flags:
 - -fax
@@ -9,12 +9,12 @@ use_flags:
 - -libusb0
 - -minimal
 - -python_single_target_python3_10
-- -python_single_target_python3_7
 - -python_single_target_python3_8
 - -python_single_target_python3_9
 - X
 - libnotify
 - policykit
+- python_single_target_python3_7
 - qt5
 - scanner
 - snmp
@@ -22,18 +22,21 @@ requires:
 - name: ghostscript-gpl
   version: '>=0'
   category: app-text
-- name: openssl
+- name: PyQt5
   version: '>=0'
-  category: dev-libs
+  category: dev-python
+- name: notify2
+  version: '>=0'
+  category: dev-python
+- name: reportlab
+  version: '>=0'
+  category: dev-python
 - name: sane-backends
   version: '>=0'
   category: media-gfx
 - name: net-snmp
   version: '>=0'
   category: net-analyzer
-- name: dbus
-  version: '>=0'
-  category: sys-apps
 - name: jpeg
   version: '>=0'
   category: virtual
