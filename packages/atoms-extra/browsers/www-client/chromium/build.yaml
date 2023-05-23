@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Try to patch harfbuzz-7.2.0 integration
+- >-
+  eval 'mkdir -p /etc/portage/patches/www-client/chromium/ || true' &&
+  cp chromium-91-harfbuzz-7.2.0.patch /etc/portage/patches/www-client/chromium/
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
