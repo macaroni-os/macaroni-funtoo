@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Chromium need py2.7 for compilation
+- >-
+  luet repo update &&
+  luet i -y dev-lang-2.7/python &&
+  luet cleanup --purge-repos
 # Try to patch harfbuzz-7.2.0 integration
 - >-
   eval 'mkdir -p /etc/portage/patches/www-client/chromium/ || true' &&
