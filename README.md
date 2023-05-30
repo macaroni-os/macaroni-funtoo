@@ -6,15 +6,12 @@
 Funtoo Macaroni Repository Tree
 
 Branches behavior:
-* `master`: single packages tree based on 1.4-prime release.
+* `master`: breanch for Phoenix release.
 
 * `terragon`: related to the `next` release of Funtoo but
   oriented to Container and with openRC.
 
-* `systemd`: related to a not funtoo supported release with SystemD.
-  The idea is to use it only for Server ISO release and as experimental
-  base rootfs where we will develop an alternative tool that will
-  replace SystemD probably written in Golang. Stay tuned!.
+* `systemd`: branch for Eagle release.
 
 
 ## Generate packages with `luet-portage-converter`
