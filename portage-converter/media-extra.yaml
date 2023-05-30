@@ -124,6 +124,12 @@ artefacts:
     - media-gfx/xsane
 
 - tree: packages/atoms-extra/media
+  mutations:
+    runtime_deps:
+      # K3B using kinit on init phase.
+      packages:
+        - category: kde-frameworks-5
+          name: kinit
   uses:
     disabled:
       - debug
