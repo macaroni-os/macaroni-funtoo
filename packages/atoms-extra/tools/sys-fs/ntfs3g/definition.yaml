@@ -1,0 +1,40 @@
+name: ntfs3g
+version: 2022.10.3
+category: sys-fs
+use_flags:
+- ntfsdecrypt
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open source read-write NTFS driver that runs under FUSE
+uri:
+- https://github.com/tuxera/ntfs-3g
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: sys-apps/util-linux:0= ntfsdecrypt? ( >=dev-libs/libgcrypt-1.2.2:0 >=net-libs/gnutls-1.4.4
+    ) sys-apps/attr
+  IUSE: acl debug +fuse +mount-ntfs ntfsdecrypt +ntfsprogs static-libs suid xattr
+  RDEPEND: sys-apps/util-linux:0= ntfsdecrypt? ( >=dev-libs/libgcrypt-1.2.2:0 >=net-libs/gnutls-1.4.4
+    )
+  emerge.packages: sys-fs/ntfs3g
+  kit: geaaru-kit
+  original.package.name: sys-fs/ntfs3g
+  original.package.slot: "0"
+  original.package.version: 2022.10.3
