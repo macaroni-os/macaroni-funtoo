@@ -1,0 +1,40 @@
+name: networkmanager-strongswan
+version: 1.6.0
+category: net-vpn
+use_flags:
+- gtk4
+requires:
+- name: libsecret
+  version: '>=0'
+  category: app-crypt
+- name: libnma
+  version: '>=0'
+  category: net-libs
+- name: strongswan
+  version: '>=0'
+  category: net-vpn
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: NetworkManager StrongSwan plugin
+uri:
+- https://www.strongswan.org/
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: app-crypt/libsecret >=net-libs/libnma-1.1.0 net-misc/networkmanager >=net-vpn/strongswan-5.8.3[networkmanager]
+    !gtk4? ( x11-libs/gtk+:3 ) gtk4? ( net-libs/libnma gui-libs/gtk:4 )
+  IUSE: gtk4
+  RDEPEND: app-crypt/libsecret >=net-libs/libnma-1.1.0 net-misc/networkmanager >=net-vpn/strongswan-5.8.3[networkmanager]
+    !gtk4? ( x11-libs/gtk+:3 ) gtk4? ( net-libs/libnma gui-libs/gtk:4 )
+  emerge.packages: net-vpn/networkmanager-strongswan
+  kit: net-kit
+  original.package.name: net-vpn/networkmanager-strongswan
+  original.package.slot: "0"
+  original.package.version: 1.6.0
