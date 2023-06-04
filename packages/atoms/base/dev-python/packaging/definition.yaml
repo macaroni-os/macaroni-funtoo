@@ -1,16 +1,14 @@
 name: packaging
-version: "22.0"
+version: 21.3+1
 category: dev-python
 use_flags:
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: python
-  version: '>=0'
-  category: dev-lang-3.7
-- name: packaging-compat
+- name: pyparsing
   version: '>=0'
   category: dev-python
 annotations:
@@ -22,7 +20,7 @@ annotations:
       - ^/var/db/pkg/
 description: Core utilities for Python packages
 uri:
-- https://github.com/pypa/packaging https://pypi.org/project/packaging/
+- https://pypi.org/project/packaging/
 license: Apache-2.0 BSD
 labels:
   BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
@@ -39,4 +37,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/packaging
   original.package.slot: "0"
-  original.package.version: "22.0"
+  original.package.version: "21.3"
