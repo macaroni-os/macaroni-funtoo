@@ -1,19 +1,32 @@
 name: requests
-version: 2.31.0
+version: 2.31.0+1
 category: dev-python
 use_flags:
 - -python_targets_pypy3
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
 - -socks5
-- python_targets_python2_7
 - python_targets_python3_7
 - ssl
 requires:
+- name: certifi
+  version: '>=0'
+  category: dev-python
 - name: chardet
   version: '>=0'
   category: dev-python
 - name: charset_normalizer
+  version: '>=0'
+  category: dev-python
+- name: cryptography
+  version: '>=0'
+  category: dev-python
+- name: idna
+  version: '>=0'
+  category: dev-python
+- name: pyopenssl
   version: '>=0'
   category: dev-python
 - name: urllib3
