@@ -1,19 +1,19 @@
 name: util-linux
-version: 2.38.1
+version: 2.38.1+1
 category: sys-apps
 use_flags:
 - -audit
 - -cryptsetup
 - -hardlink
 - -kill
-- -ppc
-- -ppc64
+- -magic
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
+- -rtas
 - -selinux
 - -slang
 - -su
-- -test
 - -udev
 - caps
 - cramfs
@@ -29,6 +29,12 @@ requires:
   version: '>=0'
   category: sys-libs
 - name: pam
+  version: '>=0'
+  category: sys-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+- name: zlib
   version: '>=0'
   category: sys-libs
 - name: libc
