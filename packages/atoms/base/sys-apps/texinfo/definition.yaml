@@ -1,22 +1,19 @@
 name: texinfo
-version: "6.8"
+version: "6.7"
 category: sys-apps
 use_flags:
 - nls
 - standalone
 requires:
-- name: Text-Unidecode
+- name: perl
   version: '>=0'
-  category: dev-perl
-- name: Unicode-EastAsianWidth
-  version: '>=0'
-  category: dev-perl
-- name: libintl-perl
-  version: '>=0'
-  category: dev-perl
+  category: dev-lang
 - name: ncurses
   version: '>=0'
   category: sys-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -41,4 +38,4 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/texinfo
   original.package.slot: "0"
-  original.package.version: "6.8"
+  original.package.version: "6.7"
