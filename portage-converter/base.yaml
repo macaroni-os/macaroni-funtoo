@@ -79,7 +79,21 @@ artefacts:
           name: funtoo-base
   packages:
     - dev-libs/iniparser:0
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
     - app-crypt/libmd
+
+- tree: packages/atoms/base
+  packages:
+    - sys-apps/help2man
+    - app-arch/cpio
 
 - tree: packages/atoms/base
   mutations:
@@ -92,10 +106,10 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - python_targets_pypy3
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-lang/python-exec:2
@@ -131,11 +145,6 @@ artefacts:
   - sys-kernel/genkernel
 
 - tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
   uses:
     disabled:
     - clippy
@@ -336,6 +345,7 @@ artefacts:
     - sh
   packages:
   - virtual/libintl
+  - dev-util/glib-utils
 
 - tree: packages/atoms/base
   ignore_build_deps: true
@@ -372,21 +382,16 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
     - python_targets_pypy3
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-lang/python-exec:2
 
 
 - tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
   uses:
     disabled:
     - debug
@@ -468,7 +473,6 @@ reposcan_requires_slot: true
 reposcan_contraints:
   packages:
     - dev-lang/python:3.7
-    - dev-lang/python:2.7
     - dev-lang/ruby:2.6
     - dev-lang/ruby:2.7
     - sys-devel/gcc:9.2.0
@@ -505,12 +509,14 @@ reposcan_disabled_use_flags:
   - libressl
   - gtk-doc
   - gles2-only
+  - python_single_target_python2_7
   - python_single_target_python3_6
   - python_single_target_python3_9
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
   - python_single_target_pypy3
+  - python_targets_python2_7
   - python_targets_python3_6
   - python_targets_python3_9
   - python_targets_python3_8

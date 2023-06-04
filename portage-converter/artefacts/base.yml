@@ -85,10 +85,10 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
     - cpu_flags_x86_sse2
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/cryptography
@@ -200,28 +200,16 @@ artefacts:
     - python_targets_python3_9
     - sh
     - static-libs
+    - python_targets_python2_7
     - test
     enabled:
     - icu
     - ipv6
     - python
-    - python_targets_python2_7
     - python_targets_python3_7
     - readline
   packages:
   - dev-libs/libxml2:2
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - idna
-    - libressl
-    - nios2
-    - sh
-    enabled:
-    - cpu_flags_x86_sse2
-    - python_targets_python2_7
-  packages:
-  - dev-python/cryptography-compat
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -240,17 +228,6 @@ artefacts:
     - plugins
   packages:
   - sys-devel/binutils:2.36
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - test
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/pygments-compat
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -349,7 +326,6 @@ artefacts:
   - dev-perl/Unicode-LineBreak
   - dev-perl/XML-Parser
   - dev-perl/libintl-perl
-  - dev-util/glib-utils
   - dev-util/gperf
   - dev-util/gtk-doc-am
   - dev-util/intltool
@@ -475,10 +451,10 @@ artefacts:
     - nios2
     - sh
     - static-libs
+    - python_targets_python2_7
     enabled:
     - nls
     - python
-    - python_targets_python2_7
     - python_targets_python3_7
     - zlib
   packages:
@@ -633,10 +609,10 @@ artefacts:
     - nios2
     - sh
     - static-libs
+    - python_targets_python2_7
     enabled:
     - pkcs7
     - python
-    - python_targets_python2_7
     - python_targets_python3_7
     - ssl
     - tools
@@ -767,9 +743,9 @@ artefacts:
     - doc
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/regex
@@ -841,23 +817,12 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/importlib_metadata
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - doc
-    - examples
-    - nios2
-    - sh
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/jinja-compat
 - tree: packages/atoms/base
   uses:
     disabled:
@@ -921,23 +886,6 @@ artefacts:
 - tree: packages/atoms/base
   uses:
     disabled:
-    - nios2
-    - sh
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/configparser
-  - dev-python/functools32
-  - dev-python/idna-compat
-  - dev-python/markupsafe-compat
-  - dev-python/more-itertools-compat
-  - dev-python/mwparserfromhell-compat
-  - dev-python/packaging-compat
-  - dev-python/setuptools-compat
-  - dev-python/setuptools_scm-compat
-- tree: packages/atoms/base
-  uses:
-    disabled:
     - examples
     - nios2
     - sh
@@ -992,6 +940,7 @@ artefacts:
     - python_single_target_python3_9
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     - tk
@@ -1006,7 +955,6 @@ artefacts:
     - pcre-jit
     - perl
     - python_single_target_python3_7
-    - python_targets_python2_7
     - python_targets_python3_7
     - threads
     - webdav
@@ -1057,9 +1005,9 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/jinja
@@ -1069,10 +1017,10 @@ artefacts:
     - doc
     - nios2
     - python_targets_pypy3
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/zipp
@@ -1098,12 +1046,12 @@ artefacts:
     - python_single_target_python3_9
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - seccomp
     - sh
     enabled:
     - python
     - python_single_target_python3_7
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - app-misc/pax-utils
@@ -1175,10 +1123,10 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/cffi
@@ -1374,10 +1322,10 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/cython
@@ -1399,9 +1347,9 @@ artefacts:
     - nios2
     - sh
     - static-libs
+    - python_targets_python2_7
     enabled:
     - python
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - sys-libs/libcap-ng
@@ -1625,10 +1573,10 @@ artefacts:
     - seccomp
     - sh
     - static-libs
+    - python_targets_python2_7
     enabled:
     - bzip2
     - python
-    - python_targets_python2_7
     - python_targets_python3_7
     - zlib
   packages:
@@ -1689,8 +1637,8 @@ artefacts:
     - nios2
     - python_targets_pypy3
     - sh
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/backports
@@ -1728,23 +1676,12 @@ artefacts:
 - tree: packages/atoms/base
   uses:
     disabled:
-    - doc
-    - nios2
-    - sh
-    enabled:
-    - python_targets_python2_7
-  packages:
-  - dev-python/enum34
-  - dev-python/importlib_metadata-compat
-- tree: packages/atoms/base
-  uses:
-    disabled:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/idna
@@ -1762,9 +1699,9 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/ply
@@ -1776,12 +1713,12 @@ artefacts:
     - python_single_target_python2_7
     - python_single_target_python3_8
     - python_single_target_python3_9
+    - python_targets_python2_7
     - python_targets_python3_8
     - python_targets_python3_9
     - sh
     enabled:
     - python_single_target_python3_7
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-util/gdbus-codegen
@@ -1934,9 +1871,9 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/ipaddress
@@ -2005,10 +1942,10 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
     - threads
   packages:
@@ -2085,8 +2022,8 @@ artefacts:
     - python_targets_pypy3
     - sh
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/contextlib2
@@ -2100,8 +2037,8 @@ artefacts:
     - nios2
     - sh
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/commonmark
@@ -2214,10 +2151,10 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/PySocks
@@ -2234,8 +2171,8 @@ artefacts:
     - nios2
     - sh
     - test
-    enabled:
     - python_targets_python2_7
+    enabled:
     - python_targets_python3_7
   packages:
   - dev-python/future
@@ -2351,10 +2288,10 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/pyopenssl
@@ -2448,10 +2385,10 @@ artefacts:
     - nios2
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - test
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-python/pygments
@@ -2462,10 +2399,10 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_8
     - python_targets_python3_9
+    - python_targets_python2_7
     - sh
     - socks5
     enabled:
-    - python_targets_python2_7
     - python_targets_python3_7
     - ssl
   packages:
@@ -2570,10 +2507,10 @@ artefacts:
     disabled:
     - nios2
     - python_single_target_python2_7
+    - python_targets_python2_7
     - sh
     enabled:
     - python_single_target_python3_7
-    - python_targets_python2_7
     - python_targets_python3_7
   packages:
   - dev-util/itstool

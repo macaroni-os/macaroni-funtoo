@@ -55,6 +55,15 @@ include_layers:
 - layers/funtoo-base.yaml
 
 build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
 artefacts:
 
 # Artefacts manually changed
