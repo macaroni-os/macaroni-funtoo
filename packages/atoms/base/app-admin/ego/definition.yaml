@@ -1,5 +1,5 @@
 name: ego
-version: 2.8.6
+version: 2.8.7
 category: app-admin
 use_flags:
 - -python_single_target_python3_8
@@ -25,14 +25,15 @@ uri:
 license: GPL-2
 labels:
   IUSE: zsh-completion python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
   RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) !sys-boot/boot-update !<sys-kernel/linux-firmware-20220209-r1
   emerge.packages: app-admin/ego
   kit: core-kit
   original.package.name: app-admin/ego
   original.package.slot: "0"
-  original.package.version: 2.8.6
+  original.package.version: 2.8.7
