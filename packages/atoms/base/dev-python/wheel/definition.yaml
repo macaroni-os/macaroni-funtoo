@@ -1,16 +1,14 @@
 name: wheel
-version: 0.40.0
+version: 0.40.0+1
 category: dev-python
 use_flags:
 - -python_targets_pypy3
+- -python_targets_python2_7
+- -python_targets_python3_10
 - -python_targets_python3_8
 - -python_targets_python3_9
-- python_targets_python2_7
 - python_targets_python3_7
 requires:
-- name: python
-  version: '>=0'
-  category: dev-lang-2.7
 - name: packaging
   version: '>=0'
   category: dev-python
@@ -21,9 +19,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A built-package format for Python
+description: reference implementation of the Python wheel packaging standard, as defined
+  in PEP 427
 uri:
-- https://github.com/pypa/wheel https://pypi.org/project/wheel/
+- https://pypi.org/project/wheel/
 license: MIT
 labels:
   BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
