@@ -2,10 +2,10 @@ name: wget
 version: 1.21.4
 category: net-misc
 use_flags:
-- -cookie_check
+- -cookie-check
 - -gnutls
 - -idn
-- -libressl
+- -metalink
 - -static
 - -test
 - -uuid
@@ -13,6 +13,13 @@ use_flags:
 - pcre
 - ssl
 - zlib
+requires:
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
