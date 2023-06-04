@@ -9,11 +9,13 @@ use_flags:
 - -selinux
 - -static
 - -test
-- -userland_BSD
 - acl
 - nls
 - xattr
 requires:
+- name: acl
+  version: '>=0'
+  category: sys-apps
 - name: libintl
   version: '>=0'
   category: virtual
