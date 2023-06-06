@@ -1332,6 +1332,14 @@ artefacts:
   packages:
   - sys-devel/bc
 - tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        # Break dep cycle
+        - category: dev-lang-3.7
+          name: python
+        - category: dev-lang-2
+          name: python-exec
   uses:
     disabled:
     - nios2
