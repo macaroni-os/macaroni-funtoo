@@ -165,6 +165,23 @@ artefacts:
     - xfce-extra/xfce4-weather-plugin
     - xfce-extra/xfce4-xkb-plugin
 
+    # XFCE File Manager & Plugins
+    - xfce-base/thunar
+    - xfce-extra/thunar-archive-plugin
+    # dropbox ebuild must be fixed on Funtoo
+    #- xfce-extra/thunar-dropbox
+    - xfce-extra/thunar-media-tags-plugin
+    - xfce-extra/thunar-volman
+    - xfce-extra/thunar-shares-plugin
+
+
+- tree: packages/atoms-extra/xfce
+  uses:
+    disabled:
+      - subversion
+  packages:
+    - xfce-extra/thunar-vcs-plugin
+
 - tree: packages/atoms-extra/xfce
   uses:
     disabled:
