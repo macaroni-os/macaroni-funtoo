@@ -6,8 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# KEYWORKDS are all masked on Funtoo!
 - eval 'mkdir -p /etc/portage/package.mask || true' && echo '>=net-libs/nodejs-15'
-  > /etc/portage/package.mask/00-nodejs.mask
+  > /etc/portage/package.mask/00-nodejs.mask &&
+  sed -e 's|^KEYWORDS=.*|KEYWORDS="*"|g' /var/git/meta-repo/kits/core-server-kit/net-libs/nodejs/nodejs-14.*.ebuild  -i
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
