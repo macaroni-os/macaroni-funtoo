@@ -17,6 +17,8 @@ prelude:
   eselect java-vm set system 1 &&
   mkdir /etc/portage/package.use/ -p &&
   cp -rvf patches/sqlalchemy-migrate/ /var/git/meta-repo/kits/python-modules-kit/dev-python/ &&
+  rm /var/git/meta-repo/kits/python-modules-kit/dev-python/service_identity/* &&
+  cp patches/service_identity/* /var/git/meta-repo/kits/python-modules-kit/dev-python/service_identity/ &&
   cp -rvf package.use/* /etc/portage/package.use/ &&
   emerge -t -j $JOBS dev-python/docutils &&
   emerge -t -j $JOBS dev-python/m2r &&
