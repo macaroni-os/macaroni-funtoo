@@ -41,11 +41,13 @@ uri:
 license: openafs-krb5-a BSD MIT OPENLDAP BSD-2 HPND BSD-4 ISC RSA CC-BY-SA-3.0 ||
   ( BSD-2 GPL-2+ )
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.7 ) virtual/yacc cpu_flags_x86_aes? ( amd64? (
-    dev-lang/yasm ) x86? ( dev-lang/yasm ) ) doc? ( virtual/latex-base ) test? ( ||
-    ( dev-lang/python:3.7 ) dev-lang/tcl:0 dev-util/dejagnu dev-util/cmocka ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) virtual/yacc cpu_flags_x86_aes? ( amd64? ( dev-lang/yasm ) x86? ( dev-lang/yasm
+    ) ) doc? ( virtual/latex-base ) test? ( || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) dev-lang/tcl:0 dev-util/dejagnu dev-util/cmocka
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    virtual/pkgconfig'
   DEPEND: '!!app-crypt/heimdal >=sys-libs/e2fsprogs-libs-1.42.9[-mgorny(-)] || ( >=dev-libs/libverto-0.2.5[libev,-mgorny(-)]
     >=dev-libs/libverto-0.2.5[libevent,-mgorny(-)] >=dev-libs/libverto-0.2.5[tevent,-mgorny(-)]
     ) keyutils? ( >=sys-apps/keyutils-1.5.8:=[-mgorny(-)] ) lmdb? ( dev-db/lmdb )
