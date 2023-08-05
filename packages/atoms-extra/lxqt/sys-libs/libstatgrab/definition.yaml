@@ -1,7 +1,12 @@
 name: libstatgrab
 version: 0.92.1+2
 category: sys-libs
+use_flags:
+- -perl
 requires:
+- name: log4cplus
+  version: '>=0'
+  category: dev-libs
 - name: ncurses
   version: '>=0'
   category: sys-libs
@@ -12,8 +17,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A tool to provide access to statistics about the system on which it's
-  run
+description: A tool to provide access to statistics about the system on which it's run
 uri:
 - https://www.i-scream.org/libstatgrab/
 license: '|| ( GPL-2 LGPL-2.1 )'
