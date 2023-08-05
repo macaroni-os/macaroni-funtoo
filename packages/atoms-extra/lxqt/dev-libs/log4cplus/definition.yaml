@@ -1,0 +1,34 @@
+name: log4cplus
+version: 2.1.0
+category: dev-libs
+use_flags:
+- iconv
+- qt5
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ port of the Log for Java (log4j) logging library
+uri:
+- http://log4cplus.sourceforge.net/ https://github.com/log4cplus/log4cplus
+license: '|| ( Apache-2.0 BSD-2 )'
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: iconv? ( virtual/libiconv ) qt5? ( dev-qt/qtcore:5 )
+  IUSE: explicit-initialization iconv qt5 server test threads
+  RDEPEND: iconv? ( virtual/libiconv ) qt5? ( dev-qt/qtcore:5 )
+  emerge.packages: dev-libs/log4cplus
+  kit: dev-kit
+  original.package.name: dev-libs/log4cplus
+  original.package.slot: "0"
+  original.package.version: 2.1.0
