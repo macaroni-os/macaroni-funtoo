@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary workaround for FL-11505
+- >-
+  sed -e 's|-DENABLE_BSON=SYSTEM|-DUSE_SYSTEM_LIBBSON=OFF|g' -e 's|-DENABLE_SNAPPY=SYSTEM|-DENABLE_SNAPPY=ON|g' -i
+  /var/git/meta-repo/kits/dev-kit/dev-libs/mongo-c-driver/mongo-c-driver-1.24.2.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
