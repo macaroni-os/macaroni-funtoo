@@ -1,4 +1,9 @@
 prelude:
+# packaging requires downgrade to v21.3. Temporary workaround
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
+  emerge dev-python/packaging -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
