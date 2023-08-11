@@ -68,8 +68,8 @@ create-repo: genidx
     --descr "$(REPO_DESC) $(ARCH)" \
     --urls "$(REPO_URL)" \
     --tree-compression $(COMPRESSION) \
-    --tree-filename tree.tar \
-    --meta-compression $(COMPRESSION) \
+    --tree-filename tree.tar.zst \
+    --with-compilertree \
     --type http
 
 .PHONY: serve-repo
