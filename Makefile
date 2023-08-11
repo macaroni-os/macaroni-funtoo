@@ -12,12 +12,13 @@ export TREE?=$(ROOT_DIR)/packages
 REPO_CACHE?=quay.io/geaaru/funtoo-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
+GENIDX_ARGS?=--only-upper-level --compress=false
 SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
 REPO_NAME?=macaroni-funtoo-terragon
-REPO_DESC?="Macaroni OS Funtoo Terragon"
-REPO_URL?=https://cdn.macaronios.org/mottainai/macaroni-funtoo-terragon/
+REPO_DESC?=Macaroni OS Funtoo Terragon
+REPO_URL?=https://dl.macaronios.org/repos/macaroni-terragon/
 REPO_VALUES?=values/amd64.yaml
 export REPO_VALUES
 
@@ -54,8 +55,12 @@ rebuild:
 rebuild-all:
 	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
+.PHONY: genidx
+genidx:
+	$(SUDO) $(LUET) tree genidx $(GENIDX_ARGS) --tree=$(TREE)
+
 .PHONY: create-repo
-create-repo:
+create-repo: genidx
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
