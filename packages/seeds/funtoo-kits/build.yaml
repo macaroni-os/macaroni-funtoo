@@ -1,5 +1,5 @@
 requires:
-  - name: funtoo-gnome-stage3
+  - name: funtoo-stage3
     category: "seed"
     version: ">=0"
 env:
@@ -33,24 +33,18 @@ prelude:
   fi ;
   done &&
   chown portage:portage -R /var/git/meta-repo/kits
-# Temporary fix this until we update all kits
-- >-
-  sed /etc/portage/make.profile/parent
-  -e 's|.*gfxcard-kvm$||g' | sed '/^$/d' >
-  /etc/portage/make.profile/parentnew &&
-  rm /etc/portage/make.profile/parent &&
-  mv /etc/portage/make.profile/parentnew /etc/portage/make.profile/parent
+
 - >-
   cp patches/libical-3.0.11.ebuild /var/git/meta-repo/kits/core-kit/dev-libs/libical/ &&
   cd /var/git/meta-repo/kits/core-kit/dev-libs/libical &&
   ebuild libical-3.0.11.ebuild digest
 # Enable meson-0.63
 # I want move ahead meson
-- >-
-  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
-  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
-  sed '/meson/d' -i
-  /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo
+#- >-
+#  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
+#  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
+#  sed '/meson/d' -i
+#  /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo
 
 # Drop package.mask with elogind use flag for x11-misc/sddm
 - rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
