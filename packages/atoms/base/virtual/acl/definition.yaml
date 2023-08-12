@@ -1,0 +1,30 @@
+name: acl
+version: "0"
+category: virtual
+use_flags:
+- -kernel_FreeBSD
+- kernel_linux
+requires:
+- name: acl
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for acl support (sys/acl.h)
+uri:
+- ""
+labels:
+  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: kernel_linux? ( >=sys-apps/acl-2.2.52-r1[static-libs?,-mgorny(-)] ) kernel_FreeBSD?
+    ( >=sys-freebsd/freebsd-lib-9.1-r10[-mgorny(-)] )
+  emerge.packages: virtual/acl
+  kit: core-kit
+  original.package.name: virtual/acl
+  original.package.slot: "0"
+  original.package.version: 0-r2
