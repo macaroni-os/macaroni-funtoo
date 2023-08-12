@@ -1,0 +1,27 @@
+name: libassuan
+version: 2.5.5
+category: dev-libs
+requires:
+- name: libgpg-error
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: IPC library used by GnuPG and GPGME
+uri:
+- https://www.gnupg.org/related_software/libassuan/
+license: GPL-3 LGPL-2.1
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: dev-libs/libgpg-error
+  RDEPEND: dev-libs/libgpg-error
+  emerge.packages: dev-libs/libassuan
+  kit: core-kit
+  original.package.name: dev-libs/libassuan
+  original.package.slot: "0"
+  original.package.version: 2.5.5
