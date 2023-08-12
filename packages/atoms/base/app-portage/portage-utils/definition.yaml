@@ -1,0 +1,48 @@
+name: portage-utils
+version: 0.93.3
+category: app-portage
+use_flags:
+- -static
+- openmp
+- qmanifest
+- qtegrity
+requires:
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
+- name: libb2
+  version: '>=0'
+  category: app-crypt
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Small and fast Portage helper tools written in C
+uri:
+- https://wiki.gentoo.org/wiki/Portage-utils
+license: GPL-2
+labels:
+  DEPEND: qmanifest? ( openmp? ( || ( >=sys-devel/gcc-4.2:*[openmp] sys-devel/clang-runtime:*[openmp]
+    ) ) static? ( app-crypt/libb2:=[static-libs] dev-libs/openssl:0=[static-libs]
+    sys-libs/zlib:=[static-libs] app-crypt/gpgme:=[static-libs] ) !static? ( app-crypt/libb2:=
+    dev-libs/openssl:0= sys-libs/zlib:= app-crypt/gpgme:= ) ) qtegrity? ( openmp?
+    ( || ( >=sys-devel/gcc-4.2:*[openmp] sys-devel/clang-runtime:*[openmp] ) ) static?
+    ( dev-libs/openssl:0=[static-libs] ) !static? ( dev-libs/openssl:0= ) )
+  IUSE: nls static openmp +qmanifest +qtegrity
+  RDEPEND: qmanifest? ( openmp? ( || ( >=sys-devel/gcc-4.2:*[openmp] sys-devel/clang-runtime:*[openmp]
+    ) ) static? ( app-crypt/libb2:=[static-libs] dev-libs/openssl:0=[static-libs]
+    sys-libs/zlib:=[static-libs] app-crypt/gpgme:=[static-libs] ) !static? ( app-crypt/libb2:=
+    dev-libs/openssl:0= sys-libs/zlib:= app-crypt/gpgme:= ) ) qtegrity? ( openmp?
+    ( || ( >=sys-devel/gcc-4.2:*[openmp] sys-devel/clang-runtime:*[openmp] ) ) static?
+    ( dev-libs/openssl:0=[static-libs] ) !static? ( dev-libs/openssl:0= ) )
+  emerge.packages: app-portage/portage-utils
+  kit: core-kit
+  original.package.name: app-portage/portage-utils
+  original.package.slot: "0"
+  original.package.version: 0.93.3
