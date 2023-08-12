@@ -1,0 +1,35 @@
+name: libgcrypt
+version: 1.10.1
+category: dev-libs
+use_flags:
+- -doc
+requires:
+- name: libgpg-error
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: General purpose crypto library based on the code used in GnuPG
+uri:
+- https://www.gnupg.org/
+license: LGPL-2.1 MIT
+labels:
+  BDEPEND: doc? ( virtual/texi2dvi ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: '>=dev-libs/libgpg-error-1.25'
+  IUSE: +asm cpu_flags_arm_neon cpu_flags_arm_aes cpu_flags_arm_sha1 cpu_flags_arm_sha2
+    cpu_flags_ppc_altivec cpu_flags_ppc_vsx2 cpu_flags_ppc_vsx3 cpu_flags_x86_aes
+    cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_padlock cpu_flags_x86_sha cpu_flags_x86_sse4_1
+    doc static-libs
+  RDEPEND: '>=dev-libs/libgpg-error-1.25'
+  emerge.packages: dev-libs/libgcrypt
+  kit: core-kit
+  original.package.name: dev-libs/libgcrypt
+  original.package.slot: "0"
+  original.package.version: 1.10.1
