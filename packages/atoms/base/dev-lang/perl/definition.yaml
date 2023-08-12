@@ -1,0 +1,43 @@
+name: perl
+version: 5.32.0
+category: dev-lang
+use_flags:
+- berkdb
+- gdbm
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: gdbm
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Larry Wall's Practical Extraction and Report Language
+uri:
+- https://www.perl.org/
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  BDEPEND: berkdb? ( sys-libs/db:= ) gdbm? ( >=sys-libs/gdbm-1.8.3:= ) app-arch/bzip2
+    sys-libs/zlib
+  DEPEND: berkdb? ( sys-libs/db:= ) gdbm? ( >=sys-libs/gdbm-1.8.3:= ) app-arch/bzip2
+    sys-libs/zlib
+  IUSE: berkdb debug doc gdbm ithreads minimal
+  RDEPEND: berkdb? ( sys-libs/db:= ) gdbm? ( >=sys-libs/gdbm-1.8.3:= ) app-arch/bzip2
+    sys-libs/zlib
+  emerge.packages: dev-lang/perl
+  kit: perl-kit
+  original.package.name: dev-lang/perl
+  original.package.slot: "0"
+  original.package.version: 5.32.0
