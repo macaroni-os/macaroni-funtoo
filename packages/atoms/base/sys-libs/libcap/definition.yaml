@@ -1,0 +1,34 @@
+name: libcap
+version: "2.27"
+category: sys-libs
+use_flags:
+- pam
+requires:
+- name: attr
+  version: '>=0'
+  category: sys-apps
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: POSIX 1003.1e capabilities
+uri:
+- https://sites.google.com/site/fullycapable/
+license: '|| ( GPL-2 BSD )'
+labels:
+  DEPEND: '>=sys-apps/attr-2.4.47-r1[-mgorny(-)] pam? ( virtual/pam[-mgorny(-)] )
+    sys-kernel/linux-headers'
+  IUSE: pam +static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=sys-apps/attr-2.4.47-r1[-mgorny(-)] pam? ( virtual/pam[-mgorny(-)] )'
+  emerge.packages: sys-libs/libcap
+  kit: core-kit
+  original.package.name: sys-libs/libcap
+  original.package.slot: "0"
+  original.package.version: "2.27"
