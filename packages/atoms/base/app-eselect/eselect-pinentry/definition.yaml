@@ -1,0 +1,25 @@
+name: eselect-pinentry
+version: 0.7.2
+category: app-eselect
+requires:
+- name: eselect-lib-bin-symlink
+  version: '>=0'
+  category: app-eselect
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manage /usr/bin/pinentry symlink
+uri:
+- https://www.gentoo.org/proj/en/eselect/
+license: GPL-2
+labels:
+  RDEPEND: '>=app-eselect/eselect-lib-bin-symlink-0.1.1'
+  emerge.packages: app-eselect/eselect-pinentry
+  kit: core-kit
+  original.package.name: app-eselect/eselect-pinentry
+  original.package.slot: "0"
+  original.package.version: 0.7.2
