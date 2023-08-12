@@ -1,0 +1,37 @@
+name: libtool
+version: 2.4.6
+category: sys-devel-2
+requires:
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: autoconf
+  version: '>=0'
+  category: sys-devel-2.69
+- name: automake
+  version: '>=0'
+  category: sys-devel-1.16
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A shared library tool for developers
+uri:
+- https://www.gnu.org/software/libtool/
+license: GPL-2
+labels:
+  DEPEND: sys-devel/gnuconfig >=sys-devel/autoconf-2.69 >=sys-devel/automake-1.13
+    dev-libs/libltdl:0 !<sys-apps/sandbox-2.10-r4 app-arch/xz-utils >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=app-portage/elt-patches-20170317
+  IUSE: vanilla
+  RDEPEND: sys-devel/gnuconfig >=sys-devel/autoconf-2.69 >=sys-devel/automake-1.13
+    dev-libs/libltdl:0 !<sys-apps/sandbox-2.10-r4
+  emerge.packages: sys-devel/libtool:2
+  kit: core-kit
+  original.package.name: sys-devel/libtool
+  original.package.slot: "2"
+  original.package.version: 2.4.6-r5
