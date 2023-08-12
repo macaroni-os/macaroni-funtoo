@@ -1,0 +1,27 @@
+name: groff
+version: 1.22.4
+category: sys-apps
+use_flags:
+- -X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Text formatter used for man pages
+uri:
+- https://www.gnu.org/software/groff/groff.html
+license: GPL-2
+labels:
+  DEPEND: X? ( x11-libs/libX11 x11-libs/libXt x11-libs/libXmu x11-libs/libXaw x11-libs/libSM
+    x11-libs/libICE ) dev-lang/perl sys-apps/texinfo
+  IUSE: examples X
+  RDEPEND: X? ( x11-libs/libX11 x11-libs/libXt x11-libs/libXmu x11-libs/libXaw x11-libs/libSM
+    x11-libs/libICE )
+  emerge.packages: sys-apps/groff
+  kit: core-kit
+  original.package.name: sys-apps/groff
+  original.package.slot: "0"
+  original.package.version: 1.22.4
