@@ -1,4 +1,3 @@
-
 BACKEND?=dockerv3
 CONCURRENCY?=1
 CI_ARGS?=
@@ -13,12 +12,13 @@ export TREE?=$(ROOT_DIR)/packages
 REPO_CACHE?=quay.io/geaaru/funtoo-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
+GENIDX_ARGS?=--only-upper-level --compress=false
 SUDO?=
 VALIDATE_OPTIONS?=
 ARCH?=amd64
 REPO_NAME?=macaroni-funtoo
 REPO_DESC?=Macaroni OS Phoenix
-REPO_URL?=https://dl.macaronios.org/repos/macaroni-funtoo/
+REPO_URL?=https://dl.macaronios.org/repos/macaroni-phoenix/
 REPO_VALUES?=values/amd64.yaml
 export REPO_VALUES
 
@@ -55,8 +55,12 @@ rebuild:
 rebuild-all:
 	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
+.PHONY: genidx
+genidx:
+	$(SUDO) $(LUET) tree genidx $(GENIDX_ARGS) --tree=$(TREE)
+
 .PHONY: create-repo
-create-repo:
+create-repo: genidx
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
@@ -64,8 +68,8 @@ create-repo:
     --descr "$(REPO_DESC) $(ARCH)" \
     --urls "$(REPO_URL)" \
     --tree-compression $(COMPRESSION) \
-    --tree-filename tree.tar \
-    --meta-compression $(COMPRESSION) \
+    --tree-filename tree.tar.zst \
+    --with-compilertree \
     --type http
 
 .PHONY: serve-repo
