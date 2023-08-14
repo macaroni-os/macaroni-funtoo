@@ -1,0 +1,25 @@
+name: perl-Getopt-Long
+version: 2.510.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Getopt-Long
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Getopt-Long-2.510.0 ) dev-lang/perl:=
+    !<perl-core/Getopt-Long-2.510.0 !>perl-core/Getopt-Long-2.510.0-r999'
+  emerge.packages: virtual/perl-Getopt-Long
+  kit: perl-kit
+  original.package.name: virtual/perl-Getopt-Long
+  original.package.slot: "0"
+  original.package.version: 2.510.0
