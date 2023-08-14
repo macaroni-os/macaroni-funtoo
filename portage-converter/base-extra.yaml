@@ -440,6 +440,9 @@ artefacts:
   - sys-fs/xfsprogs
 
 - tree: packages/atoms/base-extra
+  mutations:
+    uses:
+      - -rule-generator
   uses:
     disabled:
     - introspection
@@ -448,10 +451,10 @@ artefacts:
     - sh
     - test
     - user
+    - rule-generator
     enabled:
     - hwdb
     - kmod
-    - rule-generator
     - static-libs
   packages:
   - sys-fs/eudev
