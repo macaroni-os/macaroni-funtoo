@@ -1,0 +1,29 @@
+name: pkgconf
+version: 1.5.4
+category: dev-util
+use_flags:
+- -test
+- pkg-config
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: pkg-config compatible replacement with no dependencies other than ANSI
+  C89
+uri:
+- https://github.com/pkgconf/pkgconf
+license: ISC
+labels:
+  DEPEND: test? ( dev-libs/atf dev-util/kyua )
+  IUSE: +pkg-config test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: pkg-config? ( !dev-util/pkgconfig !dev-util/pkg-config-lite !dev-util/pkgconfig-openbsd[pkg-config]
+    )
+  emerge.packages: dev-util/pkgconf
+  kit: core-kit
+  original.package.name: dev-util/pkgconf
+  original.package.slot: "0"
+  original.package.version: 1.5.4
