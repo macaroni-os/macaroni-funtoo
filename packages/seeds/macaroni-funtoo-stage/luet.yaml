@@ -1,0 +1,37 @@
+general:
+  debug: false
+  color: false
+  enable_emoji: true
+  client_timeout: 0
+system:
+  database_engine: "boltdb"
+  rootfs: /macaroni-funtoo
+  tmpdir_base: "/var/tmp/luet"
+repos_confdir:
+  - /etc/luet/repos.conf.d
+subsets_defdir:
+  - /etc/luet/subsets.def.d
+subsets_confdir:
+  - /etc/luet/subsets.conf.d
+subsets:
+  enabled:
+    - portage
+    - devel
+
+tar_flows:
+  max_openfiles: 150
+  copy_buffer_size: 64
+
+config_from_host: false
+repositories:
+- name: "geaaru-repo-index"
+  description: "Geaaru Repository Index"
+  type: "http"
+  enable: true
+  cached: true
+  priority: 1
+  urls:
+  - "https://dl.macaronios.org/repos/geaaru-repo-index"
+  - "https://macaronios.mirror.garr.it/repos/geaaru-repo-index"
+  - "https://cdn2.macaronios.org/repos/geaaru-repo-index"
+  - "https://raw.githubusercontent.com/geaaru/repo-index/gh-pages"
