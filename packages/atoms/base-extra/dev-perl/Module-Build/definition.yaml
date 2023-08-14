@@ -1,0 +1,82 @@
+name: Module-Build
+version: 0.422.400
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-CPAN-Meta
+  version: '>=0'
+  category: virtual
+- name: perl-Data-Dumper
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-CBuilder
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-Install
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-MakeMaker
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-Manifest
+  version: '>=0'
+  category: virtual
+- name: perl-ExtUtils-ParseXS
+  version: '>=0'
+  category: virtual
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-Getopt-Long
+  version: '>=0'
+  category: virtual
+- name: perl-Module-Metadata
+  version: '>=0'
+  category: virtual
+- name: perl-Perl-OSType
+  version: '>=0'
+  category: virtual
+- name: perl-Test-Harness
+  version: '>=0'
+  category: virtual
+- name: perl-Text-ParseWords
+  version: '>=0'
+  category: virtual
+- name: perl-podlators
+  version: '>=0'
+  category: virtual
+- name: perl-version
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Build and install Perl modules
+uri:
+- https://metacpan.org/release/Module-Build
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-CPAN-Meta-2.142.60 virtual/perl-Data-Dumper >=virtual/perl-ExtUtils-CBuilder-0.270.0
+    virtual/perl-ExtUtils-Install virtual/perl-ExtUtils-Manifest virtual/perl-ExtUtils-MakeMaker
+    >=virtual/perl-ExtUtils-ParseXS-2.210.0 >=virtual/perl-File-Spec-0.820.0 virtual/perl-Getopt-Long
+    >=virtual/perl-Module-Metadata-1.0.2 >=virtual/perl-Perl-OSType-1 >=virtual/perl-Test-Harness-3.290.0
+    virtual/perl-Text-ParseWords >=virtual/perl-podlators-2.1.0 >=virtual/perl-version-0.870.0
+    >=virtual/perl-CPAN-Meta-YAML-0.3.0 >=virtual/perl-File-Temp-0.150.0 >=virtual/perl-Parse-CPAN-Meta-1.440.100
+    test? ( >=virtual/perl-Test-Simple-0.490.0 ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=virtual/perl-CPAN-Meta-2.142.60 virtual/perl-Data-Dumper >=virtual/perl-ExtUtils-CBuilder-0.270.0
+    virtual/perl-ExtUtils-Install virtual/perl-ExtUtils-Manifest virtual/perl-ExtUtils-MakeMaker
+    >=virtual/perl-ExtUtils-ParseXS-2.210.0 >=virtual/perl-File-Spec-0.820.0 virtual/perl-Getopt-Long
+    >=virtual/perl-Module-Metadata-1.0.2 >=virtual/perl-Perl-OSType-1 >=virtual/perl-Test-Harness-3.290.0
+    virtual/perl-Text-ParseWords >=virtual/perl-podlators-2.1.0 >=virtual/perl-version-0.870.0
+    dev-lang/perl:='
+  emerge.packages: dev-perl/Module-Build
+  kit: perl-kit
+  original.package.name: dev-perl/Module-Build
+  original.package.slot: "0"
+  original.package.version: 0.422.400
