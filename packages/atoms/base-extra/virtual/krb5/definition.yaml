@@ -1,0 +1,27 @@
+name: krb5
+version: "0"
+category: virtual
+requires:
+- name: mit-krb5
+  version: '>=0'
+  category: app-crypt
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Kerberos V implementation
+uri:
+- ""
+labels:
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  RDEPEND: '|| ( >=app-crypt/mit-krb5-1.12.1-r1[-mgorny(-)] >=app-crypt/heimdal-1.5.3-r2[-mgorny(-)]
+    )'
+  emerge.packages: virtual/krb5
+  kit: security-kit
+  original.package.name: virtual/krb5
+  original.package.slot: "0"
+  original.package.version: 0-r1
