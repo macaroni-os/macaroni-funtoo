@@ -1,0 +1,30 @@
+name: popt
+version: "1.16"
+category: dev-libs
+use_flags:
+- nls
+requires:
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Parse Options - Command line parser
+uri:
+- http://rpm5.org/
+license: MIT
+labels:
+  DEPEND: nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+  IUSE: nls static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: nls? ( >=virtual/libintl-0-r1[-mgorny(-)] )
+  emerge.packages: dev-libs/popt
+  kit: core-kit
+  original.package.name: dev-libs/popt
+  original.package.slot: "0"
+  original.package.version: 1.16-r2
