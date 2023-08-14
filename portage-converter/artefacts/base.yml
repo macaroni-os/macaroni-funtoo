@@ -972,6 +972,34 @@ artefacts:
 - tree: packages/atoms/base
   uses:
     disabled:
+    - context
+    - debug
+    - doc
+    - lzma
+    - mpi
+    - nios2
+    - numpy
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    - tools
+    - zstd
+    - python_targets_python3_7
+    enabled:
+    - bzip2
+    - icu
+    - nls
+    - python
+    - python_targets_python3_9
+    - zlib
+    - elibc_glibc
+    - kernel_linux
+  packages:
+  - dev-libs/boost
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
     - nios2
     - selinux
     - sh
