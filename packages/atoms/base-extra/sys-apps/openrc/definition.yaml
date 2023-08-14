@@ -1,10 +1,10 @@
 name: openrc
-version: 0.44.10
+version: 0.44.10+1
 category: sys-apps
 use_flags:
-- -audit
 - -prefix
 - -selinux
+- audit
 - bash
 - ncurses
 - pam
@@ -21,6 +21,9 @@ requires:
 - name: pam
   version: '>=0'
   category: sys-libs
+- name: audit
+  version: '>=0'
+  category: sys-process
 - name: psmisc
   version: '>=0'
   category: sys-process
