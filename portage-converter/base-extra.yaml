@@ -388,10 +388,54 @@ artefacts:
     - static-libs
     enabled:
     - abi_x86_64
+    - elibc_glibc
   packages:
   - dev-libs/libev
 
 - tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/bison
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-devel
+          name: bison
+  uses:
+    disabled:
+    - nios2
+    - sh
+  finalizer:
+    install:
+    - >-
+      if [ ! -e /usr/bin/yacc ] ; then
+      cd /usr/bin ;
+      ln -s yacc.bison yacc ;
+      fi
+    shell:
+      - bash
+      - -c
+  packages:
+  - virtual/yacc
+
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        # Without pkgconfig autconf --force fail
+        - category: dev-util
+          name: pkgconf
   uses:
     disabled:
     - glib
@@ -411,6 +455,8 @@ artefacts:
   mutations:
     buildtime_deps:
       packages:
+        - category: dev-libs
+          name: libverto
   uses:
     disabled:
     - cpu_flags_x86_aes
@@ -443,42 +489,6 @@ artefacts:
     - sh
   packages:
   - virtual/krb5
-
-- tree: packages/atoms/base-extra
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - static
-    - test
-    enabled:
-    - nls
-  packages:
-  - sys-devel/bison
-
-- tree: packages/atoms/base-extra
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-base
-  uses:
-    disabled:
-    - nios2
-    - sh
-  finalizer:
-    install:
-    - >-
-      if [ ! -e /usr/bin/yacc ] ; then
-      cd /usr/bin ;
-      ln -s yacc.bison yacc ;
-      fi
-    shell:
-      - bash
-      - -c
-  packages:
-  - virtual/yacc
 
 - tree: packages/atoms/base-extra
   uses:
