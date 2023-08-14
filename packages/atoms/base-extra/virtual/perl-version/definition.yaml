@@ -1,0 +1,25 @@
+name: perl-version
+version: 0.992.400
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for version
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/version-0.992.400
+    ) dev-lang/perl:= !<perl-core/version-0.992.400 !>perl-core/version-0.992.400-r999'
+  emerge.packages: virtual/perl-version
+  kit: perl-kit
+  original.package.name: virtual/perl-version
+  original.package.slot: "0"
+  original.package.version: 0.992.400-r1
