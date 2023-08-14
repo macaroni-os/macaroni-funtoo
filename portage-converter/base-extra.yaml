@@ -383,7 +383,104 @@ artefacts:
 - tree: packages/atoms/base-extra
   uses:
     disabled:
-    - audit
+    - cpu_flags_x86_aes
+    - doc
+    - keyutils
+    - libressl
+    - lmdb
+    - nios2
+    - openldap
+    - selinux
+    - sh
+    - test
+    - xinetd
+    enabled:
+    - nls
+    - pkinit
+    - threads
+  packages:
+    - app-crypt/mit-krb5
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-crypt
+          name: mit-krb5
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - virtual/krb5
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/bison
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+  finalizer:
+    install:
+    - >-
+      if [ ! -e /usr/bin/yacc ] ; then
+      cd /usr/bin ;
+      ln -s yacc.bison yacc ;
+      fi
+    shell:
+      - bash
+      - -c
+  packages:
+  - virtual/yacc
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - ccache
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - pcre
+  packages:
+  - dev-lang/swig
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+      - sysmted
+      - test
+      - ldap
+    enabled:
+      - gssapi
+      - kernel_linux
+      - python
+      - python_targets_python3_9
+      - split-usr
+      - static-libs
+  packages:
+  - sys-process/audit
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
     - debug
     - netifrc
     - newnet
@@ -393,6 +490,7 @@ artefacts:
     - static-libs
     - zsh-completion
     enabled:
+    - audit
     - bash
     - ncurses
     - pam
