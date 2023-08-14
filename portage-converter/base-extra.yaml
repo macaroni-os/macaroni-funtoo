@@ -73,7 +73,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -381,6 +381,36 @@ artefacts:
   - sys-apps/sysvinit
 
 - tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - abi_x86_64
+  packages:
+  - dev-libs/libev
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - glib
+    - libevent
+    - nios2
+    - sh
+    - static-libs
+    - tevent
+    enabled:
+    - abi_x86_64
+    - libev
+    - threads
+  packages:
+  - dev-libs/libverto
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
   uses:
     disabled:
     - cpu_flags_x86_aes
