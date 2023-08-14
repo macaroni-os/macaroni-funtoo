@@ -1,0 +1,30 @@
+name: Error
+version: 0.170.250
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-Scalar-List-Utils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Error/exception handling in an OO-ish way
+uri:
+- https://metacpan.org/release/Error
+license: '|| ( Artistic GPL-1+ ) MIT'
+labels:
+  DEPEND: virtual/perl-Scalar-List-Utils >=dev-perl/Module-Build-0.280.801 test? (
+    virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: virtual/perl-Scalar-List-Utils dev-lang/perl:=
+  emerge.packages: dev-perl/Error
+  kit: perl-kit
+  original.package.name: dev-perl/Error
+  original.package.slot: "0"
+  original.package.version: 0.170.250
