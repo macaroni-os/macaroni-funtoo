@@ -1,5 +1,7 @@
 skipped_resolutions:
   packages:
+    - name: elt-patches
+      category: app-portage
 
     - name: binutils-apple
       category: sys-devel
@@ -21,99 +23,627 @@ skipped_resolutions:
     - name: nvidia-kernel-modules
       category: x11-drivers
 
+    - name: debian-sources
+      category: sys-kernel
+
     - name: debian-sources-lts
-      category: sys-kernel
-
-    - name: pf-sources
-      category: sys-kernel
-
-    - name: mips-sources
-      category: sys-kernel
-
-    - name: gentoo-sources
       category: sys-kernel
 
     - name: vanilla-sources
       category: sys-kernel
 
-    - name: git-sources
-      category: sys-kernel
-
     - name: ck-sources
       category: sys-kernel
 
-    - name: aufs-sources
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
       category: sys-kernel
 
     - name: xbox-sources
       category: sys-kernel
 
-    - name: dummy-sources
+    - name: mips-sources
       category: sys-kernel
 
-build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+
+    - name: cdrtools
+      category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    # virtual/source is managed by kernel.yaml
+    - name: linux-sources
+      category: virtual
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
+build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
 
 artefacts:
-- tree: packages/atoms/base
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - nls
+    - standalone
+  packages:
+  - sys-apps/texinfo
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - leaps-timezone
+    - nios2
+    - sh
+    enabled:
+    - nls
+  packages:
+  - sys-libs/timezone-data
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - build
+    - nios2
+    - sh
+    enabled:
+    - split-usr
+  packages:
+  - sys-apps/baselayout
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - doc
+    - emacs
+    - nios2
+    - sh
+    - test
+    - vim-syntax
+  packages:
+  - dev-util/ninja
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
   uses:
     disabled:
     - nios2
     - sh
   packages:
-    - app-portage/elt-patches
+    - dev-util/re2c
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-util
+          name: pkgconf
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - virtual/pkgconfig
+
+- tree: packages/atoms/base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    enabled:
+    - pkg-config
+  packages:
+  - dev-util/pkgconf
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/lzo:2
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - debug
+    - libressl
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - nls
+    - ssl
+  packages:
+  - app-crypt/rhash
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - blake2
+    - expat
+    - libressl
+    - lz4
+    - lzo
+    - nettle
+    - nios2
+    - sh
+    - static-libs
+    - zstd
+    enabled:
+    - kernel_linux
+    - acl
+    - bzip2
+    - e2fsprogs
+    - iconv
+    - lzma
+    - threads
+    - xattr
+    - zlib
+  packages:
+  - app-arch/libarchive
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-libs/jsoncpp
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - split-usr
+  packages:
+  - sys-libs/e2fsprogs-libs
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - nls
+  packages:
+  - app-arch/cpio
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-apps/corenetwork
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - nls
+  packages:
+  - sys-apps/help2man
+
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - virtual/perl-ExtUtils-MakeMaker
+  - virtual/os-headers
+  - dev-util/gperf
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - dev-perl/Locale-gettext
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - libedit
+    - nios2
+    - pcre16
+    - sh
+    enabled:
+    - bzip2
+    - cxx
+    - jit
+    - pcre32
+    - readline
+    - recursion-limit
+    - static-libs
+    - unicode
+    - zlib
+  packages:
+  - dev-libs/libpcre:3
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - nls
+  packages:
+  - dev-libs/popt
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - cacert
+    - nios2
+    - sh
+    enabled:
+    - utils
+  packages:
+  - dev-libs/nss
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+  packages:
+  - dev-libs/nspr
+  - dev-util/intltool
+  - dev-perl/XML-Parser
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - ibm
+    - nios2
+    - selinux
+    - sh
+    - static
+  packages:
+  - sys-apps/sysvinit
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - audit
+    - debug
+    - netifrc
+    - newnet
+    - nios2
+    - selinux
+    - sh
+    - static-libs
+    - zsh-completion
+    enabled:
+    - bash
+    - ncurses
+    - pam
+    - unicode
+  packages:
+  - sys-apps/openrc
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - X
+    - nios2
+    - selinux
+    - sh
+    enabled:
+    - ipv6
+    - nls
+  packages:
+  - sys-process/psmisc
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    enabled:
+    - compat
+    - udev
+  packages:
+  - sys-fs/dosfstools
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - libedit
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - icu
+    - nls
+    - readline
+  packages:
+  - sys-fs/xfsprogs
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - introspection
+    - nios2
+    - selinux
+    - sh
+    - test
+    - user
+    enabled:
+    - hwdb
+    - kmod
+    - rule-generator
+    - static-libs
+  packages:
+  - sys-fs/eudev
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-fs
+          name: eudev
+    runtime_deps:
+      packages:
+        - category: sys-fs
+          name: eudev
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - systemd
+    enabled:
+    - static-libs
+  packages:
+  - virtual/libudev
+  - virtual/udev
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - debug
+    - doc
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+    - static-libs
+    enabled:
+    - lzma
+    - pkcs7
+    - python
+    - python_targets_python3_9
+    - tools
+    - zlib
+    - zstd
+  packages:
+  - sys-apps/kmod
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - ncurses
+  packages:
+  - sys-apps/gptfdisk
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - net
+    - pci
+    - udev
+    - usb
+  packages:
+  - sys-apps/hwids
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - kerberos
+    - nios2
+    - sh
+  packages:
+  - dev-perl/Authen-SASL
+  - dev-perl/Digest-HMAC
+  - perl-core/File-Temp
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  uses:
+    disabled:
+    - kerberos
+    - nios2
+    - sh
+  packages:
+  - virtual/perl-Digest-SHA
+  - virtual/perl-Digest-MD5
+  - virtual/perl-CPAN-Meta
+  - virtual/perl-CPAN-Meta-YAML
+  - virtual/perl-Carp
+  - virtual/perl-Data-Dumper
+  - virtual/perl-Encode
+  - virtual/perl-Exporter
+  - virtual/perl-ExtUtils-CBuilder
+  - virtual/perl-ExtUtils-Install
+  - virtual/perl-ExtUtils-Manifest
+  - virtual/perl-ExtUtils-ParseXS
+  - virtual/perl-File-Spec
+  - virtual/perl-File-Temp
+  - virtual/perl-Getopt-Long
+  - virtual/perl-IO
+  - virtual/perl-JSON-PP
+  - virtual/perl-MIME-Base64
+  - virtual/perl-Module-Metadata
+  - virtual/perl-Parse-CPAN-Meta
+  - virtual/perl-Perl-OSType
+  - virtual/perl-Pod-Parser
+  - virtual/perl-Scalar-List-Utils
+  - virtual/perl-Test-Harness
+  - virtual/perl-Text-ParseWords
+  - virtual/perl-podlators
+  - virtual/perl-version
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/Error
+  - dev-perl/Module-Build
+  - dev-perl/Pod-Parser
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - static
+  packages:
+  - sys-fs/mdadm
 
 include_layers:
-- layers/funtoo-base.yaml
+- layers/macaroni-funtoo-base.yaml
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
-#  - source1.json
-  - ./kit_cache/browser-kit-1.4-release
-  - ./kit_cache/core-gl-kit-2.0-release
-  - ./kit_cache/core-hw-kit-1.4-release
-  - ./kit_cache/core-kit-1.4-release
-  - ./kit_cache/core-server-kit-1.4-release
-  - ./kit_cache/desktop-kit-1.4-release
-  - ./kit_cache/dev-kit-1.4-release
-  - ./kit_cache/editors-kit-1.4-release
-  - ./kit_cache/games-kit-1.4-release
-  - ./kit_cache/gnome-kit-3.36-prime
-  - ./kit_cache/haskell-kit-1.4-release
-  - ./kit_cache/java-kit-1.4-release
-  - ./kit_cache/kde-kit-5.22-release
-  - ./kit_cache/lang-kit-1.4-release
-  - ./kit_cache/lisp-scheme-kit-1.4-release
-  - ./kit_cache/llvm-kit-1.4-release
-  - ./kit_cache/mate-kit-1.24-prime
-  - ./kit_cache/media-kit-1.4-release
-  - ./kit_cache/ml-lang-kit-1.4-release
-  - ./kit_cache/net-kit-1.4-release
-  - ./kit_cache/nokit-1.4-release
-  - ./kit_cache/perl-kit-5.32-release
-  - ./kit_cache/python-kit-3.7-release
-  - ./kit_cache/python-modules-kit-1.4-release
-  - ./kit_cache/qt-kit-5.15.2-release
-  - ./kit_cache/ruby-kit-2.7-prime
-  - ./kit_cache/science-kit-1.4-release
-  - ./kit_cache/security-kit-1.4-release
-  - ./kit_cache/text-kit-1.4-release
-  - ./kit_cache/xfce-kit-4.16-release
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+
 
 # Disable use of category with slot as requires. Default is without slot.
 reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
-    - dev-lang/python:3.7
-    - dev-lang/python:2.7
-    - dev-lang/ruby:2.6
-    - dev-lang/ruby:2.7
-    - sys-devel/gcc:9.2.0
-    - sys-devel/llvm:11
-    - sys-devel/clang:11
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+
 
 reposcan_disabled_use_flags:
-  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
   - build
 
   - emacs
@@ -128,18 +658,19 @@ reposcan_disabled_use_flags:
   - elibc_musl
   - elibc_mingw
   - elibc_uclibc
+  - elibc_mintlib
   - elogind
   - libressl
   - gtk-doc
   - gles2-only
   - python_single_target_python3_6
-  - python_single_target_python3_9
+  - python_single_target_python3_7
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
   - python_single_target_pypy3
   - python_targets_python3_6
-  - python_targets_python3_9
+  - python_targets_python3_7
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
@@ -157,6 +688,8 @@ reposcan_disabled_use_flags:
   - modules
 
   - debug
+
+  - systemd
 
   # Disable efl/e17
   - ecore
@@ -227,7 +760,7 @@ reposcan_disabled_use_flags:
   - ppc
   - ppc64
 
+  - userland_BSD
 reposcan_disabled_keywords:
   #- ~amd64
   - -*
-  - next
