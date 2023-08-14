@@ -1,0 +1,25 @@
+name: perl-Digest-MD5
+version: 2.550.100
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Digest-MD5
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Digest-MD5-2.550.100_rc ) dev-lang/perl:=
+    !<perl-core/Digest-MD5-2.550.100_rc !>perl-core/Digest-MD5-2.550.100_rc-r999'
+  emerge.packages: virtual/perl-Digest-MD5
+  kit: perl-kit
+  original.package.name: virtual/perl-Digest-MD5
+  original.package.slot: "0"
+  original.package.version: 2.550.100_rc
