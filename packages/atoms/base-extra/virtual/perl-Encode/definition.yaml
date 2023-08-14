@@ -1,0 +1,25 @@
+name: perl-Encode
+version: 3.60.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Encode
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Encode-3.60.0 ) dev-lang/perl:= !<perl-core/Encode-3.60.0
+    !>perl-core/Encode-3.60.0-r999'
+  emerge.packages: virtual/perl-Encode
+  kit: perl-kit
+  original.package.name: virtual/perl-Encode
+  original.package.slot: "0"
+  original.package.version: 3.60.0
