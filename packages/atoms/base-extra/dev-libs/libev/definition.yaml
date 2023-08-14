@@ -2,7 +2,11 @@ name: libev
 version: "4.25"
 category: dev-libs
 use_flags:
-- -elibc_glibc
+- elibc_glibc
+requires:
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
 annotations:
   subsets:
     rules:
