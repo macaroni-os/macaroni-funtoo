@@ -1,0 +1,25 @@
+name: perl-File-Spec
+version: 3.780.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for File-Spec
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/File-Spec-3.780.0
+    ) dev-lang/perl:= !<perl-core/File-Spec-3.780.0 !>perl-core/File-Spec-3.780.0-r999'
+  emerge.packages: virtual/perl-File-Spec
+  kit: perl-kit
+  original.package.name: virtual/perl-File-Spec
+  original.package.slot: "0"
+  original.package.version: 3.780.0-r1
