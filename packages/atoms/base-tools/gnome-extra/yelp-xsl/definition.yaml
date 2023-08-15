@@ -1,0 +1,28 @@
+name: yelp-xsl
+version: 3.36.0
+category: gnome-extra
+requires:
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: XSL stylesheets for yelp
+uri:
+- https://git.gnome.org/browse/yelp-xsl
+license: GPL-2+ LGPL-2.1+ MIT FDL-1.1+
+labels:
+  BDEPEND: app-arch/xz-utils
+  DEPEND: '>=dev-libs/libxml2-2.6.12:= >=dev-libs/libxslt-1.1.8:= >=dev-util/intltool-0.40
+    >=dev-util/itstool-1.2.0 sys-devel/gettext virtual/awk virtual/pkgconfig'
+  RDEPEND: '>=dev-libs/libxml2-2.6.12:= >=dev-libs/libxslt-1.1.8:='
+  emerge.packages: gnome-extra/yelp-xsl
+  kit: gnome-kit
+  original.package.name: gnome-extra/yelp-xsl
+  original.package.slot: "0"
+  original.package.version: 3.36.0
