@@ -69,7 +69,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -731,9 +731,20 @@ artefacts:
   - app-text/docbook-xml-dtd:4.3
   - app-text/docbook-xml-dtd:4.4
   - app-text/docbook-xml-dtd:4.5
+  - app-text/docbook-xml-simple-dtd:4.1.2.5
+  - app-text/docbook-xml-simple-dtd:1.0
   - net-misc/ifenslave
 
 - tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-text
+          name: build-docbook-catalog
+        - category: app-text-4.5
+          name: docbook-xml-dtd
+        - category: app-text-4.1.2.5
+          name: docbook-xml-simple-dtd
   uses:
     disabled:
     - nios2
