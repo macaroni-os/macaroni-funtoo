@@ -392,6 +392,18 @@ artefacts:
   packages:
   - dev-libs/libev
 
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/flex
+
 - tree: packages/atoms/base-extra
   uses:
     disabled:
@@ -427,7 +439,6 @@ artefacts:
       - -c
   packages:
   - virtual/yacc
-
 
 - tree: packages/atoms/base-extra
   mutations:
