@@ -1,0 +1,28 @@
+name: libtirpc
+version: 1.3.1
+category: net-libs
+use_flags:
+- -elibc_musl
+- -kerberos
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Transport Independent RPC library (SunRPC replacement)
+uri:
+- https://sourceforge.net/projects/libtirpc/
+license: GPL-2
+labels:
+  BDEPEND: app-arch/xz-utils virtual/pkgconfig
+  DEPEND: kerberos? ( >=virtual/krb5-0-r1 ) elibc_musl? ( sys-libs/queue-standalone
+    )
+  IUSE: ipv6 kerberos static-libs +split-usr
+  RDEPEND: kerberos? ( >=virtual/krb5-0-r1 )
+  emerge.packages: net-libs/libtirpc
+  kit: core-kit
+  original.package.name: net-libs/libtirpc
+  original.package.slot: "0"
+  original.package.version: 1.3.1
