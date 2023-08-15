@@ -1,0 +1,24 @@
+name: libpipeline
+version: 1.5.1
+category: dev-libs
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: a pipeline manipulation library
+uri:
+- http://libpipeline.nongnu.org/
+license: GPL-3
+labels:
+  DEPEND: virtual/pkgconfig test? ( dev-libs/check )
+  IUSE: static-libs test
+  emerge.packages: dev-libs/libpipeline
+  kit: core-kit
+  original.package.name: dev-libs/libpipeline
+  original.package.slot: "0"
+  original.package.version: 1.5.1
