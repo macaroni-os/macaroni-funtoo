@@ -1,0 +1,24 @@
+name: man
+version: "0"
+category: virtual
+requires:
+- name: man-db
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for man
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( sys-apps/man-db sys-apps/man >=sys-freebsd/freebsd-ubin-11.1-r1 )'
+  emerge.packages: virtual/man
+  kit: core-kit
+  original.package.name: virtual/man
+  original.package.slot: "0"
+  original.package.version: 0-r2
