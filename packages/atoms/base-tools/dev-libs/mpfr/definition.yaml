@@ -1,0 +1,29 @@
+name: mpfr
+version: 4.0.2
+category: dev-libs
+requires:
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: library for multiple-precision floating-point computations with exact
+  rounding
+uri:
+- http://www.mpfr.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: '>=dev-libs/gmp-5.0.0[static-libs?]'
+  IUSE: +static-libs
+  RDEPEND: '>=dev-libs/gmp-5.0.0[static-libs?]'
+  emerge.packages: dev-libs/mpfr
+  kit: core-kit
+  original.package.name: dev-libs/mpfr
+  original.package.slot: "0"
+  original.package.version: 4.0.2
