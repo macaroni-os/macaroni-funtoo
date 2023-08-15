@@ -1,0 +1,28 @@
+name: eselect-python
+version: "20190417"
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Eselect module for management of multiple Python versions
+uri:
+- https://wiki.gentoo.org/wiki/Project:Python
+license: GPL-2
+labels:
+  RDEPEND: '>=app-admin/eselect-1.2.3 >=dev-lang/python-exec-2.4.2-r2'
+  emerge.packages: app-eselect/eselect-python
+  kit: core-kit
+  original.package.name: app-eselect/eselect-python
+  original.package.slot: "0"
+  original.package.version: "20190417"
