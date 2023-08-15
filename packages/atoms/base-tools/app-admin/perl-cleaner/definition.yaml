@@ -1,0 +1,29 @@
+name: perl-cleaner
+version: "2.28"
+category: app-admin
+requires:
+- name: bash
+  version: '>=0'
+  category: app-shells
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: User land tool for cleaning up old perl installs
+uri:
+- https://www.gentoo.org/proj/en/perl/
+license: GPL-2
+labels:
+  RDEPEND: app-shells/bash dev-lang/perl || ( ( sys-apps/portage app-portage/portage-utils
+    ) sys-apps/pkgcore )
+  emerge.packages: app-admin/perl-cleaner
+  kit: perl-kit
+  original.package.name: app-admin/perl-cleaner
+  original.package.slot: "0"
+  original.package.version: "2.28"
