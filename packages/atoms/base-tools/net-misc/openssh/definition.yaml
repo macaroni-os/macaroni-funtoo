@@ -1,0 +1,58 @@
+name: openssh
+version: "9.3"
+category: net-misc
+use_flags:
+- -X
+- -audit
+- -kerberos
+- -ldns
+- -libedit
+- -prefix
+- -security-key
+- -selinux
+- -static
+- pam
+- ssl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: shadow
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Port of OpenBSD's free SSH release
+uri:
+- https://www.openssh.com/
+license: BSD GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig sys-devel/autoconf >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+  DEPEND: '!static? ( audit? ( sys-process/audit ) ldns? ( net-libs/ldns[ecdsa(+),ssl(+)]
+    ) libedit? ( dev-libs/libedit:= ) security-key? ( >=dev-libs/libfido2-1.5.0:=
+    ) selinux? ( >=sys-libs/libselinux-1.28 ) ssl? ( >=dev-libs/openssl-1.1.1l:0=
+    ) >=sys-libs/zlib-1.2.3:= ) pam? ( sys-libs/pam ) kerberos? ( virtual/krb5 ) sys-kernel/linux-headers
+    static? ( audit? ( sys-process/audit[static-libs(+)] ) ldns? ( net-libs/ldns[ecdsa(+),ssl(+)]
+    ) libedit? ( dev-libs/libedit:=[static-libs(+)] ) security-key? ( >=dev-libs/libfido2-1.5.0:=[static-libs(+)]
+    ) selinux? ( >=sys-libs/libselinux-1.28[static-libs(+)] ) ssl? ( >=dev-libs/openssl-1.1.1l:0=[static-libs(+)]
+    ) >=sys-libs/zlib-1.2.3:=[static-libs(+)] ) sys-apps/shadow'
+  IUSE: abi_mips_n32 audit bindist debug hpn kerberos kernel_linux ldns libedit livecd
+    pam +pie +scp security-key sctp selinux +ssl static test X xmss
+  RDEPEND: '!static? ( audit? ( sys-process/audit ) ldns? ( net-libs/ldns[ecdsa(+),ssl(+)]
+    ) libedit? ( dev-libs/libedit:= ) security-key? ( >=dev-libs/libfido2-1.5.0:=
+    ) selinux? ( >=sys-libs/libselinux-1.28 ) ssl? ( >=dev-libs/openssl-1.1.1l:0=
+    ) >=sys-libs/zlib-1.2.3:= ) pam? ( sys-libs/pam ) kerberos? ( virtual/krb5 ) pam?
+    ( >=sys-auth/pambase-20081028 ) !prefix? ( sys-apps/shadow ) X? ( x11-apps/xauth
+    )'
+  emerge.packages: net-misc/openssh
+  kit: core-kit
+  original.package.name: net-misc/openssh
+  original.package.slot: "0"
+  original.package.version: 9.3_p2
