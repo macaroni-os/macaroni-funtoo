@@ -1,0 +1,32 @@
+name: autogen
+version: 5.18.16
+category: sys-devel
+use_flags:
+- libopts
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: guile
+  version: '>=0'
+  category: dev-scheme-12
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Program and text file generation
+uri:
+- https://www.gnu.org/software/autogen/
+license: GPL-2
+labels:
+  DEPEND: '>=dev-scheme/guile-2.0:= dev-libs/libxml2'
+  IUSE: libopts static-libs
+  RDEPEND: '>=dev-scheme/guile-2.0:= dev-libs/libxml2'
+  emerge.packages: sys-devel/autogen
+  kit: core-kit
+  original.package.name: sys-devel/autogen
+  original.package.slot: "0"
+  original.package.version: 5.18.16-r1
