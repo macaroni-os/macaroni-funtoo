@@ -1,0 +1,26 @@
+name: docbook-sgml-dtd
+version: "3.0"
+category: app-text-3.0
+requires:
+- name: sgml-common
+  version: '>=0'
+  category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Docbook SGML DTD 3.0
+uri:
+- https://docbook.org/sgml/
+license: docbook
+labels:
+  DEPEND: '>=app-arch/unzip-5.41 >=app-text/sgml-common-0.6.3-r2'
+  RDEPEND: app-text/sgml-common
+  emerge.packages: app-text/docbook-sgml-dtd:3.0
+  kit: text-kit
+  original.package.name: app-text/docbook-sgml-dtd
+  original.package.slot: "3.0"
+  original.package.version: 3.0-r3
