@@ -165,6 +165,9 @@ artefacts:
   - net-misc/rsync
 
 - tree: packages/atoms/base-tools
+  # Ignore conflicts sys-apps/coreutils related
+  # to a specific use flag. (TODO: implement ignore 
+  # on luet-portage-converter for conflicts)
   uses:
     disabled:
     - nios2
