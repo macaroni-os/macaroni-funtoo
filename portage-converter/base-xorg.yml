@@ -480,6 +480,13 @@ artefacts:
     - x11-libs/libXau
 
 - tree: packages/atoms/base-xorg
+  # bug on luet-portage-converter on
+  # catch this dependency
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: x11-base
+          name: xcb-proto
   uses:
     disabled:
     - doc
@@ -534,6 +541,55 @@ artefacts:
   - x11-libs/libXrender
 
 
+- tree: packages/atoms/base-xorg
+  mutations:
+    uses:
+      - fontforge
+  uses:
+    disabled:
+    - bindist
+    - brotli
+    - debug
+    - doc
+    - harfbuzz
+    - infinality
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - fontforge
+    - utils
+    - X
+    - adobe-cff
+    - bzip2
+    - cleartype_hinting
+    - png
+  packages:
+  - media-libs/freetype:2
+
+- tree: packages/atoms/base-xorg
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - x11-libs/libSM
+  - x11-libs/libXt
+  - x11-libs/libXmu
+  - x11-libs/libXpm
+
+- tree: packages/atoms/base-xorg
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+    - dev-lang/vala:0.54
+
 include_layers:
 - layers/macaroni-funtoo-race4.yaml
 
@@ -581,6 +637,7 @@ reposcan_contraints:
     - dev-lang/python:3.9
     - sys-devel/gcc:11.3.0
     - sys-devel/llvm:13
+    - dev-lang/vala:0.54
 
 reposcan_disabled_use_flags:
   - build
