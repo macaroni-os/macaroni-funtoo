@@ -581,14 +581,78 @@ artefacts:
   - x11-libs/libXpm
 
 - tree: packages/atoms/base-xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
   uses:
     disabled:
-    - doc
     - nios2
     - sh
+  packages:
+    - sys-devel/clang-common
+
+- tree: packages/atoms/base-xorg
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - cuda
+    - debug
+    - ompt
+    - test
+    - hwloc
+  packages:
+    - sys-libs/libomp
+
+- tree: packages/atoms/base-xorg
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-libs/compiler-rt:13.0.0
+
+- tree: packages/atoms/base-xorg
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - debug
+    - debug-frame
+    - doc
+    - libatomic
     - static-libs
   packages:
-    - dev-lang/vala:0.54
+    - sys-libs/libunwind
+
+- tree: packages/atoms/base-xorg
+  mutations:
+    buildtime_deps:
+      # Workaround to bug on luet-portage-converter
+      packages:
+        - category: sys-libs
+          name: libunwind
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-libs/libcxxabi
+
+- tree: packages/atoms/base-xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/clang-runtime:13.0.0
 
 include_layers:
 - layers/macaroni-funtoo-race4.yaml
@@ -638,6 +702,10 @@ reposcan_contraints:
     - sys-devel/gcc:11.3.0
     - sys-devel/llvm:13
     - dev-lang/vala:0.54
+
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
 
 reposcan_disabled_use_flags:
   - build
