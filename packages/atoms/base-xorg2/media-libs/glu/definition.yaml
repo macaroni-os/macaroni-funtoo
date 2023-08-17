@@ -1,0 +1,30 @@
+name: glu
+version: 9.0.1
+category: media-libs
+requires:
+- name: opengl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The OpenGL Utility Library
+uri:
+- https://gitlab.freedesktop.org/mesa/glu
+license: SGI-B-2.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=virtual/opengl-7.0-r1'
+  IUSE: static-libs
+  RDEPEND: '>=virtual/opengl-7.0-r1'
+  emerge.packages: media-libs/glu
+  kit: core-gl-kit
+  original.package.name: media-libs/glu
+  original.package.slot: "0"
+  original.package.version: 9.0.1
