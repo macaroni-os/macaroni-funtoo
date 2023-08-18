@@ -1,0 +1,579 @@
+skipped_resolutions:
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+    - name: cdrtools
+      category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    # virtual/source is managed by kernel.yaml
+    - name: linux-sources
+      category: virtual
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - tls
+    enabled:
+    - X
+    - asm
+    - egl
+    - gles
+    - gles2
+    - glx
+    - headers
+  packages:
+  - media-libs/libglvnd
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - debug
+  packages:
+  - x11-libs/libxshmfence
+  - x11-libs/libXxf86vm
+  - x11-libs/libXfixes
+  - x11-libs/libXrandr
+  - dev-libs/wayland-protocols
+
+- tree: packages/atoms/base-xorg2
+  mutations:
+    buildtime_deps:
+      # It seems a luet-portage-converter issue.
+      packages:
+        - category: dev-libs
+          name: wayland-protocols
+  uses:
+    disabled:
+    - alternate-path
+    - android
+    - cpu_flags_x86_avx
+    - cpu_flags_x86_avx2
+    - cpu_flags_x86_avx512bw
+    - cpu_flags_x86_avx512er
+    - d3d9
+    - debug
+    - extra-hud
+    - haiku
+    - nios2
+    - opencl
+    - openmax
+    - pax_kernel
+    - pic
+    - selinux
+    - sh
+    - valgrind
+    - video_cards_gallium-freedreno
+    - video_cards_gallium-i915
+    - video_cards_gallium-imx
+    - video_cards_gallium-iris
+    - video_cards_gallium-osmesa
+    - video_cards_gallium-panfrost
+    - video_cards_gallium-pl111
+    - video_cards_gallium-r300
+    - video_cards_gallium-swr
+    - video_cards_gallium-swrast
+    - video_cards_gallium-tegra
+    - video_cards_gallium-v3d
+    - video_cards_gallium-vc4
+    - video_cards_gallium-virgl
+    - video_cards_gallium-vivante
+    - video_cards_i915
+    - video_cards_r100
+    - video_cards_r200
+    - video_cards_virgl
+    enabled:
+    - sensors
+    - unwind
+    - X
+    - drm
+    - egl
+    - gbm
+    - gles1
+    - gles2
+    - glvnd
+    - glx
+    - llvm
+    - ocl-icd
+    - opengl
+    - shader-cache
+    - surfaceless
+    - vaapi
+    - vdpau
+    - video_cards_amdgpu
+    - video_cards_dri3
+    - video_cards_gallium-nouveau
+    - video_cards_gallium-r600
+    - video_cards_gallium-radeonsi
+    - video_cards_gallium-vmware
+    - video_cards_i965
+    - video_cards_intel
+    - video_cards_nouveau
+    - video_cards_osmesa
+    - video_cards_radeon
+    - video_cards_swrast
+    - video_cards_vulkan-amdgpu
+    - video_cards_vulkan-intel
+    - wayland
+    - xa
+    - xvmc
+  packages:
+  - media-libs/mesa
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - x11-libs/libfontenc
+  - x11-apps/mkfontscale
+  - media-fonts/encodings
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - fontforge
+    - nios2
+    - sh
+    enabled:
+    - X
+  packages:
+  - media-fonts/dejavu
+  - media-fonts/liberation-fonts
+
+- tree: packages/atoms/base-xorg2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - virtual/opengl
+    - virtual/ttf-fonts
+    - app-eselect/eselect-fontconfig
+    - media-libs/giflib
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - media-libs/glu
+
+- tree: packages/atoms/base-xorg2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: media-libs
+          name: glu
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - virtual/glu
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - fbcon
+    - gdk-pixbuf
+    - gpm
+    - l10n_de
+    - l10n_ja
+    - libressl
+    - lynxkeymap
+    - nios2
+    - nntp
+    - sh
+    - xface
+    enabled:
+    - imlib
+    - X
+    - nls
+    - ssl
+    - unicode
+  packages:
+  - www-client/w3m
+
+- tree: packages/atoms/base-xorg2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: www-client
+          name: w3m
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - virtual/w3m
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - x11-libs/libXaw
+  - media-libs/fontconfig
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - aqua
+    - debug
+    - gles2
+    - nios2
+    - sh
+    - static-libs
+    - utils
+    - valgrind
+    enabled:
+    - X
+    - xcb
+    - glib
+    - opengl
+    - svg
+  packages:
+  - x11-libs/cairo
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - cairo
+    - glib
+    - graphite
+    - icu
+    - introspection
+    - truetype
+  packages:
+  - media-libs/harfbuzz
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - cpu_flags_x86_sse4_1
+    - neon
+    - nios2
+    - sh
+    - static-libs
+    - swap-16bit-csp
+    - tiff
+    enabled:
+    - cpu_flags_x86_sse2
+    - gif
+    - jpeg
+    - opengl
+    - png
+  packages:
+  - media-libs/libwebp
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - xpm
+    enabled:
+    - cpu_flags_x86_sse
+    - fontconfig
+    - jpeg
+    - png
+    - tiff
+    - truetype
+    - webp
+    - zlib
+  packages:
+  - media-libs/gd:2
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - x11-libs/libXft
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - test
+    enabled:
+    - X
+    - introspection
+  packages:
+  - x11-libs/pango
+
+include_layers:
+- layers/macaroni-funtoo-race5.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+    - sys-devel/llvm:13
+    - dev-lang/vala:0.54
+
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
+
+reposcan_disabled_use_flags:
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - elogind
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - systemd
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
