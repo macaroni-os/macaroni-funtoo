@@ -6,21 +6,30 @@ use_flags:
 - -opencl
 - -selinux
 - -valgrind
-- -video_cards_r300
-- -video_cards_r600
 - -video_cards_radeonsi
 - -vulkan-overlay
 - -zink
-- -zstd
 - X
 - llvm
 - unwind
 - vaapi
 - vdpau
+- video_cards_r300
+- video_cards_r600
 - video_cards_radeon
 - wayland
 - xvmc
+- zstd
+- video_cards_intel
+- video_cards_v3d
+- video_cards_virgl
+- video_cards_nouveau
+- video_cards_vmware
+- vulkan
 requires:
+- name: zstd
+  version: '>=0'
+  category: app-arch
 - name: libglvnd
   version: '>=0'
   category: media-libs

@@ -115,6 +115,13 @@ artefacts:
 
 - tree: packages/atoms/base-xorg2
   mutations:
+    uses:
+      - video_cards_intel
+      - video_cards_v3d
+      - video_cards_virgl
+      - video_cards_nouveau
+      - video_cards_vmware
+      - vulkan
     buildtime_deps:
       # It seems a luet-portage-converter issue.
       packages:
@@ -147,18 +154,14 @@ artefacts:
     - video_cards_gallium-osmesa
     - video_cards_gallium-panfrost
     - video_cards_gallium-pl111
-    - video_cards_gallium-r300
     - video_cards_gallium-swr
     - video_cards_gallium-swrast
     - video_cards_gallium-tegra
-    - video_cards_gallium-v3d
     - video_cards_gallium-vc4
-    - video_cards_gallium-virgl
     - video_cards_gallium-vivante
     - video_cards_i915
     - video_cards_r100
     - video_cards_r200
-    - video_cards_virgl
     enabled:
     - sensors
     - unwind
@@ -180,13 +183,19 @@ artefacts:
     - video_cards_amdgpu
     - video_cards_dri3
     - video_cards_gallium-nouveau
+    - video_cards_gallium-r300
     - video_cards_gallium-r600
     - video_cards_gallium-radeonsi
+    - video_cards_gallium-v3d
+    - video_cards_gallium-virgl
     - video_cards_gallium-vmware
+    - video_cards_virgl
     - video_cards_i965
     - video_cards_intel
     - video_cards_nouveau
     - video_cards_osmesa
+    - video_cards_r300
+    - video_cards_r600
     - video_cards_radeon
     - video_cards_swrast
     - video_cards_vulkan-amdgpu
@@ -194,6 +203,7 @@ artefacts:
     - wayland
     - xa
     - xvmc
+    - zstd
   packages:
   - media-libs/mesa
 
