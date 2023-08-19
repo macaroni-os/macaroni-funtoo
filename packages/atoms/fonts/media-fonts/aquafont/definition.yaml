@@ -1,0 +1,25 @@
+name: aquafont
+version: "2.7"
+category: media-fonts
+use_flags:
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Handwritten Japanese fixed-width TrueType font
+uri:
+- http://www.geocities.jp/teardrops_in_aquablue/
+license: aquafont
+labels:
+  BDEPEND: app-arch/unzip
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: X X
+  emerge.packages: media-fonts/aquafont
+  kit: media-kit
+  original.package.name: media-fonts/aquafont
+  original.package.slot: "0"
+  original.package.version: 2.7-r4
