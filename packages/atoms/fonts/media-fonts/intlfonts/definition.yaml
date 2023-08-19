@@ -1,0 +1,25 @@
+name: intlfonts
+version: 1.4.1
+category: media-fonts
+use_flags:
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: International X11 fixed fonts
+uri:
+- https://www.gnu.org/directory/intlfonts.html
+license: public-domain HPND GPL-3+-with-font-exception
+labels:
+  BDEPEND: x11-apps/bdftopcf >=x11-apps/mkfontscale-1.2.0
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: bdf X
+  emerge.packages: media-fonts/intlfonts
+  kit: media-kit
+  original.package.name: media-fonts/intlfonts
+  original.package.slot: "0"
+  original.package.version: 1.4.1
