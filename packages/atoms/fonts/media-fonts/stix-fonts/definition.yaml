@@ -1,0 +1,25 @@
+name: stix-fonts
+version: "2.11"
+category: media-fonts
+use_flags:
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Comprehensive OpenType font set of mathematical symbols and alphabets
+uri:
+- https://www.stixfonts.org/
+license: OFL-1.1
+labels:
+  BDEPEND: app-arch/unzip
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: X
+  emerge.packages: media-fonts/stix-fonts
+  kit: media-kit
+  original.package.name: media-fonts/stix-fonts
+  original.package.slot: "0"
+  original.package.version: "2.11"
