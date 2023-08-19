@@ -1,0 +1,25 @@
+name: sgi-fonts
+version: "1.0"
+category: media-fonts
+use_flags:
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: SGI fonts collection
+uri:
+- http://oss.sgi.com/projects/sgi_propack
+license: MIT
+labels:
+  DEPEND: '>=app-arch/rpm2targz-9.0.0.3g X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings
+    )'
+  IUSE: X
+  emerge.packages: media-fonts/sgi-fonts
+  kit: media-kit
+  original.package.name: media-fonts/sgi-fonts
+  original.package.slot: "0"
+  original.package.version: "1.0"
