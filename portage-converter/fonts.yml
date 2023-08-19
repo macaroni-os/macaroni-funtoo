@@ -1,0 +1,365 @@
+skipped_resolutions:
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+    - name: cdrtools
+      category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    # virtual/source is managed by kernel.yaml
+    - name: linux-sources
+      category: virtual
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+- tree: packages/atoms/fonts
+  packages:
+  - media-fonts/alee-fonts
+  - media-fonts/aquafont
+  - media-fonts/aquapfont
+  - media-fonts/arabeyes-fonts
+  - media-fonts/arphicfonts
+  - media-fonts/baekmuk-fonts
+  - media-fonts/cheapskatefonts
+  - media-fonts/corefonts
+  - media-fonts/cronyx-fonts
+  - media-fonts/croscorefonts
+  - media-fonts/crosextrafonts-caladea
+  - media-fonts/crosextrafonts-carlito
+  - media-fonts/dzongkha-fonts
+  - media-fonts/efont-unicode
+  - media-fonts/ekushey-bangla-fonts
+  - media-fonts/farsi-fonts
+  - media-fonts/font-adobe-100dpi
+  - media-fonts/font-adobe-75dpi
+  - media-fonts/font-adobe-utopia-100dpi
+  - media-fonts/font-adobe-utopia-75dpi
+  - media-fonts/font-adobe-utopia-type1
+  - media-fonts/font-alias
+  - media-fonts/font-arabic-misc
+  - media-fonts/font-bh-100dpi
+  - media-fonts/font-bh-75dpi
+  - media-fonts/font-bh-lucidatypewriter-100dpi
+  - media-fonts/font-bh-lucidatypewriter-75dpi
+  - media-fonts/font-bh-ttf
+  - media-fonts/font-bh-type1
+  - media-fonts/font-bitstream-100dpi
+  - media-fonts/font-bitstream-75dpi
+  - media-fonts/font-bitstream-speedo
+  - media-fonts/font-bitstream-type1
+  - media-fonts/font-cronyx-cyrillic
+  - media-fonts/font-cursor-misc
+  - media-fonts/font-daewoo-misc
+  - media-fonts/font-dec-misc
+  - media-fonts/font-ibm-type1
+  - media-fonts/font-isas-misc
+  - media-fonts/font-jis-misc
+  - media-fonts/font-micro-misc
+  - media-fonts/font-misc-cyrillic
+  - media-fonts/font-misc-ethiopic
+  - media-fonts/font-misc-meltho
+  - media-fonts/font-misc-misc
+  - media-fonts/font-mutt-misc
+  - media-fonts/font-schumacher-misc
+  - media-fonts/font-screen-cyrillic
+  - media-fonts/font-sony-misc
+  - media-fonts/font-sun-misc
+  - media-fonts/font-util
+  - media-fonts/font-winitzki-cyrillic
+  - media-fonts/font-xfree86-type1
+#  - media-fonts/fontawesome
+  - media-fonts/free-bangla-font
+  - media-fonts/freefont
+  - media-fonts/freefonts
+  - media-fonts/fs-fonts
+  - media-fonts/hunkyfonts
+  - media-fonts/intlfonts
+  - media-fonts/ipamonafont
+
+#  - media-fonts/ja-ipafonts
+#  - media-fonts/jisx0213-fonts
+  - media-fonts/kacst-fonts
+#  - media-fonts/konfont
+  - media-fonts/lfpfonts-fix
+  - media-fonts/lfpfonts-var
+  - media-fonts/liberation-fonts
+  - media-fonts/lohit-fonts
+#  - media-fonts/mathematica-fonts
+  - media-fonts/mikachan-font-otf
+  - media-fonts/mikachan-font-ttc
+  - media-fonts/mikachan-font-ttf
+  - media-fonts/monafont
+#  - media-fonts/mplus-fonts
+#  - media-fonts/mplus-outline-fonts
+#  - media-fonts/nanumfont
+  - media-fonts/nepali-fonts
+#  - media-fonts/opendesktop-fonts
+#  - media-fonts/oxygen-fonts
+#  - media-fonts/polarsys-b612-fonts
+  - media-fonts/proggy-fonts
+  - media-fonts/sgi-fonts
+#  - media-fonts/sil-arabicfonts
+  - media-fonts/stix-fonts
+  - media-fonts/takao-fonts
+  - media-fonts/tengwar-fonts
+  - media-fonts/terminus-font
+#  - media-fonts/thaifonts-scalable
+  - media-fonts/tibetan-machine-font
+  - media-fonts/ubuntu-font-family
+#  - media-fonts/umeplus-fonts
+  - media-fonts/unfonts
+  - media-fonts/unfonts-extra
+#  - media-fonts/unifont
+  - media-fonts/urw-fonts
+#  - media-fonts/urwvn-fonts
+  - media-fonts/vc-fonts
+  - media-fonts/webby-fonts
+  - media-fonts/wqy-bitmapfont
+#  - media-fonts/x11fonts-jmk
+  - media-fonts/zh-kcfonts
+
+  - x11-apps/mkfontdir
+
+include_layers:
+- layers/macaroni-funtoo-race5.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+    - sys-devel/llvm:13
+    - dev-lang/vala:0.54
+
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
+
+reposcan_disabled_use_flags:
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - systemd
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
