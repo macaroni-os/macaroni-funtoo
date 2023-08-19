@@ -19,6 +19,13 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+
+# Add support to dhclient until will be integrated directly
+- >-
+  mkdir -p /pkgdir/{{ .Values.name }}/etc/conf.d/ &&
+  cp dhclient-netif /pkgdir/{{ .Values.name }}/etc/netif.d/dhclient &&
+  cp dhclient-conf.d /pkgdir/{{ .Values.name }}/etc/conf.d/dhclient
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
