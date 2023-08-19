@@ -1,10 +1,14 @@
 name: libdrm
-version: 2.4.110
+version: 2.4.110+1
 category: x11-libs
 use_flags:
 - -elibc_FreeBSD
 - -valgrind
 - video_cards_intel
+- video_cards_amdgpu
+- video_cards_nouveau
+- video_cards_radeon
+- video_cards_vmware
 requires:
 - name: libpciaccess
   version: '>=0'
