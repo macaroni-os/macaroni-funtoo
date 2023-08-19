@@ -1,0 +1,35 @@
+name: cabextract
+version: 1.9.1
+category: app-arch
+use_flags:
+- extras
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libmspack
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Extracts files from Microsoft cabinet archive files
+uri:
+- https://www.cabextract.org.uk/
+license: GPL-3
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=dev-libs/libmspack-0.8_alpha:= virtual/pkgconfig'
+  IUSE: extras
+  RDEPEND: '>=dev-libs/libmspack-0.8_alpha:= extras? ( dev-lang/perl )'
+  emerge.packages: app-arch/cabextract
+  kit: core-kit
+  original.package.name: app-arch/cabextract
+  original.package.slot: "0"
+  original.package.version: 1.9.1
