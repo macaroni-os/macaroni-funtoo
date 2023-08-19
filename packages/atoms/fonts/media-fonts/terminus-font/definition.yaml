@@ -1,0 +1,27 @@
+name: terminus-font
+version: 4.49.1
+category: media-fonts
+use_flags:
+- X
+- pcf
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A clean fixed font for the console and X11
+uri:
+- http://terminus-font.sourceforge.net/
+license: OFL-1.1 GPL-2
+labels:
+  DEPEND: app-arch/gzip virtual/awk pcf? ( x11-apps/bdftopcf ) X? ( >=x11-apps/mkfontscale-1.2.0
+    media-fonts/encodings )
+  IUSE: a-like-o +center-tilde distinct-l +pcf +pcf-unicode-only +psf quote +otb ru-dv
+    +ru-g ru-i ru-k X
+  emerge.packages: media-fonts/terminus-font
+  kit: media-kit
+  original.package.name: media-fonts/terminus-font
+  original.package.slot: "0"
+  original.package.version: 4.49.1
