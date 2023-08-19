@@ -1,0 +1,40 @@
+name: font-adobe-utopia-75dpi
+version: 1.0.4
+category: media-fonts
+use_flags:
+- -ppc-aix
+- -x86-winnt
+- X
+requires:
+- name: encodings
+  version: '>=0'
+  category: media-fonts
+- name: mkfontscale
+  version: '>=0'
+  category: x11-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X.Org Adobe Utopia bitmap fonts
+uri:
+- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/font/font-adobe-utopia-75dpi
+license: MIT
+labels:
+  DEPEND: x11-apps/bdftopcf >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings
+    ) ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) >=media-fonts/font-util-1.2.0
+    >=x11-apps/mkfontscale-1.2.0 virtual/pkgconfig
+  IUSE: X nls
+  RDEPEND: media-fonts/encodings >=x11-apps/mkfontscale-1.2.0
+  emerge.packages: media-fonts/font-adobe-utopia-75dpi
+  kit: core-gl-kit
+  original.package.name: media-fonts/font-adobe-utopia-75dpi
+  original.package.slot: "0"
+  original.package.version: 1.0.4-r1
