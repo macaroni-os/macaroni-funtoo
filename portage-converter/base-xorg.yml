@@ -218,8 +218,12 @@ artefacts:
   - x11-libs/libpciaccess
 
 - tree: packages/atoms/base-xorg
-  # it seems an issue on luet-portage-converter
-  
+  mutations:
+    uses:
+    - video_cards_amdgpu
+    - video_cards_nouveau
+    - video_cards_radeon
+    - video_cards_vmware
   uses:
     disabled:
     - nios2
