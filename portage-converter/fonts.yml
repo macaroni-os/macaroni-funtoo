@@ -82,6 +82,16 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/fonts
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  packages:
+    - app-arch/rpm2targz
+    - media-fonts/lohit-fonts
+
+- tree: packages/atoms/fonts
   packages:
   - media-fonts/alee-fonts
   - media-fonts/aquafont
@@ -149,10 +159,11 @@ artefacts:
 #  - media-fonts/jisx0213-fonts
   - media-fonts/kacst-fonts
 #  - media-fonts/konfont
-  - media-fonts/lfpfonts-fix
+
+# See FL-11527
+#  - media-fonts/lfpfonts-fix
   - media-fonts/lfpfonts-var
   - media-fonts/liberation-fonts
-  - media-fonts/lohit-fonts
 #  - media-fonts/mathematica-fonts
   - media-fonts/mikachan-font-otf
   - media-fonts/mikachan-font-ttc
@@ -180,7 +191,6 @@ artefacts:
 #  - media-fonts/unifont
   - media-fonts/urw-fonts
 #  - media-fonts/urwvn-fonts
-  - media-fonts/vc-fonts
   - media-fonts/webby-fonts
   - media-fonts/wqy-bitmapfont
 #  - media-fonts/x11fonts-jmk
