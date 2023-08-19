@@ -270,6 +270,11 @@ artefacts:
   - app-arch/cpio
 
 - tree: packages/atoms/base-extra
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: sys-apps
+          name: openrc
   mutations:
     buildtime_deps:
       packages:
