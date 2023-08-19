@@ -1,0 +1,25 @@
+name: zh-kcfonts
+version: "1.05"
+category: media-fonts
+use_flags:
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Kuo Chauo Chinese Fonts collection in BIG5 encoding
+uri:
+- http://freebsd.sinica.edu.tw/
+license: public-domain
+labels:
+  BDEPEND: x11-apps/bdftopcf
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: X
+  emerge.packages: media-fonts/zh-kcfonts
+  kit: media-kit
+  original.package.name: media-fonts/zh-kcfonts
+  original.package.slot: "0"
+  original.package.version: 1.05-r3
