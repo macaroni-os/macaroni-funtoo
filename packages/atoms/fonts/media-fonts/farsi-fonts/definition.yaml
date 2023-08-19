@@ -1,0 +1,25 @@
+name: farsi-fonts
+version: "0.4"
+category: media-fonts
+use_flags:
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Farsi (Persian) Unicode fonts
+uri:
+- http://www.farsiweb.ir/wiki/Products/PersianFonts
+license: GPL-2
+labels:
+  BDEPEND: app-arch/unzip
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: X
+  emerge.packages: media-fonts/farsi-fonts
+  kit: media-kit
+  original.package.name: media-fonts/farsi-fonts
+  original.package.slot: "0"
+  original.package.version: "0.4"
