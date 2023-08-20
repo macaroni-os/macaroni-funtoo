@@ -1,0 +1,41 @@
+name: libpcap
+version: 1.10.4
+category: net-libs
+use_flags:
+- -bluetooth
+- -netlink
+- -rdma
+- -remote
+- -usb
+- dbus
+requires:
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A system-independent library for user-level network packet capture
+uri:
+- ""
+license: BSD
+labels:
+  BDEPEND: sys-devel/flex virtual/yacc dbus? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: bluetooth? ( net-wireless/bluez:= ) dbus? ( sys-apps/dbus ) netlink? ( dev-libs/libnl:3
+    ) remote? ( virtual/libcrypt:= ) rdma? ( sys-cluster/rdma-core ) usb? ( virtual/libusb:1
+    )
+  IUSE: bluetooth dbus netlink rdma remote static-libs usb yydebug
+  RDEPEND: bluetooth? ( net-wireless/bluez:= ) dbus? ( sys-apps/dbus ) netlink? (
+    dev-libs/libnl:3 ) remote? ( virtual/libcrypt:= ) rdma? ( sys-cluster/rdma-core
+    ) usb? ( virtual/libusb:1 )
+  emerge.packages: net-libs/libpcap
+  kit: core-kit
+  original.package.name: net-libs/libpcap
+  original.package.slot: "0"
+  original.package.version: 1.10.4
