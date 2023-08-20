@@ -1,0 +1,40 @@
+name: jasper
+version: 4.0.0
+category: media-libs
+use_flags:
+- -doc
+- jpeg
+- opengl
+requires:
+- name: freeglut
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libXmu
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Implementation of the codec specified in the JPEG-2000 Part-1 standard
+uri:
+- https://www.ece.uvic.ca/~mdadams/jasper/
+license: JasPer2.0
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) dev-util/ninja dev-util/cmake
+  DEPEND: jpeg? ( >=virtual/jpeg-0-r2:0 ) opengl? ( >=virtual/opengl-7.0-r1:0 >=media-libs/freeglut-2.8.1:0
+    virtual/glu x11-libs/libXi x11-libs/libXmu )
+  IUSE: doc jpeg opengl
+  RDEPEND: jpeg? ( >=virtual/jpeg-0-r2:0 ) opengl? ( >=virtual/opengl-7.0-r1:0 >=media-libs/freeglut-2.8.1:0
+    virtual/glu x11-libs/libXi x11-libs/libXmu )
+  emerge.packages: media-libs/jasper
+  kit: media-kit
+  original.package.name: media-libs/jasper
+  original.package.slot: "0"
+  original.package.version: 4.0.0
