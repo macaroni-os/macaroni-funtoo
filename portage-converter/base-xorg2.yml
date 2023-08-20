@@ -412,6 +412,30 @@ artefacts:
   packages:
   - x11-libs/pango
 
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - latex
+  packages:
+    - app-text/xmlto
+
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - x11-libs/libXcomposite
+  - x11-libs/libXcursor
+  - x11-libs/libXdamage
+  - x11-libs/libXinerama
+  - x11-libs/libXtst
+  #- x11-libs/libxkbcommon
+
+
 include_layers:
 - layers/macaroni-funtoo-race5.yaml
 
@@ -481,7 +505,6 @@ reposcan_disabled_use_flags:
   - elibc_mingw
   - elibc_uclibc
   - elibc_mintlib
-  - elogind
   - libressl
   - gtk-doc
   - gles2-only
