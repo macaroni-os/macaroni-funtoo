@@ -665,6 +665,14 @@ artefacts:
   packages:
     - sys-devel/clang-runtime:13.0.0
 
+- tree: packages/atoms/base-xorg
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/lld
+
 include_layers:
 - layers/macaroni-funtoo-race4.yaml
 
