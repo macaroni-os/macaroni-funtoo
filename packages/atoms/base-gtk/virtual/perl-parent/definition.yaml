@@ -1,0 +1,25 @@
+name: perl-parent
+version: 0.238.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for parent
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/parent-0.238.0 ) dev-lang/perl:=
+    !<perl-core/parent-0.238.0 !>perl-core/parent-0.238.0-r999'
+  emerge.packages: virtual/perl-parent
+  kit: perl-kit
+  original.package.name: virtual/perl-parent
+  original.package.slot: "0"
+  original.package.version: 0.238.0
