@@ -1,4 +1,8 @@
 prelude:
+# Trying to fix the cross dependencies between ghostscript-gpl, cups and cups-filters
+- >-
+  USE="dbus foomatic -postscript -braille -exif -jpeg -ldap -pclm -pdf -perl -png -test -tiff -zeroconf" emerge cups-filters -j -t &&
+  USE="X acl dbus pam python ssl threads" emerge cups -j -t
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
