@@ -1,0 +1,34 @@
+name: openjpeg
+version: 2.3.1
+category: media-libs-2
+use_flags:
+- -doc
+requires:
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open-source JPEG 2000 library
+uri:
+- https://www.openjpeg.org
+license: BSD-2
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: media-libs/lcms:2 media-libs/libpng:0= media-libs/tiff:0 sys-libs/zlib:=
+  IUSE: doc static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: media-libs/lcms:2 media-libs/libpng:0= media-libs/tiff:0 sys-libs/zlib:=
+  emerge.packages: media-libs/openjpeg:2
+  kit: media-kit
+  original.package.name: media-libs/openjpeg
+  original.package.slot: "2"
+  original.package.version: 2.3.1
