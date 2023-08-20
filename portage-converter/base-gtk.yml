@@ -111,6 +111,29 @@ artefacts:
   uses:
     disabled:
     - doc
+    - idn
+    - idn2
+    - man
+    - nios2
+    - python_single_target_python3_8
+    - python_targets_python3_8
+    - python_single_target_python3_7
+    - python_targets_python3_7
+    - rpath
+    - sh
+    - static-libs
+    enabled:
+    - icu
+    - nls
+    - python_targets_python3_9
+    - python_single_target_python3_9
+  packages:
+  - net-libs/libpsl
+
+- tree: packages/atoms/base-gtk
+  uses:
+    disabled:
+    - doc
     - test
     - tools
     - vala
@@ -160,7 +183,6 @@ artefacts:
           name: autoconf
   uses:
     disabled:
-    - clang
     - cpu_flags_arm_neon
     - debug
     - lto
@@ -168,6 +190,7 @@ artefacts:
     - sh
     - test
     enabled:
+    - clang
     - jit
   packages:
   - dev-lang/spidermonkey:78
