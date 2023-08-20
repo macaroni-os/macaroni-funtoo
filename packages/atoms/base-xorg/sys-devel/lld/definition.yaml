@@ -1,0 +1,34 @@
+name: lld
+version: 13.0.0
+category: sys-devel
+use_flags:
+- -test
+requires:
+- name: llvm
+  version: '>=0'
+  category: sys-devel-13
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The LLVM linker (link editor)
+uri:
+- https://llvm.org/
+license: Apache-2.0-with-LLVM-exceptions UoI-NCSA
+labels:
+  BDEPEND: test? ( >=dev-util/cmake-3.16 || ( ( dev-lang/python:3.10 ~dev-python/lit-13.0.0[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 ~dev-python/lit-13.0.0[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 ~dev-python/lit-13.0.0[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 ~dev-python/lit-13.0.0[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) ) dev-util/ninja dev-util/cmake
+  DEPEND: ~sys-devel/llvm-13.0.0 !!sys-devel/llvm:0
+  IUSE: debug test test
+  RDEPEND: ~sys-devel/llvm-13.0.0
+  emerge.packages: sys-devel/lld
+  kit: llvm-kit
+  original.package.name: sys-devel/lld
+  original.package.slot: "0"
+  original.package.version: 13.0.0
