@@ -1,9 +1,13 @@
 name: libusb
-version: 1.0.26
+version: 1.0.26+1
 category: dev-libs-1
 use_flags:
 - -doc
-- -udev
+- udev
+requires:
+- name: libudev
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
