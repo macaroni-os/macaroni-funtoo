@@ -620,6 +620,12 @@ artefacts:
     - sys-libs/compiler-rt:13.0.0
 
 - tree: packages/atoms/base-xorg
+  mutations:
+    # Needed to manage upgrade from 1.4-funtoo
+    provides:
+      - category: sys-libs-7
+        name: libunwind
+        version: 1.6.2
   uses:
     disabled:
     - nios2
