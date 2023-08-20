@@ -1,4 +1,10 @@
 prelude:
+# Temporary patch the ebuild to using LLVM 13
+- >-
+  sed -e 's|^LLVM_MAX_SLOT=.|LLVM_MAX_SLOT=13|g'
+  -e 's|sys-devel/llvm:12|sys-devel/llvm:13|g'
+  -e 's|sys-devel/clang:12|sys-devel/clang:13|g' -i
+  /var/git/meta-repo/kits/browser-kit/dev-lang/spidermonkey/spidermonkey-78.15.0-r1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
