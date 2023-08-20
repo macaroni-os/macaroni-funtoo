@@ -1,4 +1,11 @@
 prelude:
+# elogid has a build cycle with dbus that need elogin too. So, I just force
+# building of dbus without elogind and avoid to inject consolekit when the
+# polkit[elogind] is not set. Really, I hate cross referenced packages.
+- >-
+  eval 'mkdir -p /etc/portage/package.use || true' &&
+  echo "sys-auth/polkit elogind" > /etc/portage/package.use/00-elogind-macaroni.use &&
+  USE="X" emerge sys-apps/dbus -t -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
