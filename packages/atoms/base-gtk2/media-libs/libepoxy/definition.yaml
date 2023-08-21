@@ -1,0 +1,33 @@
+name: libepoxy
+version: 1.5.4
+category: media-libs
+use_flags:
+- X
+requires:
+- name: mesa
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Epoxy is a library for handling OpenGL function pointer management for
+  you
+uri:
+- https://github.com/anholt/libepoxy
+license: MIT
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: '|| ( dev-lang/python:3.10[xml(+)] >=dev-lang/python-2.7.5-r2:2.7[xml(+)]
+    dev-lang/python:3.8[xml(+)] dev-lang/python:3.9[xml(+)] dev-lang/python:3.7[xml(+)]
+    ) media-libs/mesa[egl] virtual/opengl X? ( x11-libs/libX11 ) virtual/pkgconfig'
+  IUSE: +X
+  RDEPEND: media-libs/mesa[egl]
+  emerge.packages: media-libs/libepoxy
+  kit: core-gl-kit
+  original.package.name: media-libs/libepoxy
+  original.package.slot: "0"
+  original.package.version: 1.5.4
