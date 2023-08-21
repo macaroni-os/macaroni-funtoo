@@ -1,0 +1,30 @@
+name: noto
+version: "20220524"
+category: media-fonts
+use_flags:
+- X
+- cjk
+requires:
+- name: noto-cjk
+  version: '>=0'
+  category: media-fonts
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Google's font family that aims to support all the world's languages
+uri:
+- https://www.google.com/get/noto/ https://github.com/googlefonts/noto-fonts
+license: OFL-1.1
+labels:
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: cjk +extra X
+  RDEPEND: cjk? ( media-fonts/noto-cjk )
+  emerge.packages: media-fonts/noto
+  kit: media-kit
+  original.package.name: media-fonts/noto
+  original.package.slot: "0"
+  original.package.version: "20220524"
