@@ -382,11 +382,38 @@ artefacts:
       packages:
         - category: dev-lang-0.54
           name: vala
+  packages:
+    - app-arch/gcab
+
+- tree: packages/atoms/base-gtk2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang-0.54
+          name: vala
   uses:
     disabled:
       - test
   packages:
     - gnome-base/dconf
+
+- tree: packages/atoms/base-gtk2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
+  packages:
+    - app-arch/zopfli
+    - dev-libs/snowball-stemmer
+
+- tree: packages/atoms/base-gtk2
+  uses:
+    disabled:
+      - buildfont
+  packages:
+    - media-fonts/noto-emoji
+    - media-fonts/cantarell
 
 include_layers:
 - layers/macaroni-funtoo-race7.yaml
