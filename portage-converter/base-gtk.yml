@@ -103,9 +103,7 @@ artefacts:
   - media-libs/jasper
   - x11-libs/gdk-pixbuf
   - dev-libs/atk
-  - dev-libs/libcroco
   - dev-util/gtk-update-icon-cache
-  - media-libs/libepoxy
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -129,16 +127,6 @@ artefacts:
     - python_single_target_python3_9
   packages:
   - net-libs/libpsl
-
-- tree: packages/atoms/base-gtk
-  uses:
-    disabled:
-    - doc
-    - test
-    - tools
-    - vala
-  packages:
-    - gnome-base/librsvg
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -248,80 +236,7 @@ artefacts:
   packages:
   - app-accessibility/at-spi2-atk:2
 
-- tree: packages/atoms/base-gtk
-  uses:
-    disabled:
-    - devil
-    - doc
-    - examples
-    - gdk-pixbuf
-    - gts
-    - guile
-    - java
-    - lasi
-    - nios2
-    - perl
-    - postscript
-    - python_single_target_python2_7
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_single_target_python3_9
-    - python_targets_python2_7
-    - python_targets_python3_8
-    - python_targets_python3_7
-    - python_targets_python3_9
-    - qt5
-    - ruby
-    - sh
-    - static-libs
-    - tcl
-    enabled:
-    - X
-    - cairo
-    - gtk
-    - nls
-    - pdf
-    - python
-    - python_single_target_python3_9
-    - python_targets_python3_9
-    - svg
-  packages:
-  - media-gfx/graphviz
 
-- tree: packages/atoms/base-gtk
-  mutations:
-    runtime_deps:
-      packages:
-        - category: macaroni
-          name: entities-catalog
-        - category: macaroni
-          name: whip-catalog
-  uses:
-    disabled:
-    - argyllcms
-    - examples
-    - extra-print-profiles
-    - nios2
-    - scanner
-    - sh
-    - systemd
-    - vala
-    enabled:
-    - gusb
-    - introspection
-    - policykit
-    - udev
-  packages:
-  - x11-misc/colord
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    install:
-      - >-
-        entities merge --specs-dir /usr/share/macaroni/entities/
-        -e colord &&
-        eval 'whip hook colord.colord_setup || true'
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -340,35 +255,6 @@ artefacts:
 
 
 
-- tree: packages/atoms/base-gtk
-  replacements:
-    runtime_deps:
-      ignore:
-        - category: app-text
-          name: qpdf
-    # Break build cycle
-    buildtime_deps:
-      ignore:
-        - category: app-text
-          name: qpdf
-  uses:
-    disabled:
-    - ldap
-    - nios2
-    - pclm
-    - perl
-    - sh
-    - test
-    enabled:
-    - dbus
-    - foomatic
-    - jpeg
-    - png
-    - postscript
-    - tiff
-    - zeroconf
-  packages:
-  - net-print/cups-filters
 
 - tree: packages/atoms/base-gtk
   mutations:
@@ -406,51 +292,6 @@ artefacts:
   packages:
   - app-text/ghostscript-gpl
 
-- tree: packages/atoms/base-gtk
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race6
-  uses:
-    disabled:
-    - abi_mips_n32
-    - abi_mips_n64
-    - abi_mips_o32
-    - abi_s390_32
-    - abi_s390_64
-    - abi_x86_32
-    - abi_x86_x32
-    - doc
-    - examples
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - abi_x86_64
-  packages:
-  - dev-libs/libdaemon
-
-- tree: packages/atoms/base-gtk
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race6
-  uses:
-    disabled:
-    - debug
-    - libressl
-    - nios2
-    - sh
-    - static-libs
-    - test
-    enabled:
-    - abi_x86_64
-    - ssl
-    - threads
-  packages:
-  - dev-libs/libevent
 
 - tree: packages/atoms/base-gtk
   mutations:
@@ -517,77 +358,6 @@ artefacts:
 - tree: packages/atoms/base-gtk
   uses:
     disabled:
-    - aqua
-    - broadway
-    - examples
-    - nios2
-    - sh
-    - test
-    - vim-syntax
-    enabled:
-    - wayland
-    - X
-    - cloudprint
-    - colord
-    - cups
-    - doc
-    - introspection
-    - xinerama
-  packages:
-  - x11-libs/gtk+:2
-  - x11-libs/gtk+:3
-
-- tree: packages/atoms/base-gtk
-  mutations:
-    runtime_deps:
-      packages:
-        - category: macaroni
-          name: entities-catalog
-    uses:
-      - python_targets_python3_7
-      - -python_targets_python3_8
-  uses:
-    disabled:
-    - autoipd
-    - bookmarks
-    - doc
-    - howl-compat
-    - mono
-    - nios2
-    - python_single_target_python3_8
-    - python_single_target_python3_7
-    - python_targets_python3_8
-    - python_targets_python3_7
-    - selinux
-    - sh
-    - systemd
-    - test
-    enabled:
-    - dbus
-    - gdbm
-    - gtk
-    - introspection
-    - ipv6
-    - mdnsresponder-compat
-    - nls
-    - python
-    - python_single_target_python3_9
-    - python_targets_python3_9
-    #- qt5
-  packages:
-  - net-dns/avahi
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    install:
-      - >-
-        entities merge --specs-dir /usr/share/macaroni/entities/
-        -e avahi
-
-- tree: packages/atoms/base-gtk
-  uses:
-    disabled:
     - abi_mips_n32
     - abi_mips_n64
     - abi_mips_o32
@@ -631,12 +401,6 @@ artefacts:
     - net-libs/libpcap
 
 
-- tree: packages/atoms/base-gtk
-  uses:
-    disabled:
-      - test
-  packages:
-    - gnome-base/dconf
 
 - tree: packages/atoms/base-gtk
   uses:
