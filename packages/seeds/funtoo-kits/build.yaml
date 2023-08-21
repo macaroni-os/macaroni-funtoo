@@ -49,5 +49,12 @@ prelude:
 # Permit using vala 0.54
 - sed -i -e 's|0.50|0.54|g'  /var/git/meta-repo/kits/core-kit/eclass/vala.eclass
 
+# Drop pam/elogind dependencies cross referencies
+- >-
+  sed -i -e 's|elogind? ( .* )||g' -e 's|elogind||g' /var/git/meta-repo/kits/core-kit/sys-libs/pam-*.ebuild &&
+  sed -i -e '/sys-libs\/pam\[elogind\]/d' core-gl-kit/x11-base/xorg-server/xorg-server-*.ebuild
+
+
+
 # Drop package.mask with elogind use flag for x11-misc/sddm
 - rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
