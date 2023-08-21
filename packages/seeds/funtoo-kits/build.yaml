@@ -52,7 +52,12 @@ prelude:
 # Drop pam/elogind dependencies cross referencies
 - >-
   sed -i -e 's|elogind? ( .* )||g' -e 's|elogind||g' /var/git/meta-repo/kits/core-kit/sys-libs/pam-*.ebuild &&
-  sed -i -e '/sys-libs\/pam\[elogind\]/d' core-gl-kit/x11-base/xorg-server/xorg-server-*.ebuild
+  sed -i -e '/sys-libs\/pam\[elogind\]/d' /var/git/meta-repo/kits/core-gl-kit/x11-base/xorg-server/xorg-server-*.ebuild
+
+# Fix typo on x11-base/xorg-drivers ebuild
+- >-
+  sed -i -e 's|xf86-video-vboxvideo|xf86-video-vbox|g'
+  /var/git/meta-repo/kits/core-gl-kit/x11-base/xorg-drivers/xorg-drivers-*.ebuild
 
 
 
