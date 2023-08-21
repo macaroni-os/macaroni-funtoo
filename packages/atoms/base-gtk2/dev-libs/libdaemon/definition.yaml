@@ -1,0 +1,25 @@
+name: libdaemon
+version: "0.14"
+category: dev-libs
+use_flags:
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple library for creating daemon processes in C
+uri:
+- http://0pointer.de/lennart/projects/libdaemon/
+license: LGPL-2.1
+labels:
+  DEPEND: doc? ( app-doc/doxygen )
+  IUSE: doc examples static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  emerge.packages: dev-libs/libdaemon
+  kit: dev-kit
+  original.package.name: dev-libs/libdaemon
+  original.package.slot: "0"
+  original.package.version: 0.14-r3
