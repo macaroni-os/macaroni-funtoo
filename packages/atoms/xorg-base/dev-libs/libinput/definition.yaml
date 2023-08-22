@@ -1,0 +1,62 @@
+name: libinput
+version: 1.19.4
+category: dev-libs
+use_flags:
+- -doc
+- input_devices_wacom
+requires:
+- name: libevdev
+  version: '>=0'
+  category: dev-libs
+- name: libwacom
+  version: '>=0'
+  category: dev-libs
+- name: mtdev
+  version: '>=0'
+  category: sys-libs
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library to handle input devices in Wayland
+uri:
+- https://www.freedesktop.org/wiki/Software/libinput/ https://gitlab.freedesktop.org/libinput/libinput
+license: MIT
+labels:
+  BDEPEND: virtual/pkgconfig doc? ( || ( ( dev-lang/python:3.10 dev-python/commonmark[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/recommonmark[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/sphinx[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    >=dev-python/sphinx_rtd_theme-0.2.4[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/commonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    dev-python/recommonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    dev-python/sphinx[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    >=dev-python/sphinx_rtd_theme-0.2.4[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/commonmark[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    dev-python/recommonmark[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    dev-python/sphinx[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    >=dev-python/sphinx_rtd_theme-0.2.4[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/commonmark[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    dev-python/recommonmark[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    dev-python/sphinx[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    >=dev-python/sphinx_rtd_theme-0.2.4[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) >=app-doc/doxygen-1.8.3 >=media-gfx/graphviz-2.38.0 ) >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 virtual/pkgconfig
+  DEPEND: input_devices_wacom? ( >=dev-libs/libwacom-0.27 ) >=dev-libs/libevdev-1.9
+    >=sys-libs/mtdev-1.1 virtual/libudev:= virtual/udev
+  IUSE: doc input_devices_wacom
+  RDEPEND: input_devices_wacom? ( >=dev-libs/libwacom-0.27 ) >=dev-libs/libevdev-1.9
+    >=sys-libs/mtdev-1.1 virtual/libudev:= virtual/udev
+  emerge.packages: dev-libs/libinput
+  kit: gnome-kit
+  original.package.name: dev-libs/libinput
+  original.package.slot: "0"
+  original.package.version: 1.19.4
