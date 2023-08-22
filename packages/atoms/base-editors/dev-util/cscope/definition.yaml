@@ -1,0 +1,32 @@
+name: cscope
+version: "15.9"
+category: dev-util
+use_flags:
+- -emacs
+requires:
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Interactively examine a C program
+uri:
+- http://cscope.sourceforge.net/
+license: BSD GPL-2+
+labels:
+  BDEPEND: sys-devel/flex virtual/pkgconfig virtual/yacc >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: '>=sys-libs/ncurses-5.2:0= emacs? ( virtual/emacs )'
+  IUSE: emacs
+  RDEPEND: '>=sys-libs/ncurses-5.2:0= emacs? ( virtual/emacs )'
+  emerge.packages: dev-util/cscope
+  kit: dev-kit
+  original.package.name: dev-util/cscope
+  original.package.slot: "0"
+  original.package.version: "15.9"
