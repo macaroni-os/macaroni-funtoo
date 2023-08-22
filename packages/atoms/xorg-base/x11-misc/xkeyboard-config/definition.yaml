@@ -1,0 +1,23 @@
+name: xkeyboard-config
+version: "2.24"
+category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X keyboard configuration database
+uri:
+- https://www.freedesktop.org/wiki/Software/XKeyboardConfig
+license: MIT
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: dev-util/intltool sys-devel/gettext
+  RDEPEND: '!<x11-apps/xkbcomp-1.2.3 !<x11-libs/libX11-1.4.3'
+  emerge.packages: x11-misc/xkeyboard-config
+  kit: core-gl-kit
+  original.package.name: x11-misc/xkeyboard-config
+  original.package.slot: "0"
+  original.package.version: 2.24-r1
