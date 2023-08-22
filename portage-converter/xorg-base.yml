@@ -1,0 +1,428 @@
+skipped_resolutions:
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+    - name: cdrtools
+      category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    # virtual/source is managed by kernel.yaml
+    - name: linux-sources
+      category: virtual
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
+    - name: eselect-lib-bin-symlink
+      category: app-eselect
+
+
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - doc
+  packages:
+  - sys-libs/mtdev
+  - x11-apps/xauth
+  - x11-libs/libxkbfile
+  - dev-libs/libevdev
+  - x11-apps/iceauth
+  - x11-apps/rgb
+  - x11-libs/libXfont2
+  - x11-misc/xkeyboard-config
+  - x11-apps/xrdb
+  - x11-apps/xkbcomp
+  - x11-apps/xinit
+
+  - x11-apps/sessreg
+  - x11-apps/appres
+  - x11-apps/bitmap
+  - x11-apps/luit:0
+  - x11-apps/mesa-progs:0
+  - x11-apps/setxkbmap:0
+  - x11-apps/smproxy:0
+  - x11-apps/x11perf:0
+  - x11-apps/xbacklight:0
+  - x11-apps/xcmsdb:0
+  - x11-apps/xcursorgen:0
+  - x11-apps/xdpyinfo:0
+  - x11-apps/xdriinfo:0
+  - x11-apps/xev:0
+  - x11-apps/xf86dga:0
+  - x11-apps/xgamma:0
+  - x11-apps/xhost:0
+  - x11-apps/xinput:0
+  - x11-apps/xkbevd:0
+  - x11-apps/xkbutils:0
+  - x11-apps/xkill:0
+  - x11-apps/xlsatoms:0
+  - x11-apps/xlsclients:0
+  - x11-apps/xmessage:0
+  - x11-apps/xmodmap:0
+  - x11-apps/xpr:0
+
+  - x11-apps/xrandr:0
+  - x11-apps/xrdb:0
+  - x11-apps/xrefresh:0
+  - x11-apps/xsetroot:0
+  - x11-apps/xvinfo:0
+  - x11-apps/xwd:0
+  - x11-apps/xwininfo:0
+  - x11-apps/xwud:0
+
+  - x11-libs/libXpresent:0
+  - x11-libs/libXres:0
+  - x11-libs/libXxf86dga:0
+  - x11-libs/libXxf86misc:0
+  - x11-libs/libcryptui:0
+
+  - x11-libs/xcb-util-cursor:0
+  - x11-libs/xcb-util-image:0
+  - x11-libs/xcb-util-keysyms:0
+  - x11-libs/xcb-util-renderutil:0
+  - x11-libs/xcb-util-wm:0
+  - x11-libs/xcb-util:0
+
+  - app-text/rarian
+
+  - x11-drivers/xf86-input-evdev
+  - x11-drivers/xf86-input-keyboard
+  - x11-drivers/xf86-input-libinput
+  - x11-drivers/xf86-input-mouse
+  - x11-drivers/xf86-input-synaptics
+  - x11-drivers/xf86-input-vmmouse
+  - x11-drivers/xf86-input-wacom
+
+  - x11-drivers/xf86-video-amdgpu
+  - x11-drivers/xf86-video-fbdev
+  - x11-drivers/xf86-video-nouveau
+  - x11-drivers/xf86-video-vmware
+
+
+  - x11-misc/xdg-user-dirs-gtk
+  - x11-misc/xdg-user-dirs:0
+  - x11-misc/xorg-cf-files:0
+
+  - x11-themes/sound-theme-freedesktop:0
+  - x11-themes/xcursor-themes:0
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - test
+    enabled:
+    - gtk
+    - introspection
+    - vala
+  packages:
+  - app-crypt/gcr
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - doc
+  packages:
+    - app-eselect/eselect-notify-send
+    - app-text/docbook-xsl-ns-stylesheets
+    - dev-libs/tinyxml
+    - x11-misc/util-macros
+    - x11-misc/xbitmaps:0
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - test
+    enabled:
+    - glamor
+    - udev
+  packages:
+  - x11-drivers/xf86-video-ati
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - dmx
+    - doc
+    - libressl
+    - minimal
+    - nios2
+    - selinux
+    - sh
+    - static-libs
+    - unwind
+    - wayland
+    - xcsecurity
+    - xvfb
+    enabled:
+    - xephyr
+    - xnest
+    - glamor
+    - glvnd
+    - ipv6
+    - kdrive
+    - udev
+    - xorg
+  packages:
+  - x11-base/xorg-server
+
+include_layers:
+- layers/macaroni-funtoo-race8.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+    - sys-devel/llvm:13
+    - dev-lang/vala:0.54
+
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
+
+reposcan_disabled_use_flags:
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - systemd
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
