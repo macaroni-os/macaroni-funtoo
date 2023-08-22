@@ -1,0 +1,27 @@
+name: gentoo-syntax
+version: "20190609"
+category: app-vim
+requires:
+- name: vim
+  version: '>=0'
+  category: app-editors
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 'vim plugin: Gentoo and Portage syntax highlighting'
+uri:
+- https://github.com/gentoo/gentoo-syntax
+license: vim
+labels:
+  DEPEND: '|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )'
+  IUSE: ignore-glep31
+  RDEPEND: '|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )'
+  emerge.packages: app-vim/gentoo-syntax
+  kit: editors-kit
+  original.package.name: app-vim/gentoo-syntax
+  original.package.slot: "0"
+  original.package.version: "20190609"
