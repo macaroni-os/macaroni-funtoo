@@ -1,125 +1,206 @@
 artefacts:
-- tree: atoms/base
-  packages:
-  - app-misc/editor-wrapper
-  - app-text/docbook-xml-dtd:4.1.2
-  - app-text/docbook-xml-dtd:4.2
-  - app-text/docbook-xml-dtd:4.3
-  - app-text/docbook-xml-dtd:4.4
-  - app-text/docbook-xml-dtd:4.5
-  - dev-libs/libltdl
-  - net-misc/ifenslave
-  - sys-kernel/genkernel
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
-    - audit
-    - debug
-    - netifrc
-    - newnet
+    - dbus
+    - fam
+    - gtk-doc
     - nios2
     - selinux
     - sh
-    - static-libs
-    - zsh-completion
+    - systemtap
+    - test
     enabled:
-    - bash
-    - ncurses
-    - pam
-    - unicode
+    - mime
+    - static-libs
+    - xattr
   packages:
-  - sys-apps/openrc
-- tree: atoms/base
+  - dev-libs/glib:2
+- tree: packages/atoms/base
   uses:
     disabled:
-    - apidoc
-    - build
-    - doc
-    - gentoo-dev
+    - examples
     - nios2
+    - python_targets_pypy3
+    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_7
     - python_targets_python3_8
-    - rsync-verify
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/ply
+  - dev-python/pyelftools
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - privsep
+    - sh
+    enabled:
+    - embedded
+    - ipv6
+    - udev
+  packages:
+  - net-misc/dhcpcd
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - clockdiff
+    - doc
+    - gcrypt
+    - idn
+    - nettle
+    - nios2
+    - rarpd
+    - rdisc
+    - sh
+    - static
+    - test
+    - tftpd
+    - tracepath
+    - traceroute6
+    enabled:
+    - arping
+    - caps
+    - filecaps
+    - ipv6
+    - nls
+    - ssl
+  packages:
+  - net-misc/iputils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
     - selinux
     - sh
+    - static
     - test
     enabled:
-    - ipc
-    - native-extensions
-    - python_targets_python3_9
-    - xattr
-  packages:
-  - sys-apps/portage
-- tree: atoms/base
-  uses:
-    disabled:
-    - minimal
-    - nios2
-    - sh
-  packages:
-  - virtual/ssh
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - extra-filters
     - nls
-    - split-usr
   packages:
-  - app-arch/xz-utils
-- tree: atoms/base
+  - sys-apps/findutils
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
     - sh
     - static
+    - test
     enabled:
+    - xattr
+  packages:
+  - sys-devel/patch
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - test
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - app-portage/gentoolkit
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - afs
+    - bashlogger
+    - examples
+    - mem-scramble
+    - nios2
+    - plugins
+    - sh
+    enabled:
+    - net
     - nls
-    - openmp
-    - qmanifest
-    - qtegrity
+    - readline
   packages:
-  - app-portage/portage-utils
-- tree: atoms/base
+  - app-shells/bash
+- tree: packages/atoms/base
   uses:
     disabled:
-    - cpu_flags_arm_aes
-    - cpu_flags_arm_neon
-    - cpu_flags_arm_sha1
-    - cpu_flags_arm_sha2
-    - cpu_flags_ppc_altivec
-    - cpu_flags_ppc_vsx2
-    - cpu_flags_ppc_vsx3
-    - cpu_flags_x86_aes
-    - cpu_flags_x86_avx
-    - cpu_flags_x86_avx2
-    - cpu_flags_x86_padlock
-    - cpu_flags_x86_sha
-    - cpu_flags_x86_sse4_1
-    - doc
+    - clvm
+    - cman
+    - corosync
+    - device-mapper-only
+    - lvm1
+    - lvm2create_initrd
     - nios2
+    - openais
+    - sanlock
+    - selinux
     - sh
     - static-libs
+    - systemd
     enabled:
-    - asm
+    - readline
+    - static
+    - thin
+    - udev
   packages:
-  - dev-libs/libgcrypt
-- tree: atoms/base
+  - sys-fs/lvm2
+- tree: packages/atoms/base
   uses:
     disabled:
+    - ada
+    - debug
+    - doc
+    - gpm
+    - minimal
     - nios2
+    - profile
     - sh
     - static-libs
+    - test
+    - trace
+    enabled:
+    - cxx
+    - split-usr
+    - tinfo
+    - unicode
   packages:
-  - dev-libs/libksba
-  - dev-libs/libuv
-  - net-dns/libidn2
-  - virtual/acl
-- tree: atoms/base
+  - sys-libs/ncurses
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - caps
+    - debug
+    - nios2
+    - python_single_target_python2_7
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - seccomp
+    - sh
+    enabled:
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_9
+  packages:
+  - app-misc/pax-utils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - emacs
+    - nios2
+    - sh
+    - test
+    - vim-syntax
+  packages:
+  - dev-util/ninja
+- tree: packages/atoms/base
   uses:
     disabled:
     - kerberos
@@ -131,86 +212,7 @@ artefacts:
     - split-usr
   packages:
   - net-libs/libtirpc
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - vanilla
-  packages:
-  - sys-devel/libtool:2
-- tree: atoms/base
-  uses:
-    disabled:
-    - introspection
-    - nios2
-    - selinux
-    - sh
-    - test
-    - user
-    enabled:
-    - hwdb
-    - kmod
-    - rule-generator
-    - static-libs
-  packages:
-  - sys-fs/eudev
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static-libs
-    - utils
-    enabled:
-    - split-usr
-    - unicode
-  packages:
-  - sys-libs/readline
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - ssl
-  packages:
-  - virtual/perl-libnet
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - unicode
-  packages:
-  - dev-libs/expat
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-  packages:
-  - dev-perl/TermReadKey
-  - dev-util/boost-build
-- tree: atoms/base
-  uses:
-    disabled:
-    - conntrack
-    - netlink
-    - nftables
-    - nios2
-    - pcap
-    - sh
-    - static-libs
-    enabled:
-    - ipv6
-  packages:
-  - net-firewall/iptables
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
     - X
@@ -237,174 +239,197 @@ artefacts:
     - ssl
   packages:
   - net-misc/openssh
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
-    - debug
+    - cvs
+    - doc
+    - emacs
+    - git
+    - java
     - nios2
     - sh
-    enabled:
-    - threads
-  packages:
-  - dev-lang/tcl
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - privsep
-    - sh
-    enabled:
-    - embedded
-    - ipv6
-    - udev
-  packages:
-  - net-misc/dhcpcd
-- tree: atoms/base
-  uses:
-    disabled:
-    - cookie-check
-    - debug
-    - gnutls
-    - idn
-    - metalink
-    - nios2
-    - ntlm
-    - sh
-    - static
-    - test
-    - uuid
-    enabled:
-    - ipv6
-    - nls
-    - pcre
-    - ssl
-    - zlib
-  packages:
-  - net-misc/wget
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - selinux
-    - sh
-    - static
-    - test
-    enabled:
-    - nls
-  packages:
-  - sys-apps/findutils
-- tree: atoms/base
-  uses:
-    disabled:
-    - forced-sandbox
-    - libedit
-    - nios2
-    - sh
-    - static
-    enabled:
-    - readline
-  packages:
-  - sys-devel/bc
-- tree: atoms/base
-  uses:
-    disabled:
-    - gmp
-    - hostname
-    - kill
-    - multicall
-    - nios2
-    - selinux
-    - sh
-    - static
-    - test
-    - vanilla
     enabled:
     - acl
-    - caps
+    - cxx
+    - ncurses
     - nls
-    - split-usr
-    - xattr
-  packages:
-  - sys-apps/coreutils
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - selinux
-    - sh
+    - openmp
     - static-libs
-    enabled:
-    - manpager
-    - nls
-    - seccomp
-    - zlib
   packages:
-  - sys-apps/man-db
-- tree: atoms/base
+  - sys-devel/gettext
+- tree: packages/atoms/base
   uses:
     disabled:
-    - afs
-    - bashlogger
+    - cpu_flags_arm_v7
+    - doc
     - examples
-    - mem-scramble
+    - java
     - nios2
-    - plugins
     - sh
+    - tcl
+    - test
     enabled:
-    - net
-    - nls
-    - readline
+    - cxx
   packages:
-  - app-shells/bash
-- tree: atoms/base
+  - sys-libs/db:18.1
+- tree: packages/atoms/base
   uses:
     disabled:
-    - hwloc
+    - leaps-timezone
     - nios2
     - sh
-    - tests
-    - valgrind
+    enabled:
+    - nls
   packages:
-  - dev-cpp/tbb
-- tree: atoms/base
+  - sys-libs/timezone-data
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - minizip
+    - static-libs
+  packages:
+  - sys-libs/zlib
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - minimal
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/YAML-Tiny
+- tree: packages/atoms/base
   uses:
     disabled:
     - debug
     - doc
-    - examples
+    - emacs
+    - nios2
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_single_target_python3_9
+    - python_targets_python3_9
+  packages:
+  - dev-util/gtk-doc
+- tree: packages/atoms/base
+  uses:
+    disabled:
     - nios2
     - sh
     - static-libs
+    enabled:
+    - extra-filters
+    - nls
+    - split-usr
   packages:
-  - dev-libs/icu
-- tree: atoms/base
+  - app-arch/xz-utils
+- tree: packages/atoms/base
   uses:
     disabled:
-    - cpu_flags_arm_neon
-    - cpu_flags_x86_aes
-    - cpu_flags_x86_sha
-    - doc
     - nios2
     - sh
     - static-libs
     - test
-    enabled:
-    - asm
-    - gmp
   packages:
-  - dev-libs/nettle
-- tree: atoms/base
+  - dev-libs/libaio
+  - dev-libs/libpipeline
+- tree: packages/atoms/base
   uses:
     disabled:
-    - cacert
+    - emacs
+    - nios2
+    - sh
+  packages:
+  - dev-util/desktop-file-utils
+  - sys-devel/autoconf:2.69
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - atm
+    - bpf
+    - caps
+    - elf
+    - libbsd
+    - minimal
+    - nios2
+    - selinux
+    - sh
+    enabled:
+    - berkdb
+    - iptables
+    - ipv6
+  packages:
+  - sys-apps/iproute2
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - berkdb
+    - nls
+    - readline
+  packages:
+  - sys-libs/gdbm
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - zsh-completion
+    enabled:
+    - python_single_target_python3_9
+    - python_targets_python3_9
+  packages:
+  - app-admin/ego
+- tree: packages/atoms/base
+  uses:
+    disabled:
     - nios2
     - sh
     enabled:
-    - utils
+    - nls
   packages:
-  - dev-libs/nss
-- tree: atoms/base
+  - app-arch/cpio
+  - sys-apps/help2man
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/appi
+  - dev-python/charset_normalizer
+  - dev-python/flit_core
+  - dev-python/gpep517
+  - dev-python/semantic_version
+  - dev-python/setuptools-rust
+  - dev-python/tomli
+  - dev-python/typing-extensions
+  - dev-util/meson
+- tree: packages/atoms/base
   uses:
     disabled:
     - dane
@@ -430,7 +455,7 @@ artefacts:
     - tls-heartbeat
   packages:
   - net-libs/gnutls
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -442,93 +467,209 @@ artefacts:
     - usb
   packages:
   - sys-apps/hwids
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
-    - dns
+    - ibm
     - nios2
+    - selinux
     - sh
-    - static-libs
-    enabled:
-    - kmod
-    - udev
-    - zlib
+    - static
   packages:
-  - sys-apps/pciutils
-- tree: atoms/base
-  uses:
-    disabled:
-    - natspec
-    - nios2
-    - sh
-    enabled:
-    - bzip2
-    - unicode
-  packages:
-  - app-arch/unzip
-- tree: atoms/base
-  uses:
-    disabled:
-    - native-cflags
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - openmp
-  packages:
-  - app-crypt/libb2
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static-libs
-    - test
-  packages:
-  - dev-libs/libaio
-  - dev-libs/libpipeline
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-  packages:
-  - dev-libs/nspr
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - libressl
-    - minimal
-    - nios2
-    - sh
-    - test
-  packages:
-  - dev-perl/Net-SSLeay
-- tree: atoms/base
+  - sys-apps/sysvinit
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
     - sh
     - static
     enabled:
-    - installkernel
+    - nls
+    - standalone
   packages:
-  - sys-apps/debianutils
-- tree: atoms/base
+  - sys-apps/texinfo
+- tree: packages/atoms/base
   uses:
     disabled:
-    - common-lisp
     - nios2
     - sh
-    - static-libs
+    - static
     - test
     enabled:
     - nls
   packages:
-  - dev-libs/libgpg-error
-- tree: atoms/base
+  - sys-devel/flex
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+    enabled:
+    - asn1
+    - libffi
+    - trust
+  packages:
+  - app-crypt/p11-kit
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - ruby
+    - sh
+  packages:
+  - app-text/docbook-xsl-stylesheets
+- tree: packages/atoms/base
+  replacements:
+    # Break cycle and avoid inject of python
+    # stuff for normal use
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.9
+        - category: dev-lang-2
+          name: python-exec
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    enabled:
+    - nls
+    - python
+    - python_targets_python3_9
+    - split-usr
+    - zlib
+  packages:
+  - sys-libs/cracklib
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - udev
+  packages:
+  - virtual/libusb:1
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_pypy3
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/commonmark
+  - dev-python/setuptools
+  - dev-python/snowballstemmer
+  - dev-python/toml
+  - dev-python/urllib3
+  - dev-python/wheel
+  - dev-python/zipp
+  - virtual/python-enum34
+  - virtual/python-ipaddress
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - net-libs/libmnl
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - lzma
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - seccomp
+    - sh
+    - static-libs
+    enabled:
+    - bzip2
+    - python
+    - python_targets_python3_9
+    - zlib
+  packages:
+  - sys-apps/file
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - utils
+    enabled:
+    - split-usr
+    - unicode
+  packages:
+  - sys-libs/readline
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - X
+    - nios2
+    - selinux
+    - sh
+    enabled:
+    - ipv6
+    - nls
+  packages:
+  - sys-process/psmisc
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - justify
+    - minimal
+    - nios2
+    - sh
+    - static
+    enabled:
+    - magic
+    - ncurses
+    - nls
+    - spell
+    - unicode
+  packages:
+  - app-editors/nano
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - app-text/po4a
+  - dev-libs/npth
+  - dev-perl/Error
+  - dev-perl/Module-Build
+  - dev-perl/Pod-Parser
+  - sys-devel/automake:1.16
+  - x11-misc/shared-mime-info
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - ccache
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - pcre
+  packages:
+  - dev-lang/swig
+- tree: packages/atoms/base
   uses:
     disabled:
     - libedit
@@ -547,580 +688,61 @@ artefacts:
     - zlib
   packages:
   - dev-libs/libpcre:3
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
-    - debug
-    - doc
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - static-libs
-    - zstd
-    enabled:
-    - lzma
-    - pkcs7
-    - python
-    - python_targets_python3_9
-    - tools
-    - zlib
-  packages:
-  - sys-apps/kmod
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static
-    enabled:
-    - nls
-    - standalone
-  packages:
-  - sys-apps/texinfo
-- tree: atoms/base
-  uses:
-    disabled:
-    - libedit
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - icu
-    - nls
-    - readline
-  packages:
-  - sys-fs/xfsprogs
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - pam
-    - static-libs
-  packages:
-  - sys-libs/libcap
-- tree: atoms/base
-  uses:
-    disabled:
-    - elogind
-    - modern-top
     - nios2
     - selinux
     - sh
-    - static-libs
-    - systemd
-    - test
-    enabled:
-    - kill
-    - ncurses
-    - nls
-    - split-usr
-    - unicode
   packages:
-  - sys-process/procps
-- tree: atoms/base
+  - net-dns/openresolv
+  - net-misc/bridge-utils
+  - sys-apps/systemd-tmpfiles
+- tree: packages/atoms/base
   uses:
     disabled:
-    - doc
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - test
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/cffi
-  - dev-python/six
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static
-    enabled:
-    - nls
-    - pcre
-  packages:
-  - sys-apps/grep
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - pcre
-    - unicode
-  packages:
-  - sys-apps/less
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    enabled:
-    - nls
-  packages:
-  - sys-devel/m4
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - static-libs
-    enabled:
-    - nls
-    - python
-    - python_targets_python3_9
-    - split-usr
-    - zlib
-  packages:
-  - sys-libs/cracklib
-- tree: atoms/base
-  uses:
-    disabled:
-    - clippy
-    - doc
-    - nios2
-    - rust-src
-    - rustfmt
-    - sh
-    - wasm
-    enabled:
-    - cpu_flags_x86_sse2
-  packages:
-  - dev-lang/rust-bin:stable
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - nls
-  packages:
-  - dev-libs/popt
-  - sys-apps/acl
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_single_target_python2_7
-    - python_single_target_python3_10
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_single_target_python3_9
-    - python_targets_python3_9
-  packages:
-  - dev-util/gdbus-codegen
-  - dev-util/itstool
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
     - doc
     - emacs
     - nios2
-    - python_single_target_python3_10
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
     - sh
-    enabled:
-    - python_single_target_python3_9
-    - python_targets_python3_9
+    - vim-syntax
   packages:
-  - dev-util/gtk-doc
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_single_target_python3_10
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python
-    - python_single_target_python3_9
-    - python_targets_python3_9
-  packages:
-  - sys-apps/usbutils
-- tree: atoms/base
-  uses:
-    disabled:
-    - leaps-timezone
-    - nios2
-    - sh
-    enabled:
-    - nls
-  packages:
-  - sys-libs/timezone-data
-- tree: atoms/base
-  uses:
-    disabled:
-    - caps
-    - debug
-    - nios2
-    - python_single_target_python2_7
-    - python_single_target_python3_10
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - seccomp
-    - sh
-    enabled:
-    - python
-    - python_single_target_python3_9
-    - python_targets_python3_9
-  packages:
-  - app-misc/pax-utils
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - pic
-    - sh
-    enabled:
-    - asm
-    - cpudetection
-    - cxx
-    - static-libs
-  packages:
-  - dev-libs/gmp
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static-libs
-    - test
-    - valgrind
-  packages:
-  - dev-libs/libtasn1
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - test
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/certifi
-  - dev-python/imagesize
-  - dev-python/pycparser
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - idna
-    - libressl
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - cpu_flags_x86_sse2
-    - python_targets_python3_9
-  packages:
-  - dev-python/cryptography
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - examples
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/jinja
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - socks5
-    enabled:
-    - python_targets_python3_9
-    - ssl
-  packages:
-  - dev-python/requests
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static
-    enabled:
-    - ncurses
-  packages:
-  - sys-apps/gptfdisk
-- tree: atoms/base
-  uses:
-    disabled:
-    - headers-only
-    - nios2
-    - sh
-  packages:
-  - sys-kernel/linux-headers
-- tree: atoms/base
-  uses:
-    disabled:
-    - lz4
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - threads
-  packages:
-  - app-arch/zstd
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - ldap
-    - nios2
-    - selinux
-    - sh
-    - test
-    - tools
-    - tpm
-    - usb
-    - user-socket
-    - wks-server
-    enabled:
-    - bzip2
-    - nls
-    - readline
-    - smartcard
-    - ssl
-    - tofu
-  packages:
-  - app-crypt/gnupg
-- tree: atoms/base
+  - app-admin/eselect
+- tree: packages/atoms/base
   uses:
     disabled:
     - doc
     - nios2
     - sh
     - static-libs
-  packages:
-  - dev-libs/libunistring
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
     - test
     enabled:
-    - pkg-config
-  packages:
-  - dev-util/pkgconf
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - libressl
-    - lz4
-    - nios2
-    - sh
-    - static
-    - stunnel
-    - system-zlib
-    - xxhash
-    - zstd
-    enabled:
-    - acl
-    - cpu_flags_x86_sse2
-    - iconv
-    - ipv6
-    - ssl
-    - xattr
-  packages:
-  - net-misc/rsync
-- tree: atoms/base
-  uses:
-    disabled:
-    - mpfr
-    - nios2
-    - sh
-    enabled:
     - nls
-    - readline
   packages:
-  - sys-apps/gawk
-- tree: atoms/base
+  - app-text/opensp
+- tree: packages/atoms/base
   uses:
     disabled:
-    - ibm
-    - nios2
-    - selinux
-    - sh
-    - static
-  packages:
-  - sys-apps/sysvinit
-- tree: atoms/base
-  uses:
-    disabled:
-    - audit
     - debug
-    - minimal
-    - mktemp
+    - examples
     - nios2
-    - nis
-    - pam_krb5
-    - pam_ssh
-    - passwdqc
-    - securetty
-    - selinux
     - sh
     - static-libs
     enabled:
-    - berkdb
-    - cracklib
-    - filecaps
-    - nls
-    - nullok
-    - pie
-    - sha512
+    - crypt
   packages:
-  - sys-libs/pam
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/ply
-  - dev-python/pyelftools
-- tree: atoms/base
+  - dev-libs/libxslt
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
     - sh
     - static
-    - test
     enabled:
     - nls
   packages:
-  - sys-devel/flex
-- tree: atoms/base
-  uses:
-    disabled:
-    - clvm
-    - cman
-    - corosync
-    - device-mapper-only
-    - lvm1
-    - lvm2create_initrd
-    - nios2
-    - openais
-    - sanlock
-    - selinux
-    - sh
-    - static-libs
-    - systemd
-    enabled:
-    - readline
-    - static
-    - thin
-    - udev
-  packages:
-  - sys-fs/lvm2
-- tree: atoms/base
-  uses:
-    disabled:
-    - common-lisp
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - qt5
-    - sh
-    - static-libs
-    - test
-    enabled:
-    - cxx
-    - python
-    - python_targets_python3_9
-  packages:
-  - app-crypt/gpgme:1
-- tree: atoms/base
-  uses:
-    disabled:
-    - dbus
-    - fam
-    - gtk-doc
-    - nios2
-    - selinux
-    - sh
-    - systemtap
-    - test
-    enabled:
-    - mime
-    - static-libs
-    - xattr
-  packages:
-  - dev-libs/glib:2
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - idn
-    - nios2
-    - sh
-  packages:
-  - dev-perl/IO-Socket-SSL
-- tree: atoms/base
+  - sys-apps/diffutils
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -1130,279 +752,7 @@ artefacts:
     - pam
   packages:
   - sys-apps/kbd
-- tree: atoms/base
-  uses:
-    disabled:
-    - audit
-    - caps
-    - cet
-    - compile-locales
-    - custom-cflags
-    - doc
-    - gd
-    - headers-only
-    - multilib
-    - multilib-bootstrap
-    - nios2
-    - nscd
-    - profile
-    - selinux
-    - sh
-    - static-pie
-    - suid
-    - systemtap
-    - test
-    - vanilla
-    enabled:
-    - crypt
-    - multiarch
-    - ssp
-    - static-libs
-  packages:
-  - sys-libs/glibc:2.2
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - systemd
-    enabled:
-    - static-libs
-  packages:
-  - virtual/libudev
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - static-libs
-  packages:
-  - dev-libs/mpc
-  - dev-libs/mpfr
-- tree: atoms/base
-  uses:
-    disabled:
-    - atm
-    - bpf
-    - caps
-    - elf
-    - libbsd
-    - minimal
-    - nios2
-    - selinux
-    - sh
-    enabled:
-    - berkdb
-    - iptables
-    - ipv6
-  packages:
-  - sys-apps/iproute2
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static
-    - test
-  packages:
-  - sys-block/thin-provisioning-tools
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static
-    - static-libs
-    enabled:
-    - split-usr
-  packages:
-  - app-arch/bzip2
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - nls
-  packages:
-  - app-arch/cpio
-  - sys-apps/help2man
-- tree: atoms/base
-  uses:
-    disabled:
-    - clockdiff
-    - doc
-    - gcrypt
-    - idn
-    - nettle
-    - nios2
-    - rarpd
-    - rdisc
-    - sh
-    - static
-    - test
-    - tftpd
-    - tracepath
-    - traceroute6
-    enabled:
-    - arping
-    - caps
-    - filecaps
-    - ipv6
-    - nls
-    - ssl
-  packages:
-  - net-misc/iputils
-- tree: atoms/base
-  uses:
-    disabled:
-    - cpu_flags_arm_v7
-    - doc
-    - examples
-    - java
-    - nios2
-    - sh
-    - tcl
-    - test
-    enabled:
-    - cxx
-  packages:
-  - sys-libs/db:18.1
-- tree: atoms/base
-  uses:
-    disabled:
-    - blake2
-    - expat
-    - libressl
-    - lz4
-    - lzo
-    - nettle
-    - nios2
-    - sh
-    - static-libs
-    - zstd
-    enabled:
-    - acl
-    - bzip2
-    - e2fsprogs
-    - iconv
-    - lzma
-    - threads
-    - xattr
-    - zlib
-  packages:
-  - app-arch/libarchive
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - pax_kernel
-    - sh
-    - static-libs
-    - test
-  packages:
-  - dev-libs/libffi
-- tree: atoms/base
-  uses:
-    disabled:
-    - libedit
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - bzip2
-    - jit
-    - pcre16
-    - pcre32
-    - readline
-    - recursion-limit
-    - unicode
-    - zlib
-  packages:
-  - dev-libs/libpcre2
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - udev
-  packages:
-  - virtual/libusb:1
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - ruby
-    - sh
-  packages:
-  - app-text/docbook-xsl-stylesheets
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - examples
-    - lzma
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - static-libs
-    - test
-    enabled:
-    - icu
-    - python
-    - python_targets_python3_9
-    - readline
-  packages:
-  - dev-libs/libxml2:2
-- tree: atoms/base
-  uses:
-    disabled:
-    - adns
-    - alt-svc
-    - brotli
-    - curl_ssl_gnutls
-    - curl_ssl_mbedtls
-    - curl_ssl_nss
-    - gnutls
-    - gopher
-    - hsts
-    - idn
-    - imap
-    - kerberos
-    - ldap
-    - mbedtls
-    - nghttp3
-    - nios2
-    - nss
-    - pop3
-    - progress-meter
-    - quiche
-    - rtmp
-    - samba
-    - sh
-    - smtp
-    - ssh
-    - sslv3
-    - static-libs
-    - telnet
-    - test
-    - threads
-    - zstd
-    enabled:
-    - curl_ssl_openssl
-    - ftp
-    - http2
-    - ipv6
-    - openssl
-    - ssl
-    - tftp
-  packages:
-  - net-misc/curl
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
     - audit
@@ -1418,955 +768,7 @@ artefacts:
     - xattr
   packages:
   - sys-apps/shadow
-- tree: atoms/base
-  uses:
-    disabled:
-    - ada
-    - altivec
-    - bootstrap
-    - bootstrap-O3
-    - bootstrap-lean
-    - bootstrap-lto
-    - bootstrap-profiled
-    - checking_all
-    - checking_assert
-    - checking_df
-    - checking_extra
-    - checking_fold
-    - checking_gc
-    - checking_gcac
-    - checking_misc
-    - checking_no
-    - checking_release
-    - checking_rtl
-    - checking_rtlflag
-    - checking_runtime
-    - checking_tree
-    - checking_valgrind
-    - checking_yes
-    - d
-    - dev_extra_warnings
-    - doc
-    - generic_host
-    - go
-    - graphite
-    - jit
-    - libssp
-    - link_now
-    - multilib
-    - nios2
-    - objc
-    - objc++
-    - objc-gc
-    - pch
-    - sanitize
-    - sh
-    - ssp_all
-    - stage1_checking_all
-    - stage1_checking_assert
-    - stage1_checking_df
-    - stage1_checking_extra
-    - stage1_checking_fold
-    - stage1_checking_gc
-    - stage1_checking_gcac
-    - stage1_checking_misc
-    - stage1_checking_no
-    - stage1_checking_release
-    - stage1_checking_rtl
-    - stage1_checking_rtlflag
-    - stage1_checking_runtime
-    - stage1_checking_tree
-    - stage1_checking_valgrind
-    - stage1_checking_yes
-    - test
-    - vanilla
-    - vtv
-    enabled:
-    - cxx
-    - fortran
-    - nls
-    - openmp
-    - pie
-    - ssp
-    - stack_clash_protection
-  packages:
-  - sys-devel/gcc:11.3.0
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_single_target_python3_10
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - zsh-completion
-    enabled:
-    - python_single_target_python3_9
-    - python_targets_python3_9
-  packages:
-  - app-admin/ego
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - libressl
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - nls
-    - ssl
-  packages:
-  - app-crypt/rhash
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - doc
-    - nios2
-    - sh
-    - static-libs
-    - tcl
-    - test
-    - tools
-    enabled:
-    - icu
-    - readline
-    - secure-delete
-  packages:
-  - dev-db/sqlite:3
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/importlib_metadata
-- tree: atoms/base
-  uses:
-    disabled:
-    - X
-    - examples
-    - nios2
-    - sh
-  packages:
-  - sys-apps/groff
-- tree: atoms/base
-  uses:
-    disabled:
-    - guile
-    - nios2
-    - sh
-    - static
-    enabled:
-    - nls
-  packages:
-  - sys-devel/make
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - emacs
-    - nios2
-    - sh
-    - vim-syntax
-  packages:
-  - app-admin/eselect
-- tree: atoms/base
-  uses:
-    disabled:
-    - caps
-    - efl
-    - emacs
-    - gnome-keyring
-    - gtk
-    - nios2
-    - qt5
-    - sh
-    enabled:
-    - ncurses
-  packages:
-  - app-crypt/pinentry
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - justify
-    - minimal
-    - nios2
-    - sh
-    - static
-    enabled:
-    - magic
-    - ncurses
-    - nls
-    - spell
-    - unicode
-  packages:
-  - app-editors/nano
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - test
-  packages:
-  - app-text/po4a
-  - dev-libs/npth
-  - dev-perl/Error
-  - dev-perl/Module-Build
-  - dev-perl/Pod-Parser
-  - sys-devel/automake:1.16
-  - x11-misc/shared-mime-info
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - python_targets_python3_9
-  packages:
-  - dev-lang/python-exec:2
-- tree: atoms/base
-  uses:
-    disabled:
-    - kerberos
-    - nios2
-    - sh
-  packages:
-  - dev-perl/Authen-SASL
-- tree: atoms/base
-  uses:
-    disabled:
-    - emacs
-    - nios2
-    - qt5
-    - sh
-    - test
-    enabled:
-    - doc
-    - ncurses
-  packages:
-  - dev-util/cmake
-- tree: atoms/base
-  uses:
-    disabled:
-    - build
-    - nios2
-    - sh
-    enabled:
-    - split-usr
-  packages:
-  - sys-apps/baselayout
-- tree: atoms/base
-  uses:
-    disabled:
-    - l10n_de
-    - l10n_es
-    - l10n_fr
-    - l10n_it
-    - l10n_ja
-    - l10n_nl
-    - l10n_pl
-    - l10n_pt-BR
-    - l10n_ro
-    - l10n_ru
-    - l10n_zh-CN
-    - nios2
-    - sh
-  packages:
-  - sys-apps/man-pages
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - pic
-    - sh
-    - static
-  packages:
-  - app-arch/gzip
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - test
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/installer
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - static
-  packages:
-  - sys-fs/mdadm
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - static-libs
-    enabled:
-    - python
-    - python_targets_python3_9
-  packages:
-  - sys-libs/libcap-ng
-- tree: atoms/base
-  uses:
-    disabled:
-    - context
-    - debug
-    - doc
-    - lzma
-    - mpi
-    - nios2
-    - numpy
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - tools
-    - zstd
-    enabled:
-    - bzip2
-    - icu
-    - nls
-    - python
-    - python_targets_python3_9
-    - zlib
-  packages:
-  - dev-libs/boost
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - test
-  packages:
-  - dev-libs/jsoncpp
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/appi
-  - dev-python/charset_normalizer
-  - dev-python/flit_core
-  - dev-python/gpep517
-  - dev-python/semantic_version
-  - dev-python/setuptools-rust
-  - dev-python/tomli
-  - dev-python/typing-extensions
-  - dev-util/meson
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-    enabled:
-    - nls
-    - static-libs
-  packages:
-  - sys-apps/attr
-- tree: atoms/base
-  uses:
-    disabled:
-    - audit
-    - build
-    - cryptsetup
-    - fdformat
-    - hardlink
-    - kill
-    - magic
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - rtas
-    - selinux
-    - sh
-    - slang
-    - su
-    - udev
-    enabled:
-    - caps
-    - cramfs
-    - logger
-    - ncurses
-    - nls
-    - pam
-    - python
-    - python_targets_python3_9
-    - readline
-    - split-usr
-    - static-libs
-    - suid
-    - tty-helpers
-    - unicode
-  packages:
-  - sys-apps/util-linux
-- tree: atoms/base
-  uses:
-    disabled:
-    - X
-    - nios2
-    - selinux
-    - sh
-    enabled:
-    - ipv6
-    - nls
-  packages:
-  - sys-process/psmisc
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - latex
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/sphinx
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - nis
-    - plipconfig
-    - selinux
-    - sh
-    - slattach
-    - static
-    enabled:
-    - arp
-    - hostname
-    - ipv6
-    - nls
-  packages:
-  - sys-apps/net-tools
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - selinux
-    - sh
-  packages:
-  - net-dns/openresolv
-  - net-misc/bridge-utils
-  - sys-apps/systemd-tmpfiles
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - static-libs
-  packages:
-  - net-libs/libmnl
-- tree: atoms/base
-  uses:
-    disabled:
-    - cet
-    - default-gold
-    - doc
-    - multitarget
-    - nios2
-    - sh
-    - static-libs
-    - test
-    - vanilla
-    enabled:
-    - gold
-    - nls
-    - plugins
-  packages:
-  - sys-devel/binutils:2.39
-- tree: atoms/base
-  uses:
-    disabled:
-    - cron
-    - fuse
-    - lto
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - nls
-    - split-usr
-    - threads
-  packages:
-  - sys-fs/e2fsprogs
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - minizip
-    - static-libs
-  packages:
-  - sys-libs/zlib
-- tree: atoms/base
-  uses:
-    disabled:
-    - ccache
-    - doc
-    - nios2
-    - sh
-    enabled:
-    - pcre
-  packages:
-  - dev-lang/swig
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - examples
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - crypt
-  packages:
-  - dev-libs/libxslt
-- tree: atoms/base
-  uses:
-    disabled:
-    - cgi
-    - cvs
-    - doc
-    - emacs
-    - gnome-keyring
-    - highlight
-    - libressl
-    - nios2
-    - perforce
-    - python_single_target_python2_7
-    - python_single_target_python3_10
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - test
-    - tk
-    - xinetd
-    enabled:
-    - blksha1
-    - curl
-    - gpg
-    - iconv
-    - nls
-    - pcre
-    - pcre-jit
-    - perl
-    - python_single_target_python3_9
-    - python_targets_python3_9
-    - threads
-    - webdav
-  packages:
-  - dev-vcs/git
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - berkdb
-    - nls
-    - readline
-  packages:
-  - sys-libs/gdbm
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-    enabled:
-    - asn1
-    - libffi
-    - trust
-  packages:
-  - app-crypt/p11-kit
-- tree: atoms/base
-  uses:
-    disabled:
-    - bluetooth
-    - build
-    - examples
-    - hardened
-    - libedit
-    - lto
-    - nios2
-    - pgo
-    - sh
-    - test
-    - tk
-    - wininst
-    enabled:
-    - gdbm
-    - ncurses
-    - readline
-    - sqlite
-    - ssl
-    - xml
-  packages:
-  - dev-lang/python:3.9
-- tree: atoms/base
-  uses:
-    disabled:
-    - lzma
-    - nios2
-    - sh
-    - static-libs
-    - test
-    - threads
-    - valgrind
-    - zstd
-    enabled:
-    - bzip2
-    - nls
-    - utils
-  packages:
-  - dev-libs/elfutils
-- tree: atoms/base
-  uses:
-    disabled:
-    - l10n_ja
-    - l10n_zh
-    - nios2
-    - sh
-  packages:
-  - dev-perl/MIME-Charset
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - emacs
-    - nios2
-    - sh
-    - test
-    - vim-syntax
-  packages:
-  - dev-util/ninja
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - doc
-    - examples
-    - nios2
-    - sh
-    - static-libs
-    - test
-    - udev
-    enabled:
-    - split-usr
-  packages:
-  - dev-libs/libusb:1
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/Babel
-  - dev-python/alabaster
-  - dev-python/chardet
-  - dev-python/cython
-  - dev-python/docutils
-  - dev-python/idna
-  - dev-python/markupsafe
-  - dev-python/mwparserfromhell
-  - dev-python/packaging
-  - dev-python/pyopenssl
-  - dev-python/pyparsing
-  - dev-python/pytz
-  - dev-python/setuptools_scm
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - test
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/pygments
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/sphinx_rtd_theme
-  - dev-python/sphinxcontrib-applehelp
-  - dev-python/sphinxcontrib-devhelp
-  - dev-python/sphinxcontrib-htmlhelp
-  - dev-python/sphinxcontrib-jsmath
-  - dev-python/sphinxcontrib-qthelp
-  - dev-python/sphinxcontrib-serializinghtml
-- tree: atoms/base
-  uses:
-    disabled:
-    - ada
-    - debug
-    - doc
-    - gpm
-    - minimal
-    - nios2
-    - profile
-    - sh
-    - static-libs
-    - test
-    - trace
-    enabled:
-    - cxx
-    - split-usr
-    - tinfo
-    - unicode
-  packages:
-  - sys-libs/ncurses
-- tree: atoms/base
-  uses:
-    disabled:
-    - minimal
-    - nios2
-    - selinux
-    - sh
-    enabled:
-    - acl
-    - nls
-    - xattr
-  packages:
-  - app-arch/tar
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    - test
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - app-portage/gentoolkit
-- tree: atoms/base
-  uses:
-    disabled:
-    - minimal
-    - nios2
-    - sh
-    - test
-  packages:
-  - dev-perl/YAML-Tiny
-- tree: atoms/base
-  uses:
-    disabled:
-    - emacs
-    - nios2
-    - sh
-  packages:
-  - dev-util/desktop-file-utils
-  - sys-devel/autoconf:2.69
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static
-    enabled:
-    - nls
-  packages:
-  - sys-apps/diffutils
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - selinux
-    - sh
-    - static
-    enabled:
-    - acl
-    - nls
-  packages:
-  - sys-apps/sed
-- tree: atoms/base
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - static
-    - test
-    enabled:
-    - nls
-  packages:
-  - sys-devel/bison
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - test
-    enabled:
-    - compat
-    - udev
-  packages:
-  - sys-fs/dosfstools
-- tree: atoms/base
-  uses:
-    disabled:
-    - bindist
-    - libc_musl
-    - nios2
-    - rfc3779
-    - sctp
-    - sh
-    - sslv3
-    - static-libs
-    - test
-    - tls-heartbeat
-    - vanilla
-    enabled:
-    - asm
-    - cpu_flags_x86_sse2
-    - tls-compression
-  packages:
-  - dev-libs/openssl
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - livecd
-    - make-symlinks
-    - math
-    - mdev
-    - nios2
-    - savedconfig
-    - selinux
-    - sep-usr
-    - sh
-    - static
-    - syslog
-    - systemd
-    enabled:
-    - ipv6
-    - pam
-  packages:
-  - sys-apps/busybox
-- tree: atoms/base
-  uses:
-    disabled:
-    - debug
-    - minimal
-    - mktemp
-    - nios2
-    - nullok
-    - pam_krb5
-    - pam_ssh
-    - passwdqc
-    - securetty
-    - selinux
-    - sh
-    - sha512
-    enabled:
-    - cracklib
-  packages:
-  - sys-auth/pambase
-- tree: atoms/base
-  uses:
-    disabled:
-    - cvs
-    - doc
-    - emacs
-    - git
-    - java
-    - nios2
-    - sh
-    enabled:
-    - acl
-    - cxx
-    - ncurses
-    - nls
-    - openmp
-    - static-libs
-  packages:
-  - sys-devel/gettext
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static
-    - test
-    enabled:
-    - xattr
-  packages:
-  - sys-devel/patch
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -2374,29 +776,7 @@ artefacts:
     - systemd
   packages:
   - virtual/udev
-- tree: atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-    - test
-    enabled:
-    - nls
-  packages:
-  - app-text/opensp
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - split-usr
-  packages:
-  - sys-libs/e2fsprogs-libs
-- tree: atoms/base
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -2493,7 +873,610 @@ artefacts:
   - virtual/shadow
   - virtual/tmpfiles
   - virtual/yacc
-- tree: atoms/base
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - doc
+    - nios2
+    - sh
+    - static-libs
+    - tcl
+    - test
+    - tools
+    enabled:
+    - icu
+    - readline
+    - secure-delete
+  packages:
+  - dev-db/sqlite:3
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_pypy3
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - socks5
+    enabled:
+    - python_targets_python3_9
+    - ssl
+  packages:
+  - dev-python/requests
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - common-lisp
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - qt5
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - cxx
+    - python
+    - python_targets_python3_9
+  packages:
+  - app-crypt/gpgme:1
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - common-lisp
+    - nios2
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - nls
+  packages:
+  - dev-libs/libgpg-error
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - emacs
+    - nios2
+    - qt5
+    - sh
+    - test
+    enabled:
+    - doc
+    - ncurses
+  packages:
+  - dev-util/cmake
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - adns
+    - alt-svc
+    - brotli
+    - curl_ssl_gnutls
+    - curl_ssl_mbedtls
+    - curl_ssl_nss
+    - gnutls
+    - gopher
+    - hsts
+    - idn
+    - imap
+    - kerberos
+    - ldap
+    - mbedtls
+    - nghttp3
+    - nios2
+    - nss
+    - pop3
+    - progress-meter
+    - quiche
+    - rtmp
+    - samba
+    - sh
+    - smtp
+    - ssh
+    - sslv3
+    - static-libs
+    - telnet
+    - test
+    - threads
+    - zstd
+    enabled:
+    - curl_ssl_openssl
+    - ftp
+    - http2
+    - ipv6
+    - openssl
+    - ssl
+    - tftp
+  packages:
+  - net-misc/curl
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - pcre
+    - unicode
+  packages:
+  - sys-apps/less
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - doc
+    - examples
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - udev
+    enabled:
+    - split-usr
+  packages:
+  - dev-libs/libusb:1
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/importlib_metadata
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_targets_pypy3
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - test
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/cffi
+  - dev-python/six
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - examples
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/jinja
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - libedit
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - icu
+    - nls
+    - readline
+  packages:
+  - sys-fs/xfsprogs
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cpu_flags_arm_aes
+    - cpu_flags_arm_neon
+    - cpu_flags_arm_sha1
+    - cpu_flags_arm_sha2
+    - cpu_flags_ppc_altivec
+    - cpu_flags_ppc_vsx2
+    - cpu_flags_ppc_vsx3
+    - cpu_flags_x86_aes
+    - cpu_flags_x86_avx
+    - cpu_flags_x86_avx2
+    - cpu_flags_x86_padlock
+    - cpu_flags_x86_sha
+    - cpu_flags_x86_sse4_1
+    - doc
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - asm
+  packages:
+  - dev-libs/libgcrypt
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/MailTools
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_pypy3
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - test
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/installer
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - natspec
+    - nios2
+    - sh
+    enabled:
+    - bzip2
+    - unicode
+  packages:
+  - app-arch/unzip
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - clippy
+    - doc
+    - nios2
+    - rust-src
+    - rustfmt
+    - sh
+    - wasm
+    enabled:
+    - cpu_flags_x86_sse2
+  packages:
+  - dev-lang/rust-bin:stable
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cookie-check
+    - debug
+    - gnutls
+    - idn
+    - metalink
+    - nios2
+    - ntlm
+    - sh
+    - static
+    - test
+    - uuid
+    enabled:
+    - ipv6
+    - nls
+    - pcre
+    - ssl
+    - zlib
+  packages:
+  - net-misc/wget
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - installkernel
+  packages:
+  - sys-apps/debianutils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - nls
+    - pcre
+  packages:
+  - sys-apps/grep
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - minimal
+    - mktemp
+    - nios2
+    - nullok
+    - pam_krb5
+    - pam_ssh
+    - passwdqc
+    - securetty
+    - selinux
+    - sh
+    - sha512
+    enabled:
+    - cracklib
+  packages:
+  - sys-auth/pambase
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - guile
+    - nios2
+    - sh
+    - static
+    enabled:
+    - nls
+  packages:
+  - sys-devel/make
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cron
+    - fuse
+    - lto
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - nls
+    - split-usr
+    - threads
+  packages:
+  - sys-fs/e2fsprogs
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - lz4
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - threads
+  packages:
+  - app-arch/zstd
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - static-libs
+  packages:
+  - dev-libs/mpc
+  - dev-libs/mpfr
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - mpfr
+    - nios2
+    - sh
+    enabled:
+    - nls
+    - readline
+  packages:
+  - sys-apps/gawk
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    enabled:
+    - nls
+  packages:
+  - sys-devel/m4
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - pam
+    - static-libs
+  packages:
+  - sys-libs/libcap
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - python
+    - python_targets_python3_9
+  packages:
+  - sys-libs/libseccomp
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - conntrack
+    - netlink
+    - nftables
+    - nios2
+    - pcap
+    - sh
+    - static-libs
+    enabled:
+    - ipv6
+  packages:
+  - net-firewall/iptables
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - livecd
+    - make-symlinks
+    - math
+    - mdev
+    - nios2
+    - savedconfig
+    - selinux
+    - sep-usr
+    - sh
+    - static
+    - syslog
+    - systemd
+    enabled:
+    - ipv6
+    - pam
+  packages:
+  - sys-apps/busybox
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - ada
+    - altivec
+    - bootstrap
+    - bootstrap-O3
+    - bootstrap-lean
+    - bootstrap-lto
+    - bootstrap-profiled
+    - checking_all
+    - checking_assert
+    - checking_df
+    - checking_extra
+    - checking_fold
+    - checking_gc
+    - checking_gcac
+    - checking_misc
+    - checking_no
+    - checking_release
+    - checking_rtl
+    - checking_rtlflag
+    - checking_runtime
+    - checking_tree
+    - checking_valgrind
+    - checking_yes
+    - d
+    - dev_extra_warnings
+    - doc
+    - generic_host
+    - go
+    - graphite
+    - jit
+    - libssp
+    - link_now
+    - multilib
+    - nios2
+    - objc
+    - objc++
+    - objc-gc
+    - pch
+    - sanitize
+    - sh
+    - ssp_all
+    - stage1_checking_all
+    - stage1_checking_assert
+    - stage1_checking_df
+    - stage1_checking_extra
+    - stage1_checking_fold
+    - stage1_checking_gc
+    - stage1_checking_gcac
+    - stage1_checking_misc
+    - stage1_checking_no
+    - stage1_checking_release
+    - stage1_checking_rtl
+    - stage1_checking_rtlflag
+    - stage1_checking_runtime
+    - stage1_checking_tree
+    - stage1_checking_valgrind
+    - stage1_checking_yes
+    - test
+    - vanilla
+    - vtv
+    enabled:
+    - cxx
+    - fortran
+    - nls
+    - openmp
+    - pie
+    - ssp
+    - stack_clash_protection
+  packages:
+  - sys-devel/gcc:11.3.0
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - bluetooth
+    - build
+    - examples
+    - hardened
+    - libedit
+    - lto
+    - nios2
+    - pgo
+    - sh
+    - test
+    - tk
+    - wininst
+    enabled:
+    - gdbm
+    - ncurses
+    - readline
+    - sqlite
+    - ssl
+    - xml
+  packages:
+  - dev-lang/python:3.9
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - X
+    - examples
+    - nios2
+    - sh
+  packages:
+  - sys-apps/groff
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - valgrind
+  packages:
+  - dev-libs/libtasn1
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    enabled:
+    - pkg-config
+  packages:
+  - dev-util/pkgconf
+- tree: packages/atoms/base
+  packages:
+  - app-misc/editor-wrapper
+  - app-text/docbook-xml-dtd:4.1.2
+  - app-text/docbook-xml-dtd:4.2
+  - app-text/docbook-xml-dtd:4.3
+  - app-text/docbook-xml-dtd:4.4
+  - app-text/docbook-xml-dtd:4.5
+  - dev-libs/libltdl
+  - net-misc/ifenslave
+  - sys-kernel/genkernel
+- tree: packages/atoms/base
   uses:
     disabled:
     - debug
@@ -2507,16 +1490,594 @@ artefacts:
     - gdbm
   packages:
   - dev-lang/perl
-- tree: atoms/base
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/libksba
+  - dev-libs/libuv
+  - net-dns/libidn2
+  - virtual/acl
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - libressl
+    - lz4
+    - nios2
+    - sh
+    - static
+    - stunnel
+    - system-zlib
+    - xxhash
+    - zstd
+    enabled:
+    - acl
+    - cpu_flags_x86_sse2
+    - iconv
+    - ipv6
+    - ssl
+    - xattr
+  packages:
+  - net-misc/rsync
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+    enabled:
+    - nls
+    - static-libs
+  packages:
+  - sys-apps/attr
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cet
+    - default-gold
+    - doc
+    - multitarget
+    - nios2
+    - sh
+    - static-libs
+    - test
+    - vanilla
+    enabled:
+    - gold
+    - nls
+    - plugins
+  packages:
+  - sys-devel/binutils:2.39
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - headers-only
+    - nios2
+    - sh
+  packages:
+  - sys-kernel/linux-headers
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - minimal
+    - nios2
+    - sh
+  packages:
+  - virtual/ssh
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - nls
+    - openmp
+    - qmanifest
+    - qtegrity
+  packages:
+  - app-portage/portage-utils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_pypy3
+    - python_targets_python2_7
+    - python_targets_python3_9
+  packages:
+  - dev-lang/python-exec:2
+- tree: packages/atoms/base
   uses:
     disabled:
     - examples
     - nios2
     - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/bison
+- tree: packages/atoms/base
+  replacements:
+    runtime_deps:
+      ignore:
+        - name: gentoo-functions
+          category: sys-apps
+  uses:
+    disabled:
+    - audit
+    - caps
+    - cet
+    - compile-locales
+    - custom-cflags
+    - doc
+    - gd
+    - headers-only
+    - multilib
+    - multilib-bootstrap
+    - nios2
+    - nscd
+    - profile
+    - selinux
+    - sh
+    - static-pie
+    - suid
+    - systemtap
+    - test
+    - vanilla
+    enabled:
+    - crypt
+    - multiarch
+    - ssp
+    - static-libs
+  packages:
+  - sys-libs/glibc:2.2
+- tree: packages/atoms/base
+  replacements:
+    # Break cycle
+    runtime_deps:
+      ignore:
+        - name: python
+          category: dev-lang-3.9
+        - name: python-exec
+          category: dev-lang-2
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    enabled:
+    - python
+    - python_targets_python3_9
+  packages:
+  - sys-libs/libcap-ng
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/libunistring
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - idna
+    - libressl
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - cpu_flags_x86_sse2
+    - python_targets_python3_9
+  packages:
+  - dev-python/cryptography
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - test
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/pygments
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_single_target_python2_7
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_single_target_python3_9
+    - python_targets_python3_9
+  packages:
+  - dev-util/gdbus-codegen
+  - dev-util/itstool
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - split-usr
+  packages:
+  - sys-libs/e2fsprogs-libs
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - hwloc
+    - nios2
+    - sh
+    - tests
+    - valgrind
+  packages:
+  - dev-cpp/tbb
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+  packages:
+  - dev-libs/nspr
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    enabled:
+    - compat
+    - udev
+  packages:
+  - sys-fs/dosfstools
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - ssl
+  packages:
+  - virtual/perl-libnet
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - ldap
+    - nios2
+    - selinux
+    - sh
+    - test
+    - tools
+    - tpm
+    - usb
+    - user-socket
+    - wks-server
+    enabled:
+    - bzip2
+    - nls
+    - readline
+    - smartcard
+    - ssl
+    - tofu
+  packages:
+  - app-crypt/gnupg
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - examples
+    - lzma
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - icu
+    - python
+    - python_targets_python3_9
+    - readline
+  packages:
+  - dev-libs/libxml2:2
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cpu_flags_arm_neon
+    - cpu_flags_x86_aes
+    - cpu_flags_x86_sha
+    - doc
+    - nios2
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - asm
+    - gmp
+  packages:
+  - dev-libs/nettle
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - introspection
+    - nios2
+    - selinux
+    - sh
+    - test
+    - user
+    enabled:
+    - hwdb
+    - kmod
+    - rule-generator
+    - static-libs
+  packages:
+  - sys-fs/eudev
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - blake2
+    - expat
+    - libressl
+    - lz4
+    - lzo
+    - nettle
+    - nios2
+    - sh
+    - static-libs
+    - zstd
+    enabled:
+    - acl
+    - bzip2
+    - e2fsprogs
+    - iconv
+    - lzma
+    - threads
+    - xattr
+    - zlib
+  packages:
+  - app-arch/libarchive
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
     - test
   packages:
-  - dev-perl/MailTools
-- tree: atoms/base
+  - dev-libs/jsoncpp
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - selinux
+    - sh
+    - static
+    enabled:
+    - acl
+    - nls
+  packages:
+  - sys-apps/sed
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - selinux
+    - sh
+    - static-libs
+    enabled:
+    - manpager
+    - nls
+    - seccomp
+    - zlib
+  packages:
+  - sys-apps/man-db
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - l10n_de
+    - l10n_es
+    - l10n_fr
+    - l10n_it
+    - l10n_ja
+    - l10n_nl
+    - l10n_pl
+    - l10n_pt-BR
+    - l10n_ro
+    - l10n_ru
+    - l10n_zh-CN
+    - nios2
+    - sh
+  packages:
+  - sys-apps/man-pages
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - elogind
+    - modern-top
+    - nios2
+    - selinux
+    - sh
+    - static-libs
+    - systemd
+    - test
+    enabled:
+    - kill
+    - ncurses
+    - nls
+    - split-usr
+    - unicode
+  packages:
+  - sys-process/procps
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - native-cflags
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - openmp
+  packages:
+  - app-crypt/libb2
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - libressl
+    - minimal
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/Net-SSLeay
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - nls
+  packages:
+  - dev-libs/popt
+  - sys-apps/acl
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cgi
+    - cvs
+    - doc
+    - emacs
+    - gnome-keyring
+    - highlight
+    - libressl
+    - nios2
+    - perforce
+    - python_single_target_python2_7
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - test
+    - tk
+    - xinetd
+    enabled:
+    - blksha1
+    - curl
+    - gpg
+    - iconv
+    - nls
+    - pcre
+    - pcre-jit
+    - perl
+    - python_single_target_python3_9
+    - python_targets_python3_9
+    - threads
+    - webdav
+  packages:
+  - dev-vcs/git
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - nis
+    - plipconfig
+    - selinux
+    - sh
+    - slattach
+    - static
+    enabled:
+    - arp
+    - hostname
+    - ipv6
+    - nls
+  packages:
+  - sys-apps/net-tools
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - libressl
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - nls
+    - ssl
+  packages:
+  - app-crypt/rhash
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - bindist
+    - libc_musl
+    - nios2
+    - rfc3779
+    - sctp
+    - sh
+    - sslv3
+    - static-libs
+    - test
+    - tls-heartbeat
+    - vanilla
+    enabled:
+    - asm
+    - cpu_flags_x86_sse2
+    - tls-compression
+  packages:
+  - dev-libs/openssl
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - doc
+    - examples
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/icu
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -2526,19 +2087,472 @@ artefacts:
     - python_targets_python3_7
     - python_targets_python3_8
     - sh
+    - test
     enabled:
     - python_targets_python3_9
   packages:
-  - dev-python/commonmark
-  - dev-python/setuptools
-  - dev-python/snowballstemmer
-  - dev-python/toml
-  - dev-python/urllib3
-  - dev-python/wheel
-  - dev-python/zipp
-  - virtual/python-enum34
-  - virtual/python-ipaddress
-- tree: atoms/base
+  - dev-python/certifi
+  - dev-python/imagesize
+  - dev-python/pycparser
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_pypy3
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/sphinx_rtd_theme
+  - dev-python/sphinxcontrib-applehelp
+  - dev-python/sphinxcontrib-devhelp
+  - dev-python/sphinxcontrib-htmlhelp
+  - dev-python/sphinxcontrib-jsmath
+  - dev-python/sphinxcontrib-qthelp
+  - dev-python/sphinxcontrib-serializinghtml
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - audit
+    - build
+    - cryptsetup
+    - fdformat
+    - hardlink
+    - kill
+    - magic
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - rtas
+    - selinux
+    - sh
+    - slang
+    - su
+    - udev
+    enabled:
+    - caps
+    - cramfs
+    - logger
+    - ncurses
+    - nls
+    - pam
+    - python
+    - python_targets_python3_9
+    - readline
+    - split-usr
+    - static-libs
+    - suid
+    - tty-helpers
+    - unicode
+  packages:
+  - sys-apps/util-linux
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+    enabled:
+    - threads
+  packages:
+  - dev-lang/tcl
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - context
+    - debug
+    - doc
+    - lzma
+    - mpi
+    - nios2
+    - numpy
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - tools
+    - zstd
+    enabled:
+    - bzip2
+    - icu
+    - nls
+    - python
+    - python_targets_python3_9
+    - zlib
+  packages:
+  - dev-libs/boost
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - doc
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    - zstd
+    enabled:
+    - lzma
+    - pkcs7
+    - python
+    - python_targets_python3_9
+    - tools
+    - zlib
+  packages:
+  - sys-apps/kmod
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - test
+  packages:
+  - sys-block/thin-provisioning-tools
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - minimal
+    - nios2
+    - selinux
+    - sh
+    enabled:
+    - acl
+    - nls
+    - xattr
+  packages:
+  - app-arch/tar
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - build
+    - nios2
+    - sh
+    enabled:
+    - split-usr
+  packages:
+  - sys-apps/baselayout
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - kerberos
+    - nios2
+    - sh
+  packages:
+  - dev-perl/Authen-SASL
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - idn
+    - nios2
+    - sh
+  packages:
+  - dev-perl/IO-Socket-SSL
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    enabled:
+    - ncurses
+  packages:
+  - sys-apps/gptfdisk
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - dns
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - kmod
+    - udev
+    - zlib
+  packages:
+  - sys-apps/pciutils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_9
+  packages:
+  - sys-apps/usbutils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - audit
+    - debug
+    - minimal
+    - mktemp
+    - nios2
+    - nis
+    - pam_krb5
+    - pam_ssh
+    - passwdqc
+    - securetty
+    - selinux
+    - sh
+    - static-libs
+    enabled:
+    - berkdb
+    - cracklib
+    - filecaps
+    - nls
+    - nullok
+    - pie
+    - sha512
+  packages:
+  - sys-libs/pam
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - pax_kernel
+    - sh
+    - static-libs
+    - test
+  packages:
+  - dev-libs/libffi
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - cacert
+    - nios2
+    - sh
+    enabled:
+    - utils
+  packages:
+  - dev-libs/nss
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - caps
+    - efl
+    - emacs
+    - gnome-keyring
+    - gtk
+    - nios2
+    - qt5
+    - sh
+    enabled:
+    - ncurses
+  packages:
+  - app-crypt/pinentry
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - l10n_ja
+    - l10n_zh
+    - nios2
+    - sh
+  packages:
+  - dev-perl/MIME-Charset
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+  packages:
+  - dev-perl/TermReadKey
+  - dev-util/boost-build
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/Babel
+  - dev-python/alabaster
+  - dev-python/chardet
+  - dev-python/cython
+  - dev-python/docutils
+  - dev-python/idna
+  - dev-python/markupsafe
+  - dev-python/mwparserfromhell
+  - dev-python/packaging
+  - dev-python/pyopenssl
+  - dev-python/pyparsing
+  - dev-python/pytz
+  - dev-python/setuptools_scm
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - gmp
+    - hostname
+    - kill
+    - multicall
+    - nios2
+    - selinux
+    - sh
+    - static
+    - test
+    - vanilla
+    enabled:
+    - acl
+    - caps
+    - nls
+    - split-usr
+    - xattr
+  packages:
+  - sys-apps/coreutils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - static-libs
+    enabled:
+    - split-usr
+  packages:
+  - app-arch/bzip2
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - pic
+    - sh
+    - static
+  packages:
+  - app-arch/gzip
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - audit
+    - debug
+    - netifrc
+    - newnet
+    - nios2
+    - selinux
+    - sh
+    - static-libs
+    - zsh-completion
+    enabled:
+    - bash
+    - ncurses
+    - pam
+    - unicode
+  packages:
+  - sys-apps/openrc
+- tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+    - apidoc
+    - build
+    - doc
+    - gentoo-dev
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - rsync-verify
+    - selinux
+    - sh
+    - test
+    enabled:
+    - ipc
+    - native-extensions
+    - python_targets_python3_9
+    - xattr
+    - elibc_glibc
+  packages:
+  - sys-apps/portage
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/tmp/portage || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e portage &&
+        eval 'chown portage:portage /var/tmp/portage -R || true'
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - doc
+    - latex
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/sphinx
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - static
+  packages:
+  - sys-fs/mdadm
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - pic
+    - sh
+    enabled:
+    - asm
+    - cpudetection
+    - cxx
+    - static-libs
+  packages:
+  - dev-libs/gmp
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - libedit
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - bzip2
+    - jit
+    - pcre16
+    - pcre32
+    - readline
+    - recursion-limit
+    - unicode
+    - zlib
+  packages:
+  - dev-libs/libpcre2
+- tree: packages/atoms/base
   uses:
     disabled:
     - debug
@@ -2556,38 +2570,62 @@ artefacts:
     - xml
   packages:
   - net-libs/nghttp2
-- tree: atoms/base
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - forced-sandbox
+    - libedit
+    - nios2
+    - sh
+    - static
+    enabled:
+    - readline
+  packages:
+  - sys-devel/bc
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - vanilla
+  packages:
+  - sys-devel/libtool:2
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - systemd
+    enabled:
+    - static-libs
+  packages:
+  - virtual/libudev
+- tree: packages/atoms/base
   uses:
     disabled:
     - lzma
     - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - seccomp
-    - sh
-    - static-libs
-    enabled:
-    - bzip2
-    - python
-    - python_targets_python3_9
-    - zlib
-  packages:
-  - sys-apps/file
-- tree: atoms/base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
     - sh
     - static-libs
     - test
+    - threads
+    - valgrind
+    - zstd
     enabled:
-    - python
-    - python_targets_python3_9
+    - bzip2
+    - nls
+    - utils
   packages:
-  - sys-libs/libseccomp
+  - dev-libs/elfutils
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - unicode
+  packages:
+  - dev-libs/expat
 
