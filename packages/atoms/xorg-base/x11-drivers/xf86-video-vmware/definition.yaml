@@ -1,0 +1,46 @@
+name: xf86-video-vmware
+version: 13.4.0
+category: x11-drivers
+requires:
+- name: libtool
+  version: '>=0'
+  category: sys-devel-2
+- name: m4
+  version: '>=0'
+  category: sys-devel
+- name: xorg-proto
+  version: '>=0'
+  category: x11-base
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+- name: util-macros
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Driver for xorg-server
+uri:
+- ""
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=x11-base/xorg-server-1.20.10-r2 x11-base/xorg-server[-minimal]
+    x11-libs/libdrm
+  IUSE: kernel_linux
+  RDEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=x11-base/xorg-server-1.20.10-r2 x11-base/xorg-server[-minimal]
+    x11-libs/libdrm x11-libs/libpciaccess x11-libs/libdrm[libkms,video_cards_vmware]
+    || ( media-libs/mesa[xa] media-libs/mesa[video_cards_xa] )
+  emerge.packages: x11-drivers/xf86-video-vmware
+  kit: core-gl-kit
+  original.package.name: x11-drivers/xf86-video-vmware
+  original.package.slot: "0"
+  original.package.version: 13.4.0-r2
