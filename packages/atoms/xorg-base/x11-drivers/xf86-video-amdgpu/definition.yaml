@@ -1,0 +1,44 @@
+name: xf86-video-amdgpu
+version: 23.0.0
+category: x11-drivers
+requires:
+- name: libtool
+  version: '>=0'
+  category: sys-devel-2
+- name: m4
+  version: '>=0'
+  category: sys-devel
+- name: xorg-proto
+  version: '>=0'
+  category: x11-base
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+- name: util-macros
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Driver for xorg-server
+uri:
+- ""
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm
+  IUSE: kernel_linux
+  RDEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm x11-libs/libpciaccess
+    x11-libs/libdrm[video_cards_amdgpu] x11-base/xorg-server[glamor(+),-minimal]
+  emerge.packages: x11-drivers/xf86-video-amdgpu
+  kit: core-gl-kit
+  original.package.name: x11-drivers/xf86-video-amdgpu
+  original.package.slot: "0"
+  original.package.version: 23.0.0-r1
