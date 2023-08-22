@@ -1,0 +1,51 @@
+name: xf86-input-wacom
+version: 0.39.0
+category: x11-drivers
+use_flags:
+- -ppc-aix
+- -x86-winnt
+requires:
+- name: libwacom
+  version: '>=0'
+  category: dev-libs
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Driver for Wacom tablets and drawing devices
+uri:
+- http://linuxwacom.sourceforge.net/
+license: GPL-2
+labels:
+  DEPEND: dev-libs/libwacom virtual/libudev:= >=x11-base/xorg-server-1.7 x11-libs/libX11
+    x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXinerama x11-base/xorg-proto
+    virtual/pkgconfig virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig
+    x11-base/xorg-proto x11-base/xorg-server[xorg]
+  IUSE: debug kernel_linux
+  RDEPEND: dev-libs/libwacom virtual/libudev:= >=x11-base/xorg-server-1.7 x11-libs/libX11
+    x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXinerama x11-base/xorg-server:=
+    x11-base/xorg-server[xorg]
+  emerge.packages: x11-drivers/xf86-input-wacom
+  kit: core-gl-kit
+  original.package.name: x11-drivers/xf86-input-wacom
+  original.package.slot: "0"
+  original.package.version: 0.39.0
