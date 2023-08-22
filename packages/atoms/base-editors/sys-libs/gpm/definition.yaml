@@ -1,0 +1,28 @@
+name: gpm
+version: 1.20.7
+category: sys-libs
+use_flags:
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Console-based mouse driver
+uri:
+- http://www.nico.schottelius.org/software/gpm/
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: app-arch/xz-utils sys-apps/texinfo virtual/yacc
+  IUSE: selinux static-libs kernel_linux +split-usr
+  RDEPEND: selinux? ( sec-policy/selinux-gpm )
+  emerge.packages: sys-libs/gpm
+  kit: core-kit
+  original.package.name: sys-libs/gpm
+  original.package.slot: "0"
+  original.package.version: 1.20.7-r5
