@@ -1,0 +1,37 @@
+name: bitmap
+version: 1.0.9
+category: x11-apps
+use_flags:
+- -ppc-aix
+- -x86-winnt
+requires:
+- name: libXaw
+  version: '>=0'
+  category: x11-libs
+- name: xbitmaps
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X.Org bitmap application
+uri:
+- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/app/bitmap
+license: MIT
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig'
+  DEPEND: x11-libs/libX11 x11-libs/libXmu x11-libs/libXaw x11-libs/libXt x11-misc/xbitmaps
+  RDEPEND: x11-libs/libX11 x11-libs/libXmu x11-libs/libXaw x11-libs/libXt x11-misc/xbitmaps
+  emerge.packages: x11-apps/bitmap
+  kit: core-gl-kit
+  original.package.name: x11-apps/bitmap
+  original.package.slot: "0"
+  original.package.version: 1.0.9
