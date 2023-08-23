@@ -1,0 +1,38 @@
+name: libqmi
+version: 1.33.3
+category: net-libs
+use_flags:
+- -gtk-doc
+- -mbim
+- -qrtr
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qualcomm MSM (Mobile Station Modem) Interface (QMI) modem protocol library
+uri:
+- https://www.freedesktop.org/wiki/Software/libqmi/ https://gitlab.freedesktop.org/mobile-broadband/libqmi
+license: LGPL-2
+labels:
+  BDEPEND: app-shells/bash-completion virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc
+    ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: '>=dev-libs/glib-2.56 >=dev-libs/libgudev-232 mbim? ( >=net-libs/libmbim-1.18.0
+    ) qrtr? ( >=net-libs/libqrtr-glib-1.0.0:= )'
+  IUSE: gtk-doc +mbim +qrtr
+  RDEPEND: '>=dev-libs/glib-2.56 >=dev-libs/libgudev-232 mbim? ( >=net-libs/libmbim-1.18.0
+    ) qrtr? ( >=net-libs/libqrtr-glib-1.0.0:= )'
+  emerge.packages: net-libs/libqmi
+  kit: net-kit
+  original.package.name: net-libs/libqmi
+  original.package.slot: "0"
+  original.package.version: 1.33.3
