@@ -1,0 +1,33 @@
+name: wepattack
+version: 0.1.3
+category: net-wireless
+use_flags:
+- -john
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: WLAN tool for breaking 802.11 WEP keys
+uri:
+- http://wepattack.sourceforge.net/
+license: GPL-2
+labels:
+  DEPEND: dev-libs/openssl:0= net-libs/libpcap sys-libs/zlib
+  IUSE: john
+  RDEPEND: dev-libs/openssl:0= net-libs/libpcap sys-libs/zlib john? ( || ( app-crypt/johntheripper
+    app-crypt/johntheripper-jumbo ) )
+  emerge.packages: net-wireless/wepattack
+  kit: net-kit
+  original.package.name: net-wireless/wepattack
+  original.package.slot: "0"
+  original.package.version: 0.1.3-r5
