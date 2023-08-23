@@ -1,0 +1,36 @@
+name: ipset
+version: "7.1"
+category: net-firewall
+use_flags:
+- -modules
+- kernel_linux
+requires:
+- name: iptables
+  version: '>=0'
+  category: net-firewall
+- name: libmnl
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: IPset tool for iptables, successor to ippool
+uri:
+- http://ipset.netfilter.org/
+license: GPL-2
+labels:
+  DEPEND: '>=net-firewall/iptables-1.4.7 net-libs/libmnl modules? ( kernel_linux?
+    ( virtual/modutils ) ) modules? ( sys-apps/sed kernel_linux? ( virtual/linux-sources
+    virtual/libelf ) )'
+  IUSE: kernel_linux kernel_linux kernel_linux modules
+  RDEPEND: '>=net-firewall/iptables-1.4.7 net-libs/libmnl modules? ( kernel_linux?
+    ( virtual/modutils ) )'
+  emerge.packages: net-firewall/ipset
+  kit: net-kit
+  original.package.name: net-firewall/ipset
+  original.package.slot: "0"
+  original.package.version: "7.1"
