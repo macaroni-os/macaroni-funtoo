@@ -1,0 +1,53 @@
+name: cifs-utils
+version: "6.11"
+category: net-fs
+use_flags:
+- ads
+- caps
+- pam
+requires:
+- name: docutils
+  version: '>=0'
+  category: dev-python
+- name: keyutils
+  version: '>=0'
+  category: sys-apps
+- name: libcap-ng
+  version: '>=0'
+  category: sys-libs
+- name: talloc
+  version: '>=0'
+  category: sys-libs
+- name: krb5
+  version: '>=0'
+  category: virtual
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools for Managing Linux CIFS Client Filesystems
+uri:
+- https://wiki.samba.org/index.php/LinuxCIFS_utils
+license: GPL-3
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '!net-fs/mount-cifs !<net-fs/samba-3.6_rc1 sys-apps/keyutils ads? ( >=sys-libs/talloc-2.3.1
+    virtual/krb5 ) caps? ( sys-libs/libcap-ng ) pam? ( virtual/pam >=sys-apps/keyutils-1.6.1
+    ) dev-python/docutils'
+  IUSE: +acl +ads +caps creds pam kernel_linux
+  RDEPEND: '!net-fs/mount-cifs !<net-fs/samba-3.6_rc1 sys-apps/keyutils ads? ( >=sys-libs/talloc-2.3.1
+    virtual/krb5 ) caps? ( sys-libs/libcap-ng ) pam? ( virtual/pam >=sys-apps/keyutils-1.6.1
+    ) dev-python/docutils'
+  emerge.packages: net-fs/cifs-utils
+  kit: net-kit
+  original.package.name: net-fs/cifs-utils
+  original.package.slot: "0"
+  original.package.version: "6.11"
