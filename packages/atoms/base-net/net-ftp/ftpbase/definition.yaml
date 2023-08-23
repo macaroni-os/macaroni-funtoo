@@ -1,0 +1,31 @@
+name: ftpbase
+version: "0.01"
+category: net-ftp
+use_flags:
+- pam
+requires:
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: FTP layout package
+uri:
+- https://www.gentoo.org/
+license: GPL-2
+labels:
+  DEPEND: pam? ( virtual/pam ) !<net-ftp/proftpd-1.2.10-r6 !<net-ftp/pure-ftpd-1.0.20-r2
+    !<net-ftp/vsftpd-2.0.3-r1 sys-apps/shadow
+  IUSE: pam
+  RDEPEND: pam? ( virtual/pam ) !<net-ftp/proftpd-1.2.10-r6 !<net-ftp/pure-ftpd-1.0.20-r2
+    !<net-ftp/vsftpd-2.0.3-r1
+  emerge.packages: net-ftp/ftpbase
+  kit: net-kit
+  original.package.name: net-ftp/ftpbase
+  original.package.slot: "0"
+  original.package.version: 0.01-r2
