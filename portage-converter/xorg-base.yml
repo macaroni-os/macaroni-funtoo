@@ -178,6 +178,7 @@ artefacts:
   - x11-themes/sound-theme-freedesktop:0
   - x11-themes/xcursor-themes:0
 
+
 - tree: packages/atoms/xorg-base
   uses:
     disabled:
@@ -224,7 +225,7 @@ artefacts:
   packages:
   - x11-drivers/xf86-video-ati
 
-- tree: packages/atoms/base
+- tree: packages/atoms/xorg-base
   uses:
     disabled:
     - debug
@@ -237,7 +238,6 @@ artefacts:
     - sh
     - static-libs
     - unwind
-    - wayland
     - xcsecurity
     - xvfb
     enabled:
@@ -249,8 +249,123 @@ artefacts:
     - kdrive
     - udev
     - xorg
+    - wayland
   packages:
   - x11-base/xorg-server
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - doc
+  packages:
+  - x11-wm/twm:0
+  - x11-apps/xclock
+
+  - x11-drivers/xf86-video-vbox
+  - x11-drivers/xf86-video-vesa
+
+  # Needed for qt stuff
+  - dev-libs/double-conversion
+
+  - dev-libs/libsigc++:3
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: x11-libs
+          name: libXpm
+        - category: x11-libs
+          name: libXaw
+  uses:
+    disabled:
+    - Xaw3d
+    - nios2
+    - sh
+    - sixel
+    - toolbar
+    enabled:
+    - kernel_linux
+    - openpty
+    - truetype
+    - unicode
+    - xinerama
+  packages:
+  - x11-terms/xterm
+
+- tree: packages/atoms/xorg-base
+  replacements:
+      # A ebuild bug it seems
+    runtime_deps:
+      ignore:
+        - category: dev-libs-2
+          name: libsigc++
+    buildtime_deps:
+      ignore:
+        - category: dev-libs-2
+          name: libsigc++
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs-3
+          name: libsigc++
+    runtime_deps:
+      packages:
+        - category: dev-libs-3
+          name: libsigc++
+    uses:
+      - X
+  uses:
+    disabled:
+    - aqua
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - X
+    - svg
+  packages:
+  - dev-cpp/cairomm:0
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  packages:
+    - media-libs/libuninameslist
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+    - static
+    - test
+    - truetype-debugger
+    - python_single_target_python2_7
+    - python_single_target_python3_8
+    - python_single_target_python3_9
+    enabled:
+    - X
+    - cairo
+    - gif
+    - gtk
+    - jpeg
+    - png
+    - python
+    - python_single_target_python3_9
+    - readline
+    - tiff
+    - unicode
+  packages:
+  - media-gfx/fontforge
+
 
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
