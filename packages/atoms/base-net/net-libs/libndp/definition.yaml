@@ -1,0 +1,24 @@
+name: libndp
+version: "1.7"
+category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for Neighbor Discovery Protocol
+uri:
+- http://libndp.org
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  emerge.packages: net-libs/libndp
+  kit: net-kit
+  original.package.name: net-libs/libndp
+  original.package.slot: "0"
+  original.package.version: "1.7"
