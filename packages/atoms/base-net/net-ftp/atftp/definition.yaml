@@ -1,0 +1,41 @@
+name: atftp
+version: 0.7.2
+category: net-ftp
+use_flags:
+- -selinux
+- pcre
+- readline
+- tcpd
+requires:
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Advanced TFTP implementation client/server
+uri:
+- https://sourceforge.net/projects/atftp/
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: tcpd? ( sys-apps/tcp-wrappers ) readline? ( sys-libs/readline:0= ) pcre?
+    ( dev-libs/libpcre )
+  IUSE: selinux tcpd readline pcre
+  RDEPEND: tcpd? ( sys-apps/tcp-wrappers ) readline? ( sys-libs/readline:0= ) pcre?
+    ( dev-libs/libpcre ) !net-ftp/netkit-tftp !net-ftp/tftp-hpa !net-ftp/uftpd selinux?
+    ( sec-policy/selinux-tftp )
+  emerge.packages: net-ftp/atftp
+  kit: net-kit
+  original.package.name: net-ftp/atftp
+  original.package.slot: "0"
+  original.package.version: 0.7.2
