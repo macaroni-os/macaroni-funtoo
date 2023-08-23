@@ -1,5 +1,5 @@
 name: networkmanager
-version: 1.42.8
+version: 1.42.8+1
 category: net-misc
 use_flags:
 - -audit
@@ -7,7 +7,6 @@ use_flags:
 - -dhclient
 - -gnutls
 - -gtk-doc
-- -iptables
 - -iwd
 - -libedit
 - -nftables
@@ -24,6 +23,7 @@ use_flags:
 - dhcpcd
 - elogind
 - introspection
+- iptables
 - modemmanager
 - nss
 - policykit
@@ -32,6 +32,9 @@ use_flags:
 - vala
 - wifi
 requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
 - name: nss
   version: '>=0'
   category: dev-libs
@@ -41,6 +44,9 @@ requires:
 - name: dnsmasq
   version: '>=0'
   category: net-dns
+- name: iptables
+  version: '>=0'
+  category: net-firewall
 - name: libndp
   version: '>=0'
   category: net-libs
