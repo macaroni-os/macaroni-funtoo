@@ -1,0 +1,22 @@
+name: traceroute
+version: 2.1.0
+category: net-analyzer
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility to trace the route of IP packets
+uri:
+- http://traceroute.sourceforge.net/
+license: GPL-2 LGPL-2.1
+labels:
+  IUSE: static
+  RDEPEND: '!<net-misc/iputils-20121221-r1 !net-misc/iputils[traceroute6]'
+  emerge.packages: net-analyzer/traceroute
+  kit: net-kit
+  original.package.name: net-analyzer/traceroute
+  original.package.slot: "0"
+  original.package.version: 2.1.0
