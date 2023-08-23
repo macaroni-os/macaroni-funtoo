@@ -1,0 +1,29 @@
+name: openbsd-netcat
+version: "1.190"
+category: net-analyzer
+use_flags:
+- -elibc_Darwin
+requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The OpenBSD network swiss army knife
+uri:
+- https://cvsweb.openbsd.org/src/usr.bin/nc/ https://salsa.debian.org/debian/netcat-openbsd
+license: BSD
+labels:
+  DEPEND: virtual/pkgconfig !elibc_Darwin? ( dev-libs/libbsd )
+  IUSE: elibc_Darwin
+  RDEPEND: '!elibc_Darwin? ( dev-libs/libbsd ) !net-analyzer/netcat !net-analyzer/netcat6'
+  emerge.packages: net-analyzer/openbsd-netcat
+  kit: net-kit
+  original.package.name: net-analyzer/openbsd-netcat
+  original.package.slot: "0"
+  original.package.version: "1.190"
