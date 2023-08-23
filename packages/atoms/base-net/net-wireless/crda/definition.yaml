@@ -1,0 +1,44 @@
+name: crda
+version: "4.14"
+category: net-wireless
+use_flags:
+- -gcrypt
+- -libressl
+requires:
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: wireless-regdb
+  version: '>=0'
+  category: net-wireless
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Central Regulatory Domain Agent for wireless networks
+uri:
+- https://wireless.wiki.kernel.org/en/developers/regulatory/crda
+license: ISC
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) || ( ( dev-lang/python:3.10 dev-python/m2crypto[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/m2crypto[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/m2crypto[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/m2crypto[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) virtual/pkgconfig virtual/pkgconfig'
+  DEPEND: '!gcrypt? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) ) gcrypt? ( dev-libs/libgcrypt:0= ) dev-libs/libnl:3 net-wireless/wireless-regdb'
+  IUSE: gcrypt libressl
+  RDEPEND: '!gcrypt? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) ) gcrypt? ( dev-libs/libgcrypt:0= ) dev-libs/libnl:3 net-wireless/wireless-regdb'
+  emerge.packages: net-wireless/crda
+  kit: core-kit
+  original.package.name: net-wireless/crda
+  original.package.slot: "0"
+  original.package.version: "4.14"
