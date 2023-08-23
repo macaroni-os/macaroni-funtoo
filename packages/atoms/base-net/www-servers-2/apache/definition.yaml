@@ -1,8 +1,9 @@
 name: apache
-version: 2.4.46+2
+version: 2.4.46+3
 category: www-servers-2
 use_flags:
 - -apache2_modules_brotli
+- -apache2_modules_http2
 - -apache2_modules_md
 - -apache2_modules_session_crypto
 - -ldap
@@ -10,7 +11,6 @@ use_flags:
 - -selinux
 - -suexec
 - apache2_modules_deflate
-- apache2_modules_http2
 - apache2_modules_mime
 - apache2_modules_proxy_http2
 - gdbm
@@ -86,6 +86,7 @@ use_flags:
 - apache2_modules_lbmethod_byrequests
 - apache2_modules_lbmethod_bytraffic
 - apache2_modules_lbmethod_heartbeat
+- split-usr
 requires:
 - name: mime-types
   version: '>=0'
