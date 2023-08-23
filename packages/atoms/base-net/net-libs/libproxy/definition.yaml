@@ -1,0 +1,42 @@
+name: libproxy
+version: 0.4.18
+category: net-libs
+use_flags:
+- -kde
+- -mono
+- -spidermonkey
+- -webkit
+- gnome
+- networkmanager
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for automatic proxy configuration management
+uri:
+- https://github.com/libproxy/libproxy
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: gnome? ( dev-libs/glib:2 ) mono? ( dev-lang/mono ) networkmanager? ( sys-apps/dbus:0
+    ) spidermonkey? ( dev-lang/spidermonkey:68 ) webkit? ( net-libs/webkit-gtk:4 )
+  IUSE: gnome kde mono networkmanager perl python spidermonkey webkit python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: gnome? ( dev-libs/glib:2 ) mono? ( dev-lang/mono ) networkmanager? ( sys-apps/dbus:0
+    ) spidermonkey? ( dev-lang/spidermonkey:68 ) webkit? ( net-libs/webkit-gtk:4 )
+    kde? ( kde-frameworks/kconfig:5 )
+  emerge.packages: net-libs/libproxy
+  kit: core-kit
+  original.package.name: net-libs/libproxy
+  original.package.slot: "0"
+  original.package.version: 0.4.18
