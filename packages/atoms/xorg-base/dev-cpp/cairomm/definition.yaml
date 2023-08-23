@@ -1,0 +1,35 @@
+name: cairomm
+version: 1.12.2
+category: dev-cpp
+use_flags:
+- -doc
+requires:
+- name: libsigc++
+  version: '>=0'
+  category: dev-libs-2
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ bindings for the Cairo vector graphics library
+uri:
+- https://www.cairographics.org/cairomm/
+license: LGPL-2+
+labels:
+  DEPEND: '>=x11-libs/cairo-1.16.0[aqua=,svg=,X=] dev-libs/libsigc++:2= >=dev-libs/libsigc++-2.5.1:2
+    virtual/pkgconfig doc? ( app-doc/doxygen dev-libs/libxslt media-gfx/graphviz )
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: aqua doc +svg X
+  RDEPEND: '>=x11-libs/cairo-1.16.0[aqua=,svg=,X=] dev-libs/libsigc++:2= >=dev-libs/libsigc++-2.5.1:2'
+  emerge.packages: dev-cpp/cairomm
+  kit: gnome-kit
+  original.package.name: dev-cpp/cairomm
+  original.package.slot: "0"
+  original.package.version: 1.12.2-r1
