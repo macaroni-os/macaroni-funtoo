@@ -1,0 +1,21 @@
+name: nss-myhostname
+version: "0.3"
+category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Name Service Switch module for resolving the local hostname
+uri:
+- http://0pointer.de/lennart/projects/nss-myhostname/
+license: LGPL-2.1+
+labels:
+  RDEPEND: '!>=sys-apps/systemd-197'
+  emerge.packages: sys-auth/nss-myhostname
+  kit: core-server-kit
+  original.package.name: sys-auth/nss-myhostname
+  original.package.slot: "0"
+  original.package.version: "0.3"
