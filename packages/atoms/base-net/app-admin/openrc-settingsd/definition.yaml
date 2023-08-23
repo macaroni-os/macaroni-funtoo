@@ -1,0 +1,44 @@
+name: openrc-settingsd
+version: 1.0.1
+category: app-admin
+use_flags:
+- -systemd
+requires:
+- name: libdaemon
+  version: '>=0'
+  category: dev-libs
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: openrc
+  version: '>=0'
+  category: sys-apps
+- name: nss-myhostname
+  version: '>=0'
+  category: sys-auth
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: System settings D-Bus service for OpenRC
+uri:
+- https://gitweb.gentoo.org/proj/openrc-settingsd.git
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.30:2 dev-libs/libdaemon:0= sys-apps/dbus sys-apps/openrc:=
+    sys-auth/polkit dev-util/gdbus-codegen virtual/pkgconfig'
+  IUSE: systemd
+  RDEPEND: '>=dev-libs/glib-2.30:2 dev-libs/libdaemon:0= sys-apps/dbus sys-apps/openrc:=
+    sys-auth/polkit systemd? ( >=sys-apps/systemd-197 ) !systemd? ( sys-auth/nss-myhostname
+    !sys-apps/systemd )'
+  emerge.packages: app-admin/openrc-settingsd
+  kit: core-kit
+  original.package.name: app-admin/openrc-settingsd
+  original.package.slot: "0"
+  original.package.version: 1.0.1-r1
