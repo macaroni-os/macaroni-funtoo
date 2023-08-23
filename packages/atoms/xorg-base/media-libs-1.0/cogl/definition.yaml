@@ -1,0 +1,77 @@
+name: cogl
+version: 1.22.8
+category: media-libs-1.0
+use_flags:
+- -gstreamer
+- -prefix
+- -test
+- gles2
+- introspection
+- kms
+- pango
+- wayland
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: opengl
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXdamage
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library for using 3D graphics hardware to draw pretty pictures
+uri:
+- https://www.cogl3d.org/
+license: MIT BSD
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 x11-libs/cairo:= >=x11-libs/gdk-pixbuf-2.39.2:2
+    x11-libs/libX11 >=x11-libs/libXcomposite-0.4 x11-libs/libXdamage x11-libs/libXext
+    >=x11-libs/libXfixes-3 >=x11-libs/libXrandr-1.2 virtual/opengl kms? ( media-libs/mesa[egl]
+    ) gles2? ( media-libs/mesa[gles2] ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) kms? ( media-libs/mesa[gbm]
+    x11-libs/libdrm:= ) pango? ( >=x11-libs/pango-1.44.7[introspection?] ) wayland?
+    ( >=dev-libs/wayland-1.1.90 media-libs/mesa[egl,wayland] ) >=dev-util/gtk-doc-am-1.13
+    >=sys-devel/gettext-0.19 virtual/pkgconfig test? ( app-eselect/eselect-opengl
+    media-libs/mesa[classic] ) >=app-portage/elt-patches-20170815 app-arch/xz-utils
+    dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )'
+  IUSE: debug examples gles2 gstreamer +introspection +kms +opengl +pango test -wayland
+    test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 x11-libs/cairo:= >=x11-libs/gdk-pixbuf-2.39.2:2
+    x11-libs/libX11 >=x11-libs/libXcomposite-0.4 x11-libs/libXdamage x11-libs/libXext
+    >=x11-libs/libXfixes-3 >=x11-libs/libXrandr-1.2 virtual/opengl kms? ( media-libs/mesa[egl]
+    ) gles2? ( media-libs/mesa[gles2] ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) kms? ( media-libs/mesa[gbm]
+    x11-libs/libdrm:= ) pango? ( >=x11-libs/pango-1.44.7[introspection?] ) wayland?
+    ( >=dev-libs/wayland-1.1.90 media-libs/mesa[egl,wayland] ) !<media-libs/clutter-1.7'
+  emerge.packages: media-libs/cogl:1.0
+  kit: gnome-kit
+  original.package.name: media-libs/cogl
+  original.package.slot: "1.0"
+  original.package.version: 1.22.8
