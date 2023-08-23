@@ -367,6 +367,131 @@ artefacts:
   packages:
   - media-gfx/fontforge
 
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - debug
+    - examples
+    - gstreamer
+    - nios2
+    - sh
+    - test
+    enabled:
+    - gles2
+    - introspection
+    - kms
+    - opengl
+    - pango
+    - wayland
+  packages:
+  - media-libs/cogl:1.0
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - aqua
+    - debug
+    - doc
+    - nios2
+    - sh
+    - test
+    enabled:
+    - wayland
+    - X
+    - egl
+    - gtk
+    - introspection
+  packages:
+  - media-libs/clutter:1.0
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    uses:
+      - wayland
+      - X
+      - gtk
+  uses:
+    disabled:
+    - debug
+    - examples
+    - nios2
+    - sh
+    enabled:
+    - wayland
+    - X
+    - gtk
+    - introspection
+  packages:
+  - media-libs/clutter-gtk:1.0
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  uses:
+    disabled:
+    - input_devices_elographics
+    - input_devices_joystick
+    - input_devices_libinput
+    - input_devices_tslib
+    - input_devices_void
+    - input_devices_wacom
+    - nios2
+    - sh
+    - video_cards_ast
+    - video_cards_dummy
+    - video_cards_freedreno
+    - video_cards_gallium-iris
+    - video_cards_gallium-tegra
+    - video_cards_geode
+    - video_cards_glint
+    - video_cards_i915
+    - video_cards_mga
+    - video_cards_nv
+    - video_cards_omap
+    - video_cards_qxl
+    - video_cards_r128
+    - video_cards_siliconmotion
+    - video_cards_tdfx
+    - video_cards_tegra
+    - video_cards_vc4
+    - video_cards_vesa
+    - video_cards_via
+    - video_cards_virtualbox
+    - video_cards_voodoo
+    - video_cards_radeonsi
+    - video_cards_gallium-radeonsi
+    enabled:
+    - input_devices_evdev
+    - input_devices_keyboard
+    - input_devices_mouse
+    - input_devices_synaptics
+    - input_devices_vmmouse
+    - video_cards_amdgpu
+    - video_cards_fbdev
+    - video_cards_i965
+    - video_cards_intel
+    - video_cards_nouveau
+    - video_cards_radeon
+    - video_cards_vmware
+    - video_cards_nvidia
+  packages:
+  - x11-base/xorg-drivers
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - layers
+    - nios2
+    - sh
+    enabled:
+    - X
+    # This is needed for mpv
+    - wayland
+  packages:
+  - media-libs/vulkan-loader
 
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
