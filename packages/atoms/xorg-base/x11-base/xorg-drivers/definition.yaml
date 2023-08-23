@@ -1,0 +1,29 @@
+name: xorg-drivers
+version: "1.20"
+category: x11-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Meta package containing deps on all xorg drivers
+uri:
+- https://wiki.gentoo.org/wiki/No_homepage
+license: metapackage
+labels:
+  IUSE: video_cards_amdgpu video_cards_ast video_cards_dummy video_cards_fbdev video_cards_freedreno
+    video_cards_geode video_cards_glint video_cards_i915 video_cards_i965 video_cards_intel
+    video_cards_mga video_cards_nouveau video_cards_nv video_cards_omap video_cards_qxl
+    video_cards_r128 video_cards_radeon video_cards_radeonsi video_cards_siliconmotion
+    video_cards_tegra video_cards_vc4 video_cards_vesa video_cards_via video_cards_virtualbox
+    video_cards_vmware video_cards_nvidia input_devices_elographics input_devices_evdev
+    input_devices_joystick input_devices_libinput input_devices_mouse input_devices_vmmouse
+    input_devices_void input_devices_synaptics input_devices_wacom
+  RDEPEND: '!x11-drivers/xf86-input-keyboard'
+  emerge.packages: x11-base/xorg-drivers
+  kit: core-gl-kit
+  original.package.name: x11-base/xorg-drivers
+  original.package.slot: "0"
+  original.package.version: 1.20-r1
