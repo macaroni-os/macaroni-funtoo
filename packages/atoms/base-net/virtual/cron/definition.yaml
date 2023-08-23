@@ -1,0 +1,25 @@
+name: cron
+version: "0"
+category: virtual
+requires:
+- name: cronie
+  version: '>=0'
+  category: sys-process
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for cron
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( sys-process/cronie sys-process/vixie-cron sys-process/bcron sys-process/dcron
+    sys-process/fcron sys-process/systemd-cron )'
+  emerge.packages: virtual/cron
+  kit: core-kit
+  original.package.name: virtual/cron
+  original.package.slot: "0"
+  original.package.version: 0-r1
