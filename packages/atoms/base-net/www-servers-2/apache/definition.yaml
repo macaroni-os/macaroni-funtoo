@@ -1,5 +1,5 @@
 name: apache
-version: 2.4.46+1
+version: 2.4.46+2
 category: www-servers-2
 use_flags:
 - -apache2_modules_brotli
@@ -79,6 +79,13 @@ use_flags:
 - apache2_modules_usertrack
 - apache2_modules_vhost_alias
 - apache2_mpms_prefork
+- apache2_modules_slotmem_shm
+- apache2_modules_xml2enc
+- apache2_modules_proxy_ajp
+- apache2_modules_lbmethod_bybusyness
+- apache2_modules_lbmethod_byrequests
+- apache2_modules_lbmethod_bytraffic
+- apache2_modules_lbmethod_heartbeat
 requires:
 - name: mime-types
   version: '>=0'
