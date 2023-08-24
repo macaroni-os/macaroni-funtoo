@@ -1,0 +1,28 @@
+name: luasocket
+version: "3.0"
+category: dev-lua
+requires:
+- name: lua
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Networking support library for the Lua language
+uri:
+- http://www.tecgraf.puc-rio.br/~diego/professional/luasocket/
+license: MIT
+labels:
+  DEPEND: '>=dev-lang/lua-5.1.5-r2[deprecated,-mgorny(-)] >=virtual/pkgconfig-0-r1[-mgorny(-)]'
+  IUSE: debug abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '>=dev-lang/lua-5.1.5-r2[deprecated,-mgorny(-)]'
+  emerge.packages: dev-lua/luasocket
+  kit: lang-kit
+  original.package.name: dev-lua/luasocket
+  original.package.slot: "0"
+  original.package.version: 3.0_rc1-r4
