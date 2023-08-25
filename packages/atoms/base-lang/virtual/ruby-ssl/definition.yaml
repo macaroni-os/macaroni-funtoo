@@ -1,0 +1,40 @@
+name: ruby-ssl
+version: "13.0"
+category: virtual
+use_flags:
+- -ruby_targets_ruby27
+- -ruby_targets_ruby30
+- -ruby_targets_ruby32
+- ruby_targets_ruby31
+requires:
+- name: ruby
+  version: '>=0'
+  category: dev-lang-3.1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual ebuild for the Ruby OpenSSL bindings
+uri:
+- ""
+labels:
+  BDEPEND: ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    )
+  DEPEND: ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    )
+  IUSE: ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32
+  RDEPEND: ruby_targets_ruby27? ( dev-lang/ruby:2.7[ssl] ) ruby_targets_ruby30? (
+    dev-lang/ruby:3.0[ssl] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1[ssl] ) ruby_targets_ruby32?
+    ( dev-lang/ruby:3.2[ssl] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31?
+    ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27?
+    ( dev-lang/ruby:2.7 )
+  emerge.packages: virtual/ruby-ssl
+  kit: ruby-kit
+  original.package.name: virtual/ruby-ssl
+  original.package.slot: "0"
+  original.package.version: "13.0"
