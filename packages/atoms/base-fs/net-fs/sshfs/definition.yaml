@@ -1,0 +1,33 @@
+name: sshfs
+version: 3.7.3
+category: net-fs
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: openssh
+  version: '>=0'
+  category: net-misc
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fuse-filesystem utilizing the sftp service
+uri:
+- https://github.com/libfuse/sshfs
+license: GPL-2
+labels:
+  BDEPEND: dev-python/docutils virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: sys-fs/fuse:3 dev-libs/glib
+  RDEPEND: sys-fs/fuse:3 dev-libs/glib net-misc/openssh
+  emerge.packages: net-fs/sshfs
+  kit: net-kit
+  original.package.name: net-fs/sshfs
+  original.package.slot: "0"
+  original.package.version: 3.7.3
