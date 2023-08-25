@@ -197,6 +197,154 @@ artefacts:
   packages:
     - dev-lang/go
 
+
+# ----------------------------
+# Nodejs stuff
+# ----------------------------
+- tree: packages/atoms/base-lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  uses:
+    disabled:
+    - debug
+    - doc
+    - lto
+    - nios2
+    - pax-kernel
+    - sh
+    - systemtap
+    - test
+    enabled:
+    - cpu_flags_x86_sse2
+    - icu
+    - inspector
+    - npm
+    - snapshot
+    - ssl
+    - system-icu
+    - system-ssl
+  packages:
+  - net-libs/nodejs
+
+
+# ----------------------------
+# Ruby stuff
+# ----------------------------
+- tree: packages/atoms/base-lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  packages:
+    - app-eselect/eselect-ruby
+
+- tree: packages/atoms/base-lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-ruby
+          name: rubygems
+  uses:
+    disabled:
+    - debug
+    - doc
+    - test
+    - static-libs
+    - rubytests
+    - systemtap
+    - xemacs
+    - jit
+    - examples
+    - jemalloc
+  packages:
+    - virtual/rubygems
+
+- tree: packages/atoms/base-lang
+  uses:
+    disabled:
+    - debug
+    - doc
+    - test
+    - static-libs
+    - rubytests
+    - systemtap
+    - xemacs
+    - jit
+    - examples
+    - jemalloc
+  packages:
+    - dev-util/colm
+    - dev-util/ragel
+    - dev-lang/ruby:3.1
+    - virtual/ruby-ssl
+    - dev-ruby/rubygems
+    - dev-ruby/rake
+    - dev-ruby/net-ftp
+    - dev-ruby/power_assert
+    - dev-ruby/test-unit
+    - dev-ruby/rbs
+    - dev-ruby/typeprof
+    - dev-ruby/rexml
+    - dev-ruby/net-smtp
+    - dev-ruby/net-pop
+    - dev-ruby/json
+    - dev-ruby/matrix
+    - dev-ruby/prime
+    - dev-ruby/bundler
+    - dev-ruby/minitest
+    - dev-ruby/did_you_mean
+    - dev-ruby/debug
+    - dev-ruby/irb
+    - dev-ruby/net-imap
+    - dev-ruby/rss
+    - dev-ruby/kpeg
+    - dev-ruby/racc
+    - dev-ruby/stringio
+    - dev-ruby/psych
+    - dev-ruby/rdoc
+
+
+# ----------------------------
+# Free Pascal stuff
+# ----------------------------
+- tree: packages/atoms/base-lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  packages:
+    - dev-libs/xxhash
+    - app-eselect/eselect-ctags
+
+- tree: packages/atoms/base-lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+    uses:
+      - source
+  packages:
+    - dev-lang/fpc
+
+- tree: packages/atoms/base-lang
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-devel
+          name: make
+        - category: sys-devel
+          name: gdb
+  packages:
+    - dev-lang/lazarus
+
+
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
@@ -250,6 +398,11 @@ reposcan_contraints:
     - sys-devel/clang:13
     - sys-devel/clang-runtime:13.0.0
 
+    # Using nodejs-14 LTS for now
+    - <net-libs/nodejs-15.0
+
+    - dev-lang/ruby:3.1
+
 reposcan_disabled_use_flags:
   - build
 
@@ -283,6 +436,10 @@ reposcan_disabled_use_flags:
   - python_targets_pypy3
   - ruby_targets_ruby25
   - ruby_targets_ruby24
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby32
+  - ruby_targets_ruby30
   - ppc-aix
   - x86-winnt
   - kernel-builtin
