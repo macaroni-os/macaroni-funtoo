@@ -1,4 +1,8 @@
 prelude:
+# temporary bugfix
+- >-
+  sed -i -e 's|>=dev-libs/boost-1.62.0\:=\[threads\]|dev-libs/boost|g'
+  /var/git/meta-repo/kits/dev-kit/dev-util/source-highlight/source-highlight-3.1.8-r1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
