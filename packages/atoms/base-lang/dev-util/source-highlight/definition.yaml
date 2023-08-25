@@ -1,0 +1,30 @@
+name: source-highlight
+version: 3.1.8
+category: dev-util
+requires:
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: ctags
+  version: '>=0'
+  category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Generate highlighted source code as an (x)html document
+uri:
+- https://www.gnu.org/software/src-highlite/source-highlight.html
+license: GPL-3
+labels:
+  DEPEND: '>=dev-libs/boost-1.62.0:=[threads] dev-util/ctags'
+  IUSE: doc static-libs
+  RDEPEND: '>=dev-libs/boost-1.62.0:=[threads] dev-util/ctags'
+  emerge.packages: dev-util/source-highlight
+  kit: dev-kit
+  original.package.name: dev-util/source-highlight
+  original.package.slot: "0"
+  original.package.version: 3.1.8-r1
