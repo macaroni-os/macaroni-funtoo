@@ -1,0 +1,29 @@
+name: zfs-kmod
+version: 2.1.12
+category: sys-fs
+use_flags:
+- -kernel_linux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux ZFS kernel module for sys-fs/zfs
+uri:
+- https://github.com/openzfs/zfs
+license: CDDL MIT debug? ( GPL-2+ )
+labels:
+  BDEPEND: dev-lang/perl virtual/awk >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: kernel_linux? ( virtual/modutils ) sys-apps/sed kernel_linux? ( virtual/linux-sources
+    virtual/libelf )
+  IUSE: custom-cflags debug +rootfs kernel_linux kernel_linux
+  RDEPEND: '!sys-kernel/spl kernel_linux? ( virtual/modutils )'
+  emerge.packages: sys-fs/zfs-kmod
+  kit: core-kit
+  original.package.name: sys-fs/zfs-kmod
+  original.package.slot: "0"
+  original.package.version: 2.1.12
