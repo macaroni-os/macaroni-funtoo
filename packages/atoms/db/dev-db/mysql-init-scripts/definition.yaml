@@ -1,0 +1,30 @@
+name: mysql-init-scripts
+version: "2.4"
+category: dev-db
+requires:
+- name: mysql-connector-c
+  version: '>=0'
+  category: dev-db
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Funtoo MySQL init scripts.
+uri:
+- https://www.funtoo.org/
+license: GPL-2
+labels:
+  DEPEND: virtual/pkgconfig
+  RDEPEND: '!<dev-db/mysql-community-5.1 !<sys-apps/openrc-0.16.2 dev-db/mysql-connector-c
+    virtual/tmpfiles'
+  emerge.packages: dev-db/mysql-init-scripts
+  kit: core-server-kit
+  original.package.name: dev-db/mysql-init-scripts
+  original.package.slot: "0"
+  original.package.version: "2.4"
