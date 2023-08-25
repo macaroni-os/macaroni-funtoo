@@ -1,0 +1,25 @@
+name: eselect-postgresql
+version: "2.4"
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility to select the default PostgreSQL slot
+uri:
+- https://www.gentoo.org/
+license: GPL-2
+labels:
+  RDEPEND: app-admin/eselect
+  emerge.packages: app-eselect/eselect-postgresql
+  kit: core-kit
+  original.package.name: app-eselect/eselect-postgresql
+  original.package.slot: "0"
+  original.package.version: "2.4"
