@@ -293,7 +293,9 @@ artefacts:
     install:
       - >-
         entities merge --specs-dir /usr/share/macaroni/entities/
-        -e avahi
+        -e avahi &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi-autoipd
 
 - tree: packages/atoms/base-gtk2
   uses:

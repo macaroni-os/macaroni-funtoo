@@ -2,4 +2,6 @@ shell:
 - /bin/bash
 - -c
 install:
-- entities merge --specs-dir /usr/share/macaroni/entities/ -e avahi
+- >-
+  entities merge --specs-dir /usr/share/macaroni/entities/ -e avahi &&
+  entities merge --specs-dir /usr/share/macaroni/entities/ -e avahi-autoipd
