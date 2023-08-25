@@ -1,4 +1,7 @@
 prelude:
+# TODO: To fix on Funtoo
+- >-
+  cp -rf files/ /var/git/meta-repo/kits/core-kit/net-wireless/iwd/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
