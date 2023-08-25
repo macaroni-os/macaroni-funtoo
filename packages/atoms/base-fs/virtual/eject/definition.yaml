@@ -1,0 +1,27 @@
+name: eject
+version: "0"
+category: virtual
+requires:
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for the eject command
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( >=sys-apps/util-linux-2.22 sys-block/eject-bsd )'
+  emerge.packages: virtual/eject
+  kit: core-kit
+  original.package.name: virtual/eject
+  original.package.slot: "0"
+  original.package.version: 0-r1
