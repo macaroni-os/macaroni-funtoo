@@ -1,8 +1,7 @@
 name: libblockdev
-version: "2.22"
+version: 2.22+1
 category: sys-libs
 use_flags:
-- -cryptsetup
 - -device-mapper
 - -dmraid
 - -escrow
@@ -11,8 +10,9 @@ use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- -python_single_target_python3_9
 - -vdo
+- cryptsetup
+- python_single_target_python3_9
 requires:
 - name: glib
   version: '>=0'
@@ -23,12 +23,12 @@ requires:
 - name: kmod
   version: '>=0'
   category: sys-apps
-- name: util-linux
-  version: '>=0'
-  category: sys-apps
 - name: parted
   version: '>=0'
   category: sys-block
+- name: cryptsetup
+  version: '>=0'
+  category: sys-fs
 annotations:
   subsets:
     rules:
