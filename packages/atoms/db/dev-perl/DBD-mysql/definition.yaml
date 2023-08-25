@@ -1,0 +1,42 @@
+name: DBD-mysql
+version: 4.50.0
+category: dev-perl
+use_flags:
+- -mariadb
+- -test
+- mysql
+requires:
+- name: mysql-connector-c
+  version: '>=0'
+  category: dev-db
+- name: DBI
+  version: '>=0'
+  category: dev-perl
+- name: Devel-CheckLib
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: MySQL driver for the Perl5 Database Interface (DBI)
+uri:
+- https://metacpan.org/release/DBD-mysql
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  BDEPEND: dev-lang/perl:=
+  DEPEND: '>=dev-perl/DBI-1.609.0 >=dev-perl/Devel-CheckLib-1.109.0 mysql? ( dev-db/mysql-connector-c:=
+    ) mariadb? ( dev-db/mariadb-connector-c:=[ssl(+)?] ) virtual/perl-ExtUtils-MakeMaker
+    virtual/perl-Data-Dumper test? ( dev-perl/Test-Deep >=virtual/perl-Test-Simple-0.900.0
+    virtual/perl-Time-HiRes ) dev-lang/perl:='
+  IUSE: mariadb +mysql test +ssl
+  RDEPEND: '>=dev-perl/DBI-1.609.0 >=dev-perl/Devel-CheckLib-1.109.0 mysql? ( dev-db/mysql-connector-c:=
+    ) mariadb? ( dev-db/mariadb-connector-c:=[ssl(+)?] ) dev-lang/perl:='
+  emerge.packages: dev-perl/DBD-mysql
+  kit: perl-kit
+  original.package.name: dev-perl/DBD-mysql
+  original.package.slot: "0"
+  original.package.version: 4.50.0
