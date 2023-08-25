@@ -67,7 +67,7 @@ steps:
   macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
-  whip h eclass_db.db_fix_so &&
+  whip h eclass_db.db_fix_so perl.postinst &&
   eselect rust set 1 &&
   cd / && rm -rf /luetbuild &&
   eval 'mkdir -p /run || true' &&
