@@ -1372,6 +1372,32 @@ artefacts:
   packages:
   - net-misc/socat
 
+- tree: packages/atoms/base-net
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+  packages:
+  - net-misc/lksctp-tools
+  - net-dialup/xl2tpd
+
+- tree: packages/atoms/base-net
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - ofono
+      - systemd
+      - doc
+      - examples
+  packages:
+  - net-wireless/iwd
+  #- net-misc/connman
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
