@@ -1,0 +1,43 @@
+name: cdrtools
+version: "3.02"
+category: app-cdr
+use_flags:
+- -selinux
+- acl
+- caps
+- filecaps
+- nls
+requires:
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: acl
+  version: '>=0'
+  category: virtual
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A set of tools for CD/DVD reading and recording, including cdrecord
+uri:
+- https://sourceforge.net/projects/cdrtools/
+license: GPL-2 LGPL-2.1 CDDL-Schily
+labels:
+  BDEPEND: nls? ( >=sys-devel/gettext-0.18.1.1 ) x11-misc/makedepend
+  DEPEND: acl? ( virtual/acl ) caps? ( sys-libs/libcap ) nls? ( virtual/libintl )
+    !app-cdr/cdrkit selinux? ( sec-policy/selinux-cdrecord ) filecaps? ( sys-libs/libcap
+    ) sys-devel/gnuconfig
+  IUSE: acl caps nls unicode selinux +filecaps
+  RDEPEND: acl? ( virtual/acl ) caps? ( sys-libs/libcap ) nls? ( virtual/libintl )
+    !app-cdr/cdrkit selinux? ( sec-policy/selinux-cdrecord )
+  emerge.packages: app-cdr/cdrtools
+  kit: media-kit
+  original.package.name: app-cdr/cdrtools
+  original.package.slot: "0"
+  original.package.version: 3.02_alpha09-r4
