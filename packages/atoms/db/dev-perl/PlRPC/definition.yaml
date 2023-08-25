@@ -1,0 +1,29 @@
+name: PlRPC
+version: 0.202.0
+category: dev-perl
+requires:
+- name: Net-Daemon
+  version: '>=0'
+  category: dev-perl
+- name: perl-Storable
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Perl RPC Module
+uri:
+- https://metacpan.org/release/PlRPC
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-Storable-1.0.7 >=dev-perl/Net-Daemon-0.34 dev-lang/perl:='
+  RDEPEND: '>=virtual/perl-Storable-1.0.7 >=dev-perl/Net-Daemon-0.34 dev-lang/perl:='
+  emerge.packages: dev-perl/PlRPC
+  kit: perl-kit
+  original.package.name: dev-perl/PlRPC
+  original.package.slot: "0"
+  original.package.version: 0.202.0-r3
