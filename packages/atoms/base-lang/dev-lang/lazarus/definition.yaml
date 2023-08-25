@@ -1,0 +1,51 @@
+name: lazarus
+version: 2.2.4
+category: dev-lang
+use_flags:
+- gtk2
+- gui
+requires:
+- name: fpc
+  version: '>=0'
+  category: dev-lang
+- name: binutils
+  version: '>=0'
+  category: sys-devel-2.39
+- name: gdb
+  version: '>=0'
+  category: sys-devel
+- name: make
+  version: '>=0'
+  category: sys-devel
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: make
+  version: '>=0'
+  category: sys-devel
+- name: gdb
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: feature rich visual programming environment emulating Delphi
+uri:
+- https://www.lazarus-ide.org/
+license: GPL-2 LGPL-2.1-with-linking-exception
+labels:
+  BDEPEND: net-misc/rsync
+  DEPEND: '>=dev-lang/fpc-3.2.2[source] >=sys-devel/binutils-2.19.1-r1:= gui? ( !gtk2?
+    ( dev-libs/libqt5pas:0/2.2 ) gtk2? ( x11-libs/gtk+:2 ) )'
+  IUSE: gtk2 +gui extras
+  RDEPEND: '>=dev-lang/fpc-3.2.2[source] >=sys-devel/binutils-2.19.1-r1:= gui? ( !gtk2?
+    ( dev-libs/libqt5pas:0/2.2 ) gtk2? ( x11-libs/gtk+:2 ) ) sys-devel/make sys-devel/gdb'
+  emerge.packages: dev-lang/lazarus
+  kit: geaaru-kit
+  original.package.name: dev-lang/lazarus
+  original.package.slot: "0"
+  original.package.version: 2.2.4-r1
