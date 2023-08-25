@@ -1,0 +1,25 @@
+name: eselect-ctags
+version: "1.18"
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manages ctags implementations
+uri:
+- https://wiki.gentoo.org/wiki/Project:Emacs
+license: GPL-2+
+labels:
+  RDEPEND: '!<app-eselect/eselect-emacs-1.18 >=app-admin/eselect-1.2.3'
+  emerge.packages: app-eselect/eselect-ctags
+  kit: core-kit
+  original.package.name: app-eselect/eselect-ctags
+  original.package.slot: "0"
+  original.package.version: "1.18"
