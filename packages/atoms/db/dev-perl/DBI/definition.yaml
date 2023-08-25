@@ -1,0 +1,39 @@
+name: DBI
+version: 1.643.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: PlRPC
+  version: '>=0'
+  category: dev-perl
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-Sys-Syslog
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Database independent interface for Perl
+uri:
+- https://metacpan.org/release/DBI
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  BDEPEND: '>=dev-perl/PlRPC-0.200.0 >=virtual/perl-Sys-Syslog-0.170.0 virtual/perl-File-Spec
+    !<=dev-perl/SQL-Statement-1.330.0 >=virtual/perl-ExtUtils-MakeMaker-6.480.0 test?
+    ( >=virtual/perl-Test-Simple-0.900.0 ) dev-lang/perl:='
+  DEPEND: dev-lang/perl:=
+  IUSE: test examples
+  RDEPEND: '>=dev-perl/PlRPC-0.200.0 >=virtual/perl-Sys-Syslog-0.170.0 virtual/perl-File-Spec
+    !<=dev-perl/SQL-Statement-1.330.0 dev-lang/perl:='
+  emerge.packages: dev-perl/DBI
+  kit: perl-kit
+  original.package.name: dev-perl/DBI
+  original.package.slot: "0"
+  original.package.version: 1.643.0
