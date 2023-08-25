@@ -1,15 +1,15 @@
 name: cryptsetup
-version: 2.6.1
+version: 2.6.1+1
 category: sys-fs
 use_flags:
 - -doc
+- -gcrypt
 - -nettle
 - -pwquality
 - -ssh
 - -static
 - -static-libs
 - -test
-- gcrypt
 - openssl
 - udev
 requires:
@@ -17,9 +17,6 @@ requires:
   version: '>=0'
   category: app-crypt
 - name: json-c
-  version: '>=0'
-  category: dev-libs
-- name: libgcrypt
   version: '>=0'
   category: dev-libs
 - name: openssl
