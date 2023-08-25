@@ -1,0 +1,38 @@
+name: Devel-CheckLib
+version: 1.110.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-File-Temp
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: check that a library is available
+uri:
+- https://metacpan.org/release/Devel-CheckLib
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-File-Temp-0.160.0 virtual/perl-Exporter virtual/perl-File-Spec
+    virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.620.0 >=dev-perl/IO-CaptureOutput-1.80.100
+    >=dev-perl/Mock-Config-0.20.0 ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=virtual/perl-File-Temp-0.160.0 virtual/perl-Exporter virtual/perl-File-Spec
+    dev-lang/perl:='
+  emerge.packages: dev-perl/Devel-CheckLib
+  kit: perl-kit
+  original.package.name: dev-perl/Devel-CheckLib
+  original.package.slot: "0"
+  original.package.version: 1.110.0
