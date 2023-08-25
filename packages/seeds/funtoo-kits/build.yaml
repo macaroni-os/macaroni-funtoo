@@ -59,5 +59,10 @@ prelude:
   sed -i -e 's|xf86-video-vboxvideo|xf86-video-vbox|g'
   /var/git/meta-repo/kits/core-gl-kit/x11-base/xorg-drivers/xorg-drivers-*.ebuild
 
+# Fix wrong DEPEND on source-hightlight
+- >-
+  sed -i -e 's|>=dev-libs/boost-1.62.0\:=\[threads\]|dev-libs/boost|g'
+  /var/git/meta-repo/kits/dev-kit/dev-util/source-highlight/source-highlight-*.ebuild
+
 # Drop package.mask with elogind use flag for x11-misc/sddm
 - rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
