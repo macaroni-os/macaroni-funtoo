@@ -1,0 +1,73 @@
+name: libblockdev
+version: "2.22"
+category: sys-libs
+use_flags:
+- -cryptsetup
+- -device-mapper
+- -dmraid
+- -escrow
+- -lvm
+- -python_single_target_python2_7
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -python_single_target_python3_9
+- -vdo
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libbytesize
+  version: '>=0'
+  category: dev-libs
+- name: kmod
+  version: '>=0'
+  category: sys-apps
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: parted
+  version: '>=0'
+  category: sys-block
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library for manipulating block devices
+uri:
+- https://github.com/storaged-project/libblockdev
+license: LGPL-2+
+labels:
+  BDEPEND: '>=dev-libs/gobject-introspection-1.3.0 dev-util/gtk-doc-am'
+  DEPEND: '>=dev-libs/glib-2.42.2 dev-libs/libbytesize >=sys-apps/kmod-19 >=sys-apps/util-linux-2.27
+    >=sys-block/parted-3.1 cryptsetup? ( escrow? ( >=dev-libs/nss-3.18.0 dev-libs/volume_key
+    ) >=sys-fs/cryptsetup-1.6.7:= ) device-mapper? ( sys-fs/lvm2 ) dmraid? ( sys-fs/dmraid
+    sys-fs/lvm2 ) lvm? ( sys-fs/lvm2 virtual/udev ) vdo? ( dev-libs/libyaml ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    )'
+  IUSE: bcache +cryptsetup device-mapper dmraid escrow gtk-doc lvm kbd test +tools
+    vdo python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python2_7 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
+  RDEPEND: '>=dev-libs/glib-2.42.2 dev-libs/libbytesize >=sys-apps/kmod-19 >=sys-apps/util-linux-2.27
+    >=sys-block/parted-3.1 cryptsetup? ( escrow? ( >=dev-libs/nss-3.18.0 dev-libs/volume_key
+    ) >=sys-fs/cryptsetup-1.6.7:= ) device-mapper? ( sys-fs/lvm2 ) dmraid? ( sys-fs/dmraid
+    sys-fs/lvm2 ) lvm? ( sys-fs/lvm2 virtual/udev ) vdo? ( dev-libs/libyaml ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python2_7?
+    ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    )'
+  emerge.packages: sys-libs/libblockdev
+  kit: core-kit
+  original.package.name: sys-libs/libblockdev
+  original.package.slot: "0"
+  original.package.version: "2.22"
