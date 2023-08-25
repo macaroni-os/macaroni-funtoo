@@ -1,0 +1,38 @@
+name: libisofs
+version: 1.5.0
+category: dev-libs
+use_flags:
+- acl
+- xattr
+- zlib
+requires:
+- name: attr
+  version: '>=0'
+  category: sys-apps
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: acl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open-source library for reading, mastering and writing optical discs
+uri:
+- https://dev.lovelyhq.com/libburnia/web/wikis/home
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: acl? ( virtual/acl ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib )
+  IUSE: acl debug static-libs verbose-debug xattr zlib
+  RDEPEND: acl? ( virtual/acl ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib )
+  emerge.packages: dev-libs/libisofs
+  kit: dev-kit
+  original.package.name: dev-libs/libisofs
+  original.package.slot: "0"
+  original.package.version: 1.5.0
