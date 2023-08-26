@@ -1,0 +1,22 @@
+name: iso-codes
+version: "3.76"
+category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: ISO language, territory, currency, script codes and their translations
+uri:
+- http://pkg-isocodes.alioth.debian.org/
+license: LGPL-2.1+
+labels:
+  DEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) app-arch/xz-utils sys-devel/gettext'
+  emerge.packages: app-text/iso-codes
+  kit: text-kit
+  original.package.name: app-text/iso-codes
+  original.package.slot: "0"
+  original.package.version: "3.76"
