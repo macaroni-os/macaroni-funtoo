@@ -1,0 +1,95 @@
+name: ibus
+version: 1.5.20.20190629
+category: app-i18n
+use_flags:
+- -gconf
+- -kde
+- -prefix
+- -python_targets_python2_7
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -test
+- X
+- emoji
+- gtk
+- gtk2
+- introspection
+- nls
+- python
+- python_targets_python3_9
+- unicode
+- wayland
+requires:
+- name: iso-codes
+  version: '>=0'
+  category: app-text
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: dconf
+  version: '>=0'
+  category: gnome-base
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Intelligent Input Bus for Linux / Unix OS
+uri:
+- https://github.com/ibus/ibus/wiki
+license: LGPL-2.1
+labels:
+  DEPEND: app-text/iso-codes >=dev-libs/glib-2.62.2:2 gnome-base/dconf gnome-base/librsvg:2
+    sys-apps/dbus[X?] X? ( x11-libs/libX11 !gtk? ( x11-libs/gtk+:2 ) ) gconf? ( gnome-base/gconf:2
+    ) gtk? ( x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXi gtk2? ( x11-libs/gtk+:2
+    ) ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) kde? ( dev-qt/qtgui:5
+    ) x11-libs/libnotify nls? ( virtual/libintl ) python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    ) wayland? ( dev-libs/wayland x11-libs/libxkbcommon ) || ( dev-lang/vala:0.50[vapigen(+)]
+    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
+    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
+    ) dev-util/intltool virtual/pkgconfig emoji? ( app-i18n/unicode-cldr app-i18n/unicode-emoji
+    ) nls? ( sys-devel/gettext ) unicode? ( app-i18n/unicode-data ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )
+  IUSE: +X +emoji gconf +gtk +gtk2 +introspection kde nls +python test +unicode wayland
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python2_7
+    python_targets_python3_10 test
+  RDEPEND: app-text/iso-codes >=dev-libs/glib-2.62.2:2 gnome-base/dconf gnome-base/librsvg:2
+    sys-apps/dbus[X?] X? ( x11-libs/libX11 !gtk? ( x11-libs/gtk+:2 ) ) gconf? ( gnome-base/gconf:2
+    ) gtk? ( x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXi gtk2? ( x11-libs/gtk+:2
+    ) ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) kde? ( dev-qt/qtgui:5
+    ) x11-libs/libnotify nls? ( virtual/libintl ) python? ( python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    ) wayland? ( dev-libs/wayland x11-libs/libxkbcommon ) python? ( gtk? ( x11-libs/gtk+:3[introspection]
+    ) )
+  emerge.packages: app-i18n/ibus
+  kit: gnome-kit
+  original.package.name: app-i18n/ibus
+  original.package.slot: "0"
+  original.package.version: 1.5.20.20190629
