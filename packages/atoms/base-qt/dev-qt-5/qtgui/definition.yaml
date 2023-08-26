@@ -1,0 +1,106 @@
+name: qtgui
+version: 5.15.2
+category: dev-qt-5
+use_flags:
+- -eglfs
+- -gles2-only
+- -test
+- -tslib
+- -tuio
+- -vnc
+- X
+- dbus
+- evdev
+- jpeg
+- libinput
+- linuxfb
+- png
+- udev
+- vulkan
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libinput
+  version: '>=0'
+  category: dev-libs
+- name: qtdbus
+  version: '>=0'
+  category: dev-qt-5
+- name: gtk-update-icon-cache
+  version: '>=0'
+  category: dev-util
+- name: vulkan-headers
+  version: '>=0'
+  category: dev-util
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-image
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-keysyms
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-renderutil
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-wm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The GUI module and platform plugins for the Qt5 framework
+uri:
+- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
+labels:
+  BDEPEND: dev-lang/perl virtual/pkgconfig
+  DEPEND: dev-libs/glib:2 =dev-qt/qtcore-5.15.2*:5= dev-util/gtk-update-icon-cache
+    media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:= sys-libs/zlib:=
+    dbus? ( =dev-qt/qtdbus-5.15.2* ) eglfs? ( media-libs/mesa[gbm(+)] x11-libs/libdrm
+    ) evdev? ( sys-libs/mtdev ) jpeg? ( virtual/jpeg ) gles2-only? ( media-libs/libglvnd
+    ) !gles2-only? ( media-libs/libglvnd[X] ) libinput? ( dev-libs/libinput:= x11-libs/libxkbcommon
+    ) png? ( media-libs/libpng:= ) tslib? ( >=x11-libs/tslib-1.21 ) tuio? ( =dev-qt/qtnetwork-5.15.2*
+    ) udev? ( virtual/libudev:= ) vnc? ( =dev-qt/qtnetwork-5.15.2* ) vulkan? ( dev-util/vulkan-headers
+    ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libxcb:=[xkb] x11-libs/libxkbcommon[X]
+    x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-renderutil
+    x11-libs/xcb-util-wm ) evdev? ( sys-kernel/linux-headers ) linuxfb? ( sys-kernel/linux-headers
+    ) udev? ( sys-kernel/linux-headers ) test? ( =dev-qt/qttest-5.15.2* )
+  IUSE: accessibility dbus egl eglfs evdev +gif gles2-only ibus jpeg +libinput linuxfb
+    +png tslib tuio +udev vnc vulkan wayland +X debug test
+  RDEPEND: dev-libs/glib:2 =dev-qt/qtcore-5.15.2*:5= dev-util/gtk-update-icon-cache
+    media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:= sys-libs/zlib:=
+    dbus? ( =dev-qt/qtdbus-5.15.2* ) eglfs? ( media-libs/mesa[gbm(+)] x11-libs/libdrm
+    ) evdev? ( sys-libs/mtdev ) jpeg? ( virtual/jpeg ) gles2-only? ( media-libs/libglvnd
+    ) !gles2-only? ( media-libs/libglvnd[X] ) libinput? ( dev-libs/libinput:= x11-libs/libxkbcommon
+    ) png? ( media-libs/libpng:= ) tslib? ( >=x11-libs/tslib-1.21 ) tuio? ( =dev-qt/qtnetwork-5.15.2*
+    ) udev? ( virtual/libudev:= ) vnc? ( =dev-qt/qtnetwork-5.15.2* ) vulkan? ( dev-util/vulkan-headers
+    ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libxcb:=[xkb] x11-libs/libxkbcommon[X]
+    x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-renderutil
+    x11-libs/xcb-util-wm )
+  emerge.packages: dev-qt/qtgui:5
+  kit: qt-kit
+  original.package.name: dev-qt/qtgui
+  original.package.slot: "5"
+  original.package.version: 5.15.2_p20230802
