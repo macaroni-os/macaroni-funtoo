@@ -1,0 +1,84 @@
+name: connman
+version: "1.41"
+category: net-misc
+use_flags:
+- -ofono
+- -pptp
+- bluetooth
+- iptables
+- iwd
+- l2tp
+- nftables
+- openconnect
+- openvpn
+- policykit
+- vpnc
+- wifi
+- wispr
+requires:
+- name: xl2tpd
+  version: '>=0'
+  category: net-dialup
+- name: iptables
+  version: '>=0'
+  category: net-firewall
+- name: libnftnl
+  version: '>=0'
+  category: net-libs
+- name: openconnect
+  version: '>=0'
+  category: net-vpn
+- name: openvpn
+  version: '>=0'
+  category: net-vpn
+- name: vpnc
+  version: '>=0'
+  category: net-vpn
+- name: bluez
+  version: '>=0'
+  category: net-wireless
+- name: iwd
+  version: '>=0'
+  category: net-wireless
+- name: wpa_supplicant
+  version: '>=0'
+  category: net-wireless
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Provides a daemon for managing internet connections
+uri:
+- https://01.org/connman
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: '>=dev-libs/glib-2.16 >=sys-apps/dbus-1.2.24 sys-libs/readline:0= iptables?
+    ( >=net-firewall/iptables-1.4.8 ) bluetooth? ( net-wireless/bluez ) iwd? ( net-wireless/iwd
+    ) l2tp? ( net-dialup/xl2tpd ) nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0=
+    ) ofono? ( net-misc/ofono ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn
+    ) policykit? ( sys-auth/polkit ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc
+    ) wifi? ( >=net-wireless/wpa_supplicant-2.0[dbus] ) wispr? ( net-libs/gnutls )
+    >=sys-kernel/linux-headers-2.6.39 virtual/pkgconfig'
+  IUSE: bluetooth debug doc examples +ethernet iptables iwd l2tp nftables ofono openvpn
+    openconnect pptp policykit tools vpnc +wifi wispr networkmanager
+  RDEPEND: '>=dev-libs/glib-2.16 >=sys-apps/dbus-1.2.24 sys-libs/readline:0= iptables?
+    ( >=net-firewall/iptables-1.4.8 ) bluetooth? ( net-wireless/bluez ) iwd? ( net-wireless/iwd
+    ) l2tp? ( net-dialup/xl2tpd ) nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0=
+    ) ofono? ( net-misc/ofono ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn
+    ) policykit? ( sys-auth/polkit ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc
+    ) wifi? ( >=net-wireless/wpa_supplicant-2.0[dbus] ) wispr? ( net-libs/gnutls )
+    virtual/tmpfiles'
+  emerge.packages: net-misc/connman
+  kit: net-kit
+  original.package.name: net-misc/connman
+  original.package.slot: "0"
+  original.package.version: "1.41"
