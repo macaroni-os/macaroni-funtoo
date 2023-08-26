@@ -1,11 +1,11 @@
 name: mongodb
-version: 4.4.23
+version: 4.4.23+1
 category: dev-db
 use_flags:
 - -debug
-- -kerberos
 - -libressl
 - -test
+- kerberos
 - ssl
 requires:
 - name: snappy
@@ -20,6 +20,9 @@ requires:
 - name: boost
   version: '>=0'
   category: dev-libs
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
 - name: libpcre
   version: '>=0'
   category: dev-libs-3
