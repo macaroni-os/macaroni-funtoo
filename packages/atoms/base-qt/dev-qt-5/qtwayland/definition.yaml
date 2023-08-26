@@ -1,0 +1,44 @@
+name: qtwayland
+version: 5.15.2
+category: dev-qt-5
+use_flags:
+- -test
+- X
+- vulkan
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Wayland platform plugin for Qt
+uri:
+- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
+labels:
+  BDEPEND: dev-lang/perl virtual/pkgconfig
+  DEPEND: dev-libs/wayland =dev-qt/qtcore-5.15.2*:5= =dev-qt/qtdeclarative-5.15.2*:5=
+    =dev-qt/qtgui-5.15.2*:5=[egl,libinput,vulkan=,X?] media-libs/libglvnd >=x11-libs/libxkbcommon-0.2.0
+    vulkan? ( dev-util/vulkan-headers ) X? ( =dev-qt/qtgui-5.15.2*[-gles2-only] x11-libs/libX11
+    x11-libs/libXcomposite ) test? ( =dev-qt/qttest-5.15.2* )
+  IUSE: vulkan X debug test
+  RDEPEND: dev-libs/wayland =dev-qt/qtcore-5.15.2*:5= =dev-qt/qtdeclarative-5.15.2*:5=
+    =dev-qt/qtgui-5.15.2*:5=[egl,libinput,vulkan=,X?] media-libs/libglvnd >=x11-libs/libxkbcommon-0.2.0
+    vulkan? ( dev-util/vulkan-headers ) X? ( =dev-qt/qtgui-5.15.2*[-gles2-only] x11-libs/libX11
+    x11-libs/libXcomposite )
+  emerge.packages: dev-qt/qtwayland:5
+  kit: qt-kit
+  original.package.name: dev-qt/qtwayland
+  original.package.slot: "5"
+  original.package.version: 5.15.2_p20230714
