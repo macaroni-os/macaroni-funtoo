@@ -1,4 +1,10 @@
 prelude:
+# TODO: Move this patch to funtoo-kits level
+- >-
+  cp patches/*.ebuild /var/git/meta-repo/kits/gnome-kit/app-i18n/ibus/ &&
+  cd /var/git/meta-repo/kits/gnome-kit/app-i18n/ibus &&
+  ebuild ibus-1.5.28-r1.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
