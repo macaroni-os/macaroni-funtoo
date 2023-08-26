@@ -1,0 +1,31 @@
+name: qtdbus
+version: 5.15.2
+category: dev-qt-5
+use_flags:
+- -test
+requires:
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt5 module for inter-process communication over the D-Bus protocol
+uri:
+- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
+labels:
+  BDEPEND: dev-lang/perl virtual/pkgconfig
+  DEPEND: =dev-qt/qtcore-5.15.2*:5= >=sys-apps/dbus-1.4.20 test? ( =dev-qt/qttest-5.15.2*
+    )
+  IUSE: debug test
+  RDEPEND: =dev-qt/qtcore-5.15.2*:5= >=sys-apps/dbus-1.4.20
+  emerge.packages: dev-qt/qtdbus:5
+  kit: qt-kit
+  original.package.name: dev-qt/qtdbus
+  original.package.slot: "5"
+  original.package.version: 5.15.2_p20230802
