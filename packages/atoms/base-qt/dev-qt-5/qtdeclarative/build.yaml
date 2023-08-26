@@ -1,4 +1,7 @@
 prelude:
+- >-
+  eval 'mkdir -p /etc/portage/package.use || true' &&
+  echo "dev-qt/qtgui X dbus egl evdev gif ibus jpeg libinput png udev wayland linuxfb vulkan"  > /etc/portage/package.use/00-qtgui.use
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
