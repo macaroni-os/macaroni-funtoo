@@ -1,0 +1,30 @@
+name: libcddb
+version: 1.3.2
+category: media-libs
+use_flags:
+- -doc
+requires:
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library for accessing a CDDB server
+uri:
+- http://libcddb.sourceforge.net/
+license: LGPL-2
+labels:
+  DEPEND: doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
+  IUSE: doc static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=virtual/libiconv-0-r1[-mgorny(-)]'
+  emerge.packages: media-libs/libcddb
+  kit: media-kit
+  original.package.name: media-libs/libcddb
+  original.package.slot: "0"
+  original.package.version: 1.3.2-r1
