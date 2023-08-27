@@ -1,0 +1,24 @@
+name: libdvbpsi
+version: 1.3.2
+category: media-libs
+use_flags:
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: library for MPEG TS/DVB PSI tables decoding and generation
+uri:
+- https://www.videolan.org/libdvbpsi
+license: LGPL-2.1
+labels:
+  DEPEND: doc? ( app-doc/doxygen >=media-gfx/graphviz-2.26 )
+  IUSE: doc static-libs
+  emerge.packages: media-libs/libdvbpsi
+  kit: media-kit
+  original.package.name: media-libs/libdvbpsi
+  original.package.slot: "0"
+  original.package.version: 1.3.2
