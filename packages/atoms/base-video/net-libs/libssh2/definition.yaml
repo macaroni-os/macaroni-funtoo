@@ -1,0 +1,39 @@
+name: libssh2
+version: 1.11.0
+category: net-libs
+use_flags:
+- -mbedtls
+- gcrypt
+- zlib
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library implementing the SSH2 protocol
+uri:
+- https://www.libssh2.org
+license: BSD
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0 ) !gcrypt? ( mbedtls? ( net-libs/mbedtls:0=
+    ) !mbedtls? ( >=dev-libs/openssl-1.0.1h-r2:0= ) ) zlib? ( >=sys-libs/zlib-1.2.8-r1
+    )
+  IUSE: gcrypt mbedtls zlib
+  RDEPEND: gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0 ) !gcrypt? ( mbedtls? ( net-libs/mbedtls:0=
+    ) !mbedtls? ( >=dev-libs/openssl-1.0.1h-r2:0= ) ) zlib? ( >=sys-libs/zlib-1.2.8-r1
+    )
+  emerge.packages: net-libs/libssh2
+  kit: net-kit
+  original.package.name: net-libs/libssh2
+  original.package.slot: "0"
+  original.package.version: 1.11.0
