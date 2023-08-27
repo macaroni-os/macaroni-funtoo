@@ -1,0 +1,35 @@
+name: graphene
+version: 1.10.0
+category: media-libs
+use_flags:
+- -doc
+- introspection
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A thin layer of types for graphic libraries
+uri:
+- https://ebassi.github.io/graphene/
+license: MIT
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) virtual/pkgconfig >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.0:2 introspection? ( dev-libs/gobject-introspection:=
+    )'
+  IUSE: cpu_flags_arm_neon cpu_flags_x86_sse2 doc +introspection test
+  RDEPEND: '>=dev-libs/glib-2.62.0:2 introspection? ( dev-libs/gobject-introspection:=
+    )'
+  emerge.packages: media-libs/graphene
+  kit: media-kit
+  original.package.name: media-libs/graphene
+  original.package.slot: "0"
+  original.package.version: 1.10.0
