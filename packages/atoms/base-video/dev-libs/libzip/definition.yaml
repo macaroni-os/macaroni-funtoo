@@ -1,0 +1,44 @@
+name: libzip
+version: 1.5.2
+category: dev-libs
+use_flags:
+- -libressl
+- -mbedtls
+- bzip2
+- gnutls
+- ssl
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for manipulating zip archives
+uri:
+- https://nih.at/libzip/
+license: BSD
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: sys-libs/zlib bzip2? ( app-arch/bzip2 ) ssl? ( gnutls? ( >=net-libs/gnutls-3.6.5:=
+    ) !gnutls? ( mbedtls? ( net-libs/mbedtls:= ) !mbedtls? ( !libressl? ( dev-libs/openssl:0=
+    ) libressl? ( dev-libs/libressl:0= ) ) ) )
+  IUSE: bzip2 doc gnutls libressl mbedtls ssl static-libs test
+  RDEPEND: sys-libs/zlib bzip2? ( app-arch/bzip2 ) ssl? ( gnutls? ( >=net-libs/gnutls-3.6.5:=
+    ) !gnutls? ( mbedtls? ( net-libs/mbedtls:= ) !mbedtls? ( !libressl? ( dev-libs/openssl:0=
+    ) libressl? ( dev-libs/libressl:0= ) ) ) )
+  emerge.packages: dev-libs/libzip
+  kit: dev-kit
+  original.package.name: dev-libs/libzip
+  original.package.slot: "0"
+  original.package.version: 1.5.2-r1
