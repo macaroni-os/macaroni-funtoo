@@ -1,0 +1,26 @@
+name: libaom
+version: 3.6.1
+category: media-libs
+use_flags:
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Alliance for Open Media AV1 Codec SDK
+uri:
+- https://aomedia.org
+license: BSD-2
+labels:
+  BDEPEND: dev-lang/yasm doc? ( app-doc/doxygen ) dev-util/ninja dev-util/cmake
+  IUSE: doc examples cpu_flags_x86_mmx cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3
+    cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx
+    cpu_flags_x86_avx2 cpu_flags_arm_neon
+  emerge.packages: media-libs/libaom
+  kit: media-kit
+  original.package.name: media-libs/libaom
+  original.package.slot: "0"
+  original.package.version: 3.6.1
