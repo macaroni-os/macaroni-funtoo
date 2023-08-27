@@ -1,0 +1,49 @@
+name: libavif
+version: 0.11.1
+category: media-libs
+use_flags:
+- aom
+- dav1d
+- gdk-pixbuf
+- rav1e
+requires:
+- name: dav1d
+  version: '>=0'
+  category: media-libs
+- name: libaom
+  version: '>=0'
+  category: media-libs
+- name: rav1e
+  version: '>=0'
+  category: media-video
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for encoding and decoding .avif files
+uri:
+- https://github.com/AOMediaCodec/libavif
+license: BSD-2
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/libpng sys-libs/zlib virtual/jpeg aom? ( >=media-libs/libaom-2.0.0:=
+    ) dav1d? ( media-libs/dav1d ) gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) rav1e? ( media-video/rav1e[capi]
+    )
+  IUSE: +aom dav1d examples extras gdk-pixbuf rav1e
+  RDEPEND: media-libs/libpng sys-libs/zlib virtual/jpeg aom? ( >=media-libs/libaom-2.0.0:=
+    ) dav1d? ( media-libs/dav1d ) gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) rav1e? ( media-video/rav1e[capi]
+    )
+  emerge.packages: media-libs/libavif
+  kit: media-kit
+  original.package.name: media-libs/libavif
+  original.package.slot: "0"
+  original.package.version: 0.11.1
