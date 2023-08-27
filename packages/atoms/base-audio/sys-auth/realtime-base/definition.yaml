@@ -1,0 +1,26 @@
+name: realtime-base
+version: "0.1"
+category: sys-auth
+requires:
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Sets up realtime scheduling
+uri:
+- http://jackaudio.org/faq/linux_rt_config.html
+license: public-domain
+labels:
+  DEPEND: sys-apps/shadow
+  RDEPEND: virtual/pam
+  emerge.packages: sys-auth/realtime-base
+  kit: core-kit
+  original.package.name: sys-auth/realtime-base
+  original.package.slot: "0"
+  original.package.version: "0.1"
