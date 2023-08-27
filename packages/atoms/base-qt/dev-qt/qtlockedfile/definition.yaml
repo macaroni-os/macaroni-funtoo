@@ -1,0 +1,27 @@
+name: qtlockedfile
+version: 2.4.1
+category: dev-qt
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: QFile extension with advisory locking functions
+uri:
+- https://code.qt.io/cgit/qt-solutions/qt-solutions.git/
+license: '|| ( LGPL-2.1 GPL-3 )'
+labels:
+  DEPEND: dev-qt/qtcore:5
+  IUSE: doc
+  RDEPEND: dev-qt/qtcore:5
+  emerge.packages: dev-qt/qtlockedfile
+  kit: qt-kit
+  original.package.name: dev-qt/qtlockedfile
+  original.package.slot: "0"
+  original.package.version: 2.4.1_p20200404
