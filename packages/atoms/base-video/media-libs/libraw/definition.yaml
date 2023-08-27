@@ -1,0 +1,41 @@
+name: libraw
+version: 0.19.2
+category: media-libs
+use_flags:
+- jpeg
+- jpeg2k
+- lcms
+requires:
+- name: jasper
+  version: '>=0'
+  category: media-libs
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: LibRaw is a library for reading RAW files obtained from digital photo
+  cameras
+uri:
+- https://www.libraw.org/ https://github.com/LibRaw/LibRaw
+license: LGPL-2.1 CDDL
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) jpeg2k? ( >=media-libs/jasper-1.900.1-r6:=[-mgorny(-)]
+    ) lcms? ( >=media-libs/lcms-2.5:2[-mgorny(-)] ) virtual/pkgconfig
+  IUSE: examples jpeg jpeg2k +lcms openmp abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) jpeg2k? ( >=media-libs/jasper-1.900.1-r6:=[-mgorny(-)]
+    ) lcms? ( >=media-libs/lcms-2.5:2[-mgorny(-)] )
+  emerge.packages: media-libs/libraw
+  kit: media-kit
+  original.package.name: media-libs/libraw
+  original.package.slot: "0"
+  original.package.version: 0.19.2
