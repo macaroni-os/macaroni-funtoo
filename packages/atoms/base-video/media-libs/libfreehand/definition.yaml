@@ -1,0 +1,32 @@
+name: libfreehand
+version: 0.1.2
+category: media-libs
+use_flags:
+- -doc
+- -test
+requires:
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for import of FreeHand drawings
+uri:
+- https://wiki.documentfoundation.org/DLP/Libraries/libfreehand
+license: MPL-2.0
+labels:
+  DEPEND: dev-libs/librevenge sys-libs/zlib dev-libs/boost dev-libs/icu dev-util/gperf
+    media-libs/lcms sys-devel/libtool virtual/pkgconfig doc? ( app-doc/doxygen ) test?
+    ( dev-util/cppunit )
+  IUSE: doc static-libs test
+  RDEPEND: dev-libs/librevenge sys-libs/zlib
+  emerge.packages: media-libs/libfreehand
+  kit: media-kit
+  original.package.name: media-libs/libfreehand
+  original.package.slot: "0"
+  original.package.version: 0.1.2
