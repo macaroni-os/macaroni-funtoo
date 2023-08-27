@@ -1,0 +1,30 @@
+name: libdvdnav
+version: 6.0.0
+category: media-libs
+requires:
+- name: libdvdread
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for DVD navigation tools
+uri:
+- https://www.videolan.org/developers/libdvdnav.html
+license: GPL-2
+labels:
+  DEPEND: '>=media-libs/libdvdread-5.0.3[-mgorny(-)] virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-libs/libdvdread-5.0.3[-mgorny(-)]'
+  emerge.packages: media-libs/libdvdnav
+  kit: media-kit
+  original.package.name: media-libs/libdvdnav
+  original.package.slot: "0"
+  original.package.version: 6.0.0
