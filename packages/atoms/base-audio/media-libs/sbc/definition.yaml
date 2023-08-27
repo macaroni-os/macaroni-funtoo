@@ -1,0 +1,23 @@
+name: sbc
+version: "1.4"
+category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Audio codec to connect bluetooth HQ audio devices as headphones or loudspeakers
+uri:
+- https://git.kernel.org/?p=bluetooth/sbc.git http://www.bluez.org/sbc-10/
+license: GPL-2 LGPL-2.1
+labels:
+  DEPEND: virtual/pkgconfig
+  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  emerge.packages: media-libs/sbc
+  kit: media-kit
+  original.package.name: media-libs/sbc
+  original.package.slot: "0"
+  original.package.version: "1.4"
