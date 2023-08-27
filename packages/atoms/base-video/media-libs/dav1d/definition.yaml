@@ -1,0 +1,28 @@
+name: dav1d
+version: 0.9.2
+category: media-libs
+use_flags:
+- abi_x86_32
+- abi_x86_64
+- asm
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: dav1d is an AV1 Decoder :)
+uri:
+- https://code.videolan.org/videolan/dav1d
+license: BSD-2
+labels:
+  BDEPEND: asm? ( abi_x86_32? ( >=dev-lang/nasm-2.14.02 ) abi_x86_64? ( >=dev-lang/nasm-2.14.02
+    ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  IUSE: +8bit +10bit +asm abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  emerge.packages: media-libs/dav1d
+  kit: media-kit
+  original.package.name: media-libs/dav1d
+  original.package.slot: "0"
+  original.package.version: 0.9.2
