@@ -1,0 +1,35 @@
+name: libvisio
+version: 0.1.6
+category: media-libs
+use_flags:
+- -doc
+- -test
+requires:
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library parsing the visio documents
+uri:
+- https://wiki.documentfoundation.org/DLP/Libraries/libvisio
+license: '|| ( GPL-2+ LGPL-2.1 MPL-1.1 )'
+labels:
+  DEPEND: dev-libs/icu:= dev-libs/librevenge dev-libs/libxml2 dev-lang/perl dev-libs/boost
+    dev-util/gperf sys-devel/libtool virtual/pkgconfig doc? ( app-doc/doxygen ) test?
+    ( dev-util/cppunit )
+  IUSE: doc static-libs test tools
+  RDEPEND: dev-libs/icu:= dev-libs/librevenge dev-libs/libxml2
+  emerge.packages: media-libs/libvisio
+  kit: media-kit
+  original.package.name: media-libs/libvisio
+  original.package.slot: "0"
+  original.package.version: 0.1.6
