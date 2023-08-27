@@ -1,0 +1,25 @@
+name: rav1e
+version: 0.6.6
+category: media-video
+use_flags:
+- amd64
+- capi
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The fastest and safest AV1 encoder
+uri:
+- https://github.com/xiph/rav1e
+license: BSD-2 Apache-2.0 MIT Unlicense
+labels:
+  BDEPEND: amd64? ( >=dev-lang/nasm-2.15 ) capi? ( dev-util/cargo-c ) >=virtual/rust-1.37.0
+  IUSE: +capi debug
+  emerge.packages: media-video/rav1e
+  kit: media-kit
+  original.package.name: media-video/rav1e
+  original.package.slot: "0"
+  original.package.version: 0.6.6
