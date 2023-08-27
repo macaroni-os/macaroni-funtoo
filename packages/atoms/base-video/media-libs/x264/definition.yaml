@@ -1,0 +1,29 @@
+name: x264
+version: 0.0.20190903
+category: media-libs
+use_flags:
+- -opencl
+- abi_x86_32
+- abi_x86_64
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A free library for encoding X264/AVC streams
+uri:
+- https://www.videolan.org/developers/x264.html
+license: GPL-2
+labels:
+  DEPEND: abi_x86_32? ( >=dev-lang/nasm-2.13 ) abi_x86_64? ( >=dev-lang/nasm-2.13
+    ) opencl? ( dev-lang/perl )
+  IUSE: altivec +interlaced opencl pic static-libs cpu_flags_x86_sse +threads abi_x86_32
+    abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: opencl? ( >=virtual/opencl-0-r3[-mgorny(-)] )
+  emerge.packages: media-libs/x264
+  kit: media-kit
+  original.package.name: media-libs/x264
+  original.package.slot: "0"
+  original.package.version: 0.0.20190903
