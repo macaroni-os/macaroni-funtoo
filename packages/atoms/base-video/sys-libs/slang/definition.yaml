@@ -1,0 +1,47 @@
+name: slang
+version: 2.3.2
+category: sys-libs
+use_flags:
+- cjk
+- pcre
+- png
+- readline
+- zlib
+requires:
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: oniguruma
+  version: '>=0'
+  category: dev-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Multi-platform library designed to allow a developer to create robust
+  software
+uri:
+- http://www.jedsoft.org/slang/
+license: GPL-2
+labels:
+  DEPEND: sys-libs/ncurses:0= cjk? ( >=dev-libs/oniguruma-5.9.5:=[-mgorny(-)] ) pcre?
+    ( >=dev-libs/libpcre-8.33-r1[-mgorny(-)] ) png? ( >=media-libs/libpng-1.6.10:0=[-mgorny(-)]
+    ) readline? ( >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] ) zlib? ( >=sys-libs/zlib-1.2.8-r1[-mgorny(-)]
+    )
+  IUSE: cjk pcre png readline static-libs zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: sys-libs/ncurses:0= cjk? ( >=dev-libs/oniguruma-5.9.5:=[-mgorny(-)] ) pcre?
+    ( >=dev-libs/libpcre-8.33-r1[-mgorny(-)] ) png? ( >=media-libs/libpng-1.6.10:0=[-mgorny(-)]
+    ) readline? ( >=sys-libs/readline-6.2_p5-r1:0=[-mgorny(-)] ) zlib? ( >=sys-libs/zlib-1.2.8-r1[-mgorny(-)]
+    )
+  emerge.packages: sys-libs/slang
+  kit: core-kit
+  original.package.name: sys-libs/slang
+  original.package.slot: "0"
+  original.package.version: 2.3.2
