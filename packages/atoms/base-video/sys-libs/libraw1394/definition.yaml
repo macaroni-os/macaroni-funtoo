@@ -1,0 +1,23 @@
+name: libraw1394
+version: 2.1.2
+category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: library that provides direct access to the IEEE 1394 bus
+uri:
+- https://ieee1394.wiki.kernel.org/
+license: LGPL-2.1
+labels:
+  DEPEND: app-arch/xz-utils >=app-portage/elt-patches-20170815
+  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  emerge.packages: sys-libs/libraw1394
+  kit: core-kit
+  original.package.name: sys-libs/libraw1394
+  original.package.slot: "0"
+  original.package.version: 2.1.2
