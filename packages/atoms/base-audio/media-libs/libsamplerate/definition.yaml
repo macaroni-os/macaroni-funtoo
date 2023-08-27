@@ -1,0 +1,28 @@
+name: libsamplerate
+version: 0.2.2
+category: media-libs
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for
+  audio
+uri:
+- https://libsndfile.github.io/libsamplerate/
+license: BSD-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: test? ( media-libs/alsa-lib media-libs/libsndfile sci-libs/fftw:3.0 )
+  IUSE: test
+  emerge.packages: media-libs/libsamplerate
+  kit: media-kit
+  original.package.name: media-libs/libsamplerate
+  original.package.slot: "0"
+  original.package.version: 0.2.2
