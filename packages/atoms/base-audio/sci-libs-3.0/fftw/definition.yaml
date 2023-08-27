@@ -1,0 +1,32 @@
+name: fftw
+version: 3.3.8
+category: sci-libs-3.0
+use_flags:
+- -fortran
+- -mpi
+- -quad
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fast C library for the Discrete Fourier Transform
+uri:
+- http://www.fftw.org/
+license: GPL-2+
+labels:
+  DEPEND: mpi? ( >=virtual/mpi-2.0-r4[-mgorny(-)] ) quad? ( sys-devel/gcc[fortran]
+    ) test? ( dev-lang/perl ) fortran? ( virtual/fortran )
+  IUSE: altivec cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_fma4
+    cpu_flags_x86_sse cpu_flags_x86_sse2 doc fortran mpi neon openmp quad static-libs
+    test threads zbus abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: mpi? ( >=virtual/mpi-2.0-r4[-mgorny(-)] ) fortran? ( virtual/fortran )
+  emerge.packages: sci-libs/fftw:3.0
+  kit: science-kit
+  original.package.name: sci-libs/fftw
+  original.package.slot: "3.0"
+  original.package.version: 3.3.8
