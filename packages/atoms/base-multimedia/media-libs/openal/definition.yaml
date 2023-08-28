@@ -1,0 +1,55 @@
+name: openal
+version: 1.23.1
+category: media-libs
+use_flags:
+- -portaudio
+- -sdl
+- alsa
+- jack
+- oss
+- pulseaudio
+- qt5
+- sndio
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwidgets
+  version: '>=0'
+  category: dev-qt-5
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: sndio
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A software implementation of the OpenAL 3D audio API
+uri:
+- https://www.openal-soft.org/
+license: LGPL-2+ BSD
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) pulseaudio? ( media-sound/pulseaudio
+    ) portaudio? ( media-libs/portaudio ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
+    ) sdl? ( media-libs/libsdl2 ) sndio? ( media-sound/sndio:= ) oss? ( virtual/os-headers
+    )
+  IUSE: alsa coreaudio debug jack oss portaudio pulseaudio sdl sndio qt5 cpu_flags_x86_sse
+    cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 cpu_flags_arm_neon
+  RDEPEND: alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) pulseaudio? ( media-sound/pulseaudio
+    ) portaudio? ( media-libs/portaudio ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
+    ) sdl? ( media-libs/libsdl2 ) sndio? ( media-sound/sndio:= )
+  emerge.packages: media-libs/openal
+  kit: media-kit
+  original.package.name: media-libs/openal
+  original.package.slot: "0"
+  original.package.version: 1.23.1
