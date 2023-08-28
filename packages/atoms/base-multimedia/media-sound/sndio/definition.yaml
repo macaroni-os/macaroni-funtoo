@@ -1,0 +1,33 @@
+name: sndio
+version: 1.8.0
+category: media-sound
+use_flags:
+- alsa
+requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: small audio and MIDI framework part of the OpenBSD project
+uri:
+- http://www.sndio.org/
+license: ISC
+labels:
+  DEPEND: dev-libs/libbsd[-mgorny(-)] alsa? ( media-libs/alsa-lib[-mgorny(-)] ) sys-apps/shadow
+  IUSE: alsa abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: dev-libs/libbsd[-mgorny(-)] alsa? ( media-libs/alsa-lib[-mgorny(-)] )
+  emerge.packages: media-sound/sndio
+  kit: media-kit
+  original.package.name: media-sound/sndio
+  original.package.slot: "0"
+  original.package.version: 1.8.0
