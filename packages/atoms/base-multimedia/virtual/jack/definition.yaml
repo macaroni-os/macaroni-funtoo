@@ -1,0 +1,24 @@
+name: jack
+version: "0"
+category: virtual
+requires:
+- name: jack2
+  version: '>=0'
+  category: media-sound-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for JACK Audio Connection Kit
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( media-sound/jack2 media-sound/jack-audio-connection-kit )'
+  emerge.packages: virtual/jack
+  kit: media-kit
+  original.package.name: virtual/jack
+  original.package.slot: "0"
+  original.package.version: "0"
