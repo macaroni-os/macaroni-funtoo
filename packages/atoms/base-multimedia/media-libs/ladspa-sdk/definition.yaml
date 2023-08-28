@@ -1,0 +1,28 @@
+name: ladspa-sdk
+version: "1.17"
+category: media-libs
+requires:
+- name: libsndfile
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Linux Audio Developer's Simple Plugin API
+uri:
+- http://www.ladspa.org/
+license: LGPL-2.1
+labels:
+  DEPEND: media-libs/libsndfile >=sys-apps/sed-4
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  RDEPEND: media-libs/libsndfile
+  emerge.packages: media-libs/ladspa-sdk
+  kit: media-kit
+  original.package.name: media-libs/ladspa-sdk
+  original.package.slot: "0"
+  original.package.version: "1.17"
