@@ -1,0 +1,27 @@
+name: imake
+version: 1.0.9
+category: x11-misc
+requires:
+- name: xorg-cf-files
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C preprocessor interface to the make utility
+uri:
+- https://www.x.org/wiki/ https://cgit.freedesktop.org/
+license: MIT
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: x11-misc/xorg-cf-files x11-base/xorg-proto
+  RDEPEND: x11-misc/xorg-cf-files
+  emerge.packages: x11-misc/imake
+  kit: core-gl-kit
+  original.package.name: x11-misc/imake
+  original.package.slot: "0"
+  original.package.version: 1.0.9
