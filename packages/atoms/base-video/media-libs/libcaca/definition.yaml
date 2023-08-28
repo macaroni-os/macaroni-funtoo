@@ -1,11 +1,12 @@
 name: libcaca
-version: "0.99"
+version: 0.99+1
 category: media-libs
 use_flags:
 - -doc
 - -java
 - -mono
 - -test
+- -truetype
 - X
 - imlib
 - ncurses
@@ -13,7 +14,6 @@ use_flags:
 - python
 - python_single_target_python2_7
 - slang
-- truetype
 requires:
 - name: python-exec
   version: '>=0'
@@ -24,6 +24,9 @@ requires:
 - name: imlib2
   version: '>=0'
   category: media-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
 - name: slang
   version: '>=0'
   category: sys-libs
