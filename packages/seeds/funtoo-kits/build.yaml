@@ -64,5 +64,9 @@ prelude:
   sed -i -e 's|>=dev-libs/boost-1.62.0\:=\[threads\]|dev-libs/boost|g'
   /var/git/meta-repo/kits/dev-kit/dev-util/source-highlight/source-highlight-*.ebuild
 
+# ibus upgraded and available on geaaru-kit. TODO: open a PR to Funtoo
+
+- sh patches4funtoo.sh
+
 # Drop package.mask with elogind use flag for x11-misc/sddm
 - rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
