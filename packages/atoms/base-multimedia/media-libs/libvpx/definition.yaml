@@ -1,0 +1,32 @@
+name: libvpx
+version: 1.9.0
+category: media-libs
+use_flags:
+- -amd64-fbsd
+- -doc
+- -x86-fbsd
+- abi_x86_32
+- abi_x86_64
+- abi_x86_x32
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: WebM VP8 and VP9 Codec SDK
+uri:
+- https://www.webmproject.org
+license: BSD
+labels:
+  BDEPEND: abi_x86_32? ( dev-lang/yasm ) abi_x86_64? ( dev-lang/yasm ) abi_x86_x32?
+    ( dev-lang/yasm ) x86-fbsd? ( dev-lang/yasm ) amd64-fbsd? ( dev-lang/yasm ) doc?
+    ( app-doc/doxygen dev-lang/php )
+  IUSE: doc +highbitdepth postproc static-libs +svc test +threads abi_x86_32 abi_x86_64
+    abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  emerge.packages: media-libs/libvpx
+  kit: media-kit
+  original.package.name: media-libs/libvpx
+  original.package.slot: "0"
+  original.package.version: 1.9.0
