@@ -1,0 +1,28 @@
+name: twolame
+version: 0.3.13
+category: media-sound
+requires:
+- name: libsndfile
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An optimised MPEG Audio Layer 2 (MP2) encoder
+uri:
+- http://www.twolame.org
+license: GPL-2
+labels:
+  DEPEND: '>=media-libs/libsndfile-1.0.25[-mgorny(-)] virtual/pkgconfig'
+  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-libs/libsndfile-1.0.25[-mgorny(-)]'
+  emerge.packages: media-sound/twolame
+  kit: media-kit
+  original.package.name: media-sound/twolame
+  original.package.slot: "0"
+  original.package.version: 0.3.13-r2
