@@ -1,4 +1,8 @@
 prelude:
+# Add license
+- >-
+  eval 'mkdir -p /etc/portage/package.license || true' &&
+  echo 'media-libs/fdk-aac FraunhoferFDK' > /etc/portage/package.license/00-fdk-aac.license
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
