@@ -143,7 +143,6 @@ artefacts:
   packages:
   - app-admin/mongo-tools
 
-
 - tree: packages/atoms/db
   mutations:
     buildtime_deps:
@@ -498,6 +497,17 @@ artefacts:
       - >-
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e memcached
+
+- tree: packages/atoms/db
+  uses:
+    disabled:
+      - test
+      - examples
+      - libressl
+      - static-libs
+      - debug
+  packages:
+    - dev-libs/mongo-c-driver
 
 include_layers:
 - layers/macaroni-funtoo-race9.yaml
