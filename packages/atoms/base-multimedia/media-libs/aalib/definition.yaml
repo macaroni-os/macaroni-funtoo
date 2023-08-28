@@ -1,0 +1,44 @@
+name: aalib
+version: "1.4"
+category: media-libs
+use_flags:
+- X
+- gpm
+- slang
+requires:
+- name: gpm
+  version: '>=0'
+  category: sys-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: slang
+  version: '>=0'
+  category: sys-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A ASCII-Graphics Library
+uri:
+- http://aa-project.sourceforge.net/aalib/
+license: GPL-2
+labels:
+  DEPEND: X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)] ) gpm? ( >=sys-libs/gpm-1.20.7-r2[-mgorny(-)]
+    ) slang? ( >=sys-libs/slang-2.2.4-r1[-mgorny(-)] ) >=sys-libs/ncurses-5.9-r3:0=[-mgorny(-)]
+    virtual/pkgconfig X? ( x11-base/xorg-proto ) >=app-portage/elt-patches-20170815
+  IUSE: X slang gpm static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)] ) gpm? ( >=sys-libs/gpm-1.20.7-r2[-mgorny(-)]
+    ) slang? ( >=sys-libs/slang-2.2.4-r1[-mgorny(-)] ) >=sys-libs/ncurses-5.9-r3:0=[-mgorny(-)]
+  emerge.packages: media-libs/aalib
+  kit: media-kit
+  original.package.name: media-libs/aalib
+  original.package.slot: "0"
+  original.package.version: 1.4_rc5-r8
