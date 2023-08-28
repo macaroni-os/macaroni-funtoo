@@ -1,0 +1,164 @@
+name: pulseaudio
+version: "16.1"
+category: media-sound
+use_flags:
+- -aptx
+- -elibc_mingw
+- -fftw
+- -ldac
+- -lirc
+- -ofono-headset
+- -selinux
+- -systemd
+- -test
+- -valgrind
+- X
+- alsa
+- asyncns
+- bluetooth
+- dbus
+- elogind
+- equalizer
+- gdbm
+- glib
+- gstreamer
+- gtk
+- jack
+- orc
+- sox
+- ssl
+- tcpd
+- udev
+- webrtc-aec
+- zeroconf
+requires:
+- name: libatomic_ops
+  version: '>=0'
+  category: dev-libs
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: libsndfile
+  version: '>=0'
+  category: media-libs
+- name: sbc
+  version: '>=0'
+  category: media-libs
+- name: soxr
+  version: '>=0'
+  category: media-libs
+- name: speexdsp
+  version: '>=0'
+  category: media-libs
+- name: webrtc-audio-processing
+  version: '>=0'
+  category: media-libs
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: libasyncns
+  version: '>=0'
+  category: net-libs
+- name: bluez
+  version: '>=0'
+  category: net-wireless
+- name: fftw
+  version: '>=0'
+  category: sci-libs-3.0
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+- name: linux-headers
+  version: '>=0'
+  category: sys-kernel
+- name: gdbm
+  version: '>=0'
+  category: sys-libs
+- name: jack
+  version: '>=0'
+  category: virtual
+- name: libc
+  version: '>=0'
+  category: virtual
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Daemon component of PulseAudio (networked sound server)
+uri:
+- https://www.freedesktop.org/wiki/Software/PulseAudio/
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-lang/perl dev-perl/XML-Parser sys-devel/gettext virtual/libiconv virtual/libintl
+    virtual/pkgconfig orc? ( >=dev-lang/orc-0.4.15 ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+    virtual/pkgconfig virtual/pkgconfig
+  DEPEND: dev-libs/libatomic_ops >=media-libs/libsndfile-1.0.20 =media-libs/speexdsp-1.2*
+    alsa? ( >=media-libs/alsa-lib-1.0.24 ) aptx? ( media-libs/gst-plugins-base >=media-libs/gstreamer-1.14
+    ) asyncns? ( >=net-libs/libasyncns-0.1 ) bluetooth? ( >=net-wireless/bluez-5 media-libs/sbc
+    ) dev-libs/libltdl sys-kernel/linux-headers >=sys-libs/libcap-2.22-r2 dbus? (
+    >=sys-apps/dbus-1.4.12 ) elibc_mingw? ( dev-libs/libpcre:3 ) elogind? ( sys-auth/elogind
+    ) equalizer? ( sci-libs/fftw:3.0= ) fftw? ( sci-libs/fftw:3.0= ) gdbm? ( sys-libs/gdbm:=
+    ) glib? ( >=dev-libs/glib-2.28.0:2 ) gstreamer? ( media-libs/gst-plugins-base
+    >=media-libs/gstreamer-1.14 >=dev-libs/glib-2.26.0:2 ) jack? ( virtual/jack )
+    ldac? ( media-libs/gst-plugins-base >=media-libs/gstreamer-1.14 ) lirc? ( app-misc/lirc
+    ) ofono-headset? ( >=net-misc/ofono-1.13 ) orc? ( >=dev-lang/orc-0.4.15 ) selinux?
+    ( sec-policy/selinux-pulseaudio ) sox? ( >=media-libs/soxr-0.1.1 ) ssl? ( dev-libs/openssl:=
+    ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) udev? ( >=virtual/udev-143[hwdb(+)]
+    ) valgrind? ( dev-util/valgrind ) webrtc-aec? ( >=media-libs/webrtc-audio-processing-0.2:0
+    ) X? ( >=x11-libs/libxcb-1.6 x11-libs/libICE x11-libs/libSM >=x11-libs/libX11-1.4.0
+    >=x11-libs/libXtst-1.0.99.2 ) zeroconf? ( >=net-dns/avahi-0.6.12[dbus] ) !<media-sound/pulseaudio-15.0-r100
+    dev-libs/libatomic_ops >=media-libs/libsndfile-1.0.20 virtual/libc asyncns? (
+    >=net-libs/libasyncns-0.1 ) dbus? ( >=sys-apps/dbus-1.4.12 ) elibc_mingw? ( dev-libs/libpcre:3
+    ) glib? ( >=dev-libs/glib-2.28.0:2 ) gtk? ( x11-libs/gtk+:3 ) selinux? ( sec-policy/selinux-pulseaudio
+    ) systemd? ( sys-apps/systemd:= ) valgrind? ( dev-util/valgrind ) X? ( x11-libs/libX11
+    >=x11-libs/libxcb-1.6 ) !<media-sound/pulseaudio-15.0-r100 test? ( >=dev-libs/check-0.9.10
+    ) X? ( x11-base/xorg-proto ) test? ( >=dev-libs/check-0.9.10 ) X? ( x11-base/xorg-proto
+    )
+  IUSE: +alsa +alsa-plugin aptx +asyncns bluetooth dbus elogind equalizer fftw +gdbm
+    +glib gstreamer gtk jack ldac lirc ofono-headset +orc oss selinux sox ssl systemd
+    tcpd test +udev valgrind +webrtc-aec +X zeroconf
+  RDEPEND: dev-libs/libatomic_ops >=media-libs/libsndfile-1.0.20 =media-libs/speexdsp-1.2*
+    alsa? ( >=media-libs/alsa-lib-1.0.24 ) aptx? ( media-libs/gst-plugins-base >=media-libs/gstreamer-1.14
+    ) asyncns? ( >=net-libs/libasyncns-0.1 ) bluetooth? ( >=net-wireless/bluez-5 media-libs/sbc
+    ) dev-libs/libltdl sys-kernel/linux-headers >=sys-libs/libcap-2.22-r2 dbus? (
+    >=sys-apps/dbus-1.4.12 ) elibc_mingw? ( dev-libs/libpcre:3 ) elogind? ( sys-auth/elogind
+    ) equalizer? ( sci-libs/fftw:3.0= ) fftw? ( sci-libs/fftw:3.0= ) gdbm? ( sys-libs/gdbm:=
+    ) glib? ( >=dev-libs/glib-2.28.0:2 ) gstreamer? ( media-libs/gst-plugins-base
+    >=media-libs/gstreamer-1.14 >=dev-libs/glib-2.26.0:2 ) jack? ( virtual/jack )
+    ldac? ( media-libs/gst-plugins-base >=media-libs/gstreamer-1.14 ) lirc? ( app-misc/lirc
+    ) ofono-headset? ( >=net-misc/ofono-1.13 ) orc? ( >=dev-lang/orc-0.4.15 ) selinux?
+    ( sec-policy/selinux-pulseaudio ) sox? ( >=media-libs/soxr-0.1.1 ) ssl? ( dev-libs/openssl:=
+    ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) udev? ( >=virtual/udev-143[hwdb(+)]
+    ) valgrind? ( dev-util/valgrind ) webrtc-aec? ( >=media-libs/webrtc-audio-processing-0.2:0
+    ) X? ( >=x11-libs/libxcb-1.6 x11-libs/libICE x11-libs/libSM >=x11-libs/libX11-1.4.0
+    >=x11-libs/libXtst-1.0.99.2 ) zeroconf? ( >=net-dns/avahi-0.6.12[dbus] ) !<media-sound/pulseaudio-15.0-r100
+    dev-libs/libatomic_ops >=media-libs/libsndfile-1.0.20 virtual/libc asyncns? (
+    >=net-libs/libasyncns-0.1 ) dbus? ( >=sys-apps/dbus-1.4.12 ) elibc_mingw? ( dev-libs/libpcre:3
+    ) glib? ( >=dev-libs/glib-2.28.0:2 ) gtk? ( x11-libs/gtk+:3 ) selinux? ( sec-policy/selinux-pulseaudio
+    ) systemd? ( sys-apps/systemd:= ) valgrind? ( dev-util/valgrind ) X? ( x11-libs/libX11
+    >=x11-libs/libxcb-1.6 ) !<media-sound/pulseaudio-15.0-r100 bluetooth? ( ldac?
+    ( media-plugins/gst-plugins-ldac ) aptx? ( media-plugins/gst-plugins-openaptx
+    ) ) virtual/tmpfiles
+  emerge.packages: media-sound/pulseaudio
+  kit: gnome-kit
+  original.package.name: media-sound/pulseaudio
+  original.package.slot: "0"
+  original.package.version: "16.1"
