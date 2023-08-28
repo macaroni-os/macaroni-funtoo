@@ -1,0 +1,119 @@
+name: gst-plugins-base
+version: 1.18.4
+category: media-libs-1.0
+use_flags:
+- -gbm
+- -ivorbis
+- -test
+- X
+- alsa
+- egl
+- gles2
+- introspection
+- nls
+- ogg
+- opengl
+- orc
+- pango
+- prefix
+- theora
+- vorbis
+- wayland
+requires:
+- name: iso-codes
+  version: '>=0'
+  category: app-text
+- name: orc
+  version: '>=0'
+  category: dev-lang
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: wayland-protocols
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: graphene
+  version: '>=0'
+  category: media-libs
+- name: gstreamer
+  version: '>=0'
+  category: media-libs-1.0
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: libtheora
+  version: '>=0'
+  category: media-libs
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libXv
+  version: '>=0'
+  category: x11-libs
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Basepack of plugins for gstreamer
+uri:
+- https://gstreamer.freedesktop.org/
+license: GPL-2+ LGPL-2+
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP nls?
+    ( >=sys-devel/gettext-0.17 ) test? ( media-libs/gstreamer[test] )'
+  DEPEND: app-text/iso-codes >=dev-libs/glib-2.40.0:2[-mgorny(-)] >=sys-libs/zlib-1.2.8-r1[-mgorny(-)]
+    alsa? ( >=media-libs/alsa-lib-1.0.27.2[-mgorny(-)] ) introspection? ( >=dev-libs/gobject-introspection-1.31.1:=
+    ) ivorbis? ( >=media-libs/tremor-0_pre20130223[-mgorny(-)] ) ogg? ( >=media-libs/libogg-1.3.0[-mgorny(-)]
+    ) orc? ( >=dev-lang/orc-0.4.24[-mgorny(-)] ) pango? ( >=x11-libs/pango-1.36.3[-mgorny(-)]
+    ) theora? ( >=media-libs/libtheora-1.1.1[encode,-mgorny(-)] ) vorbis? ( >=media-libs/libvorbis-1.3.3-r1[-mgorny(-)]
+    ) X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)] >=x11-libs/libXext-1.3.2[-mgorny(-)]
+    >=x11-libs/libXv-1.0.10[-mgorny(-)] ) gles2? ( >=media-libs/mesa-9.0[egl(+)?,gbm(+)?,gles2?,wayland?,-mgorny(-)]
+    egl? ( x11-libs/libdrm ) gbm? ( >=dev-libs/libgudev-147[-mgorny(-)] >=x11-libs/libdrm-2.4.55[-mgorny(-)]
+    ) wayland? ( dev-libs/wayland[-mgorny(-)] >=dev-libs/wayland-protocols-1.15 )
+    >=media-libs/graphene-1.4.0[-mgorny(-)] media-libs/libpng:0[-mgorny(-)] virtual/jpeg:0[-mgorny(-)]
+    ) opengl? ( >=media-libs/mesa-9.0[egl(+)?,gbm(+)?,gles2?,wayland?,-mgorny(-)]
+    egl? ( x11-libs/libdrm ) gbm? ( >=dev-libs/libgudev-147[-mgorny(-)] >=x11-libs/libdrm-2.4.55[-mgorny(-)]
+    ) wayland? ( dev-libs/wayland[-mgorny(-)] >=dev-libs/wayland-protocols-1.15 )
+    >=media-libs/graphene-1.4.0[-mgorny(-)] media-libs/libpng:0[-mgorny(-)] virtual/jpeg:0[-mgorny(-)]
+    ) !<media-libs/gst-plugins-bad-1.15.0:1.0 dev-util/glib-utils >=dev-util/gtk-doc-am-1.12
+    X? ( x11-base/xorg-proto ) >=dev-libs/glib-2.40.0:2[-mgorny(-)] >=media-libs/gstreamer-1.18:1.0[-mgorny(-)]
+  IUSE: alsa +egl gbm gles2 +introspection ivorbis +ogg +opengl +orc +pango theora
+    +vorbis wayland +X test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64 nls test
+  RDEPEND: app-text/iso-codes >=dev-libs/glib-2.40.0:2[-mgorny(-)] >=sys-libs/zlib-1.2.8-r1[-mgorny(-)]
+    alsa? ( >=media-libs/alsa-lib-1.0.27.2[-mgorny(-)] ) introspection? ( >=dev-libs/gobject-introspection-1.31.1:=
+    ) ivorbis? ( >=media-libs/tremor-0_pre20130223[-mgorny(-)] ) ogg? ( >=media-libs/libogg-1.3.0[-mgorny(-)]
+    ) orc? ( >=dev-lang/orc-0.4.24[-mgorny(-)] ) pango? ( >=x11-libs/pango-1.36.3[-mgorny(-)]
+    ) theora? ( >=media-libs/libtheora-1.1.1[encode,-mgorny(-)] ) vorbis? ( >=media-libs/libvorbis-1.3.3-r1[-mgorny(-)]
+    ) X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)] >=x11-libs/libXext-1.3.2[-mgorny(-)]
+    >=x11-libs/libXv-1.0.10[-mgorny(-)] ) gles2? ( >=media-libs/mesa-9.0[egl(+)?,gbm(+)?,gles2?,wayland?,-mgorny(-)]
+    egl? ( x11-libs/libdrm ) gbm? ( >=dev-libs/libgudev-147[-mgorny(-)] >=x11-libs/libdrm-2.4.55[-mgorny(-)]
+    ) wayland? ( dev-libs/wayland[-mgorny(-)] >=dev-libs/wayland-protocols-1.15 )
+    >=media-libs/graphene-1.4.0[-mgorny(-)] media-libs/libpng:0[-mgorny(-)] virtual/jpeg:0[-mgorny(-)]
+    ) opengl? ( >=media-libs/mesa-9.0[egl(+)?,gbm(+)?,gles2?,wayland?,-mgorny(-)]
+    egl? ( x11-libs/libdrm ) gbm? ( >=dev-libs/libgudev-147[-mgorny(-)] >=x11-libs/libdrm-2.4.55[-mgorny(-)]
+    ) wayland? ( dev-libs/wayland[-mgorny(-)] >=dev-libs/wayland-protocols-1.15 )
+    >=media-libs/graphene-1.4.0[-mgorny(-)] media-libs/libpng:0[-mgorny(-)] virtual/jpeg:0[-mgorny(-)]
+    ) !<media-libs/gst-plugins-bad-1.15.0:1.0 >=dev-libs/glib-2.40.0:2[-mgorny(-)]
+    >=media-libs/gstreamer-1.18:1.0[-mgorny(-)]
+  emerge.packages: media-libs/gst-plugins-base:1.0
+  kit: media-kit
+  original.package.name: media-libs/gst-plugins-base
+  original.package.slot: "1.0"
+  original.package.version: 1.18.4-r1
