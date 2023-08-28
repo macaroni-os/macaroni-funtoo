@@ -1,0 +1,52 @@
+name: gstreamer
+version: 1.18.4
+category: media-libs-1.0
+use_flags:
+- -test
+- caps
+- introspection
+- nls
+- prefix
+- unwind
+requires:
+- name: elfutils
+  version: '>=0'
+  category: dev-libs
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: libunwind
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open source multimedia framework
+uri:
+- https://gstreamer.freedesktop.org/
+license: LGPL-2+
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP nls?
+    ( >=sys-devel/gettext-0.17 )'
+  DEPEND: caps? ( sys-libs/libcap[-mgorny(-)] ) introspection? ( >=dev-libs/gobject-introspection-1.31.1:=
+    ) unwind? ( >=sys-libs/libunwind-1.2_rc1[-mgorny(-)] dev-libs/elfutils[-mgorny(-)]
+    ) !<media-libs/gst-plugins-bad-1.13.1:1.0 dev-util/glib-utils >=dev-util/gtk-doc-am-1.12
+    sys-devel/bison sys-devel/flex >=dev-libs/glib-2.40.0:2[-mgorny(-)]
+  IUSE: +caps +introspection +orc unwind test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 nls test
+  RDEPEND: caps? ( sys-libs/libcap[-mgorny(-)] ) introspection? ( >=dev-libs/gobject-introspection-1.31.1:=
+    ) unwind? ( >=sys-libs/libunwind-1.2_rc1[-mgorny(-)] dev-libs/elfutils[-mgorny(-)]
+    ) !<media-libs/gst-plugins-bad-1.13.1:1.0 >=dev-libs/glib-2.40.0:2[-mgorny(-)]
+  emerge.packages: media-libs/gstreamer:1.0
+  kit: media-kit
+  original.package.name: media-libs/gstreamer
+  original.package.slot: "1.0"
+  original.package.version: 1.18.4
