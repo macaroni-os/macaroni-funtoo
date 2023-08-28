@@ -1,0 +1,36 @@
+name: frei0r-plugins
+version: 1.6.1.20191027
+category: media-plugins
+use_flags:
+- -doc
+- -facedetect
+- scale0tilt
+requires:
+- name: gavl
+  version: '>=0'
+  category: media-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A minimalistic plugin API for video effects
+uri:
+- https://www.dyne.org/software/frei0r/
+license: GPL-2
+labels:
+  DEPEND: x11-libs/cairo facedetect? ( >=media-libs/opencv-4:= ) scale0tilt? ( >=media-libs/gavl-1.2.0
+    ) virtual/pkgconfig doc? ( app-doc/doxygen ) sys-devel/make >=dev-util/cmake-3.9.6
+  IUSE: doc -facedetect +scale0tilt
+  RDEPEND: x11-libs/cairo facedetect? ( >=media-libs/opencv-4:= ) scale0tilt? ( >=media-libs/gavl-1.2.0
+    )
+  emerge.packages: media-plugins/frei0r-plugins
+  kit: media-kit
+  original.package.name: media-plugins/frei0r-plugins
+  original.package.slot: "0"
+  original.package.version: 1.6.1.20191027
