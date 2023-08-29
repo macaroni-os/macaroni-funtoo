@@ -1,0 +1,42 @@
+name: Tk
+version: 804.34.0
+category: dev-perl
+use_flags:
+- -test
+- prefix
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libXft
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Perl Module for Tk
+uri:
+- https://metacpan.org/release/Tk
+license: '|| ( Artistic GPL-1+ ) tcltk BSD'
+labels:
+  DEPEND: media-libs/freetype >=media-libs/libpng-1.4:0 virtual/jpeg x11-libs/libX11
+    x11-libs/libXft dev-lang/perl:= test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )
+  IUSE: examples test
+  RDEPEND: media-libs/freetype >=media-libs/libpng-1.4:0 virtual/jpeg x11-libs/libX11
+    x11-libs/libXft dev-lang/perl:=
+  emerge.packages: dev-perl/Tk
+  kit: perl-kit
+  original.package.name: dev-perl/Tk
+  original.package.slot: "0"
+  original.package.version: 804.34.0
