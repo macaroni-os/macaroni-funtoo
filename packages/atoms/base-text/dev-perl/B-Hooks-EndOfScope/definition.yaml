@@ -1,0 +1,42 @@
+name: B-Hooks-EndOfScope
+version: 0.240.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: Module-Implementation
+  version: '>=0'
+  category: dev-perl
+- name: Sub-Exporter-Progressive
+  version: '>=0'
+  category: dev-perl
+- name: Variable-Magic
+  version: '>=0'
+  category: dev-perl
+- name: perl-Scalar-List-Utils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Execute code after a scope finished compilation
+uri:
+- https://metacpan.org/release/B-Hooks-EndOfScope
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/Module-Implementation-0.50.0 virtual/perl-Scalar-List-Utils
+    >=dev-perl/Sub-Exporter-Progressive-0.1.6 >=dev-perl/Variable-Magic-0.480.0 virtual/perl-ExtUtils-MakeMaker
+    virtual/perl-Text-ParseWords test? ( >=virtual/perl-CPAN-Meta-2.120.900 virtual/perl-File-Spec
+    >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=dev-perl/Module-Implementation-0.50.0 virtual/perl-Scalar-List-Utils
+    >=dev-perl/Sub-Exporter-Progressive-0.1.6 >=dev-perl/Variable-Magic-0.480.0 dev-lang/perl:='
+  emerge.packages: dev-perl/B-Hooks-EndOfScope
+  kit: perl-kit
+  original.package.name: dev-perl/B-Hooks-EndOfScope
+  original.package.slot: "0"
+  original.package.version: 0.240.0
