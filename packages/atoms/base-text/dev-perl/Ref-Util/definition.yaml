@@ -1,0 +1,32 @@
+name: Ref-Util
+version: 0.203.0
+category: dev-perl
+use_flags:
+- -test
+- xs
+requires:
+- name: Ref-Util-XS
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility functions for checking references
+uri:
+- https://metacpan.org/release/Ref-Util
+license: MIT
+labels:
+  DEPEND: xs? ( dev-perl/Ref-Util-XS ) >=virtual/perl-Exporter-5.570.0 virtual/perl-ExtUtils-MakeMaker
+    virtual/perl-Text-ParseWords test? ( >=virtual/perl-CPAN-Meta-2.120.900 >=virtual/perl-Test-Simple-0.960.0
+    virtual/perl-File-Spec ) dev-lang/perl:=
+  IUSE: test +xs
+  RDEPEND: xs? ( dev-perl/Ref-Util-XS ) >=virtual/perl-Exporter-5.570.0 dev-lang/perl:=
+  emerge.packages: dev-perl/Ref-Util
+  kit: perl-kit
+  original.package.name: dev-perl/Ref-Util
+  original.package.slot: "0"
+  original.package.version: 0.203.0
