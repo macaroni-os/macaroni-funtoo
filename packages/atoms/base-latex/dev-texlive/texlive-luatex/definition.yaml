@@ -1,0 +1,32 @@
+name: texlive-luatex
+version: "2020"
+category: dev-texlive
+requires:
+- name: texlive-fontsrecommended
+  version: '>=0'
+  category: dev-texlive
+- name: texlive-latexrecommended
+  version: '>=0'
+  category: dev-texlive
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TeXLive LuaTeX packages
+uri:
+- http://www.tug.org/texlive/
+license: BSD FDL-1.1 GPL-2 LPPL-1.3 LPPL-1.3c MIT public-domain TeX-other-free
+labels:
+  BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
+  DEPEND: '>=dev-texlive/texlive-basic-2020 >=dev-texlive/texlive-fontsrecommended-2020'
+  IUSE: source doc
+  RDEPEND: '>=dev-texlive/texlive-basic-2020 >=dev-texlive/texlive-fontsrecommended-2020
+    dev-texlive/texlive-latexrecommended >=app-text/texlive-core-2020'
+  emerge.packages: dev-texlive/texlive-luatex
+  kit: text-kit
+  original.package.name: dev-texlive/texlive-luatex
+  original.package.slot: "0"
+  original.package.version: 2020-r2
