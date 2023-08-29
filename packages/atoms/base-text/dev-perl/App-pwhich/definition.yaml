@@ -1,0 +1,30 @@
+name: App-pwhich
+version: 1.150.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: File-Which
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl-only 'which'
+uri:
+- https://metacpan.org/release/App-pwhich
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/File-Which-1.140.0 virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/Capture-Tiny
+    >=dev-perl/Test2-Suite-0.0.72 dev-perl/Test-Script ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=dev-perl/File-Which-1.140.0 dev-lang/perl:='
+  emerge.packages: dev-perl/App-pwhich
+  kit: perl-kit
+  original.package.name: dev-perl/App-pwhich
+  original.package.slot: "0"
+  original.package.version: 1.150.0
