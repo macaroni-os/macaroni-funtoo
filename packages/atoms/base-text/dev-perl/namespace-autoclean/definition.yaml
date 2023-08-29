@@ -1,0 +1,36 @@
+name: namespace-autoclean
+version: 0.280.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: Sub-Identify
+  version: '>=0'
+  category: dev-perl
+- name: namespace-clean
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Keep imports out of your namespace
+uri:
+- https://metacpan.org/release/namespace-autoclean
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/B-Hooks-EndOfScope-0.120.0 virtual/perl-Scalar-List-Utils dev-perl/Sub-Identify
+    >=dev-perl/namespace-clean-0.200.0 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Carp
+    virtual/perl-ExtUtils-MakeMaker virtual/perl-File-Spec virtual/perl-Scalar-List-Utils
+    >=virtual/perl-Test-Simple-0.880.0 dev-perl/Test-Requires ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=dev-perl/B-Hooks-EndOfScope-0.120.0 virtual/perl-Scalar-List-Utils dev-perl/Sub-Identify
+    >=dev-perl/namespace-clean-0.200.0 dev-lang/perl:='
+  emerge.packages: dev-perl/namespace-autoclean
+  kit: perl-kit
+  original.package.name: dev-perl/namespace-autoclean
+  original.package.slot: "0"
+  original.package.version: 0.280.0
