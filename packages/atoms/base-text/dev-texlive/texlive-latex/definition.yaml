@@ -1,0 +1,29 @@
+name: texlive-latex
+version: "2020"
+category: dev-texlive
+requires:
+- name: texlive-basic
+  version: '>=0'
+  category: dev-texlive
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TeXLive LaTeX fundamental packages
+uri:
+- http://www.tug.org/texlive/
+license: GPL-2 LPPL-1.3 LPPL-1.3c public-domain
+labels:
+  BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
+  DEPEND: '>=dev-texlive/texlive-basic-2020 !~dev-texlive/texlive-latexrecommended-2019'
+  IUSE: source doc
+  RDEPEND: '>=dev-texlive/texlive-basic-2020 !~dev-texlive/texlive-latexrecommended-2019
+    >=app-text/texlive-core-2020'
+  emerge.packages: dev-texlive/texlive-latex
+  kit: text-kit
+  original.package.name: dev-texlive/texlive-latex
+  original.package.slot: "0"
+  original.package.version: "2020"
