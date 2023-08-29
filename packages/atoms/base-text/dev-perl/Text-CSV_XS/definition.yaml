@@ -1,0 +1,33 @@
+name: Text-CSV_XS
+version: 1.340.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-IO
+  version: '>=0'
+  category: virtual
+- name: perl-XSLoader
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Comma-separated values manipulation routines
+uri:
+- https://metacpan.org/release/Text-CSV_XS
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-IO virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker test?
+    ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test examples
+  RDEPEND: virtual/perl-IO virtual/perl-XSLoader dev-lang/perl:=
+  emerge.packages: dev-perl/Text-CSV_XS
+  kit: perl-kit
+  original.package.name: dev-perl/Text-CSV_XS
+  original.package.slot: "0"
+  original.package.version: 1.340.0
