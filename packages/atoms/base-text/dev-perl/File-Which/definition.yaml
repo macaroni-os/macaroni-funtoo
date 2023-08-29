@@ -1,0 +1,30 @@
+name: File-Which
+version: 1.220.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl module implementing 'which' internally
+uri:
+- https://metacpan.org/release/File-Which
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.470.0
+    ) dev-lang/perl:=
+  IUSE: test +pwhich
+  RDEPEND: dev-lang/perl:=
+  emerge.packages: dev-perl/File-Which
+  kit: perl-kit
+  original.package.name: dev-perl/File-Which
+  original.package.slot: "0"
+  original.package.version: 1.220.0
