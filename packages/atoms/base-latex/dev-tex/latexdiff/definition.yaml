@@ -1,0 +1,37 @@
+name: latexdiff
+version: 1.2.1
+category: dev-tex
+use_flags:
+- -test
+requires:
+- name: Algorithm-Diff
+  version: '>=0'
+  category: dev-perl
+- name: texlive-plaingeneric
+  version: '>=0'
+  category: dev-texlive
+- name: latex-base
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Compare two latex files and mark up significant differences
+uri:
+- http://www.ctan.org/tex-archive/support/latexdiff/ https://github.com/ftilmann/latexdiff/
+license: GPL-3
+labels:
+  DEPEND: '>=dev-lang/perl-5.8 virtual/latex-base dev-texlive/texlive-plaingeneric
+    dev-perl/Algorithm-Diff dev-perl/Pod-LaTeX test? ( app-shells/tcsh )'
+  IUSE: test
+  RDEPEND: '>=dev-lang/perl-5.8 virtual/latex-base dev-texlive/texlive-plaingeneric
+    dev-perl/Algorithm-Diff'
+  emerge.packages: dev-tex/latexdiff
+  kit: text-kit
+  original.package.name: dev-tex/latexdiff
+  original.package.slot: "0"
+  original.package.version: 1.2.1
