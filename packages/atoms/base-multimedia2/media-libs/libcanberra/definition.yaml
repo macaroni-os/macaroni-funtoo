@@ -1,0 +1,80 @@
+name: libcanberra
+version: "0.30"
+category: media-libs
+use_flags:
+- -tdb
+- alsa
+- gnome
+- gstreamer
+- gtk2
+- gtk3
+- pulseaudio
+- sound
+- udev
+requires:
+- name: dconf
+  version: '>=0'
+  category: gnome-base
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: gstreamer
+  version: '>=0'
+  category: media-libs-1.0
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: sound-theme-freedesktop
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Portable sound event library
+uri:
+- http://0pointer.de/lennart/projects/libcanberra/
+license: LGPL-2.1+
+labels:
+  BDEPEND: app-arch/xz-utils virtual/pkgconfig virtual/pkgconfig
+  DEPEND: dev-libs/libltdl:0[-mgorny(-)] media-libs/libvorbis[-mgorny(-)] alsa? (
+    media-libs/alsa-lib:=[-mgorny(-)] udev? ( virtual/libudev:=[-mgorny(-)] ) ) gstreamer?
+    ( media-libs/gstreamer:1.0[-mgorny(-)] ) gtk2? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
+    >=x11-libs/gtk+-2.20.0:2[-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) gtk3? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
+    x11-libs/gtk+:3[X,-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) pulseaudio? ( >=media-sound/pulseaudio-0.9.11[-mgorny(-)]
+    ) tdb? ( sys-libs/tdb:=[-mgorny(-)] )
+  IUSE: alsa gnome gstreamer +gtk2 +gtk3 oss pulseaudio +sound tdb udev abi_x86_32
+    abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: dev-libs/libltdl:0[-mgorny(-)] media-libs/libvorbis[-mgorny(-)] alsa? (
+    media-libs/alsa-lib:=[-mgorny(-)] udev? ( virtual/libudev:=[-mgorny(-)] ) ) gstreamer?
+    ( media-libs/gstreamer:1.0[-mgorny(-)] ) gtk2? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
+    >=x11-libs/gtk+-2.20.0:2[-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) gtk3? ( >=dev-libs/glib-2.32:2[-mgorny(-)]
+    x11-libs/gtk+:3[X,-mgorny(-)] x11-libs/libX11[-mgorny(-)] ) pulseaudio? ( >=media-sound/pulseaudio-0.9.11[-mgorny(-)]
+    ) tdb? ( sys-libs/tdb:=[-mgorny(-)] ) gnome? ( gnome-base/dconf gnome-base/gsettings-desktop-schemas
+    ) sound? ( x11-themes/sound-theme-freedesktop )
+  emerge.packages: media-libs/libcanberra
+  kit: media-kit
+  original.package.name: media-libs/libcanberra
+  original.package.slot: "0"
+  original.package.version: 0.30-r6
