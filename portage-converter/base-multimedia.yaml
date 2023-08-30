@@ -1,0 +1,669 @@
+skipped_resolutions:
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+    - name: cdrtools
+      category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    # virtual/source is managed by kernel.yaml
+    - name: linux-sources
+      category: virtual
+
+    - name: eselect-lib-bin-symlink
+      category: app-eselect
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
+    - name: zfs-kmod
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+- tree: packages/atoms/base-multimedia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race10
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+  packages:
+  - app-text/rman
+  - media-libs/opencore-amr
+  - media-libs/vo-amrwbenc
+
+- tree: packages/atoms/base-multimedia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race10
+    uses:
+      - custom-modes
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+  packages:
+  - media-libs/opus
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+  packages:
+  - dev-libs/serd
+  - media-libs/soxr
+  - dev-python/pyrsistent
+  - media-sound/wavpack
+  - app-accessibility/flite
+  - media-video/rtmpdump
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - gcrypt
+      - libressl
+      - mbedtls
+      - pcap
+      - server
+      - test
+  packages:
+  - net-libs/libssh
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - postproc
+      - test
+  packages:
+    - media-libs/libvpx
+    - media-libs/ladspa-sdk
+    - dev-python/isodate
+    - dev-python/lark
+    - dev-python/tomlkit
+    - dev-python/pathspec
+    - dev-python/pluggy
+    - dev-python/editables
+    - dev-python/calver
+    - dev-python/webencodings
+    - media-libs/gavl
+    - x11-misc/gccmakedep
+    - dev-libs/libconfig
+    - dev-cpp/mm-common
+    - media-libs/gstreamer
+    - dev-libs/sord
+    - media-libs/aalib
+    - media-sound/twolame
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      # Avoid cycle deps with opencv and ffmpeg
+      - facedetect
+  packages:
+    - media-plugins/frei0r-plugins
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - postproc
+      - test
+      - minimal
+  packages:
+    - media-libs/libmodplug
+    - media-libs/speex
+    - dev-python/lxml
+    - dev-python/html5lib
+    - dev-python/trove-classifiers
+    - dev-libs/libcdio
+    - x11-misc/imake
+
+
+- tree: packages/atoms/base-multimedia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race10
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - postproc
+      - test
+      - minimal
+  packages:
+    - app-eselect/eselect-cdparanoia
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - postproc
+      - test
+      - minimal
+      - glib
+      - ecore
+  packages:
+    - dev-libs/dbus-c++
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+  packages:
+    - media-libs/libiec61883
+    - sys-libs/libavc1394
+    - dev-cpp/glibmm
+    - dev-python/hatchling
+    - media-libs/nas
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+      - gbm
+      - ivorbis
+  packages:
+    - media-libs/gst-plugins-base
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+  packages:
+    - dev-libs/libcdio-paranoia
+    - dev-cpp/libxmlpp
+    - dev-python/hatch-vcs
+    - dev-python/hatch-fancy-pypi-readme
+    - dev-python/attrs
+    - dev-python/jsonschema
+    - dev-python/poetry-core
+
+- tree: packages/atoms/base-multimedia
+  # TODO: Open an issue on Funtoo. DEPEND seems
+  #       wrong
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: poetry-core
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+  packages:
+    - dev-python/rdflib
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+      # Avoid cycle with qtmultimedia, ffmpeg.
+      - ieee1394
+      - libsamplerate
+      - sndfile
+  packages:
+    - media-sound/jack2:2
+
+- tree: packages/atoms/base-multimedia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: media-sound-2
+          name: jack2
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+  packages:
+    - virtual/jack
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - doc
+      - plugins
+  packages:
+    - media-libs/lv2
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+  packages:
+    - media-libs/sratom
+    - media-libs/lilv
+
+- tree: packages/atoms/base-multimedia
+  mutations:
+    uses:
+      - -alsa-plugin
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+      - aptx
+      - fftw
+      - ldac
+      - lirc
+      - ofono-headset
+      - systemd
+      - valgrind
+      # PDEPEND related to alsa-plugins[pulseaudio]
+      # that could be skipped.
+      - alsa-plugin
+  packages:
+    - media-sound/pulseaudio
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - valgrind
+      - sdl
+      - portaudio
+  packages:
+    - media-libs/openal
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - doc
+      - fcitx
+      - gles1
+      - haptic
+      - kms
+      - libsamplerate
+      - pipewire
+      - xscreensaver
+  packages:
+    - media-libs/libsdl2
+
+- tree: packages/atoms/base-multimedia
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - doc
+      - custom-cflags
+      - fbcon
+      - libcaca
+      - tslib
+  packages:
+    - media-libs/libsdl
+
+include_layers:
+- layers/macaroni-funtoo-race10.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+    - sys-devel/llvm:13
+    - dev-lang/vala:0.54
+
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
+
+    # Using nodejs-14 LTS for now
+    - <net-libs/nodejs-15.0
+
+    - dev-lang/ruby:3.1
+
+    - dev-db/postgresql:13
+    - dev-db/postgresql:11
+
+reposcan_disabled_use_flags:
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby32
+  - ruby_targets_ruby30
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - systemd
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
