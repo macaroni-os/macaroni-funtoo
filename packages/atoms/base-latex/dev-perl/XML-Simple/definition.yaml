@@ -1,0 +1,35 @@
+name: XML-Simple
+version: 2.250.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: XML-SAX-Expat
+  version: '>=0'
+  category: dev-perl
+- name: perl-Storable
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An API for simple XML files
+uri:
+- https://metacpan.org/release/XML-Simple
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Storable >=dev-perl/XML-NamespaceSupport-1.40.0 >=dev-perl/XML-SAX-0.150.0
+    dev-perl/XML-SAX-Expat virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.880.0
+    ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: virtual/perl-Storable >=dev-perl/XML-NamespaceSupport-1.40.0 >=dev-perl/XML-SAX-0.150.0
+    dev-perl/XML-SAX-Expat dev-lang/perl:=
+  emerge.packages: dev-perl/XML-Simple
+  kit: perl-kit
+  original.package.name: dev-perl/XML-Simple
+  original.package.slot: "0"
+  original.package.version: 2.250.0
