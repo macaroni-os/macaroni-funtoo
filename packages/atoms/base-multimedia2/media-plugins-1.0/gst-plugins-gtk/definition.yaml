@@ -1,0 +1,46 @@
+name: gst-plugins-gtk
+version: 1.18.4
+category: media-plugins-1.0
+use_flags:
+- -test
+- gles2
+- opengl
+- prefix
+requires:
+- name: gst-plugins-good
+  version: '>=0'
+  category: media-libs-1.0
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Video sink plugin for GStreamer that renders to a GtkWidget
+uri:
+- https://gstreamer.freedesktop.org/
+license: GPL-2
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP'
+  DEPEND: '>=media-libs/gst-plugins-base-1.18.4:1.0[-mgorny(-),egl=,gles2=,opengl=,wayland=,X=]
+    >=x11-libs/gtk+-3.15:3[-mgorny(-)] gles2? ( >=x11-libs/gtk+-3.15:3[X?,wayland?,-mgorny(-)]
+    ) opengl? ( >=x11-libs/gtk+-3.15:3[X?,wayland?,-mgorny(-)] ) !<media-libs/gst-plugins-bad-1.13.1:1.0
+    >=dev-libs/glib-2.40.0:2[-mgorny(-)] >=media-libs/gstreamer-1.18:1.0[-mgorny(-)]
+    >=media-libs/gst-plugins-good-1.18.4:1.0[-mgorny(-)]'
+  IUSE: +egl gles2 +opengl wayland +X test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-libs/gst-plugins-base-1.18.4:1.0[-mgorny(-),egl=,gles2=,opengl=,wayland=,X=]
+    >=x11-libs/gtk+-3.15:3[-mgorny(-)] gles2? ( >=x11-libs/gtk+-3.15:3[X?,wayland?,-mgorny(-)]
+    ) opengl? ( >=x11-libs/gtk+-3.15:3[X?,wayland?,-mgorny(-)] ) !<media-libs/gst-plugins-bad-1.13.1:1.0
+    >=dev-libs/glib-2.40.0:2[-mgorny(-)] >=media-libs/gstreamer-1.18:1.0[-mgorny(-)]
+    >=media-libs/gst-plugins-good-1.18.4:1.0[-mgorny(-)]'
+  emerge.packages: media-plugins/gst-plugins-gtk:1.0
+  kit: media-kit
+  original.package.name: media-plugins/gst-plugins-gtk
+  original.package.slot: "1.0"
+  original.package.version: 1.18.4
