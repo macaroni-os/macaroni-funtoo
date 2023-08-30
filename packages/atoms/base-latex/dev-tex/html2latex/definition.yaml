@@ -1,0 +1,31 @@
+name: html2latex
+version: "1.1"
+category: dev-tex
+use_flags:
+- -imagemagick
+- -libwww
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl script to convert HTML files into formatted LaTeX
+uri:
+- http://html2latex.sourceforge.net/
+license: GPL-2
+labels:
+  DEPEND: dev-perl/HTML-Tree dev-perl/XML-Simple imagemagick? ( media-gfx/imagemagick
+    ) libwww? ( dev-perl/libwww-perl ) dev-lang/perl:=[-build(-)]
+  IUSE: imagemagick libwww
+  RDEPEND: dev-lang/perl:=[-build(-)]
+  emerge.packages: dev-tex/html2latex
+  kit: text-kit
+  original.package.name: dev-tex/html2latex
+  original.package.slot: "0"
+  original.package.version: 1.1-r1
