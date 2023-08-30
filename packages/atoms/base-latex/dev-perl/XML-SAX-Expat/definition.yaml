@@ -1,0 +1,34 @@
+name: XML-SAX-Expat
+version: 0.510.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: XML-Parser
+  version: '>=0'
+  category: dev-perl
+- name: XML-SAX
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: SAX2 Driver for Expat
+uri:
+- https://metacpan.org/release/XML-SAX-Expat
+license: '|| ( Artistic GPL-2 )'
+labels:
+  DEPEND: '>=dev-perl/XML-SAX-0.15-r1 >=dev-perl/XML-NamespaceSupport-1.09 dev-perl/XML-Parser
+    test? ( virtual/perl-Test-Simple ) dev-lang/perl:=[-build(-)]'
+  IUSE: test
+  RDEPEND: '>=dev-perl/XML-SAX-0.15-r1 >=dev-perl/XML-NamespaceSupport-1.09 dev-perl/XML-Parser
+    dev-lang/perl:=[-build(-)]'
+  emerge.packages: dev-perl/XML-SAX-Expat
+  kit: perl-kit
+  original.package.name: dev-perl/XML-SAX-Expat
+  original.package.slot: "0"
+  original.package.version: 0.510.0
