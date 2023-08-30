@@ -1,0 +1,49 @@
+name: gst-plugins-good
+version: 1.18.4
+category: media-libs-1.0
+use_flags:
+- -test
+- nls
+- orc
+- prefix
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Basepack of plugins for GStreamer
+uri:
+- https://gstreamer.freedesktop.org/
+license: LGPL-2.1+
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP nls?
+    ( >=sys-devel/gettext-0.17 ) test? ( media-libs/gstreamer[test] )'
+  DEPEND: '>=media-libs/gst-plugins-base-1.18.4:1.0[-mgorny(-)] >=app-arch/bzip2-1.0.6-r4[-mgorny(-)]
+    >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] orc? ( >=dev-lang/orc-0.4.17[-mgorny(-)]
+    ) >=dev-util/gtk-doc-am-1.12 >=dev-libs/glib-2.40.0:2[-mgorny(-)] >=media-libs/gstreamer-1.18:1.0[-mgorny(-)]'
+  IUSE: +orc test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64 nls test
+  RDEPEND: '>=media-libs/gst-plugins-base-1.18.4:1.0[-mgorny(-)] >=app-arch/bzip2-1.0.6-r4[-mgorny(-)]
+    >=sys-libs/zlib-1.2.8-r1[-mgorny(-)] orc? ( >=dev-lang/orc-0.4.17[-mgorny(-)]
+    ) >=dev-libs/glib-2.40.0:2[-mgorny(-)] >=media-libs/gstreamer-1.18:1.0[-mgorny(-)]'
+  emerge.packages: media-libs/gst-plugins-good:1.0
+  kit: media-kit
+  original.package.name: media-libs/gst-plugins-good
+  original.package.slot: "1.0"
+  original.package.version: 1.18.4
