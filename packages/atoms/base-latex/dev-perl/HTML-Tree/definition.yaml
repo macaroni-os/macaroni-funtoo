@@ -1,0 +1,42 @@
+name: HTML-Tree
+version: 5.70.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: HTML-Parser
+  version: '>=0'
+  category: dev-perl
+- name: perl-Carp
+  version: '>=0'
+  category: virtual
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+- name: perl-Scalar-List-Utils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library to manage HTML-Tree in PERL
+uri:
+- https://metacpan.org/release/HTML-Tree
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp virtual/perl-Exporter >=dev-perl/HTML-Tagset-3.20.0 >=dev-perl/HTML-Parser-3.460.0
+    virtual/perl-Scalar-List-Utils >=dev-perl/Module-Build-0.280.800 test? ( virtual/perl-Encode
+    dev-perl/Test-Fatal dev-perl/Test-LeakTrace virtual/perl-Test-Simple dev-perl/URI
+    ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: virtual/perl-Carp virtual/perl-Exporter >=dev-perl/HTML-Tagset-3.20.0 >=dev-perl/HTML-Parser-3.460.0
+    virtual/perl-Scalar-List-Utils dev-lang/perl:=
+  emerge.packages: dev-perl/HTML-Tree
+  kit: perl-kit
+  original.package.name: dev-perl/HTML-Tree
+  original.package.slot: "0"
+  original.package.version: 5.70.0
