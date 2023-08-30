@@ -1,0 +1,38 @@
+name: gst-plugins-cdio
+version: 1.18.4
+category: media-plugins-1.0
+use_flags:
+- -test
+- prefix
+requires:
+- name: libcdio
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-ugly
+  version: '>=0'
+  category: media-libs-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: CD Audio Source (cdda) plugin for GStreamer
+uri:
+- https://gstreamer.freedesktop.org/
+license: GPL-2
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP'
+  DEPEND: '>=dev-libs/libcdio-0.90-r1:=[-mgorny(-)] >=dev-libs/glib-2.40.0:2[-mgorny(-)]
+    >=media-libs/gstreamer-1.18:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.18.4:1.0[-mgorny(-)]'
+  IUSE: test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: '>=dev-libs/libcdio-0.90-r1:=[-mgorny(-)] >=dev-libs/glib-2.40.0:2[-mgorny(-)]
+    >=media-libs/gstreamer-1.18:1.0[-mgorny(-)] >=media-libs/gst-plugins-ugly-1.18.4:1.0[-mgorny(-)]'
+  emerge.packages: media-plugins/gst-plugins-cdio:1.0
+  kit: media-kit
+  original.package.name: media-plugins/gst-plugins-cdio
+  original.package.slot: "1.0"
+  original.package.version: 1.18.4
