@@ -1,0 +1,30 @@
+name: cdparanoia
+version: 3.10.2
+category: media-sound
+requires:
+- name: eselect-cdparanoia
+  version: '>=0'
+  category: app-eselect
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: an advanced CDDA reader with error correction
+uri:
+- https://www.xiph.org/paranoia
+license: GPL-2 LGPL-2.1
+labels:
+  DEPEND: app-eselect/eselect-cdparanoia >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: app-eselect/eselect-cdparanoia
+  emerge.packages: media-sound/cdparanoia
+  kit: media-kit
+  original.package.name: media-sound/cdparanoia
+  original.package.slot: "0"
+  original.package.version: 3.10.2-r6
