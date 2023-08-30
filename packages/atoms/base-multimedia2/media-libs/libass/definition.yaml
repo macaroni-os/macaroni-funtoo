@@ -1,0 +1,47 @@
+name: libass
+version: 0.15.0
+category: media-libs
+use_flags:
+- abi_x86_32
+- abi_x86_64
+- fontconfig
+- harfbuzz
+requires:
+- name: fribidi
+  version: '>=0'
+  category: dev-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for SSA/ASS subtitles rendering
+uri:
+- https://github.com/libass/libass
+license: ISC
+labels:
+  DEPEND: fontconfig? ( >=media-libs/fontconfig-2.10.92[-mgorny(-)] ) >=media-libs/freetype-2.5.0.1:2[-mgorny(-)]
+    >=virtual/libiconv-0-r1[-mgorny(-)] >=dev-libs/fribidi-0.19.5-r1[-mgorny(-)] harfbuzz?
+    ( >=media-libs/harfbuzz-0.9.12[truetype,-mgorny(-)] ) virtual/pkgconfig abi_x86_32?
+    ( dev-lang/nasm ) abi_x86_64? ( dev-lang/nasm )
+  IUSE: +fontconfig +harfbuzz static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: fontconfig? ( >=media-libs/fontconfig-2.10.92[-mgorny(-)] ) >=media-libs/freetype-2.5.0.1:2[-mgorny(-)]
+    >=virtual/libiconv-0-r1[-mgorny(-)] >=dev-libs/fribidi-0.19.5-r1[-mgorny(-)] harfbuzz?
+    ( >=media-libs/harfbuzz-0.9.12[truetype,-mgorny(-)] )
+  emerge.packages: media-libs/libass
+  kit: media-kit
+  original.package.name: media-libs/libass
+  original.package.slot: "0"
+  original.package.version: 0.15.0
