@@ -1,11 +1,10 @@
 name: mpv
-version: 0.35.0.20221129
+version: 0.35.0.20221129+1
 category: media-video
 use_flags:
 - -cuda
 - -doc
 - -dvb
-- -libass
 - -libcaca
 - -luajit
 - -python_targets_python3_10
@@ -30,6 +29,7 @@ use_flags:
 - javascript
 - jpeg
 - lcms
+- libass
 - lua
 - openal
 - opengl
@@ -61,6 +61,9 @@ requires:
 - name: wayland-protocols
   version: '>=0'
   category: dev-libs
+- name: libass
+  version: '>=0'
+  category: media-libs
 - name: libdvdnav
   version: '>=0'
   category: media-libs
@@ -73,6 +76,9 @@ requires:
 - name: pipewire
   version: '>=0'
   category: media-video
+- name: ttf-fonts
+  version: '>=0'
+  category: virtual
 - name: libXScrnSaver
   version: '>=0'
   category: x11-libs
