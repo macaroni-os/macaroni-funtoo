@@ -1,0 +1,28 @@
+name: culmus
+version: "0.133"
+category: media-fonts
+use_flags:
+- -fontforge
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Hebrew Type1 fonts
+uri:
+- http://culmus.sourceforge.net/
+license: '|| ( GPL-2 LICENSE-BITSTREAM ) ancient? ( MIT ) fancy? ( GPL-2 )'
+labels:
+  BDEPEND: app-arch/unzip >=x11-apps/mkfontscale-1.0.9-r1 fontforge? ( media-gfx/fontforge
+    )
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: ancient fancy fontforge taamey X
+  RDEPEND: '!media-fonts/culmus-ancient'
+  emerge.packages: media-fonts/culmus
+  kit: media-kit
+  original.package.name: media-fonts/culmus
+  original.package.slot: "0"
+  original.package.version: 0.133-r1
