@@ -1,0 +1,29 @@
+name: aribb24
+version: 1.0.3
+category: media-libs
+requires:
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for decoding ARIB STD-B24 subtitles
+uri:
+- https://github.com/nkoriyama/aribb24
+license: LGPL-3
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: media-libs/libpng
+  RDEPEND: media-libs/libpng
+  emerge.packages: media-libs/aribb24
+  kit: media-kit
+  original.package.name: media-libs/aribb24
+  original.package.slot: "0"
+  original.package.version: 1.0.3
