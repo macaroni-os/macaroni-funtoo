@@ -1,0 +1,30 @@
+name: chromaprint
+version: 1.5.1
+category: media-libs
+use_flags:
+- tools
+requires:
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library implementing a custom algorithm for extracting audio fingerprints
+uri:
+- https://acoustid.org/chromaprint
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: tools? ( media-video/ffmpeg:= ) !tools? ( sci-libs/fftw:= )
+  IUSE: tools
+  RDEPEND: tools? ( media-video/ffmpeg:= ) !tools? ( sci-libs/fftw:= )
+  emerge.packages: media-libs/chromaprint
+  kit: media-kit
+  original.package.name: media-libs/chromaprint
+  original.package.slot: "0"
+  original.package.version: 1.5.1-r2
