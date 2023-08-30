@@ -1,0 +1,29 @@
+name: Pod-LaTeX
+version: 0.610.0
+category: dev-perl
+requires:
+- name: perl-Pod-Parser
+  version: '>=0'
+  category: virtual
+- name: perl-if
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Convert Pod data to formatted LaTeX
+uri:
+- https://metacpan.org/release/Pod-LaTeX
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Pod-Parser virtual/perl-if dev-perl/Module-Build dev-lang/perl:=
+  RDEPEND: virtual/perl-Pod-Parser virtual/perl-if dev-lang/perl:=
+  emerge.packages: dev-perl/Pod-LaTeX
+  kit: perl-kit
+  original.package.name: dev-perl/Pod-LaTeX
+  original.package.slot: "0"
+  original.package.version: 0.610.0-r1
