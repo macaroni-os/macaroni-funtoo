@@ -1,0 +1,28 @@
+name: latex-beamer
+version: "3.55"
+category: dev-tex
+requires:
+- name: pgf
+  version: '>=0'
+  category: dev-tex
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: LaTeX class for creating presentations using a video projector
+uri:
+- https://github.com/josephwright/beamer
+license: GPL-2 FDL-1.2 LPPL-1.3c
+labels:
+  BDEPEND: virtual/latex-base >=sys-apps/texinfo-4.2-r5
+  DEPEND: dev-texlive/texlive-latex
+  IUSE: doc
+  RDEPEND: '>=dev-tex/pgf-1.10 dev-tex/xcolor !dev-tex/translator virtual/latex-base'
+  emerge.packages: dev-tex/latex-beamer
+  kit: text-kit
+  original.package.name: dev-tex/latex-beamer
+  original.package.slot: "0"
+  original.package.version: "3.55"
