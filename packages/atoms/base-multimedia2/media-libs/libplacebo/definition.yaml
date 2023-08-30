@@ -1,0 +1,56 @@
+name: libplacebo
+version: 5.229.2
+category: media-libs
+use_flags:
+- glslang
+- lcms
+- opengl
+- shaderc
+- vulkan
+requires:
+- name: vulkan-headers
+  version: '>=0'
+  category: dev-util
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libepoxy
+  version: '>=0'
+  category: media-libs
+- name: shaderc
+  version: '>=0'
+  category: media-libs
+- name: vulkan-loader
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Reusable library for GPU-accelerated image processing primitives
+uri:
+- https://code.videolan.org/videolan/libplacebo
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig vulkan? ( || ( dev-lang/python:3.10[xml] dev-lang/python:3.8[xml]
+    dev-lang/python:3.9[xml] dev-lang/python:3.7[xml] ) || ( ( dev-lang/python:3.10[xml]
+    dev-python/mako[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8[xml] dev-python/mako[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9[xml] dev-python/mako[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7[xml] dev-python/mako[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: glslang? ( dev-util/glslang ) lcms? ( media-libs/lcms:2 ) opengl? ( media-libs/libepoxy
+    ) shaderc? ( >=media-libs/shaderc-2017.2 ) vulkan? ( dev-util/vulkan-headers media-libs/vulkan-loader
+    )
+  IUSE: glslang lcms +opengl +shaderc +vulkan
+  RDEPEND: glslang? ( dev-util/glslang ) lcms? ( media-libs/lcms:2 ) opengl? ( media-libs/libepoxy
+    ) shaderc? ( >=media-libs/shaderc-2017.2 ) vulkan? ( dev-util/vulkan-headers media-libs/vulkan-loader
+    )
+  emerge.packages: media-libs/libplacebo
+  kit: media-kit
+  original.package.name: media-libs/libplacebo
+  original.package.slot: "0"
+  original.package.version: 5.229.2
