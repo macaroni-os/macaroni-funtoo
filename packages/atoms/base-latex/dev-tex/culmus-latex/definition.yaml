@@ -1,0 +1,29 @@
+name: culmus-latex
+version: "0.7"
+category: dev-tex
+requires:
+- name: latex-base
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Culmus fonts support for latex
+uri:
+- http://ivritex.sourceforge.net/
+license: GPL-2
+labels:
+  BDEPEND: virtual/latex-base >=sys-apps/texinfo-4.2-r5
+  DEPEND: virtual/latex-base || ( >=media-fonts/culmus-0.110[fancy] <media-fonts/culmus-0.110
+    ) app-text/t1utils
+  IUSE: examples
+  RDEPEND: virtual/latex-base virtual/latex-base
+  emerge.packages: dev-tex/culmus-latex
+  kit: text-kit
+  original.package.name: dev-tex/culmus-latex
+  original.package.slot: "0"
+  original.package.version: 0.7-r1
