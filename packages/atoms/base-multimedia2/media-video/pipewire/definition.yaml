@@ -1,0 +1,104 @@
+name: pipewire
+version: 0.3.77
+category: media-video
+use_flags:
+- -doc
+- -echo-cancel
+- -extra
+- -jack-sdk
+- -systemd
+- X
+- bluetooth
+- gstreamer
+- jack-client
+- lv2
+- pipewire-alsa
+- ssl
+- v4l
+- zeroconf
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: fdk-aac
+  version: '>=0'
+  category: media-libs
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+- name: libfreeaptx
+  version: '>=0'
+  category: media-libs
+- name: libldac
+  version: '>=0'
+  category: media-libs
+- name: libv4l
+  version: '>=0'
+  category: media-libs
+- name: lilv
+  version: '>=0'
+  category: media-libs
+- name: sbc
+  version: '>=0'
+  category: media-libs
+- name: jack2
+  version: '>=0'
+  category: media-sound-2
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: bluez
+  version: '>=0'
+  category: net-wireless
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Multimedia processing graphs
+uri:
+- http://pipewire.org/
+license: MIT LGPL-2.1+ GPL-2
+labels:
+  BDEPEND: '>=dev-util/meson-0.59 virtual/pkgconfig || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) || ( ( dev-lang/python:3.10 dev-python/docutils[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/docutils[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/docutils[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/docutils[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) doc? ( app-doc/doxygen media-gfx/graphviz ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+    virtual/pkgconfig'
+  DEPEND: media-libs/alsa-lib sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
+    virtual/libintl virtual/libudev bluetooth? ( media-libs/fdk-aac media-libs/libldac
+    media-libs/libfreeaptx media-libs/sbc >=net-wireless/bluez-4.101:= virtual/libusb:1
+    ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra? ( >=media-libs/libsndfile-1.0.20
+    ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0 media-libs/gst-plugins-base:1.0
+    ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
+    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7
+    !media-plugins/alsa-plugins[pulseaudio] ) !pipewire-alsa? ( media-plugins/alsa-plugins[pulseaudio]
+    ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
+    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi ) >=sys-kernel/linux-headers-4.19-r1
+  IUSE: bluetooth doc echo-cancel extra gstreamer jack-client jack-sdk lv2 pipewire-alsa
+    ssl systemd test v4l X zeroconf examples
+  RDEPEND: media-libs/alsa-lib sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
+    virtual/libintl virtual/libudev bluetooth? ( media-libs/fdk-aac media-libs/libldac
+    media-libs/libfreeaptx media-libs/sbc >=net-wireless/bluez-4.101:= virtual/libusb:1
+    ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra? ( >=media-libs/libsndfile-1.0.20
+    ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0 media-libs/gst-plugins-base:1.0
+    ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
+    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7
+    !media-plugins/alsa-plugins[pulseaudio] ) !pipewire-alsa? ( media-plugins/alsa-plugins[pulseaudio]
+    ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
+    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi )
+  emerge.packages: media-video/pipewire
+  kit: gnome-kit
+  original.package.name: media-video/pipewire
+  original.package.slot: "0"
+  original.package.version: 0.3.77
