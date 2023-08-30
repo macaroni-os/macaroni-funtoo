@@ -1,0 +1,25 @@
+name: perl-if
+version: 0.60.800
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for if
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/if-0.60.800
+    ) dev-lang/perl:= !<perl-core/if-0.60.800 !>perl-core/if-0.60.800-r999'
+  emerge.packages: virtual/perl-if
+  kit: perl-kit
+  original.package.name: virtual/perl-if
+  original.package.slot: "0"
+  original.package.version: 0.60.800-r3
