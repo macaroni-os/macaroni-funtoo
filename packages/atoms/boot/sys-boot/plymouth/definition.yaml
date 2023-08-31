@@ -1,0 +1,52 @@
+name: plymouth
+version: 0.9.4
+category: sys-boot
+use_flags:
+- -elibc_musl
+- gtk
+- libkms
+- pango
+requires:
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: udev
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Graphical boot animation (splash) and logger
+uri:
+- https://cgit.freedesktop.org/plymouth/
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: '>=media-libs/libpng-1.2.16:= gtk? ( dev-libs/glib:2 >=x11-libs/gtk+-3.14:3
+    x11-libs/cairo ) libkms? ( x11-libs/libdrm[libkms] ) pango? ( >=x11-libs/pango-1.21
+    ) elibc_musl? ( sys-libs/rpmatch-standalone ) app-text/docbook-xsl-stylesheets
+    dev-libs/libxslt virtual/pkgconfig'
+  IUSE: debug gdm +gtk +libkms +pango +split-usr static-libs
+  RDEPEND: '>=media-libs/libpng-1.2.16:= gtk? ( dev-libs/glib:2 >=x11-libs/gtk+-3.14:3
+    x11-libs/cairo ) libkms? ( x11-libs/libdrm[libkms] ) pango? ( >=x11-libs/pango-1.21
+    ) virtual/udev !<sys-kernel/dracut-0.37-r3'
+  emerge.packages: sys-boot/plymouth
+  kit: core-kit
+  original.package.name: sys-boot/plymouth
+  original.package.slot: "0"
+  original.package.version: 0.9.4-r1
