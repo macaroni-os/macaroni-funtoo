@@ -1,4 +1,8 @@
 prelude:
+# Investigate on this
+- >-
+  sed -i -e 's|>=media-libs/aribb24-1.0.3-r2|>=media-libs/aribb24-1.0.3|g'
+  /var/git/meta-repo/kits/media-kit/media-video/ffmpeg/ffmpeg-*.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
