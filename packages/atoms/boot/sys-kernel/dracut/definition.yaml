@@ -1,0 +1,55 @@
+name: dracut
+version: "049"
+category: sys-kernel
+use_flags:
+- -selinux
+requires:
+- name: cpio
+  version: '>=0'
+  category: app-arch
+- name: bash
+  version: '>=0'
+  category: app-shells
+- name: coreutils
+  version: '>=0'
+  category: sys-apps
+- name: kmod
+  version: '>=0'
+  category: sys-apps
+- name: sysvinit
+  version: '>=0'
+  category: sys-apps
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: pkgconfig
+  version: '>=0'
+  category: virtual
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Generic initramfs generation tool
+uri:
+- https://dracut.wiki.kernel.org
+license: GPL-2
+labels:
+  BDEPEND: app-text/asciidoc app-text/docbook-xml-dtd:4.5 >=app-text/docbook-xsl-stylesheets-1.75.2
+    >=dev-libs/libxslt-1.1.26 virtual/pkgconfig virtual/pkgconfig
+  DEPEND: '>=sys-apps/kmod-23'
+  IUSE: selinux kernel_linux
+  RDEPEND: app-arch/cpio >=app-shells/bash-4.0:0 sys-apps/coreutils[xattr(-)] >=sys-apps/kmod-23[tools]
+    || ( >=sys-apps/sysvinit-2.87-r3 sys-apps/systemd[sysv-utils] ) >=sys-apps/util-linux-2.21
+    virtual/pkgconfig virtual/udev selinux? ( sec-policy/selinux-dracut sys-libs/libselinux
+    sys-libs/libsepol )
+  emerge.packages: sys-kernel/dracut
+  kit: core-kit
+  original.package.name: sys-kernel/dracut
+  original.package.slot: "0"
+  original.package.version: 049-r1
