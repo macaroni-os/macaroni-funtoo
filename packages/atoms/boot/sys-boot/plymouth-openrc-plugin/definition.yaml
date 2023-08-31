@@ -1,0 +1,29 @@
+name: plymouth-openrc-plugin
+version: 0.1.2
+category: sys-boot
+requires:
+- name: openrc
+  version: '>=0'
+  category: sys-apps
+- name: plymouth
+  version: '>=0'
+  category: sys-boot
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plymouth plugin for OpenRC
+uri:
+- https://github.com/aidecoe/plymouth-openrc-plugin
+license: GPL-2+
+labels:
+  DEPEND: sys-apps/openrc:=
+  RDEPEND: sys-apps/openrc:= sys-boot/plymouth
+  emerge.packages: sys-boot/plymouth-openrc-plugin
+  kit: core-kit
+  original.package.name: sys-boot/plymouth-openrc-plugin
+  original.package.slot: "0"
+  original.package.version: 0.1.2-r1
