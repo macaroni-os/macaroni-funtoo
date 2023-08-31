@@ -1,0 +1,47 @@
+prelude:
+# Trying to apply patch to fix integration with e2fs 1.47.0
+- >-
+  mkdir -p /etc/portage/patches/sys-boot/grub/ &&
+  cp grub-2.06-fs-ext2-ignore-checksum-seed.patch /etc/portage/patches/sys-boot/grub/
+
+- |-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
+  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
+  eval 'mkdir -p /var/cache/portage/distfiles || true' && \
+  chown portage:portage -R /var/cache/portage/ && \
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
+  {{- else }}
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
+  {{- end }}
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  {{- else }}
+  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  {{- end }}
+- export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" && export LUET_PORTAGE_IGNORE_TAR_WARNING=1
+  && export LUET_PORTAGE_PKGMETA=1 && export LUET_PORTAGE_PKGFILES=1 && eval 'rm -rf
+  /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
+  .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
+  /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+
+# Push macaroni patched script
+- chmod a+x 10_linux && cp -r 10_linux /pkgdir/{{ .Values.name }}/etc/grub.d/10_linux
+- cp grub-default /pkgdir/{{ .Values.name }}/etc/default/grub
+package_dir: /pkgdir/{{ .Values.name }}
+excludes:
+- ^/var/cache/portage/
+- ^/var/git/
+
+# Files related to grub-emu split
+- /usr/bin/grub-emu
+- /usr/bin/grub-emu-lite
+- /usr/lib/grub/i386-pc/efiemu.mod
+- /usr/lib/grub/i386-pc/efiemu.module
+- ^/usr/lib/grub/x86_64-emu/
+- /usr/share/man/man1/grub-emu.1.bz2
+
+requires:
+- name: macaroni-funtoo-race11
+  version: '>=0'
+  category: seed
