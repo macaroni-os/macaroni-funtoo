@@ -1,0 +1,42 @@
+name: highlight
+version: "3.42"
+category: app-text
+use_flags:
+- qt5
+requires:
+- name: lua
+  version: '>=0'
+  category: dev-lang
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwidgets
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Converts source code to formatted text (HTML, LaTeX, etc.) with syntax
+  highlight
+uri:
+- http://www.andre-simon.de/
+license: GPL-3
+labels:
+  DEPEND: dev-lang/lua:0= qt5? ( dev-libs/double-conversion:= dev-qt/qtcore:5 dev-qt/qtgui:5
+    dev-qt/qtwidgets:5 ) dev-libs/boost virtual/pkgconfig qt5? ( dev-qt/linguist-tools:5
+    )
+  IUSE: examples qt5
+  RDEPEND: dev-lang/lua:0= qt5? ( dev-libs/double-conversion:= dev-qt/qtcore:5 dev-qt/qtgui:5
+    dev-qt/qtwidgets:5 )
+  emerge.packages: app-text/highlight
+  kit: text-kit
+  original.package.name: app-text/highlight
+  original.package.slot: "0"
+  original.package.version: 3.42-r1
