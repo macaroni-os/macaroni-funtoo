@@ -1,0 +1,14 @@
+package_dir: /pkgdir/grub
+includes:
+# Files related to grub-emu split
+- /usr/bin/grub-emu
+- /usr/bin/grub-emu-lite
+- /usr/lib/grub/i386-pc/efiemu.mod
+- /usr/lib/grub/i386-pc/efiemu.module
+- /usr/share/man/man1/grub-emu.1.bz2
+- ^/usr/lib/grub/x86_64-emu/
+
+requires:
+- name: grub
+  version: '>=0'
+  category: sys-boot-2
