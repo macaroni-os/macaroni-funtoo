@@ -1,0 +1,32 @@
+name: hyperfine
+version: 1.17.0
+category: app-benchmarks
+use_flags:
+- bash-completion
+- fish-completion
+- zsh-completion
+requires:
+- name: bash-completion
+  version: '>=0'
+  category: app-shells
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A command-line benchmarking tool
+uri:
+- https://github.com/sharkdp/hyperfine
+license: Apache-2.0 MIT
+labels:
+  BDEPEND: virtual/rust >=virtual/rust-1.37.0
+  IUSE: +bash-completion zsh-completion fish-completion debug
+  RDEPEND: bash-completion? ( app-shells/bash-completion ) zsh-completion? ( app-shells/zsh-completions
+    ) fish-completion? ( app-shells/fish )
+  emerge.packages: app-benchmarks/hyperfine
+  kit: core-kit
+  original.package.name: app-benchmarks/hyperfine
+  original.package.slot: "0"
+  original.package.version: 1.17.0
