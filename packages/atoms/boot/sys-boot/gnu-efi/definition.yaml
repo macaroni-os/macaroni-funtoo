@@ -1,0 +1,22 @@
+name: gnu-efi
+version: 3.0.17
+category: sys-boot
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for build EFI Applications
+uri:
+- http://gnu-efi.sourceforge.net/
+license: GPL-2+ BSD BSD-2
+labels:
+  DEPEND: sys-apps/pciutils
+  IUSE: abi_x86_32 abi_x86_64 -custom-cflags
+  emerge.packages: sys-boot/gnu-efi
+  kit: core-kit
+  original.package.name: sys-boot/gnu-efi
+  original.package.slot: "0"
+  original.package.version: 3.0.17
