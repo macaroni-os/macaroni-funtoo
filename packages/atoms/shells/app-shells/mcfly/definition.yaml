@@ -1,0 +1,28 @@
+name: mcfly
+version: 0.8.1
+category: app-shells
+requires:
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Context-aware bash history search replacement (ctrl-r)
+uri:
+- https://github.com/cantino/mcfly
+license: Apache-2.0 BSD BSD-2 CC0-1.0 MIT Unlicense
+labels:
+  BDEPEND: '>=virtual/rust-1.37.0'
+  DEPEND: dev-db/sqlite:3
+  IUSE: debug
+  RDEPEND: dev-db/sqlite:3
+  emerge.packages: app-shells/mcfly
+  kit: core-kit
+  original.package.name: app-shells/mcfly
+  original.package.slot: "0"
+  original.package.version: 0.8.1
