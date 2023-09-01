@@ -1,0 +1,33 @@
+name: sbsigntools
+version: 0.9.4
+category: app-crypt
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utilities for signing and verifying files for UEFI Secure Boot
+uri:
+- https://git.kernel.org/cgit/linux/kernel/git/jejb/sbsigntools.git/
+license: GPL-3 LGPL-3 LGPL-2.1 CC0-1.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/openssl:0= sys-apps/util-linux sys-apps/help2man sys-boot/gnu-efi
+    sys-libs/binutils-libs virtual/pkgconfig
+  RDEPEND: dev-libs/openssl:0= sys-apps/util-linux
+  emerge.packages: app-crypt/sbsigntools
+  kit: security-kit
+  original.package.name: app-crypt/sbsigntools
+  original.package.slot: "0"
+  original.package.version: 0.9.4
