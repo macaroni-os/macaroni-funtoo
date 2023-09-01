@@ -3,6 +3,9 @@ name: boot
 version: "1"
 description: "Virtul package to install portage meta data of the boot packages"
 requires:
+  - name: sbsigntools
+    category: app-crypt
+    version: '>=0'
   - name: highlight
     category: app-text
     version: '>=0'
@@ -16,6 +19,12 @@ requires:
     category: sys-boot-2
     version: '>=0'
   - name: efibootmgr
+    category: sys-boot
+    version: '>=0'
+  - name: gnu-efi
+    category: sys-boot
+    version: '>=0'
+  - name: mokutil
     category: sys-boot
     version: '>=0'
   - name: plymouth
