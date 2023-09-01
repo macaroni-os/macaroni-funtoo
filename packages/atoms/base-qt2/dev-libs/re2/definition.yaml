@@ -1,0 +1,30 @@
+name: re2
+version: 2022.12.01
+category: dev-libs
+use_flags:
+- icu
+requires:
+- name: icu
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An efficient, principled regular expression library
+uri:
+- https://github.com/google/re2
+license: BSD
+labels:
+  BDEPEND: icu? ( virtual/pkgconfig )
+  DEPEND: icu? ( dev-libs/icu )
+  IUSE: icu
+  RDEPEND: icu? ( dev-libs/icu )
+  emerge.packages: dev-libs/re2
+  kit: dev-kit
+  original.package.name: dev-libs/re2
+  original.package.slot: "0"
+  original.package.version: 2022.12.01
