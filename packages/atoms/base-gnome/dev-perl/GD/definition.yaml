@@ -1,0 +1,59 @@
+name: GD
+version: 2.660.0
+category: dev-perl
+use_flags:
+- fcgi
+- gif
+- jpeg
+- png
+- truetype
+- xpm
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: fcgi
+  version: '>=0'
+  category: dev-libs
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: gd
+  version: '>=0'
+  category: media-libs-2
+- name: giflib
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libXpm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Interface to Thomas Boutell's gd library
+uri:
+- https://metacpan.org/release/GD
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=media-libs/gd-2.2.3 png? ( media-libs/gd[png] media-libs/libpng:0 sys-libs/zlib
+    ) jpeg? ( media-libs/gd[jpeg] virtual/jpeg:0 ) truetype? ( media-libs/gd[truetype]
+    media-libs/freetype:2 ) xpm? ( media-libs/gd[xpm] x11-libs/libXpm ) fcgi? ( dev-libs/fcgi
+    ) gif? ( media-libs/giflib ) >=virtual/perl-ExtUtils-Constant-0.230.0 dev-perl/ExtUtils-PkgConfig
+    virtual/perl-ExtUtils-MakeMaker dev-lang/perl:='
+  IUSE: animgif fcgi gif jpeg png truetype xpm examples
+  RDEPEND: '>=media-libs/gd-2.2.3 png? ( media-libs/gd[png] media-libs/libpng:0 sys-libs/zlib
+    ) jpeg? ( media-libs/gd[jpeg] virtual/jpeg:0 ) truetype? ( media-libs/gd[truetype]
+    media-libs/freetype:2 ) xpm? ( media-libs/gd[xpm] x11-libs/libXpm ) fcgi? ( dev-libs/fcgi
+    ) gif? ( media-libs/giflib ) dev-lang/perl:='
+  emerge.packages: dev-perl/GD
+  kit: perl-kit
+  original.package.name: dev-perl/GD
+  original.package.slot: "0"
+  original.package.version: 2.660.0
