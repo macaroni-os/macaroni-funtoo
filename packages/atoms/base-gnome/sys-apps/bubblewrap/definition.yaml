@@ -1,0 +1,35 @@
+name: bubblewrap
+version: 0.3.1
+category: sys-apps
+use_flags:
+- -selinux
+requires:
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Unprivileged sandboxing tool, namespaces-powered chroot-like solution
+uri:
+- https://github.com/projectatomic/bubblewrap
+license: LGPL-2+
+labels:
+  DEPEND: sys-libs/libseccomp sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.1.9
+    ) app-text/docbook-xml-dtd:4.3 app-text/docbook-xsl-stylesheets dev-libs/libxslt
+    virtual/pkgconfig
+  IUSE: selinux +suid kernel_linux
+  RDEPEND: sys-libs/libseccomp sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.1.9
+    )
+  emerge.packages: sys-apps/bubblewrap
+  kit: security-kit
+  original.package.name: sys-apps/bubblewrap
+  original.package.slot: "0"
+  original.package.version: 0.3.1-r1
