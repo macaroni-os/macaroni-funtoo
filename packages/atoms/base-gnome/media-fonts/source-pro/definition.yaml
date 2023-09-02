@@ -1,0 +1,31 @@
+name: source-pro
+version: "20191016"
+category: media-fonts
+use_flags:
+- -cjk
+- X
+requires:
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Adobe's open source typeface family designed for UI environments
+uri:
+- https://adobe-fonts.github.io/source-sans-pro/ https://adobe-fonts.github.io/source-serif-pro/
+  https://adobe-fonts.github.io/source-code-pro/
+license: OFL-1.1
+labels:
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: cjk X
+  RDEPEND: media-libs/fontconfig cjk? ( media-fonts/source-han-sans )
+  emerge.packages: media-fonts/source-pro
+  kit: core-gl-kit
+  original.package.name: media-fonts/source-pro
+  original.package.slot: "0"
+  original.package.version: "20191016"
