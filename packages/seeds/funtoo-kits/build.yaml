@@ -35,38 +35,9 @@ prelude:
   chown portage:portage -R /var/git/meta-repo/kits
 
 - >-
-  cp patches/libical-3.0.11.ebuild /var/git/meta-repo/kits/core-kit/dev-libs/libical/ &&
+  cp patches/libical-3.0.11.ebuild
+  /var/git/meta-repo/kits/core-kit/dev-libs/libical/ &&
   cd /var/git/meta-repo/kits/core-kit/dev-libs/libical &&
   ebuild libical-3.0.11.ebuild digest
-# Enable meson-0.63
-# I want move ahead meson
-#- >-
-#  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
-#  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
-#  sed '/meson/d' -i
-#  /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo
 
-# Permit using vala 0.54
-- sed -i -e 's|0.50|0.54|g'  /var/git/meta-repo/kits/core-kit/eclass/vala.eclass
-
-# Drop pam/elogind dependencies cross referencies
-- >-
-  sed -i -e 's|elogind? ( .* )||g' -e 's|elogind||g' /var/git/meta-repo/kits/core-kit/sys-libs/pam/pam-*.ebuild &&
-  sed -i -e '/sys-libs\/pam\[elogind\]/d' /var/git/meta-repo/kits/core-gl-kit/x11-base/xorg-server/xorg-server-*.ebuild
-
-# Fix typo on x11-base/xorg-drivers ebuild
-- >-
-  sed -i -e 's|xf86-video-vboxvideo|xf86-video-vbox|g'
-  /var/git/meta-repo/kits/core-gl-kit/x11-base/xorg-drivers/xorg-drivers-*.ebuild
-
-# Fix wrong DEPEND on source-hightlight
-- >-
-  sed -i -e 's|>=dev-libs/boost-1.62.0\:=\[threads\]|dev-libs/boost|g'
-  /var/git/meta-repo/kits/dev-kit/dev-util/source-highlight/source-highlight-*.ebuild
-
-# ibus upgraded and available on geaaru-kit. TODO: open a PR to Funtoo
-
-- sh patches4funtoo.sh
-
-# Drop package.mask with elogind use flag for x11-misc/sddm
-- rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
+- sh patches4funtoo.sh && sh patches4macaroni.sh
