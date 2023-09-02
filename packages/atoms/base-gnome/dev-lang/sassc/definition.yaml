@@ -1,0 +1,29 @@
+name: sassc
+version: 3.6.0
+category: dev-lang
+requires:
+- name: libsass
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A libsass command line driver
+uri:
+- https://github.com/sass/sassc
+license: MIT
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/libsass:=
+  RDEPEND: dev-libs/libsass:=
+  emerge.packages: dev-lang/sassc
+  kit: lang-kit
+  original.package.name: dev-lang/sassc
+  original.package.slot: "0"
+  original.package.version: 3.6.0
