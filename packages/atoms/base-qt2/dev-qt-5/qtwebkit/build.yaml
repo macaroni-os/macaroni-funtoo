@@ -1,4 +1,6 @@
 prelude:
+# We need qtgui[egl]
+- luet repo update && luet upgrade -y && luet cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
