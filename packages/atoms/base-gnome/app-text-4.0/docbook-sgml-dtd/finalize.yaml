@@ -1,0 +1,7 @@
+shell:
+- /bin/bash
+- -c
+install:
+- slot={{ ( index .Values.labels "original.package.slot" ) }} SGML_SOURCE="/etc/sgml/sgml-docbook-${slot}.cat"
+  SGML_DESTINATIONS="/usr/share/sgml/docbook/sgml-dtd-${slot}/catalog /etc/sgml/sgml-docbook.cat"
+  whip h sgml.postinst || true
