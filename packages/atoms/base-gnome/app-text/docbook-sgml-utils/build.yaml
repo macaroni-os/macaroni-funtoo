@@ -1,4 +1,9 @@
 prelude:
+# TODO: fix this as finalize of the packages with SGML catalog
+- >-
+  wget -O /usr/share/macaroni/whip-catalog/eclass/sgml.yaml
+  https://raw.githubusercontent.com/macaroni-os/whip-catalog/master/catalog/eclass/sgml.yaml &&
+  whip h sgml.update_catalog
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
