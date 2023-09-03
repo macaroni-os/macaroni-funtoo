@@ -16,9 +16,6 @@ skipped_resolutions:
     - name: radiusclient-ng
       category: net-dialup
 
-    - name: systemd-tmpfiles
-      category: sys-apps
-
     - name: argp-standalone
       category: sys-libs
 
@@ -72,10 +69,13 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-include_files:
-  - ./artefacts/boot.yml
+    - name: eselect-lib-bin-symlink
+      category: app-eselect
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+    - name: zfs-kmod
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -86,216 +86,155 @@ global_annotations:
         - "^/var/db/pkg/"
 
 artefacts:
+
+- tree: packages/atoms/boot
+  uses:
+    disabled:
+    - nios2
+    - selinux
+    - sh
+  packages:
+  - sys-kernel/dracut
+
+- tree: packages/atoms/boot
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-boot/efibootmgr
+  - sys-boot/plymouth-openrc-plugin
+  - sys-libs/efivar
+
 - tree: packages/atoms/boot
   mutations:
-    buildtime_deps:
+    provides:
+      - category: utils
+        name: grub2
+    runtime_deps:
       packages:
-        - category: sys-libs
-          name: libaal
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-    - static
-    - static-libs
-    enabled:
-    - readline
-  packages:
-  - sys-fs/reiser4progs
-
-- tree: packages/atoms/boot
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-base
-  packages:
-    - media-libs/libuninameslist
-
-- tree: packages/atoms/boot
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-    - static
-    - test
-    - truetype-debugger
-    - python_single_target_python2_7
-    enabled:
-    - X
-    - cairo
-    - gif
-    - gtk
-    - jpeg
-    - png
-    - python
-    - python_single_target_python3_7
-    - readline
-    - tiff
-    - unicode
-  packages:
-  - media-gfx/fontforge
-
-- tree: packages/atoms/boot
-  uses:
-    disabled:
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python3_8
-    - python_targets_python2_7
-    - python_targets_python3_9
-    - sh
-    - test
-    enabled:
-    - python_targets_python3_7
-  packages:
-  - dev-python/jsonschema
-
-- tree: packages/atoms/boot
-  uses:
-    disabled:
-    - system-man
-  packages:
-  - app-text/mandoc
-
-- tree: packages/atoms/boot
-  mutations:
-    uses:
-      - static-libs
-  uses:
-    disabled:
-    - debug
-    - nios2
-    - sh
-    enabled:
-    - nls
-    - static-libs
-  packages:
-  - sys-apps/attr
-
-- tree: packages/atoms/boot
-  uses:
-    disabled:
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - sh
-    enabled:
-    - python_targets_python3_7
-  packages:
-  - dev-python/jsonpointer:0
-
-- tree: packages/atoms/boot
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_8
-    - python_targets_python3_9
-    - sh
-    enabled:
-    - python_targets_python3_7
-  packages:
-  - dev-python/more-itertools
-  - dev-python/attrs
-
-- tree: packages/atoms/boot
-  uses:
-    disabled:
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - python_targets_python3_8
-    - python_targets_python3_9
-    - sh
-    enabled:
-    - python_targets_python3_7
-  packages:
-  - dev-python/namespace-zope
-  - dev-python/pyrsistent
-  - dev-python/zope-interface
-
-- tree: packages/atoms/boot
+        - category: sys-fs
+          name: fuse
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: sys-fs-3
+          name: fuse
+        # Use on splitted package
+        - category: media-libs
+          name: libsdl
   uses:
     disabled:
     - doc
+    - efiemu
+    - grub_platforms_coreboot
+    - grub_platforms_efi-32
+    - grub_platforms_ieee1275
+    - grub_platforms_loongson
+    - grub_platforms_multiboot
+    - grub_platforms_qemu
+    - grub_platforms_qemu-mips
+    - grub_platforms_uboot
+    - grub_platforms_xen
+    - grub_platforms_xen-32
+    - grub_platforms_xen-pvh
+    - libzfs
     - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
     - sh
+    - test
     enabled:
-    - python_targets_python3_7
+    - fonts
+    - device-mapper
+    - grub_platforms_emu
+    - grub_platforms_efi-64
+    - grub_platforms_pc
+    - mount
+    - nls
+    - sdl
+    - themes
+    - truetype
   packages:
-  - dev-python/regex
+  - sys-boot/grub:2
 
 - tree: packages/atoms/boot
   uses:
     disabled:
+    - debug
+    - gdm
     - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
     - sh
-    - test
+    - static-libs
     enabled:
-    - python_targets_python3_7
+    - gtk
+    - libkms
+    - pango
+    - split-usr
   packages:
-  - dev-python/rfc3339-validator
-  - dev-python/rfc3986-validator
-  - dev-python/rfc3987
-  - dev-python/strict-rfc3339
-  - dev-python/webcolors
+  - sys-boot/plymouth
+
+- tree: packages/atoms/boot
+  packages:
+    - sys-boot/mokutil
+    - app-crypt/sbsigntools
+
+include_layers:
+- layers/macaroni-funtoo-race11.yaml
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
-#  - source1.json
-  - ./kit_cache/browser-kit-1.4-release
-  - ./kit_cache/core-gl-kit-2.0-release
-  - ./kit_cache/core-hw-kit-1.4-release
-  - ./kit_cache/core-kit-1.4-release
-  - ./kit_cache/core-server-kit-1.4-release
-  - ./kit_cache/desktop-kit-1.4-release
-  - ./kit_cache/dev-kit-1.4-release
-  - ./kit_cache/editors-kit-1.4-release
-  - ./kit_cache/games-kit-1.4-release
-  - ./kit_cache/gnome-kit-3.36-prime
-  - ./kit_cache/haskell-kit-1.4-release
-  - ./kit_cache/java-kit-1.4-release
-  - ./kit_cache/kde-kit-5.22-release
-  - ./kit_cache/lang-kit-1.4-release
-  - ./kit_cache/lisp-scheme-kit-1.4-release
-  - ./kit_cache/llvm-kit-1.4-release
-  - ./kit_cache/mate-kit-1.24-prime
-  - ./kit_cache/media-kit-1.4-release
-  - ./kit_cache/ml-lang-kit-1.4-release
-  - ./kit_cache/net-kit-1.4-release
-  - ./kit_cache/nokit-1.4-release
-  - ./kit_cache/perl-kit-5.32-release
-  - ./kit_cache/python-kit-3.7-release
-  - ./kit_cache/python-modules-kit-1.4-release
-  - ./kit_cache/qt-kit-5.15.2-release
-  - ./kit_cache/ruby-kit-2.7-prime
-  - ./kit_cache/science-kit-1.4-release
-  - ./kit_cache/security-kit-1.4-release
-  - ./kit_cache/text-kit-1.4-release
-  - ./kit_cache/xfce-kit-4.16-release
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
   - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
 
 # Disable use of category with slot as requires. Default is without slot.
 reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
-    - dev-lang/python:3.7
-    - dev-lang/ruby:2.6
-    - dev-lang/ruby:2.7
-    - sys-devel/gcc:9.2.0
-    - sys-devel/llvm:11
-    - sys-devel/clang:11
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+    - sys-devel/llvm:13
+    - dev-lang/vala:0.54
+
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
+
+    # Using nodejs-14 LTS for now
+    - <net-libs/nodejs-15.0
+
+    - dev-lang/ruby:3.1
 
 reposcan_disabled_use_flags:
-  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
   - build
 
   - emacs
@@ -310,29 +249,33 @@ reposcan_disabled_use_flags:
   - elibc_musl
   - elibc_mingw
   - elibc_uclibc
-  - elogind
+  - elibc_mintlib
   - libressl
   - gtk-doc
   - gles2-only
-  - python_single_target_python2_7
   - python_single_target_python3_6
-  - python_single_target_python3_9
+  - python_single_target_python3_7
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
   - python_single_target_pypy3
   - python_targets_python2_7
   - python_targets_python3_6
-  - python_targets_python3_9
+  - python_targets_python3_7
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
   - ruby_targets_ruby25
   - ruby_targets_ruby24
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby32
+  - ruby_targets_ruby30
   - ppc-aix
   - x86-winnt
   - kernel-builtin
   - kernel_Winnt
+  - kernel_FreeBSD
   - man
   - minimal
   # Cryptographic library for embedded systems
@@ -340,6 +283,8 @@ reposcan_disabled_use_flags:
   - modules
 
   - debug
+
+  - systemd
 
   # Disable efl/e17
   - ecore
@@ -387,9 +332,6 @@ reposcan_disabled_use_flags:
   - ceph
   - cluster
 
-  # Disable bluetooth from python
-  - bluetooth
-
   - heif
 
   # Disabled for mesa lib
@@ -413,10 +355,7 @@ reposcan_disabled_use_flags:
   - ppc
   - ppc64
 
+  - userland_BSD
 reposcan_disabled_keywords:
   #- ~amd64
   - -*
-  - next
-
-include_layers:
-- layers/macaroni-funtoo-base.yaml
