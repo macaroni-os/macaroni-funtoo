@@ -1,0 +1,10 @@
+shell:
+- /bin/bash
+- -c
+install:
+- pv={{ .Values.version }} pv=${pv%\+*} SGML_SOURCE_CATALOG="/etc/sgml/dsssl-docbook-stylesheets.cat"
+  SGML_CENTRALIZED_CATALOG="/usr/share/sgml/docbook/dsssl-stylesheets-${pv}/catalog"
+  whip h sgml.sgml_cat_install || true
+- pv={{ .Values.version }} pv=${pv%\+*} SGML_SOURCE_CATALOG="/etc/sgml/sgml-docbook.cat"
+  SGML_CENTRALIZED_CATALOG="/etc/sgml/dsssl-docbook-stylesheets.cat" whip h sgml.sgml_cat_install
+  || true
