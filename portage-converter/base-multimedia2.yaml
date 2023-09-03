@@ -114,8 +114,8 @@ artefacts:
       - ieee1394
       - kvazaar
       - libaom
-      - libass
       - libcaca
+      - libass
       - libilbc
       - libressl
       - libtesseract
@@ -226,7 +226,10 @@ artefacts:
       # TODO: atm dvb flag is broken. To fix on funtoo too.
       - dvb
       - gpm
-      - libass
+      # Checking for SSA/ASS: no ('libass >= 0.12.2' not found)  
+      # Unable to find development files for libass, or the version found is too old. Aborting.
+      # It seems that this use flag is mandatory.
+      #- libass
       - libcaca
       - luajit
       - raspberry-pi
