@@ -1,0 +1,8 @@
+shell:
+- /bin/bash
+- -c
+install:
+- SGML_SOURCE_CATALOG="/etc/sgml/sgml-ent.cat" SGML_CENTRALIZED_CATALOG="/usr/share/sgml/sgml-iso-entities-8879.1986/catalog"
+  whip h sgml.sgml_cat_install || true
+- SGML_SOURCE_CATALOG="/etc/sgml/sgml-docbook.cat" SGML_CENTRALIZED_CATALOG="/etc/sgml/sgml-ent.cat"
+  whip h sgml.sgml_cat_install || true
