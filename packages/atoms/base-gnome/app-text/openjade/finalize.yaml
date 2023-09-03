@@ -1,0 +1,10 @@
+shell:
+- /bin/bash
+- -c
+install:
+- pv={{ .Values.version }} pv=${pv%\+*} SGML_SOURCE_CATALOG="/etc/sgml/openjade-${pv}.cat"
+  SGML_CENTRALIZED_CATALOG="/usr/share/sgml/openjade-${pv}/catalog" whip h sgml.sgml_cat_install
+- pv={{ .Values.version }} pv=${pv%\+*} SGML_SOURCE_CATALOG="/etc/sgml/openjade-${pv}.cat"
+  SGML_CENTRALIZED_CATALOG="/usr/share/sgml/openjade-${pv}/dsssl/catalog" whip h sgml.sgml_cat_install
+- pv={{ .Values.version }} pv=${pv%\+*} SGML_SOURCE_CATALOG="/etc/sgml/sgml-docbook.cat"
+  SGML_CENTRALIZED_CATALOG="/etc/sgml/openjade-${pv}.cat" whip h sgml.sgml_cat_install
