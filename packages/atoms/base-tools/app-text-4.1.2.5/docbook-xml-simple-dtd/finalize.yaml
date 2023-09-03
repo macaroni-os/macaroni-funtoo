@@ -1,0 +1,7 @@
+shell:
+- /bin/bash
+- -c
+install:
+- slot={{ ( index .Values.labels "original.package.slot" ) }} SGML_SOURCE_CATALOG="/etc/sgml/xml-simple-docbook-${slot}.cat"
+  SGML_CENTRALIZED_CATALOG="/usr/share/sgml/xml-simple-dtd/catalog" whip h sgml.postinst
+  || true
