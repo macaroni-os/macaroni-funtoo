@@ -1,0 +1,43 @@
+name: telepathy-glib
+version: 0.24.1
+category: net-libs
+use_flags:
+- -test
+- introspection
+- prefix
+- vala
+requires:
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GLib bindings for the Telepathy D-Bus protocol
+uri:
+- https://telepathy.freedesktop.org/
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.36:2 >=dev-libs/dbus-glib-0.90 introspection? ( >=dev-libs/gobject-introspection-1.30
+    ) || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) dev-libs/libxslt dev-util/glib-utils dev-util/gtk-doc-am virtual/pkgconfig vala?
+    ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)]
+    dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)]
+    dev-lang/vala:0.36[vapigen(+)] ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils
+    dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )'
+  IUSE: debug +introspection +vala test
+  RDEPEND: '>=dev-libs/glib-2.36:2 >=dev-libs/dbus-glib-0.90 introspection? ( >=dev-libs/gobject-introspection-1.30
+    )'
+  emerge.packages: net-libs/telepathy-glib
+  kit: gnome-kit
+  original.package.name: net-libs/telepathy-glib
+  original.package.slot: "0"
+  original.package.version: 0.24.1-r1
