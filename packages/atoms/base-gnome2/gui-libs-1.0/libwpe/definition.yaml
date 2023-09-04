@@ -1,0 +1,30 @@
+name: libwpe
+version: 1.14.1
+category: gui-libs-1.0
+requires:
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Platform-agnostic interfaces for WPE WebKit
+uri:
+- https://wpewebkit.org/
+license: BSD-2
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/mesa[egl] x11-libs/libxkbcommon
+  RDEPEND: media-libs/mesa[egl] x11-libs/libxkbcommon
+  emerge.packages: gui-libs/libwpe:1.0
+  kit: core-gl-kit
+  original.package.name: gui-libs/libwpe
+  original.package.slot: "1.0"
+  original.package.version: 1.14.1
