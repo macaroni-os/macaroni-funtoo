@@ -12,6 +12,9 @@ sed -i -e 's|^USE_RUBY=.*|USE_RUBY="ruby25 ruby26 ruby27 ruby31"|g' \
 
 # ibus upgraded and available on geaaru-kit. TODO: open a PR to Funtoo
 
+# xorg-server with wayland support available on geaaru-kit. TODO: open a PR to Funtoo
+# after testing solution.
+
 # Fix wrong DEPEND on source-hightlight
 sed -i -e 's|>=dev-libs/boost-1.62.0\:=\[threads\]|dev-libs/boost|g' \
   /var/git/meta-repo/kits/dev-kit/dev-util/source-highlight/source-highlight-*.ebuild
