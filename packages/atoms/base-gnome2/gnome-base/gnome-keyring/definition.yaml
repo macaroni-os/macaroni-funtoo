@@ -1,0 +1,63 @@
+name: gnome-keyring
+version: 3.36.0
+category: gnome-base
+use_flags:
+- -selinux
+- -test
+- filecaps
+- pam
+- prefix
+- ssh-agent
+requires:
+- name: gcr
+  version: '>=0'
+  category: app-crypt
+- name: gnupg
+  version: '>=0'
+  category: app-crypt
+- name: ca-certificates
+  version: '>=0'
+  category: app-misc
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: openssh
+  version: '>=0'
+  category: net-misc
+- name: libcap-ng
+  version: '>=0'
+  category: sys-libs
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Password and keyring managing daemon
+uri:
+- https://wiki.gnome.org/Projects/GnomeKeyring
+license: GPL-2+ LGPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix?
+    ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
+  DEPEND: '>=app-crypt/gcr-3.27.90:=[gtk] >=dev-libs/glib-2.62.2:2 app-misc/ca-certificates
+    >=dev-libs/libgcrypt-1.2.2:0= sys-libs/libcap-ng pam? ( virtual/pam ) selinux?
+    ( sec-policy/selinux-gnome ) >=app-crypt/gnupg-2.0.28:= ssh-agent? ( net-misc/openssh
+    ) >=app-eselect/eselect-pinentry-0.5 app-text/docbook-xml-dtd:4.3 dev-libs/libxslt
+    >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( || ( dev-lang/python:3.10
+    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) ) filecaps? ( sys-libs/libcap
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: +caps pam selinux +ssh-agent test +filecaps test
+  RDEPEND: '>=app-crypt/gcr-3.27.90:=[gtk] >=dev-libs/glib-2.62.2:2 app-misc/ca-certificates
+    >=dev-libs/libgcrypt-1.2.2:0= sys-libs/libcap-ng pam? ( virtual/pam ) selinux?
+    ( sec-policy/selinux-gnome ) >=app-crypt/gnupg-2.0.28:= ssh-agent? ( net-misc/openssh
+    )'
+  emerge.packages: gnome-base/gnome-keyring
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-keyring
+  original.package.slot: "0"
+  original.package.version: 3.36.0-r2
