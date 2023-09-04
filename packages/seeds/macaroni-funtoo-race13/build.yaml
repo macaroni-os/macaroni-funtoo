@@ -42,7 +42,8 @@ steps:
   cat /etc/luet/luet.yaml &&
   luet miner ri virtual/base virtual/sh &&
   luet repo update && luet upgrade &&
-  luet i toolchain/base-extra
+  luet i
+  toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
   toolchain/base-tools2
@@ -76,6 +77,7 @@ steps:
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  luet miner ri libxml2 &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
@@ -90,4 +92,6 @@ steps:
 
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
 
+# NOTE: luet miner ri libxml2 is needed for now
+#       until the luet chroot feature will be fixed.
 package_dir: /layer
