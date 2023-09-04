@@ -1,0 +1,50 @@
+name: clutter-gst
+version: 3.0.27
+category: media-libs-3.0
+use_flags:
+- introspection
+- udev
+requires:
+- name: clutter
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-bad
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-good
+  version: '>=0'
+  category: media-libs-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GStreamer integration library for Clutter
+uri:
+- https://blogs.gnome.org/clutter/
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=media-libs/clutter-1.20:1.0=[X=,introspection?]
+    >=media-libs/cogl-1.18:1.0=[introspection?] >=media-libs/gstreamer-1.4:1.0[introspection?]
+    >=media-libs/gst-plugins-bad-1.4:1.0 >=media-libs/gst-plugins-base-1.4:1.0[introspection?]
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) udev? ( virtual/libgudev
+    ) || ( ( dev-lang/python:3.10 dev-util/gtk-doc[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-util/gtk-doc[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-util/gtk-doc[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-util/gtk-doc[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) >=dev-util/gtk-doc-am-1.11 virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: X debug examples +introspection udev
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=media-libs/clutter-1.20:1.0=[X=,introspection?]
+    >=media-libs/cogl-1.18:1.0=[introspection?] >=media-libs/gstreamer-1.4:1.0[introspection?]
+    >=media-libs/gst-plugins-bad-1.4:1.0 >=media-libs/gst-plugins-base-1.4:1.0[introspection?]
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) udev? ( virtual/libgudev
+    ) >=media-libs/gst-plugins-good-1.4:1.0 !udev? ( media-plugins/gst-plugins-v4l2
+    )'
+  emerge.packages: media-libs/clutter-gst:3.0
+  kit: gnome-kit
+  original.package.name: media-libs/clutter-gst
+  original.package.slot: "3.0"
+  original.package.version: 3.0.27
