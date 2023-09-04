@@ -1,0 +1,23 @@
+name: gnome-common
+version: 3.18.0
+category: gnome-base-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Common files for development of Gnome packages
+uri:
+- https://git.gnome.org/browse/gnome-common
+license: GPL-3
+labels:
+  DEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: +autoconf-archive
+  emerge.packages: gnome-base/gnome-common:3
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-common
+  original.package.slot: "3"
+  original.package.version: 3.18.0-r1
