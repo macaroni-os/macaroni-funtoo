@@ -1,0 +1,110 @@
+name: gvfs
+version: 1.44.1
+category: gnome-base
+use_flags:
+- -gnome-keyring
+- -systemd
+- -test
+- afp
+- archive
+- bluray
+- cdda
+- elogind
+- fuse
+- gnome-online-accounts
+- google
+- gphoto2
+- http
+- ios
+- mtp
+- nfs
+- policykit
+- samba
+- sftp
+- udev
+- udisks
+- zeroconf
+requires:
+- name: libimobiledevice
+  version: '>=0'
+  category: app-pda
+- name: libcdio-paranoia
+  version: '>=0'
+  category: dev-libs
+- name: libgdata
+  version: '>=0'
+  category: dev-libs
+- name: libbluray
+  version: '>=0'
+  category: media-libs
+- name: libgphoto2
+  version: '>=0'
+  category: media-libs
+- name: libmtp
+  version: '>=0'
+  category: media-libs
+- name: libnfs
+  version: '>=0'
+  category: net-fs
+- name: samba
+  version: '>=0'
+  category: net-fs
+- name: openssh
+  version: '>=0'
+  category: net-misc
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+- name: udisks
+  version: '>=0'
+  category: sys-fs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual filesystem implementation for gio
+uri:
+- https://wiki.gnome.org/Projects/gvfs
+license: LGPL-2+
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 >=app-portage/elt-patches-20170815
+    app-arch/xz-utils virtual/pkgconfig'
+  DEPEND: app-crypt/gcr:= >=dev-libs/glib-2.62.2:2 sys-apps/dbus dev-libs/libxml2:2
+    afp? ( >=dev-libs/libgcrypt-1.2.2:0= ) archive? ( app-arch/libarchive:= ) bluray?
+    ( media-libs/libbluray ) fuse? ( >=sys-fs/fuse-2.8.0 ) elogind? ( >=sys-auth/elogind-229:0=
+    ) gnome-keyring? ( app-crypt/libsecret ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.36:=
+    ) google? ( >=dev-libs/libgdata-0.17.3:=[crypt,gnome-online-accounts] >=net-libs/gnome-online-accounts-3.36:=
+    ) gphoto2? ( >=media-libs/libgphoto2-2.5.0:= ) http? ( >=net-libs/libsoup-2.42:2.4
+    ) ios? ( >=app-pda/libimobiledevice-1.2:= >=app-pda/libplist-1:= ) mtp? ( >=media-libs/libmtp-1.1.12
+    ) nfs? ( >=net-fs/libnfs-1.9.7 ) policykit? ( >=sys-auth/polkit-0.114 sys-libs/libcap
+    ) samba? ( >=net-fs/samba-4.5.10[client] ) sftp? ( net-misc/openssh ) systemd?
+    ( >=sys-apps/systemd-206:0= ) udev? ( cdda? ( dev-libs/libcdio-paranoia ) virtual/libgudev:=
+    ) udisks? ( >=sys-fs/udisks-1.97:2 ) zeroconf? ( >=net-dns/avahi-0.6 ) app-text/docbook-xsl-stylesheets
+    dev-libs/libxslt >=sys-devel/gettext-0.19.4 virtual/pkgconfig dev-util/gtk-doc-am
+    test? ( >=dev-python/twisted-core-12.3.0 || ( net-analyzer/netcat net-analyzer/netcat6
+    ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: afp archive bluray cdda elogind fuse google gnome-keyring gnome-online-accounts
+    gphoto2 +http ios nfs policykit +sftp systemd test +udev +udisks zeroconf samba
+    +mtp
+  RDEPEND: app-crypt/gcr:= >=dev-libs/glib-2.62.2:2 sys-apps/dbus dev-libs/libxml2:2
+    afp? ( >=dev-libs/libgcrypt-1.2.2:0= ) archive? ( app-arch/libarchive:= ) bluray?
+    ( media-libs/libbluray ) fuse? ( >=sys-fs/fuse-2.8.0 ) elogind? ( >=sys-auth/elogind-229:0=
+    ) gnome-keyring? ( app-crypt/libsecret ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.36:=
+    ) google? ( >=dev-libs/libgdata-0.17.3:=[crypt,gnome-online-accounts] >=net-libs/gnome-online-accounts-3.36:=
+    ) gphoto2? ( >=media-libs/libgphoto2-2.5.0:= ) http? ( >=net-libs/libsoup-2.42:2.4
+    ) ios? ( >=app-pda/libimobiledevice-1.2:= >=app-pda/libplist-1:= ) mtp? ( >=media-libs/libmtp-1.1.12
+    ) nfs? ( >=net-fs/libnfs-1.9.7 ) policykit? ( >=sys-auth/polkit-0.114 sys-libs/libcap
+    ) samba? ( >=net-fs/samba-4.5.10[client] ) sftp? ( net-misc/openssh ) systemd?
+    ( >=sys-apps/systemd-206:0= ) udev? ( cdda? ( dev-libs/libcdio-paranoia ) virtual/libgudev:=
+    ) udisks? ( >=sys-fs/udisks-1.97:2 ) zeroconf? ( >=net-dns/avahi-0.6 )
+  emerge.packages: gnome-base/gvfs
+  kit: gnome-kit
+  original.package.name: gnome-base/gvfs
+  original.package.slot: "0"
+  original.package.version: 1.44.1
