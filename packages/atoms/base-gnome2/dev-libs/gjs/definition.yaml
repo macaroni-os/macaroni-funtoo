@@ -1,0 +1,44 @@
+name: gjs
+version: 1.70.0
+category: dev-libs
+use_flags:
+- cairo
+- readline
+requires:
+- name: spidermonkey
+  version: '>=0'
+  category: dev-lang-78
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: libffi
+  version: '>=0'
+  category: dev-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Javascript bindings for GNOME
+uri:
+- https://wiki.gnome.org/Projects/Gjs
+license: MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )
+labels:
+  BDEPEND: virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: '>=dev-libs/glib-2.66.0 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.66.1:=
+    dev-lang/spidermonkey:78 cairo? ( x11-libs/cairo[X,svg] ) readline? ( sys-libs/readline:0=
+    )'
+  IUSE: +cairo examples gtk readline
+  RDEPEND: '>=dev-libs/glib-2.66.0 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.66.1:=
+    dev-lang/spidermonkey:78 cairo? ( x11-libs/cairo[X,svg] ) readline? ( sys-libs/readline:0=
+    )'
+  emerge.packages: dev-libs/gjs
+  kit: gnome-kit
+  original.package.name: dev-libs/gjs
+  original.package.slot: "0"
+  original.package.version: 1.70.0
