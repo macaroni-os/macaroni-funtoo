@@ -1,0 +1,36 @@
+name: libgnomekbd
+version: 3.26.1
+category: gnome-base
+use_flags:
+- introspection
+requires:
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libxklavier
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Gnome keyboard configuration library
+uri:
+- https://www.gnome.org
+license: LGPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-2.91.7:3[X,introspection?] >=x11-libs/libxklavier-5.2[introspection?]
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) >=sys-devel/gettext-0.19.4
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: +introspection test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-2.91.7:3[X,introspection?] >=x11-libs/libxklavier-5.2[introspection?]
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= )'
+  emerge.packages: gnome-base/libgnomekbd
+  kit: gnome-kit
+  original.package.name: gnome-base/libgnomekbd
+  original.package.slot: "0"
+  original.package.version: 3.26.1
