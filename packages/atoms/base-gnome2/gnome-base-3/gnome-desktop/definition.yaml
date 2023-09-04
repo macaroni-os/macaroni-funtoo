@@ -1,0 +1,68 @@
+name: gnome-desktop
+version: 3.36.7
+category: gnome-base-3
+use_flags:
+- -test
+- introspection
+- prefix
+- udev
+requires:
+- name: iso-codes
+  version: '>=0'
+  category: app-text
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: bubblewrap
+  version: '>=0'
+  category: sys-apps
+- name: hwids
+  version: '>=0'
+  category: sys-apps
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: xkeyboard-config
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Libraries for the gnome desktop that are not part of the UI
+uri:
+- https://git.gnome.org/browse/gnome-desktop
+license: GPL-2+ FDL-1.1+ LGPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix?
+    ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: app-text/iso-codes >=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gdk-pixbuf-2.39.2:2[introspection?]
+    >=x11-libs/gtk+-3.24.12:3[X,introspection?] x11-libs/cairo:=[X] x11-libs/libX11
+    x11-misc/xkeyboard-config >=gnome-base/gsettings-desktop-schemas-3.28.0 introspection?
+    ( >=dev-libs/gobject-introspection-1.62.0:= ) udev? ( sys-apps/hwids virtual/libudev:=
+    ) sys-apps/bubblewrap app-text/docbook-xml-dtd:4.1.2 >=dev-util/gtk-doc-am-1.14
+    >=dev-util/intltool-0.40.6 dev-util/itstool sys-devel/gettext x11-base/xorg-proto
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug +introspection udev gtk-doc test
+  RDEPEND: app-text/iso-codes >=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gdk-pixbuf-2.39.2:2[introspection?]
+    >=x11-libs/gtk+-3.24.12:3[X,introspection?] x11-libs/cairo:=[X] x11-libs/libX11
+    x11-misc/xkeyboard-config >=gnome-base/gsettings-desktop-schemas-3.28.0 introspection?
+    ( >=dev-libs/gobject-introspection-1.62.0:= ) udev? ( sys-apps/hwids virtual/libudev:=
+    ) sys-apps/bubblewrap !<gnome-base/gnome-desktop-2.32.1-r1:2[doc]
+  emerge.packages: gnome-base/gnome-desktop:3
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-desktop
+  original.package.slot: "3"
+  original.package.version: 3.36.7
