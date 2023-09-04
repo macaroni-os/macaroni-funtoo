@@ -1,0 +1,42 @@
+name: zenity
+version: 3.32.0
+category: gnome-extra
+use_flags:
+- -libnotify
+- -webkit
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tool to display dialogs from the commandline and shell scripts
+uri:
+- https://wiki.gnome.org/Projects/Zenity
+license: LGPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3[X] x11-libs/libX11
+    x11-libs/pango libnotify? ( >=x11-libs/libnotify-0.6.1:= ) webkit? ( >=net-libs/webkit-gtk-2.8.1:4
+    ) app-text/yelp-tools gnome-base/gnome-common >=sys-devel/gettext-0.19.4 virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: debug libnotify webkit
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3[X]
+    x11-libs/libX11 x11-libs/pango libnotify? ( >=x11-libs/libnotify-0.6.1:= ) webkit?
+    ( >=net-libs/webkit-gtk-2.8.1:4 )'
+  emerge.packages: gnome-extra/zenity
+  kit: gnome-kit
+  original.package.name: gnome-extra/zenity
+  original.package.slot: "0"
+  original.package.version: 3.32.0
