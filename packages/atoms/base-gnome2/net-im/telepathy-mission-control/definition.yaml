@@ -1,0 +1,35 @@
+name: telepathy-mission-control
+version: 5.16.5
+category: net-im
+use_flags:
+- -networkmanager
+requires:
+- name: telepathy-glib
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An account manager and channel dispatcher for the Telepathy framework
+uri:
+- https://cgit.freedesktop.org/telepathy/telepathy-mission-control/
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/dbus-glib-0.82 >=dev-libs/glib-2.46:2 >=sys-apps/dbus-0.95 >=net-libs/telepathy-glib-0.20
+    networkmanager? ( >=net-misc/networkmanager-1:= ) || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) dev-libs/libxslt >=dev-util/gtk-doc-am-1.17
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: debug networkmanager
+  RDEPEND: '>=dev-libs/dbus-glib-0.82 >=dev-libs/glib-2.46:2 >=sys-apps/dbus-0.95
+    >=net-libs/telepathy-glib-0.20 networkmanager? ( >=net-misc/networkmanager-1:=
+    )'
+  emerge.packages: net-im/telepathy-mission-control
+  kit: gnome-kit
+  original.package.name: net-im/telepathy-mission-control
+  original.package.slot: "0"
+  original.package.version: 5.16.5
