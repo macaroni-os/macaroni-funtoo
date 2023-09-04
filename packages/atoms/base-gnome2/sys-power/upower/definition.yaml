@@ -1,0 +1,49 @@
+name: upower
+version: 0.99.11
+category: sys-power
+use_flags:
+- -doc
+- -ios
+- -selinux
+- introspection
+- kernel_linux
+requires:
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: D-Bus abstraction for enumerating power devices, querying history and
+  statistics
+uri:
+- https://upower.freedesktop.org/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: '>=dev-libs/glib-2.38:2 sys-apps/dbus:= introspection? ( dev-libs/gobject-introspection:=
+    ) kernel_linux? ( dev-libs/libgudev:= virtual/libusb:1 virtual/udev ios? ( >=app-pda/libimobiledevice-1:=
+    >=app-pda/libplist-1:= ) ) doc? ( dev-util/gtk-doc ) dev-libs/libxslt app-text/docbook-xsl-stylesheets
+    >=sys-devel/gettext-0.19.8 virtual/pkgconfig'
+  IUSE: doc +introspection ios kernel_FreeBSD kernel_linux selinux
+  RDEPEND: '>=dev-libs/glib-2.38:2 sys-apps/dbus:= introspection? ( dev-libs/gobject-introspection:=
+    ) kernel_linux? ( dev-libs/libgudev:= virtual/libusb:1 virtual/udev ios? ( >=app-pda/libimobiledevice-1:=
+    >=app-pda/libplist-1:= ) ) selinux? ( sec-policy/selinux-devicekit )'
+  emerge.packages: sys-power/upower
+  kit: gnome-kit
+  original.package.name: sys-power/upower
+  original.package.slot: "0"
+  original.package.version: 0.99.11
