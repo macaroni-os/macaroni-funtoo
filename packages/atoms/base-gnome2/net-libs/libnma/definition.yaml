@@ -1,0 +1,44 @@
+name: libnma
+version: 1.8.30
+category: net-libs
+use_flags:
+- gcr
+requires:
+- name: gcr
+  version: '>=0'
+  category: app-crypt
+- name: iso-codes
+  version: '>=0'
+  category: app-text
+- name: networkmanager
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: NetworkManager GUI library
+uri:
+- https://gitlab.gnome.org/GNOME/libnma
+license: GPL-2+ FDL-1.1+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '!<=gnome-extra/nm-applet-1.8.24 app-text/iso-codes net-misc/mobile-broadband-provider-info
+    >=dev-libs/glib-2.62.2:2[dbus] >=dev-libs/gobject-introspection-1.62.0:= >=x11-libs/gtk+-3.24.12:3[introspection?]
+    gcr? ( >=app-crypt/gcr-3.14:=[gtk] ) >=net-misc/networkmanager-1.22.6[vala?] ||
+    ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)]
+    dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)]
+    dev-lang/vala:0.36[vapigen(+)] ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: gcr gtk4 +introspection +vala
+  RDEPEND: '!<=gnome-extra/nm-applet-1.8.24 app-text/iso-codes net-misc/mobile-broadband-provider-info
+    >=dev-libs/glib-2.62.2:2[dbus] >=dev-libs/gobject-introspection-1.62.0:= >=x11-libs/gtk+-3.24.12:3[introspection?]
+    gcr? ( >=app-crypt/gcr-3.14:=[gtk] ) >=net-misc/networkmanager-1.22.6[vala?]'
+  emerge.packages: net-libs/libnma
+  kit: gnome-kit
+  original.package.name: net-libs/libnma
+  original.package.slot: "0"
+  original.package.version: 1.8.30
