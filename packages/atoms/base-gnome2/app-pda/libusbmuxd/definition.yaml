@@ -1,0 +1,30 @@
+name: libusbmuxd
+version: 2.0.2
+category: app-pda
+requires:
+- name: libplist
+  version: '>=0'
+  category: app-pda
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: USB multiplex daemon for use with Apple iPhone/iPod Touch devices
+uri:
+- https://www.libimobiledevice.org/
+license: GPL-2+ LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: '>=app-pda/libplist-2.2.0:='
+  IUSE: static-libs
+  RDEPEND: '>=app-pda/libplist-2.2.0:='
+  emerge.packages: app-pda/libusbmuxd
+  kit: core-hw-kit
+  original.package.name: app-pda/libusbmuxd
+  original.package.slot: "0"
+  original.package.version: 2.0.2
