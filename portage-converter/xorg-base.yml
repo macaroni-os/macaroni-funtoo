@@ -226,6 +226,9 @@ artefacts:
   - x11-drivers/xf86-video-ati
 
 - tree: packages/atoms/xorg-base
+  mutations:
+    uses:
+      - xnest
   uses:
     disabled:
     - debug
@@ -239,8 +242,8 @@ artefacts:
     - static-libs
     - unwind
     - xcsecurity
-    - xvfb
     enabled:
+    - xvfb
     - xephyr
     - xnest
     - glamor
