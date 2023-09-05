@@ -1,0 +1,67 @@
+name: libwww-perl
+version: 6.270.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: File-Listing
+  version: '>=0'
+  category: dev-perl
+- name: HTML-Parser
+  version: '>=0'
+  category: dev-perl
+- name: HTTP-Cookies
+  version: '>=0'
+  category: dev-perl
+- name: HTTP-Daemon
+  version: '>=0'
+  category: dev-perl
+- name: HTTP-Negotiate
+  version: '>=0'
+  category: dev-perl
+- name: Net-HTTP
+  version: '>=0'
+  category: dev-perl
+- name: Try-Tiny
+  version: '>=0'
+  category: dev-perl
+- name: WWW-RobotRules
+  version: '>=0'
+  category: dev-perl
+- name: perl-Digest-MD5
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A collection of Perl Modules for the WWW
+uri:
+- https://metacpan.org/release/libwww-perl
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Digest-MD5 >=virtual/perl-Encode-2.120.0 dev-perl/Encode-Locale
+    >=dev-perl/File-Listing-6.0.0 >=dev-perl/HTML-Parser-3.340.0 >=dev-perl/HTTP-Cookies-6.0.0
+    >=dev-perl/HTTP-Daemon-6.0.0 >=dev-perl/HTTP-Date-6.0.0 >=dev-perl/HTTP-Negotiate-6.0.0
+    >=dev-perl/HTTP-Message-6.0.0 virtual/perl-IO >=dev-perl/LWP-MediaTypes-6.0.0
+    >=virtual/perl-MIME-Base64-2.120.0 >=dev-perl/Net-HTTP-6.70.0 virtual/perl-Scalar-List-Utils
+    dev-perl/Try-Tiny >=dev-perl/URI-1.100.0 >=dev-perl/WWW-RobotRules-6.0.0 >=virtual/perl-libnet-1.220.0
+    virtual/perl-ExtUtils-MakeMaker virtual/perl-Getopt-Long test? ( virtual/perl-File-Spec
+    dev-perl/Test-Fatal dev-perl/Test-RequiresInternet virtual/perl-Test-Simple )
+    dev-lang/perl:=
+  IUSE: ssl test
+  RDEPEND: virtual/perl-Digest-MD5 >=virtual/perl-Encode-2.120.0 dev-perl/Encode-Locale
+    >=dev-perl/File-Listing-6.0.0 >=dev-perl/HTML-Parser-3.340.0 >=dev-perl/HTTP-Cookies-6.0.0
+    >=dev-perl/HTTP-Daemon-6.0.0 >=dev-perl/HTTP-Date-6.0.0 >=dev-perl/HTTP-Negotiate-6.0.0
+    >=dev-perl/HTTP-Message-6.0.0 virtual/perl-IO >=dev-perl/LWP-MediaTypes-6.0.0
+    >=virtual/perl-MIME-Base64-2.120.0 >=dev-perl/Net-HTTP-6.70.0 virtual/perl-Scalar-List-Utils
+    dev-perl/Try-Tiny >=dev-perl/URI-1.100.0 >=dev-perl/WWW-RobotRules-6.0.0 >=virtual/perl-libnet-1.220.0
+    dev-lang/perl:=
+  emerge.packages: dev-perl/libwww-perl
+  kit: perl-kit
+  original.package.name: dev-perl/libwww-perl
+  original.package.slot: "0"
+  original.package.version: 6.270.0
