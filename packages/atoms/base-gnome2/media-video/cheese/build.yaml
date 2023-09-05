@@ -1,4 +1,7 @@
 prelude:
+# Update cheese to last version (using vala-0.54 requires at least version 0.41)
+- >-
+  cp cheese-44.1.ebuild /var/git/meta-repo/kits/gnome-kit/media-video/cheese/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
