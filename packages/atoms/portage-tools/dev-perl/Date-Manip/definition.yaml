@@ -1,0 +1,48 @@
+name: Date-Manip
+version: 6.600.0
+category: dev-perl
+use_flags:
+- -elibc_musl
+- -test
+requires:
+- name: perl-Carp
+  version: '>=0'
+  category: virtual
+- name: perl-Data-Dumper
+  version: '>=0'
+  category: virtual
+- name: perl-Encode
+  version: '>=0'
+  category: virtual
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-IO
+  version: '>=0'
+  category: virtual
+- name: perl-Storable
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl date manipulation routines
+uri:
+- https://metacpan.org/release/Date-Manip
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-Encode virtual/perl-File-Spec
+    virtual/perl-IO virtual/perl-Storable elibc_musl? ( sys-libs/timezone-data ) >=virtual/perl-ExtUtils-MakeMaker-6.670.100
+    test? ( dev-perl/Test-Inter virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: elibc_musl test
+  RDEPEND: virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-Encode virtual/perl-File-Spec
+    virtual/perl-IO virtual/perl-Storable elibc_musl? ( sys-libs/timezone-data ) dev-lang/perl:=
+  emerge.packages: dev-perl/Date-Manip
+  kit: perl-kit
+  original.package.name: dev-perl/Date-Manip
+  original.package.slot: "0"
+  original.package.version: 6.600.0
