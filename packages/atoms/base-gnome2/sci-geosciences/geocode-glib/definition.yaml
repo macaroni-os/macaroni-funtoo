@@ -1,0 +1,42 @@
+name: geocode-glib
+version: 3.26.2
+category: sci-geosciences
+use_flags:
+- -test
+- introspection
+requires:
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
+- name: gvfs
+  version: '>=0'
+  category: gnome-base
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GLib geocoding library that uses the Yahoo! Place Finder service
+uri:
+- https://git.gnome.org/browse/geocode-glib
+license: LGPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/json-glib-0.99.2[introspection?] gnome-base/gvfs[http]
+    >=net-libs/libsoup-2.42:2.4[introspection?] introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) >=dev-util/gtk-doc-am-1.13 >=sys-devel/gettext-0.18 virtual/pkgconfig test?
+    ( sys-apps/dbus ) >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  IUSE: +introspection test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/json-glib-0.99.2[introspection?] gnome-base/gvfs[http]
+    >=net-libs/libsoup-2.42:2.4[introspection?] introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    )'
+  emerge.packages: sci-geosciences/geocode-glib
+  kit: gnome-kit
+  original.package.name: sci-geosciences/geocode-glib
+  original.package.slot: "0"
+  original.package.version: 3.26.2
