@@ -1,0 +1,41 @@
+name: elogv
+version: 0.7.8
+category: app-portage
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- python_targets_python3_9
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Curses based utility to parse the contents of elogs created by Portage
+uri:
+- https://github.com/gentoo/elogv
+license: GPL-2
+labels:
+  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7[ncurses] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[ncurses] ) python_targets_python3_8? ( dev-lang/python:3.8[ncurses]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[ncurses] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  IUSE: python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10
+  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7[ncurses] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[ncurses] ) python_targets_python3_8? ( dev-lang/python:3.8[ncurses]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[ncurses] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  emerge.packages: app-portage/elogv
+  kit: core-kit
+  original.package.name: app-portage/elogv
+  original.package.slot: "0"
+  original.package.version: 0.7.8
