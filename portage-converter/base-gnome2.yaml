@@ -183,6 +183,10 @@ artefacts:
 
 
 - tree: packages/atoms/base-gnome2
+  mutations:
+    uses:
+      - quota
+      - winbind
   uses:
     disabled:
       - addc
@@ -307,24 +311,24 @@ artefacts:
   packages:
     - gnome-base/gvfs
 
-#- tree: packages/atoms/base-gnome2
-#  uses:
-#    disabled:
-#      - kerberos
-#      - debug
-#      - test
-#      - doc
-#      - gtk-doc
-#      - static-libs
-#      - consolekit
-#      - man
-#      - ldap
-#      - api-doc-extra
-#      - libinput
-#      - nsplugin
-#  packages:
-#    - sci-geosciences/geocode-glib
-#    - dev-libs/libgweather:2
+- tree: packages/atoms/base-gnome2
+  uses:
+    disabled:
+      - kerberos
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - consolekit
+      - man
+      - ldap
+      - api-doc-extra
+      - libinput
+      - nsplugin
+  packages:
+    - sci-geosciences/geocode-glib
+    - dev-libs/libgweather:2
 #    - gnome-base/gnome-settings-daemon
 #    - gnome-base/gnome-session
 #    - gnome-extra/evolution-data-server
