@@ -1,0 +1,55 @@
+name: HTTP-Message
+version: 6.130.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: Encode-Locale
+  version: '>=0'
+  category: dev-perl
+- name: HTTP-Date
+  version: '>=0'
+  category: dev-perl
+- name: IO-HTML
+  version: '>=0'
+  category: dev-perl
+- name: LWP-MediaTypes
+  version: '>=0'
+  category: dev-perl
+- name: URI
+  version: '>=0'
+  category: dev-perl
+- name: perl-IO-Compress
+  version: '>=0'
+  category: virtual
+- name: perl-Storable
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Base class for Request/Response
+uri:
+- https://metacpan.org/release/HTTP-Message
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '!<dev-perl/libwww-perl-6 virtual/perl-Compress-Raw-Zlib >=dev-perl/URI-1.100.0
+    >=virtual/perl-Encode-2.210.0 >=dev-perl/HTTP-Date-6.0.0 dev-perl/IO-HTML >=dev-perl/Encode-Locale-1.0.0
+    >=dev-perl/LWP-MediaTypes-6.0.0 >=virtual/perl-IO-Compress-2.021 >=virtual/perl-MIME-Base64-2.100.0
+    >=virtual/perl-Exporter-5.570.0 virtual/perl-Storable virtual/perl-ExtUtils-MakeMaker
+    test? ( virtual/perl-File-Spec >=virtual/perl-Test-Simple-0.880.0 virtual/perl-Time-Local
+    dev-perl/Try-Tiny ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '!<dev-perl/libwww-perl-6 virtual/perl-Compress-Raw-Zlib >=dev-perl/URI-1.100.0
+    >=virtual/perl-Encode-2.210.0 >=dev-perl/HTTP-Date-6.0.0 dev-perl/IO-HTML >=dev-perl/Encode-Locale-1.0.0
+    >=dev-perl/LWP-MediaTypes-6.0.0 >=virtual/perl-IO-Compress-2.021 >=virtual/perl-MIME-Base64-2.100.0
+    >=virtual/perl-Exporter-5.570.0 virtual/perl-Storable dev-lang/perl:='
+  emerge.packages: dev-perl/HTTP-Message
+  kit: perl-kit
+  original.package.name: dev-perl/HTTP-Message
+  original.package.slot: "0"
+  original.package.version: 6.130.0
