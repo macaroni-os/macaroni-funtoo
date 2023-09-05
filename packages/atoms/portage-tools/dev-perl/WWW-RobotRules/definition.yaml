@@ -1,0 +1,29 @@
+name: WWW-RobotRules
+version: 6.20.0
+category: dev-perl
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: URI
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Parse /robots.txt file
+uri:
+- https://metacpan.org/release/WWW-RobotRules
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '!<dev-perl/libwww-perl-6 >=dev-perl/URI-1.10 dev-lang/perl:='
+  RDEPEND: '!<dev-perl/libwww-perl-6 >=dev-perl/URI-1.10 dev-lang/perl:='
+  emerge.packages: dev-perl/WWW-RobotRules
+  kit: perl-kit
+  original.package.name: dev-perl/WWW-RobotRules
+  original.package.slot: "0"
+  original.package.version: 6.20.0-r1
