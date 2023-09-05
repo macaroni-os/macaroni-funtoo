@@ -34,3 +34,10 @@ sed -i -e 's|elogind? ( .* )||g' -e 's|elogind||g' \
 sed -i -e '/sys-libs\/pam\[elogind\]/d' \
   /var/git/meta-repo/kits/core-gl-kit/x11-base/xorg-server/xorg-server-*.ebuild
 
+# Using vala 0.54 seems break media-video/cheese that requires
+# a new release
+cp -vf patches/cheese/* /var/git/meta-repo/kits/gnome-kit/media-video/cheese/
+cd /var/git/meta-repo/kits/gnome-kit/media-video/cheese/
+ebuild cheese-44.1.ebuild digest
+cd -
+
