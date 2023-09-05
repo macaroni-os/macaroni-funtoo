@@ -1,0 +1,67 @@
+name: layman
+version: 2.4.3
+category: app-portage
+use_flags:
+- -bazaar
+- -cvs
+- -darcs
+- -g-sorcery
+- -gpg
+- -python_targets_pypy3
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -subversion
+- -sync-plugin-portage
+- -test
+- git
+- mercurial
+- python_targets_python3_9
+requires:
+- name: ssl-fetch
+  version: '>=0'
+  category: dev-python
+- name: git
+  version: '>=0'
+  category: dev-vcs
+- name: mercurial
+  version: '>=0'
+  category: dev-vcs
+- name: portage
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tool to manage Gentoo overlays
+uri:
+- https://wiki.gentoo.org/wiki/Layman
+license: GPL-2
+labels:
+  BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0=[xml(+),sqlite?] ) python_targets_python3_7?
+    ( dev-lang/python:3.7[xml(+),sqlite?] ) python_targets_python3_9? ( dev-lang/python:3.9[xml(+),sqlite?]
+    ) python_targets_python3_8? ( dev-lang/python:3.8[xml(+),sqlite?] ) python_targets_python3_10?
+    ( dev-lang/python:3.10[xml(+),sqlite?] ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  DEPEND: test? ( dev-vcs/subversion )
+  IUSE: bazaar cvs darcs +git gpg g-sorcery mercurial sqlite squashfs subversion sync-plugin-portage
+    test python_targets_pypy3 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10 kernel_linux
+  RDEPEND: bazaar? ( dev-vcs/bzr ) cvs? ( dev-vcs/cvs ) darcs? ( dev-vcs/darcs ) git?
+    ( dev-vcs/git ) mercurial? ( dev-vcs/mercurial ) g-sorcery? ( app-portage/g-sorcery
+    ) subversion? ( >=dev-vcs/subversion-1.5.4[http(+)] ) gpg? ( >=dev-python/pyGPG-0.2
+    ) sync-plugin-portage? ( >=sys-apps/portage-2.2.16[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) !sync-plugin-portage? ( sys-apps/portage[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) >=dev-python/ssl-fetch-0.4[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0=[xml(+),sqlite?] ) python_targets_python3_7?
+    ( dev-lang/python:3.7[xml(+),sqlite?] ) python_targets_python3_9? ( dev-lang/python:3.9[xml(+),sqlite?]
+    ) python_targets_python3_8? ( dev-lang/python:3.8[xml(+),sqlite?] ) python_targets_python3_10?
+    ( dev-lang/python:3.10[xml(+),sqlite?] ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  emerge.packages: app-portage/layman
+  kit: core-kit
+  original.package.name: app-portage/layman
+  original.package.slot: "0"
+  original.package.version: 2.4.3
