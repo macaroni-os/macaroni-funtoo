@@ -1,0 +1,30 @@
+name: Encode-Locale
+version: 1.50.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-Encode
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Determine the locale encoding
+uri:
+- https://metacpan.org/release/Encode-Locale
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-Encode-2.0.0 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple
+    ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=virtual/perl-Encode-2.0.0 dev-lang/perl:='
+  emerge.packages: dev-perl/Encode-Locale
+  kit: perl-kit
+  original.package.name: dev-perl/Encode-Locale
+  original.package.slot: "0"
+  original.package.version: 1.50.0
