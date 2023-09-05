@@ -1,0 +1,25 @@
+name: perl-IO-Socket-IP
+version: 0.390.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for IO-Socket-IP
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/IO-Socket-IP-0.390.0
+    ) dev-lang/perl:= !<perl-core/IO-Socket-IP-0.390.0 !>perl-core/IO-Socket-IP-0.390.0-r999'
+  emerge.packages: virtual/perl-IO-Socket-IP
+  kit: perl-kit
+  original.package.name: virtual/perl-IO-Socket-IP
+  original.package.slot: "0"
+  original.package.version: 0.390.0-r3
