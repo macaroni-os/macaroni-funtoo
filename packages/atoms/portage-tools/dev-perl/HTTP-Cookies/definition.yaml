@@ -1,0 +1,35 @@
+name: HTTP-Cookies
+version: 6.40.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: HTTP-Message
+  version: '>=0'
+  category: dev-perl
+- name: perl-Carp
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Storage of cookies
+uri:
+- https://metacpan.org/release/HTTP-Cookies
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '!<dev-perl/libwww-perl-6 virtual/perl-Carp >=dev-perl/HTTP-Date-6.0.0 virtual/perl-Time-Local
+    >=dev-perl/HTTP-Message-6.0.0 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test
+    virtual/perl-Test-Simple dev-perl/URI ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '!<dev-perl/libwww-perl-6 virtual/perl-Carp >=dev-perl/HTTP-Date-6.0.0
+    virtual/perl-Time-Local >=dev-perl/HTTP-Message-6.0.0 dev-lang/perl:='
+  emerge.packages: dev-perl/HTTP-Cookies
+  kit: perl-kit
+  original.package.name: dev-perl/HTTP-Cookies
+  original.package.slot: "0"
+  original.package.version: 6.40.0
