@@ -1,4 +1,8 @@
 prelude:
+# Macaroni uses a splitted version of pinentry
+- ->
+  sed -i -e 's|^PINENTRY_DEPEND=.*|PINENTRY_DEPEND="app-crypt/pinentry"|g'
+  /var/git/meta-repo/kits/gnome-kit/mail-client/evolution/evolution-*.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
