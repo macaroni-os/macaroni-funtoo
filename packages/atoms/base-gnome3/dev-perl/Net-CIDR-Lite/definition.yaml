@@ -1,0 +1,29 @@
+name: Net-CIDR-Lite
+version: 0.210.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Perl extension for merging IPv4 or IPv6 CIDR addresses
+uri:
+- https://metacpan.org/release/Net-CIDR-Lite
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: dev-lang/perl:=
+  emerge.packages: dev-perl/Net-CIDR-Lite
+  kit: perl-kit
+  original.package.name: dev-perl/Net-CIDR-Lite
+  original.package.slot: "0"
+  original.package.version: 0.210.0-r1
