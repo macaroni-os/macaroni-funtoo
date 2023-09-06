@@ -1,0 +1,40 @@
+name: evolution-ews
+version: 3.36.1
+category: gnome-extra
+use_flags:
+- -test
+requires:
+- name: libmspack
+  version: '>=0'
+  category: dev-libs
+- name: evolution
+  version: '>=0'
+  category: mail-client-2.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Evolution module for connecting to Microsoft Exchange Web Services
+uri:
+- https://wiki.gnome.org/Apps/Evolution
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=app-portage/elt-patches-20170815
+    app-arch/xz-utils
+  DEPEND: dev-db/sqlite:3= >=dev-libs/glib-2.62.2:2 >=dev-libs/libical-3 >=dev-libs/libmspack-0.4
+    >=dev-libs/libxml2-2 >=gnome-extra/evolution-data-server-3.36.1:0= >=mail-client/evolution-3.36.1:2.0
+    >=net-libs/libsoup-2.42:2.4 >=x11-libs/gtk+-3.24.12:3 dev-util/gdbus-codegen >=dev-util/intltool-0.35.5
+    >=sys-devel/gettext-0.18.3 virtual/pkgconfig test? ( net-libs/uhttpmock ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: test
+  RDEPEND: dev-db/sqlite:3= >=dev-libs/glib-2.62.2:2 >=dev-libs/libical-3 >=dev-libs/libmspack-0.4
+    >=dev-libs/libxml2-2 >=gnome-extra/evolution-data-server-3.36.1:0= >=mail-client/evolution-3.36.1:2.0
+    >=net-libs/libsoup-2.42:2.4 >=x11-libs/gtk+-3.24.12:3
+  emerge.packages: gnome-extra/evolution-ews
+  kit: gnome-kit
+  original.package.name: gnome-extra/evolution-ews
+  original.package.slot: "0"
+  original.package.version: 3.36.1
