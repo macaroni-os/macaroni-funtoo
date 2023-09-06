@@ -1,0 +1,47 @@
+name: bogofilter
+version: 1.2.4
+category: mail-filter
+use_flags:
+- -tokyocabinet
+- berkdb
+- sqlite
+requires:
+- name: pax
+  version: '>=0'
+  category: app-arch
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: gsl
+  version: '>=0'
+  category: sci-libs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Bayesian spam filter designed with fast algorithms, and tuned for speed
+uri:
+- http://bogofilter.sourceforge.net/
+license: GPL-2
+labels:
+  DEPEND: app-arch/pax sci-libs/gsl:= virtual/libiconv berkdb? ( sys-libs/db:18.1
+    ) sqlite? ( >=dev-db/sqlite-3.6.22 ) tokyocabinet? ( dev-db/tokyocabinet ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: +berkdb sqlite tokyocabinet
+  RDEPEND: app-arch/pax sci-libs/gsl:= virtual/libiconv berkdb? ( sys-libs/db:18.1
+    ) sqlite? ( >=dev-db/sqlite-3.6.22 ) tokyocabinet? ( dev-db/tokyocabinet )
+  emerge.packages: mail-filter/bogofilter
+  kit: net-kit
+  original.package.name: mail-filter/bogofilter
+  original.package.slot: "0"
+  original.package.version: 1.2.4-r2
