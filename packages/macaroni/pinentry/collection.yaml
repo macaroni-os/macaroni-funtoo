@@ -1,0 +1,39 @@
+pinentry_pkg: &package
+  category: app-crypt
+  version: 1.2.1
+  uri:
+  - https://gnupg.org/aegypten2
+  license: GPL-2
+  labels:
+    emerge.packages: app-crypt/pinentry
+    original.package.version: 1.2.1
+  requires:
+  - name: libassuan
+    version: '>=0'
+    category: dev-libs
+  - name: libgcrypt
+    version: '>=0'
+    category: dev-libs
+  - name: ncurses
+    version: '>=0'
+    category: sys-libs
+
+packages:
+  - <<: *package
+    name: "pinentry-qt"
+    description: Simple passphrase entry dialogs which utilize the Assuan protocol for Qt
+    includes:
+      - ^/usr/bin/pinentry-qt5
+      - ^/usr/bin/pinentry-qt
+
+  - <<: *package
+    name: "pinentry-gnome"
+    description: Simple passphrase entry dialogs which utilize the Assuan protocol for Gnome
+    includes:
+      - ^/usr/bin/pinentry-gnome
+
+  - <<: *package
+    name: "pinentry-efl"
+    description: Simple passphrase entry dialogs which utilize the Assuan protocol for Enlightenment.
+    includes:
+      - ^/usr/bin/pinentry-efl
