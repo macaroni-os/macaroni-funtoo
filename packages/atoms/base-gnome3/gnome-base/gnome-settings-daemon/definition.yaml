@@ -1,0 +1,93 @@
+name: gnome-settings-daemon
+version: 3.36.1
+category: gnome-base
+use_flags:
+- -test
+- cups
+- networkmanager
+- prefix
+- smartcard
+- udev
+- wayland
+requires:
+- name: geoclue
+  version: '>=0'
+  category: app-misc-2.0
+- name: libgweather
+  version: '>=0'
+  category: dev-libs-2
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: cantarell
+  version: '>=0'
+  category: media-fonts
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+- name: networkmanager
+  version: '>=0'
+  category: net-misc
+- name: upower
+  version: '>=0'
+  category: sys-power
+- name: xf86-input-wacom
+  version: '>=0'
+  category: x11-drivers
+- name: libXxf86misc
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+- name: libxkbfile
+  version: '>=0'
+  category: x11-libs
+- name: xkeyboard-config
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Gnome Settings Daemon
+uri:
+- https://git.gnome.org/browse/gnome-settings-daemon
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils virtual/pkgconfig
+    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/libgweather-3.36:= >=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3[X,wayland?]
+    >=gnome-base/gsettings-desktop-schemas-3.36 >=gnome-base/librsvg-2.36.2:2 media-fonts/cantarell
+    media-libs/alsa-lib media-libs/fontconfig media-libs/libcanberra[gtk3] >=media-sound/pulseaudio-2
+    >=sys-power/upower-0.99:= x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/libnotify-0.7.3:=
+    x11-libs/libX11 x11-libs/libxkbfile x11-libs/libXi x11-libs/libXext x11-libs/libXfixes
+    x11-libs/libXtst x11-libs/libXxf86misc x11-misc/xkeyboard-config >=app-misc/geoclue-2.3.1:2.0
+    >=sci-geosciences/geocode-glib-3.10 >=sys-auth/polkit-0.113-r5 >=media-libs/lcms-2.2:2
+    >=x11-misc/colord-1.0.2:= cups? ( >=net-print/cups-1.4[dbus] ) >=dev-libs/libwacom-0.7
+    >=x11-libs/pango-1.44.7 x11-drivers/xf86-input-wacom virtual/libgudev:= networkmanager?
+    ( >=net-misc/networkmanager-1.0 ) smartcard? ( >=dev-libs/nss-3.11.2 ) udev? (
+    virtual/libgudev:= ) wayland? ( dev-libs/wayland ) !wayland? ( x11-base/xorg-proto
+    ) app-text/docbook-xsl-stylesheets dev-libs/libxml2:2 dev-libs/libxslt sys-devel/gettext
+    >=dev-util/intltool-0.40 virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: +cups debug +networkmanager smartcard +udev wayland test
+  RDEPEND: '>=dev-libs/libgweather-3.36:= >=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3[X,wayland?]
+    >=gnome-base/gsettings-desktop-schemas-3.36 >=gnome-base/librsvg-2.36.2:2 media-fonts/cantarell
+    media-libs/alsa-lib media-libs/fontconfig media-libs/libcanberra[gtk3] >=media-sound/pulseaudio-2
+    >=sys-power/upower-0.99:= x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/libnotify-0.7.3:=
+    x11-libs/libX11 x11-libs/libxkbfile x11-libs/libXi x11-libs/libXext x11-libs/libXfixes
+    x11-libs/libXtst x11-libs/libXxf86misc x11-misc/xkeyboard-config >=app-misc/geoclue-2.3.1:2.0
+    >=sci-geosciences/geocode-glib-3.10 >=sys-auth/polkit-0.113-r5 >=media-libs/lcms-2.2:2
+    >=x11-misc/colord-1.0.2:= cups? ( >=net-print/cups-1.4[dbus] ) >=dev-libs/libwacom-0.7
+    >=x11-libs/pango-1.44.7 x11-drivers/xf86-input-wacom virtual/libgudev:= networkmanager?
+    ( >=net-misc/networkmanager-1.0 ) smartcard? ( >=dev-libs/nss-3.11.2 ) udev? (
+    virtual/libgudev:= ) wayland? ( dev-libs/wayland ) gnome-base/dconf'
+  emerge.packages: gnome-base/gnome-settings-daemon
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-settings-daemon
+  original.package.slot: "0"
+  original.package.version: 3.36.1
