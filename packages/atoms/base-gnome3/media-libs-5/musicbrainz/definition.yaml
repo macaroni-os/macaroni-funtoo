@@ -1,0 +1,33 @@
+name: musicbrainz
+version: 5.1.0
+category: media-libs-5
+use_flags:
+- -test
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: neon
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Client Library for accessing the latest XML based MusicBrainz web service
+uri:
+- https://musicbrainz.org/doc/libmusicbrainz
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: dev-libs/libxml2 net-libs/neon test? ( dev-util/cppunit )
+  IUSE: examples test
+  RDEPEND: dev-libs/libxml2 net-libs/neon
+  emerge.packages: media-libs/musicbrainz:5
+  kit: media-kit
+  original.package.name: media-libs/musicbrainz
+  original.package.slot: "5"
+  original.package.version: 5.1.0-r1
