@@ -1,0 +1,96 @@
+name: gdm
+version: 3.36.3
+category: gnome-base
+use_flags:
+- -accessibility
+- -fprint
+- -selinux
+- -test
+- audit
+- introspection
+- plymouth
+- tcpd
+- xinerama
+requires:
+- name: iso-codes
+  version: '>=0'
+  category: app-text
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
+- name: adrien-gdm-keyboard
+  version: '>=0'
+  category: gnome-base
+- name: gnome-shell
+  version: '>=0'
+  category: gnome-base
+- name: keyutils
+  version: '>=0'
+  category: sys-apps
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+- name: pambase
+  version: '>=0'
+  category: sys-auth
+- name: plymouth
+  version: '>=0'
+  category: sys-boot
+- name: pam
+  version: '>=0'
+  category: virtual
+- name: sessreg
+  version: '>=0'
+  category: x11-apps
+- name: xhost
+  version: '>=0'
+  category: x11-apps
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNOME Display Manager for managing graphical display servers and user
+  logins
+uri:
+- https://wiki.gnome.org/Projects/GDM
+license: GPL-2+ branding? ( CC-BY-SA-4.0 )
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 app-arch/xz-utils virtual/pkgconfig'
+  DEPEND: app-text/iso-codes >=dev-libs/glib-2.70.0-r1:2= dev-libs/libgudev >=x11-libs/gtk+-2.91.1:3
+    >=gnome-base/dconf-0.20 >=gnome-base/gnome-settings-daemon-3.1.4 gnome-base/gsettings-desktop-schemas
+    >=media-libs/fontconfig-2.5.0:1.0 >=media-libs/libcanberra-0.4[gtk3] sys-apps/dbus
+    >=sys-apps/accountsservice-0.6.35 x11-apps/sessreg x11-base/xorg-server x11-libs/libXi
+    x11-libs/libXau x11-libs/libX11 x11-libs/libXdmcp x11-libs/libXext x11-libs/libxcb
+    >=x11-misc/xdg-utils-1.0.2-r3 virtual/pam sys-apps/keyutils:= >=sys-auth/elogind-239.3[pam]
+    sys-auth/pambase audit? ( sys-process/audit ) introspection? ( >=dev-libs/gobject-introspection-0.9.12:=
+    ) plymouth? ( sys-boot/plymouth ) selinux? ( sys-libs/libselinux ) tcpd? ( >=sys-apps/tcp-wrappers-7.6
+    ) xinerama? ( x11-libs/libXinerama ) app-text/docbook-xml-dtd:4.1.2 dev-util/gdbus-codegen
+    dev-util/glib-utils >=dev-util/intltool-0.40.0 dev-util/itstool >=sys-devel/gettext-0.19.8
+    virtual/pkgconfig x11-base/xorg-proto test? ( >=dev-libs/check-0.9.4 ) app-text/yelp-tools
+    dev-util/desktop-file-utils x11-misc/shared-mime-info sys-apps/shadow
+  IUSE: accessibility audit bluetooth-sound branding fprint +introspection ipv6 plymouth
+    selinux smartcard tcpd test wayland xinerama
+  RDEPEND: app-text/iso-codes >=dev-libs/glib-2.70.0-r1:2= dev-libs/libgudev >=x11-libs/gtk+-2.91.1:3
+    >=gnome-base/dconf-0.20 >=gnome-base/gnome-settings-daemon-3.1.4 gnome-base/gsettings-desktop-schemas
+    >=media-libs/fontconfig-2.5.0:1.0 >=media-libs/libcanberra-0.4[gtk3] sys-apps/dbus
+    >=sys-apps/accountsservice-0.6.35 x11-apps/sessreg x11-base/xorg-server x11-libs/libXi
+    x11-libs/libXau x11-libs/libX11 x11-libs/libXdmcp x11-libs/libXext x11-libs/libxcb
+    >=x11-misc/xdg-utils-1.0.2-r3 virtual/pam sys-apps/keyutils:= >=sys-auth/elogind-239.3[pam]
+    sys-auth/pambase audit? ( sys-process/audit ) introspection? ( >=dev-libs/gobject-introspection-0.9.12:=
+    ) plymouth? ( sys-boot/plymouth ) selinux? ( sys-libs/libselinux ) tcpd? ( >=sys-apps/tcp-wrappers-7.6
+    ) xinerama? ( x11-libs/libXinerama ) >=gnome-base/gnome-session-3.6 >=gnome-base/gnome-shell-3.1.90
+    x11-apps/xhost accessibility? ( >=app-accessibility/orca-3.10 gnome-extra/mousetweaks
+    ) fprint? ( sys-auth/fprintd sys-auth/pam_fprint ) gnome-base/adrien-gdm-keyboard
+  emerge.packages: gnome-base/gdm
+  kit: gnome-kit
+  original.package.name: gnome-base/gdm
+  original.package.slot: "0"
+  original.package.version: 3.36.3-r2
