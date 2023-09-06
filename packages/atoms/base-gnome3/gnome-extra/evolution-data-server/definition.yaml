@@ -1,0 +1,80 @@
+name: evolution-data-server
+version: 3.36.5
+category: gnome-extra
+use_flags:
+- -kerberos
+- -ldap
+- -test
+- berkdb
+- gnome-online-accounts
+- google
+- gtk
+- introspection
+- prefix
+- vala
+- weather
+requires:
+- name: libgdata
+  version: '>=0'
+  category: dev-libs
+- name: libgweather
+  version: '>=0'
+  category: dev-libs-2
+- name: libical
+  version: '>=0'
+  category: dev-libs
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Evolution groupware backend
+uri:
+- https://wiki.gnome.org/Apps/Evolution
+license: '|| ( LGPL-2 LGPL-3 ) BSD Sleepycat'
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils virtual/pkgconfig
+    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) dev-util/ninja
+    >=dev-util/cmake-3.9.6'
+  DEPEND: '>=app-crypt/gcr-3.4 >=app-crypt/libsecret-0.5[crypt] >=dev-db/sqlite-3.7.17:=
+    >=dev-libs/glib-2.62.2:2 >=dev-libs/libical-3.0.7:= >=dev-libs/libxml2-2 >=dev-libs/nspr-4.4:=
+    >=dev-libs/nss-3.9:= >=net-libs/libsoup-2.42:2.4 dev-libs/icu:= sys-libs/zlib:=
+    virtual/libiconv berkdb? ( =sys-libs/db-18.1*:18.1 ) gtk? ( >=app-crypt/gcr-3.4[gtk]
+    >=x11-libs/gtk+-3.24.12:3 ) google? ( >=dev-libs/json-glib-1.0.4 >=net-libs/webkit-gtk-2.11.91:4
+    >=dev-libs/libgdata-0.17.7:= ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.8:=
+    >=dev-libs/libgdata-0.17.7:= ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) kerberos? ( virtual/krb5:= ) ldap? ( >=net-nds/openldap-2:= ) weather? ( >=dev-libs/libgweather-3.10:2=
+    ) >=media-libs/libcanberra-0.2.5 || ( dev-lang/python:3.10 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) dev-util/gperf >=dev-util/gtk-doc-am-1.14
+    >=dev-util/intltool-0.35.5 >=gnome-base/gnome-common-2 >=sys-devel/gettext-0.17
+    virtual/pkgconfig vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
+    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
+    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: api-doc-extras -berkdb +gnome-online-accounts +gtk +google +introspection
+    ipv6 ldap kerberos vala +weather test
+  RDEPEND: '>=app-crypt/gcr-3.4 >=app-crypt/libsecret-0.5[crypt] >=dev-db/sqlite-3.7.17:=
+    >=dev-libs/glib-2.62.2:2 >=dev-libs/libical-3.0.7:= >=dev-libs/libxml2-2 >=dev-libs/nspr-4.4:=
+    >=dev-libs/nss-3.9:= >=net-libs/libsoup-2.42:2.4 dev-libs/icu:= sys-libs/zlib:=
+    virtual/libiconv berkdb? ( =sys-libs/db-18.1*:18.1 ) gtk? ( >=app-crypt/gcr-3.4[gtk]
+    >=x11-libs/gtk+-3.24.12:3 ) google? ( >=dev-libs/json-glib-1.0.4 >=net-libs/webkit-gtk-2.11.91:4
+    >=dev-libs/libgdata-0.17.7:= ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.8:=
+    >=dev-libs/libgdata-0.17.7:= ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) kerberos? ( virtual/krb5:= ) ldap? ( >=net-nds/openldap-2:= ) weather? ( >=dev-libs/libgweather-3.10:2=
+    ) >=media-libs/libcanberra-0.2.5'
+  emerge.packages: gnome-extra/evolution-data-server
+  kit: gnome-kit
+  original.package.name: gnome-extra/evolution-data-server
+  original.package.slot: "0"
+  original.package.version: 3.36.5
