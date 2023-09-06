@@ -1,0 +1,35 @@
+name: jq
+version: "1.6"
+category: app-misc
+use_flags:
+- -static-libs
+- oniguruma
+requires:
+- name: oniguruma
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A lightweight and flexible command-line JSON processor
+uri:
+- https://stedolan.github.com/jq/
+license: MIT CC-BY-3.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=sys-devel/bison-3.0 sys-devel/flex oniguruma? ( >=dev-libs/oniguruma-6.1.3:=[static-libs?]
+    )'
+  IUSE: oniguruma static-libs
+  RDEPEND: '!static-libs? ( oniguruma? ( >=dev-libs/oniguruma-6.1.3[static-libs?]
+    ) )'
+  emerge.packages: app-misc/jq
+  kit: dev-kit
+  original.package.name: app-misc/jq
+  original.package.slot: "0"
+  original.package.version: 1.6-r3
