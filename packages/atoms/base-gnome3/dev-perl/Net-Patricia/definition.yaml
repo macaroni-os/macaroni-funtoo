@@ -1,0 +1,32 @@
+name: Net-Patricia
+version: 1.220.0
+category: dev-perl
+use_flags:
+- ipv6
+requires:
+- name: Net-CIDR-Lite
+  version: '>=0'
+  category: dev-perl
+- name: Socket6
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Patricia Trie perl module for fast IP address lookups
+uri:
+- https://metacpan.org/release/Net-Patricia
+license: GPL-2+
+labels:
+  DEPEND: dev-perl/Net-CIDR-Lite ipv6? ( dev-perl/Socket6 ) dev-lang/perl:=
+  IUSE: ipv6
+  RDEPEND: dev-perl/Net-CIDR-Lite ipv6? ( dev-perl/Socket6 ) dev-lang/perl:=
+  emerge.packages: dev-perl/Net-Patricia
+  kit: perl-kit
+  original.package.name: dev-perl/Net-Patricia
+  original.package.slot: "0"
+  original.package.version: 1.220.0-r1
