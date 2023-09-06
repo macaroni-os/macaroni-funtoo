@@ -1,0 +1,32 @@
+name: Crypt-OpenSSL-Random
+version: 0.110.0
+category: dev-perl
+use_flags:
+- -libressl
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: OpenSSL/LibreSSL pseudo-random number generator access
+uri:
+- https://metacpan.org/release/Crypt-OpenSSL-Random
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:= ) dev-lang/perl:='
+  IUSE: libressl
+  RDEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:= ) dev-lang/perl:='
+  emerge.packages: dev-perl/Crypt-OpenSSL-Random
+  kit: perl-kit
+  original.package.name: dev-perl/Crypt-OpenSSL-Random
+  original.package.slot: "0"
+  original.package.version: 0.110.0
