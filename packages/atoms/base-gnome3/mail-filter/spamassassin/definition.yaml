@@ -1,0 +1,114 @@
+name: spamassassin
+version: 3.4.4
+category: mail-filter
+use_flags:
+- -ldap
+- -libressl
+- -mysql
+- -postgres
+- -test
+- berkdb
+- ipv6
+- sqlite
+- ssl
+requires:
+- name: gnupg
+  version: '>=0'
+  category: app-crypt
+- name: BSD-Resource
+  version: '>=0'
+  category: dev-perl
+- name: DBD-SQLite
+  version: '>=0'
+  category: dev-perl
+- name: Digest-SHA1
+  version: '>=0'
+  category: dev-perl
+- name: Encode-Detect
+  version: '>=0'
+  category: dev-perl
+- name: Geo-IP
+  version: '>=0'
+  category: dev-perl
+- name: HTML-Parser
+  version: '>=0'
+  category: dev-perl
+- name: HTTP-Date
+  version: '>=0'
+  category: dev-perl
+- name: IO-Socket-INET6
+  version: '>=0'
+  category: dev-perl
+- name: IO-Socket-SSL
+  version: '>=0'
+  category: dev-perl
+- name: Mail-DKIM
+  version: '>=0'
+  category: dev-perl
+- name: Mail-SPF
+  version: '>=0'
+  category: dev-perl
+- name: Net-Patricia
+  version: '>=0'
+  category: dev-perl
+- name: re2c
+  version: '>=0'
+  category: dev-util
+- name: wget
+  version: '>=0'
+  category: net-misc
+- name: perl-Archive-Tar
+  version: '>=0'
+  category: virtual
+- name: perl-DB_File
+  version: '>=0'
+  category: virtual
+- name: perl-IO-Zlib
+  version: '>=0'
+  category: virtual
+- name: perl-Pod-Parser
+  version: '>=0'
+  category: virtual
+- name: perl-Time-HiRes
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An extensible mail filter which can identify and tag spam
+uri:
+- https://spamassassin.apache.org/
+license: Apache-2.0 GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: dev-lang/perl:= dev-perl/HTML-Parser dev-perl/Net-DNS dev-perl/NetAddr-IP
+    virtual/perl-Archive-Tar virtual/perl-Digest-SHA virtual/perl-IO-Zlib virtual/perl-Time-HiRes
+    ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl ) ) test?
+    ( app-crypt/gnupg dev-perl/BSD-Resource dev-perl/Digest-SHA1 dev-perl/Encode-Detect
+    || ( dev-perl/GeoIP2 dev-perl/Geo-IP ) dev-perl/HTTP-Date dev-perl/Mail-DKIM dev-perl/Mail-SPF
+    dev-perl/Net-Patricia dev-perl/Net-CIDR-Lite dev-util/re2c || ( net-misc/wget[ssl]
+    net-misc/curl[ssl] ) virtual/perl-MIME-Base64 virtual/perl-Pod-Parser berkdb?
+    ( virtual/perl-DB_File ) ipv6? ( dev-perl/IO-Socket-INET6 ) ldap? ( dev-perl/perl-ldap
+    ) mysql? ( dev-perl/DBI dev-perl/DBD-mysql ) postgres? ( dev-perl/DBI dev-perl/DBD-Pg
+    ) sqlite? ( dev-perl/DBI dev-perl/DBD-SQLite ) ssl? ( dev-perl/IO-Socket-SSL )
+    virtual/perl-Test-Harness ) sys-apps/shadow
+  IUSE: berkdb cron ipv6 ldap libressl mysql postgres qmail sqlite ssl test
+  RDEPEND: dev-lang/perl:= dev-perl/HTML-Parser dev-perl/Net-DNS dev-perl/NetAddr-IP
+    virtual/perl-Archive-Tar virtual/perl-Digest-SHA virtual/perl-IO-Zlib virtual/perl-Time-HiRes
+    ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl ) ) app-crypt/gnupg
+    dev-perl/BSD-Resource dev-perl/Digest-SHA1 dev-perl/Encode-Detect || ( dev-perl/GeoIP2
+    dev-perl/Geo-IP ) dev-perl/HTTP-Date dev-perl/Mail-DKIM dev-perl/Mail-SPF dev-perl/Net-Patricia
+    dev-perl/Net-CIDR-Lite dev-util/re2c || ( net-misc/wget[ssl] net-misc/curl[ssl]
+    ) virtual/perl-MIME-Base64 virtual/perl-Pod-Parser berkdb? ( virtual/perl-DB_File
+    ) ipv6? ( dev-perl/IO-Socket-INET6 ) ldap? ( dev-perl/perl-ldap ) mysql? ( dev-perl/DBI
+    dev-perl/DBD-mysql ) postgres? ( dev-perl/DBI dev-perl/DBD-Pg ) sqlite? ( dev-perl/DBI
+    dev-perl/DBD-SQLite ) ssl? ( dev-perl/IO-Socket-SSL )
+  emerge.packages: mail-filter/spamassassin
+  kit: net-kit
+  original.package.name: mail-filter/spamassassin
+  original.package.slot: "0"
+  original.package.version: 3.4.4
