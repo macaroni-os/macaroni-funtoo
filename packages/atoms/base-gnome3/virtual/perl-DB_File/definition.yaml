@@ -1,0 +1,25 @@
+name: perl-DB_File
+version: 1.853.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for DB_File
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32*[berkdb] ~perl-core/DB_File-1.853.0 ) dev-lang/perl:=
+    !<perl-core/DB_File-1.853.0 !>perl-core/DB_File-1.853.0-r999'
+  emerge.packages: virtual/perl-DB_File
+  kit: perl-kit
+  original.package.name: virtual/perl-DB_File
+  original.package.slot: "0"
+  original.package.version: 1.853.0
