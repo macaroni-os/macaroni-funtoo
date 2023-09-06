@@ -1,16 +1,22 @@
 name: libical
-version: 3.0.11
+version: 3.0.11+1
 category: dev-libs
 use_flags:
-- -berkdb
 - -doc
-- -introspection
 - -test
-- -vala
+- berkdb
+- introspection
+- vala
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: icu
   version: '>=0'
   category: dev-libs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
 - name: timezone-data
   version: '>=0'
   category: sys-libs
