@@ -1,0 +1,39 @@
+name: exempi
+version: 2.4.5
+category: media-libs-2
+use_flags:
+- -test
+requires:
+- name: expat
+  version: '>=0'
+  category: dev-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Port of the Adobe XMP SDK to work on UNIX
+uri:
+- https://libopenraw.freedesktop.org/wiki/Exempi
+license: BSD
+labels:
+  BDEPEND: sys-devel/autoconf-archive sys-devel/gettext >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: '>=dev-libs/expat-2:= sys-libs/zlib virtual/libiconv test? ( dev-libs/boost
+    )'
+  IUSE: examples test
+  RDEPEND: '>=dev-libs/expat-2:= sys-libs/zlib virtual/libiconv'
+  emerge.packages: media-libs/exempi:2
+  kit: media-kit
+  original.package.name: media-libs/exempi
+  original.package.slot: "2"
+  original.package.version: 2.4.5-r2
