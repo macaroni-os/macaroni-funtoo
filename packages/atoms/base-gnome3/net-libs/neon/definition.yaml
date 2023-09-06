@@ -1,0 +1,59 @@
+name: neon
+version: 0.30.2
+category: net-libs
+use_flags:
+- -gnutls
+- -kerberos
+- -libproxy
+- -libressl
+- -pkcs11
+- expat
+- nls
+- ssl
+- zlib
+requires:
+- name: expat
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: HTTP and WebDAV client library
+uri:
+- http://webdav.org/neon/
+license: GPL-2
+labels:
+  DEPEND: expat? ( dev-libs/expat:0=[-mgorny(-)] ) !expat? ( dev-libs/libxml2:2=[-mgorny(-)]
+    ) gnutls? ( app-misc/ca-certificates net-libs/gnutls:0=[-mgorny(-)] pkcs11? (
+    dev-libs/pakchois:0=[-mgorny(-)] ) ) !gnutls? ( ssl? ( libressl? ( dev-libs/libressl:=[-mgorny(-)]
+    ) !libressl? ( dev-libs/openssl:0=[-mgorny(-)] ) pkcs11? ( dev-libs/pakchois:0=[-mgorny(-)]
+    ) ) ) kerberos? ( virtual/krb5:0=[-mgorny(-)] ) libproxy? ( net-libs/libproxy:0=[-mgorny(-)]
+    ) nls? ( virtual/libintl:0=[-mgorny(-)] ) zlib? ( sys-libs/zlib:0=[-mgorny(-)]
+    ) virtual/pkgconfig[-mgorny(-)] >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: doc expat gnutls kerberos libproxy libressl nls pkcs11 ssl static-libs zlib
+    abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  RDEPEND: expat? ( dev-libs/expat:0=[-mgorny(-)] ) !expat? ( dev-libs/libxml2:2=[-mgorny(-)]
+    ) gnutls? ( app-misc/ca-certificates net-libs/gnutls:0=[-mgorny(-)] pkcs11? (
+    dev-libs/pakchois:0=[-mgorny(-)] ) ) !gnutls? ( ssl? ( libressl? ( dev-libs/libressl:=[-mgorny(-)]
+    ) !libressl? ( dev-libs/openssl:0=[-mgorny(-)] ) pkcs11? ( dev-libs/pakchois:0=[-mgorny(-)]
+    ) ) ) kerberos? ( virtual/krb5:0=[-mgorny(-)] ) libproxy? ( net-libs/libproxy:0=[-mgorny(-)]
+    ) nls? ( virtual/libintl:0=[-mgorny(-)] ) zlib? ( sys-libs/zlib:0=[-mgorny(-)]
+    )
+  emerge.packages: net-libs/neon
+  kit: core-kit
+  original.package.name: net-libs/neon
+  original.package.slot: "0"
+  original.package.version: 0.30.2
