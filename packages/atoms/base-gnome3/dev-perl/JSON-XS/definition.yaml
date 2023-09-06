@@ -1,0 +1,32 @@
+name: JSON-XS
+version: 3.40.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: Types-Serialiser
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: JSON::XS - JSON serialising/deserialising, done correctly and fast
+uri:
+- https://metacpan.org/release/JSON-XS
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: dev-perl/Types-Serialiser dev-perl/common-sense !<dev-perl/JSON-2.900.0
+    !<dev-perl/JSON-Any-1.310.0 dev-perl/Canary-Stability >=virtual/perl-ExtUtils-MakeMaker-6.520.0
+    test? ( virtual/perl-Test-Harness ) dev-lang/perl:=
+  IUSE: test examples
+  RDEPEND: dev-perl/Types-Serialiser dev-perl/common-sense !<dev-perl/JSON-2.900.0
+    !<dev-perl/JSON-Any-1.310.0 dev-lang/perl:=
+  emerge.packages: dev-perl/JSON-XS
+  kit: perl-kit
+  original.package.name: dev-perl/JSON-XS
+  original.package.slot: "0"
+  original.package.version: 3.40.0
