@@ -1,0 +1,29 @@
+name: Geo-IP
+version: 1.510.0
+category: dev-perl
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: geoip
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Look up country by IP Address
+uri:
+- https://metacpan.org/release/Geo-IP
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: dev-libs/geoip dev-lang/perl:=[-build(-)]
+  RDEPEND: dev-libs/geoip dev-lang/perl:=[-build(-)]
+  emerge.packages: dev-perl/Geo-IP
+  kit: perl-kit
+  original.package.name: dev-perl/Geo-IP
+  original.package.slot: "0"
+  original.package.version: 1.510.0
