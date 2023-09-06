@@ -1,0 +1,31 @@
+name: NetAddr-IP
+version: 4.79.0
+category: dev-perl
+use_flags:
+- -test
+- ipv6
+requires:
+- name: Socket6
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manipulation and operations on IP addresses
+uri:
+- https://metacpan.org/release/NetAddr-IP
+license: '|| ( Artistic GPL-2 )'
+labels:
+  DEPEND: ipv6? ( dev-perl/Socket6 ) virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple
+    ) dev-lang/perl:=
+  IUSE: ipv6 test
+  RDEPEND: ipv6? ( dev-perl/Socket6 ) dev-lang/perl:=
+  emerge.packages: dev-perl/NetAddr-IP
+  kit: perl-kit
+  original.package.name: dev-perl/NetAddr-IP
+  original.package.slot: "0"
+  original.package.version: 4.79.0
