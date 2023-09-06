@@ -1,0 +1,27 @@
+name: mlocate
+version: "0.26"
+category: sys-apps
+use_flags:
+- -selinux
+- nls
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Merging locate is an utility to index and quickly search for files
+uri:
+- https://pagure.io/mlocate
+license: GPL-2
+labels:
+  DEPEND: app-arch/xz-utils nls? ( sys-devel/gettext ) sys-apps/shadow
+  IUSE: nls selinux
+  RDEPEND: '!sys-apps/slocate !sys-apps/rlocate selinux? ( sec-policy/selinux-slocate
+    )'
+  emerge.packages: sys-apps/mlocate
+  kit: dev-kit
+  original.package.name: sys-apps/mlocate
+  original.package.slot: "0"
+  original.package.version: 0.26-r2
