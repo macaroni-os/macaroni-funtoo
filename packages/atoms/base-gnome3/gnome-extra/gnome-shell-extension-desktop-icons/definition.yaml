@@ -1,0 +1,31 @@
+name: gnome-shell-extension-desktop-icons
+version: 19.10.2
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+- name: nautilus
+  version: '>=0'
+  category: gnome-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A GNOME Shell extension for providing desktop icons
+uri:
+- https://gitlab.gnome.org/World/ShellExtensions/desktop-icons
+license: GPL-3
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: dev-libs/glib:2
+  RDEPEND: dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.30.0
+    >=gnome-base/nautilus-3.30.4
+  emerge.packages: gnome-extra/gnome-shell-extension-desktop-icons
+  kit: geaaru-kit
+  original.package.name: gnome-extra/gnome-shell-extension-desktop-icons
+  original.package.slot: "0"
+  original.package.version: 19.10.2
