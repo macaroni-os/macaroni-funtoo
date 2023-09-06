@@ -10,3 +10,7 @@ sed -i -e 's|^PDEPEND.*|PDEPEND="app-crypt/pinentry"|g' \
 
 # Drop package.mask with elogind use flag for x11-misc/sddm
 rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/workstation/package.use.mask
+
+# Macaroni uses a splitted version of pinentry
+sed -i -e 's|^PINENTRY_DEPEND=.*|PINENTRY_DEPEND="app-crypt/pinentry"|g' \
+  /var/git/meta-repo/kits/gnome-kit/mail-client/evolution/evolution-*.ebuild
