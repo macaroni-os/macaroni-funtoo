@@ -1,0 +1,25 @@
+name: perl-Archive-Tar
+version: 2.360.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Archive-Tar
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Archive-Tar-2.360.0 ) dev-lang/perl:=
+    !<perl-core/Archive-Tar-2.360.0 !>perl-core/Archive-Tar-2.360.0-r999'
+  emerge.packages: virtual/perl-Archive-Tar
+  kit: perl-kit
+  original.package.name: virtual/perl-Archive-Tar
+  original.package.slot: "0"
+  original.package.version: 2.360.0
