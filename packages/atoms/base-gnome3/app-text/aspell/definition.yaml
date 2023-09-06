@@ -1,0 +1,39 @@
+name: aspell
+version: 0.60.8
+category: app-text
+use_flags:
+- nls
+requires:
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A spell checker replacement for ispell
+uri:
+- http://aspell.net/
+license: LGPL-2
+labels:
+  BDEPEND: virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: sys-libs/ncurses:0= nls? ( virtual/libintl ) !=app-dicts/aspell-en-0.5*
+  IUSE: nls unicode l10n_af l10n_be l10n_bg l10n_br l10n_ca l10n_cs l10n_cy l10n_da
+    l10n_de l10n_de-1901 l10n_el l10n_en l10n_eo l10n_es l10n_et l10n_fi l10n_fo l10n_fr
+    l10n_ga l10n_gl l10n_he l10n_hr l10n_hu l10n_hy l10n_is l10n_it l10n_la l10n_lt
+    l10n_nl l10n_no l10n_pl l10n_pt l10n_pt-BR l10n_ro l10n_ru l10n_sk l10n_sl l10n_sr
+    l10n_sv l10n_uk l10n_vi
+  RDEPEND: sys-libs/ncurses:0= nls? ( virtual/libintl ) !=app-dicts/aspell-en-0.5*
+  emerge.packages: app-text/aspell
+  kit: text-kit
+  original.package.name: app-text/aspell
+  original.package.slot: "0"
+  original.package.version: 0.60.8-r1
