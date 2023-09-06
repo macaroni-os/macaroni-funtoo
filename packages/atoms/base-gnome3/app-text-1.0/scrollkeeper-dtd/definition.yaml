@@ -1,0 +1,26 @@
+name: scrollkeeper-dtd
+version: "1.0"
+category: app-text-1.0
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: DTD from the Scrollkeeper package
+uri:
+- http://scrollkeeper.sourceforge.net/
+license: FDL-1.1
+labels:
+  DEPEND: '>=dev-libs/libxml2-2.4.19 !<app-text/scrollkeeper-9999-r1'
+  RDEPEND: '>=dev-libs/libxml2-2.4.19'
+  emerge.packages: app-text/scrollkeeper-dtd:1.0
+  kit: text-kit
+  original.package.name: app-text/scrollkeeper-dtd
+  original.package.slot: "1.0"
+  original.package.version: 1.0-r1
