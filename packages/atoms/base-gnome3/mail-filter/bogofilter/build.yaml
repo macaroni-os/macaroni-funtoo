@@ -1,4 +1,9 @@
 prelude:
+# Patch needed only on Macaroni due to the split-usr setup.
+- >-
+  cd /usr/lib/ &&
+  ln -s /usr/lib64/libdb-18.1.a . &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
