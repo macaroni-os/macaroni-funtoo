@@ -1,0 +1,10 @@
+shell:
+- /bin/bash
+- -c
+install:
+- DTD_FILE="scrollkeeper-omf.dtd" DOC_TYPE=public DOC_DESCR="-//OMF//DTD Scrollkeeper
+  OMF Variant V1.0//EN" DTD_FILE=usr/share/xml/scrollkeeper/dtds/${DTD_FILE} TARGET_CATALOG=etc/xml/catalog
+  whip h xmlcatalog.cat_installa
+- DTD_FILE="scrollkeeper-omf.dtd" SRC_URI="http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/${DTD_FILE}"
+  DOC_TYPE=system DOC_DESCR="${SRC_URI}" DTD_FILE=usr/share/xml/scrollkeeper/dtds/${DTD_FILE}
+  TARGET_CATALOG=etc/xml/catalog whip h xmlcatalog.cat_install
