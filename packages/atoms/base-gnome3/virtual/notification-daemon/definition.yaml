@@ -1,0 +1,30 @@
+name: notification-daemon
+version: "0"
+category: virtual
+use_flags:
+- -kde
+- gnome
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for notification daemon dbus service
+uri:
+- ""
+labels:
+  IUSE: gnome kde
+  RDEPEND: gnome? ( || ( x11-misc/notification-daemon gnome-base/gnome-shell ) ) kde?
+    ( kde-plasma/plasma-workspace ) !gnome? ( !kde? ( || ( x11-misc/notification-daemon
+    gnome-extra/cinnamon xfce-extra/xfce4-notifyd x11-misc/qtnotifydaemon x11-misc/notify-osd
+    x11-misc/dunst >=x11-wm/awesome-3.4.4 x11-wm/enlightenment[enlightenment_modules_notification]
+    x11-wm/enlightenment[e_modules_notification] x11-misc/mate-notification-daemon
+    lxqt-base/lxqt-notificationd net-misc/eventd[notification] kde-misc/colibri )
+    ) )
+  emerge.packages: virtual/notification-daemon
+  kit: gnome-kit
+  original.package.name: virtual/notification-daemon
+  original.package.slot: "0"
+  original.package.version: "0"
