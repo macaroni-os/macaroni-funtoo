@@ -1,0 +1,46 @@
+name: Mail-SPF
+version: 2.9.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: Error
+  version: '>=0'
+  category: dev-perl
+- name: Net-DNS-Resolver-Programmable
+  version: '>=0'
+  category: dev-perl
+- name: NetAddr-IP
+  version: '>=0'
+  category: dev-perl
+- name: URI
+  version: '>=0'
+  category: dev-perl
+- name: perl-version
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An object-oriented implementation of Sender Policy Framework
+uri:
+- https://metacpan.org/release/Mail-SPF
+license: BSD
+labels:
+  DEPEND: dev-perl/Error >=dev-perl/Net-DNS-0.620.0 >=dev-perl/NetAddr-IP-4 >=dev-perl/URI-1.130.0
+    >=dev-perl/Net-DNS-Resolver-Programmable-0.3.0 virtual/perl-version !!dev-perl/Mail-SPF-Query
+    >=dev-perl/Module-Build-0.280.500 >=dev-perl/Net-DNS-Resolver-Programmable-0.3.0
+    test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: dev-perl/Error >=dev-perl/Net-DNS-0.620.0 >=dev-perl/NetAddr-IP-4 >=dev-perl/URI-1.130.0
+    >=dev-perl/Net-DNS-Resolver-Programmable-0.3.0 virtual/perl-version !!dev-perl/Mail-SPF-Query
+    dev-lang/perl:=
+  emerge.packages: dev-perl/Mail-SPF
+  kit: perl-kit
+  original.package.name: dev-perl/Mail-SPF
+  original.package.slot: "0"
+  original.package.version: 2.9.0-r2
