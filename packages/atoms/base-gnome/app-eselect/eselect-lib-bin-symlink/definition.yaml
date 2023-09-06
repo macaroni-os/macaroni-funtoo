@@ -1,0 +1,26 @@
+name: eselect-lib-bin-symlink
+version: 0.1.1
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An eselect library to manage executable symlinks
+uri:
+- https://bitbucket.org/mgorny/eselect-lib-bin-symlink/
+license: GPL-2
+labels:
+  DEPEND: '>=app-portage/elt-patches-20170815'
+  RDEPEND: app-admin/eselect
+  emerge.packages: app-eselect/eselect-lib-bin-symlink
+  kit: core-kit
+  original.package.name: app-eselect/eselect-lib-bin-symlink
+  original.package.slot: "0"
+  original.package.version: 0.1.1
