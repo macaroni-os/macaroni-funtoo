@@ -1,0 +1,27 @@
+name: gnome-shell-extension-dash-to-dock
+version: "69"
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An icon taskbar for the Gnome Shell
+uri:
+- https://github.com/micheleg/dash-to-dock/
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext
+  DEPEND: dev-libs/glib:2
+  RDEPEND: dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.18.0
+  emerge.packages: gnome-extra/gnome-shell-extension-dash-to-dock
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-shell-extension-dash-to-dock
+  original.package.slot: "0"
+  original.package.version: "69"
