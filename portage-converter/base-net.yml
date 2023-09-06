@@ -217,6 +217,21 @@ artefacts:
     - virtual/python-typing
     - dev-libs/jansson
 
+
+- tree: packages/atoms/base-net
+  mutations:
+    uses:
+      # Needed for nm-applet
+      - utils
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - systemd
+    - static-libs
+  packages:
+    - dev-libs/libnl:3
+
 - tree: packages/atoms/base-net
   uses:
     disabled:
@@ -663,6 +678,18 @@ artefacts:
     - iptables
   packages:
   - net-misc/networkmanager
+
+- tree: packages/atoms/base-net
+  uses:
+    disabled:
+      - static-libs
+      - test
+      - doc
+      - examples
+  # introspection, vala uses flags
+  # are needed for evolution-data-server
+  packages:
+    - dev-libs/libical
 
 - tree: packages/atoms/base-net
   uses:
