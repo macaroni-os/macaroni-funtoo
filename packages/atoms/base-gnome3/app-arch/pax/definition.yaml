@@ -1,0 +1,28 @@
+name: pax
+version: "20161104"
+category: app-arch
+use_flags:
+- -elibc_musl
+requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: pax (Portable Archive eXchange) is the POSIX standard archive tool
+uri:
+- https://www.mirbsd.org/pax.htm
+license: BSD
+labels:
+  DEPEND: dev-libs/libbsd elibc_musl? ( sys-libs/fts-standalone ) app-arch/cpio
+  RDEPEND: dev-libs/libbsd elibc_musl? ( sys-libs/fts-standalone )
+  emerge.packages: app-arch/pax
+  kit: core-kit
+  original.package.name: app-arch/pax
+  original.package.slot: "0"
+  original.package.version: "20161104"
