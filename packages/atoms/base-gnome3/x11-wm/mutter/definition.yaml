@@ -1,0 +1,102 @@
+name: mutter
+version: 3.36.7
+category: x11-wm
+use_flags:
+- -test
+- gles2
+- input_devices_wacom
+- introspection
+- prefix
+- profiler
+- remote-desktop
+- udev
+- wayland
+requires:
+- name: atk
+  version: '>=0'
+  category: dev-libs
+- name: libinput
+  version: '>=0'
+  category: dev-libs
+- name: sysprof
+  version: '>=0'
+  category: dev-util
+- name: gnome-desktop
+  version: '>=0'
+  category: gnome-base-3
+- name: gnome-settings-daemon
+  version: '>=0'
+  category: gnome-base
+- name: zenity
+  version: '>=0'
+  category: gnome-extra
+- name: graphene
+  version: '>=0'
+  category: media-libs
+- name: pipewire
+  version: '>=0'
+  category: media-video
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: startup-notification
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNOME 3 compositing window manager based on Clutter
+uri:
+- https://gitlab.gnome.org/GNOME/mutter
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix?
+    ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/atk-2.5.3 >=x11-libs/gdk-pixbuf-2.39.2:2 >=dev-libs/json-glib-0.12.0
+    >=x11-libs/pango-1.44.7[introspection?] >=x11-libs/cairo-1.16.0[X] >=x11-libs/gtk+-3.24.12:3[X,introspection?]
+    >=dev-libs/glib-2.62.2:2[dbus] >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/startup-notification-0.7
+    >=x11-libs/libXcomposite-0.2 >=gnome-base/gsettings-desktop-schemas-3.32 gnome-base/gnome-desktop:3=
+    gnome-base/gnome-settings-daemon:0= >sys-power/upower-0.99:= >=dev-libs/fribidi-1.0.0
+    >=media-libs/graphene-1.9.3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 >=x11-libs/libXcomposite-0.4
+    x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext >=x11-libs/libXfixes-3
+    >=x11-libs/libXi-1.7.4 x11-libs/libXinerama >=x11-libs/libXrandr-1.5 x11-libs/libXrender
+    x11-libs/libxcb x11-libs/libxkbfile >=x11-libs/libxkbcommon-0.4.3[X] x11-misc/xkeyboard-config
+    gnome-extra/zenity media-libs/mesa[egl] gles2? ( media-libs/mesa[gles2] ) input_devices_wacom?
+    ( >=dev-libs/libwacom-0.13 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) udev? ( >=virtual/libgudev-232:= ) wayland? ( >=dev-libs/libinput-1.4 >=dev-libs/wayland-1.6.90
+    >=dev-libs/wayland-protocols-1.19 >=media-libs/mesa-10.3[egl,gbm,wayland] || (
+    sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= x11-base/xorg-server[wayland]
+    x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0 ) profiler?
+    ( >=dev-util/sysprof-3.34.0 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig x11-base/xorg-proto
+    test? ( app-text/docbook-xml-dtd:4.5 ) wayland? ( >=sys-kernel/linux-headers-4.4
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: elogind +gles2 input_devices_wacom +introspection -profiler remote-desktop
+    -test udev wayland test
+  RDEPEND: '>=dev-libs/atk-2.5.3 >=x11-libs/gdk-pixbuf-2.39.2:2 >=dev-libs/json-glib-0.12.0
+    >=x11-libs/pango-1.44.7[introspection?] >=x11-libs/cairo-1.16.0[X] >=x11-libs/gtk+-3.24.12:3[X,introspection?]
+    >=dev-libs/glib-2.62.2:2[dbus] >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/startup-notification-0.7
+    >=x11-libs/libXcomposite-0.2 >=gnome-base/gsettings-desktop-schemas-3.32 gnome-base/gnome-desktop:3=
+    gnome-base/gnome-settings-daemon:0= >sys-power/upower-0.99:= >=dev-libs/fribidi-1.0.0
+    >=media-libs/graphene-1.9.3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 >=x11-libs/libXcomposite-0.4
+    x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext >=x11-libs/libXfixes-3
+    >=x11-libs/libXi-1.7.4 x11-libs/libXinerama >=x11-libs/libXrandr-1.5 x11-libs/libXrender
+    x11-libs/libxcb x11-libs/libxkbfile >=x11-libs/libxkbcommon-0.4.3[X] x11-misc/xkeyboard-config
+    gnome-extra/zenity media-libs/mesa[egl] gles2? ( media-libs/mesa[gles2] ) input_devices_wacom?
+    ( >=dev-libs/libwacom-0.13 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) udev? ( >=virtual/libgudev-232:= ) wayland? ( >=dev-libs/libinput-1.4 >=dev-libs/wayland-1.6.90
+    >=dev-libs/wayland-protocols-1.19 >=media-libs/mesa-10.3[egl,gbm,wayland] || (
+    sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= x11-base/xorg-server[wayland]
+    x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0 ) profiler?
+    ( >=dev-util/sysprof-3.34.0 )'
+  emerge.packages: x11-wm/mutter
+  kit: gnome-kit
+  original.package.name: x11-wm/mutter
+  original.package.slot: "0"
+  original.package.version: 3.36.7-r1
