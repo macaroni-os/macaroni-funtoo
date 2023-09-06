@@ -1,0 +1,25 @@
+name: perl-Digest
+version: 1.170.100
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Digest
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/Digest-1.170.100_rc
+    ) dev-lang/perl:= !<perl-core/Digest-1.170.100_rc !>perl-core/Digest-1.170.100_rc-r999'
+  emerge.packages: virtual/perl-Digest
+  kit: perl-kit
+  original.package.name: virtual/perl-Digest
+  original.package.slot: "0"
+  original.package.version: 1.170.100_rc-r10
