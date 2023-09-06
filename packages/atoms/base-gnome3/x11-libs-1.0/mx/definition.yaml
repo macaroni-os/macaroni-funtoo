@@ -1,0 +1,53 @@
+name: mx
+version: 1.4.7
+category: x11-libs-1.0
+use_flags:
+- dbus
+- gtk
+- introspection
+- startup-notification
+requires:
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: clutter
+  version: '>=0'
+  category: media-libs-1.0
+- name: xrandr
+  version: '>=0'
+  category: x11-apps
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: startup-notification
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A widget toolkit using Clutter
+uri:
+- http://clutter-project.org/
+license: LGPL-2.1
+labels:
+  DEPEND: '>=dev-libs/glib-2.28.0:2 >=media-libs/clutter-1.7.91:1.0 media-libs/cogl:=
+    >=x11-apps/xrandr-1.2.0 x11-libs/gdk-pixbuf:2[introspection?] dbus? ( >=dev-libs/dbus-glib-0.82
+    ) gtk? ( >=x11-libs/gtk+-2.20:2[introspection?] ) introspection? ( >=dev-libs/gobject-introspection-0.6.4:=
+    ) startup-notification? ( >=x11-libs/startup-notification-0.9 ) dev-util/glib-utils
+    >=dev-util/gtk-doc-am-1.14 >=dev-util/intltool-0.35.0 sys-devel/gettext virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: dbus +gtk +introspection startup-notification debug
+  RDEPEND: '>=dev-libs/glib-2.28.0:2 >=media-libs/clutter-1.7.91:1.0 media-libs/cogl:=
+    >=x11-apps/xrandr-1.2.0 x11-libs/gdk-pixbuf:2[introspection?] dbus? ( >=dev-libs/dbus-glib-0.82
+    ) gtk? ( >=x11-libs/gtk+-2.20:2[introspection?] ) introspection? ( >=dev-libs/gobject-introspection-0.6.4:=
+    ) startup-notification? ( >=x11-libs/startup-notification-0.9 )'
+  emerge.packages: x11-libs/mx:1.0
+  kit: desktop-kit
+  original.package.name: x11-libs/mx
+  original.package.slot: "1.0"
+  original.package.version: 1.4.7-r2
