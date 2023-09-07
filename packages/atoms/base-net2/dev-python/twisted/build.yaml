@@ -1,4 +1,7 @@
 prelude:
+# Temporary patch until FL-11352 is done
+- >-
+  cp -v *.ebuild /var/git/meta-repo/kits/python-modules-kit/dev-python/twisted
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
