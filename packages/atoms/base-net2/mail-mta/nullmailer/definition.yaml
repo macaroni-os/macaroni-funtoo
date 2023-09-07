@@ -1,0 +1,43 @@
+name: nullmailer
+version: "2.2"
+category: mail-mta
+use_flags:
+- -test
+- ssl
+requires:
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: logger
+  version: '>=0'
+  category: virtual
+- name: shadow
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple relay-only local mail transport agent
+uri:
+- http://untroubled.org/nullmailer/ https://github.com/bruceg/nullmailer
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: ssl? ( net-libs/gnutls:0= ) test? ( sys-apps/ucspi-tcp[ipv6] sys-process/daemontools
+    ) sys-apps/shadow
+  IUSE: ssl test
+  RDEPEND: virtual/logger virtual/shadow ssl? ( net-libs/gnutls:0= ) !mail-mta/courier
+    !mail-mta/esmtp !mail-mta/exim !mail-mta/mini-qmail !mail-mta/msmtp[mta(+)] !mail-mta/netqmail
+    !mail-mta/opensmtpd[mta(+)] !mail-mta/postfix !mail-mta/qmail-ldap !mail-mta/sendmail
+    !mail-mta/ssmtp[mta(+)]
+  emerge.packages: mail-mta/nullmailer
+  kit: net-kit
+  original.package.name: mail-mta/nullmailer
+  original.package.slot: "0"
+  original.package.version: "2.2"
