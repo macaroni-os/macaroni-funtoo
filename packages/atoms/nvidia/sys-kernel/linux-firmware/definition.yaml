@@ -1,0 +1,26 @@
+name: linux-firmware
+version: "20230804"
+category: sys-kernel
+use_flags:
+- initramfs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux firmware files
+uri:
+- https://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git
+license: GPL-2 GPL-2+ GPL-3 BSD MIT MPL-1.1 linux-fw-redistributable BSD-2 BSD-4 ISC
+  no-source-code
+labels:
+  BDEPEND: initramfs? ( app-arch/cpio )
+  IUSE: initramfs
+  RDEPEND: initramfs? ( !<=app-admin/ego-2.8.5 )
+  emerge.packages: sys-kernel/linux-firmware
+  kit: core-hw-kit
+  original.package.name: sys-kernel/linux-firmware
+  original.package.slot: "0"
+  original.package.version: "20230804"
