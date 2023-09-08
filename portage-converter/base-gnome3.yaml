@@ -242,7 +242,7 @@ artefacts:
 
 - tree: packages/atoms/base-gnome3
   packages:
-    - app-text/scrollkeeper-dtd
+    - app-text/scrollkeeper-dtd:1.0
   finalizer:
     shell:
       - "/bin/bash"
@@ -254,7 +254,7 @@ artefacts:
         DOC_DESCR="-//OMF//DTD Scrollkeeper OMF Variant V1.0//EN"
         DTD_FILE=usr/share/xml/scrollkeeper/dtds/${DTD_FILE}
         TARGET_CATALOG=etc/xml/catalog
-        whip h xmlcatalog.cat_install
+        whip h xmlcatalog.cat_install || true
       - >-
         DTD_FILE="scrollkeeper-omf.dtd"
         SRC_URI="http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/${DTD_FILE}"
@@ -262,14 +262,14 @@ artefacts:
         DOC_DESCR="${SRC_URI}"
         DTD_FILE=usr/share/xml/scrollkeeper/dtds/${DTD_FILE}
         TARGET_CATALOG=etc/xml/catalog
-        whip h xmlcatalog.cat_install
+        whip h xmlcatalog.cat_install || true
 
     uninstall:
       - >-
         DTD_FILE="scrollkeeper-omf.dtd"
         DTD_FILE=usr/share/xml/scrollkeeper/dtds/${DTD_FILE}
         TARGET_CATALOG=etc/xml/catalog
-        whip h xmlcatalog.cat_remove
+        whip h xmlcatalog.cat_remove || true
 
 - tree: packages/atoms/base-gnome3
   mutations:
