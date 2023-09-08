@@ -1,0 +1,25 @@
+name: acpid
+version: 2.0.31
+category: sys-power
+use_flags:
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Daemon for Advanced Configuration and Power Interface
+uri:
+- https://sourceforge.net/projects/acpid2
+license: GPL-2
+labels:
+  DEPEND: '>=sys-kernel/linux-headers-3 virtual/pkgconfig'
+  IUSE: selinux kernel_linux
+  RDEPEND: selinux? ( sec-policy/selinux-apm )
+  emerge.packages: sys-power/acpid
+  kit: core-hw-kit
+  original.package.name: sys-power/acpid
+  original.package.slot: "0"
+  original.package.version: 2.0.31
