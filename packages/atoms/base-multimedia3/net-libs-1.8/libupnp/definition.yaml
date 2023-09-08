@@ -1,0 +1,24 @@
+name: libupnp
+version: 1.8.4
+category: net-libs-1.8
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An Portable Open Source UPnP Development Kit
+uri:
+- http://pupnp.sourceforge.net/
+license: BSD
+labels:
+  DEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || (
+    >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  IUSE: blocking-tcp debug doc ipv6 +reuseaddr samples static-libs
+  emerge.packages: net-libs/libupnp:1.8
+  kit: net-kit
+  original.package.name: net-libs/libupnp
+  original.package.slot: "1.8"
+  original.package.version: 1.8.4
