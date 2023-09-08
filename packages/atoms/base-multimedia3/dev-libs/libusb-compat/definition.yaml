@@ -1,0 +1,31 @@
+name: libusb-compat
+version: 0.1.8
+category: dev-libs
+requires:
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Userspace access to USB devices (libusb-0.1 compat wrapper)
+uri:
+- https://libusb.info
+license: LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: '>=virtual/libusb-1-r1:1[-mgorny(-)] !dev-libs/libusb:0'
+  IUSE: debug examples +split-usr abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=virtual/libusb-1-r1:1[-mgorny(-)] !dev-libs/libusb:0'
+  emerge.packages: dev-libs/libusb-compat
+  kit: core-kit
+  original.package.name: dev-libs/libusb-compat
+  original.package.slot: "0"
+  original.package.version: 0.1.8
