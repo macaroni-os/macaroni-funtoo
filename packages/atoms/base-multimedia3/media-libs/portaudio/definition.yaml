@@ -1,0 +1,37 @@
+name: portaudio
+version: 19.7.0
+category: media-libs
+use_flags:
+- -doc
+- alsa
+- jack
+requires:
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: jack
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A free, cross-platform, open-source, audio I/O library
+uri:
+- http://www.portaudio.com/
+license: MIT
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: alsa? ( >=media-libs/alsa-lib-1.0.27.2 ) jack? ( virtual/jack )
+  IUSE: alsa +cxx debug doc jack oss static-libs
+  RDEPEND: alsa? ( >=media-libs/alsa-lib-1.0.27.2 ) jack? ( virtual/jack )
+  emerge.packages: media-libs/portaudio
+  kit: media-kit
+  original.package.name: media-libs/portaudio
+  original.package.slot: "0"
+  original.package.version: 19.7.0
