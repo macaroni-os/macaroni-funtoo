@@ -332,8 +332,23 @@ artefacts:
     - X
     - svg
   packages:
-  - dev-cpp/cairomm:0
   - dev-cpp/cairomm:1
+
+- tree: packages/atoms/xorg-base
+  replacements:
+    uses:
+      - X
+  uses:
+    disabled:
+    - aqua
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - X
+    - svg
+  packages:
+  - dev-cpp/cairomm:0
 
 - tree: packages/atoms/xorg-base
   mutations:
