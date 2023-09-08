@@ -1,0 +1,106 @@
+name: freerdp
+version: 2.10.0
+category: net-misc
+use_flags:
+- -doc
+- -systemd
+- X
+- alsa
+- cups
+- ffmpeg
+- gstreamer
+- jpeg
+- openh264
+- pulseaudio
+- server
+- smartcard
+- usb
+- wayland
+- xinerama
+- xv
+requires:
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: cups
+  version: '>=0'
+  category: net-print
+- name: pcsc-lite
+  version: '>=0'
+  category: sys-apps
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
+- name: libXdamage
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: libxkbfile
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: FreeRDP is a free remote desktop protocol library and clients
+uri:
+- http://www.freerdp.com/
+license: Apache-2.0
+labels:
+  BDEPEND: virtual/pkgconfig X? ( doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto
+    ) ) dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/openssl:0= sys-libs/zlib:0 alsa? ( media-libs/alsa-lib ) cups?
+    ( net-print/cups ) usb? ( virtual/libudev:0= sys-apps/util-linux:0= dev-libs/dbus-glib:0=
+    virtual/libusb:1= ) X? ( x11-libs/libXcursor x11-libs/libXext x11-libs/libXi x11-libs/libXrender
+    xinerama? ( x11-libs/libXinerama ) xv? ( x11-libs/libXv ) ) ffmpeg? ( media-video/ffmpeg:0=
+    ) !ffmpeg? ( x11-libs/cairo:0= ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    x11-libs/libXrandr ) jpeg? ( virtual/jpeg:0 ) openh264? ( media-libs/openh264:0=
+    ) pulseaudio? ( media-sound/pulseaudio ) server? ( X? ( x11-libs/libXcursor x11-libs/libXdamage
+    x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libXtst xinerama?
+    ( x11-libs/libXinerama ) ) ) smartcard? ( sys-apps/pcsc-lite ) systemd? ( sys-apps/systemd:0=
+    ) wayland? ( dev-libs/wayland x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libxkbfile
+    )
+  IUSE: alsa cpu_flags_arm_neon cups debug doc +ffmpeg gstreamer jpeg openh264 pulseaudio
+    server smartcard systemd test usb wayland X xinerama xv
+  RDEPEND: dev-libs/openssl:0= sys-libs/zlib:0 alsa? ( media-libs/alsa-lib ) cups?
+    ( net-print/cups ) usb? ( virtual/libudev:0= sys-apps/util-linux:0= dev-libs/dbus-glib:0=
+    virtual/libusb:1= ) X? ( x11-libs/libXcursor x11-libs/libXext x11-libs/libXi x11-libs/libXrender
+    xinerama? ( x11-libs/libXinerama ) xv? ( x11-libs/libXv ) ) ffmpeg? ( media-video/ffmpeg:0=
+    ) !ffmpeg? ( x11-libs/cairo:0= ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    x11-libs/libXrandr ) jpeg? ( virtual/jpeg:0 ) openh264? ( media-libs/openh264:0=
+    ) pulseaudio? ( media-sound/pulseaudio ) server? ( X? ( x11-libs/libXcursor x11-libs/libXdamage
+    x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libXtst xinerama?
+    ( x11-libs/libXinerama ) ) ) smartcard? ( sys-apps/pcsc-lite ) systemd? ( sys-apps/systemd:0=
+    ) wayland? ( dev-libs/wayland x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libxkbfile
+    )
+  emerge.packages: net-misc/freerdp
+  kit: net-kit
+  original.package.name: net-misc/freerdp
+  original.package.slot: "0"
+  original.package.version: 2.10.0
