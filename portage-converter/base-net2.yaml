@@ -116,7 +116,6 @@ artefacts:
       - ldap
   packages:
     - dev-db/tinycdb
-    - virtual/mta
     - virtual/logger
     - app-text/libexttextcat
 
@@ -143,7 +142,32 @@ artefacts:
     install:
       - >-
         entities merge --specs-dir /usr/share/macaroni/entities/
-        -e postfix || true
+        -e dovecot || true
+
+- tree: packages/atoms/base-net2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
+  replacements:
+    runtime_deps:
+      packages:
+        - from:
+            category: mail-mta
+            name: nullmailer
+          to:
+            category: virtual
+            name: mta-service
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - ldap
+  packages:
+    - virtual/mta
 
 - tree: packages/atoms/base-net2
   mutations:
@@ -151,6 +175,9 @@ artefacts:
       packages:
         - category: dev-db
           name: tinycdb
+    provides:
+      - category: virtual
+        name: mta-service
   uses:
     disabled:
       - ldap
@@ -179,6 +206,10 @@ artefacts:
     - net-misc/rclone
 
 - tree: packages/atoms/base-net2
+  mutations:
+    provides:
+      - category: virtual
+        name: mta-service
   uses:
     disabled:
       - test
