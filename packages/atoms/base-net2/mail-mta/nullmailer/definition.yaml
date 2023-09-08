@@ -14,9 +14,13 @@ requires:
 - name: shadow
   version: '>=0'
   category: virtual
+conflicts:
+- name: postfix
+  version: '>=0'
+  category: mail-mta
 provides:
 - name: mta-service
-  version: '1'
+  version: "1"
   category: virtual
 annotations:
   subsets:
