@@ -1,0 +1,31 @@
+name: musepack-tools
+version: "465"
+category: media-sound
+requires:
+- name: libcuefile
+  version: '>=0'
+  category: media-libs
+- name: libreplaygain
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Musepack SV8 libraries and utilities
+uri:
+- https://www.musepack.net
+license: BSD LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: '>=media-libs/libcuefile-465 >=media-libs/libreplaygain-465'
+  RDEPEND: '>=media-libs/libcuefile-465 >=media-libs/libreplaygain-465 !media-libs/libmpcdec
+    !media-libs/libmpcdecsv7'
+  emerge.packages: media-sound/musepack-tools
+  kit: media-kit
+  original.package.name: media-sound/musepack-tools
+  original.package.slot: "0"
+  original.package.version: "465"
