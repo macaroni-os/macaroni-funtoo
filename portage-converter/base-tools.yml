@@ -111,9 +111,55 @@ artefacts:
   - app-eselect/eselect-python
   - app-eselect/eselect-vi
   - app-text/build-docbook-catalog
-  - app-text/docbook-dsssl-stylesheets
   - app-text/manpager
   - virtual/libelf
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - app-text/docbook-dsssl-stylesheets
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/dsssl-docbook-stylesheets.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/docbook/dsssl-stylesheets-${pv}/catalog"
+        whip h sgml.sgml_cat_install || true
+
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/sgml-docbook.cat"
+        SGML_CENTRALIZED_CATALOG="/etc/sgml/dsssl-docbook-stylesheets.cat"
+        whip h sgml.sgml_cat_install || true
+
+    uninstall:
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/dsssl-docbook-stylesheets.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/docbook/dsssl-stylesheets-${pv}/catalog"
+        whip h sgml.sgml_cat_remove || true
+
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/sgml-docbook.cat"
+        SGML_CENTRALIZED_CATALOG="/etc/sgml/dsssl-docbook-stylesheets.cat"
+        whip h sgml.sgml_cat_remove || true
+
 
 - tree: packages/atoms/base-tools
   mutations:
@@ -767,8 +813,46 @@ artefacts:
   - app-text/docbook-xml-dtd:4.3
   - app-text/docbook-xml-dtd:4.4
   - app-text/docbook-xml-dtd:4.5
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        slot={{ ( index .Values.labels "original.package.slot" ) }}
+        SGML_SOURCE=/etc/sgml/xml-docbook-${slot}
+        SGML_DESTINATIONS="/etc/sgml/sgml-docbook.cat /usr/share/sgml/docbook/xml-dtd-${slot}/docbook.cat"
+        whip h sgml.postinst || true
+    uninstall:
+      - >-
+        slot={{ ( index .Values.labels "original.package.slot" ) }}
+        SGML_SOURCE=/etc/sgml/xml-docbook-${slot}
+        SGML_DESTINATIONS="/etc/sgml/sgml-docbook.cat /usr/share/sgml/docbook/xml-dtd-${slot}/docbook.cat"
+        whip h sgml.postrm || true
+
+- tree: packages/atoms/base-tools
+  packages:
   - app-text/docbook-xml-simple-dtd:4.1.2.5
   - app-text/docbook-xml-simple-dtd:1.0
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        slot={{ ( index .Values.labels "original.package.slot" ) }}
+        SGML_SOURCE_CATALOG="/etc/sgml/xml-simple-docbook-${slot}.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/xml-simple-dtd/catalog"
+        whip h sgml.postinst || true
+    uninstall:
+      - >-
+        slot={{ ( index .Values.labels "original.package.slot" ) }}
+        SGML_SOURCE_CATALOG="/etc/sgml/xml-simple-docbook-${slot}.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/xml-simple-dtd/catalog"
+        whip h sgml.postrm || true
+
+- tree: packages/atoms/base-tools
+  packages:
   - net-misc/ifenslave
 
 - tree: packages/atoms/base-tools
