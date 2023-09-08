@@ -1,0 +1,33 @@
+name: live
+version: 2023.07.24
+category: media-plugins
+use_flags:
+- -libressl
+- ssl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Libraries for standards-based RTP/RTCP/RTSP multimedia streaming
+uri:
+- http://www.live555.com/
+license: LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) )
+  IUSE: libressl ssl
+  RDEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) )
+  emerge.packages: media-plugins/live
+  kit: media-kit
+  original.package.name: media-plugins/live
+  original.package.slot: "0"
+  original.package.version: 2023.07.24
