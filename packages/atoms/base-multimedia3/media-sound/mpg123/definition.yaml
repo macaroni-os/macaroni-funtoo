@@ -1,0 +1,48 @@
+name: mpg123
+version: 1.25.10
+category: media-sound
+use_flags:
+- alsa
+- jack
+- nas
+- portaudio
+- pulseaudio
+- sdl
+requires:
+- name: eselect-mpg123
+  version: '>=0'
+  category: app-eselect
+- name: libsdl
+  version: '>=0'
+  category: media-libs
+- name: portaudio
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: a realtime MPEG 1.0/2.0/2.5 audio player for layers 1, 2 and 3
+uri:
+- https://www.mpg123.org/
+license: GPL-2 LGPL-2.1
+labels:
+  DEPEND: app-eselect/eselect-mpg123 dev-libs/libltdl:0 alsa? ( media-libs/alsa-lib
+    ) jack? ( virtual/jack ) nas? ( media-libs/nas ) portaudio? ( media-libs/portaudio
+    ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( media-libs/libsdl ) sys-devel/libtool
+    virtual/pkgconfig >=app-portage/elt-patches-20170815
+  IUSE: cpu_flags_x86_3dnow cpu_flags_x86_3dnowext alsa altivec coreaudio int-quality
+    ipv6 jack cpu_flags_x86_mmx nas oss portaudio pulseaudio sdl cpu_flags_x86_sse
+    abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  RDEPEND: app-eselect/eselect-mpg123 dev-libs/libltdl:0 alsa? ( media-libs/alsa-lib
+    ) jack? ( virtual/jack ) nas? ( media-libs/nas ) portaudio? ( media-libs/portaudio
+    ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( media-libs/libsdl )
+  emerge.packages: media-sound/mpg123
+  kit: media-kit
+  original.package.name: media-sound/mpg123
+  original.package.slot: "0"
+  original.package.version: 1.25.10-r1
