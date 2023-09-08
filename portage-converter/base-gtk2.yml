@@ -162,6 +162,9 @@ artefacts:
     - scanner
     - sh
     - systemd
+    # TODO: enable this in the next build pipeline
+    #       This is needed to enable vala support
+    #       to all gnome stuff.
     - vala
     enabled:
     - gusb
@@ -181,14 +184,18 @@ artefacts:
         eval 'whip hook colord.colord_setup || true'
 
 - tree: packages/atoms/base-gtk2
+  # Use flags tools needed to build
+  # adwaita-icon-theme.
+  mutations:
+    uses:
+      - tools
   uses:
     disabled:
     - doc
     - test
-    - tools
     - vala
   packages:
-    - gnome-base/librsvg
+    - gnome-base/librsvg:2
 
 - tree: packages/atoms/base-gtk2
   uses:
