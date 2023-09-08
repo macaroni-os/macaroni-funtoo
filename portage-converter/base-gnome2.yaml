@@ -171,7 +171,6 @@ artefacts:
     - x11-libs/libxklavier
     - gnome-base/gnome-desktop:3
     - dev-util/glade:3.10
-    - x11-libs/colord-gtk
     - app-arch/gnome-autoar
     - media-libs/grilo:0.3
     - gnome-base/libgnomekbd
@@ -181,6 +180,24 @@ artefacts:
     - app-accessibility/caribou
     - dev-libs/libhandy:0.0.13
 
+- tree: packages/atoms/base-gnome2
+  uses:
+    disabled:
+      - examples
+      - static-libs
+      - test
+      - doc
+      - gtk-doc
+      - debug
+      - playlist
+      - gtk4
+      - webkit
+      - libnotify
+      # disabling vala until colord will
+      # be with vala support/use flag
+      - vala
+  packages:
+    - x11-libs/colord-gtk
 
 - tree: packages/atoms/base-gnome2
   mutations:
@@ -285,6 +302,9 @@ artefacts:
     - net-libs/webkit-gtk:4
 
 - tree: packages/atoms/base-gnome2
+  mutations:
+    uses:
+      - vala
   uses:
     disabled:
       - kerberos
@@ -295,6 +315,17 @@ artefacts:
       - static-libs
   packages:
     - net-libs/gnome-online-accounts
+
+- tree: packages/atoms/base-gnome2
+  uses:
+    disabled:
+      - kerberos
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+  packages:
     - dev-libs/libgdata
 
 - tree: packages/atoms/base-gnome2
