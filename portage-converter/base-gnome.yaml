@@ -69,9 +69,6 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-    - name: eselect-lib-bin-symlink
-      category: app-eselect
-
     - name: zfs-kmod
       category: sys-fs
 
@@ -86,6 +83,40 @@ global_annotations:
         - "^/var/db/pkg/"
 
 artefacts:
+
+
+- tree: packages/atoms/base-gnome
+  uses:
+    disabled:
+      - examples
+      - static-libs
+      - test
+      - selinux
+      - doc
+      - cjk
+      - jadetex
+  packages:
+    - app-text/docbook-sgml-dtd:4.1
+    - app-text/docbook-sgml-dtd:4.0
+    - app-text/docbook-sgml-dtd:4.2
+    - app-text/docbook-sgml-dtd:3.1
+    - app-text/docbook-sgml-dtd:4.4
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        slot={{ ( index .Values.labels "original.package.slot" ) }}
+        SGML_SOURCE="/etc/sgml/sgml-docbook-${slot}.cat"
+        SGML_DESTINATIONS="/usr/share/sgml/docbook/sgml-dtd-${slot}/catalog /etc/sgml/sgml-docbook.cat"
+        whip h sgml.postinst || true
+    uninstall:
+      - >-
+        slot={{ ( index .Values.labels "original.package.slot" ) }}
+        SGML_SOURCE="/etc/sgml/sgml-docbook-${slot}.cat"
+        SGML_DESTINATIONS="/usr/share/sgml/docbook/sgml-dtd-${slot}/catalog /etc/sgml/sgml-docbook.cat"
+        whip h sgml.postrm || true
 
 - tree: packages/atoms/base-gnome
   uses:
@@ -102,11 +133,6 @@ artefacts:
     - media-fonts/unifont
     - media-fonts/source-pro
     - gnome-base/adrien-gdm-keyboard
-    - app-text/docbook-sgml-dtd:4.1
-    - app-text/docbook-sgml-dtd:4.0
-    - app-text/docbook-sgml-dtd:4.2
-    - app-text/docbook-sgml-dtd:3.1
-    - app-text/docbook-sgml-dtd:4.4
     - app-text/docbook-xml-simple-dtd:0
     - sys-libs/liburing
     - dev-perl/Parse-Yapp
@@ -114,9 +140,96 @@ artefacts:
     - sys-apps/bubblewrap
     - x11-libs/startup-notification
     - media-libs/libexif
-    - app-text/openjade
     - dev-libs/libsass
     - dev-lang/sassc
+
+
+- tree: packages/atoms/base-gnome
+  uses:
+    disabled:
+      - examples
+      - static-libs
+      - test
+      - selinux
+      - doc
+      - cjk
+      - jadetex
+  packages:
+    - app-text/openjade
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/openjade-${pv}.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/openjade-${pv}/catalog"
+        whip h sgml.sgml_cat_install
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/openjade-${pv}.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/openjade-${pv}/dsssl/catalog"
+        whip h sgml.sgml_cat_install
+
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/sgml-docbook.cat"
+        SGML_CENTRALIZED_CATALOG="/etc/sgml/openjade-${pv}.cat"
+        whip h sgml.sgml_cat_install
+
+    uninstall:
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/openjade-${pv}.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/openjade-${pv}/catalog"
+        whip h sgml.sgml_cat_remove
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/openjade-${pv}.cat"
+        SGML_CENTRALIZED_CATALOG="/usr/share/sgml/openjade-${pv}/dsssl/catalog"
+        whip h sgml.sgml_cat_remove
+
+      - >-
+        pv={{ .Values.version }}
+        pv=${pv%\+*}
+        SGML_SOURCE_CATALOG="/etc/sgml/sgml-docbook.cat"
+        SGML_CENTRALIZED_CATALOG="/etc/sgml/openjade-${pv}.cat"
+        whip h sgml.sgml_cat_remove
+
+
+- tree: packages/atoms/base-gnome
+  mutations:
+    buildtime_deps:
+      # seems a luet-portage-converter issue
+      packages:
+        - category: app-text
+          name: docbook-xml-simple-dtd
+        - category: app-text-3.1
+          name: docbook-sgml-dtd
+        - category: app-text-4.2
+          name: docbook-sgml-dtd
+        - category: app-text-4.0
+          name: docbook-sgml-dtd
+        - category: app-text-4.4
+          name: docbook-sgml-dtd
+        - category: app-text-4.1
+          name: docbook-sgml-dtd
+  uses:
+    disabled:
+      - examples
+      - static-libs
+      - test
+      - selinux
+      - doc
+      - cjk
+      - jadetex
+  packages:
     - app-text/docbook-sgml-utils
 
 - tree: packages/atoms/base-gnome
@@ -167,6 +280,7 @@ artefacts:
     - gnome-base/adrien-gdm-keyboard
     - app-text/bdf2psf
     - app-eselect/eselect-pinentry
+    - app-eselect/eselect-lib-bin-symlink
 
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
