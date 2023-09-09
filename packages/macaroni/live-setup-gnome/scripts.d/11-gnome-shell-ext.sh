@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Daniele Rondina, geaaru@funtoo.org
 
-setup_gnome_shell_extentions() {
+setup_gnome_shell_ext() {
 
   if [ -n "${GNOME_SHELL_EXTS}" ] ; then
     for i in ${GNOME_SHELL_EXTS[@]} ; do
