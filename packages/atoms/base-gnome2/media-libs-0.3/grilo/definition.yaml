@@ -1,22 +1,22 @@
 name: grilo
-version: 0.3.14
+version: 0.3.14+1
 category: media-libs-0.3
 use_flags:
 - -gtk-doc
-- -playlist
 - -test
 - gtk
 - introspection
 - network
+- playlist
 - prefix
 - vala
 requires:
+- name: totem-pl-parser
+  version: '>=0'
+  category: dev-libs
 - name: liboauth
   version: '>=0'
   category: net-libs
-- name: libsoup
-  version: '>=0'
-  category: net-libs-2.4
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
