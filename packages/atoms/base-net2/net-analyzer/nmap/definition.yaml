@@ -1,0 +1,58 @@
+name: nmap
+version: "7.91"
+category: net-analyzer
+use_flags:
+- -libressl
+- -libssh2
+- lua_single_target_lua5-3
+- nse
+- ssl
+- system-lua
+requires:
+- name: liblinear
+  version: '>=0'
+  category: dev-libs
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: lua
+  version: '>=0'
+  category: dev-lua-5.3
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Network exploration tool and security / port scanner
+uri:
+- https://nmap.org/
+license: '|| ( NPSL GPL-2 )'
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/liblinear:= dev-libs/libpcre net-libs/libpcap libssh2? ( net-libs/libssh2[zlib]
+    sys-libs/zlib ) nse? ( sys-libs/zlib ) ssl? ( !libressl? ( dev-libs/openssl:0=
+    ) libressl? ( dev-libs/libressl:= ) ) system-lua? ( lua_single_target_lua5-3?
+    ( dev-lua/lua:5.3[deprecated] ) )
+  IUSE: ipv6 libressl libssh2 ncat nping +nse ssl +system-lua +lua_single_target_lua5-3
+    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: dev-libs/liblinear:= dev-libs/libpcre net-libs/libpcap libssh2? ( net-libs/libssh2[zlib]
+    sys-libs/zlib ) nse? ( sys-libs/zlib ) ssl? ( !libressl? ( dev-libs/openssl:0=
+    ) libressl? ( dev-libs/libressl:= ) ) system-lua? ( lua_single_target_lua5-3?
+    ( dev-lua/lua:5.3[deprecated] ) )
+  emerge.packages: net-analyzer/nmap
+  kit: net-kit
+  original.package.name: net-analyzer/nmap
+  original.package.slot: "0"
+  original.package.version: "7.91"
