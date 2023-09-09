@@ -1,7 +1,4 @@
 prelude:
-# Temporary until next race
-- >-
-  USE="udev" emerge virtual/libusb --nodeps -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -27,6 +24,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: libgudev
+- name: macaroni-funtoo-race7
   version: '>=0'
-  category: dev-libs
+  category: seed
