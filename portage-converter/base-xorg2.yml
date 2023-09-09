@@ -435,6 +435,15 @@ artefacts:
   - x11-libs/libXinerama
   #- x11-libs/libxkbcommon
 
+- tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - doc
+    - static-libs
+  packages:
+    - x11-libs/libXtst
 
 include_layers:
 - layers/macaroni-funtoo-race5.yaml
