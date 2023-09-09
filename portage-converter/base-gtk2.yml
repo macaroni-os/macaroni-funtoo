@@ -84,6 +84,57 @@ artefacts:
 - tree: packages/atoms/base-gtk2
   uses:
     disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+    - dev-lang/vala:0.54
+
+- tree: packages/atoms/base-gtk2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang-0.54
+          name: vala
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+    - dev-libs/libgusb
+
+- tree: packages/atoms/base-gtk2
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+    - net-libs/rest:0.7
+    - x11-themes/gnome-themes-standard
+
+- tree: packages/atoms/base-gtk2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang-0.54
+          name: vala
+  uses:
+    disabled:
+      - samba
+      - gtk-doc
+      - gssapi
+      - brotli
+  packages:
+    - net-libs/libsoup:2.4
+
+- tree: packages/atoms/base-gtk2
+  uses:
+    disabled:
     - nios2
     - sh
   packages:
@@ -187,13 +238,16 @@ artefacts:
   # Use flags tools needed to build
   # adwaita-icon-theme.
   mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-lang-0.54
+          name: vala
     uses:
       - tools
   uses:
     disabled:
     - doc
     - test
-    - vala
   packages:
     - gnome-base/librsvg:2
 
@@ -305,6 +359,14 @@ artefacts:
         -e avahi-autoipd
 
 - tree: packages/atoms/base-gtk2
+  # Trying to resolve cycles dep.
+  # vala -> graphviz -> librsvg -> vala
+  # TODO: Check if we really want vala on libsoup and librsvg.
+  replacements:
+    buildtime_deps:
+      ignore:
+        - category: gnome-base-2
+          name: librsvg
   uses:
     disabled:
     - devil
@@ -374,16 +436,6 @@ artefacts:
     - zeroconf
   packages:
   - net-print/cups-filters
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  packages:
-    - dev-lang/vala:0.54
 
 - tree: packages/atoms/base-gtk2
   mutations:
