@@ -157,6 +157,30 @@ artefacts:
 - tree: packages/atoms/base-gnome2
   uses:
     disabled:
+      - test
+  packages:
+    - dev-libs/totem-pl-parser
+
+- tree: packages/atoms/base-gnome2
+  uses:
+    disabled:
+      - examples
+      - static-libs
+      - test
+      - doc
+      - gtk-doc
+      - debug
+      - gtk4
+      - webkit
+      - libnotify
+      # playlist use flag needed
+      # for gnome-music
+  packages:
+    - media-libs/grilo:0.3
+
+- tree: packages/atoms/base-gnome2
+  uses:
+    disabled:
       - examples
       - static-libs
       - test
@@ -172,7 +196,6 @@ artefacts:
     - gnome-base/gnome-desktop:3
     - dev-util/glade:3.10
     - app-arch/gnome-autoar
-    - media-libs/grilo:0.3
     - gnome-base/libgnomekbd
     - net-libs/libnma
     - gnome-extra/zenity
