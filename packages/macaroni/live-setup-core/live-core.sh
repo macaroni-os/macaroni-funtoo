@@ -20,7 +20,7 @@ run_scripts() {
     echo $i ;
 
     base=$(basename $i)
-    fprefix=$(echo $base | sed -e 's|.sh$||g' -e 's|^[0-9]*[-]||g')
+    fprefix=$(echo $base | sed -e 's|.sh$||g' -e 's|^[0-9]*[-]||g' | sed -e 's|-|_|g')
 
     source $i
 
