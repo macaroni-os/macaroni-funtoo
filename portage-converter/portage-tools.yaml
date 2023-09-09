@@ -117,9 +117,40 @@ artefacts:
       - kerberos
       - libressl
   packages:
-    - app-portage/eix
     - app-portage/elogv
     - app-portage/genlop
+
+- tree: packages/atoms/portage-tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-apps
+          name: portage
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - source
+      - test
+      - minimal
+      - kerberos
+      - libressl
+  packages:
+    - app-portage/eix
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/cache/eix || true' &&
+        chown portage:portage /var/cache/eix &&
+        chmod ug+rw -R /var/cache/eix
+
 
 - tree: packages/atoms/portage-tools
   uses:
