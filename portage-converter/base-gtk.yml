@@ -90,8 +90,6 @@ artefacts:
     - static-libs
   packages:
     - sys-devel/autoconf:2.1
-    # Package to move on base-xorg2
-    - x11-libs/libXtst
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -236,8 +234,6 @@ artefacts:
   packages:
   - app-accessibility/at-spi2-atk:2
 
-
-
 - tree: packages/atoms/base-gtk
   uses:
     enabled:
@@ -251,10 +247,6 @@ artefacts:
       - X
   packages:
     - x11-libs/libxkbcommon
-
-
-
-
 
 - tree: packages/atoms/base-gtk
   mutations:
@@ -291,7 +283,6 @@ artefacts:
     - unicode
   packages:
   - app-text/ghostscript-gpl
-
 
 - tree: packages/atoms/base-gtk
   mutations:
@@ -389,7 +380,6 @@ artefacts:
   packages:
   - net-print/cups
 
-
 - tree: packages/atoms/base-gtk
   uses:
     enabled:
@@ -399,8 +389,6 @@ artefacts:
       - bluetooth
   packages:
     - net-libs/libpcap
-
-
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -443,6 +431,17 @@ artefacts:
   packages:
   - dev-vcs/git
 
+- tree: packages/atoms/base-gtk
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+    - app-text/qpdf
+    - net-libs/glib-networking
+    - dev-libs/json-glib
 
 include_layers:
 - layers/macaroni-funtoo-race6.yaml
