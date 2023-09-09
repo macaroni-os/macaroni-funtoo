@@ -1,19 +1,19 @@
 name: glib-networking
-version: 2.70.0
+version: 2.70.0+1
 category: net-libs
 use_flags:
-- -gnome
 - -libproxy
-- -prefix
-- -smartcard
 - -test
+- gnome
+- prefix
+- smartcard
 requires:
 - name: ca-certificates
   version: '>=0'
   category: app-misc
-- name: glib
+- name: gsettings-desktop-schemas
   version: '>=0'
-  category: dev-libs-2
+  category: gnome-base
 - name: gnutls
   version: '>=0'
   category: net-libs
