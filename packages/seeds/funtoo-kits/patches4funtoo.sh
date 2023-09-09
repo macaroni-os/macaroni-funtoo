@@ -41,3 +41,7 @@ cd /var/git/meta-repo/kits/gnome-kit/media-video/cheese/
 ebuild cheese-44.1.ebuild digest
 cd -
 
+# Add missing patch for upnp on media-video/vlc
+cp -vf patches/vlc/vlc-2.2.8-libupnp-slot-1.8.patch \
+  /var/git/meta-repo/kits/media-kit/media-video/vlc/files/
+
