@@ -45,3 +45,10 @@ cd -
 cp -vf patches/vlc/vlc-2.2.8-libupnp-slot-1.8.patch \
   /var/git/meta-repo/kits/media-kit/media-video/vlc/files/
 
+# Fix installation of nmap with linear is been compiled with
+# blas used flag.
+# The patch add blas IUSE and patch configure.ac to
+# fix linking with -lblas.
+cp -vf patches/nmap/*.ebuild \
+  /var/git/meta-repo/kits/net-kit/net-analyzer/nmap/
+
