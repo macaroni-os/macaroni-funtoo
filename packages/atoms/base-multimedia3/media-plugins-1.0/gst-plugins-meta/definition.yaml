@@ -1,0 +1,155 @@
+name: gst-plugins-meta
+version: 1.18.4
+category: media-plugins-1.0
+use_flags:
+- -libass
+- -libvisual
+- a52
+- aac
+- cdda
+- dts
+- dv
+- dvb
+- dvd
+- ffmpeg
+- flac
+- http
+- jack
+- lame
+- mms
+- modplug
+- mp3
+- mpeg
+- opus
+- oss
+- pulseaudio
+- taglib
+- v4l
+- vaapi
+- vcd
+- vpx
+- wavpack
+- x264
+requires:
+- name: gst-plugins-a52dec
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-dts
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-dv
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-dvb
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-dvdread
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-faad
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-flac
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-jack
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-lame
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-libav
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-libmms
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-modplug
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-mpeg2dec
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-mpg123
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-mplex
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-opus
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-oss
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-pulse
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-resindvd
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-soup
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-taglib
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-v4l2
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-vaapi
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-vpx
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-wavpack
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-x264
+  version: '>=0'
+  category: media-plugins-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Meta ebuild to pull in gst plugins for apps
+uri:
+- https://gstreamer.freedesktop.org/
+license: metapackage
+labels:
+  IUSE: aac a52 alsa cdda dts dv dvb dvd ffmpeg flac http jack lame libass libvisual
+    mms mp3 modplug mpeg ogg opus oss pulseaudio taglib theora v4l vaapi vcd vorbis
+    vpx wavpack X x264 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=media-libs/gstreamer-1.18.4:1.0[-mgorny(-)] >=media-libs/gst-plugins-base-1.18.4:1.0[alsa?,ogg?,theora?,vorbis?,X?,-mgorny(-)]
+    >=media-libs/gst-plugins-good-1.18.4:1.0[-mgorny(-)] a52? ( >=media-plugins/gst-plugins-a52dec-1.18.4:1.0[-mgorny(-)]
+    ) aac? ( >=media-plugins/gst-plugins-faad-1.18.4:1.0[-mgorny(-)] ) cdda? ( ||
+    ( >=media-plugins/gst-plugins-cdparanoia-1.18.4:1.0[-mgorny(-)] >=media-plugins/gst-plugins-cdio-1.18.4:1.0[-mgorny(-)]
+    ) ) dts? ( >=media-plugins/gst-plugins-dts-1.18.4:1.0[-mgorny(-)] ) dv? ( >=media-plugins/gst-plugins-dv-1.18.4:1.0[-mgorny(-)]
+    ) dvb? ( >=media-plugins/gst-plugins-dvb-1.18.4:1.0[-mgorny(-)] >=media-libs/gst-plugins-bad-1.18.4:1.0[-mgorny(-)]
+    ) dvd? ( >=media-libs/gst-plugins-ugly-1.18.4:1.0[-mgorny(-)] >=media-plugins/gst-plugins-a52dec-1.18.4:1.0[-mgorny(-)]
+    >=media-plugins/gst-plugins-dvdread-1.18.4:1.0[-mgorny(-)] >=media-plugins/gst-plugins-mpeg2dec-1.18.4:1.0[-mgorny(-)]
+    >=media-plugins/gst-plugins-resindvd-1.18.4:1.0[-mgorny(-)] ) ffmpeg? ( >=media-plugins/gst-plugins-libav-1.18.4:1.0[-mgorny(-)]
+    ) flac? ( >=media-plugins/gst-plugins-flac-1.18.4:1.0[-mgorny(-)] ) http? ( >=media-plugins/gst-plugins-soup-1.18.4:1.0[-mgorny(-)]
+    ) jack? ( >=media-plugins/gst-plugins-jack-1.18.4:1.0[-mgorny(-)] ) lame? ( >=media-plugins/gst-plugins-lame-1.18.4:1.0[-mgorny(-)]
+    ) libass? ( >=media-plugins/gst-plugins-assrender-1.18.4:1.0[-mgorny(-)] ) libvisual?
+    ( >=media-plugins/gst-plugins-libvisual-1.18.4:1.0[-mgorny(-)] ) mms? ( >=media-plugins/gst-plugins-libmms-1.18.4:1.0[-mgorny(-)]
+    ) modplug? ( >=media-plugins/gst-plugins-modplug-1.18.4:1.0[-mgorny(-)] ) mp3?
+    ( >=media-libs/gst-plugins-ugly-1.18.4:1.0[-mgorny(-)] >=media-plugins/gst-plugins-mpg123-1.18.4:1.0[-mgorny(-)]
+    ) mpeg? ( >=media-plugins/gst-plugins-mpeg2dec-1.18.4:1.0[-mgorny(-)] ) opus?
+    ( >=media-plugins/gst-plugins-opus-1.18.4:1.0[-mgorny(-)] ) oss? ( >=media-plugins/gst-plugins-oss-1.18.4:1.0[-mgorny(-)]
+    ) pulseaudio? ( >=media-plugins/gst-plugins-pulse-1.18.4:1.0[-mgorny(-)] ) taglib?
+    ( >=media-plugins/gst-plugins-taglib-1.18.4:1.0[-mgorny(-)] ) v4l? ( >=media-plugins/gst-plugins-v4l2-1.18.4:1.0[-mgorny(-)]
+    ) vaapi? ( >=media-plugins/gst-plugins-vaapi-1.18.4:1.0[-mgorny(-)] ) vcd? ( >=media-plugins/gst-plugins-mplex-1.18.4:1.0[-mgorny(-)]
+    >=media-plugins/gst-plugins-mpeg2dec-1.18.4:1.0[-mgorny(-)] ) vpx? ( >=media-plugins/gst-plugins-vpx-1.18.4:1.0[-mgorny(-)]
+    ) wavpack? ( >=media-plugins/gst-plugins-wavpack-1.18.4:1.0[-mgorny(-)] ) x264?
+    ( >=media-plugins/gst-plugins-x264-1.18.4:1.0[-mgorny(-)] )'
+  emerge.packages: media-plugins/gst-plugins-meta:1.0
+  kit: media-kit
+  original.package.name: media-plugins/gst-plugins-meta
+  original.package.slot: "1.0"
+  original.package.version: 1.18.4
