@@ -1,4 +1,6 @@
 prelude:
+- >-
+  cp nmap-7.91.ebuild /var/git/meta-repo/kits/net-kit/net-analyzer/nmap/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
