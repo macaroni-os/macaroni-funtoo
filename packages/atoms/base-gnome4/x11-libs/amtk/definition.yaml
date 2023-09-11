@@ -1,0 +1,38 @@
+name: amtk
+version: 5.0.0
+category: x11-libs
+use_flags:
+- -test
+- -valgrind
+- prefix
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GtkSourceView-based text editors and IDE helper library
+uri:
+- https://wiki.gnome.org/Projects/Gtef
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3 >=dev-libs/gobject-introspection-1.62.0:=
+    valgrind? ( dev-util/valgrind ) >=sys-devel/gettext-0.19.4 >=dev-util/gtk-doc-am-1.25
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
+    )'
+  IUSE: valgrind test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3 >=dev-libs/gobject-introspection-1.62.0:='
+  emerge.packages: x11-libs/amtk
+  kit: gnome-kit
+  original.package.name: x11-libs/amtk
+  original.package.slot: "0"
+  original.package.version: 5.0.0
