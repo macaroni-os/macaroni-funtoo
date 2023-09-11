@@ -1,0 +1,26 @@
+name: dleyna-core
+version: 0.5.0
+category: net-libs-1.0
+requires:
+- name: gupnp
+  version: '>=0'
+  category: net-libs-1.2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: utility library for higher level dLeyna libraries
+uri:
+- https://01.org/dleyna/
+license: LGPL-2.1
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/gupnp-0.20.5:0= virtual/pkgconfig'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/gupnp-0.20.5:0='
+  emerge.packages: net-libs/dleyna-core:1.0
+  kit: gnome-kit
+  original.package.name: net-libs/dleyna-core
+  original.package.slot: "1.0"
+  original.package.version: 0.5.0
