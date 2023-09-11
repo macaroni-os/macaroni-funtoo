@@ -1,0 +1,46 @@
+name: gtksourceview
+version: 4.8.2
+category: x11-libs-4
+use_flags:
+- -glade
+- -test
+- introspection
+- prefix
+- vala
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A text widget implementing syntax highlighting and other features
+uri:
+- https://wiki.gnome.org/Projects/GtkSourceView
+license: GPL-2+ LGPL-2.1+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix?
+    ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libxml2-2.6:2 >=x11-libs/gtk+-3.24.12:3[introspection?]
+    glade? ( >=dev-util/glade-3.9:3.10 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) dev-util/glib-utils >=dev-util/gtk-doc-am-1.25 >=sys-devel/gettext-0.19.4 virtual/pkgconfig
+    vala? ( || ( dev-lang/vala:0.54[vapigen(+)] ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: doc glade +introspection test +vala test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libxml2-2.6:2 >=x11-libs/gtk+-3.24.12:3[introspection?]
+    glade? ( >=dev-util/glade-3.9:3.10 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    )'
+  emerge.packages: x11-libs/gtksourceview:4
+  kit: gnome-kit
+  original.package.name: x11-libs/gtksourceview
+  original.package.slot: "4"
+  original.package.version: 4.8.2
