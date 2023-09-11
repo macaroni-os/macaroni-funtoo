@@ -1,0 +1,52 @@
+name: gnome-shell-extensions
+version: 3.36.7
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+- name: gnome-menus
+  version: '>=0'
+  category: gnome-base-3
+- name: libgtop
+  version: '>=0'
+  category: gnome-base-2
+- name: clutter
+  version: '>=0'
+  category: media-libs-1.0
+- name: telepathy-glib
+  version: '>=0'
+  category: net-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: adwaita-icon-theme
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: JavaScript extensions for GNOME Shell
+uri:
+- https://wiki.gnome.org/Projects/GnomeShell/Extensions
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/libgtop-2.28.3[introspection] >=app-eselect/eselect-gnome-shell-extensions-20111211
+    >=sys-devel/gettext-0.19.6 virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/libgtop-2.28.3[introspection] >=app-eselect/eselect-gnome-shell-extensions-20111211
+    >=dev-libs/gjs-1.29 >=dev-libs/gobject-introspection-1.62.0:= dev-libs/atk[introspection]
+    >=gnome-base/gnome-menus-3.31.92:3[introspection] >=gnome-base/gnome-shell-3.36.7
+    media-libs/clutter:1.0[introspection] net-libs/telepathy-glib[introspection] x11-libs/gdk-pixbuf:2[introspection]
+    x11-libs/gtk+:3[introspection] x11-libs/pango[introspection] x11-themes/adwaita-icon-theme
+    x11-wm/mutter[introspection]'
+  emerge.packages: gnome-extra/gnome-shell-extensions
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-shell-extensions
+  original.package.slot: "0"
+  original.package.version: 3.36.7
