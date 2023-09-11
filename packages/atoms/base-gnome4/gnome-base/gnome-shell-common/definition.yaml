@@ -1,0 +1,28 @@
+name: gnome-shell-common
+version: 0.0.1
+category: gnome-base
+requires:
+- name: gnome-shell-extensions
+  version: '>=0'
+  category: gnome-extra
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A sub-package that provides common GNOME Shell files
+uri:
+- https://wiki.gnome.org/Projects/GnomeShell
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2= || ( gnome-extra/gnome-shell-extensions gnome-base/gnome-shell
+    ) !<=gnome-base/gnome-shell-3.21'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2= || ( gnome-extra/gnome-shell-extensions gnome-base/gnome-shell
+    ) !<=gnome-base/gnome-shell-3.21'
+  emerge.packages: gnome-base/gnome-shell-common
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-shell-common
+  original.package.slot: "0"
+  original.package.version: 0.0.1-r1
