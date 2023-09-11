@@ -1,0 +1,34 @@
+name: djvu
+version: 3.5.27
+category: app-text
+use_flags:
+- jpeg
+- tiff
+requires:
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: DjVu viewers, encoders and utilities
+uri:
+- http://djvu.sourceforge.net/
+license: GPL-2
+labels:
+  DEPEND: jpeg? ( virtual/jpeg:0 ) tiff? ( media-libs/tiff:0= ) || ( gnome-base/librsvg
+    media-gfx/inkscape )
+  IUSE: debug doc jpeg tiff xml
+  RDEPEND: jpeg? ( virtual/jpeg:0 ) tiff? ( media-libs/tiff:0= )
+  emerge.packages: app-text/djvu
+  kit: text-kit
+  original.package.name: app-text/djvu
+  original.package.slot: "0"
+  original.package.version: 3.5.27
