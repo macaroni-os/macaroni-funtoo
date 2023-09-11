@@ -1,0 +1,45 @@
+name: libmediaart
+version: 1.9.4
+category: media-libs-2.0
+use_flags:
+- -test
+- introspection
+- prefix
+- qt5
+- vala
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manages, extracts and handles media art caches
+uri:
+- https://github.com/GNOME/libmediaart
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 !qt5? ( >=x11-libs/gdk-pixbuf-2.39.2:2 ) introspection?
+    ( >=dev-libs/gobject-introspection-1.62.0:= ) qt5? ( dev-qt/qtgui:5 ) dev-libs/gobject-introspection-common
+    >=dev-util/gtk-doc-am-1.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.50[vapigen(+)]
+    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
+    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
+    ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info test?
+    ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
+  IUSE: +introspection -qt5 vala test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 !qt5? ( >=x11-libs/gdk-pixbuf-2.39.2:2 ) introspection?
+    ( >=dev-libs/gobject-introspection-1.62.0:= ) qt5? ( dev-qt/qtgui:5 )'
+  emerge.packages: media-libs/libmediaart:2.0
+  kit: gnome-kit
+  original.package.name: media-libs/libmediaart
+  original.package.slot: "2.0"
+  original.package.version: 1.9.4
