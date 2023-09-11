@@ -1,0 +1,25 @@
+name: gnome-user-docs
+version: 3.36.6
+category: gnome-extra
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNOME end user documentation
+uri:
+- https://git.gnome.org/browse/gnome-user-docs
+license: CC-BY-3.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils'
+  DEPEND: test? ( dev-libs/libxml2 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: test
+  emerge.packages: gnome-extra/gnome-user-docs
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-user-docs
+  original.package.slot: "0"
+  original.package.version: 3.36.6
