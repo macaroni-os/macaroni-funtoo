@@ -222,10 +222,46 @@ artefacts:
       - static-libs
       - doc
       - examples
+      - gles2
+      - sdlgfx
   packages:
-    - media-plugins/gst-plugins-meta
     - media-plugins/gst-plugins-taglib
+    - media-plugins/gst-plugins-mpeg2dec
+    - media-plugins/gst-plugins-resindvd
+    - media-plugins/gst-plugins-soup
+    - media-plugins/gst-plugins-mpg123
+    - media-plugins/gst-plugins-pulse
+    - media-plugins/gst-plugins-vaapi
+    - media-plugins/gst-plugins-wavpack
+    - media-plugins/gst-plugins-x264
+    - media-plugins/gst-plugins-mplex
+    - media-libs/libquicktime
+    - media-video/mjpegtools
 
+- tree: packages/atoms/base-multimedia3
+  mutations:
+    uses:
+      - vorbis
+      - theora
+      - X
+      - alsa
+      - ogg
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
+  uses:
+    disabled:
+      - libass
+      - libvisual
+      - test
+      - static-libs
+      - doc
+      - examples
+      - gles2
+      - sdlgfx
+  packages:
+    - media-plugins/gst-plugins-meta:1.0
 
 include_layers:
 - layers/macaroni-funtoo-race14.yaml
