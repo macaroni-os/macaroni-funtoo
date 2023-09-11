@@ -439,6 +439,10 @@ artefacts:
     - dev-libs/liblinear
 
 - tree: packages/atoms/base-net2
+  mutations:
+    uses:
+      # Macaroni os patch
+      - blas
   uses:
     disabled:
       - debug
@@ -451,6 +455,86 @@ artefacts:
   packages:
     - net-analyzer/nmap
 
+- tree: packages/atoms/base-net2
+  mutations:
+    uses:
+      - strongswan_plugins_lookip
+      - strongswan_plugins_systime
+      - strongswan_plugins_led
+      - strongswan_plugins_blowfish
+      - strongswan_plugins_ccm
+      - strongswan_plugins_ctr
+      - strongswan_plugins_error-notify
+      - strongswan_plugins_ha
+      - strongswan_plugins_ipseckey
+      - strongswan_plugins_save-keys
+      - strongswan_plugins_whitelist
+      - strongswan_plugins_xauth-noauth
+  uses:
+    disabled:
+    - debug
+    - farp
+    - gcrypt
+    - ldap
+    - nios2
+    - pkcs11
+    - selinux
+    - sh
+    - strongswan_plugins_ccm
+    - strongswan_plugins_chapoly
+    - strongswan_plugins_ctr
+    - strongswan_plugins_forecast
+    - strongswan_plugins_gcm
+    - strongswan_plugins_newhope
+    - strongswan_plugins_ntru
+    - strongswan_plugins_padlock
+    - strongswan_plugins_rdrand
+    - strongswan_plugins_save-keys
+    - strongswan_plugins_unbound
+    - systemd
+  packages:
+  - net-vpn/strongswan
+
+- tree: packages/atoms/base-net2
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  packages:
+    - net-dns/coredns
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e coredns
+
+- tree: packages/atoms/base-net2
+  uses:
+    disabled:
+      - libressl
+      - selinux
+      - samba
+      - html
+      - libedit
+      - nettle
+      - pps
+      - samba
+      - seccomp
+      - sechash
+  packages:
+    - net-misc/chrony
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e ntp
 
 include_layers:
 - layers/macaroni-funtoo-race14.yaml
