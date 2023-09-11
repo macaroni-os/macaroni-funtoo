@@ -1,0 +1,54 @@
+name: gnome-core-libs
+version: 3.36.0
+category: gnome-base-3.0
+use_flags:
+- python
+requires:
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: dconf
+  version: '>=0'
+  category: gnome-base
+- name: gnome-desktop
+  version: '>=0'
+  category: gnome-base-3
+- name: gvfs
+  version: '>=0'
+  category: gnome-base
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: clutter
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-good
+  version: '>=0'
+  category: media-libs-1.0
+- name: libwnck
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Sub-meta package for the core libraries of GNOME 3
+uri:
+- https://www.gnome.org/
+license: metapackage
+labels:
+  IUSE: cups python
+  RDEPEND: '>=dev-libs/glib-2.64.1:2 >=x11-libs/gdk-pixbuf-2.40.0:2 >=x11-libs/pango-1.44.7
+    >=media-libs/clutter-1.26:1.0 >=x11-libs/gtk+-3.24.14:3[cups?] >=dev-libs/atk-2.32
+    >=x11-libs/libwnck-3.36.0:3 >=gnome-base/librsvg-2.45.0 >=gnome-base/gnome-desktop-3.36.0:3
+    >=x11-libs/startup-notification-0.12 >=gnome-base/gvfs-1.44 >=gnome-base/dconf-0.36
+    >=media-libs/gstreamer-1.14:1.0 >=media-libs/gst-plugins-base-1.14:1.0 >=media-libs/gst-plugins-good-1.14:1.0
+    python? ( >=dev-python/pygobject-3.36.0:3 )'
+  emerge.packages: gnome-base/gnome-core-libs:3.0
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-core-libs
+  original.package.slot: "3.0"
+  original.package.version: 3.36.0
