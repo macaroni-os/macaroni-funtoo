@@ -1,0 +1,54 @@
+name: gnome
+version: 3.36.2
+category: gnome-base
+use_flags:
+- -accessibility
+- -extras
+- classic
+requires:
+- name: gdm
+  version: '>=0'
+  category: gnome-base
+- name: gnome-core-apps
+  version: '>=0'
+  category: gnome-base-3.0
+- name: gnome-shell-common
+  version: '>=0'
+  category: gnome-base
+- name: gnome-color-manager
+  version: '>=0'
+  category: gnome-extra
+- name: gnome-weather
+  version: '>=0'
+  category: gnome-extra
+- name: gnome-backgrounds
+  version: '>=0'
+  category: x11-themes
+- name: sound-theme-freedesktop
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Meta package for GNOME 3, merge this package to install
+uri:
+- https://www.gnome.org/
+license: metapackage
+labels:
+  IUSE: accessibility +bluetooth +classic +cdr cups +extras
+  RDEPEND: '!<=gnome-base/gnome-3.36.2 >=gnome-base/gnome-core-libs-3.36[cups?] >=gnome-base/gnome-core-apps-3.36[cups?,bluetooth?,cdr?]
+    >=gnome-base/gdm-3.34 >=x11-wm/mutter-3.36.2 >=gnome-base/gnome-shell-3.36.2[bluetooth?]
+    gnome-base/gnome-shell-common >=x11-themes/gnome-backgrounds-3.36 x11-themes/sound-theme-freedesktop
+    accessibility? ( >=app-accessibility/at-spi2-atk-2.34 >=app-accessibility/at-spi2-core-2.36
+    >=app-accessibility/caribou-0.4.21 >=app-accessibility/orca-3.36.2 >=gnome-extra/mousetweaks-3.32.0
+    ) classic? ( >=gnome-extra/gnome-shell-extensions-3.36.2 ) extras? ( >=gnome-base/gnome-extra-apps-3.36
+    ) >=gnome-extra/gnome-color-manager-3.36 >=gnome-extra/gnome-weather-3.36'
+  emerge.packages: gnome-base/gnome
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome
+  original.package.slot: "0"
+  original.package.version: 3.36.2
