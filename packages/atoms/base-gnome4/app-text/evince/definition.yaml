@@ -1,0 +1,97 @@
+name: evince
+version: 3.36.7
+category: app-text
+use_flags:
+- -gnome-keyring
+- -t1lib
+- djvu
+- dvi
+- gnome
+- gstreamer
+- introspection
+- nautilus
+- postscript
+- tiff
+- xps
+requires:
+- name: djvu
+  version: '>=0'
+  category: app-text
+- name: gspell
+  version: '>=0'
+  category: app-text
+- name: libgxps
+  version: '>=0'
+  category: app-text
+- name: libspectre
+  version: '>=0'
+  category: app-text
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: atk
+  version: '>=0'
+  category: dev-libs
+- name: kpathsea
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: gvfs
+  version: '>=0'
+  category: gnome-base
+- name: nautilus
+  version: '>=0'
+  category: gnome-base
+- name: gst-plugins-good
+  version: '>=0'
+  category: media-libs-1.0
+- name: tex-base
+  version: '>=0'
+  category: virtual
+- name: adwaita-icon-theme
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple document viewer for GNOME
+uri:
+- https://wiki.gnome.org/Apps/Evince
+license: GPL-2+ CC-BY-SA-3.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils virtual/pkgconfig'
+  DEPEND: dev-libs/atk >=dev-libs/glib-2.62.2:2[dbus] >=dev-libs/libxml2-2.5:2 sys-libs/zlib:=
+    x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.24.12:3[introspection?] gnome-base/gsettings-desktop-schemas
+    >=x11-libs/cairo-1.16.0:= >=app-text/poppler-0.33:=[cairo] djvu? ( >=app-text/djvu-3.5.22:=
+    ) dvi? ( virtual/tex-base dev-libs/kpathsea:= t1lib? ( >=media-libs/t1lib-5:=
+    ) ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0
+    ) gnome? ( gnome-base/gnome-desktop:3= ) gnome-keyring? ( >=app-crypt/libsecret-0.5
+    ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) nautilus? ( >=gnome-base/nautilus-2.91.4[introspection?]
+    ) postscript? ( >=app-text/libspectre-0.2:= ) tiff? ( >=media-libs/tiff-3.6:0=
+    ) xps? ( >=app-text/libgxps-0.2.1:= ) >=app-text/gspell-1.8.1 app-text/docbook-xml-dtd:4.3
+    app-text/yelp-tools >=dev-util/gtk-doc-am-1.13 >=dev-util/intltool-0.35 dev-util/itstool
+    sys-devel/gettext virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: djvu dvi gstreamer gnome gnome-keyring +introspection nautilus nsplugin +postscript
+    t1lib tiff xps
+  RDEPEND: dev-libs/atk >=dev-libs/glib-2.62.2:2[dbus] >=dev-libs/libxml2-2.5:2 sys-libs/zlib:=
+    x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.24.12:3[introspection?] gnome-base/gsettings-desktop-schemas
+    >=x11-libs/cairo-1.16.0:= >=app-text/poppler-0.33:=[cairo] djvu? ( >=app-text/djvu-3.5.22:=
+    ) dvi? ( virtual/tex-base dev-libs/kpathsea:= t1lib? ( >=media-libs/t1lib-5:=
+    ) ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0
+    ) gnome? ( gnome-base/gnome-desktop:3= ) gnome-keyring? ( >=app-crypt/libsecret-0.5
+    ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) nautilus? ( >=gnome-base/nautilus-2.91.4[introspection?]
+    ) postscript? ( >=app-text/libspectre-0.2:= ) tiff? ( >=media-libs/tiff-3.6:0=
+    ) xps? ( >=app-text/libgxps-0.2.1:= ) >=app-text/gspell-1.8.1 gnome-base/gvfs
+    gnome-base/librsvg || ( >=x11-themes/adwaita-icon-theme-2.17.1 >=x11-themes/hicolor-icon-theme-0.10
+    )
+  emerge.packages: app-text/evince
+  kit: gnome-kit
+  original.package.name: app-text/evince
+  original.package.slot: "0"
+  original.package.version: 3.36.7
