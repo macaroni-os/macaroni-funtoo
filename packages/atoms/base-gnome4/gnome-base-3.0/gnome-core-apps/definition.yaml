@@ -1,0 +1,82 @@
+name: gnome-core-apps
+version: 3.36.0
+category: gnome-base-3.0
+use_flags:
+- bluetooth
+- cdr
+requires:
+- name: brasero
+  version: '>=0'
+  category: app-cdr
+- name: seahorse
+  version: '>=0'
+  category: app-crypt
+- name: gedit
+  version: '>=0'
+  category: app-editors
+- name: evince
+  version: '>=0'
+  category: app-text
+- name: gnome-control-center
+  version: '>=0'
+  category: gnome-base-2
+- name: gnome-core-libs
+  version: '>=0'
+  category: gnome-base-3.0
+- name: gnome-keyring
+  version: '>=0'
+  category: gnome-base
+- name: gnome-menus
+  version: '>=0'
+  category: gnome-base-3
+- name: gnome-session
+  version: '>=0'
+  category: gnome-base
+- name: gnome-contacts
+  version: '>=0'
+  category: gnome-extra
+- name: gnome-user-docs
+  version: '>=0'
+  category: gnome-extra
+- name: yelp
+  version: '>=0'
+  category: gnome-extra
+- name: eog
+  version: '>=0'
+  category: media-gfx-1
+- name: totem
+  version: '>=0'
+  category: media-video
+- name: gnome-terminal
+  version: '>=0'
+  category: x11-terms
+- name: gnome-themes-standard
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Sub-meta package for the core applications integrated with GNOME 3
+uri:
+- https://www.gnome.org/
+license: metapackage
+labels:
+  IUSE: +bluetooth +cdr cups
+  RDEPEND: '>=gnome-base/gnome-core-libs-3.36.0[cups?] >=gnome-base/gnome-session-3.36.0
+    >=gnome-base/gnome-menus-3.36.0 >=gnome-base/gnome-settings-daemon-3.36.0[cups?]
+    >=gnome-base/gnome-control-center-3.36.0 >=app-crypt/gcr-3.36.0 >=gnome-base/nautilus-3.36.0
+    >=gnome-base/gnome-keyring-3.36.0 >=gnome-extra/evolution-data-server-3.36.0 >=app-crypt/seahorse-3.34
+    >=app-editors/gedit-3.36.0 >=app-text/evince-3.36.0 >=gnome-extra/gnome-contacts-3.36
+    >=media-gfx/eog-3.36.0 >=media-video/totem-3.34 >=x11-terms/gnome-terminal-3.36.0
+    >=gnome-extra/gnome-user-docs-3.36.0 >=gnome-extra/yelp-3.36.0 >=x11-themes/adwaita-icon-theme-3.36.0
+    >=x11-themes/gnome-themes-standard-3.22 bluetooth? ( >=net-wireless/gnome-bluetooth-3.34.1
+    ) cdr? ( >=app-cdr/brasero-3.12.2 ) !gnome-base/gnome-applets'
+  emerge.packages: gnome-base/gnome-core-apps:3.0
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-core-apps
+  original.package.slot: "3.0"
+  original.package.version: 3.36.0
