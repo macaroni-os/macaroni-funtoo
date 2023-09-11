@@ -1,0 +1,48 @@
+name: tepl
+version: 4.4.0
+category: gui-libs-4
+use_flags:
+- -test
+- introspection
+- prefix
+- vala
+requires:
+- name: uchardet
+  version: '>=0'
+  category: app-i18n
+- name: amtk
+  version: '>=0'
+  category: x11-libs
+- name: gtksourceview
+  version: '>=0'
+  category: x11-libs-4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GtkSourceView-based text editors and IDE helper library
+uri:
+- https://wiki.gnome.org/Projects/Gtef
+license: LGPL-2.1+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix?
+    ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
+  DEPEND: '>=x11-libs/amtk-5.0 >=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3
+    >=x11-libs/gtksourceview-4.0 >=dev-libs/libxml2-2.5 app-i18n/uchardet introspection?
+    ( >=dev-libs/gobject-introspection-1.62.0:= ) test? ( dev-util/valgrind ) vala?
+    ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)]
+    dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)]
+    dev-lang/vala:0.36[vapigen(+)] ) ) >=sys-devel/gettext-0.19.4 >=dev-util/gtk-doc-am-1.25
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: +introspection test vala test
+  RDEPEND: '>=x11-libs/amtk-5.0 >=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3
+    >=x11-libs/gtksourceview-4.0 >=dev-libs/libxml2-2.5 app-i18n/uchardet introspection?
+    ( >=dev-libs/gobject-introspection-1.62.0:= )'
+  emerge.packages: gui-libs/tepl:4
+  kit: gnome-kit
+  original.package.name: gui-libs/tepl
+  original.package.slot: "4"
+  original.package.version: 4.4.0
