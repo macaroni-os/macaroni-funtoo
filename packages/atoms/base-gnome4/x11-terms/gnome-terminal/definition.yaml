@@ -1,0 +1,55 @@
+name: gnome-terminal
+version: 3.36.2
+category: x11-terms
+use_flags:
+- gnome-shell
+- nautilus
+requires:
+- name: gnome-shell
+  version: '>=0'
+  category: gnome-base
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: nautilus
+  version: '>=0'
+  category: gnome-base
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: vte
+  version: '>=0'
+  category: x11-libs-2.91
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Gnome Terminal
+uri:
+- https://wiki.gnome.org/Apps/Terminal/
+license: GPL-3+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 app-arch/xz-utils'
+  DEPEND: '>=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3[X] >=x11-libs/vte-0.60.0
+    >=dev-libs/libpcre2-10 >=gnome-base/dconf-0.14 >=gnome-base/gsettings-desktop-schemas-0.1.0
+    sys-apps/util-linux gnome-shell? ( gnome-base/gnome-shell ) nautilus? ( >=gnome-base/nautilus-3
+    ) app-text/yelp-tools dev-libs/libxml2 >=dev-util/intltool-0.50 sys-devel/gettext
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: debug +gnome-shell +nautilus
+  RDEPEND: '>=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3[X] >=x11-libs/vte-0.60.0
+    >=dev-libs/libpcre2-10 >=gnome-base/dconf-0.14 >=gnome-base/gsettings-desktop-schemas-0.1.0
+    sys-apps/util-linux gnome-shell? ( gnome-base/gnome-shell ) nautilus? ( >=gnome-base/nautilus-3
+    )'
+  emerge.packages: x11-terms/gnome-terminal
+  kit: gnome-kit
+  original.package.name: x11-terms/gnome-terminal
+  original.package.slot: "0"
+  original.package.version: 3.36.2-r1
