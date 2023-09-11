@@ -1,0 +1,37 @@
+gpgme_pkg: &package
+  category: app-crypt-1
+  version: 1.18.0
+  uri:
+  - https://www.gnupg.org/related_software/gpgme
+  license: GPL-2 LGPL-2.1
+  labels:
+    emerge.packages: app-crypt/gpgme:1
+    original.package.version: 1.18.0
+  requires:
+  - name: gnupg
+    version: '>=0'
+    category: app-crypt
+  - name: python
+    version: '>=0'
+    category: dev-lang-3.9
+  - name: python-exec
+    version: '>=0'
+    category: dev-lang-2
+  annotations:
+    subsets:
+      rules:
+        devel:
+        - ^/usr/include/
+        portage:
+        - ^/var/db/pkg/
+
+packages:
+  - <<: *package
+    name: "gpgme-qt"
+    description: GnuPG Made Easy is a library for making GnuPG easier to use. Qt tools.
+    includes:
+      - ^/usr/include/QGpgME/.*
+      - ^/usr/include/qgpgme/.*
+      - ^/usr/lib64/cmake/QGpgme/QGpgmeConfig.cmake
+      - ^/usr/lib64/cmake/QGpgme/QGpgmeConfigVersion.cmake
+      - ^/usr/lib64/libqgpgme.*
