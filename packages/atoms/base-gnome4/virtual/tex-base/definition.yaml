@@ -1,0 +1,24 @@
+name: tex-base
+version: "0"
+category: virtual
+requires:
+- name: texlive-core
+  version: '>=0'
+  category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for basic TeX binaries (tex, kpathsea)
+uri:
+- ""
+labels:
+  RDEPEND: app-text/texlive-core
+  emerge.packages: virtual/tex-base
+  kit: text-kit
+  original.package.name: virtual/tex-base
+  original.package.slot: "0"
+  original.package.version: "0"
