@@ -1,0 +1,50 @@
+name: libwnck
+version: 3.36.0
+category: x11-libs-3
+use_flags:
+- introspection
+- startup-notification
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXres
+  version: '>=0'
+  category: x11-libs
+- name: startup-notification
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A window navigation construction kit
+uri:
+- https://developer.gnome.org/libwnck/stable/
+license: LGPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: x11-libs/cairo[X] >=x11-libs/gtk+-3.24.12:3[introspection?] >=dev-libs/glib-2.62.2:2
+    x11-libs/libX11 x11-libs/libXres x11-libs/libXext introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) startup-notification? ( x11-libs/startup-notification ) >=dev-util/gtk-doc-am-1.9
+    >=sys-devel/gettext-0.19.4 >=dev-util/meson-0.50.0 virtual/pkgconfig dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: doc +introspection startup-notification tools
+  RDEPEND: x11-libs/cairo[X] >=x11-libs/gtk+-3.24.12:3[introspection?] >=dev-libs/glib-2.62.2:2
+    x11-libs/libX11 x11-libs/libXres x11-libs/libXext introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) startup-notification? ( x11-libs/startup-notification )
+  emerge.packages: x11-libs/libwnck:3
+  kit: gnome-kit
+  original.package.name: x11-libs/libwnck
+  original.package.slot: "3"
+  original.package.version: 3.36.0
