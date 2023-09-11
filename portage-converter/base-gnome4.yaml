@@ -1,0 +1,473 @@
+skipped_resolutions:
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: eselect-opengl
+      category: app-eselect
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: vanilla-sources
+      category: sys-kernel
+
+    - name: ck-sources
+      category: sys-kernel
+
+    - name: gentoo-sources
+      category: sys-kernel
+
+    - name: pf-sources
+      category: sys-kernel
+
+    - name: xbox-sources
+      category: sys-kernel
+
+    - name: mips-sources
+      category: sys-kernel
+
+    - name: git-sources
+      category: sys-kernel
+
+    - name: aufs-sources
+      category: sys-kernel
+
+    - name: cdrtools
+      category: virtual
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: jack-audio-connection-kit
+      category: media-sound
+
+    - name: eselect-lib-bin-symlink
+      category: app-eselect
+
+    - name: zfs-kmod
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - consolekit
+      - examples
+  packages:
+    - gnome-base/gnome-shell-common
+    - x11-themes/gnome-backgrounds
+    - gnome-extra/gnome-user-docs
+    - dev-python/dbusmock
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - lua
+      - glade
+      - demos
+  packages:
+    - dev-libs/libpeas
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - consolekit
+      - examples
+      - glade
+  packages:
+    - gnome-base/gnome-menus:3
+    - net-libs/gssdp:1.2
+    - x11-libs/gtksourceview:4
+    - net-libs/libgfbgraph:0.2
+    - gnome-extra/gnome-weather
+    - app-crypt/seahorse
+    - x11-terms/gnome-terminal
+    - gnome-extra/yelp
+    # maby this library could be moved in base-multimedia3
+    - media-libs/libmediaart
+    - dev-libs/gom
+    - net-libs/libdmapsharing:3.0
+    - media-libs/gupnp-dlna:2.0
+    - net-libs/gupnp-av:0
+    - net-libs/gssdp:0
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    uses:
+      - mp3
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - consolekit
+      - examples
+      - glade
+  packages:
+    - app-cdr/brasero
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - zeitgeist
+      - valgrind
+      - lcms
+  packages:
+    - dev-libs/folks
+    - app-text/djvu
+    - app-text/libspectre
+    - app-text/libgxps
+    - x11-libs/amtk
+    - x11-libs/libwnck
+    - gnome-extra/gnome-shell-extensions
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+  packages:
+    - app-text/evince
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+      - gtk-doc
+      - examples
+      - freebox
+      - thetvdb
+      - extras
+      - accessibility
+      # at-most-one-of ( connman networkmanager )
+      - connman
+  packages:
+    - net-libs/gupnp:1.2
+    - net-libs/gupnp:0
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+      - gtk-doc
+      - examples
+      - freebox
+      - thetvdb
+      - extras
+      - accessibility
+  packages:
+    - gnome-extra/gnome-contacts
+    - media-gfx/eog
+    - gui-libs/tepl
+    - net-libs/dleyna-core:1.0
+    - app-editors/gedit
+    - net-libs/dleyna-connector-dbus:1.0
+    - net-misc/dleyna-server
+    - media-plugins/grilo-plugins:0.3
+    - media-video/totem
+    - media-sound/gnome-music
+    - sci-geosciences/gnome-maps
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race15
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+      - gtk-doc
+      - examples
+      - freebox
+      - thetvdb
+      - extras
+      - accessibility
+  packages:
+    - gnome-base/gnome-core-apps:3.0
+    - gnome-base/gnome-core-libs:3.0
+    - gnome-base/gnome
+
+- tree: packages/atoms/base-multimedia3
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race15
+  packages:
+    # to move on base-latex
+    - virtual/tex-base
+
+include_layers:
+- layers/macaroni-funtoo-race15.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+    - sys-devel/llvm:13
+    - dev-lang/vala:0.54
+
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
+
+    # Using nodejs-14 LTS for now
+    - <net-libs/nodejs-15.0
+
+    - dev-lang/ruby:3.1
+
+reposcan_disabled_use_flags:
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby32
+  - ruby_targets_ruby30
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - systemd
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  # Ignore packagekit feature
+  - packagekit
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
