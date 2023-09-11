@@ -1,0 +1,97 @@
+name: grilo-plugins
+version: 0.3.12
+category: media-plugins-0.3
+use_flags:
+- -freebox
+- -test
+- -thetvdb
+- chromaprint
+- daap
+- dvd
+- flickr
+- lua
+- subtitles
+- tracker
+- upnp-av
+- vimeo
+- youtube
+requires:
+- name: tracker
+  version: '>=0'
+  category: app-misc
+- name: gmime
+  version: '>=0'
+  category: dev-libs-3.0
+- name: gom
+  version: '>=0'
+  category: dev-libs
+- name: libgdata
+  version: '>=0'
+  category: dev-libs
+- name: lua
+  version: '>=0'
+  category: dev-lua-5.3
+- name: grilo
+  version: '>=0'
+  category: media-libs-0.3
+- name: libmediaart
+  version: '>=0'
+  category: media-libs-2.0
+- name: dleyna-connector-dbus
+  version: '>=0'
+  category: net-libs-1.0
+- name: libdmapsharing
+  version: '>=0'
+  category: net-libs-3.0
+- name: dleyna-server
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A framework for easy media discovery and browsing
+uri:
+- https://wiki.gnome.org/Projects/Grilo
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=media-libs/grilo-0.3.1:0.3=[network,playlist]
+    media-libs/libmediaart:2.0 >=dev-libs/gom-0.3.2 >=dev-libs/gmime-3 dev-libs/json-glib
+    dev-libs/libxml2:2 dev-db/sqlite:3 chromaprint? ( media-libs/gstreamer:1.0 ) daap?
+    ( >=net-libs/libdmapsharing-2.9.12:3.0 ) dvd? ( >=dev-libs/totem-pl-parser-3.4.1
+    ) flickr? ( net-libs/liboauth ) freebox? ( net-dns/avahi ) >=net-libs/gnome-online-accounts-3.17.91:=
+    lua? ( >=dev-lua/lua-5.3 app-arch/libarchive dev-libs/libxml2:2 >=dev-libs/totem-pl-parser-3.4.1
+    ) subtitles? ( net-libs/libsoup:2.4 ) thetvdb? ( app-arch/libarchive dev-libs/libxml2
+    ) tracker? ( >=app-misc/tracker-0.10.5:= ) youtube? ( >=dev-libs/libgdata-0.9.1:=
+    >=dev-libs/totem-pl-parser-3.4.1 ) upnp-av? ( net-libs/libsoup:2.4 net-libs/dleyna-connector-dbus
+    net-misc/dleyna-server ) vimeo? ( >=dev-libs/totem-pl-parser-3.4.1 ) app-text/docbook-xml-dtd:4.5
+    app-text/yelp-tools >=dev-util/gdbus-codegen-2.44 >=dev-util/intltool-0.40.0 virtual/pkgconfig
+    lua? ( dev-util/gperf ) upnp-av? ( test? ( || ( dev-lang/python:3.10 >=dev-lang/python-2.7.5-r2:2.7
+    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) || ( ( dev-lang/python:3.10
+    dev-python/dbusmock[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( >=dev-lang/python-2.7.5-r2:2.7 dev-python/dbusmock[python_targets_python2_7(-),python_single_target_python2_7(+)]
+    ) ( dev-lang/python:3.8 dev-python/dbusmock[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/dbusmock[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/dbusmock[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  IUSE: daap dvd examples chromaprint flickr freebox lua subtitles test thetvdb tracker
+    upnp-av vimeo +youtube
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=media-libs/grilo-0.3.1:0.3=[network,playlist]
+    media-libs/libmediaart:2.0 >=dev-libs/gom-0.3.2 >=dev-libs/gmime-3 dev-libs/json-glib
+    dev-libs/libxml2:2 dev-db/sqlite:3 chromaprint? ( media-libs/gstreamer:1.0 ) daap?
+    ( >=net-libs/libdmapsharing-2.9.12:3.0 ) dvd? ( >=dev-libs/totem-pl-parser-3.4.1
+    ) flickr? ( net-libs/liboauth ) freebox? ( net-dns/avahi ) >=net-libs/gnome-online-accounts-3.17.91:=
+    lua? ( >=dev-lua/lua-5.3 app-arch/libarchive dev-libs/libxml2:2 >=dev-libs/totem-pl-parser-3.4.1
+    ) subtitles? ( net-libs/libsoup:2.4 ) thetvdb? ( app-arch/libarchive dev-libs/libxml2
+    ) tracker? ( >=app-misc/tracker-0.10.5:= ) youtube? ( >=dev-libs/libgdata-0.9.1:=
+    >=dev-libs/totem-pl-parser-3.4.1 ) upnp-av? ( net-libs/libsoup:2.4 net-libs/dleyna-connector-dbus
+    net-misc/dleyna-server ) vimeo? ( >=dev-libs/totem-pl-parser-3.4.1 )'
+  emerge.packages: media-plugins/grilo-plugins:0.3
+  kit: gnome-kit
+  original.package.name: media-plugins/grilo-plugins
+  original.package.slot: "0.3"
+  original.package.version: 0.3.12
