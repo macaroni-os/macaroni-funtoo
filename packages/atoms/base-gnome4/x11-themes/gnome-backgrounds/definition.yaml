@@ -1,0 +1,25 @@
+name: gnome-backgrounds
+version: 3.36.0
+category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A set of backgrounds packaged with the GNOME desktop
+uri:
+- https://git.gnome.org/browse/gnome-backgrounds
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-util/intltool-0.40.0 sys-devel/gettext dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  RDEPEND: '!<x11-themes/gnome-themes-standard-3.14'
+  emerge.packages: x11-themes/gnome-backgrounds
+  kit: gnome-kit
+  original.package.name: x11-themes/gnome-backgrounds
+  original.package.slot: "0"
+  original.package.version: 3.36.0
