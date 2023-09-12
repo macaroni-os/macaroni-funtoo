@@ -1,0 +1,25 @@
+name: cblas
+version: "3.7"
+category: virtual
+requires:
+- name: cblas-reference
+  version: '>=0'
+  category: sci-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for BLAS C implementation
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( >=sci-libs/cblas-reference-20161223 sci-libs/gsl[-cblas-external]
+    >=sci-libs/mkl-9.1.023 )'
+  emerge.packages: virtual/cblas
+  kit: science-kit
+  original.package.name: virtual/cblas
+  original.package.slot: "0"
+  original.package.version: "3.7"
