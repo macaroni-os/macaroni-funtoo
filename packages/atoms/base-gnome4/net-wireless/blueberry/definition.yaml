@@ -1,0 +1,84 @@
+name: blueberry
+version: 1.4.1
+category: net-wireless
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: dbus-python
+  version: '>=0'
+  category: dev-python
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: setproctitle
+  version: '>=0'
+  category: dev-python
+- name: xapp
+  version: '>=0'
+  category: dev-python
+- name: bluez-tools
+  version: '>=0'
+  category: net-wireless
+- name: gnome-bluetooth
+  version: '>=0'
+  category: net-wireless-2
+- name: wmctrl
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Bluetooth configuration tool
+uri:
+- https://github.com/linuxmint/blueberry
+license: GPL-3
+labels:
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-python/dbus-python[python_targets_python3_7(-)]
+    dev-python/pygobject:3[python_targets_python3_7(-)] dev-python/setproctitle[python_targets_python3_7(-)]
+    dev-python/xapp[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/dbus-python[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)]
+    dev-python/setproctitle[python_targets_python3_9(-)] dev-python/xapp[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/dbus-python[python_targets_python3_8(-)]
+    dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/setproctitle[python_targets_python3_8(-)]
+    dev-python/xapp[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)]
+    dev-python/setproctitle[python_targets_python3_10(-)] dev-python/xapp[python_targets_python3_10(-)]
+    ) >=net-wireless/gnome-bluetooth-3.14[introspection] net-wireless/bluez[obex]
+    net-wireless/bluez-tools || ( >=sys-apps/util-linux-2.31_rc1 net-wireless/rfkill
+    ) x11-libs/libnotify[introspection] x11-misc/wmctrl
+  IUSE: python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-python/dbus-python[python_targets_python3_7(-)]
+    dev-python/pygobject:3[python_targets_python3_7(-)] dev-python/setproctitle[python_targets_python3_7(-)]
+    dev-python/xapp[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/dbus-python[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)]
+    dev-python/setproctitle[python_targets_python3_9(-)] dev-python/xapp[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/dbus-python[python_targets_python3_8(-)]
+    dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/setproctitle[python_targets_python3_8(-)]
+    dev-python/xapp[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)]
+    dev-python/setproctitle[python_targets_python3_10(-)] dev-python/xapp[python_targets_python3_10(-)]
+    ) >=net-wireless/gnome-bluetooth-3.14[introspection] net-wireless/bluez[obex]
+    net-wireless/bluez-tools || ( >=sys-apps/util-linux-2.31_rc1 net-wireless/rfkill
+    ) x11-libs/libnotify[introspection] x11-misc/wmctrl
+  emerge.packages: net-wireless/blueberry
+  kit: gnome-kit
+  original.package.name: net-wireless/blueberry
+  original.package.slot: "0"
+  original.package.version: 1.4.1
