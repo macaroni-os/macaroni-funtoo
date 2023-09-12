@@ -1,0 +1,84 @@
+name: rygel
+version: 0.38.4
+category: net-misc
+use_flags:
+- -tracker
+- X
+- introspection
+- sqlite
+- transcode
+requires:
+- name: libgee
+  version: '>=0'
+  category: dev-libs-0.8
+- name: libunistring
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-bad
+  version: '>=0'
+  category: media-libs-1.0
+- name: gupnp-dlna
+  version: '>=0'
+  category: media-libs-2.0
+- name: libmediaart
+  version: '>=0'
+  category: media-libs-2.0
+- name: gst-plugins-libav
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-soup
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-twolame
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gupnp
+  version: '>=0'
+  category: net-libs-1.2
+- name: gupnp-av
+  version: '>=0'
+  category: net-libs
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Rygel is an open source UPnP/DLNA MediaServer
+uri:
+- https://wiki.gnome.org/Projects/Rygel
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libgee-0.8:0.8 >=dev-libs/libxml2-2.7:2
+    >=media-libs/gupnp-dlna-0.9.4:2.0 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    >=media-libs/libmediaart-0.7:2.0 media-plugins/gst-plugins-soup:1.0 >=net-libs/gssdp-0.13
+    >=net-libs/gupnp-0.20.14 >=net-libs/gupnp-av-0.12.8 >=net-libs/libsoup-2.44:2.4
+    >=sys-apps/util-linux-2.20 x11-misc/shared-mime-info introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) sqlite? ( >=dev-db/sqlite-3.5:3 dev-libs/libunistring:= x11-libs/gdk-pixbuf:2
+    ) tracker? ( >=app-misc/tracker-0.16:= ) transcode? ( media-libs/gst-plugins-bad:1.0
+    media-plugins/gst-plugins-twolame:1.0 media-plugins/gst-plugins-libav:1.0 ) X?
+    ( >=x11-libs/gtk+-3:3 ) dev-util/gtk-doc-am >=sys-devel/gettext-0.19.7 virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info virtual/pkgconfig'
+  IUSE: X +introspection +sqlite tracker test transcode
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libgee-0.8:0.8 >=dev-libs/libxml2-2.7:2
+    >=media-libs/gupnp-dlna-0.9.4:2.0 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    >=media-libs/libmediaart-0.7:2.0 media-plugins/gst-plugins-soup:1.0 >=net-libs/gssdp-0.13
+    >=net-libs/gupnp-0.20.14 >=net-libs/gupnp-av-0.12.8 >=net-libs/libsoup-2.44:2.4
+    >=sys-apps/util-linux-2.20 x11-misc/shared-mime-info introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) sqlite? ( >=dev-db/sqlite-3.5:3 dev-libs/libunistring:= x11-libs/gdk-pixbuf:2
+    ) tracker? ( >=app-misc/tracker-0.16:= ) transcode? ( media-libs/gst-plugins-bad:1.0
+    media-plugins/gst-plugins-twolame:1.0 media-plugins/gst-plugins-libav:1.0 ) X?
+    ( >=x11-libs/gtk+-3:3 )'
+  emerge.packages: net-misc/rygel
+  kit: gnome-kit
+  original.package.name: net-misc/rygel
+  original.package.slot: "0"
+  original.package.version: 0.38.4
