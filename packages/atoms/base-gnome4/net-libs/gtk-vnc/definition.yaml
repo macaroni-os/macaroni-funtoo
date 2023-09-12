@@ -1,0 +1,69 @@
+name: gtk-vnc
+version: 1.3.1
+category: net-libs
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -sasl
+- introspection
+- pulseaudio
+- python_targets_python3_9
+- vala
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: VNC viewer widget for GTK
+uri:
+- https://wiki.gnome.org/Projects/gtk-vnc https://gitlab.gnome.org/GNOME/gtk-vnc
+license: LGPL-2.1+
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-lang/perl-5 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig
+    vala? ( || ( dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)]
+    dev-lang/vala:0.44[vapigen(+)] ) ) app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: '>=dev-libs/glib-2.56.0:2 >=x11-libs/gdk-pixbuf-2.36.0:2 >=dev-libs/libgcrypt-1.8.0:0=
+    >=net-libs/gnutls-3.6.0:0= >=sys-libs/zlib-1.2.11 sasl? ( >=dev-libs/cyrus-sasl-2.1.27:2
+    ) >=x11-libs/gtk+-3.22.0:3[introspection?] >=x11-libs/cairo-1.15.0 >=x11-libs/libX11-1.6.5
+    pulseaudio? ( >=media-sound/pulseaudio-11.0 ) introspection? ( >=dev-libs/gobject-introspection-1.56.0:=
+    )'
+  IUSE: +introspection pulseaudio sasl +vala python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: '>=dev-libs/glib-2.56.0:2 >=x11-libs/gdk-pixbuf-2.36.0:2 >=dev-libs/libgcrypt-1.8.0:0=
+    >=net-libs/gnutls-3.6.0:0= >=sys-libs/zlib-1.2.11 sasl? ( >=dev-libs/cyrus-sasl-2.1.27:2
+    ) >=x11-libs/gtk+-3.22.0:3[introspection?] >=x11-libs/cairo-1.15.0 >=x11-libs/libX11-1.6.5
+    pulseaudio? ( >=media-sound/pulseaudio-11.0 ) introspection? ( >=dev-libs/gobject-introspection-1.56.0:=
+    )'
+  emerge.packages: net-libs/gtk-vnc
+  kit: gnome-kit
+  original.package.name: net-libs/gtk-vnc
+  original.package.slot: "0"
+  original.package.version: 1.3.1
