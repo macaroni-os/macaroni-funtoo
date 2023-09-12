@@ -1,0 +1,61 @@
+name: gnome-nettool
+version: 3.8.1
+category: net-analyzer
+use_flags:
+- -userland_BSD
+- userland_GNU
+requires:
+- name: libgtop
+  version: '>=0'
+  category: gnome-base-2
+- name: nmap
+  version: '>=0'
+  category: net-analyzer
+- name: bind-tools
+  version: '>=0'
+  category: net-dns
+- name: iputils
+  version: '>=0'
+  category: net-misc
+- name: netkit-fingerd
+  version: '>=0'
+  category: net-misc
+- name: whois
+  version: '>=0'
+  category: net-misc
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Graphical front-ends to various networking command-line
+uri:
+- https://git.gnome.org/browse/gnome-nettool/
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 gnome-base/libgtop:2= x11-libs/cairo x11-libs/gdk-pixbuf:2
+    >=x11-libs/gtk+-2.90.4:3 x11-libs/pango app-text/yelp-tools >=dev-util/intltool-0.40
+    virtual/pkgconfig sys-devel/gettext >=app-portage/elt-patches-20170815 app-arch/xz-utils
+    dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: debug debug
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 gnome-base/libgtop:2= x11-libs/cairo x11-libs/gdk-pixbuf:2
+    >=x11-libs/gtk+-2.90.4:3 x11-libs/pango || ( net-misc/iputils net-analyzer/tcptraceroute
+    net-analyzer/traceroute sys-freebsd/freebsd-usbin ) net-analyzer/nmap net-dns/bind-tools
+    userland_GNU? ( net-misc/netkit-fingerd net-misc/whois ) userland_BSD? ( net-misc/bsdwhois
+    )'
+  emerge.packages: net-analyzer/gnome-nettool
+  kit: gnome-kit
+  original.package.name: net-analyzer/gnome-nettool
+  original.package.slot: "0"
+  original.package.version: 3.8.1-r1
