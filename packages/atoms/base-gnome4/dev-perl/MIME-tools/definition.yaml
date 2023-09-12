@@ -1,0 +1,44 @@
+name: MIME-tools
+version: 5.509.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: MailTools
+  version: '>=0'
+  category: dev-perl
+- name: perl-File-Path
+  version: '>=0'
+  category: virtual
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-File-Temp
+  version: '>=0'
+  category: virtual
+- name: perl-MIME-Base64
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Perl module for parsing and creating MIME entities
+uri:
+- https://metacpan.org/release/MIME-tools
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-File-Path-1 >=virtual/perl-File-Spec-0.600.0 >=virtual/perl-File-Temp-0.180.0
+    virtual/perl-IO >=virtual/perl-MIME-Base64-2.200.0 dev-perl/MailTools >=virtual/perl-ExtUtils-MakeMaker-6.590.0
+    test? ( dev-perl/Test-Deep ) dev-lang/perl:='
+  IUSE: test examples
+  RDEPEND: '>=virtual/perl-File-Path-1 >=virtual/perl-File-Spec-0.600.0 >=virtual/perl-File-Temp-0.180.0
+    virtual/perl-IO >=virtual/perl-MIME-Base64-2.200.0 dev-perl/MailTools dev-lang/perl:='
+  emerge.packages: dev-perl/MIME-tools
+  kit: perl-kit
+  original.package.name: dev-perl/MIME-tools
+  original.package.slot: "0"
+  original.package.version: 5.509.0
