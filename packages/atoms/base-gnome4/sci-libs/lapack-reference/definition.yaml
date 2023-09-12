@@ -1,0 +1,37 @@
+name: lapack-reference
+version: 3.7.0
+category: sci-libs
+requires:
+- name: eselect-lapack
+  version: '>=0'
+  category: app-eselect
+- name: blas
+  version: '>=0'
+  category: virtual
+- name: fortran
+  version: '>=0'
+  category: virtual
+- name: pkgconfig
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Reference implementation of LAPACK
+uri:
+- http://www.netlib.org/lapack/
+license: BSD
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: app-eselect/eselect-lapack >=virtual/blas-3.6 virtual/pkgconfig virtual/fortran
+  IUSE: +deprecated
+  RDEPEND: app-eselect/eselect-lapack >=virtual/blas-3.6 virtual/pkgconfig virtual/fortran
+  emerge.packages: sci-libs/lapack-reference
+  kit: science-kit
+  original.package.name: sci-libs/lapack-reference
+  original.package.slot: "0"
+  original.package.version: 3.7.0-r1
