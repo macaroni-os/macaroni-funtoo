@@ -1,0 +1,32 @@
+name: opencl
+version: "0"
+category: virtual
+use_flags:
+- amd64
+- video_cards_amdgpu
+- video_cards_i965
+- video_cards_nvidia
+requires:
+- name: mesa
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for OpenCL implementations
+uri:
+- ""
+labels:
+  IUSE: video_cards_amdgpu video_cards_i965 video_cards_nvidia
+  RDEPEND: '|| ( >=media-libs/mesa-9.1.6[opencl] amd64? ( video_cards_amdgpu? ( dev-libs/amdgpu-pro-opencl
+    ) dev-util/intel-ocl-sdk ) video_cards_i965? ( dev-libs/beignet ) video_cards_nvidia?
+    ( >=x11-drivers/nvidia-drivers-290.10-r2[opencl] ) )'
+  emerge.packages: virtual/opencl
+  kit: core-gl-kit
+  original.package.name: virtual/opencl
+  original.package.slot: "0"
+  original.package.version: 0-r6
