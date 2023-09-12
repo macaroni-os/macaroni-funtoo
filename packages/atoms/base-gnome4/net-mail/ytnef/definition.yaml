@@ -1,0 +1,30 @@
+name: ytnef
+version: 1.9.3
+category: net-mail
+requires:
+- name: MIME-tools
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Yeraze's TNEF Stream Reader - for winmail.dat files
+uri:
+- https://github.com/Yeraze/ytnef
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: sys-devel/libtool
+  IUSE: static-libs
+  RDEPEND: dev-perl/MIME-tools
+  emerge.packages: net-mail/ytnef
+  kit: net-kit
+  original.package.name: net-mail/ytnef
+  original.package.slot: "0"
+  original.package.version: 1.9.3
