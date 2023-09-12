@@ -4,7 +4,7 @@ prelude:
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
-  USE="cxx python qt5* emerge gpgme -j ${JOBS}
+  USE="cxx python qt5" emerge gpgme -j ${JOBS}
 - >-
   export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" &&
   export LUET_PORTAGE_IGNORE_TAR_WARNING=1 &&
