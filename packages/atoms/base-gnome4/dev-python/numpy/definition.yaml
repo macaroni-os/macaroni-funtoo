@@ -1,0 +1,54 @@
+name: numpy
+version: 1.21.5
+category: dev-python
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- lapack
+- python_targets_python3_9
+requires:
+- name: setuptools
+  version: '>=0'
+  category: dev-python
+- name: cblas
+  version: '>=0'
+  category: virtual
+- name: fortran
+  version: '>=0'
+  category: virtual
+- name: lapack
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fast array and numerical python library
+uri:
+- https://numpy.org/
+license: BSD
+labels:
+  BDEPEND: lapack? ( virtual/cblas virtual/lapack ) app-arch/unzip >=dev-python/cython-0.29.24[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    lapack? ( virtual/pkgconfig ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)]
+    ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8?
+    ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  DEPEND: lapack? ( virtual/fortran )
+  IUSE: lapack python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10
+  RDEPEND: lapack? ( virtual/cblas virtual/lapack ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)]
+    ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8?
+    ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    lapack? ( virtual/fortran )
+  emerge.packages: dev-python/numpy
+  kit: python-modules-kit
+  original.package.name: dev-python/numpy
+  original.package.slot: "0"
+  original.package.version: 1.21.5
