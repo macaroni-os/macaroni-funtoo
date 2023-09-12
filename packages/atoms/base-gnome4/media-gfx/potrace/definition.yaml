@@ -1,0 +1,27 @@
+name: potrace
+version: "1.15"
+category: media-gfx
+requires:
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Transforming bitmaps into vector graphics
+uri:
+- http://potrace.sourceforge.net/
+license: GPL-2
+labels:
+  DEPEND: sys-libs/zlib
+  IUSE: metric static-libs
+  RDEPEND: sys-libs/zlib
+  emerge.packages: media-gfx/potrace
+  kit: media-kit
+  original.package.name: media-gfx/potrace
+  original.package.slot: "0"
+  original.package.version: "1.15"
