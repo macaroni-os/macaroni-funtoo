@@ -1,0 +1,28 @@
+name: gnome-icon-theme-extras
+version: 3.12.0
+category: x11-themes
+requires:
+- name: hicolor-icon-theme
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Extra GNOME icons for specific devices and file types
+uri:
+- https://git.gnome.org/browse/gnome-icon-theme-extras/
+license: CC-BY-SA-3.0
+labels:
+  DEPEND: '>=x11-themes/hicolor-icon-theme-0.10 >=x11-misc/icon-naming-utils-0.8.7
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  RDEPEND: '>=x11-themes/hicolor-icon-theme-0.10'
+  emerge.packages: x11-themes/gnome-icon-theme-extras
+  kit: gnome-kit
+  original.package.name: x11-themes/gnome-icon-theme-extras
+  original.package.slot: "0"
+  original.package.version: 3.12.0
