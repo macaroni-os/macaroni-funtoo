@@ -1,0 +1,42 @@
+name: baobab
+version: 3.34.1
+category: sys-apps
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: adwaita-icon-theme
+  version: '>=0'
+  category: x11-themes
+- name: gnome-icon-theme-extras
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Disk usage browser for GNOME
+uri:
+- https://wiki.gnome.org/Apps/Baobab
+license: GPL-2+ FDL-1.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3 app-text/yelp-tools
+    dev-libs/appstream-glib >=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3 gnome-base/gsettings-desktop-schemas
+    x11-themes/adwaita-icon-theme x11-themes/gnome-icon-theme-extras !<gnome-extra/gnome-utils-3.4'
+  emerge.packages: sys-apps/baobab
+  kit: gnome-kit
+  original.package.name: sys-apps/baobab
+  original.package.slot: "0"
+  original.package.version: 3.34.1
