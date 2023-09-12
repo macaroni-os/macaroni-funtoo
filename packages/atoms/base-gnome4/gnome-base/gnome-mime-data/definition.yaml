@@ -1,0 +1,23 @@
+name: gnome-mime-data
+version: 2.18.0
+category: gnome-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: MIME data for Gnome
+uri:
+- https://www.gnome.org/
+license: GPL-2
+labels:
+  DEPEND: virtual/pkgconfig >=dev-util/intltool-0.35 >=app-portage/elt-patches-20170815
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug
+  emerge.packages: gnome-base/gnome-mime-data
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-mime-data
+  original.package.slot: "0"
+  original.package.version: 2.18.0
