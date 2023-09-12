@@ -1,11 +1,12 @@
 name: gnome-music
-version: 3.36.6
+version: 3.36.6+1
 category: media-sound
 use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
 - python_single_target_python3_9
+- tracker
 requires:
 - name: libdazzle
   version: '>=0'
@@ -28,6 +29,9 @@ requires:
 - name: gst-plugins-meta
   version: '>=0'
   category: media-plugins-1.0
+- name: gnome-online-accounts
+  version: '>=0'
+  category: net-libs
 - name: libnotify
   version: '>=0'
   category: x11-libs
