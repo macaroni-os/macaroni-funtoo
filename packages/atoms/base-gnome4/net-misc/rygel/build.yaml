@@ -1,4 +1,10 @@
 prelude:
+# Temporary (to add on funtoo-kits)
+- >-
+  cp *.ebuild /var/git/meta-repo/kits/gnome-kit/net-misc/rygel &&
+  cd /var/git/meta-repo/kits/gnome-kit/net-misc/rygel &&
+  ebuild rygel-0.40.4.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
