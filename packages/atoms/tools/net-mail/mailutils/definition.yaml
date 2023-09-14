@@ -1,0 +1,108 @@
+name: mailutils
+version: "3.10"
+category: net-mail
+use_flags:
+- -emacs
+- -kyotocabinet
+- -ldap
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -tokyocabinet
+- berkdb
+- bidi
+- gdbm
+- guile
+- kerberos
+- mysql
+- nls
+- pam
+- postgres
+- python
+- python_single_target_python3_9
+- sasl
+- servers
+- ssl
+- tcpd
+requires:
+- name: mysql-connector-c
+  version: '>=0'
+  category: dev-db
+- name: postgresql
+  version: '>=0'
+  category: dev-db-13
+- name: fribidi
+  version: '>=0'
+  category: dev-libs
+- name: guile
+  version: '>=0'
+  category: dev-scheme-12
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+- name: gsasl
+  version: '>=0'
+  category: virtual
+- name: krb5
+  version: '>=0'
+  category: virtual
+- name: mta
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A useful collection of mail servers, clients, and filters
+uri:
+- https://www.gnu.org/software/mailutils/mailutils.html
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '!mail-client/nmh !mail-filter/libsieve !mail-client/mailx !mail-client/nail
+    sys-libs/ncurses:= sys-libs/readline:= dev-libs/libltdl:0 virtual/mta berkdb?
+    ( sys-libs/db:= ) bidi? ( dev-libs/fribidi ) emacs? ( >=app-editors/emacs-23.1:*
+    ) gdbm? ( sys-libs/gdbm:= ) guile? ( dev-scheme/guile:12/2.2-1 ) kerberos? ( virtual/krb5
+    ) kyotocabinet? ( dev-db/kyotocabinet ) ldap? ( net-nds/openldap ) mysql? ( dev-db/mysql-connector-c
+    ) nls? ( sys-devel/gettext ) pam? ( sys-libs/pam ) postgres? ( dev-db/postgresql:=
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) sasl? ( virtual/gsasl ) servers? ( virtual/libiconv dev-libs/libunistring
+    ) ssl? ( net-libs/gnutls:= ) tcpd? ( sys-apps/tcp-wrappers ) tokyocabinet? ( dev-db/tokyocabinet
+    ) virtual/pkgconfig'
+  IUSE: berkdb bidi +clients emacs gdbm sasl guile ipv6 kerberos kyotocabinet ldap
+    mysql nls pam postgres python servers split-usr ssl static-libs +threads tcpd
+    tokyocabinet python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: '!mail-client/nmh !mail-filter/libsieve !mail-client/mailx !mail-client/nail
+    sys-libs/ncurses:= sys-libs/readline:= dev-libs/libltdl:0 virtual/mta berkdb?
+    ( sys-libs/db:= ) bidi? ( dev-libs/fribidi ) emacs? ( >=app-editors/emacs-23.1:*
+    ) gdbm? ( sys-libs/gdbm:= ) guile? ( dev-scheme/guile:12/2.2-1 ) kerberos? ( virtual/krb5
+    ) kyotocabinet? ( dev-db/kyotocabinet ) ldap? ( net-nds/openldap ) mysql? ( dev-db/mysql-connector-c
+    ) nls? ( sys-devel/gettext ) pam? ( sys-libs/pam ) postgres? ( dev-db/postgresql:=
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) sasl? ( virtual/gsasl ) servers? ( virtual/libiconv dev-libs/libunistring
+    ) ssl? ( net-libs/gnutls:= ) tcpd? ( sys-apps/tcp-wrappers ) tokyocabinet? ( dev-db/tokyocabinet
+    )'
+  emerge.packages: net-mail/mailutils
+  kit: net-kit
+  original.package.name: net-mail/mailutils
+  original.package.slot: "0"
+  original.package.version: "3.10"
