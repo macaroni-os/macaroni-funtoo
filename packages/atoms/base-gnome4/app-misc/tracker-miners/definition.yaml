@@ -1,0 +1,113 @@
+name: tracker-miners
+version: 2.3.5
+category: app-misc
+use_flags:
+- -cue
+- -exif
+- -flac
+- -gif
+- -gsf
+- -iptc
+- -test
+- -xmp
+- ffmpeg
+- gstreamer
+- iso
+- jpeg
+- libav
+- pdf
+- playlist
+- raw
+- rss
+- taglib
+- tiff
+- upower
+- vorbis
+- xml
+- xps
+requires:
+- name: gzip
+  version: '>=0'
+  category: app-arch
+- name: tracker
+  version: '>=0'
+  category: app-misc
+- name: libgxps
+  version: '>=0'
+  category: app-text
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: totem-pl-parser
+  version: '>=0'
+  category: dev-libs
+- name: gexiv2
+  version: '>=0'
+  category: media-libs
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
+- name: taglib
+  version: '>=0'
+  category: media-libs
+- name: libgrss
+  version: '>=0'
+  category: net-libs
+- name: libosinfo
+  version: '>=0'
+  category: sys-libs
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+- name: upower
+  version: '>=0'
+  category: sys-power
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Collection of data extractors for Tracker/Nepomuk
+uri:
+- https://wiki.gnome.org/Projects/Tracker
+license: GPL-2+ LGPL-2.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=app-misc/tracker-2.2.1:= gstreamer? ( media-libs/gstreamer:1.0
+    media-libs/gst-plugins-base:1.0 ) !gstreamer? ( ffmpeg? ( libav? ( media-video/libav:0=
+    ) !libav? ( media-video/ffmpeg:0= ) ) ) >=sys-apps/dbus-1.3.1 xmp? ( >=media-libs/exempi-2.1.0:=
+    ) flac? ( >=media-libs/flac-1.2.1 ) raw? ( media-libs/gexiv2 ) >=dev-libs/icu-4.8.1.2:=
+    cue? ( media-libs/libcue ) exif? ( >=media-libs/libexif-0.6 ) gsf? ( >=gnome-extra/libgsf-1.14.24:=
+    ) xps? ( app-text/libgxps ) iptc? ( media-libs/libiptcdata ) jpeg? ( virtual/jpeg:0
+    ) iso? ( >=sys-libs/libosinfo-0.2.10 ) >=media-libs/libpng-1.2:0= >=sys-libs/libseccomp-2.0
+    tiff? ( media-libs/tiff:0 ) xml? ( >=dev-libs/libxml2-2.6 ) vorbis? ( >=media-libs/libvorbis-0.22
+    ) pdf? ( >=app-text/poppler-0.16.0[cairo] ) taglib? ( >=media-libs/taglib-1.6
+    ) playlist? ( >=dev-libs/totem-pl-parser-3:= ) upower? ( >=sys-power/upower-0.9.0
+    ) sys-libs/zlib:0 gif? ( media-libs/giflib:= ) rss? ( >=net-libs/libgrss-0.7:0
+    ) app-arch/gzip dev-util/glib-utils >=dev-util/intltool-0.40.0 >=sys-devel/gettext-0.19.8
+    virtual/pkgconfig test? ( || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig'
+  IUSE: cue exif ffmpeg flac gif gsf +gstreamer iptc +iso +jpeg libav +pdf +playlist
+    raw +rss test +taglib +tiff upower +vorbis +xml xmp xps
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=app-misc/tracker-2.2.1:= gstreamer? ( media-libs/gstreamer:1.0
+    media-libs/gst-plugins-base:1.0 ) !gstreamer? ( ffmpeg? ( libav? ( media-video/libav:0=
+    ) !libav? ( media-video/ffmpeg:0= ) ) ) >=sys-apps/dbus-1.3.1 xmp? ( >=media-libs/exempi-2.1.0:=
+    ) flac? ( >=media-libs/flac-1.2.1 ) raw? ( media-libs/gexiv2 ) >=dev-libs/icu-4.8.1.2:=
+    cue? ( media-libs/libcue ) exif? ( >=media-libs/libexif-0.6 ) gsf? ( >=gnome-extra/libgsf-1.14.24:=
+    ) xps? ( app-text/libgxps ) iptc? ( media-libs/libiptcdata ) jpeg? ( virtual/jpeg:0
+    ) iso? ( >=sys-libs/libosinfo-0.2.10 ) >=media-libs/libpng-1.2:0= >=sys-libs/libseccomp-2.0
+    tiff? ( media-libs/tiff:0 ) xml? ( >=dev-libs/libxml2-2.6 ) vorbis? ( >=media-libs/libvorbis-0.22
+    ) pdf? ( >=app-text/poppler-0.16.0[cairo] ) taglib? ( >=media-libs/taglib-1.6
+    ) playlist? ( >=dev-libs/totem-pl-parser-3:= ) upower? ( >=sys-power/upower-0.9.0
+    ) sys-libs/zlib:0 gif? ( media-libs/giflib:= ) rss? ( >=net-libs/libgrss-0.7:0
+    ) app-arch/gzip'
+  emerge.packages: app-misc/tracker-miners
+  kit: gnome-kit
+  original.package.name: app-misc/tracker-miners
+  original.package.slot: "0"
+  original.package.version: 2.3.5
