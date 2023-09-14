@@ -1,0 +1,46 @@
+name: kpmcore
+version: 22.08.1
+category: sys-libs-5
+requires:
+- name: qca
+  version: '>=0'
+  category: app-crypt-2
+- name: kauth
+  version: '>=0'
+  category: kde-frameworks-5
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for managing partitions
+uri:
+- https://apps.kde.org/en/partitionmanager
+license: GPL-3
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: '>=kde-frameworks/kauth-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5
+    >=kde-frameworks/kwidgetsaddons-5.98.0:5 >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtgui-5.15.2:5
+    >=dev-qt/qtwidgets-5.15.2:5 || ( app-crypt/qca[botan] app-crypt/qca[ssl] ) >=sys-apps/util-linux-2.33.2
+    dev-util/desktop-file-utils x11-misc/shared-mime-info dev-util/desktop-file-utils'
+  IUSE: debug
+  RDEPEND: '>=kde-frameworks/kauth-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5 >=dev-qt/qtdbus-5.15.2:5
+    >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5 || ( app-crypt/qca[botan]
+    app-crypt/qca[ssl] ) >=sys-apps/util-linux-2.33.2'
+  emerge.packages: sys-libs/kpmcore:5
+  kit: kde-kit
+  original.package.name: sys-libs/kpmcore
+  original.package.slot: "5"
+  original.package.version: 22.08.1
