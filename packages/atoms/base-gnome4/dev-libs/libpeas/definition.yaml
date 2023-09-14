@@ -1,24 +1,22 @@
 name: libpeas
-version: 1.26.0
+version: 1.26.0+1
 category: dev-libs
 use_flags:
-- -glade
 - -lua
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
 - -test
+- glade
 - gtk
 - prefix
 - python
 - python_single_target_python3_9
+- vala
 requires:
-- name: pygobject
+- name: glade
   version: '>=0'
-  category: dev-python-3
-- name: gtk+
-  version: '>=0'
-  category: x11-libs-3
+  category: dev-util-3.10
 annotations:
   subsets:
     rules:
