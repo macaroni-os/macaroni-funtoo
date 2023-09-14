@@ -1,0 +1,44 @@
+name: neofetch
+version: 7.1.0
+category: app-misc
+use_flags:
+- X
+requires:
+- name: imagemagick
+  version: '>=0'
+  category: media-gfx
+- name: pciutils
+  version: '>=0'
+  category: sys-apps
+- name: w3m
+  version: '>=0'
+  category: www-client
+- name: xprop
+  version: '>=0'
+  category: x11-apps
+- name: xrandr
+  version: '>=0'
+  category: x11-apps
+- name: xwininfo
+  version: '>=0'
+  category: x11-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple information system script
+uri:
+- https://github.com/dylanaraps/neofetch
+license: MIT-with-advertising
+labels:
+  IUSE: X
+  RDEPEND: sys-apps/pciutils X? ( media-gfx/imagemagick media-libs/imlib2 www-client/w3m[imlib]
+    x11-apps/xprop x11-apps/xrandr x11-apps/xwininfo )
+  emerge.packages: app-misc/neofetch
+  kit: dev-kit
+  original.package.name: app-misc/neofetch
+  original.package.slot: "0"
+  original.package.version: 7.1.0
