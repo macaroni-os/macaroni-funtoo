@@ -1,0 +1,43 @@
+name: breeze-icons
+version: 5.98.0
+category: kde-frameworks-5
+use_flags:
+- -doc
+- -test
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: kf-env
+  version: '>=0'
+  category: kde-frameworks-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Breeze SVG icon theme
+uri:
+- https://kde.org/
+license: LGPL-3
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) || ( ( dev-lang/python:3.10 dev-python/lxml[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/lxml[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/lxml[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/lxml[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) >=dev-qt/qtcore-5.11.1:5 >=kde-frameworks/extra-cmake-modules-5.98:5 test?
+    ( app-misc/fdupes ) dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98:5
+    doc? ( >=dev-qt/qthelp-5.11.1:5 >=app-doc/doxygen-1.8.13-r1 )'
+  DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.11.1:5
+    ) >=dev-qt/qtcore-5.11.1:5 doc? ( >=dev-qt/qt-docs-5.11.1:5 ) dev-util/desktop-file-utils
+  IUSE: test debug doc test
+  RDEPEND: '>=kde-frameworks/kf-env-4 >=dev-qt/qtcore-5.11.1:5 doc? ( >=dev-qt/qt-docs-5.11.1:5
+    )'
+  emerge.packages: kde-frameworks/breeze-icons:5
+  kit: kde-kit
+  original.package.name: kde-frameworks/breeze-icons
+  original.package.slot: "5"
+  original.package.version: 5.98.0
