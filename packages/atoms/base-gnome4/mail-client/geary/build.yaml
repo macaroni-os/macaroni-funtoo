@@ -6,6 +6,8 @@ prelude:
   luet repo update && luet upgrade -y && luet cleanup &&
   mkdir -p /etc/portage/patches/mail-client/geary/ &&
   cp -vf *.patch /etc/portage/patches/mail-client/geary/
+
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -31,6 +33,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: ytnef
+- name: folks
   version: '>=0'
-  category: net-mail
+  category: dev-libs
