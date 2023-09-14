@@ -1,0 +1,32 @@
+name: zram-init
+version: "11.1"
+category: sys-block
+requires:
+- name: push
+  version: '>=0'
+  category: app-shells
+- name: openrc
+  version: '>=0'
+  category: sys-apps
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Scripts to support compressed swap devices or ramdisks with zRAM
+uri:
+- https://github.com/vaeth/zram-init/
+license: GPL-2
+labels:
+  BDEPEND: sys-devel/gettext
+  RDEPEND: app-shells/push virtual/libintl || ( sys-apps/openrc sys-apps/systemd )
+  emerge.packages: sys-block/zram-init
+  kit: core-kit
+  original.package.name: sys-block/zram-init
+  original.package.slot: "0"
+  original.package.version: "11.1"
