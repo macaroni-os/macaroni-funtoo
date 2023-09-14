@@ -1,0 +1,30 @@
+From 30105fd4c210c8ba4e875ab003cd393064ded894 Mon Sep 17 00:00:00 2001
+From: Rico Tzschichholz <ricotz@ubuntu.com>
+Date: Sat, 16 Jan 2021 19:15:50 +0100
+Subject: [PATCH] Don't alter or try to write [GtkChild] properties
+
+See https://gitlab.gnome.org/GNOME/vala/issues/1121
+---
+ src/client/components/components-inspector-log-view.vala | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/client/components/components-inspector-log-view.vala b/src/client/components/components-inspector-log-view.vala
+index 24653d6f0..889213b90 100644
+--- a/src/client/components/components-inspector-log-view.vala
++++ b/src/client/components/components-inspector-log-view.vala
+@@ -66,10 +66,10 @@ public class Components.InspectorLogView : Gtk.Grid {
+     }
+ 
+     [GtkChild]
+-    private Hdy.SearchBar search_bar { get; private set; }
++    private Hdy.SearchBar search_bar { get; }
+ 
+     [GtkChild]
+-    private Gtk.SearchEntry search_entry { get; private set; }
++    private Gtk.SearchEntry search_entry { get; }
+ 
+     [GtkChild]
+     private Gtk.ListBox sidebar;
+-- 
+GitLab
+
