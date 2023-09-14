@@ -1,0 +1,35 @@
+name: minicom
+version: "2.8"
+category: net-dialup
+use_flags:
+- nls
+requires:
+- name: lrzsz
+  version: '>=0'
+  category: net-dialup
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Serial Communication Program
+uri:
+- https://salsa.debian.org/minicom-team/minicom
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: sys-libs/ncurses:=
+  IUSE: nls
+  RDEPEND: sys-libs/ncurses:= net-dialup/lrzsz
+  emerge.packages: net-dialup/minicom
+  kit: net-kit
+  original.package.name: net-dialup/minicom
+  original.package.slot: "0"
+  original.package.version: "2.8"
