@@ -1,0 +1,33 @@
+name: libgrss
+version: 0.7.0
+category: net-libs
+use_flags:
+- introspection
+requires:
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: LibGRSS is a library for easy management of RSS/Atom/Pie feeds
+uri:
+- https://wiki.gnome.org/Projects/Libgrss
+license: LGPL-3
+labels:
+  DEPEND: '>=dev-libs/glib-2.42.1:2 >=dev-libs/libxml2-2.9.2:2 >=net-libs/libsoup-2.48:2.4
+    introspection? ( >=dev-libs/gobject-introspection-1.42 ) >=dev-util/gtk-doc-am-1.10
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: +introspection
+  RDEPEND: '>=dev-libs/glib-2.42.1:2 >=dev-libs/libxml2-2.9.2:2 >=net-libs/libsoup-2.48:2.4
+    introspection? ( >=dev-libs/gobject-introspection-1.42 )'
+  emerge.packages: net-libs/libgrss
+  kit: net-kit
+  original.package.name: net-libs/libgrss
+  original.package.slot: "0"
+  original.package.version: 0.7.0
