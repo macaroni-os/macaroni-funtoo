@@ -1,0 +1,36 @@
+name: osinfo-db-tools
+version: 1.4.0
+category: sys-apps
+requires:
+- name: libarchive
+  version: '>=0'
+  category: app-arch
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools for managing the osinfo database
+uri:
+- https://libosinfo.org/
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.36:2 >=dev-libs/libxml2-2.6.0 >=app-arch/libarchive-3.0.0:=
+    dev-libs/json-glib !<sys-libs/libosinfo-1.0.0 >=dev-libs/libxslt-1.0.0 virtual/pkgconfig
+    >=sys-devel/gettext-0.19.8 dev-lang/perl >=app-portage/elt-patches-20170815 app-arch/xz-utils
+    dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  RDEPEND: '>=dev-libs/glib-2.36:2 >=dev-libs/libxml2-2.6.0 >=app-arch/libarchive-3.0.0:=
+    dev-libs/json-glib !<sys-libs/libosinfo-1.0.0'
+  emerge.packages: sys-apps/osinfo-db-tools
+  kit: dev-kit
+  original.package.name: sys-apps/osinfo-db-tools
+  original.package.slot: "0"
+  original.package.version: 1.4.0
