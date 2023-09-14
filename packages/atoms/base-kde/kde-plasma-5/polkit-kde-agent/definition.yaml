@@ -1,0 +1,45 @@
+name: polkit-kde-agent
+version: 5.25.5
+category: kde-plasma-5
+requires:
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kiconthemes
+  version: '>=0'
+  category: kde-frameworks-5
+- name: polkit-qt
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PolKit agent module for KDE Plasma
+uri:
+- https://kde.org/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+  DEPEND: '>=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5
+    >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kcrash-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kwindowsystem-5.98.0:5 >=sys-auth/polkit-qt-0.113.0 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils'
+  IUSE: debug
+  RDEPEND: '>=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5
+    >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kcrash-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kwindowsystem-5.98.0:5 >=sys-auth/polkit-qt-0.113.0 >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
+  emerge.packages: kde-plasma/polkit-kde-agent:5
+  kit: kde-kit
+  original.package.name: kde-plasma/polkit-kde-agent
+  original.package.slot: "5"
+  original.package.version: 5.25.5
