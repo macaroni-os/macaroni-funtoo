@@ -1,0 +1,38 @@
+name: kdesignerplugin
+version: 5.98.0
+category: kde-frameworks-5
+use_flags:
+- handbook
+- nls
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing plugins to use KDE frameworks widgets in QtDesigner
+uri:
+- https://kde.org/
+license: LGPL-2.1+
+labels:
+  BDEPEND: nls? ( >=dev-qt/linguist-tools-5.15.2:5 ) dev-util/ninja >=dev-util/cmake-3.9.6
+    >=kde-frameworks/extra-cmake-modules-5.98:5 handbook? ( >=kde-frameworks/kdoctools-5.98:5
+    )
+  DEPEND: '>=kde-frameworks/kconfig-5.98:5 >=kde-frameworks/kcoreaddons-5.98:5 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils'
+  IUSE: nls debug +handbook
+  RDEPEND: '>=kde-frameworks/kconfig-5.98:5 >=kde-frameworks/kcoreaddons-5.98:5 >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
+  emerge.packages: kde-frameworks/kdesignerplugin:5
+  kit: kde-kit
+  original.package.name: kde-frameworks/kdesignerplugin
+  original.package.slot: "5"
+  original.package.version: 5.98.0
