@@ -104,6 +104,9 @@ artefacts:
     - dev-python/dbusmock
 
 - tree: packages/atoms/base-gnome4
+  mutations:
+    uses:
+      - vala
   uses:
     disabled:
       - debug
@@ -112,10 +115,43 @@ artefacts:
       - gtk-doc
       - static-libs
       - lua
-      - glade
       - demos
   packages:
     - dev-libs/libpeas
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    uses:
+      - vala
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - consolekit
+      - examples
+      - glade
+  packages:
+    - net-libs/gssdp:1.2
+
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - consolekit
+      - examples
+      # Using gdk-pixbuf image library
+      - qt5
+  packages:
+    # maby this library could be moved in base-multimedia3
+    - media-libs/libmediaart
 
 - tree: packages/atoms/base-gnome4
   uses:
@@ -130,15 +166,12 @@ artefacts:
       - glade
   packages:
     - gnome-base/gnome-menus:3
-    - net-libs/gssdp:1.2
     - x11-libs/gtksourceview:4
     - net-libs/libgfbgraph:0.2
     - gnome-extra/gnome-weather
     - app-crypt/seahorse
     - x11-terms/gnome-terminal
     - gnome-extra/yelp
-    # maby this library could be moved in base-multimedia3
-    - media-libs/libmediaart
     - dev-libs/gom
     - net-libs/libdmapsharing:3.0
     - media-libs/gupnp-dlna:2.0
@@ -162,6 +195,29 @@ artefacts:
   packages:
     - app-cdr/brasero
 
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    uses:
+      - utils
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - gtk-doc
+      - static-libs
+      - zeitgeist
+      - valgrind
+      - lcms
+      # Tracker is broken with new vala
+      # and on new release 0.15.x is been
+      # removed.
+      - tracker
+      # NOTE: folks 0.15.x needs >=gnome-3.38
+  packages:
+    - dev-libs/folks
+
 - tree: packages/atoms/base-gnome4
   uses:
     disabled:
@@ -174,7 +230,6 @@ artefacts:
       - valgrind
       - lcms
   packages:
-    - dev-libs/folks
     - app-text/djvu
     - app-text/libspectre
     - app-text/libgxps
@@ -197,6 +252,13 @@ artefacts:
     - app-text/evince
 
 - tree: packages/atoms/base-gnome4
+  mutations:
+    uses:
+      - vala
+    buildtime_deps:
+      packages:
+        - category: net-libs
+          name: gssdp
   uses:
     disabled:
       - debug
@@ -240,17 +302,108 @@ artefacts:
     - gnome-extra/gnome-contacts
     - media-gfx/eog
     - gui-libs/tepl
-    - net-libs/dleyna-core:1.0
     - app-editors/gedit
     - net-libs/dleyna-connector-dbus:1.0
     - net-misc/dleyna-server
     - media-plugins/grilo-plugins:0.3
     - media-video/totem
-    - media-sound/gnome-music
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+      - gtk-doc
+      - examples
+      - freebox
+      - thetvdb
+      - extras
+      - accessibility
+  packages:
     - sci-geosciences/gnome-maps
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+    uninstall:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
 
 - tree: packages/atoms/base-gnome4
   mutations:
+    buildtime_deps:
+      packages:
+        - category: media-plugins-0.3
+          name: grilo-plugins
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+      - gtk-doc
+      - examples
+      - freebox
+      - thetvdb
+      - extras
+      - accessibility
+  packages:
+    - media-sound/gnome-music
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: net-libs
+          name: gupnp
+        - category: net-libs
+          name: gssdp
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+      - gtk-doc
+      - examples
+      - freebox
+      - thetvdb
+      - extras
+      - accessibility
+  packages:
+    - net-libs/dleyna-core:1.0
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    uses:
+      # Avoid # required by gnome-base/gnome (argument)
+      # >=dev-libs/folks-0.14.0 eds
+      - eds
     buildtime_deps:
       packages:
         - category: seed
@@ -272,11 +425,11 @@ artefacts:
       - extras
       - accessibility
   packages:
+    - gnome-base/gnome
     - gnome-base/gnome-core-apps:3.0
     - gnome-base/gnome-core-libs:3.0
-    - gnome-base/gnome
 
-- tree: packages/atoms/base-multimedia3
+- tree: packages/atoms/base-gnome4
   mutations:
     buildtime_deps:
       packages:
@@ -285,6 +438,201 @@ artefacts:
   packages:
     # to move on base-latex
     - virtual/tex-base
+    - virtual/opencl
+    - media-libs/jbigkit
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sci-libs
+          name: lapack-reference
+  packages:
+    # to move on base-latex
+    - virtual/cblas
+    - virtual/lapack
+
+- tree: packages/atoms/base-gnome4
+  packages:
+    - gnome-base/gnome-mime-data
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs
+          name: libpeas
+        - category: dev-libs
+          name: folks
+  packages:
+    - mail-client/geary
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+    uninstall:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+
+- tree: packages/atoms/base-gnome4
+  packages:
+    - media-sound/sound-juicer
+    - net-analyzer/gnome-nettool
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+    uninstall:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - sasl
+      - debug
+      - gnome-keyring
+      - test
+      - tracker
+  packages:
+    - media-libs/gstreamer-editing-services:1.0
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - sasl
+      - debug
+      - gnome-keyring
+      - test
+      - tracker
+  packages:
+    - net-libs/gtk-vnc
+    - media-plugins/gst-plugins-twolame:1.0
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    runtime_deps:
+      packages:
+        - category: media-libs-1.0
+          name: gstreamer-editing-services
+    buildtime_deps:
+      packages:
+        - category: media-libs-1.0
+          name: gstreamer-editing-services
+  uses:
+    disabled:
+      - sasl
+      - debug
+      - gnome-keyring
+      - test
+      - tracker
+  packages:
+    - net-misc/rygel
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - fftw
+      - fontconfig
+      - fpx
+      - lqr
+      - static-libs
+      - test
+      - gtk-doc
+      - doc
+      - examples
+      - large-stack
+      - threads
+      - utils
+  packages:
+    - dev-libs/imath
+    - media-libs/openexr
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    runtime_deps:
+      packages:
+        # Seems missing on ebuild.
+        - category: media-libs
+          name: libraqm
+    uses:
+      # Quiet emerge block message
+      - video_cards_nvidia
+      - video_cards_r600
+      - wayland
+
+      - q32
+      - q8
+  uses:
+    disabled:
+      - fftw
+      - fontconfig
+      - fpx
+      - lqr
+      - static-libs
+      - test
+      - gtk-doc
+      - doc
+      - examples
+      - large-stack
+      - threads
+      - utils
+  packages:
+    - media-gfx/imagemagick
+
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - test
+      - gtk-doc
+      - static-libs
+      - systemd
+  packages:
+    - dev-python/setproctitle
+    - net-wireless/bluez-tools
+    - dev-python/xapp
+    - x11-misc/wmctrl
+    - net-wireless/blueberry
+    - sys-apps/gnome-disk-utility
+    - sys-apps/baobab
+    - gnome-extra/libgsf
+    - x11-libs/goffice:0.10
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    uses:
+    - introspection
+  uses:
+    disabled:
+      - test
+      - gtk-doc
+      - static-libs
+      - systemd
+  packages:
+    - x11-libs/xapps
+
 
 include_layers:
 - layers/macaroni-funtoo-race15.yaml
@@ -362,6 +710,7 @@ reposcan_disabled_use_flags:
   - libressl
   - gtk-doc
   - gles2-only
+  - python_single_target_python2_7
   - python_single_target_python3_6
   - python_single_target_python3_7
   - python_single_target_python3_8
