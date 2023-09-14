@@ -1,0 +1,35 @@
+name: pkcs11-helper
+version: 1.25.1
+category: dev-libs
+use_flags:
+- -doc
+- -gnutls
+- -libressl
+- -nss
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PKCS#11 helper library
+uri:
+- https://github.com/OpenSC/pkcs11-helper
+license: '|| ( BSD GPL-2 )'
+labels:
+  BDEPEND: virtual/pkgconfig doc? ( >=app-doc/doxygen-1.4.7 )
+  DEPEND: '!libressl? ( >=dev-libs/openssl-0.9.7:0=[bindist=] ) libressl? ( dev-libs/libressl
+    ) gnutls? ( >=net-libs/gnutls-1.4.4 ) nss? ( dev-libs/nss )'
+  IUSE: bindist doc gnutls libressl nss static-libs
+  RDEPEND: '!libressl? ( >=dev-libs/openssl-0.9.7:0=[bindist=] ) libressl? ( dev-libs/libressl
+    ) gnutls? ( >=net-libs/gnutls-1.4.4 ) nss? ( dev-libs/nss )'
+  emerge.packages: dev-libs/pkcs11-helper
+  kit: dev-kit
+  original.package.name: dev-libs/pkcs11-helper
+  original.package.slot: "0"
+  original.package.version: 1.25.1
