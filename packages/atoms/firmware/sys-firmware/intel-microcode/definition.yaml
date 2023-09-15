@@ -1,0 +1,27 @@
+name: intel-microcode
+version: "20230613"
+category: sys-firmware
+requires:
+- name: ego
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Intel IA32/IA64 microcode update data
+uri:
+- https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files http://inertiawar.com/microcode/
+license: intel-ucode
+labels:
+  BDEPEND: sys-apps/iucode_tool
+  IUSE: +split-ucode +vanilla kernel_linux
+  RDEPEND: '!<sys-apps/microcode-ctl-1.17-r2 >=app-admin/ego-2.5.0.4'
+  emerge.packages: sys-firmware/intel-microcode
+  kit: core-hw-kit
+  original.package.name: sys-firmware/intel-microcode
+  original.package.slot: "0"
+  original.package.version: 20230613_p20230520
