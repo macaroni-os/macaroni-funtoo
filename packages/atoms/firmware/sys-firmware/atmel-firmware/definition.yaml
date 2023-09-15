@@ -1,0 +1,29 @@
+name: atmel-firmware
+version: "1.3"
+category: sys-firmware
+use_flags:
+- -pcmcia
+requires:
+- name: wireless-tools
+  version: '>=0'
+  category: net-wireless
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Firmware and config for atmel and atmel_cs wlan drivers included in linux
+  2.6
+uri:
+- http://www.thekelleys.org.uk/atmel/
+license: Atmel
+labels:
+  IUSE: pcmcia usb
+  RDEPEND: '>=net-wireless/wireless-tools-26-r1 pcmcia? ( sys-apps/pcmciautils )'
+  emerge.packages: sys-firmware/atmel-firmware
+  kit: core-hw-kit
+  original.package.name: sys-firmware/atmel-firmware
+  original.package.slot: "0"
+  original.package.version: 1.3-r1
