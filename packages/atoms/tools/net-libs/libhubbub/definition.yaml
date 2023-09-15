@@ -1,0 +1,30 @@
+name: libhubbub
+version: 0.3.5
+category: net-libs
+use_flags:
+- -test
+requires:
+- name: libparserutils
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: HTML5 compliant parsing library, written in C
+uri:
+- http://www.netsurf-browser.org/projects/hubbub/
+license: MIT
+labels:
+  DEPEND: '>=dev-libs/libparserutils-0.2.1-r1 !net-libs/hubbub dev-util/netsurf-buildsystem
+    virtual/pkgconfig test? ( dev-lang/perl <dev-libs/json-c-0.13 )'
+  IUSE: doc test
+  RDEPEND: '>=dev-libs/libparserutils-0.2.1-r1 !net-libs/hubbub'
+  emerge.packages: net-libs/libhubbub
+  kit: net-kit
+  original.package.name: net-libs/libhubbub
+  original.package.slot: "0"
+  original.package.version: 0.3.5-r1
