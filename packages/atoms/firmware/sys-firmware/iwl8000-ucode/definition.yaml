@@ -1,0 +1,22 @@
+name: iwl8000-ucode
+version: 16.242414.0
+category: sys-firmware
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Firmware for Intel (R) Wireless 8260 and 4165
+uri:
+- https://wireless.kernel.org/en/users/Drivers/iwlwifi
+license: ipw3945
+labels:
+  IUSE: kernel_linux
+  RDEPEND: '!sys-kernel/linux-firmware[-savedconfig]'
+  emerge.packages: sys-firmware/iwl8000-ucode
+  kit: core-hw-kit
+  original.package.name: sys-firmware/iwl8000-ucode
+  original.package.slot: "0"
+  original.package.version: 16.242414.0
