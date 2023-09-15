@@ -1,0 +1,24 @@
+name: vgabios
+version: 0.7a
+category: sys-firmware
+use_flags:
+- binary
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: VGA BIOS implementation
+uri:
+- http://www.nongnu.org/vgabios/
+license: LGPL-2.1
+labels:
+  DEPEND: '!binary? ( sys-devel/dev86 )'
+  IUSE: binary debug
+  emerge.packages: sys-firmware/vgabios
+  kit: core-hw-kit
+  original.package.name: sys-firmware/vgabios
+  original.package.slot: "0"
+  original.package.version: 0.7a-r1
