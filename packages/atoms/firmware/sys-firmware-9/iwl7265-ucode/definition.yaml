@@ -1,0 +1,22 @@
+name: iwl7265-ucode
+version: 25.228.9.0
+category: sys-firmware-9
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Firmware for Intel (R) Dual Band Wireless-AC 7265
+uri:
+- http://wireless.kernel.org/en/users/Drivers/iwlwifi
+license: ipw3945
+labels:
+  IUSE: kernel_linux
+  RDEPEND: '!sys-kernel/linux-firmware[-savedconfig]'
+  emerge.packages: sys-firmware/iwl7265-ucode:9
+  kit: core-hw-kit
+  original.package.name: sys-firmware/iwl7265-ucode
+  original.package.slot: "9"
+  original.package.version: 25.228.9.0
