@@ -1,0 +1,31 @@
+name: debootstrap
+version: 1.0.114
+category: dev-util
+requires:
+- name: dpkg
+  version: '>=0'
+  category: app-arch
+- name: wget
+  version: '>=0'
+  category: net-misc
+- name: binutils
+  version: '>=0'
+  category: sys-devel-2.39
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Debian/Ubuntu bootstrap scripts
+uri:
+- https://packages.qa.debian.org/d/debootstrap.html
+license: MIT
+labels:
+  RDEPEND: app-arch/dpkg net-misc/wget sys-devel/binutils
+  emerge.packages: dev-util/debootstrap
+  kit: dev-kit
+  original.package.name: dev-util/debootstrap
+  original.package.slot: "0"
+  original.package.version: 1.0.114
