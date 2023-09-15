@@ -1,0 +1,28 @@
+name: iwl3160-ucode
+version: 0.16.242414
+category: sys-firmware-16
+use_flags:
+- bluetooth
+requires:
+- name: iwl3160-7260-bt-ucode
+  version: '>=0'
+  category: sys-firmware
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Firmware for Intel (R) Dual Band Wireless-AC 3160
+uri:
+- https://wireless.kernel.org/en/users/Drivers/iwlwifi
+license: ipw3945
+labels:
+  IUSE: bluetooth kernel_linux
+  RDEPEND: bluetooth? ( sys-firmware/iwl3160-7260-bt-ucode ) !sys-kernel/linux-firmware[-savedconfig]
+  emerge.packages: sys-firmware/iwl3160-ucode:16
+  kit: core-hw-kit
+  original.package.name: sys-firmware/iwl3160-ucode
+  original.package.slot: "16"
+  original.package.version: 0.16.242414
