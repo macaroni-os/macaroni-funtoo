@@ -1,0 +1,26 @@
+name: dvd+rw-tools
+version: "7.1"
+category: app-cdr
+requires:
+- name: cdrtools
+  version: '>=0'
+  category: app-cdr
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A set of tools for DVD+RW/-RW drives
+uri:
+- http://fy.chalmers.se/~appro/linux/DVD+RW/
+license: GPL-2
+labels:
+  DEPEND: app-cdr/cdrtools sys-devel/m4
+  RDEPEND: app-cdr/cdrtools
+  emerge.packages: app-cdr/dvd+rw-tools
+  kit: media-kit
+  original.package.name: app-cdr/dvd+rw-tools
+  original.package.slot: "0"
+  original.package.version: 7.1-r4
