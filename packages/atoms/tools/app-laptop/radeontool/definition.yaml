@@ -1,0 +1,27 @@
+name: radeontool
+version: 1.6.3
+category: app-laptop
+requires:
+- name: libpciaccess
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manage the backlight, external video output and registers of ATI Radeon
+  cards
+uri:
+- https://cgit.freedesktop.org/~airlied/radeontool/
+license: ZLIB
+labels:
+  DEPEND: '>=x11-libs/libpciaccess-0.12.0 virtual/pkgconfig'
+  RDEPEND: '>=x11-libs/libpciaccess-0.12.0'
+  emerge.packages: app-laptop/radeontool
+  kit: core-hw-kit
+  original.package.name: app-laptop/radeontool
+  original.package.slot: "0"
+  original.package.version: 1.6.3
