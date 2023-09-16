@@ -1,4 +1,8 @@
 prelude:
+
+- >-
+  export kver=$(luet s kernel-5.10/macaroni-lts-full -o json | jq .stones[0].labels.\"package.version\" -r) &&
+  cd /lib/modules/${kver}-macaroni && ln -s /usr/src/linux-${kver}-macaroni build
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -23,6 +27,7 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+- ^/lib/modules/.*
 requires:
 - name: macaroni-funtoo-race15
   version: '>=0'
