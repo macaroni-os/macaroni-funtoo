@@ -2,7 +2,7 @@ prelude:
 # Temporary fix until next race
 - >-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
-  USE="ipv6 kerberos* split-usr" emerge libtirpc -j
+  USE="ipv6 kerberos split-usr" emerge libtirpc -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
