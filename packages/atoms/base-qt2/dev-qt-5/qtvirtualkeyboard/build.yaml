@@ -1,4 +1,9 @@
 prelude:
+# Temporary fix until next race. Adding sctp seems fix issue with
+# error: ‘QSslSocket’ does not name a type; did you mean ‘QUdpSocket’?
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  USE="networkmanager connman sctp"  emerge qtnetwork -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
