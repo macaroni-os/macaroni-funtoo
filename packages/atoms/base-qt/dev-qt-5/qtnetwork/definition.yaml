@@ -1,14 +1,14 @@
 name: qtnetwork
-version: 5.15.2+1
+version: 5.15.2+2
 category: dev-qt-5
 use_flags:
 - -gssapi
 - -libproxy
-- -sctp
 - -test
 - connman
 - kernel_linux
 - networkmanager
+- sctp
 - ssl
 requires:
 - name: openssl
@@ -18,6 +18,9 @@ requires:
   version: '>=0'
   category: dev-qt-5
 - name: connman
+  version: '>=0'
+  category: net-misc
+- name: lksctp-tools
   version: '>=0'
   category: net-misc
 - name: networkmanager
