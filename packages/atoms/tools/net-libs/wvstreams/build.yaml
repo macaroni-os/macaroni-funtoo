@@ -1,4 +1,8 @@
 prelude:
+# Temporary until fixed on funtoo-kits
+- >-
+  mkdir -p /etc/portage/patches/net-libs/wvstreams/ &&
+  cp -v patches/* /etc/portage/patches/net-libs/wvstreams/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
