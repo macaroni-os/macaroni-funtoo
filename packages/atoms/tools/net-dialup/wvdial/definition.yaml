@@ -1,0 +1,29 @@
+name: wvdial
+version: "1.61"
+category: net-dialup
+requires:
+- name: ppp
+  version: '>=0'
+  category: net-dialup
+- name: wvstreams
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Excellent program to automatically configure PPP sessions
+uri:
+- https://code.google.com/archive/p/wvstreams/
+license: LGPL-2
+labels:
+  DEPEND: '>=net-libs/wvstreams-4.4 virtual/pkgconfig'
+  RDEPEND: '>=net-libs/wvstreams-4.4 net-dialup/ppp:='
+  emerge.packages: net-dialup/wvdial
+  kit: net-kit
+  original.package.name: net-dialup/wvdial
+  original.package.slot: "0"
+  original.package.version: "1.61"
