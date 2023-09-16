@@ -1,4 +1,10 @@
 prelude:
+# Temporary fix until this is fixed on funtoo-kits.
+- >-
+  cd /var/git/meta-repo/kits/gnome-kit/media-sound/gnome-music &&
+  cp gnome-music-3.36.6.ebuild gnome-music-3.36.7.ebuild &&
+  ebuild gnome-music-3.36.7.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
