@@ -1,0 +1,46 @@
+name: libao
+version: 1.2.2
+category: media-libs
+use_flags:
+- alsa
+- nas
+- pulseaudio
+- sndio
+requires:
+- name: nas
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: sndio
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Audio Output library
+uri:
+- https://www.xiph.org/ao/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: alsa? ( >=media-libs/alsa-lib-1.0.27.2[-mgorny(-)] ) nas? ( >=media-libs/nas-1.9.4[-mgorny(-)]
+    ) pulseaudio? ( >=media-sound/pulseaudio-2.1-r1[-mgorny(-)] ) sndio? ( media-sound/sndio:=
+    )
+  IUSE: alsa nas mmap pulseaudio sndio abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: alsa? ( >=media-libs/alsa-lib-1.0.27.2[-mgorny(-)] ) nas? ( >=media-libs/nas-1.9.4[-mgorny(-)]
+    ) pulseaudio? ( >=media-sound/pulseaudio-2.1-r1[-mgorny(-)] ) sndio? ( media-sound/sndio:=
+    )
+  emerge.packages: media-libs/libao
+  kit: media-kit
+  original.package.name: media-libs/libao
+  original.package.slot: "0"
+  original.package.version: 1.2.2-r2
