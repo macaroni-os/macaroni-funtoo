@@ -1,0 +1,29 @@
+name: hdapsd
+version: "20141203"
+category: app-laptop
+use_flags:
+- libconfig
+requires:
+- name: libconfig
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: IBM ThinkPad Hard Drive Active Protection System (HDAPS) daemon
+uri:
+- https://github.com/evgeni/hdapsd/
+license: GPL-2
+labels:
+  DEPEND: libconfig? ( dev-libs/libconfig ) virtual/pkgconfig
+  IUSE: libconfig kernel_linux
+  RDEPEND: libconfig? ( dev-libs/libconfig )
+  emerge.packages: app-laptop/hdapsd
+  kit: core-hw-kit
+  original.package.name: app-laptop/hdapsd
+  original.package.slot: "0"
+  original.package.version: "20141203"
