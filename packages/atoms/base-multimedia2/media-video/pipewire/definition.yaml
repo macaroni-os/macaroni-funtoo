@@ -1,18 +1,18 @@
 name: pipewire
-version: 0.3.77
+version: 0.3.77+1
 category: media-video
 use_flags:
 - -doc
 - -echo-cancel
 - -extra
 - -jack-sdk
+- -pipewire-alsa
 - -systemd
 - X
 - bluetooth
 - gstreamer
 - jack-client
 - lv2
-- pipewire-alsa
 - ssl
 - v4l
 - zeroconf
@@ -44,6 +44,9 @@ requires:
 - name: sbc
   version: '>=0'
   category: media-libs
+- name: alsa-plugins
+  version: '>=0'
+  category: media-plugins
 - name: jack2
   version: '>=0'
   category: media-sound-2
