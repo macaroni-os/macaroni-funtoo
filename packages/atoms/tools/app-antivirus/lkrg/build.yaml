@@ -2,7 +2,7 @@ prelude:
 
 - >-
   luet repo update &&
-  luet i kernel-5.10/macaroni-full --finalizer-env "BUILD_ISO=1" && luet cleanup
+  luet i kernel-5.10/macaroni-full --finalizer-env "BUILD_ISO=1" && luet cleanup &&
   export kver=$(luet s kernel-5.10/macaroni-full -o json | jq .stones[0].labels.\"package.version\" -r) &&
   cd /lib/modules/${kver}-macaroni && ln -s /usr/src/linux-${kver}-macaroni build &&
   cd -
