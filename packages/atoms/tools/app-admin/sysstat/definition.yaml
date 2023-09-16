@@ -1,0 +1,37 @@
+name: sysstat
+version: 12.7.4
+category: app-admin
+use_flags:
+- -selinux
+- lm_sensors
+- nls
+requires:
+- name: lm_sensors
+  version: '>=0'
+  category: sys-apps
+- name: libintl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: System performance tools for Linux
+uri:
+- http://pagesperso-orange.fr/sebastien.godard/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: nls? ( virtual/libintl ) lm_sensors? ( sys-apps/lm_sensors:= ) nls? ( sys-devel/gettext
+    )
+  IUSE: debug nls lm_sensors selinux static
+  RDEPEND: nls? ( virtual/libintl ) lm_sensors? ( sys-apps/lm_sensors:= ) selinux?
+    ( sec-policy/selinux-sysstat )
+  emerge.packages: app-admin/sysstat
+  kit: core-hw-kit
+  original.package.name: app-admin/sysstat
+  original.package.slot: "0"
+  original.package.version: 12.7.4
