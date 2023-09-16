@@ -1,0 +1,46 @@
+name: cdrdao
+version: 1.2.4
+category: app-cdr
+use_flags:
+- encode
+- mad
+- vorbis
+requires:
+- name: libao
+  version: '>=0'
+  category: media-libs
+- name: libmad
+  version: '>=0'
+  category: media-libs
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
+- name: lame
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Burn CDs in disk-at-once mode -- with optional GUI frontend
+uri:
+- http://cdrdao.sourceforge.net/
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: virtual/cdrtools encode? ( >=media-sound/lame-3.99 ) mad? ( media-libs/libmad
+    media-libs/libao ) vorbis? ( media-libs/libvorbis media-libs/libao ) virtual/pkgconfig
+  IUSE: encode mad vorbis
+  RDEPEND: virtual/cdrtools encode? ( >=media-sound/lame-3.99 ) mad? ( media-libs/libmad
+    media-libs/libao ) vorbis? ( media-libs/libvorbis media-libs/libao ) !app-cdr/cue2toc
+    !dev-util/pccts
+  emerge.packages: app-cdr/cdrdao
+  kit: media-kit
+  original.package.name: app-cdr/cdrdao
+  original.package.slot: "0"
+  original.package.version: 1.2.4
