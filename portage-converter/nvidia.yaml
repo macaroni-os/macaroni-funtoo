@@ -117,12 +117,16 @@ artefacts:
     - virtual/linux-sources
 
 - tree: packages/atoms/nvidia
+  mutations:
+    uses:
+      - static-libs
+      - acpi
+  # NOTE: static-libs is needed for xfce4-sensors-plugin
   uses:
     disabled:
       - debug
       - test
       - doc
-      - static-libs
   packages:
     - x11-drivers/nvidia-drivers
 
