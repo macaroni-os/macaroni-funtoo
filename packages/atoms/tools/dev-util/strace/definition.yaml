@@ -1,16 +1,19 @@
 name: strace
-version: 6.4+1
+version: 6.4+2
 category: dev-util
 use_flags:
+- -static
 - -unwind
 - aio
 - elfutils
 - perl
-- static
 requires:
 - name: perl
   version: '>=0'
   category: dev-lang
+- name: elfutils
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
