@@ -633,6 +633,26 @@ artefacts:
   packages:
     - x11-libs/xapps
 
+- tree: packages/atoms/base-gnome4
+  uses:
+    disabled:
+      - lcms
+      - test
+      - docs
+      - cue
+      - exif
+      - flac
+      - gif
+      - gsf
+      - iptc
+      - xmp
+  packages:
+    - sys-apps/osinfo-db-tools
+    - net-libs/libgrss
+    - sys-apps/osinfo-db
+    - sys-libs/libosinfo
+    - app-misc/tracker-miners
+
 
 include_layers:
 - layers/macaroni-funtoo-race15.yaml
