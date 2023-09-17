@@ -1,4 +1,8 @@
 prelude:
+# Temporary until next race
+- >-
+  sed -i -e 's|cxx,qt5|cxx|g'
+  /var/git/meta-repo/kits/kde-kit/kde-frameworks/kwallet/kwallet-*.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
