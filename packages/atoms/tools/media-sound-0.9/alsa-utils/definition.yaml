@@ -1,0 +1,47 @@
+name: alsa-utils
+version: 1.2.4
+category: media-sound-0.9
+use_flags:
+- -doc
+- -selinux
+- bat
+- libsamplerate
+- ncurses
+requires:
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: libsamplerate
+  version: '>=0'
+  category: media-libs
+- name: fftw
+  version: '>=0'
+  category: sci-libs-3.0
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
+uri:
+- https://alsa-project.org/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig
+  DEPEND: '>=media-libs/alsa-lib-1.2.4 libsamplerate? ( media-libs/libsamplerate )
+    ncurses? ( >=sys-libs/ncurses-5.7-r7:0= ) bat? ( sci-libs/fftw:= ) doc? ( app-text/xmlto
+    )'
+  IUSE: bat doc +libsamplerate +ncurses nls selinux
+  RDEPEND: '>=media-libs/alsa-lib-1.2.4 libsamplerate? ( media-libs/libsamplerate
+    ) ncurses? ( >=sys-libs/ncurses-5.7-r7:0= ) bat? ( sci-libs/fftw:= ) selinux?
+    ( sec-policy/selinux-alsa )'
+  emerge.packages: media-sound/alsa-utils:0.9
+  kit: core-kit
+  original.package.name: media-sound/alsa-utils
+  original.package.slot: "0.9"
+  original.package.version: 1.2.4
