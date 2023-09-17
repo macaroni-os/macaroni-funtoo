@@ -1,0 +1,37 @@
+name: dmenu
+version: "4.9"
+category: x11-misc
+use_flags:
+- xinerama
+requires:
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXft
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: a generic, highly customizable, and efficient menu for the X Window System
+uri:
+- https://tools.suckless.org/dmenu/
+license: MIT
+labels:
+  DEPEND: media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama
+    ) virtual/pkgconfig x11-base/xorg-proto
+  IUSE: xinerama savedconfig
+  RDEPEND: media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama
+    )
+  emerge.packages: x11-misc/dmenu
+  kit: desktop-kit
+  original.package.name: x11-misc/dmenu
+  original.package.slot: "0"
+  original.package.version: "4.9"
