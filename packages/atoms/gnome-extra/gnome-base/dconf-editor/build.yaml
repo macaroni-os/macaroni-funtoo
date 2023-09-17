@@ -1,4 +1,13 @@
 prelude:
+# Upgrade dconf-editor and fix vala intergration
+- >-
+  cd /var/git/meta-repo/kits/gnome-kit/gnome-base/dconf-editor &&
+  cp dconf-editor-3.36.0.ebuild dconf-editor-3.36.7.ebuild &&
+  ebuild dconf-editor-3.36.7.ebuild digest &&
+  cd - &&
+  mkdir -p /etc/portage/patches/gnome-base/dconf-editor/ &&
+  mv dconf-editor_fdc90849223649509424bbefe14990de71db2b2b.patch
+  /etc/portage/patches/gnome-base/dconf-editor/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
