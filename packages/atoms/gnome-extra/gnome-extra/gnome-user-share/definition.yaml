@@ -1,0 +1,46 @@
+name: gnome-user-share
+version: 3.34.0
+category: gnome-extra
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: nautilus
+  version: '>=0'
+  category: gnome-base
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+- name: mod_dnssd
+  version: '>=0'
+  category: www-apache
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Personal file sharing for the GNOME desktop
+uri:
+- https://git.gnome.org/browse/gnome-user-share
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3:3 >=gnome-base/nautilus-2.91.7
+    media-libs/libcanberra[gtk3] >=www-apache/mod_dnssd-0.6 >=www-servers/apache-2.2[apache2_modules_dav,apache2_modules_dav_fs,apache2_modules_authn_file,apache2_modules_auth_digest,apache2_modules_authz_groupfile]
+    >=x11-libs/libnotify-0.7:= !<gnome-base/gnome-control-center-3.9 app-text/yelp-tools
+    app-text/docbook-xml-dtd:4.1.2 >=dev-util/intltool-0.35 sys-devel/gettext virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  IUSE: nautilus
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3:3 >=gnome-base/nautilus-2.91.7
+    media-libs/libcanberra[gtk3] >=www-apache/mod_dnssd-0.6 >=www-servers/apache-2.2[apache2_modules_dav,apache2_modules_dav_fs,apache2_modules_authn_file,apache2_modules_auth_digest,apache2_modules_authz_groupfile]
+    >=x11-libs/libnotify-0.7:='
+  emerge.packages: gnome-extra/gnome-user-share
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-user-share
+  original.package.slot: "0"
+  original.package.version: 3.34.0
