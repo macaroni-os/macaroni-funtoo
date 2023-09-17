@@ -1,0 +1,48 @@
+name: gnome-sound-recorder
+version: 3.34.0
+category: media-sound
+requires:
+- name: gjs
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-bad
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-flac
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-pulse
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple sound recorder
+uri:
+- https://wiki.gnome.org/Design/Apps/SoundRecorder
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: dev-libs/gjs >=dev-libs/glib-2.62.2:2 >=dev-libs/gobject-introspection-1.62.0:=
+    x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.24.12:3[introspection] >=dev-util/intltool-0.26
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: dev-libs/gjs >=dev-libs/glib-2.62.2:2 >=dev-libs/gobject-introspection-1.62.0:=
+    x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.24.12:3[introspection] media-libs/gstreamer:1.0[introspection]
+    media-libs/gst-plugins-base:1.0[introspection,ogg] media-libs/gst-plugins-bad:1.0
+    media-libs/gst-plugins-good:1.0 media-plugins/gst-plugins-flac:1.0 media-plugins/gst-plugins-pulse:1.0
+  emerge.packages: media-sound/gnome-sound-recorder
+  kit: gnome-kit
+  original.package.name: media-sound/gnome-sound-recorder
+  original.package.slot: "0"
+  original.package.version: 3.34.0
