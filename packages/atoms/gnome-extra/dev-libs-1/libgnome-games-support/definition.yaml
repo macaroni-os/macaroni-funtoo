@@ -1,0 +1,33 @@
+name: libgnome-games-support
+version: 1.4.3
+category: dev-libs-1
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libgee
+  version: '>=0'
+  category: dev-libs-0.8
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for code common to Gnome games
+uri:
+- https://git.gnome.org/browse/libgnome-games-support/
+license: LGPL-3+
+labels:
+  DEPEND: '>=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  RDEPEND: dev-libs/libgee:0.8= >=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3
+  emerge.packages: dev-libs/libgnome-games-support:1
+  kit: gnome-kit
+  original.package.name: dev-libs/libgnome-games-support
+  original.package.slot: "1"
+  original.package.version: 1.4.3
