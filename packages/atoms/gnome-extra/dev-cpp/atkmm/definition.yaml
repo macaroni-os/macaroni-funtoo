@@ -1,0 +1,33 @@
+name: atkmm
+version: 2.28.0
+category: dev-cpp
+requires:
+- name: glibmm
+  version: '>=0'
+  category: dev-cpp-2
+- name: atk
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ interface for the ATK library
+uri:
+- https://www.gtkmm.org
+license: LGPL-2.1+
+labels:
+  BDEPEND: app-arch/xz-utils
+  DEPEND: '>=dev-cpp/glibmm-2.62.0[doc?] >=dev-libs/atk-2.18.0 >=dev-libs/libsigc++-2.3.2:2
+    virtual/pkgconfig'
+  IUSE: doc
+  RDEPEND: '>=dev-cpp/glibmm-2.62.0[doc?] >=dev-libs/atk-2.18.0 >=dev-libs/libsigc++-2.3.2:2
+    !<dev-cpp/gtkmm-2.22.0'
+  emerge.packages: dev-cpp/atkmm
+  kit: gnome-kit
+  original.package.name: dev-cpp/atkmm
+  original.package.slot: "0"
+  original.package.version: 2.28.0-r1
