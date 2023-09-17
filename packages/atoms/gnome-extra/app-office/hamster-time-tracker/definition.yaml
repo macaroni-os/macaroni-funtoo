@@ -1,0 +1,63 @@
+name: hamster-time-tracker
+version: 3.0.2
+category: app-office
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: pyxdg
+  version: '>=0'
+  category: dev-python
+- name: requests
+  version: '>=0'
+  category: dev-python
+- name: gconf
+  version: '>=0'
+  category: gnome-base-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Time tracking for the masses
+uri:
+- http://projecthamster.wordpress.com
+license: GPL-3
+labels:
+  DEPEND: gnome-base/gconf[introspection] dev-python/pyxdg python_single_target_python3_7?
+    ( dev-python/requests[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-python/requests[python_targets_python3_10(-)] ) dev-util/glib-utils dev-util/intltool
+    >=dev-vcs/git-1.8.2.1[curl] python_single_target_python3_7? ( dev-lang/python:3.7[threads(+)]
+    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/setuptools-42.0.2[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)]
+    ) python_single_target_python3_10? ( >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)]
+    )
+  IUSE: python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: gnome-base/gconf[introspection] dev-python/pyxdg python_single_target_python3_7?
+    ( dev-python/requests[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    )
+  emerge.packages: app-office/hamster-time-tracker
+  kit: geaaru-kit
+  original.package.name: app-office/hamster-time-tracker
+  original.package.slot: "0"
+  original.package.version: 3.0.2-r1
