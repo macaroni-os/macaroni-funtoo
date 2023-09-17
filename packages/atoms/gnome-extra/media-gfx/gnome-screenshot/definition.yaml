@@ -1,0 +1,42 @@
+name: gnome-screenshot
+version: 3.36.0
+category: media-gfx
+requires:
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Screenshot utility for GNOME
+uri:
+- https://git.gnome.org/browse/gnome-screenshot
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2[dbus] >=media-libs/libcanberra-0.26-r2[gtk3] x11-libs/cairo
+    x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24.12:3 x11-libs/libX11 x11-libs/libXext
+    x11-base/xorg-proto >=dev-util/intltool-0.50.2 virtual/pkgconfig dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2[dbus] >=media-libs/libcanberra-0.26-r2[gtk3]
+    x11-libs/cairo x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24.12:3 x11-libs/libX11 x11-libs/libXext
+    >=gnome-base/gsettings-desktop-schemas-0.1.0 !<gnome-extra/gnome-utils-3.4'
+  emerge.packages: media-gfx/gnome-screenshot
+  kit: gnome-kit
+  original.package.name: media-gfx/gnome-screenshot
+  original.package.slot: "0"
+  original.package.version: 3.36.0
