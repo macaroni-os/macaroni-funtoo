@@ -1,0 +1,46 @@
+name: libgit2
+version: 1.0.0
+category: dev-libs
+use_flags:
+- -libressl
+- gssapi
+- ssh
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: http-parser
+  version: '>=0'
+  category: net-libs
+- name: libssh2
+  version: '>=0'
+  category: net-libs
+- name: krb5
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A linkable library for Git
+uri:
+- https://libgit2.org
+license: GPL-2-with-linking-exception
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) sys-libs/zlib
+    net-libs/http-parser:= gssapi? ( virtual/krb5 ) ssh? ( net-libs/libssh2 ) || (
+    dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) virtual/pkgconfig'
+  IUSE: examples gssapi libressl +ssh test +threads trace
+  RDEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= )
+    sys-libs/zlib net-libs/http-parser:= gssapi? ( virtual/krb5 ) ssh? ( net-libs/libssh2
+    )'
+  emerge.packages: dev-libs/libgit2
+  kit: dev-kit
+  original.package.name: dev-libs/libgit2
+  original.package.slot: "0"
+  original.package.version: 1.0.0
