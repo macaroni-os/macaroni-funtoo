@@ -1,0 +1,57 @@
+name: phonon-gstreamer
+version: 4.10.0
+category: media-libs
+use_flags:
+- network
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: qtopengl
+  version: '>=0'
+  category: dev-qt-5
+- name: qtx11extras
+  version: '>=0'
+  category: dev-qt-5
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: phonon
+  version: '>=0'
+  category: media-libs
+- name: gst-plugins-meta
+  version: '>=0'
+  category: media-plugins-1.0
+- name: opengl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GStreamer backend for the Phonon multimedia library
+uri:
+- https://community.kde.org/Phonon
+license: LGPL-2.1+ || ( LGPL-2.1 LGPL-3 )
+labels:
+  BDEPEND: '>=dev-qt/linguist-tools-5.11.1:5 virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.9.6
+    >=kde-frameworks/extra-cmake-modules-5.57.0:5'
+  DEPEND: dev-libs/glib:2 dev-libs/libxml2:2 >=dev-qt/qtgui-5.11.1:5 >=dev-qt/qtopengl-5.11.1:5
+    >=dev-qt/qtwidgets-5.11.1:5 >=dev-qt/qtx11extras-5.11.1:5 media-libs/gst-plugins-base:1.0
+    media-libs/gstreamer:1.0 >=media-libs/phonon-4.10.60 media-plugins/gst-plugins-meta:1.0[alsa?,ogg,vorbis]
+    virtual/opengl dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-qt/qtcore-5.11.1:5
+    dev-util/desktop-file-utils
+  IUSE: alsa debug +network debug
+  RDEPEND: dev-libs/glib:2 dev-libs/libxml2:2 >=dev-qt/qtgui-5.11.1:5 >=dev-qt/qtopengl-5.11.1:5
+    >=dev-qt/qtwidgets-5.11.1:5 >=dev-qt/qtx11extras-5.11.1:5 media-libs/gst-plugins-base:1.0
+    media-libs/gstreamer:1.0 >=media-libs/phonon-4.10.60 media-plugins/gst-plugins-meta:1.0[alsa?,ogg,vorbis]
+    virtual/opengl network? ( media-plugins/gst-plugins-soup:1.0 ) >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.57.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.11.1:5
+  emerge.packages: media-libs/phonon-gstreamer
+  kit: kde-kit
+  original.package.name: media-libs/phonon-gstreamer
+  original.package.slot: "0"
+  original.package.version: 4.10.0
