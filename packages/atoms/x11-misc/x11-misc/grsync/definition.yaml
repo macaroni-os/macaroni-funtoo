@@ -1,0 +1,29 @@
+name: grsync
+version: 1.2.6
+category: x11-misc
+requires:
+- name: rsync
+  version: '>=0'
+  category: net-misc
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A gtk frontend to rsync
+uri:
+- http://www.opbyte.it/grsync/
+license: GPL-2
+labels:
+  DEPEND: '>=x11-libs/gtk+-2.16:2 net-misc/rsync virtual/pkgconfig dev-util/intltool'
+  RDEPEND: '>=x11-libs/gtk+-2.16:2 net-misc/rsync'
+  emerge.packages: x11-misc/grsync
+  kit: desktop-kit
+  original.package.name: x11-misc/grsync
+  original.package.slot: "0"
+  original.package.version: 1.2.6
