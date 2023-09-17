@@ -1,0 +1,6 @@
+shell:
+- /bin/bash
+- -c
+install:
+- entities merge --specs-dir /usr/share/macaroni/entities/ -e sddm && eval 'mkdir
+  /var/lib/sddm -p || true' && chown sddm:sddm /var/lib/sddm
