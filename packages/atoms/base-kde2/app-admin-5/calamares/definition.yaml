@@ -1,0 +1,126 @@
+name: calamares
+version: 3.2.62
+category: app-admin-5
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -test
+- networkmanager
+- python_single_target_python3_9
+- upower
+requires:
+- name: sudo
+  version: '>=0'
+  category: app-admin
+- name: yaml-cpp
+  version: '>=0'
+  category: dev-cpp
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: libatasmart
+  version: '>=0'
+  category: dev-libs
+- name: libpwquality
+  version: '>=0'
+  category: dev-libs
+- name: qtconcurrent
+  version: '>=0'
+  category: dev-qt-5
+- name: qtsvg
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-5
+- name: kpackage
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-5
+- name: rsync
+  version: '>=0'
+  category: net-misc
+- name: dmidecode
+  version: '>=0'
+  category: sys-apps
+- name: polkit-qt
+  version: '>=0'
+  category: sys-auth
+- name: os-prober
+  version: '>=0'
+  category: sys-boot
+- name: squashfs-tools
+  version: '>=0'
+  category: sys-fs
+- name: kpmcore
+  version: '>=0'
+  category: sys-libs-5
+- name: timezone-data
+  version: '>=0'
+  category: sys-libs
+- name: upower
+  version: '>=0'
+  category: sys-power
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Distribution-independent installer framework
+uri:
+- https://calamares.io
+license: GPL-3
+labels:
+  BDEPEND: '>=dev-qt/linguist-tools-5.11.1:5 dev-util/ninja >=dev-util/cmake-3.9.6
+    >=kde-frameworks/extra-cmake-modules-5.57.0:5'
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) dev-cpp/yaml-cpp:= python_single_target_python3_7? ( >=dev-libs/boost-1.55:=[python,python_targets_python3_7(-)]
+    dev-libs/libpwquality[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( >=dev-libs/boost-1.55:=[python,python_targets_python3_9(-)] dev-libs/libpwquality[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-libs/boost-1.55:=[python,python_targets_python3_8(-)]
+    dev-libs/libpwquality[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( >=dev-libs/boost-1.55:=[python,python_targets_python3_10(-)] dev-libs/libpwquality[python_targets_python3_10(-)]
+    ) >=dev-qt/qtconcurrent-5.11.1:5 >=dev-qt/qtdbus-5.11.1:5 >=dev-qt/qtdeclarative-5.11.1:5
+    >=dev-qt/qtgui-5.11.1:5 >=dev-qt/qtnetwork-5.11.1:5 >=dev-qt/qtsvg-5.11.1:5 >=dev-qt/qtwebengine-5.11.1:5[widgets]
+    >=dev-qt/qtwidgets-5.11.1:5 >=dev-qt/qtxml-5.11.1:5 >=kde-frameworks/kconfig-5.57.0:5
+    >=kde-frameworks/kcoreaddons-5.57.0:5 >=kde-frameworks/kcrash-5.57.0:5 >=kde-frameworks/kpackage-5.57.0:5
+    >=kde-frameworks/kparts-5.57.0:5 >=kde-frameworks/kservice-5.57.0:5 sys-apps/dbus
+    sys-apps/dmidecode sys-auth/polkit-qt >=sys-libs/kpmcore-4.0.0:5= test? ( >=dev-qt/qttest-5.11.1:5
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.11.1:5
+    ) >=dev-qt/qtcore-5.11.1:5 dev-util/desktop-file-utils
+  IUSE: +networkmanager +upower debug test python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) dev-cpp/yaml-cpp:= python_single_target_python3_7? ( >=dev-libs/boost-1.55:=[python,python_targets_python3_7(-)]
+    dev-libs/libpwquality[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( >=dev-libs/boost-1.55:=[python,python_targets_python3_9(-)] dev-libs/libpwquality[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-libs/boost-1.55:=[python,python_targets_python3_8(-)]
+    dev-libs/libpwquality[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( >=dev-libs/boost-1.55:=[python,python_targets_python3_10(-)] dev-libs/libpwquality[python_targets_python3_10(-)]
+    ) >=dev-qt/qtconcurrent-5.11.1:5 >=dev-qt/qtdbus-5.11.1:5 >=dev-qt/qtdeclarative-5.11.1:5
+    >=dev-qt/qtgui-5.11.1:5 >=dev-qt/qtnetwork-5.11.1:5 >=dev-qt/qtsvg-5.11.1:5 >=dev-qt/qtwebengine-5.11.1:5[widgets]
+    >=dev-qt/qtwidgets-5.11.1:5 >=dev-qt/qtxml-5.11.1:5 >=kde-frameworks/kconfig-5.57.0:5
+    >=kde-frameworks/kcoreaddons-5.57.0:5 >=kde-frameworks/kcrash-5.57.0:5 >=kde-frameworks/kpackage-5.57.0:5
+    >=kde-frameworks/kparts-5.57.0:5 >=kde-frameworks/kservice-5.57.0:5 sys-apps/dbus
+    sys-apps/dmidecode sys-auth/polkit-qt >=sys-libs/kpmcore-4.0.0:5= app-admin/sudo
+    dev-libs/libatasmart net-misc/rsync sys-boot/grub:2 sys-boot/os-prober sys-fs/squashfs-tools
+    sys-libs/timezone-data virtual/udev networkmanager? ( net-misc/networkmanager
+    ) upower? ( sys-power/upower ) >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.57.0:5
+    kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.11.1:5
+  emerge.packages: app-admin/calamares:5
+  kit: geaaru-kit
+  original.package.name: app-admin/calamares
+  original.package.slot: "5"
+  original.package.version: 3.2.62
