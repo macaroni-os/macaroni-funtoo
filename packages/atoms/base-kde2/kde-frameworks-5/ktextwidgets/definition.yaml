@@ -1,0 +1,60 @@
+name: ktextwidgets
+version: 5.98.0
+category: kde-frameworks-5
+use_flags:
+- -doc
+- -speech
+- -test
+- designer
+- prefix
+requires:
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kconfigwidgets
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-5
+- name: sonnet
+  version: '>=0'
+  category: kde-frameworks-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing an assortment of widgets for displaying and editing
+  text
+uri:
+- https://kde.org/
+license: LGPL-2+ LGPL-2.1+
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.98:5 designer? ( >=kde-frameworks/kdesignerplugin-5.98:5
+    >=dev-qt/designer-5.15.1:5 ) doc? ( >=dev-qt/qthelp-5.15.1:5 >=app-doc/doxygen-1.8.13-r1
+    )
+  DEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=kde-frameworks/kcompletion-5.98:5
+    >=kde-frameworks/kconfig-5.98:5 >=kde-frameworks/kconfigwidgets-5.98:5 >=kde-frameworks/kcoreaddons-5.98:5
+    >=kde-frameworks/ki18n-5.98:5 >=kde-frameworks/kservice-5.98:5 >=kde-frameworks/kwidgetsaddons-5.98:5
+    >=kde-frameworks/sonnet-5.98:5 speech? ( >=dev-qt/qtspeech-5.15.1:5 ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.15.1:5 ) >=dev-qt/qtcore-5.15.1:5
+    doc? ( >=dev-qt/qt-docs-5.15.1:5 ) dev-util/desktop-file-utils'
+  IUSE: speech test debug designer doc test
+  RDEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=kde-frameworks/kcompletion-5.98:5
+    >=kde-frameworks/kconfig-5.98:5 >=kde-frameworks/kconfigwidgets-5.98:5 >=kde-frameworks/kcoreaddons-5.98:5
+    >=kde-frameworks/ki18n-5.98:5 >=kde-frameworks/kservice-5.98:5 >=kde-frameworks/kwidgetsaddons-5.98:5
+    >=kde-frameworks/sonnet-5.98:5 speech? ( >=dev-qt/qtspeech-5.15.1:5 ) >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5
+    doc? ( >=dev-qt/qt-docs-5.15.1:5 )'
+  emerge.packages: kde-frameworks/ktextwidgets:5
+  kit: kde-kit
+  original.package.name: kde-frameworks/ktextwidgets
+  original.package.slot: "5"
+  original.package.version: 5.98.0
