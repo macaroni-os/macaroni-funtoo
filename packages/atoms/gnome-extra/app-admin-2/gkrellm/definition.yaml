@@ -1,0 +1,66 @@
+name: gkrellm
+version: 2.3.10
+category: app-admin-2
+use_flags:
+- -gnutls
+- -libressl
+- X
+- hddtemp
+- lm_sensors
+- nls
+- ntlm
+- ssl
+requires:
+- name: hddtemp
+  version: '>=0'
+  category: app-admin
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: libntlm
+  version: '>=0'
+  category: net-libs
+- name: lm_sensors
+  version: '>=0'
+  category: sys-apps
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Single process stack of various system monitors
+uri:
+- http://www.gkrellm.net/
+license: GPL-3
+labels:
+  BDEPEND: virtual/pkgconfig virtual/pkgconfig
+  DEPEND: dev-libs/glib:2 hddtemp? ( app-admin/hddtemp ) ssl? ( gnutls? ( net-libs/gnutls
+    ) !gnutls? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) ) ) lm_sensors? ( sys-apps/lm_sensors:= ) nls? ( virtual/libintl ) ntlm? ( net-libs/libntlm
+    ) X? ( x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11
+    x11-libs/pango ) nls? ( sys-devel/gettext ) sys-apps/shadow
+  IUSE: gnutls hddtemp libressl lm_sensors nls ntlm ssl kernel_FreeBSD X
+  RDEPEND: dev-libs/glib:2 hddtemp? ( app-admin/hddtemp ) ssl? ( gnutls? ( net-libs/gnutls
+    ) !gnutls? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) ) ) lm_sensors? ( sys-apps/lm_sensors:= ) nls? ( virtual/libintl ) ntlm? ( net-libs/libntlm
+    ) X? ( x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11
+    x11-libs/pango )
+  emerge.packages: app-admin/gkrellm:2
+  kit: geaaru-kit
+  original.package.name: app-admin/gkrellm
+  original.package.slot: "2"
+  original.package.version: 2.3.10-r2
