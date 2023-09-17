@@ -1,0 +1,76 @@
+name: meld
+version: 3.21.0
+category: dev-util
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: gtksourceview
+  version: '>=0'
+  category: x11-libs-4
+- name: hicolor-icon-theme
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A graphical diff and merge tool
+uri:
+- http://meldmerge.org/
+license: GPL-2+
+labels:
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) >=dev-libs/glib-2.50:2 python_single_target_python3_7? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_8(-)]
+    ) python_single_target_python3_10? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_10(-)]
+    ) gnome-base/gsettings-desktop-schemas >=x11-libs/gtk+-3.20:3[introspection] >=x11-libs/gtksourceview-4.0:4[introspection]
+    >=x11-libs/pango-1.34[introspection] >=dev-python/pycairo-1.15 x11-themes/hicolor-icon-theme
+    dev-util/intltool dev-util/itstool sys-devel/gettext >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info python_single_target_python3_7?
+    ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    )
+  IUSE: python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) >=dev-libs/glib-2.50:2 python_single_target_python3_7? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_8(-)]
+    ) python_single_target_python3_10? ( >=dev-python/pygobject-3.30:3[cairo,python_targets_python3_10(-)]
+    ) gnome-base/gsettings-desktop-schemas >=x11-libs/gtk+-3.20:3[introspection] >=x11-libs/gtksourceview-4.0:4[introspection]
+    >=x11-libs/pango-1.34[introspection] >=dev-python/pycairo-1.15 x11-themes/hicolor-icon-theme
+    python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    )
+  emerge.packages: dev-util/meld
+  kit: dev-kit
+  original.package.name: dev-util/meld
+  original.package.slot: "0"
+  original.package.version: 3.21.0
