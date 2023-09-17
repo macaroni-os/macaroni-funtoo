@@ -1,0 +1,39 @@
+name: pangomm
+version: 2.42.1
+category: dev-cpp-1.4
+use_flags:
+- -doc
+requires:
+- name: cairomm
+  version: '>=0'
+  category: dev-cpp-1
+- name: glibmm
+  version: '>=0'
+  category: dev-cpp-2
+- name: pango
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ interface for pango
+uri:
+- https://www.gtkmm.org
+license: LGPL-2.1+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils'
+  DEPEND: '>=x11-libs/pango-1.44.7 >=dev-cpp/glibmm-2.62.0 >=dev-cpp/cairomm-1.12.0:0
+    >=dev-libs/libsigc++-2.3.2:2 virtual/pkgconfig doc? ( media-gfx/graphviz dev-libs/libxslt
+    app-doc/doxygen ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: doc
+  RDEPEND: '>=x11-libs/pango-1.44.7 >=dev-cpp/glibmm-2.62.0 >=dev-cpp/cairomm-1.12.0:0
+    >=dev-libs/libsigc++-2.3.2:2 !<dev-cpp/gtkmm-2.13:2.4'
+  emerge.packages: dev-cpp/pangomm:1.4
+  kit: gnome-kit
+  original.package.name: dev-cpp/pangomm
+  original.package.slot: "1.4"
+  original.package.version: 2.42.1
