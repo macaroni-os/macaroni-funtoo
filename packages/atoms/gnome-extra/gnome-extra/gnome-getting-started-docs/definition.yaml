@@ -1,0 +1,27 @@
+name: gnome-getting-started-docs
+version: 3.36.2
+category: gnome-extra
+requires:
+- name: gnome-user-docs
+  version: '>=0'
+  category: gnome-extra
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Help a new user get started in GNOME
+uri:
+- https://help.gnome.org/
+license: CC-BY-SA-3.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils'
+  DEPEND: app-text/yelp-tools dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: gnome-extra/gnome-user-docs
+  emerge.packages: gnome-extra/gnome-getting-started-docs
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-getting-started-docs
+  original.package.slot: "0"
+  original.package.version: 3.36.2
