@@ -1,0 +1,31 @@
+name: gconf-editor
+version: 3.0.1
+category: gnome-extra
+requires:
+- name: gconf
+  version: '>=0'
+  category: gnome-base-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An editor to the GNOME config system
+uri:
+- https://git.gnome.org/browse/gconf-editor
+license: GPL-2
+labels:
+  DEPEND: '>=x11-libs/gtk+-3.24.12:3 >=gnome-base/gconf-2.12:2 sys-devel/gettext app-text/gnome-doc-utils
+    >=dev-util/intltool-0.35 virtual/pkgconfig ~app-text/docbook-xml-dtd-4.1.2 >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  RDEPEND: '>=x11-libs/gtk+-3.24.12:3 >=gnome-base/gconf-2.12:2'
+  emerge.packages: gnome-extra/gconf-editor
+  kit: gnome-kit
+  original.package.name: gnome-extra/gconf-editor
+  original.package.slot: "0"
+  original.package.version: 3.0.1-r1
