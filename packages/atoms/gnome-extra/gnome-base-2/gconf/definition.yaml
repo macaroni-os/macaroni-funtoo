@@ -1,0 +1,58 @@
+name: gconf
+version: 3.2.6
+category: gnome-base-2
+use_flags:
+- -ldap
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- introspection
+- policykit
+- python_targets_python3_9
+requires:
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNOME configuration system and daemon
+uri:
+- https://projects.gnome.org/gconf/
+license: LGPL-2+
+labels:
+  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7[xml] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[xml] ) python_targets_python3_8? ( dev-lang/python:3.8[xml]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-libs/glib-2.62.2:2 >=dev-libs/dbus-glib-0.100.2:= >=sys-apps/dbus-1.6.18-r1:=
+    >=dev-libs/libxml2-2.9.1-r4:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) ldap? ( >=net-nds/openldap-2.4.38-r1:= ) policykit? ( sys-auth/polkit:= ) dev-libs/libxslt
+    dev-util/glib-utils dev-util/gtk-doc-am >=dev-util/intltool-0.35 >=virtual/pkgconfig-0-r1
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: debug +introspection ldap policykit debug python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7[xml] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[xml] ) python_targets_python3_8? ( dev-lang/python:3.8[xml]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-libs/glib-2.62.2:2 >=dev-libs/dbus-glib-0.100.2:= >=sys-apps/dbus-1.6.18-r1:=
+    >=dev-libs/libxml2-2.9.1-r4:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
+    ) ldap? ( >=net-nds/openldap-2.4.38-r1:= ) policykit? ( sys-auth/polkit:= )
+  emerge.packages: gnome-base/gconf:2
+  kit: gnome-kit
+  original.package.name: gnome-base/gconf
+  original.package.slot: "2"
+  original.package.version: 3.2.6-r7
