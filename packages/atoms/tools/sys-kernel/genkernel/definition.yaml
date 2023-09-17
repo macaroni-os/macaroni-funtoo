@@ -1,0 +1,42 @@
+name: genkernel
+version: 4.0.3
+category: sys-kernel
+use_flags:
+- -selinux
+- btrfs
+- cryptsetup
+requires:
+- name: pax-utils
+  version: '>=0'
+  category: app-misc
+- name: btrfs-progs
+  version: '>=0'
+  category: sys-fs
+- name: cryptsetup
+  version: '>=0'
+  category: sys-fs
+- name: mdadm
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Gentoo automatic kernel building scripts
+uri:
+- http://www.gentoo.org
+license: GPL-2
+labels:
+  DEPEND: sys-fs/e2fsprogs selinux? ( sys-libs/libselinux )
+  IUSE: btrfs cryptsetup ibm selinux
+  RDEPEND: sys-fs/e2fsprogs selinux? ( sys-libs/libselinux ) btrfs? ( sys-fs/btrfs-progs
+    ) cryptsetup? ( sys-fs/cryptsetup[static] ) sys-fs/lvm2[static] sys-fs/mdadm[static]
+    app-misc/pax-utils !<sys-apps/openrc-0.9.9
+  emerge.packages: sys-kernel/genkernel
+  kit: core-kit
+  original.package.name: sys-kernel/genkernel
+  original.package.slot: "0"
+  original.package.version: 4.0.3-r3
