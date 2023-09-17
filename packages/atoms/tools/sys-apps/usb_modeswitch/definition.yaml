@@ -1,0 +1,37 @@
+name: usb_modeswitch
+version: 2.5.2
+category: sys-apps
+use_flags:
+- -jimtcl
+requires:
+- name: tcl
+  version: '>=0'
+  category: dev-lang
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A tool for controlling 'flip flop' (multiple devices) USB gear like UMTS
+  sticks
+uri:
+- http://www.draisberghof.de/usb_modeswitch/ http://www.draisberghof.de/usb_modeswitch/device_reference.txt
+license: GPL-2
+labels:
+  DEPEND: virtual/udev virtual/libusb:1 virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig
+  IUSE: jimtcl kernel_linux
+  RDEPEND: virtual/udev virtual/libusb:1 jimtcl? ( dev-lang/jimtcl ) !jimtcl? ( dev-lang/tcl:0
+    )
+  emerge.packages: sys-apps/usb_modeswitch
+  kit: geaaru-kit
+  original.package.name: sys-apps/usb_modeswitch
+  original.package.slot: "0"
+  original.package.version: 2.5.2
