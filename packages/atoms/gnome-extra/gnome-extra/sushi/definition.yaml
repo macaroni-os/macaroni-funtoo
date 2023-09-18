@@ -1,0 +1,70 @@
+name: sushi
+version: 3.34.0
+category: gnome-extra
+use_flags:
+- office
+requires:
+- name: unoconv
+  version: '>=0'
+  category: app-office
+- name: evince
+  version: '>=0'
+  category: app-text
+- name: gjs
+  version: '>=0'
+  category: dev-libs
+- name: clutter-gst
+  version: '>=0'
+  category: media-libs-3.0
+- name: clutter-gtk
+  version: '>=0'
+  category: media-libs-1.0
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: musicbrainz
+  version: '>=0'
+  category: media-libs-5
+- name: webkit-gtk
+  version: '>=0'
+  category: net-libs-4
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtksourceview
+  version: '>=0'
+  category: x11-libs-3.0
+- name: gtksourceview
+  version: '>=0'
+  category: x11-libs-4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A quick previewer for Nautilus, the GNOME file manager
+uri:
+- https://git.gnome.org/browse/sushi
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-util/intltool-0.40 virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  IUSE: office wayland
+  RDEPEND: '>=x11-libs/gdk-pixbuf-2.39.2:2[introspection] >=dev-libs/gjs-1.40 >=dev-libs/glib-2.62.2:2
+    >=dev-libs/gobject-introspection-1.62.0:= >=media-libs/clutter-1.11.4:1.0[introspection]
+    >=media-libs/clutter-gtk-1.0.1:1.0[introspection] >=x11-libs/gtk+-3.24.12:3[X,introspection]
+    >=app-text/evince-3.0[introspection] media-libs/freetype:2 media-libs/gstreamer:1.0[introspection]
+    media-libs/gst-plugins-base:1.0[introspection] >=media-libs/harfbuzz-0.9.9:= media-libs/clutter-gst:3.0[introspection]
+    media-libs/musicbrainz:5= net-libs/webkit-gtk:4[introspection] x11-libs/gtksourceview:3.0[introspection]
+    x11-libs/gtksourceview:4[introspection] office? ( app-office/unoconv ) >=gnome-base/nautilus-3.30.0'
+  emerge.packages: gnome-extra/sushi
+  kit: gnome-kit
+  original.package.name: gnome-extra/sushi
+  original.package.slot: "0"
+  original.package.version: 3.34.0-r1
