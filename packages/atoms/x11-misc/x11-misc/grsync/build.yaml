@@ -1,4 +1,10 @@
 prelude:
+# Temporary until next race
+- >-
+  cp grsync-1.3.1.ebuild /var/git/meta-repo/kits/desktop-kit/x11-misc/grsync &&
+  cd /var/git/meta-repo/kits/desktop-kit/x11-misc/grsync &&
+  ebuild grsync-1.3.1.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
