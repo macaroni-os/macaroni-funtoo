@@ -1,0 +1,48 @@
+name: gnome-todo
+version: 3.28.1
+category: gnome-extra
+use_flags:
+- -doc
+- introspection
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: libpeas
+  version: '>=0'
+  category: dev-libs
+- name: evolution-data-server
+  version: '>=0'
+  category: gnome-extra
+- name: gnome-online-accounts
+  version: '>=0'
+  category: net-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Personal task manager
+uri:
+- https://wiki.gnome.org/Apps/Todo
+license: GPL-3+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3 >=net-libs/gnome-online-accounts-3.28.0
+    >=gnome-extra/evolution-data-server-3.28.0:=[gtk] >=dev-libs/libical-3 >=dev-libs/libpeas-1.22
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) >=dev-util/meson-0.40.0
+    doc? ( dev-util/gtk-doc ) >=sys-devel/gettext-0.19.8 virtual/pkgconfig >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  IUSE: doc +introspection
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3 >=net-libs/gnome-online-accounts-3.28.0
+    >=gnome-extra/evolution-data-server-3.28.0:=[gtk] >=dev-libs/libical-3 >=dev-libs/libpeas-1.22
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= )'
+  emerge.packages: gnome-extra/gnome-todo
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-todo
+  original.package.slot: "0"
+  original.package.version: 3.28.1-r2
