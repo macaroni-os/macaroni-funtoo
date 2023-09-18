@@ -1,0 +1,26 @@
+name: gnome-shell-extensions-topicons-plus
+version: "21"
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Moves legacy tray icons to top panel
+uri:
+- https://extensions.gnome.org/extension/1031/topicons/
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.16'
+  emerge.packages: gnome-extra/gnome-shell-extensions-topicons-plus
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-shell-extensions-topicons-plus
+  original.package.slot: "0"
+  original.package.version: "21"
