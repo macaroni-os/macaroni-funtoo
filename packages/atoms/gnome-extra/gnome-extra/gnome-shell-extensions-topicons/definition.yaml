@@ -1,0 +1,26 @@
+name: gnome-shell-extensions-topicons
+version: "28"
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Shows legacy tray icons on top
+uri:
+- https://extensions.gnome.org/extension/495/topicons/
+license: GPL-2+
+labels:
+  DEPEND: app-arch/xz-utils
+  RDEPEND: app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.10
+  emerge.packages: gnome-extra/gnome-shell-extensions-topicons
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-shell-extensions-topicons
+  original.package.slot: "0"
+  original.package.version: 28-r1
