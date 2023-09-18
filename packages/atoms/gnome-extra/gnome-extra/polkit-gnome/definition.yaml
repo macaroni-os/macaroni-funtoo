@@ -1,0 +1,30 @@
+name: polkit-gnome
+version: "0.105"
+category: gnome-extra
+requires:
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A dbus session bus service that is used to bring up authentication dialogs
+uri:
+- https://www.freedesktop.org/wiki/Software/polkit
+license: LGPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.30 >=sys-auth/polkit-0.102 x11-libs/gtk+:3 !lxde-base/lxpolkit
+    dev-util/intltool virtual/pkgconfig sys-devel/gettext app-arch/xz-utils'
+  RDEPEND: '>=dev-libs/glib-2.30 >=sys-auth/polkit-0.102 x11-libs/gtk+:3 !lxde-base/lxpolkit'
+  emerge.packages: gnome-extra/polkit-gnome
+  kit: gnome-kit
+  original.package.name: gnome-extra/polkit-gnome
+  original.package.slot: "0"
+  original.package.version: 0.105-r1
