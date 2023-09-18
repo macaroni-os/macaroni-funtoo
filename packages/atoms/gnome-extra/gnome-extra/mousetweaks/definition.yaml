@@ -1,0 +1,39 @@
+name: mousetweaks
+version: 3.32.0
+category: gnome-extra
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Mouse accessibility enhancements for the GNOME desktop
+uri:
+- https://live.gnome.org/Mousetweaks/Home
+license: GPL-3
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3:3[X] >=gnome-base/gsettings-desktop-schemas-0.1
+    x11-libs/libX11 x11-libs/libXtst x11-libs/libXfixes x11-libs/libXcursor >=dev-util/intltool-0.40
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3:3[X] >=gnome-base/gsettings-desktop-schemas-0.1
+    x11-libs/libX11 x11-libs/libXtst x11-libs/libXfixes x11-libs/libXcursor'
+  emerge.packages: gnome-extra/mousetweaks
+  kit: gnome-kit
+  original.package.name: gnome-extra/mousetweaks
+  original.package.slot: "0"
+  original.package.version: 3.32.0
