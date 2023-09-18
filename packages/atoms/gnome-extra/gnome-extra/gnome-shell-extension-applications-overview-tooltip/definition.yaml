@@ -1,0 +1,26 @@
+name: gnome-shell-extension-applications-overview-tooltip
+version: "5"
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Show tooltip with full name and description
+uri:
+- https://github.com/RaphaelRochet/applications-overview-tooltip
+license: public-domain
+labels:
+  DEPEND: dev-libs/glib:2
+  RDEPEND: dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.20
+  emerge.packages: gnome-extra/gnome-shell-extension-applications-overview-tooltip
+  kit: geaaru-kit
+  original.package.name: gnome-extra/gnome-shell-extension-applications-overview-tooltip
+  original.package.slot: "0"
+  original.package.version: "5"
