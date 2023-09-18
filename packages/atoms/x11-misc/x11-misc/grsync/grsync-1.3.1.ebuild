@@ -12,7 +12,7 @@ KEYWORDS="amd64 ~ppc ~ppc64 x86 ~x86-fbsd"
 IUSE=""
 SRC_URI="http://www.opbyte.it/release/${P}.tar.gz"
 
-RDEPEND=">=x11-libs/gtk+:3
+RDEPEND="x11-libs/gtk+:3
 	net-misc/rsync"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
