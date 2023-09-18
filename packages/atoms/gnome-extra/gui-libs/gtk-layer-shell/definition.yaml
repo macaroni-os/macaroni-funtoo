@@ -1,0 +1,32 @@
+name: gtk-layer-shell
+version: 0.5.1
+category: gui-libs
+use_flags:
+- -gtk-doc
+requires:
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library to create desktop components for Wayland using the Layer Shell
+  protocol
+uri:
+- https://github.com/wmww/gtk-layer-shell
+license: MIT-with-advertising
+labels:
+  BDEPEND: virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: '>=x11-libs/gtk+-3.22.0:3[introspection,wayland] >=dev-libs/wayland-1.10.0'
+  IUSE: examples gtk-doc
+  RDEPEND: '>=x11-libs/gtk+-3.22.0:3[introspection,wayland] >=dev-libs/wayland-1.10.0'
+  emerge.packages: gui-libs/gtk-layer-shell
+  kit: gnome-kit
+  original.package.name: gui-libs/gtk-layer-shell
+  original.package.slot: "0"
+  original.package.version: 0.5.1
