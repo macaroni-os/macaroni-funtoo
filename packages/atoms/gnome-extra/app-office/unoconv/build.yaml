@@ -1,4 +1,8 @@
 prelude:
+# temporary fix until next race
+- >-
+  sed -i '/virtual\/ooo/d'
+  /var/git/meta-repo/kits/desktop-kit/app-office/unoconv/unoconv-*.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
