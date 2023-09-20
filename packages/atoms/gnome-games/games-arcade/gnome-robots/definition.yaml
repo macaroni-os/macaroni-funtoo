@@ -1,0 +1,38 @@
+name: gnome-robots
+version: 3.36.1
+category: games-arcade
+requires:
+- name: libgnome-games-support
+  version: '>=0'
+  category: dev-libs-1
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: gsound
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Avoid the robots and make them crash into each other
+uri:
+- https://wiki.gnome.org/Apps/Robots
+license: GPL-3+ CC-BY-SA-3.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 dev-libs/libgnome-games-support:1 >=gnome-base/librsvg-2.36.2:2
+    media-libs/gsound >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/gtk+-3.24.12:3
+    app-text/yelp-tools dev-libs/appstream-glib >=dev-util/intltool-0.50 sys-devel/gettext
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 dev-libs/libgnome-games-support:1 >=gnome-base/librsvg-2.36.2:2
+    media-libs/gsound >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/gtk+-3.24.12:3'
+  emerge.packages: games-arcade/gnome-robots
+  kit: gnome-kit
+  original.package.name: games-arcade/gnome-robots
+  original.package.slot: "0"
+  original.package.version: 3.36.1
