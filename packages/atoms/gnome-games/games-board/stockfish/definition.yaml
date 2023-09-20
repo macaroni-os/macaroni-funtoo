@@ -1,0 +1,23 @@
+name: stockfish
+version: "10"
+category: games-board
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Free UCI chess engine, claimed to be the strongest in the world
+uri:
+- https://stockfishchess.org/
+license: GPL-3
+labels:
+  DEPEND: '|| ( app-arch/unzip app-arch/zip )'
+  IUSE: armv7 cpu_flags_x86_avx2 cpu_flags_x86_popcnt cpu_flags_x86_sse debug general-32
+    general-64 +optimize
+  emerge.packages: games-board/stockfish
+  kit: games-kit
+  original.package.name: games-board/stockfish
+  original.package.slot: "0"
+  original.package.version: "10"
