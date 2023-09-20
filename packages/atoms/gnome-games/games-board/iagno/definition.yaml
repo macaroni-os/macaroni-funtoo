@@ -1,0 +1,40 @@
+name: iagno
+version: 3.36.7
+category: games-board
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: gsound
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Dominate the board in a classic version of Reversi
+uri:
+- https://wiki.gnome.org/Apps/Iagno
+license: GPL-3+ CC-BY-SA-3.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/librsvg-2.32.0:2 media-libs/gsound
+    >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/gtk+-3.24.12:3 || ( dev-lang/vala:0.50[vapigen(+)]
+    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
+    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
+    ) app-text/yelp-tools dev-libs/appstream-glib >=dev-util/intltool-0.50 sys-devel/gettext
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/librsvg-2.32.0:2 media-libs/gsound
+    >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/gtk+-3.24.12:3 !<x11-themes/gnome-themes-standard-3.14'
+  emerge.packages: games-board/iagno
+  kit: gnome-kit
+  original.package.name: games-board/iagno
+  original.package.slot: "0"
+  original.package.version: 3.36.7
