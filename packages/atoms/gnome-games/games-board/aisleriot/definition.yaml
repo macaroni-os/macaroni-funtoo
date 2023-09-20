@@ -1,0 +1,48 @@
+name: aisleriot
+version: 3.22.9
+category: games-board
+use_flags:
+- -extra
+- -gnome
+- sound
+requires:
+- name: guile
+  version: '>=0'
+  category: dev-scheme-12
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A collection of solitaire card games for GNOME
+uri:
+- https://wiki.gnome.org/action/show/Apps/Aisleriot
+license: GPL-3 LGPL-3 FDL-1.1
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-scheme/guile-2.2.0[deprecated,regex] >=gnome-base/librsvg-2.32:2
+    >=x11-libs/cairo-1.16.0 >=x11-libs/gtk+-3.24.12:3 extra? ( games-board/pysolfc
+    kde-base/libkdegames ) gnome? ( >=gnome-base/gconf-2.0:2 ) sound? ( >=media-libs/libcanberra-0.26[gtk3]
+    ) app-arch/gzip app-text/yelp-tools dev-libs/libxml2 >=dev-util/intltool-0.40.4
+    dev-util/itstool sys-apps/lsb-release sys-devel/autoconf-archive >=sys-devel/gettext-0.12
+    virtual/pkgconfig gnome? ( app-text/docbook-xml-dtd:4.3 ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: debug extra gnome +sound
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-scheme/guile-2.2.0[deprecated,regex] >=gnome-base/librsvg-2.32:2
+    >=x11-libs/cairo-1.16.0 >=x11-libs/gtk+-3.24.12:3 extra? ( games-board/pysolfc
+    kde-base/libkdegames ) gnome? ( >=gnome-base/gconf-2.0:2 ) sound? ( >=media-libs/libcanberra-0.26[gtk3]
+    )'
+  emerge.packages: games-board/aisleriot
+  kit: gnome-kit
+  original.package.name: games-board/aisleriot
+  original.package.slot: "0"
+  original.package.version: 3.22.9
