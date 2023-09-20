@@ -1,0 +1,36 @@
+name: tali
+version: 3.36.4
+category: games-board
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Beat the odds in a poker-style dice game
+uri:
+- https://wiki.gnome.org/Apps/Tali
+license: GPL-2+ FDL-1.1+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/librsvg-2.32:2 >=x11-libs/gtk+-3.24.12:3
+    app-text/yelp-tools dev-libs/appstream-glib >=dev-util/intltool-0.50 sys-devel/gettext
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/librsvg-2.32:2 >=x11-libs/gtk+-3.24.12:3'
+  emerge.packages: games-board/tali
+  kit: gnome-kit
+  original.package.name: games-board/tali
+  original.package.slot: "0"
+  original.package.version: 3.36.4
