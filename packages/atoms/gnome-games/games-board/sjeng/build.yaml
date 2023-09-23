@@ -1,4 +1,9 @@
 prelude:
+- >-
+  cp sjeng-11.2-r3.ebuild /var/git/meta-repo/kits/games-kit/games-board/sjeng/ &&
+  cd /var/git/meta-repo/kits/games-kit/games-board/sjeng/ &&
+  ebuild sjeng-11.2-r3.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
