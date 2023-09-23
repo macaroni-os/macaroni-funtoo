@@ -1,0 +1,30 @@
+name: texi2dvi
+version: "0"
+category: virtual
+requires:
+- name: texlive-plaingeneric
+  version: '>=0'
+  category: dev-texlive
+- name: texinfo
+  version: '>=0'
+  category: sys-apps
+- name: latex-base
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for texi2dvi (and texi2pdf)
+uri:
+- ""
+labels:
+  RDEPEND: sys-apps/texinfo virtual/latex-base dev-texlive/texlive-plaingeneric
+  emerge.packages: virtual/texi2dvi
+  kit: text-kit
+  original.package.name: virtual/texi2dvi
+  original.package.slot: "0"
+  original.package.version: 0-r2
