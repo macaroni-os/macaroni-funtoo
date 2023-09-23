@@ -1,0 +1,75 @@
+name: wxGTK
+version: 3.0.4
+category: x11-libs-3.0-gtk3
+use_flags:
+- X
+- aqua
+- gstreamer
+- libnotify
+- opengl
+- sdl
+- tiff
+- webkit
+requires:
+- name: expat
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: libsdl2
+  version: '>=0'
+  category: media-libs
+- name: webkit-gtk
+  version: '>=0'
+  category: net-libs-4
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libXxf86vm
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GTK+ version of wxWidgets, a cross-platform C++ GUI toolkit
+uri:
+- https://wxwidgets.org/
+license: wxWinLL-3 GPL-2 doc? ( wxWinFDL-3 )
+labels:
+  DEPEND: dev-libs/expat[-mgorny(-)] sdl? ( media-libs/libsdl2[-mgorny(-)] ) X? (
+    >=dev-libs/glib-2.22:2[-mgorny(-)] media-libs/libpng:0=[-mgorny(-)] sys-libs/zlib[-mgorny(-)]
+    virtual/jpeg:0=[-mgorny(-)] x11-libs/cairo[-mgorny(-)] x11-libs/gtk+:3[-mgorny(-)]
+    x11-libs/gdk-pixbuf[-mgorny(-)] x11-libs/libSM[-mgorny(-)] x11-libs/libX11[-mgorny(-)]
+    x11-libs/libXxf86vm[-mgorny(-)] x11-libs/pango[-mgorny(-)] gstreamer? ( media-libs/gstreamer:1.0[-mgorny(-)]
+    media-libs/gst-plugins-base:1.0[-mgorny(-)] ) libnotify? ( x11-libs/libnotify[-mgorny(-)]
+    ) opengl? ( virtual/opengl[-mgorny(-)] ) tiff? ( media-libs/tiff:0[-mgorny(-)]
+    ) webkit? ( net-libs/webkit-gtk:4 ) ) aqua? ( x11-libs/gtk+:3[aqua=,-mgorny(-)]
+    virtual/jpeg:0=[-mgorny(-)] tiff? ( media-libs/tiff:0[-mgorny(-)] ) ) virtual/pkgconfig[-mgorny(-)]
+    opengl? ( virtual/glu[-mgorny(-)] ) X? ( x11-base/xorg-proto )
+  IUSE: +X aqua doc debug gstreamer libnotify opengl sdl tiff webkit abi_x86_32 abi_x86_64
+    abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: dev-libs/expat[-mgorny(-)] sdl? ( media-libs/libsdl2[-mgorny(-)] ) X? (
+    >=dev-libs/glib-2.22:2[-mgorny(-)] media-libs/libpng:0=[-mgorny(-)] sys-libs/zlib[-mgorny(-)]
+    virtual/jpeg:0=[-mgorny(-)] x11-libs/cairo[-mgorny(-)] x11-libs/gtk+:3[-mgorny(-)]
+    x11-libs/gdk-pixbuf[-mgorny(-)] x11-libs/libSM[-mgorny(-)] x11-libs/libX11[-mgorny(-)]
+    x11-libs/libXxf86vm[-mgorny(-)] x11-libs/pango[-mgorny(-)] gstreamer? ( media-libs/gstreamer:1.0[-mgorny(-)]
+    media-libs/gst-plugins-base:1.0[-mgorny(-)] ) libnotify? ( x11-libs/libnotify[-mgorny(-)]
+    ) opengl? ( virtual/opengl[-mgorny(-)] ) tiff? ( media-libs/tiff:0[-mgorny(-)]
+    ) webkit? ( net-libs/webkit-gtk:4 ) ) aqua? ( x11-libs/gtk+:3[aqua=,-mgorny(-)]
+    virtual/jpeg:0=[-mgorny(-)] tiff? ( media-libs/tiff:0[-mgorny(-)] ) )
+  emerge.packages: x11-libs/wxGTK:3.0-gtk3
+  kit: desktop-kit
+  original.package.name: x11-libs/wxGTK
+  original.package.slot: 3.0-gtk3
+  original.package.version: 3.0.4-r301
