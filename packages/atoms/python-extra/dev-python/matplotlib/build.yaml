@@ -1,4 +1,10 @@
 prelude:
+- >-
+  mv matplotlib-3.6.3.ebuild /var/git/meta-repo/kits/python-modules-kit/dev-python/matplotlib &&
+  ebuild matplotlib-3.6.3.ebuild digest &&
+  eselect lapack set 1 &&
+  eselect blas set 1 &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
