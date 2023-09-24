@@ -1,4 +1,7 @@
 prelude:
+# we need wx-config
+- >-
+  eselect wxwidgets set 1
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -24,6 +27,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: wxGTK
+- name: qhull
   version: '>=0'
-  category: x11-libs-3.0-gtk3
+  category: media-libs
