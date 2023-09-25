@@ -1,10 +1,11 @@
 prelude:
+# It seems that eselect exiting with 1. I dunno why.
 - >-
   mv matplotlib-3.6.3.ebuild /var/git/meta-repo/kits/python-modules-kit/dev-python/matplotlib/ &&
   cd /var/git/meta-repo/kits/python-modules-kit/dev-python/matplotlib/ &&
   ebuild matplotlib-3.6.3.ebuild digest &&
-  eselect lapack set 1 &&
-  eselect blas set 1 &&
+  eval 'eselect lapack set 1 || true' &&
+  eval 'eselect blas set 1 || true' &&
   cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
