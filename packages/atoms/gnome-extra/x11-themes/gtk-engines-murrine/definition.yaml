@@ -1,0 +1,36 @@
+name: gtk-engines-murrine
+version: 0.98.2
+category: x11-themes
+requires:
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Murrine GTK+2 Cairo Engine
+uri:
+- http://www.cimitan.com/murrine/
+license: LGPL-2.1 LGPL-3
+labels:
+  DEPEND: '>=x11-libs/gtk+-2.24.23:2[-mgorny(-)] >=dev-libs/glib-2.34.3:2[-mgorny(-)]
+    >=x11-libs/gdk-pixbuf-2.30.7:2[-mgorny(-)] >=x11-libs/cairo-1.12.14-r4[-mgorny(-)]
+    >=x11-libs/pango-1.36.3[-mgorny(-)] >=x11-libs/pixman-0.32.4[-mgorny(-)] >=dev-util/intltool-0.37.1
+    sys-devel/gettext >=virtual/pkgconfig-0-r1[-mgorny(-)] app-arch/xz-utils'
+  IUSE: +themes animation-rtl abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=x11-libs/gtk+-2.24.23:2[-mgorny(-)] >=dev-libs/glib-2.34.3:2[-mgorny(-)]
+    >=x11-libs/gdk-pixbuf-2.30.7:2[-mgorny(-)] >=x11-libs/cairo-1.12.14-r4[-mgorny(-)]
+    >=x11-libs/pango-1.36.3[-mgorny(-)] >=x11-libs/pixman-0.32.4[-mgorny(-)]'
+  emerge.packages: x11-themes/gtk-engines-murrine
+  kit: desktop-kit
+  original.package.name: x11-themes/gtk-engines-murrine
+  original.package.slot: "0"
+  original.package.version: 0.98.2-r1
