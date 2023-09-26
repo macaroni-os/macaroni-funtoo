@@ -1,0 +1,29 @@
+name: gtk-engines-adwaita
+version: "3.28"
+category: x11-themes
+requires:
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Adwaita GTK+2 theme engine
+uri:
+- https://gitlab.gnome.org/GNOME/gnome-themes-extra/
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=x11-libs/gtk+-2.24.15:2[-mgorny(-)] >=dev-util/intltool-0.40 sys-devel/gettext
+    virtual/pkgconfig app-arch/xz-utils'
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  RDEPEND: '>=x11-libs/gtk+-2.24.15:2[-mgorny(-)] !<x11-themes/gnome-themes-extra-3.28'
+  emerge.packages: x11-themes/gtk-engines-adwaita
+  kit: gnome-kit
+  original.package.name: x11-themes/gtk-engines-adwaita
+  original.package.slot: "0"
+  original.package.version: "3.28"
