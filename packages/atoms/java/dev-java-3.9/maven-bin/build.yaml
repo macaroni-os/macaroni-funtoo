@@ -1,4 +1,9 @@
 prelude:
+# Temporary fix until next race. The tarball is no more available
+- >-
+  cd /var/git/meta-repo/kits/java-kit/dev-java/maven-bin/ &&
+  mv maven-bin-3.9.1.ebuild maven-bin-3.9.4.ebuild &&
+  ebuild maven-bin-3.9.4.ebuild digest
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
