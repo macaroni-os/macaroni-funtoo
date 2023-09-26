@@ -1,4 +1,10 @@
 prelude:
+# Temporary until i fix the race seed
+- >-
+  luet repo update &&
+  luet i edk2-ovmf-bin sgabios seabios-bin ipxe usbredir &&
+  luet cleanup
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -27,6 +33,3 @@ requires:
 - name: spice
   version: '>=0'
   category: app-emulation
-- name: edk2-ovmf-bin
-  version: '>=0'
-  category: sys-firmware
