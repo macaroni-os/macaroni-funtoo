@@ -1,0 +1,28 @@
+name: jre
+version: "20"
+category: virtual-20
+requires:
+- name: jdk
+  version: '>=0'
+  category: virtual-20
+- name: openjdk-jre-bin
+  version: '>=0'
+  category: dev-java-20
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Runtime Environment (JRE)
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( virtual/jdk:20 dev-java/oracle-jre-bin:20[gentoo-vm(+)] dev-java/openjdk-jre-bin:20[gentoo-vm(+)]
+    dev-java/openjdk-jre:20[gentoo-vm(+)] )'
+  emerge.packages: virtual/jre:20
+  kit: java-kit
+  original.package.name: virtual/jre
+  original.package.slot: "20"
+  original.package.version: "20"
