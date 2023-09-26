@@ -160,13 +160,13 @@ artefacts:
     - dev-qt/qtwebengine:5
 
 - tree: packages/atoms/base-qt2
+  # printsupport needesd for PyQtWebEngine
   uses:
     disabled:
       - debug
       - examples
       - gles2-only
       - help
-      - printsupport
       - sensors
       - serialport
       - speech
@@ -175,12 +175,23 @@ artefacts:
     - dev-python/PyQt5
 
 - tree: packages/atoms/base-qt2
+  mutations:
+    uses:
+      - handwriting
   uses:
     disabled:
       - debug
       - test
   packages:
     - dev-qt/qtvirtualkeyboard:5
+
+- tree: packages/atoms/base-qt2
+  uses:
+    disabled:
+      - debug
+      - test
+  packages:
+    - dev-qt/linguist
 
 
 include_layers:
