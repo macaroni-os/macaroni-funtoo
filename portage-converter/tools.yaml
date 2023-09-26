@@ -267,7 +267,147 @@ artefacts:
   packages:
     - sys-apps/cpuid
     - app-misc/mkcert
+    - app-admin/hddtemp
+    - app-admin/logrotate
+    - app-admin/sysstat
+    - app-arch/rpm
+    - app-cdr/cdrdao
+    - app-cdr/dvd+rw-tools
+    - app-crypt/mhash
+    - app-laptop/hdapsd
+    - app-laptop/radeontool
+    - app-laptop/tp_smapi
+    - sys-apps/dtc
+    - sys-auth/nss-mdns
+    - sys-fs/multipath-tools
+    - dev-util/kbuild
 
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - unwind
+      # TODO: static requires elfutils[static-libs] bzip2[static-libs]
+      - static
+  packages:
+    - dev-util/strace
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race15
+  packages:
+    - sys-boot/os-prober
+    - sys-apps/dmidecode
+    - app-arch/upx-bin
+    - app-arch/zip
+    - net-analyzer/rrdtool
+    - net-dialup/wvdial
+    - net-fs/nfs-utils
+    - net-wireless/irda-utils
+    - sys-apps/setserial
+    - app-misc/scrub
+    - net-misc/ipcalc
+    - dev-util/byacc
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race15
+  packages:
+    - net-proxy/cntlm
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e cntlm
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - static-libs
+  packages:
+    - sys-apps/lm_sensors
+
+
+- tree: packages/atoms/tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-libs-3
+          name: libnl
+  uses:
+    disabled:
+    - debug
+    - hwloc
+    - lm-sensors
+    - nios2
+    - openvz
+    - sh
+    - vserver
+    enabled:
+    - unicode
+  packages:
+  - sys-process/htop
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+    - nios2
+    - pud
+    - sh
+    enabled:
+    - gtk
+  packages:
+  - net-misc/olsrd
+
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - ibm
+      - debug
+      - jimtcl
+  packages:
+    - sys-apps/usb_modeswitch
+    - sys-apps/usbredir
+    - sys-power/cpupower
+    - sys-power/iasl
+    - sys-power/pm-utils
+
+- tree: packages/atoms/tools
+  mutations:
+    uses:
+      # quiet emerge about cryptsetup
+      - -static
+  uses:
+    disabled:
+      - ibm
+      - debug
+      - jimtcl
+  packages:
+    - sys-kernel/genkernel
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race15
+  uses:
+    disabled:
+      - ibm
+      - debug
+      - jimtcl
+  packages:
+    - sys-power/acpi
+    - sys-power/pm-quirks
 
 include_layers:
 - layers/macaroni-funtoo-race15.yaml
