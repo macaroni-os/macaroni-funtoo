@@ -1,0 +1,26 @@
+name: jdk
+version: "20"
+category: virtual-20
+requires:
+- name: openjdk-bin
+  version: '>=0'
+  category: dev-java-20
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Development Kit (JDK)
+uri:
+- ""
+labels:
+  IUSE: headless-awt
+  RDEPEND: '|| ( dev-java/oracle-jdk-bin:20[gentoo-vm(+),headless-awt=] dev-java/openjdk-bin:20[gentoo-vm(+),headless-awt=]
+    dev-java/openjdk:20[gentoo-vm(+),headless-awt=] )'
+  emerge.packages: virtual/jdk:20
+  kit: java-kit
+  original.package.name: virtual/jdk
+  original.package.slot: "20"
+  original.package.version: "20"
