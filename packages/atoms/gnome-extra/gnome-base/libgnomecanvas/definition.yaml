@@ -1,0 +1,45 @@
+name: libgnomecanvas
+version: 2.30.3
+category: gnome-base
+use_flags:
+- -glade
+- -test
+- prefix
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libart_lgpl
+  version: '>=0'
+  category: media-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Gnome 2 Canvas library
+uri:
+- https://library.gnome.org/devel/libgnomecanvas/stable/
+license: LGPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2[-mgorny(-)] >=x11-libs/gtk+-2.24.23:2[-mgorny(-)]
+    >=media-libs/libart_lgpl-2.3.21-r2[-mgorny(-)] >=x11-libs/pango-1.44.7[-mgorny(-)]
+    glade? ( >=gnome-base/libglade-2.6.4-r1:2.0[-mgorny(-)] ) >=dev-lang/perl-5 sys-devel/gettext
+    >=dev-util/intltool-0.35 >=virtual/pkgconfig-0-r1[-mgorny(-)] >=app-portage/elt-patches-20170815
+    dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )'
+  IUSE: glade abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64 test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2[-mgorny(-)] >=x11-libs/gtk+-2.24.23:2[-mgorny(-)]
+    >=media-libs/libart_lgpl-2.3.21-r2[-mgorny(-)] >=x11-libs/pango-1.44.7[-mgorny(-)]
+    glade? ( >=gnome-base/libglade-2.6.4-r1:2.0[-mgorny(-)] )'
+  emerge.packages: gnome-base/libgnomecanvas
+  kit: gnome-kit
+  original.package.name: gnome-base/libgnomecanvas
+  original.package.slot: "0"
+  original.package.version: 2.30.3-r1
