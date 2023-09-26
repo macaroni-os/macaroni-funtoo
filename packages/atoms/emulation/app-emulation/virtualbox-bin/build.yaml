@@ -1,4 +1,7 @@
 prelude:
+- >-
+  eval 'mkdir -p /etc/portage/package.license' &&
+  echo 'app-emulation/virtualbox-bin PUEL' >> /etc/portage/package.license/00-virtualbox.license
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
