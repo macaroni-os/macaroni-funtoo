@@ -447,11 +447,12 @@ artefacts:
 - tree: packages/atoms/base-tools
   uses:
     disabled:
-    - kerberos
     - nios2
     - sh
     - static-libs
     enabled:
+    # nfs-utils[kerberos] requires
+    - kerberos
     - ipv6
     - split-usr
     - elibc_glibc
