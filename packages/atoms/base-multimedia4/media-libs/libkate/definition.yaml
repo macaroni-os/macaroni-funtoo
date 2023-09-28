@@ -1,0 +1,49 @@
+name: libkate
+version: 0.4.1
+category: media-libs
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -wxwidgets
+- python_single_target_python3_9
+requires:
+- name: libogg
+  version: '>=0'
+  category: media-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Codec for karaoke and text encapsulation for Ogg
+uri:
+- https://code.google.com/p/libkate/
+license: BSD
+labels:
+  BDEPEND: media-libs/libogg:= media-libs/libpng:0= virtual/pkgconfig sys-devel/flex
+    sys-devel/bison doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: media-libs/libogg:= media-libs/libpng:0=
+  IUSE: debug doc wxwidgets python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: media-libs/libogg:= media-libs/libpng:0= wxwidgets? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    dev-python/wxpython:4.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    media-libs/liboggz )
+  emerge.packages: media-libs/libkate
+  kit: media-kit
+  original.package.name: media-libs/libkate
+  original.package.slot: "0"
+  original.package.version: 0.4.1-r4
