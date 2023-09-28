@@ -1,0 +1,26 @@
+name: dev86
+version: 0.16.21
+category: sys-devel
+requires:
+- name: bin86
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Bruce's C compiler - Simple C compiler to generate 8086 code
+uri:
+- http://www.debath.co.uk/ https://github.com/lkundrak/dev86
+license: GPL-2
+labels:
+  DEPEND: sys-devel/bin86 dev-util/gperf
+  RDEPEND: sys-devel/bin86
+  emerge.packages: sys-devel/dev86
+  kit: geaaru-kit
+  original.package.name: sys-devel/dev86
+  original.package.slot: "0"
+  original.package.version: 0.16.21-r3
