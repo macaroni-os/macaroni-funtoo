@@ -1,0 +1,29 @@
+name: qps
+version: 2.7.0
+category: x11-misc
+requires:
+- name: liblxqt
+  version: '>=0'
+  category: lxqt-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt GUI Process Manager
+uri:
+- https://lxqt.github.io/
+license: GPL-2 GPL-2+ LGPL-2.1+ QPL-1.0
+labels:
+  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5
+    lxqt-base/liblxqt
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5
+    lxqt-base/liblxqt
+  emerge.packages: x11-misc/qps
+  kit: desktop-kit
+  original.package.name: x11-misc/qps
+  original.package.slot: "0"
+  original.package.version: 2.7.0
