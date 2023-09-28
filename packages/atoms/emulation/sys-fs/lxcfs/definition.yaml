@@ -1,0 +1,27 @@
+name: lxcfs
+version: 5.0.3
+category: sys-fs
+requires:
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: FUSE filesystem for LXC
+uri:
+- https://linuxcontainers.org/lxcfs/introduction/ https://github.com/lxc/lxcfs/
+license: Apache-2.0 LGPL-2+
+labels:
+  BDEPEND: sys-apps/help2man dev-python/jinja >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: sys-fs/fuse:3
+  RDEPEND: sys-fs/fuse:3
+  emerge.packages: sys-fs/lxcfs
+  kit: geaaru-kit
+  original.package.name: sys-fs/lxcfs
+  original.package.slot: "0"
+  original.package.version: 5.0.3
