@@ -1,0 +1,27 @@
+name: adplug
+version: 2.3.3
+category: media-libs
+requires:
+- name: libbinio
+  version: '>=0'
+  category: dev-cpp
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A free, cross-platform, hardware independent AdLib sound player library
+uri:
+- http://adplug.sourceforge.net
+license: LGPL-2.1
+labels:
+  DEPEND: '>=dev-cpp/libbinio-1.4 virtual/pkgconfig'
+  IUSE: debug static-libs
+  RDEPEND: '>=dev-cpp/libbinio-1.4'
+  emerge.packages: media-libs/adplug
+  kit: media-kit
+  original.package.name: media-libs/adplug
+  original.package.slot: "0"
+  original.package.version: 2.3.3
