@@ -1,0 +1,30 @@
+name: libpagemaker
+version: 0.0.4
+category: media-libs
+use_flags:
+- -doc
+requires:
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ Library that parses the file format of Aldus/Adobe PageMaker documents.
+uri:
+- https://wiki.documentfoundation.org/DLP/Libraries/libpagemaker
+license: MPL-2.0
+labels:
+  DEPEND: dev-libs/librevenge dev-libs/boost virtual/pkgconfig doc? ( app-doc/doxygen
+    )
+  IUSE: debug doc tools
+  RDEPEND: dev-libs/librevenge
+  emerge.packages: media-libs/libpagemaker
+  kit: media-kit
+  original.package.name: media-libs/libpagemaker
+  original.package.slot: "0"
+  original.package.version: 0.0.4
