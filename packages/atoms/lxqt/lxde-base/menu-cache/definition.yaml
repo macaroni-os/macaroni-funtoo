@@ -1,0 +1,27 @@
+name: menu-cache
+version: 1.1.0
+category: lxde-base
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library creating and utilizing caches to speed up freedesktop.org application
+  menus
+uri:
+- http://lxde.sourceforge.net/
+license: LGPL-2.1
+labels:
+  DEPEND: dev-libs/glib:2 sys-devel/gettext virtual/pkgconfig
+  RDEPEND: dev-libs/glib:2
+  emerge.packages: lxde-base/menu-cache
+  kit: desktop-kit
+  original.package.name: lxde-base/menu-cache
+  original.package.slot: "0"
+  original.package.version: 1.1.0-r1
