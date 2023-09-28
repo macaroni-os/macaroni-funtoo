@@ -1,0 +1,44 @@
+name: libmikmod
+version: 3.3.11.1
+category: media-libs
+use_flags:
+- -openal
+- -oss
+- alsa
+- nas
+- pulseaudio
+- sdl
+requires:
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: libsdl2
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library to play a wide range of module formats
+uri:
+- http://mikmod.sourceforge.net/
+license: LGPL-2+ LGPL-2.1
+labels:
+  BDEPEND: sys-apps/texinfo
+  DEPEND: '!media-libs/libmikmod:2 alsa? ( >=media-libs/alsa-lib-1.0.27.2:= ) nas?
+    ( >=media-libs/nas-1.9.4:= ) openal? ( >=media-libs/openal-1.15.1-r1 ) pulseaudio?
+    ( >=media-sound/pulseaudio-5.0 ) sdl? ( media-libs/libsdl2 ) oss? ( virtual/os-headers
+    )'
+  IUSE: +alsa coreaudio cpu_flags_ppc_altivec debug nas openal oss pulseaudio cpu_flags_x86_sse2
+    sdl static-libs +threads
+  RDEPEND: '!media-libs/libmikmod:2 alsa? ( >=media-libs/alsa-lib-1.0.27.2:= ) nas?
+    ( >=media-libs/nas-1.9.4:= ) openal? ( >=media-libs/openal-1.15.1-r1 ) pulseaudio?
+    ( >=media-sound/pulseaudio-5.0 ) sdl? ( media-libs/libsdl2 )'
+  emerge.packages: media-libs/libmikmod
+  kit: media-kit
+  original.package.name: media-libs/libmikmod
+  original.package.slot: "0"
+  original.package.version: 3.3.11.1-r1
