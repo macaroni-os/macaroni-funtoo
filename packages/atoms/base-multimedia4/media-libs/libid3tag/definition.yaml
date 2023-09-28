@@ -1,0 +1,29 @@
+name: libid3tag
+version: 0.15.1b
+category: media-libs
+requires:
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The MAD id3tag library
+uri:
+- http://www.underbit.com/products/mad/
+license: GPL-2
+labels:
+  DEPEND: '>=sys-libs/zlib-1.2.8-r1[-mgorny(-)] dev-util/gperf >=app-portage/elt-patches-20170317
+    >=app-portage/elt-patches-20170815'
+  IUSE: debug static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '>=sys-libs/zlib-1.2.8-r1[-mgorny(-)]'
+  emerge.packages: media-libs/libid3tag
+  kit: media-kit
+  original.package.name: media-libs/libid3tag
+  original.package.slot: "0"
+  original.package.version: 0.15.1b-r4
