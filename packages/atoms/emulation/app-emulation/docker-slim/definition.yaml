@@ -1,0 +1,22 @@
+name: docker-slim
+version: 1.40.3
+category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Make your containers better, smaller, more secure and do less to get
+  there
+uri:
+- https://dockersl.im/ https://github.com/docker-slim/docker-slim
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  emerge.packages: app-emulation/docker-slim
+  kit: core-kit
+  original.package.name: app-emulation/docker-slim
+  original.package.slot: "0"
+  original.package.version: 1.40.3
