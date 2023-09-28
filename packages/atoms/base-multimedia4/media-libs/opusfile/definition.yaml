@@ -1,0 +1,39 @@
+name: opusfile
+version: "0.12"
+category: media-libs
+use_flags:
+- -doc
+- http
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: libogg
+  version: '>=0'
+  category: media-libs
+- name: opus
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A high-level decoding and seeking API for .opus files
+uri:
+- https://www.opus-codec.org/
+license: BSD
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: media-libs/libogg media-libs/opus http? ( dev-libs/openssl:= )
+  IUSE: doc fixed-point +float +http static-libs
+  RDEPEND: media-libs/libogg media-libs/opus http? ( dev-libs/openssl:= )
+  emerge.packages: media-libs/opusfile
+  kit: media-kit
+  original.package.name: media-libs/opusfile
+  original.package.slot: "0"
+  original.package.version: 0.12-r2
