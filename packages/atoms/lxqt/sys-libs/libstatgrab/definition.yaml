@@ -1,0 +1,36 @@
+name: libstatgrab
+version: 0.92.1
+category: sys-libs
+use_flags:
+- -perl
+requires:
+- name: log4cplus
+  version: '>=0'
+  category: dev-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+uri:
+- https://www.i-scream.org/libstatgrab/
+license: '|| ( GPL-2 LGPL-2.1 )'
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: sys-libs/ncurses dev-libs/log4cplus app-text/docbook2X perl? ( virtual/perl
+    )
+  IUSE: examples perl static-libs
+  RDEPEND: sys-libs/ncurses dev-libs/log4cplus app-text/docbook2X perl? ( virtual/perl
+    )
+  emerge.packages: sys-libs/libstatgrab
+  kit: core-kit
+  original.package.name: sys-libs/libstatgrab
+  original.package.slot: "0"
+  original.package.version: 0.92.1
