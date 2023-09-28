@@ -1,0 +1,44 @@
+name: libmypaint
+version: 1.6.1
+category: media-libs
+use_flags:
+- -openmp
+- gegl
+- introspection
+- nls
+requires:
+- name: json-c
+  version: '>=0'
+  category: dev-libs
+- name: gegl
+  version: '>=0'
+  category: media-libs-0.4
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for making brushstrokes
+uri:
+- https://github.com/mypaint/libmypaint
+license: ISC
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) nls? ( dev-util/intltool )'
+  DEPEND: dev-libs/glib:2 dev-libs/json-c:= gegl? ( media-libs/babl >=media-libs/gegl-0.4.14:0.4[introspection?]
+    ) introspection? ( >=dev-libs/gobject-introspection-1.32 ) openmp? ( >sys-devel/gcc-5:*[openmp]
+    ) nls? ( sys-devel/gettext ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: gegl introspection nls openmp
+  RDEPEND: dev-libs/glib:2 dev-libs/json-c:= gegl? ( media-libs/babl >=media-libs/gegl-0.4.14:0.4[introspection?]
+    ) introspection? ( >=dev-libs/gobject-introspection-1.32 ) openmp? ( >sys-devel/gcc-5:*[openmp]
+    ) nls? ( sys-devel/gettext ) !<media-gfx/mypaint-1.2.1
+  emerge.packages: media-libs/libmypaint
+  kit: media-kit
+  original.package.name: media-libs/libmypaint
+  original.package.slot: "0"
+  original.package.version: 1.6.1
