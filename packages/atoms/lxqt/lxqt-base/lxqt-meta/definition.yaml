@@ -1,0 +1,118 @@
+name: lxqt-meta
+version: 1.3.0
+category: lxqt-base
+use_flags:
+- -lightdm
+- -minimal
+- -sddm
+- about
+- admin
+- filemanager
+- lximage
+- nls
+- policykit
+- powermanagement
+- processviewer
+- screenshot
+- ssh-askpass
+- sudo
+- terminal
+- trash
+requires:
+- name: qttranslations
+  version: '>=0'
+  category: dev-qt-5
+- name: gvfs
+  version: '>=0'
+  category: gnome-base
+- name: oxygen-icons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: lxqt-about
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-admin
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-config
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-notificationd
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-openssh-askpass
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-panel
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-policykit
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-powermanagement
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-qtplugin
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-runner
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-session
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-sudo
+  version: '>=0'
+  category: lxqt-base
+- name: lximage-qt
+  version: '>=0'
+  category: media-gfx
+- name: ttf-fonts
+  version: '>=0'
+  category: virtual
+- name: pcmanfm-qt
+  version: '>=0'
+  category: x11-misc
+- name: qps
+  version: '>=0'
+  category: x11-misc
+- name: screengrab
+  version: '>=0'
+  category: x11-misc
+- name: qterminal
+  version: '>=0'
+  category: x11-terms
+- name: lxqt-themes
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Meta ebuild for LXQt, the Lightweight Desktop Environment
+uri:
+- https://lxqt.org/
+license: metapackage
+labels:
+  IUSE: +about admin +filemanager lightdm lximage minimal nls +policykit powermanagement
+    processviewer screenshot sddm ssh-askpass sudo terminal +trash
+  RDEPEND: kde-frameworks/oxygen-icons lxde-base/lxmenu-data =lxqt-base/lxqt-config-1.3*
+    =lxqt-base/lxqt-globalkeys-1.3* =lxqt-base/lxqt-notificationd-1.3* =lxqt-base/lxqt-panel-1.3*
+    =lxqt-base/lxqt-qtplugin-1.3* =lxqt-base/lxqt-runner-1.3* =lxqt-base/lxqt-session-1.3*
+    virtual/ttf-fonts =x11-themes/lxqt-themes-1.3* about? ( =lxqt-base/lxqt-about-1.3*
+    ) admin? ( =lxqt-base/lxqt-admin-1.3* ) filemanager? ( =x11-misc/pcmanfm-qt-1.3*
+    ) lightdm? ( x11-misc/lightdm ) lximage? ( media-gfx/lximage-qt ) !minimal? (
+    x11-wm/openbox x11-misc/obconf-qt ) nls? ( dev-qt/qttranslations:5 ) policykit?
+    ( =lxqt-base/lxqt-policykit-1.3* ) powermanagement? ( =lxqt-base/lxqt-powermanagement-1.3*
+    ) processviewer? ( x11-misc/qps:0 ) screenshot? ( x11-misc/screengrab:0 ) sddm?
+    ( >=x11-misc/sddm-0.11.0 ) ssh-askpass? ( =lxqt-base/lxqt-openssh-askpass-1.3*
+    ) sudo? ( =lxqt-base/lxqt-sudo-1.3* ) terminal? ( x11-terms/qterminal:0 ) trash?
+    ( gnome-base/gvfs )
+  emerge.packages: lxqt-base/lxqt-meta
+  kit: desktop-kit
+  original.package.name: lxqt-base/lxqt-meta
+  original.package.slot: "0"
+  original.package.version: 1.3.0
