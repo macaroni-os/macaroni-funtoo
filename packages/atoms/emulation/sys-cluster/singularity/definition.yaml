@@ -1,0 +1,32 @@
+name: singularity
+version: 3.8.7
+category: sys-cluster
+requires:
+- name: squashfs-tools
+  version: '>=0'
+  category: sys-fs
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Application containers for Linux
+uri:
+- https://sylabs.io
+license: BSD
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: sys-libs/libseccomp >=dev-lang/go-1.13.0 app-crypt/gpgme dev-libs/openssl
+    sys-apps/util-linux sys-fs/cryptsetup
+  IUSE: examples +network +suid kernel_linux
+  RDEPEND: sys-libs/libseccomp sys-fs/squashfs-tools
+  emerge.packages: sys-cluster/singularity
+  kit: core-kit
+  original.package.name: sys-cluster/singularity
+  original.package.slot: "0"
+  original.package.version: 3.8.7
