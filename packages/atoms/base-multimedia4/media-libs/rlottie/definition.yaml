@@ -1,0 +1,25 @@
+name: rlottie
+version: "0.2"
+category: media-libs
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A platform independent standalone library that plays Lottie Animations
+uri:
+- https://github.com/Samsung/rlottie
+license: BSD FTL JSON MIT
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: test? ( dev-cpp/gtest )
+  IUSE: debug test
+  emerge.packages: media-libs/rlottie
+  kit: media-kit
+  original.package.name: media-libs/rlottie
+  original.package.slot: "0"
+  original.package.version: "0.2"
