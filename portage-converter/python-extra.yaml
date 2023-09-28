@@ -212,8 +212,6 @@ artefacts:
     - dev-python/soupsieve
 
 - tree: packages/atoms/python-extra
-  uses:
-    disabled:
   mutations:
     buildtime_deps:
       packages:
@@ -260,6 +258,34 @@ artefacts:
       - imagequant
   packages:
     - dev-python/pillow
+    - dev-python/reportlab
+
+- tree: packages/atoms/python-extra
+  uses:
+    disabled:
+      - doc
+      - test
+  packages:
+    - dev-python/sqlalchemy
+    - dev-python/tempita
+    - dev-python/subpop
+    - dev-python/terminaltables
+    - dev-python/testpath
+    - dev-python/python-sqlparse
+    - dev-python/wcwidth
+    - dev-python/sqlalchemy-migrate
+    - dev-python/texttable
+    - dev-python/virtualenv
+    - dev-python/websocket-client
+    - dev-python/wstools
+    - dev-python/xmltodict
+
+- tree: packages/atoms/python-extra
+  uses:
+    disabled:
+      - test
+  packages:
+    - x11-terms/terminator
 
 include_layers:
 - layers/macaroni-funtoo-race16.yaml
