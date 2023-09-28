@@ -1,0 +1,38 @@
+name: libcdr
+version: 0.1.7
+category: media-libs
+use_flags:
+- -doc
+- -test
+requires:
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library parsing the Corel cdr documents
+uri:
+- https://wiki.documentfoundation.org/DLP/Libraries/libcdr
+license: MPL-2.0
+labels:
+  BDEPEND: sys-devel/libtool virtual/pkgconfig doc? ( app-doc/doxygen ) test? ( dev-util/cppunit
+    )
+  DEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/lcms:2 sys-libs/zlib dev-libs/boost
+  IUSE: doc static-libs test
+  RDEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/lcms:2 sys-libs/zlib
+  emerge.packages: media-libs/libcdr
+  kit: media-kit
+  original.package.name: media-libs/libcdr
+  original.package.slot: "0"
+  original.package.version: 0.1.7
