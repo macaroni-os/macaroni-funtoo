@@ -1,0 +1,35 @@
+name: t1lib
+version: 5.1.2
+category: media-libs-5
+use_flags:
+- -doc
+- X
+requires:
+- name: libXaw
+  version: '>=0'
+  category: x11-libs
+- name: libXt
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A Type 1 Font Rasterizer Library for UNIX/X11
+uri:
+- ftp://metalab.unc.edu/pub/Linux/libs/graphics/
+license: LGPL-2 GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: X? ( x11-libs/libXaw x11-libs/libX11 x11-libs/libXt ) doc? ( virtual/latex-base
+    ) X? ( x11-base/xorg-proto )
+  IUSE: X doc static-libs
+  RDEPEND: X? ( x11-libs/libXaw x11-libs/libX11 x11-libs/libXt )
+  emerge.packages: media-libs/t1lib:5
+  kit: geaaru-kit
+  original.package.name: media-libs/t1lib
+  original.package.slot: "5"
+  original.package.version: 5.1.2-r2
