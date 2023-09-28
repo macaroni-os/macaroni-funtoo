@@ -1,0 +1,29 @@
+name: lxqt-notificationd
+version: 1.3.0
+category: lxqt-base
+requires:
+- name: liblxqt
+  version: '>=0'
+  category: lxqt-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: LXQt notification daemon and library
+uri:
+- https://lxqt.github.io/
+license: LGPL-2.1 LGPL-2.1+
+labels:
+  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/libqtxdg dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
+    kde-frameworks/kwindowsystem:5 =lxqt-base/liblxqt-1.3*
+  RDEPEND: dev-libs/libqtxdg dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
+    kde-frameworks/kwindowsystem:5 =lxqt-base/liblxqt-1.3*
+  emerge.packages: lxqt-base/lxqt-notificationd
+  kit: desktop-kit
+  original.package.name: lxqt-base/lxqt-notificationd
+  original.package.slot: "0"
+  original.package.version: 1.3.0
