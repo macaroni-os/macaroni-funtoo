@@ -1,0 +1,34 @@
+name: qtermwidget
+version: 1.3.0
+category: x11-libs
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwidgets
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt terminal emulator widget
+uri:
+- https://lxqt.github.io/
+license: BSD GPL-2 LGPL-2+
+labels:
+  BDEPEND: dev-qt/linguist-tools:5 >=dev-util/lxqt-build-tools-0.12.0 dev-util/ninja
+    dev-util/cmake
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
+  emerge.packages: x11-libs/qtermwidget
+  kit: desktop-kit
+  original.package.name: x11-libs/qtermwidget
+  original.package.slot: "0"
+  original.package.version: 1.3.0
