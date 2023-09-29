@@ -1,0 +1,21 @@
+name: libgssglue
+version: "0.4"
+category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Exports a gssapi interface which calls other random gssapi libraries
+uri:
+- http://www.citi.umich.edu/projects/nfsv4/linux/
+license: BSD
+labels:
+  RDEPEND: '!app-crypt/libgssapi'
+  emerge.packages: net-libs/libgssglue
+  kit: net-kit
+  original.package.name: net-libs/libgssglue
+  original.package.slot: "0"
+  original.package.version: 0.4-r1
