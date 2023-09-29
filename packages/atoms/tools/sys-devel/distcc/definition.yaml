@@ -1,0 +1,75 @@
+name: distcc
+version: "3.4"
+category: sys-devel
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -selinux
+- gssapi
+- gtk
+- python_single_target_python3_9
+- xinetd
+- zeroconf
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: popt
+  version: '>=0'
+  category: dev-libs
+- name: shadowman
+  version: '>=0'
+  category: dev-util
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: libgssglue
+  version: '>=0'
+  category: net-libs
+- name: gcc-config
+  version: '>=0'
+  category: sys-devel
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Distribute compilation of C code across several machines on a network
+uri:
+- https://github.com/distcc/distcc
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) dev-libs/popt gssapi? ( net-libs/libgssglue ) gtk? ( x11-libs/gtk+:2 ) zeroconf?
+    ( >=net-dns/avahi-0.6[dbus] ) sys-devel/autoconf-archive sys-libs/binutils-libs
+    virtual/pkgconfig sys-apps/shadow
+  IUSE: gssapi gtk hardened ipv6 selinux xinetd zeroconf python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) dev-libs/popt gssapi? ( net-libs/libgssglue ) gtk? ( x11-libs/gtk+:2 ) zeroconf?
+    ( >=net-dns/avahi-0.6[dbus] ) dev-util/shadowman >=sys-devel/gcc-config-1.4.1
+    selinux? ( sec-policy/selinux-distcc ) xinetd? ( sys-apps/xinetd )
+  emerge.packages: sys-devel/distcc
+  kit: core-kit
+  original.package.name: sys-devel/distcc
+  original.package.slot: "0"
+  original.package.version: "3.4"
