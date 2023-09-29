@@ -1,4 +1,8 @@
 prelude:
+# Temporary until next race
+- >-
+  sed -i -e 's|"${ED}"usr/lib|"${ED}"/usr/lib|g'
+  /var/git/extra-kits/geaaru-kit/media-libs/t1lib/t1lib-5.1.2-r2.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
