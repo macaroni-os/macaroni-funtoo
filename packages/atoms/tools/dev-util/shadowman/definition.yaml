@@ -1,0 +1,26 @@
+name: shadowman
+version: "2"
+category: dev-util
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Unified compiler shadow link directory updater
+uri:
+- https://github.com/mgorny/shadowman
+license: GPL-2
+labels:
+  DEPEND: app-admin/eselect
+  RDEPEND: app-admin/eselect
+  emerge.packages: dev-util/shadowman
+  kit: dev-kit
+  original.package.name: dev-util/shadowman
+  original.package.slot: "0"
+  original.package.version: "2"
