@@ -1,0 +1,27 @@
+name: thunar-archive-plugin
+version: 0.5.1
+category: xfce-extra
+requires:
+- name: thunar
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Archive plug-in for the Thunar filemanager
+uri:
+- https://goodies.xfce.org/projects/thunar-plugins/thunar-archive-plugin
+license: LGPL-2
+labels:
+  DEPEND: '>=xfce-base/libxfce4util-4.12:= >=xfce-base/exo-0.10:= >=xfce-base/thunar-1.7:=
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig'
+  RDEPEND: '>=xfce-base/libxfce4util-4.12:= >=xfce-base/exo-0.10:= >=xfce-base/thunar-1.7:='
+  emerge.packages: xfce-extra/thunar-archive-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/thunar-archive-plugin
+  original.package.slot: "0"
+  original.package.version: 0.5.1
