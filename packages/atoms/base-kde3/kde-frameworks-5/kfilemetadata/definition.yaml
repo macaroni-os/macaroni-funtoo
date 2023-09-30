@@ -1,0 +1,79 @@
+name: kfilemetadata
+version: 5.98.0
+category: kde-frameworks-5
+use_flags:
+- -doc
+- -test
+- epub
+- exif
+- ffmpeg
+- kernel_linux
+- mobi
+- office
+- pdf
+- taglib
+requires:
+- name: ebook-tools
+  version: '>=0'
+  category: app-text
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: qtxml
+  version: '>=0'
+  category: dev-qt-5
+- name: kdegraphics-mobipocket
+  version: '>=0'
+  category: kde-apps-5
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-5
+- name: exiv2
+  version: '>=0'
+  category: media-gfx
+- name: taglib
+  version: '>=0'
+  category: media-libs
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for extracting file metadata
+uri:
+- https://kde.org/
+license: LGPL-2+
+labels:
+  BDEPEND: test? ( || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 ) ) dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98:5
+    doc? ( >=dev-qt/qthelp-5.15.1:5 >=app-doc/doxygen-1.8.13-r1 )
+  DEPEND: '>=dev-qt/qtxml-5.15.1:5 >=kde-frameworks/kcoreaddons-5.98:5 >=kde-frameworks/ki18n-5.98:5
+    epub? ( app-text/ebook-tools ) exif? ( media-gfx/exiv2:= ) ffmpeg? ( media-video/ffmpeg:0=
+    ) mobi? ( kde-apps/kdegraphics-mobipocket ) office? ( >=kde-frameworks/karchive-5.98:5
+    ) pdf? ( app-text/poppler[qt5] ) taglib? ( media-libs/taglib ) kernel_linux? (
+    sys-apps/attr ) dev-util/desktop-file-utils x11-misc/shared-mime-info test? (
+    >=dev-qt/qttest-5.15.1:5 ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5
+    ) dev-util/desktop-file-utils'
+  IUSE: epub exif ffmpeg mobi office pdf taglib debug doc test
+  RDEPEND: '>=dev-qt/qtxml-5.15.1:5 >=kde-frameworks/kcoreaddons-5.98:5 >=kde-frameworks/ki18n-5.98:5
+    epub? ( app-text/ebook-tools ) exif? ( media-gfx/exiv2:= ) ffmpeg? ( media-video/ffmpeg:0=
+    ) mobi? ( kde-apps/kdegraphics-mobipocket ) office? ( >=kde-frameworks/karchive-5.98:5
+    ) pdf? ( app-text/poppler[qt5] ) taglib? ( media-libs/taglib ) >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5
+    doc? ( >=dev-qt/qt-docs-5.15.1:5 )'
+  emerge.packages: kde-frameworks/kfilemetadata:5
+  kit: kde-kit
+  original.package.name: kde-frameworks/kfilemetadata
+  original.package.slot: "5"
+  original.package.version: 5.98.0
