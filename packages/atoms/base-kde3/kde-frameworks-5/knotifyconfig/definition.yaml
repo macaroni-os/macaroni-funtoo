@@ -1,0 +1,49 @@
+name: knotifyconfig
+version: 5.98.0
+category: kde-frameworks-5
+use_flags:
+- -doc
+- phonon
+requires:
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-5
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-5
+- name: phonon
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for configuring desktop notifications
+uri:
+- https://kde.org/
+license: LGPL-2+
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98:5
+    doc? ( >=dev-qt/qthelp-5.15.1:5 >=app-doc/doxygen-1.8.13-r1 )
+  DEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5
+    >=kde-frameworks/kcompletion-5.98:5 >=kde-frameworks/kconfig-5.98:5 >=kde-frameworks/ki18n-5.98:5
+    >=kde-frameworks/kio-5.98:5 !phonon? ( media-libs/libcanberra ) phonon? ( >=media-libs/phonon-4.11.0[qt5(+)]
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.1:5
+    doc? ( >=dev-qt/qt-docs-5.15.1:5 ) dev-util/desktop-file-utils'
+  IUSE: phonon debug doc
+  RDEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5
+    >=kde-frameworks/kcompletion-5.98:5 >=kde-frameworks/kconfig-5.98:5 >=kde-frameworks/ki18n-5.98:5
+    >=kde-frameworks/kio-5.98:5 !phonon? ( media-libs/libcanberra ) phonon? ( >=media-libs/phonon-4.11.0[qt5(+)]
+    ) >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5 )'
+  emerge.packages: kde-frameworks/knotifyconfig:5
+  kit: kde-kit
+  original.package.name: kde-frameworks/knotifyconfig
+  original.package.slot: "5"
+  original.package.version: 5.98.0
