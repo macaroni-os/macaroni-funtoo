@@ -1,0 +1,80 @@
+name: plasma-integration
+version: 5.25.5
+category: kde-plasma-5
+use_flags:
+- -test
+- prefix
+requires:
+- name: plasma-wayland-protocols
+  version: '>=0'
+  category: dev-libs
+- name: qtquickcontrols2
+  version: '>=0'
+  category: dev-qt-5
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-5
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kwayland
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-5
+- name: breeze
+  version: '>=0'
+  category: kde-plasma-5
+- name: hack
+  version: '>=0'
+  category: media-fonts
+- name: noto
+  version: '>=0'
+  category: media-fonts
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt Platform Theme integration plugins for the Plasma workspaces
+uri:
+- https://kde.org/
+license: LGPL-2+
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.98.0:5
+  DEPEND: '>=dev-libs/plasma-wayland-protocols-1.6.0 dev-libs/wayland >=dev-qt/qtdbus-5.15.2:5
+    >=dev-qt/qtgui-5.15.2:5[dbus] >=dev-qt/qtquickcontrols2-5.15.2:5 >=dev-qt/qtwayland-5.15.2:5
+    >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kcompletion-5.98.0:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kjobwidgets-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
+    >=kde-frameworks/kwayland-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5 >=kde-frameworks/kwindowsystem-5.98.0:5
+    >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-plasma/breeze-5.25.5:5 x11-libs/libXcursor
+    x11-libs/libxcb dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.2:5
+    dev-util/desktop-file-utils'
+  IUSE: test debug
+  RDEPEND: '>=dev-libs/plasma-wayland-protocols-1.6.0 dev-libs/wayland >=dev-qt/qtdbus-5.15.2:5
+    >=dev-qt/qtgui-5.15.2:5[dbus] >=dev-qt/qtquickcontrols2-5.15.2:5 >=dev-qt/qtwayland-5.15.2:5
+    >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kcompletion-5.98.0:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kjobwidgets-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
+    >=kde-frameworks/kwayland-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5 >=kde-frameworks/kwindowsystem-5.98.0:5
+    >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-plasma/breeze-5.25.5:5 x11-libs/libXcursor
+    x11-libs/libxcb media-fonts/hack media-fonts/noto >=kde-frameworks/kf-env-4 ||
+    ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
+  emerge.packages: kde-plasma/plasma-integration:5
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-integration
+  original.package.slot: "5"
+  original.package.version: 5.25.5
