@@ -131,7 +131,6 @@ artefacts:
     - xfce-extra/xfce4-netload-plugin
     - xfce-extra/xfce4-notes-plugin
     - xfce-extra/xfce4-notifyd
-    - xfce-extra/xfce4-panel-profiles
     - xfce-extra/xfce4-places-plugin
     - xfce-extra/xfce4-power-manager
     - xfce-extra/xfce4-pulseaudio-plugin
@@ -162,6 +161,19 @@ artefacts:
       - subversion
   packages:
     - xfce-extra/thunar-vcs-plugin
+
+
+- tree: packages/atoms/xfce
+  mutations:
+    uses:
+      # quiet emerge
+      - introspection
+  uses:
+    disabled:
+      - consolekit
+      - cgroups
+  packages:
+    - xfce-extra/xfce4-panel-profiles
 
 #- tree: packages/atoms/xfce
 #  uses:
