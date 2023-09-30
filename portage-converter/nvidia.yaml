@@ -129,6 +129,12 @@ artefacts:
       - doc
   packages:
     - x11-drivers/nvidia-drivers
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - eval 'macaronictl env-update || true'
 
 include_layers:
 - layers/macaroni-funtoo-race14.yaml
