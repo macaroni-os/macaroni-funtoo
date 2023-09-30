@@ -1,0 +1,35 @@
+name: ebook-tools
+version: 0.2.2
+category: app-text
+use_flags:
+- lit2epub
+requires:
+- name: convertlit
+  version: '>=0'
+  category: app-text
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: libzip
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools for accessing and converting various ebook file formats
+uri:
+- https://sourceforge.net/projects/ebook-tools/
+license: MIT
+labels:
+  DEPEND: dev-libs/libxml2 dev-libs/libzip:= sys-devel/make >=dev-util/cmake-3.9.6
+  IUSE: +lit2epub
+  RDEPEND: dev-libs/libxml2 dev-libs/libzip:= lit2epub? ( app-text/convertlit )
+  emerge.packages: app-text/ebook-tools
+  kit: text-kit
+  original.package.name: app-text/ebook-tools
+  original.package.slot: "0"
+  original.package.version: 0.2.2-r1
