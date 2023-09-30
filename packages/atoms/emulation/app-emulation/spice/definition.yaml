@@ -1,22 +1,25 @@
 name: spice
-version: 0.15.2
+version: 0.15.2+1
 category: app-emulation
 use_flags:
-- -gstreamer
-- -lz4
 - -sasl
-- -smartcard
 - -test
+- gstreamer
+- lz4
+- smartcard
 requires:
-- name: orc
+- name: lz4
   version: '>=0'
-  category: dev-lang
-- name: glib
+  category: app-arch
+- name: libcacard
   version: '>=0'
-  category: dev-libs-2
+  category: app-emulation
 - name: openssl
   version: '>=0'
   category: dev-libs
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
 - name: libjpeg-turbo
   version: '>=0'
   category: media-libs
