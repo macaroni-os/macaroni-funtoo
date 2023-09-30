@@ -1,0 +1,39 @@
+name: kwayland-server
+version: 5.24.5
+category: kde-plasma-5
+use_flags:
+- -doc
+- -test
+requires:
+- name: kwayland
+  version: '>=0'
+  category: kde-frameworks-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Wayland Server Components built on KDE Frameworks
+uri:
+- https://invent.kde.org/plasma/kwayland-server
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+    doc? ( >=dev-qt/qthelp-5.15.2:5 >=app-doc/doxygen-1.8.13-r1 )
+  DEPEND: '>=dev-libs/wayland-1.18.0 >=dev-qt/qtconcurrent-5.15.2:5 >=dev-qt/qtgui-5.15.2:5[egl]
+    >=dev-qt/qtwayland-5.15.2:5 >=kde-frameworks/kwayland-5.98.0:5 media-libs/mesa[egl]
+    >=dev-libs/plasma-wayland-protocols-1.1.1 >=dev-libs/wayland-protocols-1.18 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.15.2:5 ) >=dev-qt/qtcore-5.15.2:5
+    doc? ( >=dev-qt/qt-docs-5.15.2:5 ) dev-util/desktop-file-utils'
+  IUSE: debug doc test
+  RDEPEND: '>=dev-libs/wayland-1.18.0 >=dev-qt/qtconcurrent-5.15.2:5 >=dev-qt/qtgui-5.15.2:5[egl]
+    >=dev-qt/qtwayland-5.15.2:5 >=kde-frameworks/kwayland-5.98.0:5 media-libs/mesa[egl]
+    >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.15.2:5 doc? ( >=dev-qt/qt-docs-5.15.2:5 )'
+  emerge.packages: kde-plasma/kwayland-server:5
+  kit: kde-kit
+  original.package.name: kde-plasma/kwayland-server
+  original.package.slot: "5"
+  original.package.version: 5.24.5
