@@ -1,0 +1,27 @@
+name: thunar-shares-plugin
+version: 0.3.1
+category: xfce-extra
+requires:
+- name: thunar
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Thunar plugin to share files using Samba
+uri:
+- https://goodies.xfce.org/projects/thunar-plugins/thunar-shares-plugin
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.18 >=x11-libs/gtk+-3.22:3 >=xfce-base/thunar-1.7:= dev-util/intltool
+    virtual/pkgconfig'
+  RDEPEND: '>=dev-libs/glib-2.18 >=x11-libs/gtk+-3.22:3 >=xfce-base/thunar-1.7:='
+  emerge.packages: xfce-extra/thunar-shares-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/thunar-shares-plugin
+  original.package.slot: "0"
+  original.package.version: 0.3.1
