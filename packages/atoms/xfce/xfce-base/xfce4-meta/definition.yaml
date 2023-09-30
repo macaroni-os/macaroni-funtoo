@@ -1,0 +1,67 @@
+name: xfce4-meta
+version: "4.16"
+category: xfce-base
+use_flags:
+- -minimal
+- svg
+- upower
+requires:
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: xfce4-terminal
+  version: '>=0'
+  category: x11-terms
+- name: hicolor-icon-theme
+  version: '>=0'
+  category: x11-themes
+- name: xfce4-appfinder
+  version: '>=0'
+  category: xfce-base
+- name: xfce4-session
+  version: '>=0'
+  category: xfce-base
+- name: xfce4-settings
+  version: '>=0'
+  category: xfce-base
+- name: xfdesktop
+  version: '>=0'
+  category: xfce-base
+- name: xfwm4
+  version: '>=0'
+  category: xfce-base
+- name: thunar-volman
+  version: '>=0'
+  category: xfce-extra
+- name: tumbler
+  version: '>=0'
+  category: xfce-extra
+- name: xfce4-power-manager
+  version: '>=0'
+  category: xfce-extra
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Xfce Desktop Environment (meta package)
+uri:
+- https://www.xfce.org/
+license: metapackage
+labels:
+  IUSE: minimal +svg upower
+  RDEPEND: x11-themes/hicolor-icon-theme >=xfce-base/exo-4.16.0 >=xfce-base/garcon-4.16.0
+    >=xfce-base/libxfce4ui-4.16.0 >=xfce-base/libxfce4util-4.16.0 >=xfce-base/thunar-4.16.0
+    >=xfce-base/xfce4-appfinder-4.16.0 >=xfce-base/xfce4-panel-4.16.0 >=xfce-base/xfce4-session-4.16.0
+    >=xfce-base/xfce4-settings-4.16.0 x11-terms/xfce4-terminal >=xfce-base/xfconf-4.16.0
+    >=xfce-base/xfdesktop-4.16.0 >=xfce-base/xfwm4-4.16.0 >=xfce-extra/thunar-volman-4.16.0
+    >=xfce-extra/tumbler-4.16.0 !minimal? ( media-fonts/dejavu virtual/freedesktop-icon-theme
+    ) svg? ( gnome-base/librsvg ) upower? ( >=xfce-extra/xfce4-power-manager-4.16.0
+    )
+  emerge.packages: xfce-base/xfce4-meta
+  kit: xfce-kit
+  original.package.name: xfce-base/xfce4-meta
+  original.package.slot: "0"
+  original.package.version: "4.16"
