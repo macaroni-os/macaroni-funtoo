@@ -1,0 +1,41 @@
+name: i3lock
+version: 2.14.1
+category: x11-misc
+requires:
+- name: libev
+  version: '>=0'
+  category: dev-libs
+- name: pam
+  version: '>=0'
+  category: sys-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-xrm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: improved screen locker
+uri:
+- https://i3wm.org/i3lock/
+license: BSD
+labels:
+  BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/libev sys-libs/pam x11-libs/cairo[X,xcb(+)] x11-libs/libxcb[xkb]
+    x11-libs/libxkbcommon[X] x11-libs/xcb-util x11-libs/xcb-util-xrm
+  RDEPEND: dev-libs/libev sys-libs/pam x11-libs/cairo[X,xcb(+)] x11-libs/libxcb[xkb]
+    x11-libs/libxkbcommon[X] x11-libs/xcb-util x11-libs/xcb-util-xrm
+  emerge.packages: x11-misc/i3lock
+  kit: desktop-kit
+  original.package.name: x11-misc/i3lock
+  original.package.slot: "0"
+  original.package.version: 2.14.1
