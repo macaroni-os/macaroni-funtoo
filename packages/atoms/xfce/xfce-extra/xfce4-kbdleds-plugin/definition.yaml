@@ -1,0 +1,28 @@
+name: xfce4-kbdleds-plugin
+version: 0.2.5
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A panel plug-in to show state of Caps, Num and Scroll Lock keys
+uri:
+- https://github.com/oco2000/xfce4-kbdleds-plugin
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/intltool sys-devel/gettext virtual/pkgconfig
+  DEPEND: xfce-base/libxfce4ui:= xfce-base/libxfce4util:= xfce-base/xfce4-panel dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  RDEPEND: xfce-base/libxfce4ui:= xfce-base/libxfce4util:= xfce-base/xfce4-panel
+  emerge.packages: xfce-extra/xfce4-kbdleds-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-kbdleds-plugin
+  original.package.slot: "0"
+  original.package.version: 0.2.5
