@@ -16,9 +16,6 @@ skipped_resolutions:
     - name: radiusclient-ng
       category: net-dialup
 
-    - name: systemd-tmpfiles
-      category: sys-apps
-
     - name: argp-standalone
       category: sys-libs
 
@@ -59,9 +56,6 @@ skipped_resolutions:
     - name: cdrtools
       category: virtual
 
-    - name: virtualbox-modules
-      category: app-emulation
-
     # Force OR condition for app-text/xmlto
     # on use virtual/w3m
     - name: lynx
@@ -75,12 +69,10 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-include_files:
-  - ./artefacts/emulation.yml
+    - name: zfs-kmod
+      category: sys-fs
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
-#build_template_file: ../templates/build-pkg-from-layer.yaml.tmpl
-
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -90,72 +82,458 @@ global_annotations:
       portage:
         - "^/var/db/pkg/"
 
-
 artefacts:
+
+- tree: packages/atoms/emulation
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+    uses:
+      - qemu_softmmu_targets_mips64
+      - qemu_softmmu_targets_mips64el
+      - qemu_softmmu_targets_mipsel
+      - qemu_softmmu_targets_riscv32
+      - qemu_softmmu_targets_riscv64
+      - qemu_softmmu_targets_sparc64
+      - qemu_softmmu_targets_s390x
+      - qemu_softmmu_targets_arm
+
+      - qemu_user_targets_arm
+      - qemu_user_targets_armeb
+      - qemu_user_targets_mips
+      - qemu_user_targets_mipsel
+      - qemu_user_targets_mips64
+      - qemu_user_targets_mips64el
+      - qemu_user_targets_riscv32
+      - qemu_user_targets_riscv64
+      - qemu_user_targets_s390x
+  uses:
+    enabled:
+      - pin-upstream-blobs
+      - python_targets_python3_9
+      - kernel_linux
+      - qemu_softmmu_targets_mips64
+      - qemu_softmmu_targets_mips64el
+      - qemu_softmmu_targets_mipsel
+      - qemu_softmmu_targets_riscv32
+      - qemu_softmmu_targets_riscv64
+      - qemu_softmmu_targets_sparc64
+      - qemu_softmmu_targets_s390x
+      - qemu_softmmu_targets_arm
+      - qemu_softmmu_targets_i386
+      - qemu_softmmu_targets_x86_64
+
+      - qemu_user_targets_arm
+      - qemu_user_targets_armeb
+      - qemu_user_targets_mips
+      - qemu_user_targets_mipsel
+      - qemu_user_targets_mips64
+      - qemu_user_targets_mips64el
+      - qemu_user_targets_riscv32
+      - qemu_user_targets_riscv64
+      - qemu_user_targets_s390x
+      - qemu_user_targets_i386
+      - qemu_user_targets_x86_64
+
+      - fuse
+      - bpf
+      - iscsi
+      - ssh
+      - vte
+      - aio
+      - alsa
+      - bpf
+      - bzip2
+      - caps
+      - curl
+      - fdt
+      - filecaps
+      - fuse
+      - glusterfs
+      - gnutls
+      - gtk
+      - iscsi
+      - jpeg
+      - lzo
+      - multipath
+      - ncurses
+      - nfs
+      - nls
+      - opengl
+      - oss
+      - pam
+      - plugins
+      - png
+      - pulseaudio
+      - python
+      - sdl
+      - seccomp
+      - slirp
+      - spice
+      - ssh
+      - udev
+      - usb
+      - usbredir
+      - vhost-net
+      - virgl
+      - virtfs
+      - vnc
+      - vte
+      - xattr
+      - xfs
+      - zstd
+      - static-user
+      - smartcard
+  packages:
+  - app-emulation/qemu
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        for i in kvm qemu ; do
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e $i ; done
+
+- tree: packages/atoms/emulation
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+      - debug
+      - emacs
+      - infiniband
+      - libressl
+      - static-libs
+      - test
+      - vim-syntax
+    enabled:
+      - bd-xlator
+      - crypt-xlator
+      - fuse
+      - georeplication
+      - glupy
+      - ipv6
+      - libtirpc
+      - qemu-block
+      - rsyslog
+      - syslog
+      - systemtap
+      - xml
+      - python_single_target_python3_9
+      - elibc_glibc
+  packages:
+    - sys-cluster/glusterfs
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e gluster
+
+- tree: packages/atoms/emulation
+  uses:
+    disabled:
+    - apparmor
+    - device-mapper
+    - hardened
+    - nios2
+    - selinux
+    - sh
+    - test
+  packages:
+  - app-emulation/containerd
+
+- tree: packages/atoms/emulation
+  # Avoid cycle deps. qemu[smartcard] seems a RDEPEND?
+  replacements:
+    buildtime_deps:
+      ignore:
+        - category: app-emulation
+          name: qemu
+  uses:
+    disabled:
+    - sh
+    - static-libs
+    - sasl
+    - test
+  packages:
+  - app-emulation/spice
+
+- tree: packages/atoms/emulation
+  uses:
+    disabled:
+    - sh
+    - static-libs
+    - sasl
+    - test
+  packages:
+  - app-emulation/libcacard
+
+- tree: packages/atoms/emulation
+  mutations:
+    uses:
+      - overlay
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  annotations:
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+    - apparmor
+    - aufs
+    - device-mapper
+    - hardened
+    - nios2
+    - seccomp
+    - sh
+  packages:
+  - app-emulation/docker
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e docker
+      # Ignore error on chown because at the moment
+      # on build phase this finalize is executed before
+      # the creation of the /etc/group file.
+      - >-
+        eval 'mkdir /var/lib/docker -p || true' &&
+        eval 'chown root:docker /var/lib/docker || true'
+
+- tree: packages/atoms/emulation
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+    - static-libs
+  packages:
+  - sys-libs/libapparmor
+
+- tree: packages/atoms/emulation
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-process/tini
+
+- tree: packages/atoms/emulation
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+    - headless
+    - nios2
+    - python_targets_python3_8
+    - rdesktop-vrdp
+    - sdk
+    - sh
+    - vboxwebsrv
+    - chm
+    - python_targets_python2_7
+    - python_targets_python3_7
+  packages:
+  - app-emulation/virtualbox-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        for i in vboxguest vboxsf vboxusers ; do
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e $i ; done
+
+- tree: packages/atoms/emulation
+  uses:
+    enabled:
+      - network
+      - suid
+    disable:
+      - examples
+  packages:
+    - sys-cluster/singularity
+
+- tree: packages/atoms/emulation
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+  packages:
+    - sys-devel/dev86
+
+- tree: packages/atoms/emulation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race16
+  packages:
+    - sys-devel/bin86
+    - app-emulation/lxc-templates
+
 - tree: packages/atoms/emulation
   packages:
-    - dev-libs/protobuf
+    - app-emulation/docker-slim
+    - app-emulation/firecracker-bin
 
+- tree: packages/atoms/emulation
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-util/xdelta:3
+
+- tree: packages/atoms/emulation
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-fs/lxcfs
+
+- tree: packages/atoms/emulation
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-fs
+          name: lxcfs
+  uses:
+    disabled:
+    - apparmor
+    - doc
+    - man
+    - nios2
+    - selinux
+    - sh
+    enabled:
+    - seccomp
+    - caps
+    - pam
+    - ssl
+    - tools
+  packages:
+  - app-emulation/lxc
+
+- tree: packages/atoms/emulation
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-emulation
+          name: lxc
+  uses:
+    disabled:
+    - apparmor
+    - nios2
+    - sh
+    enabled:
+    - ipv6
+    - nls
+    - daemon
+    - dnsmasq
+  packages:
+  - app-emulation/lxd
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e lxd
 
 include_layers:
-- layers/macaroni-funtoo-office.yaml
+- layers/macaroni-funtoo-race16.yaml
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
-#  - source1.json
-  - ./kit_cache/browser-kit-1.4-release
-  - ./kit_cache/core-gl-kit-2.0-release
-  - ./kit_cache/core-hw-kit-1.4-release
-  - ./kit_cache/core-kit-1.4-release
-  - ./kit_cache/core-server-kit-1.4-release
-  - ./kit_cache/desktop-kit-1.4-release
-  - ./kit_cache/dev-kit-1.4-release
-  - ./kit_cache/editors-kit-1.4-release
-  - ./kit_cache/games-kit-1.4-release
-  - ./kit_cache/gnome-kit-3.36-prime
-  - ./kit_cache/haskell-kit-1.4-release
-  - ./kit_cache/java-kit-1.4-release
-  - ./kit_cache/kde-kit-5.22-release
-  - ./kit_cache/lang-kit-1.4-release
-  - ./kit_cache/lisp-scheme-kit-1.4-release
-  - ./kit_cache/llvm-kit-1.4-release
-  - ./kit_cache/mate-kit-1.24-prime
-  - ./kit_cache/media-kit-1.4-release
-  - ./kit_cache/ml-lang-kit-1.4-release
-  - ./kit_cache/net-kit-1.4-release
-  - ./kit_cache/nokit-1.4-release
-  - ./kit_cache/perl-kit-5.32-release
-  - ./kit_cache/python-kit-3.7-release
-  - ./kit_cache/python-modules-kit-1.4-release
-  - ./kit_cache/qt-kit-5.15.2-release
-  - ./kit_cache/ruby-kit-2.7-prime
-  - ./kit_cache/science-kit-1.4-release
-  - ./kit_cache/security-kit-1.4-release
-  - ./kit_cache/text-kit-1.4-release
-  - ./kit_cache/xfce-kit-4.16-release
+
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
   - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
 
 # Disable use of category with slot as requires. Default is without slot.
 reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
-    - dev-lang/python:3.7
-    - dev-lang/ruby:2.6
-    - dev-lang/ruby:2.7
-    - sys-devel/gcc:9.2.0
-    - sys-devel/llvm:11
-    - sys-devel/clang:11
-    - virtual/jdk:1.8
-    - virtual/jdk:11
-    - virtual/jre:1.8
-    - virtual/jre:11
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+    - sys-devel/llvm:13
+    - dev-lang/vala:0.54
 
-    # Temporary
-    - <x11-libs/libX11-9999
+    - sys-libs/compiler-rt:13.0.0
+    - sys-devel/clang:13
+    - sys-devel/clang-runtime:13.0.0
+
+    # Using nodejs-14 LTS for now
+    - <net-libs/nodejs-15.0
+
+    - dev-lang/ruby:3.1
 
 reposcan_disabled_use_flags:
-  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
   - build
 
   - emacs
@@ -170,29 +548,34 @@ reposcan_disabled_use_flags:
   - elibc_musl
   - elibc_mingw
   - elibc_uclibc
-  - elogind
+  - elibc_mintlib
   - libressl
   - gtk-doc
   - gles2-only
   - python_single_target_python2_7
   - python_single_target_python3_6
-  - python_single_target_python3_9
+  - python_single_target_python3_7
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
   - python_single_target_pypy3
   - python_targets_python2_7
   - python_targets_python3_6
-  - python_targets_python3_9
+  - python_targets_python3_7
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
   - ruby_targets_ruby25
   - ruby_targets_ruby24
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby32
+  - ruby_targets_ruby30
   - ppc-aix
   - x86-winnt
   - kernel-builtin
   - kernel_Winnt
+  - kernel_FreeBSD
   - man
   - minimal
   # Cryptographic library for embedded systems
@@ -200,6 +583,8 @@ reposcan_disabled_use_flags:
   - modules
 
   - debug
+
+  - systemd
 
   # Disable efl/e17
   - ecore
@@ -218,6 +603,9 @@ reposcan_disabled_use_flags:
 
   # Disable gnome-keyring for upper cycles
   - gnome-keyring
+
+  # Ignore packagekit feature
+  - packagekit
 
   - vim-syntax
   - test
@@ -247,9 +635,6 @@ reposcan_disabled_use_flags:
   - ceph
   - cluster
 
-  # Disable bluetooth from python
-  - bluetooth
-
   - heif
 
   # Disabled for mesa lib
@@ -273,7 +658,7 @@ reposcan_disabled_use_flags:
   - ppc
   - ppc64
 
+  - userland_BSD
 reposcan_disabled_keywords:
   #- ~amd64
   - -*
-  - next
