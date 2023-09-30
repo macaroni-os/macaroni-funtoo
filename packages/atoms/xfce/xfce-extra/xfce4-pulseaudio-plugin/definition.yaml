@@ -1,0 +1,47 @@
+name: xfce4-pulseaudio-plugin
+version: 0.4.3
+category: xfce-extra
+use_flags:
+- keybinder
+- libnotify
+- wnck
+requires:
+- name: keybinder
+  version: '>=0'
+  category: dev-libs-3
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A panel plug-in for PulseAudio volume control
+uri:
+- https://git.xfce.org/panel-plugins/xfce4-pulseaudio-plugin/
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.42.0:= media-sound/pulseaudio:= >=x11-libs/gtk+-3.20.0:3=
+    >=xfce-base/exo-0.11:= >=xfce-base/libxfce4ui-4.11.0:=[gtk3(+)] >=xfce-base/libxfce4util-4.9.0:=
+    >=xfce-base/xfce4-panel-4.11.0:= >=xfce-base/xfconf-4.6.0:= keybinder? ( dev-libs/keybinder:3=
+    ) libnotify? ( x11-libs/libnotify:= ) wnck? ( x11-libs/libwnck:3= ) dev-util/intltool
+    virtual/pkgconfig'
+  IUSE: debug keybinder libnotify wnck
+  RDEPEND: '>=dev-libs/glib-2.42.0:= media-sound/pulseaudio:= >=x11-libs/gtk+-3.20.0:3=
+    >=xfce-base/exo-0.11:= >=xfce-base/libxfce4ui-4.11.0:=[gtk3(+)] >=xfce-base/libxfce4util-4.9.0:=
+    >=xfce-base/xfce4-panel-4.11.0:= >=xfce-base/xfconf-4.6.0:= keybinder? ( dev-libs/keybinder:3=
+    ) libnotify? ( x11-libs/libnotify:= ) wnck? ( x11-libs/libwnck:3= )'
+  emerge.packages: xfce-extra/xfce4-pulseaudio-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-pulseaudio-plugin
+  original.package.slot: "0"
+  original.package.version: 0.4.3
