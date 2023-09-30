@@ -1,0 +1,34 @@
+name: xfce4-mpc-plugin
+version: 0.5.2
+category: xfce-extra
+use_flags:
+- libmpd
+requires:
+- name: libmpd
+  version: '>=0'
+  category: media-libs
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Music Player Daemon (mpd) panel plugin
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-mpc-plugin
+license: ISC
+labels:
+  DEPEND: '>=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/xfce4-panel-4.13.5:=
+    libmpd? ( media-libs/libmpd:= ) dev-util/intltool virtual/pkgconfig'
+  IUSE: +libmpd
+  RDEPEND: '>=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/xfce4-panel-4.13.5:=
+    libmpd? ( media-libs/libmpd:= )'
+  emerge.packages: xfce-extra/xfce4-mpc-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-mpc-plugin
+  original.package.slot: "0"
+  original.package.version: 0.5.2
