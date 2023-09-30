@@ -1,0 +1,35 @@
+name: xfce4-windowck-plugin
+version: 0.4.6
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Xfce plugin puts the maximized window title and windows buttons on the
+  panel
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-windowck-plugin
+license: GPL-3+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=x11-libs/gtk+-3.22.0:3 x11-libs/libX11 >=x11-libs/libwnck-3.22:3 >=xfce-base/libxfce4ui-4.14:=
+    >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:= >=xfce-base/xfconf-4.14:=
+    || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) dev-util/intltool dev-util/xfce4-dev-tools media-gfx/imagemagick[png] sys-devel/gettext
+    virtual/pkgconfig'
+  RDEPEND: '>=x11-libs/gtk+-3.22.0:3 x11-libs/libX11 >=x11-libs/libwnck-3.22:3 >=xfce-base/libxfce4ui-4.14:=
+    >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.14:= >=xfce-base/xfconf-4.14:='
+  emerge.packages: xfce-extra/xfce4-windowck-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-windowck-plugin
+  original.package.slot: "0"
+  original.package.version: 0.4.6_p20220619
