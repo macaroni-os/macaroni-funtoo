@@ -1,0 +1,31 @@
+name: thunar-media-tags-plugin
+version: 0.3.0
+category: xfce-extra
+requires:
+- name: taglib
+  version: '>=0'
+  category: media-libs
+- name: thunar
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Adds special features for media files to the Thunar File Manager
+uri:
+- https://goodies.xfce.org/projects/thunar-plugins/thunar-media-tags-plugin
+license: GPL-2
+labels:
+  DEPEND: '>=media-libs/taglib-1.6 >=x11-libs/gtk+-3.22:3 >=xfce-base/exo-0.11:= >=xfce-base/thunar-1.7:=
+    dev-util/intltool virtual/pkgconfig'
+  RDEPEND: '>=media-libs/taglib-1.6 >=x11-libs/gtk+-3.22:3 >=xfce-base/exo-0.11:=
+    >=xfce-base/thunar-1.7:='
+  emerge.packages: xfce-extra/thunar-media-tags-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/thunar-media-tags-plugin
+  original.package.slot: "0"
+  original.package.version: 0.3.0
