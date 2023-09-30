@@ -1,0 +1,84 @@
+name: gnuplot
+version: 5.2.6
+category: sci-visualization
+use_flags:
+- -doc
+- -libcaca
+- -lua
+- -wxwidgets
+- X
+- cairo
+- gd
+- ggi
+- latex
+- libcerf
+- qt5
+- readline
+- svga
+requires:
+- name: qtnetwork
+  version: '>=0'
+  category: dev-qt-5
+- name: qtprintsupport
+  version: '>=0'
+  category: dev-qt-5
+- name: qtsvg
+  version: '>=0'
+  category: dev-qt-5
+- name: gd
+  version: '>=0'
+  category: media-libs-2
+- name: libcerf
+  version: '>=0'
+  category: sci-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+- name: latex-base
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libXaw
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Command-line driven interactive plotting program
+uri:
+- http://www.gnuplot.info/
+license: gnuplot bitmap? ( free-noncomm )
+labels:
+  DEPEND: cairo? ( x11-libs/cairo x11-libs/pango ) gd? ( >=media-libs/gd-2.0.35-r3:2=[png]
+    ) ggi? ( media-libs/libggi ) latex? ( virtual/latex-base lua? ( dev-tex/pgf >=dev-texlive/texlive-latexrecommended-2008-r2
+    ) ) libcaca? ( media-libs/libcaca ) lua? ( dev-lang/lua:0 ) qt5? ( dev-qt/qtcore:5=
+    dev-qt/qtgui:5= dev-qt/qtnetwork:5= dev-qt/qtprintsupport:5= dev-qt/qtsvg:5= dev-qt/qtwidgets:5=
+    ) readline? ( sys-libs/readline:0= ) libcerf? ( sci-libs/libcerf ) svga? ( media-libs/svgalib
+    ) wxwidgets? ( x11-libs/wxGTK:3.0[X] x11-libs/cairo x11-libs/pango x11-libs/gtk+:2
+    ) X? ( x11-libs/libXaw ) virtual/pkgconfig doc? ( virtual/latex-base dev-texlive/texlive-latexextra
+    app-text/ghostscript-gpl ) qt5? ( dev-qt/linguist-tools:5 ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: aqua bitmap cairo compat doc examples +gd ggi latex libcaca libcerf lua qt5
+    readline regis svga wxwidgets X
+  RDEPEND: cairo? ( x11-libs/cairo x11-libs/pango ) gd? ( >=media-libs/gd-2.0.35-r3:2=[png]
+    ) ggi? ( media-libs/libggi ) latex? ( virtual/latex-base lua? ( dev-tex/pgf >=dev-texlive/texlive-latexrecommended-2008-r2
+    ) ) libcaca? ( media-libs/libcaca ) lua? ( dev-lang/lua:0 ) qt5? ( dev-qt/qtcore:5=
+    dev-qt/qtgui:5= dev-qt/qtnetwork:5= dev-qt/qtprintsupport:5= dev-qt/qtsvg:5= dev-qt/qtwidgets:5=
+    ) readline? ( sys-libs/readline:0= ) libcerf? ( sci-libs/libcerf ) svga? ( media-libs/svgalib
+    ) wxwidgets? ( x11-libs/wxGTK:3.0[X] x11-libs/cairo x11-libs/pango x11-libs/gtk+:2
+    ) X? ( x11-libs/libXaw )
+  emerge.packages: sci-visualization/gnuplot
+  kit: science-kit
+  original.package.name: sci-visualization/gnuplot
+  original.package.slot: "0"
+  original.package.version: 5.2.6
