@@ -1,0 +1,33 @@
+name: thunar-volman
+version: 4.16.0
+category: xfce-extra
+use_flags:
+- libnotify
+requires:
+- name: thunar
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Daemon that enforces volume-related policies
+uri:
+- https://goodies.xfce.org/projects/thunar-plugins/thunar-volman
+license: GPL-2+ CC-BY-SA-3.0
+labels:
+  DEPEND: '>=dev-libs/glib-2.50 dev-libs/libgudev:= >=x11-libs/gtk+-3.20:3 >=xfce-base/exo-0.10:=
+    >=xfce-base/libxfce4ui-4.12:= >=xfce-base/libxfce4util-4.12:= >=xfce-base/xfconf-4.12:=
+    libnotify? ( >=x11-libs/libnotify-0.7 ) dev-util/intltool sys-devel/gettext virtual/pkgconfig'
+  IUSE: libnotify
+  RDEPEND: '>=dev-libs/glib-2.50 dev-libs/libgudev:= >=x11-libs/gtk+-3.20:3 >=xfce-base/exo-0.10:=
+    >=xfce-base/libxfce4ui-4.12:= >=xfce-base/libxfce4util-4.12:= >=xfce-base/xfconf-4.12:=
+    libnotify? ( >=x11-libs/libnotify-0.7 ) virtual/udev >=xfce-base/thunar-1.6[udisks]'
+  emerge.packages: xfce-extra/thunar-volman
+  kit: xfce-kit
+  original.package.name: xfce-extra/thunar-volman
+  original.package.slot: "0"
+  original.package.version: 4.16.0
