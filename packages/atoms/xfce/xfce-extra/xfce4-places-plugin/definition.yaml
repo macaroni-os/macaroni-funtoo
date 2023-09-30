@@ -1,0 +1,38 @@
+name: xfce4-places-plugin
+version: 1.8.1
+category: xfce-extra
+use_flags:
+- libnotify
+requires:
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A panel plug-in to provide quick access to files, folders and removable
+  media
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-places-plugin
+license: GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.42:2 >=x11-libs/gtk+-3.22:3 x11-libs/libX11:= >=xfce-base/exo-0.6:=
+    >=xfce-base/libxfce4ui-4.13:= >=xfce-base/libxfce4util-4.12:= >=xfce-base/xfce4-panel-4.12:=
+    >=xfce-base/xfconf-4.12:= libnotify? ( >=x11-libs/libnotify-0.7:= ) dev-util/intltool
+    sys-devel/gettext virtual/pkgconfig'
+  IUSE: libnotify
+  RDEPEND: '>=dev-libs/glib-2.42:2 >=x11-libs/gtk+-3.22:3 x11-libs/libX11:= >=xfce-base/exo-0.6:=
+    >=xfce-base/libxfce4ui-4.13:= >=xfce-base/libxfce4util-4.12:= >=xfce-base/xfce4-panel-4.12:=
+    >=xfce-base/xfconf-4.12:= libnotify? ( >=x11-libs/libnotify-0.7:= )'
+  emerge.packages: xfce-extra/xfce4-places-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-places-plugin
+  original.package.slot: "0"
+  original.package.version: 1.8.1
