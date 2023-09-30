@@ -1,0 +1,59 @@
+name: libxfce4ui
+version: 4.16.1
+category: xfce-base
+use_flags:
+- glade
+- introspection
+- startup-notification
+- system-info
+- vala
+requires:
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
+- name: glade
+  version: '>=0'
+  category: dev-util-3.10
+- name: libgtop
+  version: '>=0'
+  category: gnome-base-2
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: startup-notification
+  version: '>=0'
+  category: x11-libs
+- name: xfconf
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Unified widget and session management libs for Xfce
+uri:
+- https://wiki.gentoo.org/wiki/No_homepage
+license: LGPL-2+ GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.50:2= >=x11-libs/gtk+-3.22:3=[introspection?] x11-libs/libX11:=
+    x11-libs/libICE:= x11-libs/libSM:= >=xfce-base/libxfce4util-4.15.6:=[introspection?]
+    >=xfce-base/xfconf-4.12:= glade? ( dev-util/glade:3.10= ) introspection? ( dev-libs/gobject-introspection:=
+    ) startup-notification? ( x11-libs/startup-notification:= ) system-info? ( dev-libs/libgudev
+    gnome-base/libgtop >=media-libs/libepoxy-1.2 ) !xfce-base/xfce-utils dev-lang/perl
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig vala? ( || ( dev-lang/vala:0.50
+    dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40
+    dev-lang/vala:0.36 ) )'
+  IUSE: debug glade introspection startup-notification system-info vala
+  RDEPEND: '>=dev-libs/glib-2.50:2= >=x11-libs/gtk+-3.22:3=[introspection?] x11-libs/libX11:=
+    x11-libs/libICE:= x11-libs/libSM:= >=xfce-base/libxfce4util-4.15.6:=[introspection?]
+    >=xfce-base/xfconf-4.12:= glade? ( dev-util/glade:3.10= ) introspection? ( dev-libs/gobject-introspection:=
+    ) startup-notification? ( x11-libs/startup-notification:= ) system-info? ( dev-libs/libgudev
+    gnome-base/libgtop >=media-libs/libepoxy-1.2 ) !xfce-base/xfce-utils'
+  emerge.packages: xfce-base/libxfce4ui
+  kit: xfce-kit
+  original.package.name: xfce-base/libxfce4ui
+  original.package.slot: "0"
+  original.package.version: 4.16.1
