@@ -1,15 +1,22 @@
 name: xfce4-panel-profiles
-version: 1.0.13
+version: 1.0.13+1
 category: xfce-extra
 use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
 - python_single_target_python3_9
+- introspection
 requires:
 - name: pygobject
   version: '>=0'
   category: dev-python-3
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libxfce4ui
+  version: '>=0'
+  category: xfce-base
 - name: xfce4-panel
   version: '>=0'
   category: xfce-base
