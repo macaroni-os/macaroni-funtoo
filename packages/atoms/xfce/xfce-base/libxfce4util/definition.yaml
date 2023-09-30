@@ -1,0 +1,34 @@
+name: libxfce4util
+version: 4.16.0
+category: xfce-base
+use_flags:
+- introspection
+- vala
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A basic utility library for the Xfce desktop environment
+uri:
+- https://git.xfce.org/xfce/libxfce4util/
+license: LGPL-2+ GPL-2+
+labels:
+  DEPEND: '>=dev-libs/glib-2.50:= introspection? ( dev-libs/gobject-introspection:=
+    ) dev-util/intltool dev-util/gtk-doc-am sys-devel/gettext virtual/pkgconfig vala?
+    ( || ( dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44
+    dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36 ) )'
+  IUSE: introspection vala
+  RDEPEND: '>=dev-libs/glib-2.50:= introspection? ( dev-libs/gobject-introspection:=
+    )'
+  emerge.packages: xfce-base/libxfce4util
+  kit: xfce-kit
+  original.package.name: xfce-base/libxfce4util
+  original.package.slot: "0"
+  original.package.version: 4.16.0
