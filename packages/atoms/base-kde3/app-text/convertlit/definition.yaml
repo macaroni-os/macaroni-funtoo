@@ -1,0 +1,26 @@
+name: convertlit
+version: "1.8"
+category: app-text
+requires:
+- name: libtommath
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: CLit converts MS ebook .lit files to .opf (xml+html+png+jpg)
+uri:
+- http://www.convertlit.com/
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/libtommath-0.36-r1 app-arch/unzip'
+  RDEPEND: '>=dev-libs/libtommath-0.36-r1'
+  emerge.packages: app-text/convertlit
+  kit: text-kit
+  original.package.name: app-text/convertlit
+  original.package.slot: "0"
+  original.package.version: 1.8-r3
