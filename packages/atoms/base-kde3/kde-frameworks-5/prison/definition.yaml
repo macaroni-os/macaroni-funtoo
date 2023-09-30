@@ -1,0 +1,55 @@
+name: prison
+version: 5.98.0
+category: kde-frameworks-5
+use_flags:
+- -doc
+- -test
+- qml
+requires:
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-5
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: qrencode
+  version: '>=0'
+  category: media-gfx
+- name: libdmtx
+  version: '>=0'
+  category: media-libs
+- name: zxing-cpp
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: QRCode and data matrix barcode library
+uri:
+- https://invent.kde.org/frameworks/prison
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98:5
+    doc? ( >=dev-qt/qthelp-5.15.1:5 >=app-doc/doxygen-1.8.13-r1 )
+  DEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtmultimedia-5.15.1:5 media-gfx/qrencode:=
+    media-libs/libdmtx media-libs/zxing-cpp qml? ( >=dev-qt/qtdeclarative-5.15.1:5
+    ) test? ( >=dev-qt/qtwidgets-5.15.1:5 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+    test? ( >=dev-qt/qttest-5.15.1:5 ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5
+    ) dev-util/desktop-file-utils'
+  IUSE: qml debug doc test
+  RDEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtmultimedia-5.15.1:5 media-gfx/qrencode:=
+    media-libs/libdmtx media-libs/zxing-cpp qml? ( >=dev-qt/qtdeclarative-5.15.1:5
+    ) >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5 )'
+  emerge.packages: kde-frameworks/prison:5
+  kit: kde-kit
+  original.package.name: kde-frameworks/prison
+  original.package.slot: "5"
+  original.package.version: 5.98.0
