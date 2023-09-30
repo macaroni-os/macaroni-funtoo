@@ -1,0 +1,32 @@
+name: exo
+version: 4.16.2
+category: xfce-base
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libxfce4ui
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Extensions, widgets and framework library with session support for Xfce
+uri:
+- https://www.xfce.org/projects/
+license: GPL-2+ LGPL-2.1+
+labels:
+  DEPEND: '>=dev-lang/perl-5.6 >=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)]
+    >=xfce-base/libxfce4util-4.12:= dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig'
+  RDEPEND: '>=dev-lang/perl-5.6 >=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)]
+    >=xfce-base/libxfce4util-4.12:='
+  emerge.packages: xfce-base/exo
+  kit: xfce-kit
+  original.package.name: xfce-base/exo
+  original.package.slot: "0"
+  original.package.version: 4.16.2
