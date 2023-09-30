@@ -1,0 +1,54 @@
+name: xfce4-session
+version: 4.16.0
+category: xfce-base
+use_flags:
+- nls
+- policykit
+- xscreensaver
+requires:
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+- name: iceauth
+  version: '>=0'
+  category: x11-apps
+- name: xrdb
+  version: '>=0'
+  category: x11-apps
+- name: libwnck
+  version: '>=0'
+  category: x11-libs-3
+- name: xdg-user-dirs
+  version: '>=0'
+  category: x11-misc
+- name: libxfce4ui
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A session manager for the Xfce desktop environment
+uri:
+- https://docs.xfce.org/xfce/xfce4-session/start
+license: GPL-2+
+labels:
+  DEPEND: x11-apps/iceauth >=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 x11-libs/libSM
+    x11-libs/libwnck:3 x11-libs/libX11 >=xfce-base/libxfce4util-4.15.2:= >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)]
+    >=xfce-base/xfconf-4.12:= policykit? ( >=sys-auth/polkit-0.102 ) dev-util/intltool
+    sys-devel/gettext virtual/pkgconfig
+  IUSE: nls policykit +xscreensaver
+  RDEPEND: x11-apps/iceauth >=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 x11-libs/libSM
+    x11-libs/libwnck:3 x11-libs/libX11 >=xfce-base/libxfce4util-4.15.2:= >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)]
+    >=xfce-base/xfconf-4.12:= policykit? ( >=sys-auth/polkit-0.102 ) x11-apps/xrdb
+    nls? ( x11-misc/xdg-user-dirs ) xscreensaver? ( || ( xfce-extra/xfce4-screensaver
+    >=x11-misc/xscreensaver-5.26 >=x11-misc/xlockmore-5.43 x11-misc/slock x11-misc/alock[pam]
+    ) )
+  emerge.packages: xfce-base/xfce4-session
+  kit: xfce-kit
+  original.package.name: xfce-base/xfce4-session
+  original.package.slot: "0"
+  original.package.version: 4.16.0
