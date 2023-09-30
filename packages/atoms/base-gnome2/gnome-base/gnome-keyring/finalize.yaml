@@ -1,0 +1,10 @@
+shell:
+- /bin/bash
+- -c
+install:
+- |-
+  source /etc/profile && if [ "$(/sbin/getcap $ROOT/usr/bin/gnome-keyring-daemon)" != "" ]; then
+    warn "gnome-keyring-disablingaemon has enhanced capabilities and this will prevent it from connecting to dbus!" ;
+    warn "Dropping caps now" ;
+    setcap cap_ipc_lock=-ep /usr/bin/gnome-keyring-daemon ;
+  fi

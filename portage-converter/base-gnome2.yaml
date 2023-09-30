@@ -260,7 +260,6 @@ artefacts:
       - packagekit
   packages:
     - x11-libs/vte
-    - gnome-base/gnome-keyring
     - dev-util/sysprof
     - app-crypt/libsecret
     - media-libs/gsound
@@ -268,6 +267,33 @@ artefacts:
     - gnome-extra/gnome-color-manager
     - net-wireless/gnome-bluetooth
     - net-libs/telepathy-glib
+
+- tree: packages/atoms/base-gnome2
+  uses:
+    disabled:
+      - examples
+      - static-libs
+      - test
+      - doc
+      - gtk-doc
+      - debug
+      - exiv
+      - packagekit
+  packages:
+    - gnome-base/gnome-keyring
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+    # See FL-8892: disabling caps entirely allows connections to keyring with glib-2.67.2+.
+      - >-
+        source /etc/profile &&
+        if [ "$(/sbin/getcap $ROOT/usr/bin/gnome-keyring-daemon)" != "" ]; then
+          warn "gnome-keyring-disablingaemon has enhanced capabilities and this will prevent it from connecting to dbus!" ;
+          warn "Dropping caps now" ;
+          setcap cap_ipc_lock=-ep /usr/bin/gnome-keyring-daemon ;
+        fi
 
 - tree: packages/atoms/base-gnome2
   mutations:
