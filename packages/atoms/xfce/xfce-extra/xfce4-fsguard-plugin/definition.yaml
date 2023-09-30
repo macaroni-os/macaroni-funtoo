@@ -1,0 +1,28 @@
+name: xfce4-fsguard-plugin
+version: 1.1.1
+category: xfce-extra
+requires:
+- name: xfce4-panel
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A filesystem guard plug-in for the Xfce panel
+uri:
+- https://goodies.xfce.org/projects/panel-plugins/xfce4-fsguard-plugin
+license: BSD-2
+labels:
+  DEPEND: '>=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/libxfce4util-4.8:= >=xfce-base/xfce4-panel-4.12:=
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig'
+  RDEPEND: '>=xfce-base/libxfce4ui-4.12:=[gtk3(+)] >=xfce-base/libxfce4util-4.8:=
+    >=xfce-base/xfce4-panel-4.12:='
+  emerge.packages: xfce-extra/xfce4-fsguard-plugin
+  kit: xfce-kit
+  original.package.name: xfce-extra/xfce4-fsguard-plugin
+  original.package.slot: "0"
+  original.package.version: 1.1.1
