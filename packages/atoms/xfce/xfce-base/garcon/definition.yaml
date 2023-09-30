@@ -1,0 +1,34 @@
+name: garcon
+version: 4.16.1
+category: xfce-base
+use_flags:
+- introspection
+requires:
+- name: libxfce4ui
+  version: '>=0'
+  category: xfce-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Xfce's freedesktop.org specification compatible menu implementation library
+uri:
+- https://docs.xfce.org/xfce/exo/start
+license: LGPL-2+ FDL-1.1+
+labels:
+  DEPEND: '>=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4util-4.15.6:=[introspection?]
+    >=xfce-base/libxfce4ui-4.15.7:=[introspection?] introspection? ( dev-libs/gobject-introspection:=
+    ) dev-util/glib-utils dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig introspection? ( dev-libs/gobject-introspection )'
+  IUSE: introspection
+  RDEPEND: '>=dev-libs/glib-2.50 >=x11-libs/gtk+-3.22:3 >=xfce-base/libxfce4util-4.15.6:=[introspection?]
+    >=xfce-base/libxfce4ui-4.15.7:=[introspection?] introspection? ( dev-libs/gobject-introspection:=
+    )'
+  emerge.packages: xfce-base/garcon
+  kit: xfce-kit
+  original.package.name: xfce-base/garcon
+  original.package.slot: "0"
+  original.package.version: 4.16.1
