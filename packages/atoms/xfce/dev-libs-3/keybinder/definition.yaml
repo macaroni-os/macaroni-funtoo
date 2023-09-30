@@ -1,0 +1,40 @@
+name: keybinder
+version: 0.3.2
+category: dev-libs-3
+use_flags:
+- introspection
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+- name: libXrender
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library for registering global keyboard shortcuts
+uri:
+- https://github.com/engla/keybinder
+license: MIT
+labels:
+  DEPEND: x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXext x11-libs/libXrender
+    introspection? ( dev-libs/gobject-introspection ) virtual/pkgconfig
+  IUSE: +introspection
+  RDEPEND: x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXext x11-libs/libXrender
+    introspection? ( dev-libs/gobject-introspection )
+  emerge.packages: dev-libs/keybinder:3
+  kit: dev-kit
+  original.package.name: dev-libs/keybinder
+  original.package.slot: "3"
+  original.package.version: 0.3.2-r300
