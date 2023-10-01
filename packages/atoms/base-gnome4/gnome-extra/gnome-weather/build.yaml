@@ -1,4 +1,8 @@
 prelude:
+# To remove when will be available on funtoo-kits seed
+- >-
+  mkdir -p /etc/portage/patches/gnome-extra/gnome-weather/ &&
+  cp *.patch /etc/portage/patches/gnome-extra/gnome-weather/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
