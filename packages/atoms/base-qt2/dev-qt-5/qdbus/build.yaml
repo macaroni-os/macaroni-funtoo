@@ -1,4 +1,11 @@
 prelude:
+# Temporary patch until i rebuild qtcore
+- >-
+  mv qt5-build.patch /tmp/ &&
+  cd /var/git/meta-repo/kits/core-kit/eclass/ &&
+  patch -p1  < /tmp/qt5-build.patch &&
+  cd - &&
+  emerge qtcore -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \

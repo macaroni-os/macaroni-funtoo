@@ -1,0 +1,13 @@
+--- a/qt5-build.eclass	2023-10-01 23:46:59.058502282 +0200
++++ b/qt5-build.eclass	2023-10-01 23:48:13.247943887 +0200
+@@ -603,7 +603,9 @@
+ 		-verbose
+ 
+ 		# disable everything to prevent automagic deps (part 3)
+-		-no-cups -no-evdev -no-tslib -no-icu -no-fontconfig -no-dbus
++		-no-cups -no-evdev -no-tslib -no-icu -no-fontconfig
++
++		$([[ ${QT5_MINOR_VERSION} -ge 8 ]] && echo -dbus-runtime || echo -no-dbus)
+ 
+ 		# let portage handle stripping
+ 		-no-strip
