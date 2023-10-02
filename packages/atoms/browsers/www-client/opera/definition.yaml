@@ -1,0 +1,58 @@
+name: opera
+version: 99.0.4788.9
+category: www-client
+requires:
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A fast and secure web browser
+uri:
+- https://www.opera.com/
+license: OPERA-2014
+labels:
+  DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: kernel_linux +l10n_be +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de
+    +l10n_el +l10n_en-GB +l10n_en-US +l10n_es-419 +l10n_es +l10n_fil +l10n_fi +l10n_fr-CA
+    +l10n_fr +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_ko +l10n_lt
+    +l10n_lv +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro
+    +l10n_ru +l10n_sk +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr
+    +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW
+  RDEPEND: dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib
+    media-libs/fontconfig media-libs/freetype net-misc/curl net-print/cups sys-apps/dbus
+    x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXScrnSaver
+    x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext
+    x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst
+    x11-libs/libnotify x11-libs/pango[X]
+  emerge.packages: www-client/opera
+  kit: browser-kit
+  original.package.name: www-client/opera
+  original.package.slot: "0"
+  original.package.version: 99.0.4788.9
