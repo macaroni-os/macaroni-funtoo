@@ -1,0 +1,53 @@
+name: PyQtWebEngine
+version: 5.15.6
+category: dev-python
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- python_targets_python3_9
+requires:
+- name: PyQt5
+  version: '>=0'
+  category: dev-python
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Python bindings for QtWebEngine
+uri:
+- https://www.riverbankcomputing.com/software/pyqtwebengine/ https://pypi.org/project/PyQtWebEngine/
+license: GPL-3
+labels:
+  BDEPEND: '>=dev-python/PyQt-builder-1.10[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/sip-6.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-qt/qtcore:5'
+  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/PyQt5-5.15.5[gui,network,printsupport,ssl,webchannel,widgets,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwebengine:5[widgets]
+  IUSE: debug python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10
+  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    >=dev-python/PyQt5-5.15.5[gui,network,printsupport,ssl,webchannel,widgets,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwebengine:5[widgets] >=dev-python/PyQt5-sip-12.9:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  emerge.packages: dev-python/PyQtWebEngine
+  kit: qt-kit
+  original.package.name: dev-python/PyQtWebEngine
+  original.package.slot: "0"
+  original.package.version: 5.15.6
