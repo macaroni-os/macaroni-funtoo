@@ -7,7 +7,21 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  luet i -y --sync-repos kernel-6.1/macaroni-modules --nodeps && luet cleanup &&
+  luet i -y --sync-repos kernel-6.1/macaroni-modules --nodeps &&
+  luet i -y sys-apps/kmod bison flex virtual/linux-sources
+  yasm virtual/libelf dbus xmlto
+  app-text-4.2/docbook-xml-dtd
+  app-text-4.4/docbook-xml-dtd
+  app-text-3.0/docbook-xml-dtd
+  app-text/docbook-xsl-stylesheets
+  app-text/build-docbook-catalog
+  app-text/sgml-common
+  pkgconf iasl
+  $(luet s x11-drivers --quiet)
+  xrandr xrefresh
+  &&
+  build-docbook-catalog &&
+  luet cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
 - >-
