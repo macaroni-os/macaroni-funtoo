@@ -7,6 +7,9 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
+  luet i -y sys-apps/kmod virtual/modutils pkgconf virtual/libelf
+  virtual/linux-sources && luet cleanup
+- >-
   epro list &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
