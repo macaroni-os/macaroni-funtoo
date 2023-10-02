@@ -1,34 +1,37 @@
 name: firefox
-version: 116.0.1
+version: 116.0.1+1
 category: www-client
 use_flags:
-- -X
-- -amd64
 - -clang
 - -dbus
-- -jack
-- -kernel_linux
 - -libproxy
-- -openh264
 - -pgo
-- -prefix
-- -screencast
 - -selinux
 - -sndio
 - -system-av1
-- -system-harfbuzz
-- -system-icu
-- -system-jpeg
-- -system-libevent
 - -system-libvpx
 - -system-png
-- -system-webp
-- -wayland
 - -wifi
 - -x86
+- X
+- amd64
+- jack
+- kernel_linux
+- openh264
+- prefix
 - pulseaudio
+- screencast
+- system-harfbuzz
+- system-icu
+- system-jpeg
+- system-libevent
+- system-webp
+- wayland
 requires:
 - name: atk
+  version: '>=0'
+  category: dev-libs
+- name: libevent
   version: '>=0'
   category: dev-libs
 - name: libffi
@@ -40,7 +43,13 @@ requires:
 - name: alsa-lib
   version: '>=0'
   category: media-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
 - name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: pipewire
   version: '>=0'
   category: media-video
 - name: zlib
@@ -49,13 +58,22 @@ requires:
 - name: freedesktop-icon-theme
   version: '>=0'
   category: virtual
-- name: cairo
+- name: jack
   version: '>=0'
-  category: x11-libs
+  category: virtual
+- name: opengl
+  version: '>=0'
+  category: virtual
 - name: gdk-pixbuf
   version: '>=0'
   category: x11-libs-2
-- name: pango
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libdrm
   version: '>=0'
   category: x11-libs
 annotations:
