@@ -1,0 +1,65 @@
+name: chrome-gnome-shell
+version: "10"
+category: gnome-extra
+use_flags:
+- -python_single_target_python2_7
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: requests
+  version: '>=0'
+  category: dev-python
+- name: gnome-shell
+  version: '>=0'
+  category: gnome-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNOME Shell integration for Chrome/Chromium, Firefox, Vivaldi, Opera
+  browsers
+uri:
+- https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome
+license: GPL-3+
+labels:
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) app-misc/jq sys-apps/coreutils sys-devel/make >=dev-util/cmake-3.9.6
+  IUSE: python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python2_7 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-python/pygobject:3[python_targets_python3_7(-)]
+    dev-python/requests[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/pygobject:3[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)]
+    dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python2_7?
+    ( dev-python/pygobject:3[python_targets_python2_7(-)] dev-python/requests[python_targets_python2_7(-)]
+    ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)]
+    dev-python/requests[python_targets_python3_10(-)] ) gnome-base/gnome-shell
+  emerge.packages: gnome-extra/chrome-gnome-shell
+  kit: gnome-kit
+  original.package.name: gnome-extra/chrome-gnome-shell
+  original.package.slot: "0"
+  original.package.version: 10-r1
