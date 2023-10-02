@@ -1,0 +1,65 @@
+name: brave-bin
+version: 1.56.20
+category: www-client
+requires:
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: gconf
+  version: '>=0'
+  category: gnome-base-2
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libXxf86vm
+  version: '>=0'
+  category: x11-libs
+- name: libxshmfence
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Brave Web Browser
+uri:
+- https://brave.com
+license: MPL-2.0
+labels:
+  DEPEND: gnome-base/gconf:2
+  IUSE: gnome-keyring kernel_linux +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs
+    +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_en-US +l10n_es +l10n_es-419 +l10n_et
+    +l10n_fa +l10n_fi +l10n_fil +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu
+    +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr
+    +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru
+    +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr
+    +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW
+  RDEPEND: gnome-base/gconf:2 dev-libs/libpthread-stubs x11-libs/libxcb x11-libs/libxkbcommon
+    x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext
+    x11-libs/libXfixes x11-libs/libXi x11-libs/libXrender x11-libs/libXtst x11-libs/libxshmfence
+    x11-libs/libXxf86vm x11-libs/libXScrnSaver x11-libs/libXrandr x11-libs/libXau
+    x11-libs/libXdmcp x11-libs/libXinerama dev-libs/glib dev-libs/nss dev-libs/nspr
+    net-print/cups sys-apps/dbus dev-libs/expat media-libs/alsa-lib x11-libs/pango
+    x11-libs/cairo dev-libs/gobject-introspection dev-libs/atk app-accessibility/at-spi2-core
+    app-accessibility/at-spi2-atk x11-libs/gtk+ x11-libs/gdk-pixbuf virtual/libffi
+    dev-libs/libpcre net-libs/gnutls sys-libs/zlib dev-libs/fribidi media-libs/harfbuzz
+    media-libs/fontconfig media-libs/freetype x11-libs/pixman >=media-libs/libpng-1.6.34
+    media-libs/libepoxy dev-libs/libbsd dev-libs/libunistring dev-libs/libtasn1 dev-libs/nettle
+    dev-libs/gmp net-dns/libidn2 media-gfx/graphite2 app-arch/bzip2
+  emerge.packages: www-client/brave-bin
+  kit: browser-kit
+  original.package.name: www-client/brave-bin
+  original.package.slot: "0"
+  original.package.version: 1.56.20
