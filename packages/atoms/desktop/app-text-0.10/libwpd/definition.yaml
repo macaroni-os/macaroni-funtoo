@@ -1,0 +1,30 @@
+name: libwpd
+version: 0.10.3
+category: app-text-0.10
+use_flags:
+- -doc
+requires:
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: WordPerfect Document import/export library
+uri:
+- http://libwpd.sf.net
+license: '|| ( LGPL-2.1 MPL-2.0 )'
+labels:
+  BDEPEND: virtual/pkgconfig doc? ( app-doc/doxygen )
+  DEPEND: dev-libs/librevenge dev-libs/boost
+  IUSE: doc +tools
+  RDEPEND: dev-libs/librevenge
+  emerge.packages: app-text/libwpd:0.10
+  kit: text-kit
+  original.package.name: app-text/libwpd
+  original.package.slot: "0.10"
+  original.package.version: 0.10.3
