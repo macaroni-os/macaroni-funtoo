@@ -1,0 +1,69 @@
+name: slack-bin
+version: 4.33.73
+category: net-im
+use_flags:
+- -ayatana
+- -gnome-keyring
+requires:
+- name: atk
+  version: '>=0'
+  category: dev-libs
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: gconf
+  version: '>=0'
+  category: gnome-base-2
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libxkbfile
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Team collaboration tool
+uri:
+- http://www.slack.com/
+license: all-rights-reserved
+labels:
+  IUSE: ayatana gnome-keyring pax_kernel abi_x86_64
+  RDEPEND: dev-libs/atk:0[-mgorny(-)] dev-libs/expat:0[-mgorny(-)] dev-libs/glib:2[-mgorny(-)]
+    dev-libs/nspr:0[-mgorny(-)] dev-libs/nss:0[-mgorny(-)] gnome-base/gconf:2[-mgorny(-)]
+    media-libs/alsa-lib:0[-mgorny(-)] media-libs/fontconfig:1.0[-mgorny(-)] media-libs/freetype:2[-mgorny(-)]
+    net-misc/curl:0[-mgorny(-)] net-print/cups:0[-mgorny(-)] sys-apps/dbus:0[-mgorny(-)]
+    x11-libs/cairo:0[-mgorny(-)] x11-libs/gdk-pixbuf:2[-mgorny(-)] x11-libs/gtk+:3[-mgorny(-)]
+    x11-libs/libX11:0[-mgorny(-)] x11-libs/libxcb:0/1.12[-mgorny(-)] x11-libs/libXcomposite:0[-mgorny(-)]
+    x11-libs/libXcursor:0[-mgorny(-)] x11-libs/libXdamage:0[-mgorny(-)] x11-libs/libXext:0[-mgorny(-)]
+    x11-libs/libXfixes:0[-mgorny(-)] x11-libs/libXi:0[-mgorny(-)] x11-libs/libxkbfile:0[-mgorny(-)]
+    x11-libs/libXrandr:0[-mgorny(-)] x11-libs/libXrender:0[-mgorny(-)] x11-libs/libXScrnSaver:0[-mgorny(-)]
+    x11-libs/libXtst:0[-mgorny(-)] x11-libs/pango:0[-mgorny(-)] ayatana? ( dev-libs/libappindicator:3[-mgorny(-)]
+    ) gnome-keyring? ( app-crypt/libsecret )
+  emerge.packages: net-im/slack-bin
+  kit: net-kit
+  original.package.name: net-im/slack-bin
+  original.package.slot: "0"
+  original.package.version: 4.33.73
