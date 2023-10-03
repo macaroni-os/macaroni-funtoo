@@ -1,0 +1,36 @@
+name: telegram-desktop-bin
+version: 4.8.9
+category: net-im
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Official desktop client for Telegram (binary package)
+uri:
+- https://desktop.telegram.org
+license: GPL-3-with-openssl-exception
+labels:
+  DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: dev-libs/glib:2 dev-libs/gobject-introspection >=media-libs/fontconfig-2.13
+    >=sys-apps/dbus-1.4.20 x11-libs/libX11 >=x11-libs/libxcb-1.10[xkb]
+  emerge.packages: net-im/telegram-desktop-bin
+  kit: net-kit
+  original.package.name: net-im/telegram-desktop-bin
+  original.package.slot: "0"
+  original.package.version: 4.8.9
