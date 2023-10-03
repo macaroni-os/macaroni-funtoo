@@ -1,0 +1,24 @@
+name: mypaint-brushes
+version: 1.3.1
+category: media-gfx-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Default MyPaint brushes
+uri:
+- https://github.com/mypaint/mypaint-brushes
+license: CC0-1.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  RDEPEND: '!media-gfx/mypaint-brushes:1.0'
+  emerge.packages: media-gfx/mypaint-brushes:1
+  kit: media-kit
+  original.package.name: media-gfx/mypaint-brushes
+  original.package.slot: "1"
+  original.package.version: 1.3.1-r1
