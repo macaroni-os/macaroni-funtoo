@@ -1,23 +1,23 @@
 name: obs-studio
-version: 29.1.3
+version: 29.1.3+1
 category: media-video
 use_flags:
 - -browser
 - -fdk
-- -jack
 - -lua
-- -pipewire
-- -vlc
+- -qt6
 - alsa
+- jack
 - lua_single_target_luajit
+- pipewire
 - pulseaudio
 - python
 - python_single_target_python3_9
-- qt6
 - speex
 - ssl
 - truetype
 - v4l
+- vlc
 - wayland
 - websocket
 requires:
@@ -30,25 +30,31 @@ requires:
 - name: websocketpp
   version: '>=0'
   category: dev-cpp
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
 - name: jansson
   version: '>=0'
   category: dev-libs
+- name: qtnetwork
+  version: '>=0'
+  category: dev-qt-5
+- name: qtquickcontrols
+  version: '>=0'
+  category: dev-qt-5
+- name: qtxml
+  version: '>=0'
+  category: dev-qt-5
 - name: alsa-lib
-  version: '>=0'
-  category: media-libs
-- name: fontconfig
-  version: '>=0'
-  category: media-libs-1.0
-- name: libglvnd
   version: '>=0'
   category: media-libs
 - name: pulseaudio
   version: '>=0'
   category: media-sound
 - name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: pipewire
+  version: '>=0'
+  category: media-video
+- name: vlc
   version: '>=0'
   category: media-video
 - name: mbedtls
@@ -63,13 +69,7 @@ requires:
 - name: pciutils
   version: '>=0'
   category: sys-apps
-- name: udev
-  version: '>=0'
-  category: virtual
 - name: libXcomposite
-  version: '>=0'
-  category: x11-libs
-- name: libxkbcommon
   version: '>=0'
   category: x11-libs
 annotations:
