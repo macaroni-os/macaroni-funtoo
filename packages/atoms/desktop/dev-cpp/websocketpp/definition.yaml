@@ -1,0 +1,30 @@
+name: websocketpp
+version: 0.8.2
+category: dev-cpp
+use_flags:
+- -test
+requires:
+- name: boost
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++/Boost Asio based websocket client/server library
+uri:
+- https://www.zaphoyd.com/websocketpp
+license: BSD
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: test? ( dev-libs/boost )
+  IUSE: examples test
+  RDEPEND: dev-libs/boost
+  emerge.packages: dev-cpp/websocketpp
+  kit: dev-kit
+  original.package.name: dev-cpp/websocketpp
+  original.package.slot: "0"
+  original.package.version: 0.8.2
