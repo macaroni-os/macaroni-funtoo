@@ -1,0 +1,74 @@
+name: skypeforlinux
+version: 8.51.0.86
+category: net-im
+requires:
+- name: libsecret
+  version: '>=0'
+  category: app-crypt
+- name: atk
+  version: '>=0'
+  category: dev-libs
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: libv4l
+  version: '>=0'
+  category: media-libs
+- name: gcc
+  version: '>=0'
+  category: sys-devel-11.3.0
+- name: ttf-fonts
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libxkbfile
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Instant messaging client, with support for audio and video
+uri:
+- https://www.skype.com/
+license: Skype-TOS MIT MIT-with-advertising BSD-1 BSD-2 BSD Apache-2.0 Boost-1.0 ISC
+  CC-BY-SA-3.0 CC0-1.0 openssl ZLIB APSL-2 icu Artistic-2 LGPL-2.1
+labels:
+  DEPEND: '>=app-arch/rpm2targz-9.0.0.3g dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: pax_kernel abi_x86_64
+  RDEPEND: '|| ( sys-auth/elogind sys-apps/systemd ) app-crypt/libsecret[-mgorny(-)]
+    dev-libs/atk[-mgorny(-)] dev-libs/expat[-mgorny(-)] dev-libs/glib:2[-mgorny(-)]
+    dev-libs/nspr[-mgorny(-)] dev-libs/nss[-mgorny(-)] media-libs/alsa-lib[-mgorny(-)]
+    media-libs/fontconfig:1.0[-mgorny(-)] media-libs/freetype:2[-mgorny(-)] media-libs/libv4l[-mgorny(-)]
+    net-print/cups[-mgorny(-)] sys-apps/dbus[-mgorny(-)] sys-devel/gcc[cxx] virtual/ttf-fonts
+    x11-libs/cairo[-mgorny(-)] x11-libs/gdk-pixbuf:2[-mgorny(-)] x11-libs/gtk+:3[-mgorny(-)]
+    x11-libs/libX11[-mgorny(-)] x11-libs/libXScrnSaver[-mgorny(-)] x11-libs/libXcomposite[-mgorny(-)]
+    x11-libs/libXcursor[-mgorny(-)] x11-libs/libXdamage[-mgorny(-)] x11-libs/libXext[-mgorny(-)]
+    x11-libs/libXfixes[-mgorny(-)] x11-libs/libXi[-mgorny(-)] x11-libs/libXrandr[-mgorny(-)]
+    x11-libs/libXrender[-mgorny(-)] x11-libs/libXtst[-mgorny(-)] x11-libs/libxcb[-mgorny(-)]
+    x11-libs/libxkbfile[-mgorny(-)] x11-libs/pango[-mgorny(-)]'
+  emerge.packages: net-im/skypeforlinux
+  kit: net-kit
+  original.package.name: net-im/skypeforlinux
+  original.package.slot: "0"
+  original.package.version: 8.51.0.86
