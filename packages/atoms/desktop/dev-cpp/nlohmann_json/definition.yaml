@@ -1,0 +1,24 @@
+name: nlohmann_json
+version: 3.11.2
+category: dev-cpp
+use_flags:
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: JSON for Modern C++
+uri:
+- https://github.com/nlohmann/json
+license: MIT
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) dev-util/ninja dev-util/cmake
+  IUSE: doc test
+  emerge.packages: dev-cpp/nlohmann_json
+  kit: dev-kit
+  original.package.name: dev-cpp/nlohmann_json
+  original.package.slot: "0"
+  original.package.version: 3.11.2
