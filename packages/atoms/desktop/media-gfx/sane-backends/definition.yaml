@@ -1,0 +1,110 @@
+name: sane-backends
+version: 1.1.1
+category: media-gfx
+use_flags:
+- gphoto2
+- sane_backends_canon_pp
+- sane_backends_dc210
+- sane_backends_dc240
+- sane_backends_dell1600n_net
+- sane_backends_escl
+- sane_backends_hpsj5s
+- sane_backends_mustek_pp
+- sane_backends_pixma
+- snmp
+- usb
+- v4l
+- xinetd
+- zeroconf
+requires:
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: libgphoto2
+  version: '>=0'
+  category: media-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
+- name: libv4l
+  version: '>=0'
+  category: media-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: net-snmp
+  version: '>=0'
+  category: net-analyzer
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: libieee1284
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Scanner Access Now Easy - Backends
+uri:
+- http://www.sane-project.org/
+license: GPL-2 public-domain
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) sys-devel/autoconf-archive sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig virtual/pkgconfig'
+  DEPEND: gphoto2? ( >=media-libs/libgphoto2-2.5.3.1:= media-libs/libjpeg-turbo:=
+    ) sane_backends_canon_pp? ( >=sys-libs/libieee1284-0.2.11-r3 ) sane_backends_dc210?
+    ( media-libs/libjpeg-turbo:= ) sane_backends_dc240? ( media-libs/libjpeg-turbo:=
+    ) sane_backends_dell1600n_net? ( >=media-libs/tiff-3.9.7-r1:0= media-libs/libjpeg-turbo:=
+    ) sane_backends_escl? ( app-text/poppler[cairo] || ( net-dns/avahi[dbus] net-dns/avahi[gtk]
+    ) net-dns/avahi net-misc/curl ) sane_backends_hpsj5s? ( >=sys-libs/libieee1284-0.2.11-r3
+    ) sane_backends_mustek_pp? ( >=sys-libs/libieee1284-0.2.11-r3 ) sane_backends_pixma?
+    ( media-libs/libjpeg-turbo:= ) snmp? ( net-analyzer/net-snmp:0= ) usb? ( >=virtual/libusb-1-r1:1=
+    ) v4l? ( >=media-libs/libv4l-0.9.5 ) xinetd? ( sys-apps/xinetd ) zeroconf? ( >=net-dns/avahi-0.6.31-r2
+    ) dev-libs/libxml2 v4l? ( sys-kernel/linux-headers ) sys-apps/shadow
+  IUSE: gphoto2 nls snmp systemd threads +usb v4l xinetd +zeroconf +sane_backends_abaton
+    +sane_backends_agfafocus +sane_backends_apple +sane_backends_artec +sane_backends_artec_eplus48u
+    +sane_backends_as6e +sane_backends_avision +sane_backends_bh +sane_backends_canon
+    +sane_backends_canon630u +sane_backends_canon_dr +sane_backends_canon_lide70 sane_backends_canon_pp
+    +sane_backends_cardscan +sane_backends_coolscan +sane_backends_coolscan2 +sane_backends_coolscan3
+    +sane_backends_dc210 +sane_backends_dc240 +sane_backends_dc25 +sane_backends_dell1600n_net
+    +sane_backends_dmc +sane_backends_epjitsu +sane_backends_epson +sane_backends_epson2
+    +sane_backends_epsonds +sane_backends_escl +sane_backends_fujitsu +sane_backends_genesys
+    +sane_backends_gt68xx +sane_backends_hp +sane_backends_hp3500 +sane_backends_hp3900
+    +sane_backends_hp4200 +sane_backends_hp5400 +sane_backends_hp5590 +sane_backends_hpljm1005
+    sane_backends_hpsj5s +sane_backends_hs2p +sane_backends_ibm +sane_backends_kodak
+    +sane_backends_kodakaio +sane_backends_kvs1025 +sane_backends_kvs20xx sane_backends_kvs40xx
+    +sane_backends_leo +sane_backends_lexmark +sane_backends_ma1509 +sane_backends_magicolor
+    +sane_backends_matsushita +sane_backends_microtek +sane_backends_microtek2 +sane_backends_mustek
+    sane_backends_mustek_pp +sane_backends_mustek_usb sane_backends_mustek_usb2 +sane_backends_nec
+    +sane_backends_net +sane_backends_niash +sane_backends_p5 +sane_backends_pie +sane_backends_pieusb
+    +sane_backends_pixma +sane_backends_plustek +sane_backends_plustek_pp sane_backends_pnm
+    +sane_backends_qcam +sane_backends_ricoh +sane_backends_ricoh2 +sane_backends_rts8891
+    +sane_backends_s9036 +sane_backends_sceptre +sane_backends_sharp +sane_backends_sm3600
+    +sane_backends_sm3840 +sane_backends_snapscan +sane_backends_sp15c +sane_backends_st400
+    +sane_backends_stv680 +sane_backends_tamarack +sane_backends_teco1 +sane_backends_teco2
+    +sane_backends_teco3 +sane_backends_test +sane_backends_u12 +sane_backends_umax
+    +sane_backends_umax1220u +sane_backends_umax_pp +sane_backends_xerox_mfp
+  RDEPEND: gphoto2? ( >=media-libs/libgphoto2-2.5.3.1:= media-libs/libjpeg-turbo:=
+    ) sane_backends_canon_pp? ( >=sys-libs/libieee1284-0.2.11-r3 ) sane_backends_dc210?
+    ( media-libs/libjpeg-turbo:= ) sane_backends_dc240? ( media-libs/libjpeg-turbo:=
+    ) sane_backends_dell1600n_net? ( >=media-libs/tiff-3.9.7-r1:0= media-libs/libjpeg-turbo:=
+    ) sane_backends_escl? ( app-text/poppler[cairo] || ( net-dns/avahi[dbus] net-dns/avahi[gtk]
+    ) net-dns/avahi net-misc/curl ) sane_backends_hpsj5s? ( >=sys-libs/libieee1284-0.2.11-r3
+    ) sane_backends_mustek_pp? ( >=sys-libs/libieee1284-0.2.11-r3 ) sane_backends_pixma?
+    ( media-libs/libjpeg-turbo:= ) snmp? ( net-analyzer/net-snmp:0= ) usb? ( >=virtual/libusb-1-r1:1=
+    ) v4l? ( >=media-libs/libv4l-0.9.5 ) xinetd? ( sys-apps/xinetd ) zeroconf? ( >=net-dns/avahi-0.6.31-r2
+    )
+  emerge.packages: media-gfx/sane-backends
+  kit: media-kit
+  original.package.name: media-gfx/sane-backends
+  original.package.slot: "0"
+  original.package.version: 1.1.1
