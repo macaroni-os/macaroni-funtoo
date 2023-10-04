@@ -1,0 +1,32 @@
+name: pycharm-professional
+version: "2023.2"
+category: dev-util
+use_flags:
+- -system-java
+requires:
+- name: libdbusmenu
+  version: '>=0'
+  category: dev-libs
+- name: pip
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Intelligent Python IDE with unique code assistance and analysis
+uri:
+- https://www.jetbrains.com/python
+license: JetBrains
+labels:
+  DEPEND: dev-util/patchelf dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +system-java +sysctl
+  RDEPEND: system-java? ( virtual/jre ) dev-libs/libdbusmenu dev-python/pip
+  emerge.packages: dev-util/pycharm-professional
+  kit: dev-kit
+  original.package.name: dev-util/pycharm-professional
+  original.package.slot: "0"
+  original.package.version: "2023.2"
