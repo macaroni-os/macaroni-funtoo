@@ -1,5 +1,5 @@
 name: networkmanager
-version: 1.42.8+1
+version: 1.42.8+2
 category: net-misc
 use_flags:
 - -audit
@@ -17,7 +17,6 @@ use_flags:
 - -selinux
 - -teamd
 - -test
-- -tools
 - bluetooth
 - connection-sharing
 - dhcpcd
@@ -29,10 +28,14 @@ use_flags:
 - policykit
 - ppp
 - resolvconf
+- tools
 - vala
 - wifi
 requires:
 - name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: newt
   version: '>=0'
   category: dev-libs
 - name: nss
