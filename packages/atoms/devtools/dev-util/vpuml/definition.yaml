@@ -1,0 +1,31 @@
+name: vpuml
+version: 17.1.20230601
+category: dev-util
+requires:
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+- name: jre
+  version: '>=0'
+  category: virtual-20
+- name: xdg-utils
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Visual Paradigm for UML
+uri:
+- http://www.visual-paradigm.com
+license: as-is
+labels:
+  RDEPEND: '>=virtual/jre-1.5 x11-misc/xdg-utils sys-auth/polkit'
+  emerge.packages: dev-util/vpuml
+  kit: dev-kit
+  original.package.name: dev-util/vpuml
+  original.package.slot: "0"
+  original.package.version: 17.1.20230601
