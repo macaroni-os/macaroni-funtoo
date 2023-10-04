@@ -1,0 +1,33 @@
+name: libieee1284
+version: 0.2.11
+category: sys-libs
+use_flags:
+- -doc
+- -python_single_target_python2_7
+- python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library to query devices using IEEE1284
+uri:
+- http://cyberelk.net/tim/software/libieee1284/
+license: GPL-2
+labels:
+  DEPEND: python? ( python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    >=dev-lang/python-exec-2:=[python_targets_python2_7] ) ) doc? ( app-text/docbook-sgml-utils
+    >=app-text/docbook-sgml-dtd-4.1 app-text/docbook-dsssl-stylesheets dev-perl/XML-RegExp
+    )
+  IUSE: doc python static-libs python_single_target_python2_7 python_targets_python2_7
+    abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  RDEPEND: python? ( python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
+    >=dev-lang/python-exec-2:=[python_targets_python2_7] ) )
+  emerge.packages: sys-libs/libieee1284
+  kit: core-kit
+  original.package.name: sys-libs/libieee1284
+  original.package.slot: "0"
+  original.package.version: 0.2.11-r6
