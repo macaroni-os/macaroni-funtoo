@@ -1,0 +1,39 @@
+name: arduino-bin
+version: 1.8.19
+category: dev-embedded
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: AVR development board IDE and built-in libraries
+uri:
+- http://arduino.cc/en/Main/Software
+license: GPL-2 LGPL-2.1
+labels:
+  DEPEND: app-arch/xz-utils
+  RDEPEND: app-arch/xz-utils sys-libs/ncurses[tinfo] virtual/libusb:0 virtual/libusb:1
+    virtual/udev media-video/ffmpeg dev-libs/glib
+  emerge.packages: dev-embedded/arduino-bin
+  kit: dev-kit
+  original.package.name: dev-embedded/arduino-bin
+  original.package.slot: "0"
+  original.package.version: 1.8.19
