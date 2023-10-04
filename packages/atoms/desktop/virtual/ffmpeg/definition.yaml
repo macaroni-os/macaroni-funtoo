@@ -1,0 +1,26 @@
+name: ffmpeg
+version: "9"
+category: virtual
+use_flags:
+- libav
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual package for FFmpeg executable implementation
+uri:
+- ""
+labels:
+  IUSE: X +encode gsm jpeg2k libav mp3 opus sdl speex theora threads truetype vaapi
+    vdpau x264
+  RDEPEND: libav? ( >=media-video/libav-9.12[X?,encode?,gsm?,jpeg2k?,mp3?,opus?,sdl?,speex?,theora?,threads?,truetype?,vaapi?,vdpau?,x264?]
+    ) !libav? ( >=media-video/ffmpeg-1.2.6-r1:0[X?,encode?,gsm?,jpeg2k?,mp3?,opus?,sdl?,speex?,theora?,threads?,truetype?,vaapi?,vdpau?,x264?]
+    )
+  emerge.packages: virtual/ffmpeg
+  kit: media-kit
+  original.package.name: virtual/ffmpeg
+  original.package.slot: "0"
+  original.package.version: 9-r2
