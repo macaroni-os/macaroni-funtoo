@@ -21,6 +21,7 @@ prelude:
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
 # Customize Firefox bookmarks and distributor
 - >-
+  sed -i -e 's|^version=.*|version={{ .Values.version }}|g' distribution.ini &&
   cp distribution.ini /pkgdir/{{ .Values.name }}/usr/lib64/firefox/distribution/
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
