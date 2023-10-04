@@ -1,0 +1,23 @@
+name: patchelf
+version: 0.18.0
+category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Small utility to modify the dynamic linker and RPATH of ELF executables
+uri:
+- https://nixos.org/patchelf.html
+license: GPL-3
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  emerge.packages: dev-util/patchelf
+  kit: dev-kit
+  original.package.name: dev-util/patchelf
+  original.package.slot: "0"
+  original.package.version: 0.18.0
