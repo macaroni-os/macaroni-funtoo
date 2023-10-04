@@ -1,0 +1,32 @@
+name: goland
+version: "2023.2"
+category: dev-util
+use_flags:
+- -system-java
+requires:
+- name: libdbusmenu
+  version: '>=0'
+  category: dev-libs
+- name: pip
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Golang IDE by JetBrains
+uri:
+- https://www.jetbrains.com/go
+license: JetBrains
+labels:
+  DEPEND: dev-util/patchelf dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +system-java +sysctl
+  RDEPEND: system-java? ( virtual/jre ) dev-libs/libdbusmenu dev-python/pip
+  emerge.packages: dev-util/goland
+  kit: dev-kit
+  original.package.name: dev-util/goland
+  original.package.slot: "0"
+  original.package.version: "2023.2"
