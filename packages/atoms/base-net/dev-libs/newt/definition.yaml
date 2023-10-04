@@ -1,22 +1,28 @@
 name: newt
-version: 0.52.20
+version: 0.52.20+1
 category: dev-libs
 use_flags:
 - -elibc_uclibc
-- -gpm
 - -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -python_targets_python3_9
 - -tcl
+- gpm
+- python_targets_python3_9
 requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
 - name: popt
   version: '>=0'
   category: dev-libs
+- name: gpm
+  version: '>=0'
+  category: sys-libs
 - name: slang
   version: '>=0'
   category: sys-libs
