@@ -1,0 +1,28 @@
+name: eclipse-sdk-bin
+version: 2023.06.0
+category: dev-util-2023.06
+requires:
+- name: jdk
+  version: '>=0'
+  category: virtual-20
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Eclipse SDK
+uri:
+- http://www.eclipse.org
+license: EPL-1.0
+labels:
+  RDEPEND: '>=virtual/jdk-1.8 x11-libs/gtk+:2'
+  emerge.packages: dev-util/eclipse-sdk-bin:2023.06
+  kit: dev-kit
+  original.package.name: dev-util/eclipse-sdk-bin
+  original.package.slot: "2023.06"
+  original.package.version: 2023.06.0
