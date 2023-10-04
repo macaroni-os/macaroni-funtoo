@@ -1,7 +1,9 @@
 name: sane-backends
-version: 1.1.1
+version: 1.1.1+1
 category: media-gfx
 use_flags:
+- -snmp
+- -xinetd
 - gphoto2
 - sane_backends_canon_pp
 - sane_backends_dc210
@@ -11,10 +13,8 @@ use_flags:
 - sane_backends_hpsj5s
 - sane_backends_mustek_pp
 - sane_backends_pixma
-- snmp
 - usb
 - v4l
-- xinetd
 - zeroconf
 requires:
 - name: poppler
@@ -32,9 +32,6 @@ requires:
 - name: tiff
   version: '>=0'
   category: media-libs
-- name: net-snmp
-  version: '>=0'
-  category: net-analyzer
 - name: avahi
   version: '>=0'
   category: net-dns
