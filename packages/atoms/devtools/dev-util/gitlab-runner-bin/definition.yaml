@@ -1,0 +1,30 @@
+name: gitlab-runner-bin
+version: 16.2.0
+category: dev-util
+use_flags:
+- -systemd
+requires:
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GitLab Runner
+uri:
+- https://gitlab.com/gitlab-org/gitlab-runner
+license: MIT
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: systemd? ( sys-apps/systemd ) sys-apps/shadow
+  IUSE: systemd
+  RDEPEND: virtual/tmpfiles
+  emerge.packages: dev-util/gitlab-runner-bin
+  kit: dev-kit
+  original.package.name: dev-util/gitlab-runner-bin
+  original.package.slot: "0"
+  original.package.version: 16.2.0
