@@ -1,0 +1,33 @@
+diff -rua a/src/alarm.vala b/src/alarm.vala
+--- a/src/alarm.vala	2023-09-20 20:12:56.047531116 +0200
++++ b/src/alarm.vala	2023-09-20 20:13:55.261807295 +0200
+@@ -811,7 +811,7 @@
+         settings = new GLib.Settings ("org.gnome.clocks");
+ 
+-        var app = GLib.Application.get_default ();
++        var app = (!) GLib.Application.get_default ();
+         var action = (GLib.SimpleAction) app.lookup_action ("stop-alarm");
+         action.activate.connect ((action, param) => {
+             var a = alarms.find ((a) => {
+                 return ((Item) a).id == (string) param;
+@@ -822,7 +822,7 @@
+             }
+         });
+ 
+-        action = (GLib.SimpleAction) app.lookup_action ("snooze-alarm");
++        action = (GLib.SimpleAction) (!) app.lookup_action ("snooze-alarm");
+         action.activate.connect ((action, param) => {
+             var a = alarms.find ((a) => {
+                 return ((Item) a).id == (string) param;
+diff -rua a/src/window.vala b/src/window.vala
+--- a/src/window.vala	2023-09-20 20:12:56.048531121 +0200
++++ b/src/window.vala	2023-09-20 20:14:20.390924519 +0200
+@@ -173,7 +173,7 @@
+     }
+ 
+     private void on_show_primary_menu_activate (SimpleAction action) {
+-        var state = action.get_state ().get_boolean ();
++        var state = ((!) action.get_state ()).get_boolean ();
+         action.set_state (new Variant.boolean (!state));
+     }
+ 

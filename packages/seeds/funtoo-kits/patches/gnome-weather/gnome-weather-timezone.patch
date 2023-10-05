@@ -1,0 +1,30 @@
+--- a/src/app/city.js	2023-10-01 15:45:32.433381933 +0200
++++ b/src/app/city.js	2023-10-01 15:46:19.289384579 +0200
+@@ -21,6 +21,7 @@
+ const Gnome = imports.gi.GnomeDesktop;
+ const GObject = imports.gi.GObject;
+ const Gtk = imports.gi.Gtk;
++const GWeather = imports.gi.GWeather;
+ 
+ const Forecast = imports.app.forecast;
+ const WForecast = imports.app.weeklyForecast;
+@@ -184,7 +185,8 @@
+         context.add_class(this._currentStyle);
+ 
+         let forecasts = info.get_forecast_list();
+-        let tz = GLib.TimeZone.new(info.location.get_timezone().get_tzid());
++        let coords = info.location.get_coords();
++        let tz = GLib.TimeZone.new(GWeather.Location.get_world().find_nearest_city(coords[0], coords[1]).get_timezone().get_tzid());
+         for (let t of ['today', 'tomorrow'])
+             this._forecasts[t].update(forecasts, tz, t);
+ 
+@@ -291,7 +293,8 @@
+     _getTime() {
+         if (this._info != null) {
+             let location = this._info.location;
+-            let tz = GLib.TimeZone.new(location.get_timezone().get_tzid());
++            let coords = location.get_coords();
++            let tz = GLib.TimeZone.new(GWeather.Location.get_world().find_nearest_city(coords[0], coords[1]).get_timezone().get_tzid());
+             let dt = GLib.DateTime.new_now(tz);
+ 
+             return this._wallClock.string_for_datetime (dt,

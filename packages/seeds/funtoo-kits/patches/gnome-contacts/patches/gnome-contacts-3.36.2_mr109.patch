@@ -1,0 +1,568 @@
+From 111f01d88a202f6178e89c6a6a9d96ff12fd272d Mon Sep 17 00:00:00 2001
+From: Niels De Graef <nielsdegraef@gmail.com>
+Date: Sun, 19 Apr 2020 13:52:26 +0200
+Subject: [PATCH 1/4] FakePersonaStore: Fix dynamic cast warnings
+
+Vala 0.48 got a bit more strict on dynamic casts, so let's fix those
+warnings.
+---
+ src/contacts-fake-persona-store.vala | 76 ++++++++++++++--------------
+ 1 file changed, 38 insertions(+), 38 deletions(-)
+
+diff --git a/src/contacts-fake-persona-store.vala b/src/contacts-fake-persona-store.vala
+index 5b8b50ee..8891a934 100644
+--- a/src/contacts-fake-persona-store.vala
++++ b/src/contacts-fake-persona-store.vala
+@@ -306,71 +306,71 @@ PostalAddressDetails
+     // TODO Implement the interface for the commented properties
+     switch (property_name) {
+       case "alias":
+-        //alias = (persona as AliasDetails).alias;
++        //alias = ((AliasDetails) persona).alias;
+         break;
+       case "avatar":
+-        avatar = (persona as AvatarDetails).avatar;
++        avatar = ((AvatarDetails) persona).avatar;
+         break;
+       case "birthday":
+-        birthday = (persona as BirthdayDetails).birthday;
++        birthday = ((BirthdayDetails) persona).birthday;
+         break;
+       case "calendar-event-id":
+-        calendar_event_id = (persona as BirthdayDetails).calendar_event_id;
++        calendar_event_id = ((BirthdayDetails) persona).calendar_event_id;
+         break;
+       case "email-addresses":
+-        foreach (var e in (persona as EmailDetails).email_addresses) {
++        foreach (var e in ((EmailDetails) persona).email_addresses) {
+           email_addresses.add (new EmailFieldDetails (e.value, e.parameters));
+         }
+         break;
+       case "is-favourite":
+-        //is_favourite = (persona as FavouriteDetails).is_favourite;
++        //is_favourite = ((FavouriteDetails) persona).is_favourite;
+         break;
+       case "gender":
+-        //gender = (persona as GenderDetails).gender;
++        //gender = ((GenderDetails) persona).gender;
+         break;
+       case "groups":
+-        //groups = (persona as GroupDetails).groups;
++        //groups = ((GroupDetails) persona).groups;
+         break;
+       case "im-addresses":
+-        im_addresses = (persona as ImDetails).im_addresses;
++        im_addresses = ((ImDetails) persona).im_addresses;
+         break;
+       case "local-ids":
+-        //local_ids = (persona as LocalIdDetails).local_ids;
++        //local_ids = ((LocalIdDetails) persona).local_ids;
+         break;
+       case "structured-name":
+-        structured_name = (persona as NameDetails).structured_name;
++        structured_name = ((NameDetails) persona).structured_name;
+         break;
+       case "full-name":
+-        full_name = (persona as NameDetails).full_name;
++        full_name = ((NameDetails) persona).full_name;
+         break;
+       case "nickname":
+-        nickname = (persona as NameDetails).nickname;
++        nickname = ((NameDetails) persona).nickname;
+         break;
+       case "notes":
+-        foreach (var e in (persona as NoteDetails).notes) {
++        foreach (var e in ((NoteDetails) persona).notes) {
+           notes.add (new NoteFieldDetails (e.value, e.parameters, e.id));
+         }
+         break;
+       case "phone-numbers":
+-        foreach (var e in (persona as PhoneDetails).phone_numbers) {
++        foreach (var e in ((PhoneDetails) persona).phone_numbers) {
+           phone_numbers.add (new PhoneFieldDetails (e.value, e.parameters));
+         }
+         break;
+       case "postal-addresses":
+-        foreach (var e in (persona as PostalAddressDetails).postal_addresses) {
++        foreach (var e in ((PostalAddressDetails) persona).postal_addresses) {
+           postal_addresses.add (new PostalAddressFieldDetails (e.value, e.parameters));
+         }
+         break;
+       case "roles":
+-        //roles (persona as RoleDetails).roles;
++        //roles ((RoleDetails) persona).roles;
+         break;
+       case "urls":
+-        foreach (var e in (persona as UrlDetails).urls) {
++        foreach (var e in ((UrlDetails) persona).urls) {
+           urls.add (new UrlFieldDetails (e.value, e.parameters));
+         }
+         break;
+       case "web-service-addresses":
+-        //web_service_addresses.add_all((persona as WebServiceDetails).web_service_addresses);
++        //web_service_addresses.add_all(((WebServiceDetails) persona).web_service_addresses);
+         break;
+       default:
+         debug ("Unknown property '%s' in FakePersona.get_property_from_real().", property_name);
+@@ -408,16 +408,16 @@ PostalAddressDetails
+                                           string property_name, Value new_value) throws PropertyError, IndividualAggregatorError, PropertyError {
+     switch (property_name) {
+       case "alias":
+-        yield (persona as AliasDetails).change_alias ((string) new_value);
++        yield ((AliasDetails) persona).change_alias ((string) new_value);
+         break;
+       case "avatar":
+-        yield (persona as AvatarDetails).change_avatar ((LoadableIcon?) new_value);
++        yield ((AvatarDetails) persona).change_avatar ((LoadableIcon?) new_value);
+         break;
+       case "birthday":
+-        yield (persona as BirthdayDetails).change_birthday ((DateTime?) new_value);
++        yield ((BirthdayDetails) persona).change_birthday ((DateTime?) new_value);
+         break;
+       case "calendar-event-id":
+-        yield (persona as BirthdayDetails).change_calendar_event_id ((string?) new_value);
++        yield ((BirthdayDetails) persona).change_calendar_event_id ((string?) new_value);
+         break;
+       case "email-addresses":
+         var original = (Set<EmailFieldDetails>) new_value;
+@@ -426,31 +426,31 @@ PostalAddressDetails
+           if (e.value != null && e.value != "")
+             copy.add (new EmailFieldDetails (e.value, e.parameters));
+         }
+-        yield (persona as EmailDetails).change_email_addresses (copy);
++        yield ((EmailDetails) persona).change_email_addresses (copy);
+         break;
+       case "is-favourite":
+-        yield (persona as FavouriteDetails).change_is_favourite ((bool) new_value);
++        yield ((FavouriteDetails) persona).change_is_favourite ((bool) new_value);
+         break;
+       case "gender":
+-        yield (persona as GenderDetails).change_gender ((Gender) new_value);
++        yield ((GenderDetails) persona).change_gender ((Gender) new_value);
+         break;
+       case "groups":
+-        yield (persona as GroupDetails).change_groups ((Set<string>) new_value);
++        yield ((GroupDetails) persona).change_groups ((Set<string>) new_value);
+         break;
+       case "im-addresses":
+-        yield (persona as ImDetails).change_im_addresses ((MultiMap<string, ImFieldDetails>) new_value);
++        yield ((ImDetails) persona).change_im_addresses ((MultiMap<string, ImFieldDetails>) new_value);
+         break;
+       case "local-ids":
+-        yield (persona as LocalIdDetails).change_local_ids ((Set<string>) new_value);
++        yield ((LocalIdDetails) persona).change_local_ids ((Set<string>) new_value);
+         break;
+       case "structured-name":
+-        yield (persona as NameDetails).change_structured_name ((StructuredName?) new_value);
++        yield ((NameDetails) persona).change_structured_name ((StructuredName?) new_value);
+         break;
+       case "full-name":
+-        yield (persona as NameDetails).change_full_name ((string) new_value);
++        yield ((NameDetails) persona).change_full_name ((string) new_value);
+         break;
+       case "nickname":
+-        yield (persona as NameDetails).change_nickname ((string) new_value);
++        yield ((NameDetails) persona).change_nickname ((string) new_value);
+         break;
+       case "notes":
+         var original = (Set<NoteFieldDetails>) new_value;
+@@ -459,7 +459,7 @@ PostalAddressDetails
+           if (e.value != null && e.value != "")
+             copy.add (new NoteFieldDetails (e.value, e.parameters));
+         }
+-        yield (persona as NoteDetails).change_notes (copy);
++        yield ((NoteDetails) persona).change_notes (copy);
+         break;
+       case "phone-numbers":
+         var original = (Set<PhoneFieldDetails>) new_value;
+@@ -468,7 +468,7 @@ PostalAddressDetails
+           if (e.value != null && e.value != "")
+             copy.add (new PhoneFieldDetails (e.value, e.parameters));
+         }
+-        yield (persona as PhoneDetails).change_phone_numbers (copy);
++        yield ((PhoneDetails) persona).change_phone_numbers (copy);
+         break;
+       case "postal-addresses":
+         var original = (Set<PostalAddressFieldDetails>) new_value;
+@@ -478,10 +478,10 @@ PostalAddressDetails
+           if (e.value != null)
+             copy.add (new PostalAddressFieldDetails (e.value, e.parameters));
+         }
+-        yield (persona as PostalAddressDetails).change_postal_addresses (copy);
++        yield ((PostalAddressDetails) persona).change_postal_addresses (copy);
+         break;
+       case "roles":
+-        yield (persona as RoleDetails).change_roles ((Set<RoleFieldDetails>) new_value);
++        yield ((RoleDetails) persona).change_roles ((Set<RoleFieldDetails>) new_value);
+         break;
+       case "urls":
+         var original = (Set<UrlFieldDetails>) new_value;
+@@ -490,10 +490,10 @@ PostalAddressDetails
+           if (e.value != null && e.value != "")
+             copy.add (new UrlFieldDetails (e.value, e.parameters));
+         }
+-        yield (persona as UrlDetails).change_urls (copy);
++        yield ((UrlDetails) persona).change_urls (copy);
+         break;
+       case "web-service-addresses":
+-        yield (persona as WebServiceDetails).change_web_service_addresses ((MultiMap<string, WebServiceFieldDetails>) new_value);
++        yield ((WebServiceDetails) persona).change_web_service_addresses ((MultiMap<string, WebServiceFieldDetails>) new_value);
+         break;
+       default:
+         critical ("Unknown property '%s' in Contact.set_persona_property().", property_name);
+-- 
+GitLab
+
+
+From 14944bed0a5f40027ae8dc317e516c47d4aa1e1c Mon Sep 17 00:00:00 2001
+From: Niels De Graef <nielsdegraef@gmail.com>
+Date: Sun, 19 Apr 2020 13:55:21 +0200
+Subject: [PATCH 2/4] ContactsUtils: Fix dynamic cast warnings
+
+Vala 0.48 got a bit more strict on dynamic casts, so let's fix those
+warnings.
+---
+ src/contacts-utils.vala | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
+diff --git a/src/contacts-utils.vala b/src/contacts-utils.vala
+index 1e95fead..879c4a9f 100644
+--- a/src/contacts-utils.vala
++++ b/src/contacts-utils.vala
+@@ -529,61 +529,61 @@ namespace Contacts.Utils {
+      * passed to the functions which currently call this one; but only once bgo#604827 is fixed. */
+     switch (property_name) {
+       case "alias":
+-        yield (persona as AliasDetails).change_alias ((string) new_value);
++        yield ((AliasDetails) persona).change_alias ((string) new_value);
+         break;
+       case "avatar":
+-        yield (persona as AvatarDetails).change_avatar ((LoadableIcon?) new_value);
++        yield ((AvatarDetails) persona).change_avatar ((LoadableIcon?) new_value);
+         break;
+       case "birthday":
+-        yield (persona as BirthdayDetails).change_birthday ((DateTime?) new_value);
++        yield ((BirthdayDetails) persona).change_birthday ((DateTime?) new_value);
+         break;
+       case "calendar-event-id":
+-        yield (persona as BirthdayDetails).change_calendar_event_id ((string?) new_value);
++        yield ((BirthdayDetails) persona).change_calendar_event_id ((string?) new_value);
+         break;
+       case "email-addresses":
+-        yield (persona as EmailDetails).change_email_addresses ((Set<EmailFieldDetails>) new_value);
++        yield ((EmailDetails) persona).change_email_addresses ((Set<EmailFieldDetails>) new_value);
+         break;
+       case "is-favourite":
+-        yield (persona as FavouriteDetails).change_is_favourite ((bool) new_value);
++        yield ((FavouriteDetails) persona).change_is_favourite ((bool) new_value);
+         break;
+       case "gender":
+-        yield (persona as GenderDetails).change_gender ((Gender) new_value);
++        yield ((GenderDetails) persona).change_gender ((Gender) new_value);
+         break;
+       case "groups":
+-        yield (persona as GroupDetails).change_groups ((Set<string>) new_value);
++        yield ((GroupDetails) persona).change_groups ((Set<string>) new_value);
+         break;
+       case "im-addresses":
+-        yield (persona as ImDetails).change_im_addresses ((MultiMap<string, ImFieldDetails>) new_value);
++        yield ((ImDetails) persona).change_im_addresses ((MultiMap<string, ImFieldDetails>) new_value);
+         break;
+       case "local-ids":
+-        yield (persona as LocalIdDetails).change_local_ids ((Set<string>) new_value);
++        yield ((LocalIdDetails) persona).change_local_ids ((Set<string>) new_value);
+         break;
+       case "structured-name":
+-        yield (persona as NameDetails).change_structured_name ((StructuredName?) new_value);
++        yield ((NameDetails) persona).change_structured_name ((StructuredName?) new_value);
+         break;
+       case "full-name":
+-        yield (persona as NameDetails).change_full_name ((string) new_value);
++        yield ((NameDetails) persona).change_full_name ((string) new_value);
+         break;
+       case "nickname":
+-        yield (persona as NameDetails).change_nickname ((string) new_value);
++        yield ((NameDetails) persona).change_nickname ((string) new_value);
+         break;
+       case "notes":
+-        yield (persona as NoteDetails).change_notes ((Set<NoteFieldDetails>) new_value);
++        yield ((NoteDetails) persona).change_notes ((Set<NoteFieldDetails>) new_value);
+         break;
+       case "phone-numbers":
+-        yield (persona as PhoneDetails).change_phone_numbers ((Set<PhoneFieldDetails>) new_value);
++        yield ((PhoneDetails) persona).change_phone_numbers ((Set<PhoneFieldDetails>) new_value);
+         break;
+       case "postal-addresses":
+-        yield (persona as PostalAddressDetails).change_postal_addresses ((Set<PostalAddressFieldDetails>) new_value);
++        yield ((PostalAddressDetails) persona).change_postal_addresses ((Set<PostalAddressFieldDetails>) new_value);
+         break;
+       case "roles":
+-        yield (persona as RoleDetails).change_roles ((Set<RoleFieldDetails>) new_value);
++        yield ((RoleDetails) persona).change_roles ((Set<RoleFieldDetails>) new_value);
+         break;
+       case "urls":
+-        yield (persona as UrlDetails).change_urls ((Set<UrlFieldDetails>) new_value);
++        yield ((UrlDetails) persona).change_urls ((Set<UrlFieldDetails>) new_value);
+         break;
+       case "web-service-addresses":
+-        yield (persona as WebServiceDetails).change_web_service_addresses ((MultiMap<string, WebServiceFieldDetails>) new_value);
++        yield ((WebServiceDetails) persona).change_web_service_addresses ((MultiMap<string, WebServiceFieldDetails>) new_value);
+         break;
+       default:
+         critical ("Unknown property '%s' in Contact.set_persona_property().", property_name);
+-- 
+GitLab
+
+
+From b7702c7afdf5deebf2b14e2a26b30fbcacc75145 Mon Sep 17 00:00:00 2001
+From: Niels De Graef <nielsdegraef@gmail.com>
+Date: Sun, 19 Apr 2020 13:58:50 +0200
+Subject: [PATCH 3/4] EditorProperty: Fix dynamic cast warnings
+
+Vala 0.48 got a bit more strict on dynamic casts, so let's fix those
+warnings.
+---
+ src/contacts-editor-property.vala | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/src/contacts-editor-property.vala b/src/contacts-editor-property.vala
+index 6b7c94c8..6bf0a521 100644
+--- a/src/contacts-editor-property.vala
++++ b/src/contacts-editor-property.vala
+@@ -259,7 +259,7 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     combo.changed.connect (() => {
+       combo.active_descriptor.save_to_field_details(details);
+       // Workaround: we shouldn't do a manual signal
+-      (set as FakeHashSet).changed ();
++      ((FakeHashSet) set).changed ();
+       debug ("Property phone changed");
+     });
+   }
+@@ -280,7 +280,7 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     value_entry.changed.connect (() => {
+       details.value = value_entry.get_text ();
+       // Workaround: we shouldn't do a manual signal
+-      (set as FakeHashSet).changed ();
++      ((FakeHashSet) set).changed ();
+       debug ("Property email changed");
+       this.is_empty = value_entry.get_text () == "";
+     });
+@@ -301,7 +301,7 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     value_entry.changed.connect (() => {
+       details.value = value_entry.get_text ();
+       // Workaround: we shouldn't do a manual signal
+-      (set as FakeHashSet).changed ();
++      ((FakeHashSet) set).changed ();
+       debug ("Property type changed");
+ 
+       this.is_empty = value_entry.get_text () == "";
+@@ -323,7 +323,7 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     value_entry.changed.connect (() => {
+       details.value = value_entry.get_text ();
+       // Workaround: we shouldn't do a manual signal
+-      (set as FakeHashSet).changed ();
++      ((FakeHashSet) set).changed ();
+       debug ("Property type changed");
+ 
+       this.is_empty = value_entry.get_text () == "";
+@@ -364,7 +364,7 @@ public class Contacts.EditorProperty : ArrayList<EditorPropertyRow> {
+     create_for_property (persona, property_name, only_new);
+   }
+ 
+-  void create_for_property (Persona p, string prop_name, bool only_new) {
++  private void create_for_property (Persona p, string prop_name, bool only_new) {
+     switch (prop_name) {
+       case "email-addresses":
+         var details = p as EmailDetails;
+@@ -540,7 +540,7 @@ public class Contacts.EditorProperty : ArrayList<EditorPropertyRow> {
+       value_text.get_buffer ().get_end_iter (out end);
+       details.value = value_text.get_buffer ().get_text (start, end, true);
+       // Workaround: we shouldn't do a manual signal
+-      (set as FakeHashSet).changed ();
++      ((FakeHashSet) set).changed ();
+       debug ("Property changed");
+       box.is_empty = details.value == "";
+     });
+@@ -618,7 +618,7 @@ public class Contacts.EditorProperty : ArrayList<EditorPropertyRow> {
+ 
+     value_address.changed.connect (() => {
+       // Workaround: we shouldn't do a manual signal
+-      (set as FakeHashSet).changed ();
++      ((FakeHashSet) set).changed ();
+       debug ("Address changed");
+       box.is_empty = value_address.is_empty ();
+     });
+-- 
+GitLab
+
+
+From b6cb21678f3fe209ae1b6aee1b566b9c2233b79a Mon Sep 17 00:00:00 2001
+From: Niels De Graef <nielsdegraef@gmail.com>
+Date: Sun, 19 Apr 2020 15:47:44 +0200
+Subject: [PATCH 4/4] EditorProperty: Don't use "set" as variable name
+
+`set` is also a keyword in Vala, which means that in certain cases this
+will fail to compile. Let's just make sure we don't use it.
+---
+ src/contacts-editor-property.vala | 40 ++++++++++++++++---------------
+ 1 file changed, 21 insertions(+), 19 deletions(-)
+
+diff --git a/src/contacts-editor-property.vala b/src/contacts-editor-property.vala
+index 6bf0a521..d1ab569b 100644
+--- a/src/contacts-editor-property.vala
++++ b/src/contacts-editor-property.vala
+@@ -247,7 +247,7 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     this.header.pack_start (title_label);
+   }
+ 
+-  public void add_base_combo (Set<AbstractFieldDetails> set, string label, TypeSet combo_type, AbstractFieldDetails details) {
++  public void add_base_combo (Set<AbstractFieldDetails> details_set, string label, TypeSet combo_type, AbstractFieldDetails details) {
+     var title_label = new Label (label);
+     title_label.set_halign (Align.START);
+     this.header.pack_start (title_label);
+@@ -259,13 +259,13 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     combo.changed.connect (() => {
+       combo.active_descriptor.save_to_field_details(details);
+       // Workaround: we shouldn't do a manual signal
+-      ((FakeHashSet) set).changed ();
++      ((FakeHashSet) details_set).changed ();
+       debug ("Property phone changed");
+     });
+   }
+ 
+   //FIXME: create only one add_base_entry
+-  public void add_base_entry_email (Set<AbstractFieldDetails> set,
++  public void add_base_entry_email (Set<AbstractFieldDetails> details_set,
+                                     EmailFieldDetails details,
+                                     string placeholder) {
+     var value_entry = new Entry ();
+@@ -280,13 +280,13 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     value_entry.changed.connect (() => {
+       details.value = value_entry.get_text ();
+       // Workaround: we shouldn't do a manual signal
+-      ((FakeHashSet) set).changed ();
++      ((FakeHashSet) details_set).changed ();
+       debug ("Property email changed");
+       this.is_empty = value_entry.get_text () == "";
+     });
+   }
+ 
+-  public void add_base_entry_phone (Set<AbstractFieldDetails> set,
++  public void add_base_entry_phone (Set<AbstractFieldDetails> details_set,
+                                     PhoneFieldDetails details,
+                                     string placeholder) {
+     var value_entry = new Entry ();
+@@ -301,14 +301,14 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     value_entry.changed.connect (() => {
+       details.value = value_entry.get_text ();
+       // Workaround: we shouldn't do a manual signal
+-      ((FakeHashSet) set).changed ();
++      ((FakeHashSet) details_set).changed ();
+       debug ("Property type changed");
+ 
+       this.is_empty = value_entry.get_text () == "";
+     });
+   }
+ 
+-  public void add_base_entry_url (Set<AbstractFieldDetails> set,
++  public void add_base_entry_url (Set<AbstractFieldDetails> details_set,
+                                   UrlFieldDetails details,
+                                   string placeholder) {
+     var value_entry = new Entry ();
+@@ -323,14 +323,15 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     value_entry.changed.connect (() => {
+       details.value = value_entry.get_text ();
+       // Workaround: we shouldn't do a manual signal
+-      ((FakeHashSet) set).changed ();
++      ((FakeHashSet) details_set).changed ();
+       debug ("Property type changed");
+ 
+       this.is_empty = value_entry.get_text () == "";
+     });
+   }
+ 
+-  public void add_base_delete (Set<AbstractFieldDetails> set, AbstractFieldDetails details) {
++  public void add_base_delete (Set<AbstractFieldDetails> details_set,
++                               AbstractFieldDetails details) {
+     var delete_button = new Button.from_icon_name ("user-trash-symbolic");
+     delete_button.get_accessible ().set_name (_("Delete field"));
+     delete_button.set_valign (Align.START);
+@@ -341,7 +342,7 @@ public class Contacts.EditorPropertyRow : ListBoxRow {
+     delete_button.clicked.connect (() => {
+       debug ("Property removed");
+       this.remove ();
+-      set.remove (details);
++      details_set.remove (details);
+     });
+   }
+ }
+@@ -512,12 +513,13 @@ public class Contacts.EditorProperty : ArrayList<EditorPropertyRow> {
+   }
+ 
+   // TODO: support different types of nodes
+-  private EditorPropertyRow create_for_note (Set<NoteFieldDetails> set, NoteFieldDetails? details = null) {
++  private EditorPropertyRow create_for_note (Set<NoteFieldDetails> details_set,
++                                             NoteFieldDetails? details = null) {
+     if (details == null) {
+       var parameters = new HashMultiMap<string, string> ();
+       parameters["type"] = "PERSONAL";
+       var new_details = new NoteFieldDetails ("", parameters);
+-      set.add(new_details);
++      details_set.add(new_details);
+       details = new_details;
+     }
+     var box = new EditorPropertyRow ("notes");
+@@ -532,7 +534,7 @@ public class Contacts.EditorProperty : ArrayList<EditorPropertyRow> {
+     sw.add (value_text);
+     box.container.pack_start (sw);
+ 
+-    box.add_base_delete (set, details);
++    box.add_base_delete (details_set, details);
+ 
+     value_text.get_buffer ().changed.connect (() => {
+       TextIter start, end;
+@@ -540,7 +542,7 @@ public class Contacts.EditorProperty : ArrayList<EditorPropertyRow> {
+       value_text.get_buffer ().get_end_iter (out end);
+       details.value = value_text.get_buffer ().get_text (start, end, true);
+       // Workaround: we shouldn't do a manual signal
+-      ((FakeHashSet) set).changed ();
++      ((FakeHashSet) details_set).changed ();
+       debug ("Property changed");
+       box.is_empty = details.value == "";
+     });
+@@ -598,27 +600,27 @@ public class Contacts.EditorProperty : ArrayList<EditorPropertyRow> {
+     return box;
+   }
+ 
+-  private EditorPropertyRow create_for_address (Set<PostalAddressFieldDetails> set,
++  private EditorPropertyRow create_for_address (Set<PostalAddressFieldDetails> details_set,
+                                                 PostalAddressFieldDetails? details = null) {
+     if (details == null) {
+       var parameters = new HashMultiMap<string, string> ();
+       parameters["type"] = "HOME";
+       var address = new PostalAddress(null, null, null, null, null, null, null, null, null);
+       var new_details = new PostalAddressFieldDetails (address, parameters);
+-      set.add(new_details);
++      details_set.add(new_details);
+       details = new_details;
+     }
+     var box = new EditorPropertyRow ("postal-addresses");
+-    box.add_base_combo (set, _("Address"), TypeSet.general, details);
++    box.add_base_combo (details_set, _("Address"), TypeSet.general, details);
+ 
+     var value_address = new AddressEditor (details);
+     box.container.pack_start (value_address);
+ 
+-    box.add_base_delete (set, details);
++    box.add_base_delete (details_set, details);
+ 
+     value_address.changed.connect (() => {
+       // Workaround: we shouldn't do a manual signal
+-      ((FakeHashSet) set).changed ();
++      ((FakeHashSet) details_set).changed ();
+       debug ("Address changed");
+       box.is_empty = value_address.is_empty ();
+     });
+-- 
+GitLab
+

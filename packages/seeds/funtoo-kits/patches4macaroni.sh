@@ -14,3 +14,7 @@ rm /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/worksta
 # Macaroni uses a splitted version of pinentry
 sed -i -e 's|^PINENTRY_DEPEND=.*|PINENTRY_DEPEND="app-crypt/pinentry"|g' \
   /var/git/meta-repo/kits/gnome-kit/mail-client/evolution/evolution-*.ebuild
+
+# Macaroni uses a splitted version of gpgme
+sed -i -e 's|cxx,qt5|cxx|g' \
+  /var/git/meta-repo/kits/kde-kit/kde-frameworks/kwallet/kwallet-*.ebuild
