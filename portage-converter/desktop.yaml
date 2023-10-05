@@ -435,6 +435,34 @@ artefacts:
         whip hook gtk.glib_update_schemas &&
         whip hook gtk.gtk_update_icons
 
+- tree: packages/atoms/desktop
+  uses:
+    disabled:
+      - nios2
+      - sh
+      - selinux
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db
+        gtk.glib_update_schemas gtk.gtk_update_icons
+
+  packages:
+    - net-im/discord-bin
+    - net-im/mattermost-desktop-bin
+    - mail-client/thunderbird-bin
+
+- tree: packages/atoms/desktop
+  packages:
+    - net-vpn/networkmanager-openconnect
+    - net-vpn/networkmanager-strongswan
+    - net-vpn/networkmanager-vpnc
+
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
 
