@@ -1,0 +1,42 @@
+name: xinetd
+version: 2.3.15.4
+category: sys-apps
+use_flags:
+- -selinux
+- perl
+- rpc
+- tcpd
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: powerful replacement for inetd
+uri:
+- https://github.com/xinetd-org/xinetd https://github.com/openSUSE/xinetd
+license: BSD
+labels:
+  DEPEND: rpc? ( net-libs/libtirpc:= ) selinux? ( sys-libs/libselinux ) tcpd? ( >=sys-apps/tcp-wrappers-7.6-r2
+    ) virtual/pkgconfig virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: perl rpc selinux tcpd
+  RDEPEND: rpc? ( net-libs/libtirpc:= ) selinux? ( sys-libs/libselinux ) tcpd? ( >=sys-apps/tcp-wrappers-7.6-r2
+    ) perl? ( dev-lang/perl )
+  emerge.packages: sys-apps/xinetd
+  kit: geaaru-kit
+  original.package.name: sys-apps/xinetd
+  original.package.slot: "0"
+  original.package.version: 2.3.15.4
