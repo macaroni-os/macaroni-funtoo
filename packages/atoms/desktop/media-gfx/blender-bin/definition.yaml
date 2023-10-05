@@ -1,0 +1,28 @@
+name: blender-bin
+version: 3.6.1
+category: media-gfx
+provides:
+- name: blender
+  version: 3.6.1
+  category: media-gfx-2.93
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 3D Creation/Animation/Publishing System
+uri:
+- http://www.blender.org/
+license: '|| ( GPL-2 BL )'
+labels:
+  DEPEND: '|| ( sys-libs/ncurses[tinfo] sys-libs/ncurses-compat[tinfo] ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  RDEPEND: '!media-gfx/blender-bin:2.83 !media-gfx/blender-bin:2.90 !media-gfx/blender-bin:2.91
+    !media-gfx/blender-bin:2.92 !media-gfx/blender-bin:2.93 !media-gfx/blender-bin:3.0'
+  emerge.packages: media-gfx/blender-bin
+  kit: media-kit
+  original.package.name: media-gfx/blender-bin
+  original.package.slot: "0"
+  original.package.version: 3.6.1
