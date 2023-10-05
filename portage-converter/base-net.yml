@@ -647,7 +647,13 @@ artefacts:
 - tree: packages/atoms/base-net
   uses:
     disabled:
-    - audit
+      - tcl
+  packages:
+    - dev-libs/newt
+
+- tree: packages/atoms/base-net
+  uses:
+    disabled:
     - consolekit
     - dhclient
     - gnutls
@@ -677,6 +683,8 @@ artefacts:
     - wext
     - wifi
     - iptables
+    - tools
+
   packages:
   - net-misc/networkmanager
 
