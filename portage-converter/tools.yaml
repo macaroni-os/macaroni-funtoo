@@ -408,6 +408,18 @@ artefacts:
   packages:
     - sys-power/acpi
     - sys-power/pm-quirks
+    - net-libs/libgssglue
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - hardened
+      - selinux
+      - xinetd
+  packages:
+    - sys-apps/xinetd
+    - dev-util/ccache
+    - sys-devel/distcc
 
 include_layers:
 - layers/macaroni-funtoo-race15.yaml
