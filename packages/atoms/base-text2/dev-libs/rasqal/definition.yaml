@@ -1,0 +1,55 @@
+name: rasqal
+version: 0.9.33
+category: dev-libs
+use_flags:
+- -test
+- crypt
+- gmp
+- kernel_linux
+- mhash
+- pcre
+- xml
+requires:
+- name: mhash
+  version: '>=0'
+  category: app-crypt
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: raptor
+  version: '>=0'
+  category: media-libs-2
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library that handles Resource Description Framework (RDF)
+uri:
+- http://librdf.org/rasqal/
+license: Apache-2.0 GPL-2 LGPL-2.1
+labels:
+  BDEPEND: '>=sys-devel/bison-3 >=sys-devel/flex-2.5.36 virtual/pkgconfig test? (
+    dev-perl/XML-DOM ) >=app-portage/elt-patches-20170815'
+  DEPEND: '>=media-libs/raptor-2.0.15 crypt? ( !mhash? ( dev-libs/libgcrypt:0 ) mhash?
+    ( app-crypt/mhash ) ) !gmp? ( dev-libs/mpfr:= ) gmp? ( dev-libs/gmp:= ) kernel_linux?
+    ( >=sys-apps/util-linux-2.19 ) pcre? ( dev-libs/libpcre ) xml? ( dev-libs/libxml2
+    )'
+  IUSE: +crypt gmp kernel_linux +mhash pcre static-libs test xml
+  RDEPEND: '>=media-libs/raptor-2.0.15 crypt? ( !mhash? ( dev-libs/libgcrypt:0 ) mhash?
+    ( app-crypt/mhash ) ) !gmp? ( dev-libs/mpfr:= ) gmp? ( dev-libs/gmp:= ) kernel_linux?
+    ( >=sys-apps/util-linux-2.19 ) pcre? ( dev-libs/libpcre ) xml? ( dev-libs/libxml2
+    )'
+  emerge.packages: dev-libs/rasqal
+  kit: dev-kit
+  original.package.name: dev-libs/rasqal
+  original.package.slot: "0"
+  original.package.version: 0.9.33
