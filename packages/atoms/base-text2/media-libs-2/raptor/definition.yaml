@@ -1,0 +1,39 @@
+name: raptor
+version: 2.0.15
+category: media-libs-2
+use_flags:
+- -json
+- curl
+- unicode
+requires:
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The RDF Parser Toolkit
+uri:
+- http://librdf.org/raptor/
+license: Apache-2.0 GPL-2 LGPL-2.1
+labels:
+  BDEPEND: '>=sys-devel/bison-3 >=sys-devel/flex-2.5.36 virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/libxml2 dev-libs/libxslt curl? ( net-misc/curl ) json? ( dev-libs/yajl
+    ) unicode? ( dev-libs/icu:= )
+  IUSE: +curl debug json static-libs unicode
+  RDEPEND: dev-libs/libxml2 dev-libs/libxslt curl? ( net-misc/curl ) json? ( dev-libs/yajl
+    ) unicode? ( dev-libs/icu:= ) !media-libs/raptor:0
+  emerge.packages: media-libs/raptor:2
+  kit: media-kit
+  original.package.name: media-libs/raptor
+  original.package.slot: "2"
+  original.package.version: 2.0.15-r2
