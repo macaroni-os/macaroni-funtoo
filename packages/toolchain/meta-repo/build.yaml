@@ -11,6 +11,8 @@ steps:
   cp -rvf /var/git/meta-repo/ /{{ .Values.name }}/var/git/ &&
   mkdir -p /{{ .Values.name }}/etc/portage/repos.conf/ &&
   mkdir -p /{{ .Values.name }}/etc/portage/make.profile/ &&
+  mkdir -p /{{ .Values.name }}/etc/portage/patches/ &&
   cp -rvf /etc/portage/repos.conf/* /{{ .Values.name }}/etc/portage/repos.conf/ &&
-  cp -rvf /etc/portage/make.profile/* /{{ .Values.name }}/etc/portage/make.profile/
+  cp -rvf /etc/portage/make.profile/* /{{ .Values.name }}/etc/portage/make.profile/ &&
+  cp -rvf /etc/portage/patches/* /{{ .Values.name }}/etc/portage/patches/
 
