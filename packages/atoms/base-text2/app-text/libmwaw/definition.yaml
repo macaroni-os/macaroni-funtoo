@@ -1,0 +1,30 @@
+name: libmwaw
+version: 0.3.15
+category: app-text
+use_flags:
+- -doc
+requires:
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library parsing many pre-OSX MAC text formats
+uri:
+- https://sourceforge.net/p/libmwaw/wiki/Home/
+license: LGPL-2.1
+labels:
+  BDEPEND: sys-devel/libtool virtual/pkgconfig doc? ( app-doc/doxygen )
+  DEPEND: dev-libs/librevenge sys-libs/zlib
+  IUSE: doc static-libs tools
+  RDEPEND: dev-libs/librevenge sys-libs/zlib
+  emerge.packages: app-text/libmwaw
+  kit: text-kit
+  original.package.name: app-text/libmwaw
+  original.package.slot: "0"
+  original.package.version: 0.3.15
