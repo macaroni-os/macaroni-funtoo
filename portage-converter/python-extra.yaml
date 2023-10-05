@@ -284,8 +284,19 @@ artefacts:
   uses:
     disabled:
       - test
+      - debug
   packages:
     - x11-terms/terminator
+
+- tree: packages/atoms/python-extra
+  uses:
+    disabled:
+      - test
+      - debug
+  packages:
+    - dev-python/cssutils
+    - dev-python/pypeg2
+    - dev-python/PyQtWebEngine
 
 include_layers:
 - layers/macaroni-funtoo-race16.yaml
