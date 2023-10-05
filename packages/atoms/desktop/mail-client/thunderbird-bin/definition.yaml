@@ -1,0 +1,69 @@
+name: thunderbird-bin
+version: 115.1.0
+category: mail-client
+use_flags:
+- -selinux
+- crashreporter
+- ffmpeg
+- pulseaudio
+requires:
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: freedesktop-icon-theme
+  version: '>=0'
+  category: virtual
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Thunderbird Mail Client
+uri:
+- https://www.thunderbird.net/
+license: MPL-2.0 GPL-2 LGPL-2.1
+labels:
+  DEPEND: app-arch/unzip app-arch/zip app-arch/unzip
+  IUSE: +crashreporter +ffmpeg +pulseaudio selinux l10n_af l10n_ar l10n_ast l10n_be
+    l10n_bg l10n_br l10n_ca l10n_cak l10n_cs l10n_cy l10n_da l10n_de l10n_dsb l10n_el
+    l10n_en-CA l10n_en-GB l10n_es-AR l10n_es-ES l10n_es-MX l10n_et l10n_eu l10n_fi
+    l10n_fr l10n_fy l10n_ga l10n_gd l10n_gl l10n_he l10n_hr l10n_hsb l10n_hu l10n_hy
+    l10n_id l10n_is l10n_it l10n_ja l10n_ka l10n_kab l10n_kk l10n_ko l10n_lt l10n_lv
+    l10n_ms l10n_nb l10n_nl l10n_nn l10n_pa l10n_pl l10n_pt-BR l10n_pt-PT l10n_rm
+    l10n_ro l10n_ru l10n_sk l10n_sl l10n_sq l10n_sr l10n_sv l10n_th l10n_tr l10n_uk
+    l10n_uz l10n_vi l10n_zh-CN l10n_zh-TW
+  RDEPEND: dev-libs/atk >=sys-apps/dbus-1.0 >=dev-libs/dbus-glib-0.72 >=dev-libs/glib-2.26:2
+    >=media-libs/alsa-lib-1.0.16 media-libs/fontconfig >=media-libs/freetype-2.4.10:2
+    virtual/freedesktop-icon-theme >=x11-libs/cairo-1.10[X] x11-libs/gdk-pixbuf:2
+    >=x11-libs/gtk+-2.18:2 >=x11-libs/gtk+-3.14.0:3 x11-libs/libX11 x11-libs/libXext
+    x11-libs/libXrender x11-libs/libXt >=x11-libs/pango-1.22.0 pulseaudio? ( !<media-sound/apulse-0.1.9
+    || ( media-sound/pulseaudio media-sound/apulse ) ) ffmpeg? ( media-video/ffmpeg
+    ) crashreporter? ( net-misc/curl ) selinux? ( sec-policy/selinux-thunderbird )
+  emerge.packages: mail-client/thunderbird-bin
+  kit: net-kit
+  original.package.name: mail-client/thunderbird-bin
+  original.package.slot: "0"
+  original.package.version: 115.1.0
