@@ -204,6 +204,12 @@ artefacts:
           name: entities-catalog
         - category: macaroni
           name: whip-catalog
+    buildtime_deps:
+      packages:
+        - category: dev-lang-0.54
+          name: vala
+        - category: dev-libs
+          name: libgusb
   uses:
     disabled:
     - argyllcms
@@ -213,11 +219,8 @@ artefacts:
     - scanner
     - sh
     - systemd
-    # TODO: enable this in the next build pipeline
-    #       This is needed to enable vala support
-    #       to all gnome stuff.
-    - vala
     enabled:
+    - vala
     - gusb
     - introspection
     - policykit
