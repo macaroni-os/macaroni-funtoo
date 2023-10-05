@@ -1,0 +1,47 @@
+name: networkmanager-openconnect
+version: 1.2.6.20200831
+category: net-vpn
+use_flags:
+- gnome
+requires:
+- name: gcr
+  version: '>=0'
+  category: app-crypt
+- name: libsecret
+  version: '>=0'
+  category: app-crypt
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: networkmanager
+  version: '>=0'
+  category: net-misc
+- name: openconnect
+  version: '>=0'
+  category: net-vpn
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: NetworkManager OpenConnect plugin
+uri:
+- https://wiki.gnome.org/Projects/NetworkManager
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils'
+  DEPEND: '>=net-misc/networkmanager-1.2:= >=dev-libs/glib-2.32:2 dev-libs/libxml2:2
+    >=net-vpn/openconnect-3.02:= gnome? ( >=app-crypt/gcr-3.4:= >=app-crypt/libsecret-0.18
+    >=x11-libs/gtk+-3.4:3 ) sys-devel/gettext dev-util/intltool virtual/pkgconfig
+    dev-util/desktop-file-utils x11-misc/shared-mime-info sys-apps/shadow'
+  IUSE: gnome
+  RDEPEND: '>=net-misc/networkmanager-1.2:= >=dev-libs/glib-2.32:2 dev-libs/libxml2:2
+    >=net-vpn/openconnect-3.02:= gnome? ( >=app-crypt/gcr-3.4:= >=app-crypt/libsecret-0.18
+    >=x11-libs/gtk+-3.4:3 )'
+  emerge.packages: net-vpn/networkmanager-openconnect
+  kit: net-kit
+  original.package.name: net-vpn/networkmanager-openconnect
+  original.package.slot: "0"
+  original.package.version: 1.2.6.20200831
