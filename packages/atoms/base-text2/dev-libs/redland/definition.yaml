@@ -1,0 +1,53 @@
+name: redland
+version: 1.0.17
+category: dev-libs
+use_flags:
+- -iodbc
+- -postgres
+- berkdb
+- mysql
+- odbc
+- sqlite
+requires:
+- name: mysql-connector-c
+  version: '>=0'
+  category: dev-db
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: unixODBC
+  version: '>=0'
+  category: dev-db
+- name: rasqal
+  version: '>=0'
+  category: dev-libs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: High-level interface for the Resource Description Framework
+uri:
+- http://librdf.org/
+license: Apache-2.0 GPL-2 LGPL-2.1
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: dev-libs/libltdl:0 mysql? ( dev-db/mysql-connector-c:0= ) sqlite? ( =dev-db/sqlite-3*
+    ) berkdb? ( sys-libs/db ) >=media-libs/raptor-2.0.14 >=dev-libs/rasqal-0.9.32
+    postgres? ( dev-db/postgresql ) iodbc? ( dev-db/libiodbc ) odbc? ( dev-db/unixODBC
+    ) virtual/pkgconfig
+  IUSE: berkdb iodbc mysql odbc postgres sqlite static-libs
+  RDEPEND: dev-libs/libltdl:0 mysql? ( dev-db/mysql-connector-c:0= ) sqlite? ( =dev-db/sqlite-3*
+    ) berkdb? ( sys-libs/db ) >=media-libs/raptor-2.0.14 >=dev-libs/rasqal-0.9.32
+    postgres? ( dev-db/postgresql ) iodbc? ( dev-db/libiodbc ) odbc? ( dev-db/unixODBC
+    )
+  emerge.packages: dev-libs/redland
+  kit: dev-kit
+  original.package.name: dev-libs/redland
+  original.package.slot: "0"
+  original.package.version: 1.0.17-r2
