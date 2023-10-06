@@ -297,9 +297,32 @@ artefacts:
     - net-misc/netkit-fingerd
     - media-libs/libdiscid
     - app-eselect/eselect-gnome-shell-extensions
+
+
+- tree: packages/atoms/base-gnome3
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
+  uses:
+    disabled:
+      - static-libs
+      - test
+      - examples
+  packages:
     - gnome-extra/gnome-shell-extension-dynamic-panel-transparency
     - gnome-extra/gnome-shell-extension-desktop-icons
     - gnome-extra/gnome-shell-extension-dash-to-dock
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
 
 - tree: packages/atoms/base-gnome3
   uses:
