@@ -185,6 +185,8 @@ sed -i -e 's|^MDDS_VER.*|MDDS_VER=\"2.1\"|g' \
   /var/git/meta-repo/kits/text-kit/app-text/libetonyek/libetonyek-0.1.10.ebuild
 
 # Add patch for net-vpn/networkmanager-vpnc
-cp -vf cp patches/networkmanager-vpnc/networkmanager-vpnc-1.2.6.ebuild \
+cp -vf patches/networkmanager-vpnc/networkmanager-vpnc-1.2.6.ebuild \
   /var/git/meta-repo/kits/net-kit/net-vpn/networkmanager-vpnc/
 
+# Add patch for dev-libs/redlang
+cp -vf patches/redland/redland-1.0.17-r2.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/redland/
