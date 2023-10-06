@@ -1,0 +1,33 @@
+name: mdds
+version: 2.1.1
+category: dev-util-2.1
+use_flags:
+- -doc
+- -valgrind
+requires:
+- name: boost
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A collection of multi-dimensional data structure and indexing algorithm
+uri:
+- https://gitlab.com/mdds/mdds
+license: MIT
+labels:
+  BDEPEND: doc? ( app-doc/doxygen dev-python/sphinx ) valgrind? ( dev-util/valgrind
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/boost:=
+  IUSE: doc valgrind
+  RDEPEND: dev-libs/boost:=
+  emerge.packages: dev-util/mdds:2.1
+  kit: dev-kit
+  original.package.name: dev-util/mdds
+  original.package.slot: "2.1"
+  original.package.version: 2.1.1
