@@ -180,4 +180,7 @@ cd -
 sed -i -e 's|^VALA_MAX_API_VERSION.*|VALA_MAX_API_VERSION=0.54|g' \
   /var/git/meta-repo/kits/gnome-kit/media-gfx/simple-scan/simple-scan-3.36.6.ebuild
 
+# Fix slot dependency of app-text/libetonyek package
+sed -i -e 's|^MDDS_VER.*|MDDS_VER=\"2.1\"|g' \
+/var/git/meta-repo/kits/text-kit/app-text/libetonyek/libetonyek-0.1.10.ebuild
 
