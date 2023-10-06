@@ -1,4 +1,5 @@
 prelude:
+- cp patches/networkmanager-vpnc-1.2.6.ebuild /var/git/meta-repo/kits/net-kit/net-vpn/networkmanager-vpnc/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
