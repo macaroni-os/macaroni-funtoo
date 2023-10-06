@@ -182,5 +182,9 @@ sed -i -e 's|^VALA_MAX_API_VERSION.*|VALA_MAX_API_VERSION=0.54|g' \
 
 # Fix slot dependency of app-text/libetonyek package
 sed -i -e 's|^MDDS_VER.*|MDDS_VER=\"2.1\"|g' \
-/var/git/meta-repo/kits/text-kit/app-text/libetonyek/libetonyek-0.1.10.ebuild
+  /var/git/meta-repo/kits/text-kit/app-text/libetonyek/libetonyek-0.1.10.ebuild
+
+# Add patch for net-vpn/networkmanager-vpnc
+cp -vf cp patches/networkmanager-vpnc/networkmanager-vpnc-1.2.6.ebuild \
+  /var/git/meta-repo/kits/net-kit/net-vpn/networkmanager-vpnc/
 
