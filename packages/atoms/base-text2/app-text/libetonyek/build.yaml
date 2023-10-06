@@ -1,4 +1,7 @@
 prelude:
+- >-
+  sed -i -e 's|^MDDS_VER.*|MDDS_VER=\"2.1\"|g'
+  /var/git/meta-repo/kits/text-kit/app-text/libetonyek/libetonyek-0.1.10.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -24,6 +27,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: liblangtag
+- name: mdds
   version: '>=0'
-  category: app-text
+  category: dev-util-2.1
