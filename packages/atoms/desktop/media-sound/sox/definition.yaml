@@ -1,0 +1,88 @@
+name: sox
+version: 14.4.2
+category: media-sound
+use_flags:
+- alsa
+- amr
+- ao
+- encode
+- flac
+- id3tag
+- ladspa
+- mad
+- ogg
+- opus
+- png
+- pulseaudio
+- sndfile
+- twolame
+- wavpack
+requires:
+- name: ladspa-sdk
+  version: '>=0'
+  category: media-libs
+- name: libao
+  version: '>=0'
+  category: media-libs
+- name: libid3tag
+  version: '>=0'
+  category: media-libs
+- name: libmad
+  version: '>=0'
+  category: media-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: opencore-amr
+  version: '>=0'
+  category: media-libs
+- name: opusfile
+  version: '>=0'
+  category: media-libs
+- name: gsm
+  version: '>=0'
+  category: media-sound
+- name: lame
+  version: '>=0'
+  category: media-sound
+- name: twolame
+  version: '>=0'
+  category: media-sound
+- name: wavpack
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The swiss army knife of sound processing programs
+uri:
+- http://sox.sourceforge.net
+license: LGPL-2.1
+labels:
+  DEPEND: dev-libs/libltdl:0= >=media-sound/gsm-1.0.12-r1 alsa? ( media-libs/alsa-lib
+    ) amr? ( media-libs/opencore-amr ) ao? ( media-libs/libao ) encode? ( >=media-sound/lame-3.98.4
+    ) flac? ( >=media-libs/flac-1.1.3 ) id3tag? ( media-libs/libid3tag ) ladspa? (
+    media-libs/ladspa-sdk ) mad? ( media-libs/libmad ) ogg? ( media-libs/libogg media-libs/libvorbis
+    ) opus? ( media-libs/opus media-libs/opusfile ) png? ( media-libs/libpng:0= sys-libs/zlib
+    ) pulseaudio? ( media-sound/pulseaudio ) sndfile? ( >=media-libs/libsndfile-1.0.11
+    ) twolame? ( media-sound/twolame ) wavpack? ( media-sound/wavpack ) virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: alsa amr ao debug encode flac id3tag ladspa mad ogg openmp oss opus png pulseaudio
+    sndfile static-libs twolame wavpack
+  RDEPEND: dev-libs/libltdl:0= >=media-sound/gsm-1.0.12-r1 alsa? ( media-libs/alsa-lib
+    ) amr? ( media-libs/opencore-amr ) ao? ( media-libs/libao ) encode? ( >=media-sound/lame-3.98.4
+    ) flac? ( >=media-libs/flac-1.1.3 ) id3tag? ( media-libs/libid3tag ) ladspa? (
+    media-libs/ladspa-sdk ) mad? ( media-libs/libmad ) ogg? ( media-libs/libogg media-libs/libvorbis
+    ) opus? ( media-libs/opus media-libs/opusfile ) png? ( media-libs/libpng:0= sys-libs/zlib
+    ) pulseaudio? ( media-sound/pulseaudio ) sndfile? ( >=media-libs/libsndfile-1.0.11
+    ) twolame? ( media-sound/twolame ) wavpack? ( media-sound/wavpack )
+  emerge.packages: media-sound/sox
+  kit: media-kit
+  original.package.name: media-sound/sox
+  original.package.slot: "0"
+  original.package.version: 14.4.2-r2
