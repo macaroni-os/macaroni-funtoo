@@ -1,0 +1,56 @@
+name: vorbis-tools
+version: 1.4.2
+category: media-sound
+use_flags:
+- flac
+- kate
+- nls
+- ogg123
+- speex
+requires:
+- name: flac
+  version: '>=0'
+  category: media-libs
+- name: libao
+  version: '>=0'
+  category: media-libs
+- name: libkate
+  version: '>=0'
+  category: media-libs
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
+- name: opusfile
+  version: '>=0'
+  category: media-libs
+- name: speex
+  version: '>=0'
+  category: media-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools for using the Ogg Vorbis sound file format
+uri:
+- https://xiph.org/vorbis/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig nls? ( sys-devel/gettext )
+  DEPEND: media-libs/libvorbis media-libs/opusfile flac? ( media-libs/flac:= ) kate?
+    ( media-libs/libkate ) ogg123? ( media-libs/libao net-misc/curl ) speex? ( media-libs/speex
+    )
+  IUSE: flac kate nls +ogg123 speex
+  RDEPEND: media-libs/libvorbis media-libs/opusfile flac? ( media-libs/flac:= ) kate?
+    ( media-libs/libkate ) ogg123? ( media-libs/libao net-misc/curl ) speex? ( media-libs/speex
+    )
+  emerge.packages: media-sound/vorbis-tools
+  kit: media-kit
+  original.package.name: media-sound/vorbis-tools
+  original.package.slot: "0"
+  original.package.version: 1.4.2-r2
