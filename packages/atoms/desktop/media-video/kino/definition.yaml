@@ -1,0 +1,75 @@
+name: kino
+version: 1.3.4
+category: media-video
+use_flags:
+- -gpac
+- -libav
+- alsa
+- dvdr
+- lame
+- quicktime
+- sox
+- vorbis
+requires:
+- name: dvd+rw-tools
+  version: '>=0'
+  category: app-cdr
+- name: libglade
+  version: '>=0'
+  category: gnome-base-2.0
+- name: audiofile
+  version: '>=0'
+  category: media-libs
+- name: libiec61883
+  version: '>=0'
+  category: media-libs
+- name: libsamplerate
+  version: '>=0'
+  category: media-libs
+- name: sox
+  version: '>=0'
+  category: media-sound
+- name: vorbis-tools
+  version: '>=0'
+  category: media-sound
+- name: mjpegtools
+  version: '>=0'
+  category: media-video-1
+- name: libavc1394
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Kino is a non-linear DV editor for GNU/Linux
+uri:
+- http://www.kinodv.org/
+license: GPL-2
+labels:
+  DEPEND: '>=x11-libs/gtk+-2.6.0:2 >=gnome-base/libglade-2.5.0 >=dev-libs/glib-2:2
+    x11-libs/libXv dev-libs/libxml2:2 media-libs/audiofile >=sys-libs/libraw1394-1.0.0
+    >=sys-libs/libavc1394-0.4.1 >=media-libs/libdv-0.103 media-libs/libsamplerate
+    media-libs/libiec61883 media-libs/libv4l:0= alsa? ( >=media-libs/alsa-lib-1.0.9
+    ) !libav? ( >=media-video/ffmpeg-3:0= ) libav? ( media-video/libav:0= ) quicktime?
+    ( >=media-libs/libquicktime-0.9.5 ) dev-util/intltool >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  IUSE: alsa dvdr gpac lame libav quicktime sox vorbis
+  RDEPEND: '>=x11-libs/gtk+-2.6.0:2 >=gnome-base/libglade-2.5.0 >=dev-libs/glib-2:2
+    x11-libs/libXv dev-libs/libxml2:2 media-libs/audiofile >=sys-libs/libraw1394-1.0.0
+    >=sys-libs/libavc1394-0.4.1 >=media-libs/libdv-0.103 media-libs/libsamplerate
+    media-libs/libiec61883 media-libs/libv4l:0= alsa? ( >=media-libs/alsa-lib-1.0.9
+    ) !libav? ( >=media-video/ffmpeg-3:0= ) libav? ( media-video/libav:0= ) quicktime?
+    ( >=media-libs/libquicktime-0.9.5 ) media-video/mjpegtools media-sound/rawrec
+    dvdr? ( media-video/dvdauthor app-cdr/dvd+rw-tools ) gpac? ( media-video/gpac
+    ) lame? ( media-sound/lame ) sox? ( media-sound/sox ) vorbis? ( media-sound/vorbis-tools
+    )'
+  emerge.packages: media-video/kino
+  kit: geaaru-kit
+  original.package.name: media-video/kino
+  original.package.slot: "0"
+  original.package.version: 1.3.4-r1
