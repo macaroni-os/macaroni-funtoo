@@ -1,0 +1,47 @@
+name: libglade
+version: 2.6.4
+category: gnome-base-2.0
+use_flags:
+- -python_single_target_python2_7
+- -test
+- prefix
+- tools
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library to construct graphical interfaces at runtime
+uri:
+- https://library.gnome.org/devel/libglade/stable/
+license: LGPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-2.24.23:2 >=dev-libs/atk-2.10.0
+    >=dev-libs/libxml2-2.9.1-r4 tools? ( python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[xml(+)]
+    >=dev-lang/python-exec-2:=[python_targets_python2_7] ) ) >=virtual/pkgconfig-0-r1
+    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )'
+  IUSE: static-libs test tools python_single_target_python2_7 python_targets_python2_7
+    test
+  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-2.24.23:2 >=dev-libs/atk-2.10.0
+    >=dev-libs/libxml2-2.9.1-r4 tools? ( python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[xml(+)]
+    >=dev-lang/python-exec-2:=[python_targets_python2_7] ) )'
+  emerge.packages: gnome-base/libglade:2.0
+  kit: gnome-kit
+  original.package.name: gnome-base/libglade
+  original.package.slot: "2.0"
+  original.package.version: 2.6.4-r4
