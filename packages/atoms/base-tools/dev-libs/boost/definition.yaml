@@ -1,5 +1,5 @@
 name: boost
-version: 1.83.0
+version: 1.83.0+1
 category: dev-libs
 use_flags:
 - -lzma
@@ -8,13 +8,16 @@ use_flags:
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -zstd
 - bzip2
 - icu
 - python
 - python_targets_python3_9
 - zlib
+- zstd
 requires:
+- name: zstd
+  version: '>=0'
+  category: app-arch
 - name: python
   version: '>=0'
   category: dev-lang-3.9
