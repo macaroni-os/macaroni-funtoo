@@ -11,10 +11,22 @@ use_flags:
 - python_targets_python3_9
 - ssl
 requires:
+- name: certifi
+  version: '>=0'
+  category: dev-python
 - name: chardet
   version: '>=0'
   category: dev-python
 - name: charset_normalizer
+  version: '>=0'
+  category: dev-python
+- name: cryptography
+  version: '>=0'
+  category: dev-python
+- name: idna
+  version: '>=0'
+  category: dev-python
+- name: pyopenssl
   version: '>=0'
   category: dev-python
 - name: urllib3
@@ -27,8 +39,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
+description: HTTP library for human beings
 uri:
-- https://requests.readthedocs.io https://pypi.org/project/requests/
+- https://requests.readthedocs.io/en/master/
 license: Apache-2.0
 labels:
   BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
