@@ -1,0 +1,103 @@
+name: graphicsmagick
+version: 1.3.40
+category: media-gfx
+use_flags:
+- -heif
+- X
+- bzip2
+- fpx
+- imagemagick
+- jbig
+- jpeg
+- jpegxl
+- lcms
+- lzma
+- perl
+- png
+- postscript
+- svg
+- tcmalloc
+- tiff
+- truetype
+- webp
+- wmf
+- zlib
+- zstd
+requires:
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: google-perftools
+  version: '>=0'
+  category: dev-util
+- name: jbigkit
+  version: '>=0'
+  category: media-libs
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libfpx
+  version: '>=0'
+  category: media-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
+- name: libwmf
+  version: '>=0'
+  category: media-libs
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Collection of tools and libraries for many image formats
+uri:
+- http://www.graphicsmagick.org/ https://hg.osdn.net/view/graphicsmagick/GM
+license: MIT
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/libltdl bzip2? ( app-arch/bzip2 ) fpx? ( media-libs/libfpx ) heif?
+    ( media-libs/libheif:= ) imagemagick? ( !media-gfx/imagemagick ) jbig? ( media-libs/jbigkit
+    ) jpeg? ( media-libs/libjpeg-turbo:= ) jpegxl? ( media-libs/libjxl:= ) lcms? (
+    media-libs/lcms:2 ) lzma? ( app-arch/xz-utils ) perl? ( dev-lang/perl:= ) png?
+    ( media-libs/libpng:= ) postscript? ( app-text/ghostscript-gpl ) svg? ( dev-libs/libxml2
+    ) tcmalloc? ( dev-util/google-perftools:= ) tiff? ( media-libs/tiff ) truetype?
+    ( media-fonts/urw-fonts >=media-libs/freetype-2 ) webp? ( media-libs/libwebp:=
+    ) wmf? ( media-libs/libwmf ) X? ( x11-libs/libSM x11-libs/libX11 x11-libs/libXext
+    ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
+  IUSE: bzip2 +cxx debug dynamic-loading fpx heif imagemagick jbig jpeg jpegxl lcms
+    lzma openmp perl png postscript q16 q32 static-libs svg tcmalloc tiff truetype
+    webp wmf X zlib zstd
+  RDEPEND: dev-libs/libltdl bzip2? ( app-arch/bzip2 ) fpx? ( media-libs/libfpx ) heif?
+    ( media-libs/libheif:= ) imagemagick? ( !media-gfx/imagemagick ) jbig? ( media-libs/jbigkit
+    ) jpeg? ( media-libs/libjpeg-turbo:= ) jpegxl? ( media-libs/libjxl:= ) lcms? (
+    media-libs/lcms:2 ) lzma? ( app-arch/xz-utils ) perl? ( dev-lang/perl:= ) png?
+    ( media-libs/libpng:= ) postscript? ( app-text/ghostscript-gpl ) svg? ( dev-libs/libxml2
+    ) tcmalloc? ( dev-util/google-perftools:= ) tiff? ( media-libs/tiff ) truetype?
+    ( media-fonts/urw-fonts >=media-libs/freetype-2 ) webp? ( media-libs/libwebp:=
+    ) wmf? ( media-libs/libwmf ) X? ( x11-libs/libSM x11-libs/libX11 x11-libs/libXext
+    ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
+  emerge.packages: media-gfx/graphicsmagick
+  kit: media-kit
+  original.package.name: media-gfx/graphicsmagick
+  original.package.slot: "0"
+  original.package.version: 1.3.40
