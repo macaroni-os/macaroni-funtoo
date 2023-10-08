@@ -1,31 +1,30 @@
 name: efl
-version: 1.26.3
+version: 1.26.3+1
 category: dev-libs
 use_flags:
 - -avif
 - -connman
 - -doc
+- -drm
 - -fribidi
 - -gles2-only
-- -glib
 - -gnutls
 - -heif
 - -hyphen
-- -ibus
 - -luajit
 - -mono
 - -physics
-- -raw
 - -scim
 - -tslib
 - -unwind
 - -vnc
 - -xpresent
 - X
-- drm
 - elogind
 - fontconfig
+- glib
 - gstreamer
+- ibus
 - jpeg2k
 - json
 - lua
@@ -34,6 +33,7 @@ use_flags:
 - pdf
 - postscript
 - pulseaudio
+- raw
 - sdl
 - sound
 - ssl
@@ -61,15 +61,18 @@ requires:
 - name: check
   version: '>=0'
   category: dev-libs
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: libinput
   version: '>=0'
   category: dev-libs
-- name: librsvg
-  version: '>=0'
-  category: gnome-base-2
 - name: fontconfig
   version: '>=0'
   category: media-libs-1.0
+- name: libraw
+  version: '>=0'
+  category: media-libs
 - name: libsdl2
   version: '>=0'
   category: media-libs
