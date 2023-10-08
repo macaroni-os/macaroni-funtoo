@@ -256,6 +256,9 @@ artefacts:
       - python
   packages:
     - sys-libs/libieee1284
+    - media-sound/rawrec
+
+
 
 #- tree: packages/atoms/desktop
 #  mutations:
@@ -318,18 +321,48 @@ artefacts:
         whip hook gtk.gtk_update_icons
 
 
-# TODO: add this on geaaru-overlay
+# TODO: Fix compilation. Could be an alternative to imagemagick
 #- tree: packages/atoms/desktop
 #  uses:
 #    disabled:
-#    - gpac
-#    - libav
-#    - nios2
-#    - sh
+#    - debug
+#    - dynamic-loading
+#    - heif
+#    # ebuild missing media-libs/libjxl
+#    - jpegxl
+#    - static-libs
+#  mutations:
+#    conflicts:
+#      - category: media-gfx
+#        name: imagemagick
+#    uses:
+#      - q16
+#      - q32
 #  packages:
-#  - media-video/kino
+#  - media-gfx/graphicsmagick
 
+# TODO: add this on geaaru-overlay
+- tree: packages/atoms/desktop
+  uses:
+    disabled:
+    - gpac
+    - libav
+    - nios2
+    - sh
+  packages:
+  - media-video/kino
 
+- tree: packages/atoms/desktop
+  uses:
+    disabled:
+    - gpac
+    - libav
+    - nios2
+    - sh
+    # Drop use flag that require py2.7
+    - tools
+  packages:
+    - gnome-base/libglade:2.0
 
 #- tree: packages/atoms/desktop
 #  uses:
@@ -412,6 +445,43 @@ artefacts:
 #    - media-gfx/plantuml
 
 - tree: packages/atoms/desktop
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - oss
+    - sh
+    - static-libs
+    enabled:
+    - ao
+    - id3tag
+    - ladspa
+    - alsa
+    - amr
+    - encode
+    - flac
+    - mad
+    - ogg
+    - openmp
+    - opus
+    - png
+    - pulseaudio
+    - sndfile
+    - twolame
+    - wavpack
+  packages:
+  - media-sound/sox
+
+- tree: packages/atoms/desktop
+  uses:
+    disabled:
+    - debug
+    - static-libs
+    - graphicsmagick
+  packages:
+  - media-video/dvdauthor
+
+- tree: packages/atoms/desktop
   mutations:
     provides:
       - category: media-gfx-2.93
@@ -458,10 +528,14 @@ artefacts:
     - mail-client/thunderbird-bin
 
 - tree: packages/atoms/desktop
+  uses:
+    disabled:
+      - gtk4
   packages:
     - net-vpn/networkmanager-openconnect
     - net-vpn/networkmanager-strongswan
     - net-vpn/networkmanager-vpnc
+    - net-misc/youtube-dl
 
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
