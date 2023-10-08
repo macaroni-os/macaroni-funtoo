@@ -9,12 +9,12 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
-- name: python
+- name: setuptools_scm
   version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
+  category: dev-python
+- name: toml
   version: '>=0'
-  category: dev-lang-2
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -22,8 +22,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
+description: Backport of pathlib-compatible object wrapper for zip files
 uri:
-- https://github.com/jaraco/zipp https://pypi.org/project/zipp/
+- https://github.com/jaraco/zipp
 license: MIT
 labels:
   BDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
