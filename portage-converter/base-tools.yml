@@ -72,7 +72,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -270,20 +270,6 @@ artefacts:
   - dev-perl/TermReadKey
 
 - tree: packages/atoms/base-tools
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race2
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-  packages:
-  - dev-util/boost-build
-
-- tree: packages/atoms/base-tools
   uses:
     disabled:
     - nios2
@@ -322,9 +308,9 @@ artefacts:
     - python_targets_python3_8
     - sh
     - tools
-    - zstd
     - python_targets_python3_7
     enabled:
+    - zstd
     - bzip2
     - icu
     - nls
