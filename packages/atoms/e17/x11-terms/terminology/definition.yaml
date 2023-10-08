@@ -1,0 +1,33 @@
+name: terminology
+version: 1.13.0
+category: x11-terms
+use_flags:
+- nls
+requires:
+- name: efl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Feature rich terminal emulator using the Enlightenment Foundation Libraries
+uri:
+- https://www.enlightenment.org/about-terminology
+license: BSD-2
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: '|| ( dev-libs/efl[gles2-only] dev-libs/efl[opengl] ) || ( dev-libs/efl[X]
+    dev-libs/efl[wayland] ) app-arch/lz4 dev-libs/efl[eet,fontconfig]'
+  IUSE: extras nls
+  RDEPEND: '|| ( dev-libs/efl[gles2-only] dev-libs/efl[opengl] ) || ( dev-libs/efl[X]
+    dev-libs/efl[wayland] ) app-arch/lz4 dev-libs/efl[eet,fontconfig]'
+  emerge.packages: x11-terms/terminology
+  kit: desktop-kit
+  original.package.name: x11-terms/terminology
+  original.package.slot: "0"
+  original.package.version: 1.13.0
