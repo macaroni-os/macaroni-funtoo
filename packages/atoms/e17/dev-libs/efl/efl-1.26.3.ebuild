@@ -231,9 +231,11 @@ src_configure() {
 		emesonargs+=( -D systemd=false )
 	fi
 
-	if use opengl; then
+	if use wayland; then
+		emesonargs+=( -D opengl=es-egl )
+	elif ! use wayland && use opengl; then
 		emesonargs+=( -D opengl=full )
-	elif use gles2-only; then
+	elif ! use wayland && use X && ! use opengl; then
 		emesonargs+=( -D opengl=es-egl )
 	else
 		emesonargs+=( -D opengl=none )
