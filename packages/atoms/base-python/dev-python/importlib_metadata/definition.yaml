@@ -9,12 +9,6 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
-- name: setuptools_scm
-  version: '>=0'
-  category: dev-python
-- name: toml
-  version: '>=0'
-  category: dev-python
 - name: typing-extensions
   version: '>=0'
   category: dev-python
@@ -28,8 +22,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
+description: Read metadata from Python packages
 uri:
-- https://github.com/python/importlib_metadata https://pypi.org/project/importlib-metadata/
+- https://importlib-metadata.readthedocs.io/
 license: Apache-2.0
 labels:
   BDEPEND: doc? ( || ( ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
