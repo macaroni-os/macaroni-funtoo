@@ -1,0 +1,26 @@
+name: hplip-plugin
+version: 3.23.5
+category: net-print
+requires:
+- name: hplip
+  version: '>=0'
+  category: net-print
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Proprietary plugins and firmware for HPLIP
+uri:
+- https://developers.hp.com/hp-linux-imaging-and-printing/plugins
+license: hplip-plugin
+labels:
+  DEPEND: virtual/pkgconfig
+  RDEPEND: '>=net-print/hplip-3.23.0 virtual/udev'
+  emerge.packages: net-print/hplip-plugin
+  kit: desktop-kit
+  original.package.name: net-print/hplip-plugin
+  original.package.slot: "0"
+  original.package.version: 3.23.5
