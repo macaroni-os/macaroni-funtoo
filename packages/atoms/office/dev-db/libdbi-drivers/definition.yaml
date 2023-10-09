@@ -1,0 +1,40 @@
+name: libdbi-drivers
+version: 0.9.0
+category: dev-db
+use_flags:
+- -doc
+- -firebird
+- -mysql
+- -postgres
+- sqlite
+requires:
+- name: libdbi
+  version: '>=0'
+  category: dev-db
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The libdbi-drivers project maintains drivers for libdbi
+uri:
+- http://libdbi-drivers.sourceforge.net/
+license: LGPL-2.1
+labels:
+  DEPEND: '>=dev-db/libdbi-0.9.0 firebird? ( dev-db/firebird ) mysql? ( virtual/mysql
+    ) postgres? ( dev-db/postgresql ) sqlite? ( dev-db/sqlite:3 ) doc? ( app-text/openjade
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: doc firebird mysql oci8 postgres +sqlite static-libs
+  RDEPEND: '>=dev-db/libdbi-0.9.0 firebird? ( dev-db/firebird ) mysql? ( virtual/mysql
+    ) postgres? ( dev-db/postgresql ) sqlite? ( dev-db/sqlite:3 )'
+  emerge.packages: dev-db/libdbi-drivers
+  kit: dev-kit
+  original.package.name: dev-db/libdbi-drivers
+  original.package.slot: "0"
+  original.package.version: 0.9.0
