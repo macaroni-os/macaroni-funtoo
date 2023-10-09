@@ -1,0 +1,29 @@
+name: brlaser
+version: "4"
+category: net-print
+requires:
+- name: ghostscript-gpl
+  version: '>=0'
+  category: app-text
+- name: cups
+  version: '>=0'
+  category: net-print
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Brother laser printer driver
+uri:
+- https://github.com/pdewacht/brlaser
+license: GPL-2
+labels:
+  DEPEND: net-print/cups sys-devel/make >=dev-util/cmake-3.9.6
+  RDEPEND: net-print/cups app-text/ghostscript-gpl
+  emerge.packages: net-print/brlaser
+  kit: desktop-kit
+  original.package.name: net-print/brlaser
+  original.package.slot: "0"
+  original.package.version: "4"
