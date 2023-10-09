@@ -1,42 +1,72 @@
 name: transcode
-version: 1.1.7
+version: 1.1.7+1
 category: media-video
 use_flags:
-- -X
-- -a52
-- -aac
-- -alsa
-- -dv
-- -iconv
-- -imagemagick
-- -jpeg
-- -lzo
-- -mjpeg
-- -mpeg
-- -ogg
-- -postproc
-- -quicktime
-- -sdl
-- -theora
-- -truetype
-- -v4l
-- -x264
 - -xml
-- -xvid
+- X
+- a52
+- aac
+- alsa
+- dv
 - dvd
+- iconv
+- imagemagick
+- jpeg
+- lzo
+- mjpeg
 - mp3
+- mpeg
+- ogg
+- postproc
+- quicktime
+- sdl
+- theora
+- truetype
+- v4l
 - vorbis
+- x264
+- xvid
 requires:
+- name: lzo
+  version: '>=0'
+  category: dev-libs-2
+- name: imagemagick
+  version: '>=0'
+  category: media-gfx
+- name: a52dec
+  version: '>=0'
+  category: media-libs
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
 - name: libdvdread
   version: '>=0'
   category: media-libs
-- name: libvorbis
+- name: libmpeg2
+  version: '>=0'
+  category: media-libs
+- name: libtheora
+  version: '>=0'
+  category: media-libs
+- name: libv4l
+  version: '>=0'
+  category: media-libs
+- name: x264
+  version: '>=0'
+  category: media-libs
+- name: xvid
   version: '>=0'
   category: media-libs
 - name: lame
   version: '>=0'
   category: media-sound
+- name: mjpegtools
+  version: '>=0'
+  category: media-video-1
 - name: ffmpeg
+  version: '>=0'
+  category: virtual
+- name: libiconv
   version: '>=0'
   category: virtual
 annotations:
