@@ -1,0 +1,143 @@
+name: virt-manager
+version: 4.1.0
+category: app-emulation
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -test
+- gtk
+- policykit
+- python_single_target_python3_9
+requires:
+- name: cdrtools
+  version: '>=0'
+  category: app-cdr
+- name: libvirt-glib
+  version: '>=0'
+  category: app-emulation
+- name: argcomplete
+  version: '>=0'
+  category: dev-python
+- name: libvirt-python
+  version: '>=0'
+  category: dev-python
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: requests
+  version: '>=0'
+  category: dev-python
+- name: dconf
+  version: '>=0'
+  category: gnome-base
+- name: gtk-vnc
+  version: '>=0'
+  category: net-libs
+- name: spice-gtk
+  version: '>=0'
+  category: net-misc
+- name: libosinfo
+  version: '>=0'
+  category: sys-libs
+- name: gtksourceview
+  version: '>=0'
+  category: x11-libs-4
+- name: vte
+  version: '>=0'
+  category: x11-libs-2.91
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A graphical tool for administering virtual machines
+uri:
+- https://virt-manager.org https://github.com/virt-manager/virt-manager
+license: GPL-2
+labels:
+  BDEPEND: dev-python/docutils test? ( python_single_target_python3_7? ( dev-lang/python:3.7
+    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    app-cdr/cdrtools >=app-emulation/libvirt-glib-1.0.0[introspection] python_single_target_python3_7?
+    ( dev-libs/libxml2[python,python_targets_python3_7(-)] dev-python/argcomplete[python_targets_python3_7(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_7(-)] dev-python/pygobject:3[python_targets_python3_7(-)]
+    dev-python/requests[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-libs/libxml2[python,python_targets_python3_9(-)] dev-python/argcomplete[python_targets_python3_9(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)]
+    dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-libs/libxml2[python,python_targets_python3_8(-)] dev-python/argcomplete[python_targets_python3_8(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)]
+    dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-libs/libxml2[python,python_targets_python3_10(-)] dev-python/argcomplete[python_targets_python3_10(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)]
+    dev-python/requests[python_targets_python3_10(-)] ) >=sys-libs/libosinfo-0.2.10[introspection]
+    gtk? ( gnome-base/dconf >=net-libs/gtk-vnc-0.3.8[gtk3(+),introspection] net-misc/spice-gtk[usbredir,gtk3,introspection,sasl?]
+    policykit? ( sys-auth/polkit[introspection] ) sys-apps/dbus[X] x11-libs/gtk+:3[introspection]
+    x11-libs/gtksourceview:4[introspection] x11-libs/vte:2.91[introspection] ) python_single_target_python3_7?
+    ( >=dev-python/pytest-7.1.2[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( >=dev-python/pytest-7.1.2[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( >=dev-python/pytest-7.1.2[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( >=dev-python/pytest-7.1.2[python_targets_python3_10(-)] ) ) >=app-portage/elt-patches-20170815
+    app-arch/xz-utils python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    )
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) app-cdr/cdrtools >=app-emulation/libvirt-glib-1.0.0[introspection] python_single_target_python3_7?
+    ( dev-libs/libxml2[python,python_targets_python3_7(-)] dev-python/argcomplete[python_targets_python3_7(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_7(-)] dev-python/pygobject:3[python_targets_python3_7(-)]
+    dev-python/requests[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-libs/libxml2[python,python_targets_python3_9(-)] dev-python/argcomplete[python_targets_python3_9(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)]
+    dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-libs/libxml2[python,python_targets_python3_8(-)] dev-python/argcomplete[python_targets_python3_8(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)]
+    dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-libs/libxml2[python,python_targets_python3_10(-)] dev-python/argcomplete[python_targets_python3_10(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)]
+    dev-python/requests[python_targets_python3_10(-)] ) >=sys-libs/libosinfo-0.2.10[introspection]
+    gtk? ( gnome-base/dconf >=net-libs/gtk-vnc-0.3.8[gtk3(+),introspection] net-misc/spice-gtk[usbredir,gtk3,introspection,sasl?]
+    policykit? ( sys-auth/polkit[introspection] ) sys-apps/dbus[X] x11-libs/gtk+:3[introspection]
+    x11-libs/gtksourceview:4[introspection] x11-libs/vte:2.91[introspection] ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: gtk policykit sasl test python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) app-cdr/cdrtools >=app-emulation/libvirt-glib-1.0.0[introspection] python_single_target_python3_7?
+    ( dev-libs/libxml2[python,python_targets_python3_7(-)] dev-python/argcomplete[python_targets_python3_7(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_7(-)] dev-python/pygobject:3[python_targets_python3_7(-)]
+    dev-python/requests[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-libs/libxml2[python,python_targets_python3_9(-)] dev-python/argcomplete[python_targets_python3_9(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)]
+    dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-libs/libxml2[python,python_targets_python3_8(-)] dev-python/argcomplete[python_targets_python3_8(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)]
+    dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python3_10?
+    ( dev-libs/libxml2[python,python_targets_python3_10(-)] dev-python/argcomplete[python_targets_python3_10(-)]
+    >=dev-python/libvirt-python-6.10.0[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)]
+    dev-python/requests[python_targets_python3_10(-)] ) >=sys-libs/libosinfo-0.2.10[introspection]
+    gtk? ( gnome-base/dconf >=net-libs/gtk-vnc-0.3.8[gtk3(+),introspection] net-misc/spice-gtk[usbredir,gtk3,introspection,sasl?]
+    policykit? ( sys-auth/polkit[introspection] ) sys-apps/dbus[X] x11-libs/gtk+:3[introspection]
+    x11-libs/gtksourceview:4[introspection] x11-libs/vte:2.91[introspection] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+  emerge.packages: app-emulation/virt-manager
+  kit: core-kit
+  original.package.name: app-emulation/virt-manager
+  original.package.slot: "0"
+  original.package.version: 4.1.0
