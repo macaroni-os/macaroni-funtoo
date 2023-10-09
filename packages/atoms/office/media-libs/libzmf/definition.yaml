@@ -1,0 +1,37 @@
+name: libzmf
+version: 0.0.2
+category: media-libs
+use_flags:
+- -doc
+- -test
+requires:
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: librevenge
+  version: '>=0'
+  category: dev-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for parsing Zoner Callisto/Draw documents
+uri:
+- https://wiki.documentfoundation.org/DLP/Libraries/libzmf
+license: MPL-2.0
+labels:
+  DEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/libpng:0= sys-libs/zlib dev-libs/boost
+    doc? ( app-doc/doxygen ) test? ( dev-util/cppunit )
+  IUSE: debug doc test tools
+  RDEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/libpng:0= sys-libs/zlib
+  emerge.packages: media-libs/libzmf
+  kit: media-kit
+  original.package.name: media-libs/libzmf
+  original.package.slot: "0"
+  original.package.version: 0.0.2
