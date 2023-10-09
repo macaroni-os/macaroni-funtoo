@@ -1,0 +1,24 @@
+name: numactl
+version: 2.0.16
+category: sys-process
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utilities and libraries for NUMA systems
+uri:
+- https://github.com/numactl/numactl
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  IUSE: static-libs
+  emerge.packages: sys-process/numactl
+  kit: core-kit
+  original.package.name: sys-process/numactl
+  original.package.slot: "0"
+  original.package.version: 2.0.16
