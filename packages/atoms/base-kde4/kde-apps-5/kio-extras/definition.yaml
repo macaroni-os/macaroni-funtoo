@@ -1,0 +1,118 @@
+name: kio-extras
+version: 22.08.1
+category: kde-apps-5
+use_flags:
+- -man
+- -test
+- X
+- activities
+- handbook
+- mtp
+- nfs
+- openexr
+- phonon
+- prefix
+- samba
+- sftp
+- taglib
+requires:
+- name: qtsql
+  version: '>=0'
+  category: dev-qt-5
+- name: kactivities-stats
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kded
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kdnssd
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-5
+- name: syntax-highlighting
+  version: '>=0'
+  category: kde-frameworks-5
+- name: libmtp
+  version: '>=0'
+  category: media-libs
+- name: openexr
+  version: '>=0'
+  category: media-libs
+- name: phonon
+  version: '>=0'
+  category: media-libs
+- name: taglib
+  version: '>=0'
+  category: media-libs
+- name: samba
+  version: '>=0'
+  category: net-fs
+- name: kdsoap-ws-discovery-client
+  version: '>=0'
+  category: net-libs
+- name: libssh
+  version: '>=0'
+  category: net-libs
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KIO plugins present a filesystem-like view of arbitrary data
+uri:
+- https://invent.kde.org/network/kio-extras
+license: GPL-2
+labels:
+  BDEPEND: man? ( dev-util/gperf ) dev-util/ninja >=dev-util/cmake-3.9.6 test? ( !prefix?
+    ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.98.0:5
+    handbook? ( >=kde-frameworks/kdoctools-5.98.0:5 )
+  DEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5
+    >=dev-qt/qtsvg-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=dev-qt/qtxml-5.15.1:5 >=kde-frameworks/karchive-5.98.0:5
+    >=kde-frameworks/kbookmarks-5.98.0:5 >=kde-frameworks/kcodecs-5.98.0:5 >=kde-frameworks/kconfig-5.98.0:5
+    >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kdnssd-5.98.0:5 >=kde-frameworks/kguiaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kparts-5.98.0:5 >=kde-frameworks/kservice-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5
+    >=kde-frameworks/solid-5.98.0:5 >=kde-frameworks/syntax-highlighting-5.98.0:5
+    activities? ( >=dev-qt/qtsql-5.15.1:5 >=kde-frameworks/kactivities-5.98.0:5 >=kde-frameworks/kactivities-stats-5.98.0:5
+    ) mtp? ( >=media-libs/libmtp-1.1.16:= ) nfs? ( net-libs/libtirpc:= ) openexr?
+    ( media-libs/openexr:= ) phonon? ( >=media-libs/phonon-4.11.0 ) samba? ( net-fs/samba[client]
+    net-libs/kdsoap:= net-libs/kdsoap-ws-discovery-client ) sftp? ( net-libs/libssh:=[sftp]
+    ) taglib? ( >=media-libs/taglib-1.11.1 ) X? ( x11-libs/libX11 x11-libs/libXcursor
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.15.1:5
+    ) >=dev-qt/qtcore-5.15.1:5 dev-util/desktop-file-utils'
+  IUSE: activities +man mtp nfs openexr phonon samba +sftp taglib X test debug +handbook
+    test
+  RDEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5
+    >=dev-qt/qtsvg-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=dev-qt/qtxml-5.15.1:5 >=kde-frameworks/karchive-5.98.0:5
+    >=kde-frameworks/kbookmarks-5.98.0:5 >=kde-frameworks/kcodecs-5.98.0:5 >=kde-frameworks/kconfig-5.98.0:5
+    >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kdnssd-5.98.0:5 >=kde-frameworks/kguiaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kparts-5.98.0:5 >=kde-frameworks/kservice-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5
+    >=kde-frameworks/solid-5.98.0:5 >=kde-frameworks/syntax-highlighting-5.98.0:5
+    activities? ( >=dev-qt/qtsql-5.15.1:5 >=kde-frameworks/kactivities-5.98.0:5 >=kde-frameworks/kactivities-stats-5.98.0:5
+    ) mtp? ( >=media-libs/libmtp-1.1.16:= ) nfs? ( net-libs/libtirpc:= ) openexr?
+    ( media-libs/openexr:= ) phonon? ( >=media-libs/phonon-4.11.0 ) samba? ( net-fs/samba[client]
+    net-libs/kdsoap:= net-libs/kdsoap-ws-discovery-client ) sftp? ( net-libs/libssh:=[sftp]
+    ) taglib? ( >=media-libs/taglib-1.11.1 ) X? ( x11-libs/libX11 x11-libs/libXcursor
+    ) >=kde-frameworks/kded-5.98.0:5 >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5
+    kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5'
+  emerge.packages: kde-apps/kio-extras:5
+  kit: kde-kit
+  original.package.name: kde-apps/kio-extras
+  original.package.slot: "5"
+  original.package.version: 22.08.1
