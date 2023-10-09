@@ -1,0 +1,33 @@
+name: open-isns
+version: "0.99"
+category: sys-block
+use_flags:
+- -libressl
+- -slp
+- ssl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: iSNS server and client for Linux
+uri:
+- https://github.com/open-iscsi/open-isns
+license: LGPL-2.1
+labels:
+  DEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) ) slp? ( net-libs/openslp )
+  IUSE: debug libressl slp ssl static
+  RDEPEND: ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) ) slp? ( net-libs/openslp )
+  emerge.packages: sys-block/open-isns
+  kit: geaaru-kit
+  original.package.name: sys-block/open-isns
+  original.package.slot: "0"
+  original.package.version: "0.99"
