@@ -1,0 +1,104 @@
+name: spice-gtk
+version: "0.42"
+category: net-misc
+use_flags:
+- amd64
+- arm64
+- gtk3
+- introspection
+- lz4
+- policykit
+- sasl
+- smartcard
+- usbredir
+- webdav
+- x86
+requires:
+- name: lz4
+  version: '>=0'
+  category: app-arch
+- name: qemu
+  version: '>=0'
+  category: app-emulation
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-good
+  version: '>=0'
+  category: media-libs-1.0
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
+- name: opus
+  version: '>=0'
+  category: media-libs
+- name: phodav
+  version: '>=0'
+  category: net-libs-2.0
+- name: hwids
+  version: '>=0'
+  category: sys-apps
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+- name: acl
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libva
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Set of GObject and Gtk objects for connecting to Spice servers and a
+  client GUI
+uri:
+- https://www.spice-space.org https://cgit.freedesktop.org/spice/spice-gtk/
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-perl/Text-CSV dev-util/glib-utils sys-devel/gettext virtual/pkgconfig
+    || ( ( dev-lang/python:3.10 dev-python/six[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/pyparsing[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/six[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    dev-python/pyparsing[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/six[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    dev-python/pyparsing[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/six[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    dev-python/pyparsing[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 dev-libs/json-glib:0= media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0
+    media-libs/gstreamer:1.0[introspection?] media-libs/opus media-libs/libjpeg-turbo:=
+    sys-libs/zlib x11-libs/cairo x11-libs/pixman x11-libs/libX11 gtk3? ( x11-libs/gtk+:3[introspection?]
+    ) introspection? ( dev-libs/gobject-introspection ) dev-libs/openssl:= lz4? (
+    app-arch/lz4 ) sasl? ( dev-libs/cyrus-sasl ) smartcard? ( app-emulation/qemu[smartcard]
+    ) usbredir? ( sys-apps/hwids sys-apps/usbredir virtual/acl virtual/libusb:1 policykit?
+    ( sys-auth/polkit ) ) webdav? ( net-libs/phodav:= net-libs/libsoup:= ) amd64?
+    ( x11-libs/libva:= ) arm64? ( x11-libs/libva:= ) x86? ( x11-libs/libva:= ) app-emulation/spice-protocol:=
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +gtk3 +introspection lz4 mjpeg policykit sasl smartcard usbredir wayland webdav
+  RDEPEND: dev-libs/glib:2 dev-libs/json-glib:0= media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0
+    media-libs/gstreamer:1.0[introspection?] media-libs/opus media-libs/libjpeg-turbo:=
+    sys-libs/zlib x11-libs/cairo x11-libs/pixman x11-libs/libX11 gtk3? ( x11-libs/gtk+:3[introspection?]
+    ) introspection? ( dev-libs/gobject-introspection ) dev-libs/openssl:= lz4? (
+    app-arch/lz4 ) sasl? ( dev-libs/cyrus-sasl ) smartcard? ( app-emulation/qemu[smartcard]
+    ) usbredir? ( sys-apps/hwids sys-apps/usbredir virtual/acl virtual/libusb:1 policykit?
+    ( sys-auth/polkit ) ) webdav? ( net-libs/phodav:= net-libs/libsoup:= ) amd64?
+    ( x11-libs/libva:= ) arm64? ( x11-libs/libva:= ) x86? ( x11-libs/libva:= )
+  emerge.packages: net-misc/spice-gtk
+  kit: core-kit
+  original.package.name: net-misc/spice-gtk
+  original.package.slot: "0"
+  original.package.version: "0.42"
