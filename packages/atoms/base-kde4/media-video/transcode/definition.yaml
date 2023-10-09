@@ -1,0 +1,86 @@
+name: transcode
+version: 1.1.7
+category: media-video
+use_flags:
+- -X
+- -a52
+- -aac
+- -alsa
+- -dv
+- -iconv
+- -imagemagick
+- -jpeg
+- -lzo
+- -mjpeg
+- -mpeg
+- -ogg
+- -postproc
+- -quicktime
+- -sdl
+- -theora
+- -truetype
+- -v4l
+- -x264
+- -xml
+- -xvid
+- dvd
+- mp3
+- vorbis
+requires:
+- name: libdvdread
+  version: '>=0'
+  category: media-libs
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
+- name: lame
+  version: '>=0'
+  category: media-sound
+- name: ffmpeg
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A suite of utilities for transcoding video and audio codecs in different
+  containers
+uri:
+- http://www.transcoding.org/ https://bitbucket.org/france/transcode-tcforge
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=virtual/ffmpeg-0.10 a52? ( media-libs/a52dec ) aac? ( media-libs/faac
+    ) alsa? ( media-libs/alsa-lib ) dv? ( media-libs/libdv ) dvd? ( media-libs/libdvdread
+    ) iconv? ( virtual/libiconv ) imagemagick? ( media-gfx/imagemagick:= ) jpeg? (
+    virtual/jpeg:0= ) lzo? ( >=dev-libs/lzo-2 ) mjpeg? ( media-video/mjpegtools )
+    mp3? ( media-sound/lame ) mpeg? ( media-libs/libmpeg2 ) ogg? ( media-libs/libogg
+    ) postproc? ( >=virtual/ffmpeg-0.10 ) quicktime? ( >=media-libs/libquicktime-1
+    ) sdl? ( >=media-libs/libsdl-1.2.5[X?] ) theora? ( media-libs/libtheora ) truetype?
+    ( >=media-libs/freetype-2 ) v4l? ( media-libs/libv4l ) vorbis? ( media-libs/libvorbis
+    ) X? ( x11-libs/libXpm x11-libs/libXaw x11-libs/libXv ) x264? ( media-libs/x264:=
+    ) xml? ( dev-libs/libxml2 ) xvid? ( media-libs/xvid ) virtual/pkgconfig v4l? (
+    >=sys-kernel/linux-headers-2.6.11 )'
+  IUSE: cpu_flags_x86_3dnow a52 aac alsa altivec dv dvd +iconv imagemagick jpeg lzo
+    mjpeg cpu_flags_x86_mmx mp3 mpeg nuv ogg oss pic postproc quicktime sdl cpu_flags_x86_sse
+    cpu_flags_x86_sse2 theora truetype v4l vorbis X x264 xml xvid
+  RDEPEND: '>=virtual/ffmpeg-0.10 a52? ( media-libs/a52dec ) aac? ( media-libs/faac
+    ) alsa? ( media-libs/alsa-lib ) dv? ( media-libs/libdv ) dvd? ( media-libs/libdvdread
+    ) iconv? ( virtual/libiconv ) imagemagick? ( media-gfx/imagemagick:= ) jpeg? (
+    virtual/jpeg:0= ) lzo? ( >=dev-libs/lzo-2 ) mjpeg? ( media-video/mjpegtools )
+    mp3? ( media-sound/lame ) mpeg? ( media-libs/libmpeg2 ) ogg? ( media-libs/libogg
+    ) postproc? ( >=virtual/ffmpeg-0.10 ) quicktime? ( >=media-libs/libquicktime-1
+    ) sdl? ( >=media-libs/libsdl-1.2.5[X?] ) theora? ( media-libs/libtheora ) truetype?
+    ( >=media-libs/freetype-2 ) v4l? ( media-libs/libv4l ) vorbis? ( media-libs/libvorbis
+    ) X? ( x11-libs/libXpm x11-libs/libXaw x11-libs/libXv ) x264? ( media-libs/x264:=
+    ) xml? ( dev-libs/libxml2 ) xvid? ( media-libs/xvid )'
+  emerge.packages: media-video/transcode
+  kit: media-kit
+  original.package.name: media-video/transcode
+  original.package.slot: "0"
+  original.package.version: 1.1.7-r6
