@@ -1,5 +1,5 @@
 name: nginx
-version: 1.22.0+1
+version: 1.22.0+2
 category: www-servers
 use_flags:
 - -arm
@@ -12,8 +12,6 @@ use_flags:
 - -nginx_modules_external_lua
 - -nginx_modules_external_metrics
 - -nginx_modules_external_modsecurity
-- -nginx_modules_http_geoip
-- -nginx_modules_http_gunzip
 - -nginx_modules_http_gzip_static
 - -nginx_modules_http_image_filter
 - -nginx_modules_http_perl
@@ -23,11 +21,16 @@ use_flags:
 - -pcre-jit
 - http-cache
 - http2
+- nginx_modules_http_geoip
+- nginx_modules_http_gunzip
 - nginx_modules_http_gzip
 - nginx_modules_http_rewrite
 - pcre
 - ssl
 requires:
+- name: geoip
+  version: '>=0'
+  category: dev-libs
 - name: libpcre
   version: '>=0'
   category: dev-libs-3
