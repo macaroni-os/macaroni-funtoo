@@ -1,0 +1,30 @@
+name: cups-pdf
+version: 3.0.1
+category: net-print
+requires:
+- name: ghostscript-gpl
+  version: '>=0'
+  category: app-text
+- name: cups
+  version: '>=0'
+  category: net-print
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Provides a virtual printer for CUPS to produce PDF files
+uri:
+- https://www.cups-pdf.de/
+license: GPL-2+
+labels:
+  DEPEND: net-print/cups app-text/ghostscript-gpl
+  IUSE: +ppds
+  RDEPEND: net-print/cups app-text/ghostscript-gpl
+  emerge.packages: net-print/cups-pdf
+  kit: desktop-kit
+  original.package.name: net-print/cups-pdf
+  original.package.slot: "0"
+  original.package.version: 3.0.1
