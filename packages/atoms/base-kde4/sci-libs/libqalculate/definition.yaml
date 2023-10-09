@@ -1,0 +1,48 @@
+name: libqalculate
+version: 2.8.1
+category: sci-libs
+use_flags:
+- curl
+- gnuplot
+- icu
+- readline
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: mpfr
+  version: '>=0'
+  category: dev-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: gnuplot
+  version: '>=0'
+  category: sci-visualization
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A modern multi-purpose calculator library
+uri:
+- https://qalculate.github.io/
+license: GPL-2
+labels:
+  DEPEND: dev-libs/gmp:0= dev-libs/libxml2:2 dev-libs/mpfr:0= virtual/libiconv curl?
+    ( net-misc/curl ) icu? ( dev-libs/icu:= ) readline? ( sys-libs/readline:0= ) dev-util/intltool
+    sys-devel/gettext virtual/pkgconfig
+  IUSE: curl icu gnuplot readline static-libs
+  RDEPEND: dev-libs/gmp:0= dev-libs/libxml2:2 dev-libs/mpfr:0= virtual/libiconv curl?
+    ( net-misc/curl ) icu? ( dev-libs/icu:= ) readline? ( sys-libs/readline:0= ) gnuplot?
+    ( >=sci-visualization/gnuplot-3.7 )
+  emerge.packages: sci-libs/libqalculate
+  kit: science-kit
+  original.package.name: sci-libs/libqalculate
+  original.package.slot: "0"
+  original.package.version: 2.8.1
