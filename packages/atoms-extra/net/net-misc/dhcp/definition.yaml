@@ -3,7 +3,6 @@ version: 4.4.3
 category: net-misc
 use_flags:
 - -ldap
-- -libressl
 - -selinux
 - -vim-syntax
 - client
@@ -26,17 +25,16 @@ annotations:
       - ^/var/db/pkg/
 description: ISC Dynamic Host Configuration Protocol (DHCP) client/server
 uri:
-- http://www.isc.org/products/DHCP
+- https://www.isc.org/dhcp
 license: MPL-2.0 BSD SSLeay GPL-2
 labels:
+  BDEPEND: virtual/pkgconfig
   DEPEND: client? ( kernel_linux? ( ipv6? ( sys-apps/iproute2 ) sys-apps/net-tools
-    ) ) ldap? ( net-nds/openldap ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl?
-    ( dev-libs/libressl ) ) ) virtual/pkgconfig sys-apps/shadow
-  IUSE: +client ipv6 kernel_linux ldap libressl selinux +server ssl vim-syntax
+    ) ) ldap? ( net-nds/openldap:= ssl? ( dev-libs/openssl:= ) ) sys-apps/shadow
+  IUSE: +client ipv6 ldap selinux +server ssl vim-syntax
   RDEPEND: client? ( kernel_linux? ( ipv6? ( sys-apps/iproute2 ) sys-apps/net-tools
-    ) ) ldap? ( net-nds/openldap ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl?
-    ( dev-libs/libressl ) ) ) selinux? ( sec-policy/selinux-dhcp ) vim-syntax? ( app-vim/dhcpd-syntax
-    )
+    ) ) ldap? ( net-nds/openldap:= ssl? ( dev-libs/openssl:= ) ) selinux? ( sec-policy/selinux-dhcp
+    ) vim-syntax? ( app-vim/dhcpd-syntax )
   emerge.packages: net-misc/dhcp
   kit: core-kit
   original.package.name: net-misc/dhcp
