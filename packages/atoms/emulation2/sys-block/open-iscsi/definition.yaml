@@ -1,0 +1,51 @@
+name: open-iscsi
+version: 2.0.877
+category: sys-block
+use_flags:
+- -infiniband
+- -libressl
+- -systemd
+requires:
+- name: kmod
+  version: '>=0'
+  category: sys-apps
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: open-isns
+  version: '>=0'
+  category: sys-block
+- name: lsscsi
+  version: '>=0'
+  category: sys-fs
+- name: linux-headers
+  version: '>=0'
+  category: sys-kernel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A performant, transport independent, multi-platform implementation of
+  RFC3720
+uri:
+- http://www.open-iscsi.com/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig virtual/pkgconfig
+  DEPEND: sys-apps/kmod sys-block/open-isns:= sys-kernel/linux-headers infiniband?
+    ( sys-fabric/ofed ) !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) systemd? ( sys-apps/systemd )
+  IUSE: debug infiniband libressl +tcp rdma systemd kernel_linux
+  RDEPEND: sys-apps/kmod sys-block/open-isns:= sys-kernel/linux-headers infiniband?
+    ( sys-fabric/ofed ) !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) systemd? ( sys-apps/systemd ) sys-fs/lsscsi sys-apps/util-linux
+  emerge.packages: sys-block/open-iscsi
+  kit: geaaru-kit
+  original.package.name: sys-block/open-iscsi
+  original.package.slot: "0"
+  original.package.version: 2.0.877
