@@ -1,0 +1,26 @@
+name: imagemagick-tools
+version: "0"
+category: virtual
+requires:
+- name: imagemagick
+  version: '>=0'
+  category: media-gfx
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for imagemagick command line tools
+uri:
+- ""
+labels:
+  IUSE: jpeg perl png svg tiff
+  RDEPEND: '|| ( media-gfx/imagemagick[jpeg?,perl?,png?,svg?,tiff?] media-gfx/graphicsmagick[imagemagick,jpeg?,perl?,png?,svg?,tiff?]
+    )'
+  emerge.packages: virtual/imagemagick-tools
+  kit: media-kit
+  original.package.name: virtual/imagemagick-tools
+  original.package.slot: "0"
+  original.package.version: 0-r1
