@@ -1,0 +1,115 @@
+name: k3b
+version: 22.08.1
+category: kde-apps-5
+use_flags:
+- -handbook
+- -mad
+- -test
+- dvd
+- encode
+- ffmpeg
+- flac
+- mp3
+- musepack
+- sndfile
+- sox
+- taglib
+- vcd
+- vorbis
+requires:
+- name: cdrdao
+  version: '>=0'
+  category: app-cdr
+- name: dvd+rw-tools
+  version: '>=0'
+  category: app-cdr
+- name: libburn
+  version: '>=0'
+  category: dev-libs
+- name: libkcddb
+  version: '>=0'
+  category: kde-apps-5
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kfilemetadata
+  version: '>=0'
+  category: kde-frameworks-5
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-5
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-5
+- name: knotifyconfig
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-5
+- name: libsamplerate
+  version: '>=0'
+  category: media-libs
+- name: cdparanoia
+  version: '>=0'
+  category: media-sound
+- name: musepack-tools
+  version: '>=0'
+  category: media-sound
+- name: sox
+  version: '>=0'
+  category: media-sound
+- name: transcode
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Full-featured burning and ripping application based on KDE Frameworks
+uri:
+- https://apps.kde.org/en/k3b https://userbase.kde.org/K3b
+license: GPL-2 FDL-1.2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+    handbook? ( >=kde-frameworks/kdoctools-5.98.0:5 )
+  DEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5
+    >=dev-qt/qtwidgets-5.15.1:5 >=dev-qt/qtxml-5.15.1:5 >=kde-apps/libkcddb-22.08.1:5
+    >=kde-frameworks/karchive-5.98.0:5 >=kde-frameworks/kbookmarks-5.98.0:5 >=kde-frameworks/kcmutils-5.98.0:5
+    >=kde-frameworks/kcompletion-5.98.0:5 >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5
+    >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kfilemetadata-5.98.0:5[taglib?]
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kjobwidgets-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
+    >=kde-frameworks/knotifyconfig-5.98.0:5 >=kde-frameworks/kservice-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-frameworks/solid-5.98.0:5 media-libs/libsamplerate
+    dvd? ( media-libs/libdvdread:= ) ffmpeg? ( media-video/ffmpeg:0= ) flac? ( >=media-libs/flac-1.2[cxx]
+    ) mp3? ( media-sound/lame ) mad? ( media-libs/libmad ) musepack? ( >=media-sound/musepack-tools-444
+    ) sndfile? ( media-libs/libsndfile ) taglib? ( >=media-libs/taglib-1.5 ) vorbis?
+    ( media-libs/libogg media-libs/libvorbis ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+    test? ( >=dev-qt/qttest-5.15.1:5 ) >=dev-qt/qtcore-5.15.1:5 dev-util/desktop-file-utils'
+  IUSE: dvd encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis debug
+    +handbook test
+  RDEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5
+    >=dev-qt/qtwidgets-5.15.1:5 >=dev-qt/qtxml-5.15.1:5 >=kde-apps/libkcddb-22.08.1:5
+    >=kde-frameworks/karchive-5.98.0:5 >=kde-frameworks/kbookmarks-5.98.0:5 >=kde-frameworks/kcmutils-5.98.0:5
+    >=kde-frameworks/kcompletion-5.98.0:5 >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5
+    >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kfilemetadata-5.98.0:5[taglib?]
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kjobwidgets-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
+    >=kde-frameworks/knotifyconfig-5.98.0:5 >=kde-frameworks/kservice-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-frameworks/solid-5.98.0:5 media-libs/libsamplerate
+    dvd? ( media-libs/libdvdread:= ) ffmpeg? ( media-video/ffmpeg:0= ) flac? ( >=media-libs/flac-1.2[cxx]
+    ) mp3? ( media-sound/lame ) mad? ( media-libs/libmad ) musepack? ( >=media-sound/musepack-tools-444
+    ) sndfile? ( media-libs/libsndfile ) taglib? ( >=media-libs/taglib-1.5 ) vorbis?
+    ( media-libs/libogg media-libs/libvorbis ) app-cdr/cdrdao app-cdr/cdrtools dev-libs/libburn
+    media-sound/cdparanoia dvd? ( >=app-cdr/dvd+rw-tools-7 encode? ( media-video/transcode[dvd]
+    ) ) sox? ( media-sound/sox ) vcd? ( media-video/vcdimager ) >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5'
+  emerge.packages: kde-apps/k3b:5
+  kit: kde-kit
+  original.package.name: kde-apps/k3b
+  original.package.slot: "5"
+  original.package.version: 22.08.1
