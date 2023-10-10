@@ -1,0 +1,48 @@
+name: networkmanager-fortisslvpn
+version: 1.2.8
+category: net-vpn
+use_flags:
+- gtk
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: nm-applet
+  version: '>=0'
+  category: gnome-extra
+- name: networkmanager
+  version: '>=0'
+  category: net-misc
+- name: openfortivpn
+  version: '>=0'
+  category: net-vpn
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: NetworkManager Fortinet SSLVPN compatible plugin
+uri:
+- https://wiki.gnome.org/Projects/NetworkManager
+license: GPL-2+
+labels:
+  DEPEND: '>=net-misc/networkmanager-1.2:= >=dev-libs/glib-2.32:2 net-dialup/ppp:=
+    >=net-vpn/openfortivpn-1.2.0 gtk? ( >=app-crypt/libsecret-0.18 >=gnome-extra/nm-applet-1.2.0
+    >=x11-libs/gtk+-3.4:3 ) dev-util/gdbus-codegen sys-devel/gettext >=dev-util/intltool-0.35
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: gtk
+  RDEPEND: '>=net-misc/networkmanager-1.2:= >=dev-libs/glib-2.32:2 net-dialup/ppp:=
+    >=net-vpn/openfortivpn-1.2.0 gtk? ( >=app-crypt/libsecret-0.18 >=gnome-extra/nm-applet-1.2.0
+    >=x11-libs/gtk+-3.4:3 )'
+  emerge.packages: net-vpn/networkmanager-fortisslvpn
+  kit: net-kit
+  original.package.name: net-vpn/networkmanager-fortisslvpn
+  original.package.slot: "0"
+  original.package.version: 1.2.8
