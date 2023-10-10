@@ -1,0 +1,95 @@
+name: open-vm-tools
+version: 12.2.5
+category: app-emulation
+use_flags:
+- -doc
+- X
+- deploypkg
+- dnet
+- fuse
+- gtkmm
+- icu
+- multimon
+- pam
+- resolutionkms
+- ssl
+- vgauth
+requires:
+- name: gtkmm
+  version: '>=0'
+  category: dev-cpp-3.0
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libdnet
+  version: '>=0'
+  category: dev-libs
+- name: libmspack
+  version: '>=0'
+  category: dev-libs
+- name: libsigc++
+  version: '>=0'
+  category: dev-libs-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: xmlsec
+  version: '>=0'
+  category: dev-libs
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+- name: pam
+  version: '>=0'
+  category: sys-libs
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Opensourced tools for VMware guests
+uri:
+- https://github.com/vmware/open-vm-tools
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/glib-utils virtual/pkgconfig doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+  DEPEND: dev-libs/glib net-libs/libtirpc deploypkg? ( dev-libs/libmspack ) fuse?
+    ( sys-fs/fuse:0 ) pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0 ) vgauth? (
+    dev-libs/libxml2 dev-libs/xmlsec ) X? ( x11-libs/libXext multimon? ( x11-libs/libXinerama
+    ) x11-libs/libXi x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst x11-libs/libSM
+    x11-libs/libXcomposite x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 gtkmm? ( dev-cpp/gtkmm:3.0
+    dev-libs/libsigc++:2 ) ) dnet? ( dev-libs/libdnet ) icu? ( dev-libs/icu:= ) resolutionkms?
+    ( x11-libs/libdrm[video_cards_vmware] virtual/libudev ) net-libs/rpcsvc-proto
+  IUSE: X +deploypkg +dnet doc +fuse gtkmm +icu multimon pam +resolutionkms +ssl static-libs
+    +vgauth systemd kernel_linux
+  RDEPEND: dev-libs/glib net-libs/libtirpc deploypkg? ( dev-libs/libmspack ) fuse?
+    ( sys-fs/fuse:0 ) pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0 ) vgauth? (
+    dev-libs/libxml2 dev-libs/xmlsec ) X? ( x11-libs/libXext multimon? ( x11-libs/libXinerama
+    ) x11-libs/libXi x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst x11-libs/libSM
+    x11-libs/libXcomposite x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 gtkmm? ( dev-cpp/gtkmm:3.0
+    dev-libs/libsigc++:2 ) ) dnet? ( dev-libs/libdnet ) icu? ( dev-libs/icu:= ) resolutionkms?
+    ( x11-libs/libdrm[video_cards_vmware] virtual/libudev )
+  emerge.packages: app-emulation/open-vm-tools
+  kit: core-kit
+  original.package.name: app-emulation/open-vm-tools
+  original.package.slot: "0"
+  original.package.version: 12.2.5
