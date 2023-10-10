@@ -1,0 +1,59 @@
+name: oracle-jdk-bin
+version: 1.8.0.202+3
+category: dev-java-1.8
+use_flags:
+- -doc
+- -pax_kernel
+- -selinux
+- -x64-macos
+- alsa
+- awt
+- cups
+- examples
+- fontconfig
+- javafx
+- prefix
+requires:
+- name: eselect-java
+  version: '>=0'
+  category: app-eselect
+- name: java-config
+  version: '>=0'
+  category: dev-java-2
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: cups
+  version: '>=0'
+  category: net-print
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Oracle's Java SE Development Kit
+uri:
+- http://www.oracle.com/technetwork/java/javase/
+license: Oracle-BCLA-JavaSE examples? ( BSD )
+labels:
+  DEPEND: app-arch/zip examples? ( x64-macos? ( app-arch/unzip ) ) pax_kernel? ( sys-apps/paxctl
+    ) >=dev-java/java-config-2.2.0-r3 >=app-eselect/eselect-java-0.4.0
+  IUSE: alsa +awt commercial cups doc examples +fontconfig javafx jce nsplugin pax_kernel
+    selinux source
+  RDEPEND: '!x64-macos? ( awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender
+    x11-libs/libXtst ) javafx? ( dev-libs/glib:2 dev-libs/libxml2:2 dev-libs/libxslt
+    media-libs/freetype:2 x11-libs/cairo x11-libs/gtk+:2 x11-libs/libX11 x11-libs/libXtst
+    x11-libs/libXxf86vm x11-libs/pango virtual/opengl ) ) alsa? ( media-libs/alsa-lib
+    ) cups? ( net-print/cups ) doc? ( dev-java/java-sdk-docs:1.8 ) fontconfig? ( media-libs/fontconfig:1.0
+    ) !prefix? ( sys-libs/glibc:* ) selinux? ( sec-policy/selinux-java ) >=dev-java/java-config-2.2.0-r3
+    >=app-eselect/eselect-java-0.4.0'
+  emerge.packages: dev-java/oracle-jdk-bin:1.8
+  kit: java-kit
+  original.package.name: dev-java/oracle-jdk-bin
+  original.package.slot: "1.8"
+  original.package.version: 1.8.0.202
