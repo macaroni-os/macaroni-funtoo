@@ -1,4 +1,7 @@
 prelude:
+# TODO: Investigate on this
+- >-
+  emerge -j dev-scheme/guile
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
