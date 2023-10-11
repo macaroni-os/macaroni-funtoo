@@ -1,0 +1,33 @@
+name: libmemcached
+version: 1.0.18
+category: dev-libs
+use_flags:
+- -sasl
+- libevent
+requires:
+- name: memcached
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: a C client library to the memcached server
+uri:
+- http://libmemcached.org/libMemcached.html
+license: BSD
+labels:
+  DEPEND: net-misc/memcached sasl? ( dev-libs/cyrus-sasl ) libevent? ( dev-libs/libevent
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 =sys-devel/automake-1.13*
+    >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: debug hsieh +libevent sasl static-libs
+  RDEPEND: net-misc/memcached sasl? ( dev-libs/cyrus-sasl ) libevent? ( dev-libs/libevent
+    )
+  emerge.packages: dev-libs/libmemcached
+  kit: dev-kit
+  original.package.name: dev-libs/libmemcached
+  original.package.slot: "0"
+  original.package.version: 1.0.18-r3
