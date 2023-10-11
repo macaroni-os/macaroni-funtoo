@@ -1,10 +1,13 @@
 category: toolchain
 name: java
 version: "1"
-description: "Virtul package to install portage meta data of the java packages"
+description: "Virtual package to install portage meta data of the java packages"
 requires:
   - name: eselect-java
     category: app-eselect
+    version: '>=0'
+  - name: oracle-jdk-bin
+    category: dev-java-1.8
     version: '>=0'
   - name: openjdk-bin
     category: dev-java-11
@@ -39,11 +42,20 @@ requires:
   - name: openjdk-jre-bin
     category: dev-java-8
     version: '>=0'
+  - name: ant-core
+    category: dev-java
+    version: '>=0'
+  - name: javatoolkit
+    category: dev-java
+    version: '>=0'
   - name: libffi-compat
     category: dev-libs-6
     version: '>=0'
   - name: baselayout-java
     category: sys-apps
+    version: '>=0'
+  - name: jdk
+    category: virtual-1.8
     version: '>=0'
   - name: jdk
     category: virtual-11
