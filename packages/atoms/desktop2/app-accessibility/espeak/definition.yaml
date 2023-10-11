@@ -1,0 +1,38 @@
+name: espeak
+version: 1.48.04
+category: app-accessibility
+use_flags:
+- portaudio
+- pulseaudio
+requires:
+- name: portaudio
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: sox
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Speech synthesizer for English and other languages
+uri:
+- http://espeak.sourceforge.net/
+license: GPL-3
+labels:
+  DEPEND: portaudio? ( >=media-libs/portaudio-19_pre20071207 ) pulseaudio? ( media-sound/pulseaudio
+    ) app-arch/unzip
+  IUSE: portaudio pulseaudio
+  RDEPEND: portaudio? ( >=media-libs/portaudio-19_pre20071207 ) pulseaudio? ( media-sound/pulseaudio
+    ) media-sound/sox
+  emerge.packages: app-accessibility/espeak
+  kit: gnome-kit
+  original.package.name: app-accessibility/espeak
+  original.package.slot: "0"
+  original.package.version: 1.48.04-r1
