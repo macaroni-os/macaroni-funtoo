@@ -1,0 +1,24 @@
+name: hiredis
+version: 1.2.0
+category: dev-libs
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Minimalistic C client library for the Redis database
+uri:
+- https://github.com/redis/hiredis
+license: BSD
+labels:
+  DEPEND: test? ( dev-db/redis )
+  IUSE: examples static-libs test
+  emerge.packages: dev-libs/hiredis
+  kit: dev-kit
+  original.package.name: dev-libs/hiredis
+  original.package.slot: "0"
+  original.package.version: 1.2.0
