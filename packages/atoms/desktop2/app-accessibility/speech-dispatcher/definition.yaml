@@ -1,0 +1,69 @@
+name: speech-dispatcher
+version: 0.10.2
+category: app-accessibility
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- alsa
+- ao
+- espeak
+- flite
+- nas
+- pulseaudio
+- python
+- python_targets_python3_9
+requires:
+- name: espeak
+  version: '>=0'
+  category: app-accessibility
+- name: flite
+  version: '>=0'
+  category: app-accessibility
+- name: dotconf
+  version: '>=0'
+  category: dev-libs
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: pyxdg
+  version: '>=0'
+  category: dev-python
+- name: libao
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Speech synthesis interface
+uri:
+- https://freebsoft.org/speechd
+license: GPL-2
+labels:
+  BDEPEND: '>=sys-devel/gettext-0.19.8 virtual/pkgconfig virtual/pkgconfig'
+  DEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) >=dev-libs/dotconf-1.3 >=dev-libs/glib-2.36:2 dev-libs/libltdl:0 >=media-libs/libsndfile-1.0.2
+    alsa? ( media-libs/alsa-lib ) ao? ( media-libs/libao ) espeak? ( app-accessibility/espeak
+    ) flite? ( app-accessibility/flite ) nas? ( media-libs/nas ) pulseaudio? ( media-sound/pulseaudio
+    )
+  IUSE: alsa ao +espeak flite nas pulseaudio python python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) >=dev-libs/dotconf-1.3 >=dev-libs/glib-2.36:2 dev-libs/libltdl:0 >=media-libs/libsndfile-1.0.2
+    alsa? ( media-libs/alsa-lib ) ao? ( media-libs/libao ) espeak? ( app-accessibility/espeak
+    ) flite? ( app-accessibility/flite ) nas? ( media-libs/nas ) pulseaudio? ( media-sound/pulseaudio
+    ) python? ( dev-python/pyxdg[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    )
+  emerge.packages: app-accessibility/speech-dispatcher
+  kit: gnome-kit
+  original.package.name: app-accessibility/speech-dispatcher
+  original.package.slot: "0"
+  original.package.version: 0.10.2
