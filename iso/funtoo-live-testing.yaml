@@ -135,10 +135,12 @@ packages:
 
   # Needed by /usr/lib64/dri/*.so
   - sys-devel/llvm-common
-  - sys-devel-11/llvm
+  - llvm
 
   # Live additional packages
   - media-gfx-2/gimp
+  # To fix gegl missing error on gimp
+  - imagemagick
   - media-gfx/inkscape
   - media-gfx/blender-bin
   - app-office/dia
@@ -149,7 +151,7 @@ packages:
 
   - x11-misc/grsync
   - www-client/brave-bin
-  - www-client/chromium
+  #- www-client/chromium
   - x11-terms/terminator
 
   - net-irc/hexchat
