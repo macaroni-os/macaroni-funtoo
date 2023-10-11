@@ -1,4 +1,10 @@
 prelude:
+#Temporary
+- >-
+  cp ostree-2023.5.ebuild /var/git/meta-repo/kits/dev-kit/dev-util/ostree/ &&
+  cd /var/git/meta-repo/kits/dev-kit/dev-util/ostree/ &&
+  ebuild ostree-2023.5.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \

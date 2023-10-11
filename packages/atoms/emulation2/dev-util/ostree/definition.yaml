@@ -1,19 +1,21 @@
 name: ostree
-version: "2018.9"
+version: "2023.5"
 category: dev-util
 use_flags:
 - -doc
 - -gnutls
 - -libmount
 - -selinux
+- -soup
 - -systemd
 - archive
 - curl
 - grub
 - introspection
-- soup
 - ssl
 - zeroconf
+- http
+- http2
 requires:
 - name: libarchive
   version: '>=0'
@@ -27,9 +29,6 @@ requires:
 - name: libassuan
   version: '>=0'
   category: dev-libs
-- name: libsoup
-  version: '>=0'
-  category: net-libs-2.4
 - name: util-linux
   version: '>=0'
   category: sys-apps
@@ -69,4 +68,4 @@ labels:
   kit: dev-kit
   original.package.name: dev-util/ostree
   original.package.slot: "0"
-  original.package.version: "2018.9"
+  original.package.version: "2023.5"
