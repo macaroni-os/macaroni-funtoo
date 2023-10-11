@@ -1,0 +1,45 @@
+name: vkd3d
+version: "1.2"
+category: app-emulation
+use_flags:
+- spirv-tools
+requires:
+- name: spirv-tools
+  version: '>=0'
+  category: dev-util
+- name: vulkan-loader
+  version: '>=0'
+  category: media-libs
+- name: xcb-util
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-keysyms
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-wm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: D3D12 to Vulkan translation library
+uri:
+- https://source.winehq.org/git/vkd3d.git/
+license: LGPL-2.1
+labels:
+  DEPEND: spirv-tools? ( dev-util/spirv-tools:=[-mgorny(-)] ) media-libs/vulkan-loader[-mgorny(-),X]
+    x11-libs/xcb-util:=[-mgorny(-)] x11-libs/xcb-util-keysyms:=[-mgorny(-)] x11-libs/xcb-util-wm:=[-mgorny(-)]
+    dev-util/spirv-headers dev-util/vulkan-headers
+  IUSE: spirv-tools abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64
+  RDEPEND: spirv-tools? ( dev-util/spirv-tools:=[-mgorny(-)] ) media-libs/vulkan-loader[-mgorny(-),X]
+    x11-libs/xcb-util:=[-mgorny(-)] x11-libs/xcb-util-keysyms:=[-mgorny(-)] x11-libs/xcb-util-wm:=[-mgorny(-)]
+  emerge.packages: app-emulation/vkd3d
+  kit: core-gl-kit
+  original.package.name: app-emulation/vkd3d
+  original.package.slot: "0"
+  original.package.version: "1.2"
