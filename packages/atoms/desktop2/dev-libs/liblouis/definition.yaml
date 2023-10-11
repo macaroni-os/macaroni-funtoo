@@ -1,0 +1,49 @@
+name: liblouis
+version: 3.10.0
+category: dev-libs
+use_flags:
+- -python_targets_python2_7
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- python
+- python_targets_python3_9
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An open-source braille translator and back-translator
+uri:
+- https://github.com/liblouis/liblouis
+license: LGPL-2.1+
+labels:
+  BDEPEND: sys-apps/help2man >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7[wide-unicode(+)]
+    ) python_targets_python3_9? ( dev-lang/python:3.9[wide-unicode(+)] ) python_targets_python3_8?
+    ( dev-lang/python:3.8[wide-unicode(+)] ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[wide-unicode(+)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[wide-unicode(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    )
+  IUSE: python python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python2_7 python_targets_python3_10
+  RDEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7[wide-unicode(+)]
+    ) python_targets_python3_9? ( dev-lang/python:3.9[wide-unicode(+)] ) python_targets_python3_8?
+    ( dev-lang/python:3.8[wide-unicode(+)] ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[wide-unicode(+)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10[wide-unicode(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+    )
+  emerge.packages: dev-libs/liblouis
+  kit: gnome-kit
+  original.package.name: dev-libs/liblouis
+  original.package.slot: "0"
+  original.package.version: 3.10.0
