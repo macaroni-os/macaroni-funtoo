@@ -1,0 +1,120 @@
+name: brltty
+version: "6.1"
+category: app-accessibility
+use_flags:
+- -java
+- -louis
+- -ocaml
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -systemd
+- -tcl
+- X
+- bluetooth
+- gpm
+- iconv
+- icu
+- midi
+- ncurses
+- nls
+- pcm
+- policykit
+- python
+- python_targets_python3_9
+- speech
+- usb
+- xml
+requires:
+- name: at-spi2-core
+  version: '>=0'
+  category: app-accessibility-2
+- name: speech-dispatcher
+  version: '>=0'
+  category: app-accessibility
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: bluez
+  version: '>=0'
+  category: net-wireless
+- name: portage
+  version: '>=0'
+  category: sys-apps
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+- name: gpm
+  version: '>=0'
+  category: sys-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: libXaw
+  version: '>=0'
+  category: x11-libs
+- name: libXfixes
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Daemon that provides access to the Linux/Unix console for a blind person
+uri:
+- https://brltty.app/
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig java? ( >=virtual/jdk-1.4 ) nls? ( virtual/libintl )
+    python? ( python_targets_python3_7? ( >=dev-python/cython-0.16[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_9? ( >=dev-python/cython-0.16[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_8? ( >=dev-python/cython-0.16[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) python_targets_python3_10? ( >=dev-python/cython-0.16[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
+    ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    virtual/pkgconfig virtual/pkgconfig
+  DEPEND: '>=sys-apps/portage-2.3.78-r4 app-accessibility/at-spi2-core:2 dev-libs/libpcre2[pcre32]
+    sys-apps/dbus bluetooth? ( net-wireless/bluez ) gpm? ( >=sys-libs/gpm-1.20 ) iconv?
+    ( virtual/libiconv ) icu? ( dev-libs/icu:= ) louis? ( dev-libs/liblouis:= ) midi?
+    ( media-libs/alsa-lib ) ncurses? ( sys-libs/ncurses:0= ) pcm? ( media-libs/alsa-lib
+    ) policykit? ( sys-auth/polkit ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) speech? ( app-accessibility/espeak app-accessibility/flite app-accessibility/speech-dispatcher
+    ) systemd? ( sys-apps/systemd ) tcl? ( >=dev-lang/tcl-8.4.15:0= ) usb? ( virtual/libusb:0
+    ) xml? ( dev-libs/expat ) X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXfixes
+    x11-libs/libXt x11-libs/libXtst ) ocaml? ( >=dev-ml/findlib-1.0.4-r1 ) java? (
+    >=dev-java/java-config-2.2.0-r3 )'
+  IUSE: +api +beeper bluetooth +contracted-braille doc +fm gpm iconv icu java louis
+    +midi ncurses nls ocaml +pcm policykit python usb systemd +speech tcl xml X elibc_FreeBSD
+    java +split-usr python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10
+  RDEPEND: '>=sys-apps/portage-2.3.78-r4 app-accessibility/at-spi2-core:2 dev-libs/libpcre2[pcre32]
+    sys-apps/dbus bluetooth? ( net-wireless/bluez ) gpm? ( >=sys-libs/gpm-1.20 ) iconv?
+    ( virtual/libiconv ) icu? ( dev-libs/icu:= ) louis? ( dev-libs/liblouis:= ) midi?
+    ( media-libs/alsa-lib ) ncurses? ( sys-libs/ncurses:0= ) pcm? ( media-libs/alsa-lib
+    ) policykit? ( sys-auth/polkit ) python? ( python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) speech? ( app-accessibility/espeak app-accessibility/flite app-accessibility/speech-dispatcher
+    ) systemd? ( sys-apps/systemd ) tcl? ( >=dev-lang/tcl-8.4.15:0= ) usb? ( virtual/libusb:0
+    ) xml? ( dev-libs/expat ) X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXfixes
+    x11-libs/libXt x11-libs/libXtst ) java? ( >=virtual/jre-1.4 ) java? ( >=dev-java/java-config-2.2.0-r3
+    )'
+  emerge.packages: app-accessibility/brltty
+  kit: gnome-kit
+  original.package.name: app-accessibility/brltty
+  original.package.slot: "0"
+  original.package.version: "6.1"
