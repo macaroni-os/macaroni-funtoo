@@ -1,0 +1,37 @@
+name: rabbitmq-c
+version: 0.10.0
+category: net-libs
+use_flags:
+- -doc
+- -libressl
+- ssl
+- tools
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: popt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: RabbitMQ C client
+uri:
+- https://github.com/alanxz/rabbitmq-c
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: doc? ( app-doc/doxygen ) tools? ( app-text/xmlto )
+  IUSE: doc libressl test +ssl static-libs tools
+  RDEPEND: ssl? ( libressl? ( dev-libs/libressl:= ) !libressl? ( dev-libs/openssl:0=
+    ) ) tools? ( dev-libs/popt )
+  emerge.packages: net-libs/rabbitmq-c
+  kit: net-kit
+  original.package.name: net-libs/rabbitmq-c
+  original.package.slot: "0"
+  original.package.version: 0.10.0
