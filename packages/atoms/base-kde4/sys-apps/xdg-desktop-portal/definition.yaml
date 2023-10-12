@@ -1,0 +1,51 @@
+name: xdg-desktop-portal
+version: 1.8.0
+category: sys-apps
+use_flags:
+- -doc
+- -test
+- geolocation
+- screencast
+requires:
+- name: geoclue
+  version: '>=0'
+  category: app-misc-2.0
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: pipewire
+  version: '>=0'
+  category: media-video
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A portal frontend service for Flatpak and possibly other containment
+  frameworks
+uri:
+- http://flatpak.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: dev-libs/json-glib dev-libs/glib:2[dbus] media-libs/fontconfig sys-fs/fuse:0
+    geolocation? ( >=app-misc/geoclue-2.5.2:2.0 ) screencast? ( >=media-video/pipewire-0.2.90
+    ) test? ( sys-libs/libportal ) >=sys-devel/gettext-0.18.3 virtual/pkgconfig doc?
+    ( app-text/xmlto app-text/docbook-xml-dtd:4.3 )
+  IUSE: doc geolocation screencast test
+  RDEPEND: dev-libs/json-glib dev-libs/glib:2[dbus] media-libs/fontconfig sys-fs/fuse:0
+    geolocation? ( >=app-misc/geoclue-2.5.2:2.0 ) screencast? ( >=media-video/pipewire-0.2.90
+    ) test? ( sys-libs/libportal )
+  emerge.packages: sys-apps/xdg-desktop-portal
+  kit: core-kit
+  original.package.name: sys-apps/xdg-desktop-portal
+  original.package.slot: "0"
+  original.package.version: 1.8.0
