@@ -1,0 +1,28 @@
+name: eigen
+version: 3.4.0
+category: dev-cpp-3
+use_flags:
+- -cuda
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ template library for linear algebra
+uri:
+- http://eigen.tuxfamily.org/index.php?title=Main_Page
+license: MPL-2.0
+labels:
+  BDEPEND: doc? ( app-doc/doxygen[dot] dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra
+    dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: cuda? ( dev-util/nvidia-cuda-toolkit )
+  IUSE: cuda doc
+  emerge.packages: dev-cpp/eigen:3
+  kit: dev-kit
+  original.package.name: dev-cpp/eigen
+  original.package.slot: "3"
+  original.package.version: 3.4.0
