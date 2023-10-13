@@ -1,0 +1,76 @@
+name: libopenshot
+version: 0.2.7
+category: media-libs
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- imagemagick
+- opencv
+- python
+- python_single_target_python3_9
+requires:
+- name: jsoncpp
+  version: '>=0'
+  category: dev-libs
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-5
+- name: imagemagick
+  version: '>=0'
+  category: media-gfx
+- name: libopenshot-audio
+  version: '>=0'
+  category: media-libs
+- name: opencv
+  version: '>=0'
+  category: media-libs
+- name: cppzmq
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Video editing library used by OpenShot
+uri:
+- https://www.openshot.org/
+license: GPL-3+
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) python? ( dev-lang/swig ) dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets]
+    >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis]
+    net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
+    ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib,contribdnn] ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    )
+  IUSE: doc examples +imagemagick +opencv +python python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5
+    dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis]
+    net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
+    ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib,contribdnn] ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    )
+  emerge.packages: media-libs/libopenshot
+  kit: media-kit
+  original.package.name: media-libs/libopenshot
+  original.package.slot: "0"
+  original.package.version: 0.2.7-r1
