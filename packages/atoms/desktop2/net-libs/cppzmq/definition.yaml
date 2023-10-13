@@ -1,0 +1,31 @@
+name: cppzmq
+version: 4.10.0
+category: net-libs
+use_flags:
+- -test
+requires:
+- name: zeromq
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Header-only C++ binding for libzmq
+uri:
+- https://github.com/zeromq/cppzmq
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: '>=net-libs/zeromq-4.3.1 test? ( >=dev-cpp/catch-2.5.0 <dev-cpp/catch-2
+    )'
+  IUSE: test
+  RDEPEND: '>=net-libs/zeromq-4.3.1'
+  emerge.packages: net-libs/cppzmq
+  kit: net-kit
+  original.package.name: net-libs/cppzmq
+  original.package.slot: "0"
+  original.package.version: 4.10.0
