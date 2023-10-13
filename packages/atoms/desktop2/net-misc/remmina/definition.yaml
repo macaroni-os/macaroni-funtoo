@@ -1,0 +1,96 @@
+name: remmina
+version: 1.4.31
+category: net-misc
+use_flags:
+- -gnome-keyring
+- -kwallet
+- -x2go
+- appindicator
+- crypt
+- cups
+- gvnc
+- nls
+- rdp
+- spice
+- ssh
+- vnc
+- webkit
+- zeroconf
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libappindicator
+  version: '>=0'
+  category: dev-libs-3
+- name: libsodium
+  version: '>=0'
+  category: dev-libs
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: gtk-vnc
+  version: '>=0'
+  category: net-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
+- name: libssh
+  version: '>=0'
+  category: net-libs
+- name: libvncserver
+  version: '>=0'
+  category: net-libs
+- name: webkit-gtk
+  version: '>=0'
+  category: net-libs-4
+- name: freerdp
+  version: '>=0'
+  category: net-misc
+- name: spice-gtk
+  version: '>=0'
+  category: net-misc
+- name: freedesktop-icon-theme
+  version: '>=0'
+  category: virtual
+- name: vte
+  version: '>=0'
+  category: x11-libs-2.91
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A GTK+ RDP, SPICE, VNC and SSH client
+uri:
+- https://remmina.org/
+license: GPL-2+-with-openssl-exception
+labels:
+  BDEPEND: dev-util/intltool virtual/pkgconfig nls? ( sys-devel/gettext ) dev-util/ninja
+    dev-util/cmake
+  DEPEND: dev-libs/glib:2 dev-libs/json-glib dev-libs/libpcre2 dev-libs/libsodium:=
+    dev-libs/openssl:0= net-libs/libsoup:2.4 x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11
+    x11-libs/libxkbfile appindicator? ( dev-libs/libappindicator:3 ) crypt? ( dev-libs/libgcrypt:0=
+    ) gnome-keyring? ( app-crypt/libsecret ) gvnc? ( net-libs/gtk-vnc ) kwallet? (
+    kde-frameworks/kwallet ) rdp? ( net-misc/freerdp[X] cups? ( net-print/cups:= )
+    ) spice? ( net-misc/spice-gtk[gtk3] ) ssh? ( net-libs/libssh:0=[sftp] x11-libs/vte:2.91
+    ) vnc? ( net-libs/libvncserver[jpeg] ) webkit? ( net-libs/webkit-gtk:4 ) x2go?
+    ( net-misc/pyhoca-cli ) zeroconf? ( net-dns/avahi[dbus,gtk] ) spice? ( app-emulation/spice-protocol
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +appindicator crypt cups examples gnome-keyring gvnc kwallet nls spice ssh
+    rdp telemetry vnc webkit x2go zeroconf
+  RDEPEND: dev-libs/glib:2 dev-libs/json-glib dev-libs/libpcre2 dev-libs/libsodium:=
+    dev-libs/openssl:0= net-libs/libsoup:2.4 x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11
+    x11-libs/libxkbfile appindicator? ( dev-libs/libappindicator:3 ) crypt? ( dev-libs/libgcrypt:0=
+    ) gnome-keyring? ( app-crypt/libsecret ) gvnc? ( net-libs/gtk-vnc ) kwallet? (
+    kde-frameworks/kwallet ) rdp? ( net-misc/freerdp[X] cups? ( net-print/cups:= )
+    ) spice? ( net-misc/spice-gtk[gtk3] ) ssh? ( net-libs/libssh:0=[sftp] x11-libs/vte:2.91
+    ) vnc? ( net-libs/libvncserver[jpeg] ) webkit? ( net-libs/webkit-gtk:4 ) x2go?
+    ( net-misc/pyhoca-cli ) zeroconf? ( net-dns/avahi[dbus,gtk] ) virtual/freedesktop-icon-theme
+  emerge.packages: net-misc/remmina
+  kit: net-kit
+  original.package.name: net-misc/remmina
+  original.package.slot: "0"
+  original.package.version: 1.4.31
