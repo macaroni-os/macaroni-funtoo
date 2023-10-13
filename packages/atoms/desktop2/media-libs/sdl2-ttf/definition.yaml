@@ -1,0 +1,35 @@
+name: sdl2-ttf
+version: 2.20.2
+category: media-libs
+use_flags:
+- -harfbuzz
+requires:
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: libsdl2
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Support for TrueType fonts in SDL applications.
+uri:
+- https://www.libsdl.org/projects/SDL_ttf/
+license: ZLIB
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: '>=media-libs/libsdl2-2.0.12 >=media-libs/freetype-2.10.4[harfbuzz?] virtual/opengl
+    harfbuzz? ( >=media-libs/harfbuzz-2.8.0 )'
+  IUSE: +harfbuzz static-libs X
+  RDEPEND: '>=media-libs/libsdl2-2.0.12 >=media-libs/freetype-2.10.4[harfbuzz?] virtual/opengl
+    harfbuzz? ( >=media-libs/harfbuzz-2.8.0 )'
+  emerge.packages: media-libs/sdl2-ttf
+  kit: media-kit
+  original.package.name: media-libs/sdl2-ttf
+  original.package.slot: "0"
+  original.package.version: 2.20.2
