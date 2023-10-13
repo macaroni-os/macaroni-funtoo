@@ -1,0 +1,139 @@
+name: opencv
+version: 4.8.0
+category: media-libs
+use_flags:
+- -contrib
+- -cuda
+- -eigen
+- -gdal
+- -gflags
+- -glog
+- -gphoto2
+- -ieee1394
+- -lapack
+- -libav
+- -opencl
+- -openexr
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -qt5
+- -tesseract
+- -threads
+- -vtk
+- -webp
+- -xine
+- ffmpeg
+- gstreamer
+- gtk
+- jpeg
+- opengl
+- png
+- python
+- python_targets_python3_9
+- tiff
+- v4l
+- vaapi
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: protobuf
+  version: '>=0'
+  category: dev-libs
+- name: numpy
+  version: '>=0'
+  category: dev-python
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: glu
+  version: '>=0'
+  category: virtual
+- name: opengl
+  version: '>=0'
+  category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: quirc
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A collection of algorithms and sample code for various computer vision
+  problems
+uri:
+- https://opencv.org
+license: BSD
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: app-arch/bzip2[-mgorny(-)] dev-libs/protobuf:=[-mgorny(-)] sys-libs/zlib[-mgorny(-)]
+    contrib? ( sci-libs/hdf5 ) cuda? ( dev-util/nvidia-cuda-toolkit:0= ) ffmpeg? (
+    libav? ( media-video/libav:0=[-mgorny(-)] ) !libav? ( media-video/ffmpeg:0=[-mgorny(-)]
+    ) ) gdal? ( sci-libs/gdal:= ) gflags? ( dev-cpp/gflags[-mgorny(-)] ) glog? ( dev-cpp/glog[-mgorny(-)]
+    ) gphoto2? ( media-libs/libgphoto2[-mgorny(-)] ) gstreamer? ( media-libs/gstreamer:1.0[-mgorny(-)]
+    media-libs/gst-plugins-base:1.0[-mgorny(-)] ) gtk? ( dev-libs/glib:2[-mgorny(-)]
+    x11-libs/gtk+:3[-mgorny(-)] ) ieee1394? ( media-libs/libdc1394[-mgorny(-)] sys-libs/libraw1394[-mgorny(-)]
+    ) jpeg? ( virtual/jpeg:0[-mgorny(-)] ) lapack? ( virtual/lapack ) opencl? ( virtual/opencl[-mgorny(-)]
+    ) openexr? ( media-libs/openexr[-mgorny(-)] ) opengl? ( virtual/opengl[-mgorny(-)]
+    virtual/glu[-mgorny(-)] ) png? ( media-libs/libpng:0=[-mgorny(-)] ) python? (
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
+    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/numpy[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) qt5? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qttest:5 dev-qt/qtconcurrent:5
+    opengl? ( dev-qt/qtopengl:5 ) ) tesseract? ( app-text/tesseract[opencl=] ) threads?
+    ( dev-cpp/tbb[-mgorny(-)] ) tiff? ( media-libs/tiff:0[-mgorny(-)] ) v4l? ( >=media-libs/libv4l-0.8.3[-mgorny(-)]
+    ) vtk? ( sci-libs/vtk[rendering] ) webp? ( media-libs/libwebp[-mgorny(-)] ) xine?
+    ( media-libs/xine-lib ) media-libs/quirc virtual/pkgconfig[-mgorny(-)] media-libs/harfbuzz
+    eigen? ( dev-cpp/eigen:3 ) vaapi? ( x11-libs/libva )
+  IUSE: contrib cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_ssse3
+    cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_popcnt cpu_flags_x86_avx
+    cpu_flags_x86_avx2 cpu_flags_x86_fma3 cuda debug +eigen examples ffmpeg gdal gflags
+    glog gphoto2 gstreamer +gtk ieee1394 jpeg jpeg2k lapack libav opencl openexr +opengl
+    openmp pch png +python qt5 tesseract testprograms threads tiff vaapi v4l vtk webp
+    xine python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: app-arch/bzip2[-mgorny(-)] dev-libs/protobuf:=[-mgorny(-)] sys-libs/zlib[-mgorny(-)]
+    contrib? ( sci-libs/hdf5 ) cuda? ( dev-util/nvidia-cuda-toolkit:0= ) ffmpeg? (
+    libav? ( media-video/libav:0=[-mgorny(-)] ) !libav? ( media-video/ffmpeg:0=[-mgorny(-)]
+    ) ) gdal? ( sci-libs/gdal:= ) gflags? ( dev-cpp/gflags[-mgorny(-)] ) glog? ( dev-cpp/glog[-mgorny(-)]
+    ) gphoto2? ( media-libs/libgphoto2[-mgorny(-)] ) gstreamer? ( media-libs/gstreamer:1.0[-mgorny(-)]
+    media-libs/gst-plugins-base:1.0[-mgorny(-)] ) gtk? ( dev-libs/glib:2[-mgorny(-)]
+    x11-libs/gtk+:3[-mgorny(-)] ) ieee1394? ( media-libs/libdc1394[-mgorny(-)] sys-libs/libraw1394[-mgorny(-)]
+    ) jpeg? ( virtual/jpeg:0[-mgorny(-)] ) lapack? ( virtual/lapack ) opencl? ( virtual/opencl[-mgorny(-)]
+    ) openexr? ( media-libs/openexr[-mgorny(-)] ) opengl? ( virtual/opengl[-mgorny(-)]
+    virtual/glu[-mgorny(-)] ) png? ( media-libs/libpng:0=[-mgorny(-)] ) python? (
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
+    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/numpy[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) qt5? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qttest:5 dev-qt/qtconcurrent:5
+    opengl? ( dev-qt/qtopengl:5 ) ) tesseract? ( app-text/tesseract[opencl=] ) threads?
+    ( dev-cpp/tbb[-mgorny(-)] ) tiff? ( media-libs/tiff:0[-mgorny(-)] ) v4l? ( >=media-libs/libv4l-0.8.3[-mgorny(-)]
+    ) vtk? ( sci-libs/vtk[rendering] ) webp? ( media-libs/libwebp[-mgorny(-)] ) xine?
+    ( media-libs/xine-lib )
+  emerge.packages: media-libs/opencv
+  kit: media-kit
+  original.package.name: media-libs/opencv
+  original.package.slot: "0"
+  original.package.version: 4.8.0
