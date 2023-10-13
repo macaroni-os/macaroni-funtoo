@@ -1,0 +1,37 @@
+name: sdl2-image
+version: 2.6.3
+category: media-libs
+use_flags:
+- jpeg
+- png
+- tiff
+- webp
+requires:
+- name: libsdl2
+  version: '>=0'
+  category: media-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Image decoding for many popular formats for SDL.
+uri:
+- https://www.libsdl.org/projects/SDL_image/
+license: ZLIB
+labels:
+  DEPEND: media-libs/libsdl2 sys-libs/zlib png? ( media-libs/libpng ) jpeg? ( virtual/jpeg
+    ) tiff? ( media-libs/tiff ) webp? ( media-libs/libwebp )
+  IUSE: gif jpeg png static-libs tiff webp
+  RDEPEND: media-libs/libsdl2 sys-libs/zlib png? ( media-libs/libpng ) jpeg? ( virtual/jpeg
+    ) tiff? ( media-libs/tiff ) webp? ( media-libs/libwebp )
+  emerge.packages: media-libs/sdl2-image
+  kit: media-kit
+  original.package.name: media-libs/sdl2-image
+  original.package.slot: "0"
+  original.package.version: 2.6.3
