@@ -1,0 +1,52 @@
+name: czmq
+version: 4.2.1
+category: net-libs
+use_flags:
+- -nss
+- http-client
+- http-server
+- lz4
+- uuid
+requires:
+- name: lz4
+  version: '>=0'
+  category: app-arch
+- name: libmicrohttpd
+  version: '>=0'
+  category: net-libs
+- name: zeromq
+  version: '>=0'
+  category: net-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: High-level C binding for ØMQ
+uri:
+- http://czmq.zeromq.org
+license: MPL-2.0
+labels:
+  BDEPEND: app-text/asciidoc app-text/xmlto virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: '>=net-libs/zeromq-4:=[drafts?] http-client? ( net-misc/curl ) http-server?
+    ( net-libs/libmicrohttpd:= ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nspr dev-libs/nss
+    ) uuid? ( sys-apps/util-linux:0 )'
+  IUSE: curl drafts http-client http-server lz4 nss static-libs systemd +uuid
+  RDEPEND: '>=net-libs/zeromq-4:=[drafts?] http-client? ( net-misc/curl ) http-server?
+    ( net-libs/libmicrohttpd:= ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nspr dev-libs/nss
+    ) uuid? ( sys-apps/util-linux:0 )'
+  emerge.packages: net-libs/czmq
+  kit: net-kit
+  original.package.name: net-libs/czmq
+  original.package.slot: "0"
+  original.package.version: 4.2.1
