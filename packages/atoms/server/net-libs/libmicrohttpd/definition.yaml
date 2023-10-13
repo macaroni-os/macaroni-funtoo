@@ -1,0 +1,35 @@
+name: libmicrohttpd
+version: 0.9.64
+category: net-libs
+use_flags:
+- -test
+- ssl
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Small C library to run an HTTP server as part of another application
+uri:
+- https://www.gnu.org/software/libmicrohttpd/
+license: LGPL-2.1
+labels:
+  DEPEND: ssl? ( dev-libs/libgcrypt:0= net-libs/gnutls ) test? ( ssl? ( net-misc/curl[ssl]
+    ) )
+  IUSE: epoll messages ssl static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: ssl? ( dev-libs/libgcrypt:0= net-libs/gnutls )
+  emerge.packages: net-libs/libmicrohttpd
+  kit: net-kit
+  original.package.name: net-libs/libmicrohttpd
+  original.package.slot: "0"
+  original.package.version: 0.9.64
