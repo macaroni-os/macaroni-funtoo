@@ -1,0 +1,33 @@
+name: hdf5
+version: 1.10.5
+category: sci-libs
+use_flags:
+- -fortran
+- -mpi
+- -szip
+- -zlib
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: General purpose library and file format for storing scientific data
+uri:
+- http://www.hdfgroup.org/HDF5/
+license: NCSA-HDF
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: mpi? ( virtual/mpi[romio] ) szip? ( virtual/szip ) zlib? ( sys-libs/zlib:0=
+    ) sys-devel/libtool:2 >=sys-devel/autoconf-2.69 fortran? ( virtual/fortran )
+  IUSE: cxx debug examples fortran +hl mpi static-libs szip threads zlib
+  RDEPEND: mpi? ( virtual/mpi[romio] ) szip? ( virtual/szip ) zlib? ( sys-libs/zlib:0=
+    ) fortran? ( virtual/fortran )
+  emerge.packages: sci-libs/hdf5
+  kit: science-kit
+  original.package.name: sci-libs/hdf5
+  original.package.slot: "0"
+  original.package.version: 1.10.5
