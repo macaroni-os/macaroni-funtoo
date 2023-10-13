@@ -416,6 +416,7 @@ multilib_src_configure() {
 			-DBUILD_opencv_cvv=$(usex qt5 ON OFF)
 			-DBUILD_opencv_sfm=$(usex contrib ON OFF)
 			-DBUILD_opencv_hdf=$(multilib_native_usex contrib ON OFF)
+			-DBUILD_opencv_freetype=ON
 		)
 
 		if multilib_is_native_abi; then
@@ -438,6 +439,12 @@ multilib_src_configure() {
 	)
 
 	cmake-utils_src_configure
+
+	if use contrib; then
+		# Needed for libopenshot
+		mkdir -p "${BUILD_DIR}"/share/OpenCV/testdata/cv/face/ || die
+		cp "${WORKDIR}"/face_landmark_model.dat "${BUILD_DIR}"/share/OpenCV/testdata/cv/face/ || die
+	fi
 }
 
 python_module_compile() {
