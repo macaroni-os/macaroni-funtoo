@@ -1,0 +1,60 @@
+name: sdl2-mixer
+version: 2.6.3
+category: media-libs
+use_flags:
+- -flac
+- -libxmp
+- -mod
+- -modplug
+- -timidity
+- -tremor
+- fluidsynth
+- midi
+- mp3
+- opus
+- vorbis
+requires:
+- name: libvorbis
+  version: '>=0'
+  category: media-libs
+- name: opusfile
+  version: '>=0'
+  category: media-libs
+- name: fluidsynth
+  version: '>=0'
+  category: media-sound
+- name: mpg123
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An audio mixer that supports various file formats for SDL.
+uri:
+- https://libsdl.org/projects/SDL_mixer/
+license: ZLIB
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: media-libs/libsdl2 flac? ( media-libs/flac ) midi? ( fluidsynth? ( media-sound/fluidsynth
+    ) timidity? ( media-sound/timidity++ ) ) mod? ( modplug? ( media-libs/libmodplug
+    ) libxmp? ( media-libs/libxmp ) ) mp3? ( media-sound/mpg123 ) opus? ( media-libs/opusfile
+    ) vorbis? ( tremor? ( media-libs/tremor ) !tremor? ( media-libs/libvorbis media-libs/libogg
+    ) )
+  IUSE: flac fluidsynth libxmp midi mod modplug mp3 opus playtools static-libs timidity
+    tremor vorbis +wav
+  RDEPEND: media-libs/libsdl2 flac? ( media-libs/flac ) midi? ( fluidsynth? ( media-sound/fluidsynth
+    ) timidity? ( media-sound/timidity++ ) ) mod? ( modplug? ( media-libs/libmodplug
+    ) libxmp? ( media-libs/libxmp ) ) mp3? ( media-sound/mpg123 ) opus? ( media-libs/opusfile
+    ) vorbis? ( tremor? ( media-libs/tremor ) !tremor? ( media-libs/libvorbis media-libs/libogg
+    ) )
+  emerge.packages: media-libs/sdl2-mixer
+  kit: media-kit
+  original.package.name: media-libs/sdl2-mixer
+  original.package.slot: "0"
+  original.package.version: 2.6.3
