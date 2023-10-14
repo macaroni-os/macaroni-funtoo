@@ -1,0 +1,37 @@
+name: xdotool
+version: 3.20160805.1
+category: x11-misc
+requires:
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simulate keyboard input and mouse activity, move and resize windows
+uri:
+- https://www.semicomplete.com/projects/xdotool/
+license: BSD
+labels:
+  DEPEND: x11-libs/libXtst x11-libs/libX11 x11-libs/libXinerama x11-libs/libxkbcommon
+    x11-base/xorg-proto
+  IUSE: examples
+  RDEPEND: x11-libs/libXtst x11-libs/libX11 x11-libs/libXinerama x11-libs/libxkbcommon
+  emerge.packages: x11-misc/xdotool
+  kit: desktop-kit
+  original.package.name: x11-misc/xdotool
+  original.package.slot: "0"
+  original.package.version: 3.20160805.1
