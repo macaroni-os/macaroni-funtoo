@@ -1,0 +1,75 @@
+name: spotify
+version: 1.2.13.661
+category: media-sound
+use_flags:
+- -libressl
+- libnotify
+- pulseaudio
+- systray
+requires:
+- name: at-spi2-atk
+  version: '>=0'
+  category: app-accessibility-2
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: gnome-integration-spotify
+  version: '>=0'
+  category: gnome-extra
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Spotify is a social music platform
+uri:
+- https://www.spotify.com/ch-de/download/previews/
+license: Spotify
+labels:
+  BDEPEND: '>=dev-util/patchelf-0.10'
+  DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: libnotify libressl systray pax_kernel pulseaudio
+  RDEPEND: dev-libs/nss dev-python/dbus-python dev-python/pygobject:3 libnotify? (
+    x11-libs/libnotify ) !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
+    ) media-libs/alsa-lib media-libs/fontconfig media-libs/harfbuzz media-libs/mesa[X(+)]
+    net-misc/curl[ssl] net-print/cups[ssl] pulseaudio? ( media-sound/pulseaudio )
+    !pulseaudio? ( media-sound/apulse ) systray? ( gnome-extra/gnome-integration-spotify
+    ) x11-libs/gtk+:2 app-accessibility/at-spi2-atk x11-libs/libXScrnSaver x11-libs/libXtst
+    x11-libs/libSM x11-libs/libICE
+  emerge.packages: media-sound/spotify
+  kit: media-kit
+  original.package.name: media-sound/spotify
+  original.package.slot: "0"
+  original.package.version: 1.2.13.661
