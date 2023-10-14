@@ -1,0 +1,25 @@
+name: eselect-timidity
+version: "20110513"
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manages configuration of TiMidity++ patchsets
+uri:
+- https://www.gentoo.org/
+license: GPL-2
+labels:
+  RDEPEND: '>=app-admin/eselect-1.2.3'
+  emerge.packages: app-eselect/eselect-timidity
+  kit: core-kit
+  original.package.name: app-eselect/eselect-timidity
+  original.package.slot: "0"
+  original.package.version: "20110513"
