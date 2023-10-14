@@ -1,0 +1,36 @@
+name: wildmidi
+version: 0.4.4
+category: media-sound
+use_flags:
+- -openal
+- alsa
+- player
+requires:
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: timidity-freepats
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: MIDI processing library and player using the GUS patch set
+uri:
+- http://www.mindwerks.net/projects/wildmidi/
+license: GPL-3+ LGPL-3+
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: player? ( alsa? ( media-libs/alsa-lib ) openal? ( media-libs/openal ) )
+  IUSE: +alsa openal oss +player
+  RDEPEND: player? ( alsa? ( media-libs/alsa-lib ) openal? ( media-libs/openal ) )
+    media-sound/timidity-freepats
+  emerge.packages: media-sound/wildmidi
+  kit: media-kit
+  original.package.name: media-sound/wildmidi
+  original.package.slot: "0"
+  original.package.version: 0.4.4
