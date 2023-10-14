@@ -4,7 +4,8 @@ steps:
 - >-
   mkdir -p /{{ .Values.name }}/usr/share/opencv4/face/ &&
   luet repo update &&
-  luet i wget tar gzip &&
+  luet i -y wget tar gzip &&
+  luet cleanup &&
   wget https://dev.gentoo.org/~amynka/snap/opencv-3.4.0-face_landmark_model.tar.gz -O /tmp/face.tar.gz &&
   cd /{{ .Values.name }}/usr/share/opencv4/face/ &&
   tar xvzf /tmp/face.tar.gz
