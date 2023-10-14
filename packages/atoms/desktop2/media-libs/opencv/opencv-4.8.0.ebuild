@@ -441,12 +441,6 @@ multilib_src_configure() {
 	)
 
 	cmake-utils_src_configure
-
-	if use contrib; then
-		# Needed for libopenshot
-		mkdir -p "${BUILD_DIR}"/share/OpenCV/testdata/cv/face/ || die
-		cp "${WORKDIR}"/face_landmark_model.dat "${BUILD_DIR}"/share/OpenCV/testdata/cv/face/ || die
-	fi
 }
 
 python_module_compile() {
