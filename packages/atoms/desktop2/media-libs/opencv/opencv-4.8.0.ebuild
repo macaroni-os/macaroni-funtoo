@@ -410,8 +410,10 @@ multilib_src_configure() {
 	# OpenCV Contrib Modules
 	# ===================================================
 	if use contrib; then
+		TINY_DNN_PV="1.0.0a3"
 		GLOBALCMAKEARGS+=(
 			-DBUILD_opencv_dnn=ON
+			-DTINYDNN_ROOT="${WORKDIR}/tiny-dnn-${TINY_DNN_PV}"
 			-DBUILD_opencv_dnns_easily_fooled=OFF
 			-DBUILD_opencv_cvv=$(usex qt5 ON OFF)
 			-DBUILD_opencv_sfm=$(usex contrib ON OFF)
