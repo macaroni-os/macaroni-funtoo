@@ -1,5 +1,4 @@
 prelude:
-# Temporary
 - >-
   cp libopenshot-0.2.7-r1.ebuild /var/git/extra-kits/geaaru-kit/media-libs/libopenshot/
 - |-
@@ -27,6 +26,9 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: cppzmq
+- name: libopenshot-audio
   version: '>=0'
-  category: net-libs
+  category: media-libs
+- name: libopenshot-audio
+  version: '>=0'
+  category: media-libs
