@@ -1,0 +1,37 @@
+name: movit
+version: 1.6.2
+category: media-video
+requires:
+- name: eigen
+  version: '>=0'
+  category: dev-cpp-3
+- name: libepoxy
+  version: '>=0'
+  category: media-libs
+- name: libsdl2
+  version: '>=0'
+  category: media-libs
+- name: fftw
+  version: '>=0'
+  category: sci-libs-3.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Modern Video Toolkit
+uri:
+- https://movit.sesse.net/
+license: GPL-2+
+labels:
+  DEPEND: media-libs/mesa[X(+)] >=dev-cpp/eigen-3.2.0:3 media-libs/libepoxy >=sci-libs/fftw-3
+    media-libs/libsdl2 app-arch/unzip
+  RDEPEND: media-libs/mesa[X(+)] >=dev-cpp/eigen-3.2.0:3 media-libs/libepoxy >=sci-libs/fftw-3
+    media-libs/libsdl2
+  emerge.packages: media-video/movit
+  kit: media-kit
+  original.package.name: media-video/movit
+  original.package.slot: "0"
+  original.package.version: 1.6.2
