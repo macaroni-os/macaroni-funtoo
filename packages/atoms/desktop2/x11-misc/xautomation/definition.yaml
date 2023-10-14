@@ -1,0 +1,33 @@
+name: xautomation
+version: "1.09"
+category: x11-misc
+requires:
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Control X from command line and find things on screen
+uri:
+- https://hoopajoo.net/projects/xautomation.html
+license: GPL-2
+labels:
+  DEPEND: '>=media-libs/libpng-1.2:0 x11-libs/libX11 x11-libs/libXi x11-libs/libXtst
+    x11-base/xorg-proto'
+  RDEPEND: '>=media-libs/libpng-1.2:0 x11-libs/libX11 x11-libs/libXi x11-libs/libXtst'
+  emerge.packages: x11-misc/xautomation
+  kit: desktop-kit
+  original.package.name: x11-misc/xautomation
+  original.package.slot: "0"
+  original.package.version: 1.09-r1
