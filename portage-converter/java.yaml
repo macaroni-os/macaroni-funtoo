@@ -187,20 +187,18 @@ artefacts:
   packages:
     - virtual/jre:17
 
-#
-#- tree: packages/atoms/java
-#  mutations:
-#    buildtime_deps:
-#      packages:
-#        - category: virtual-1.8
-#          name: jdk
-#  uses:
-#    disabled:
-#      - static-libs
-#      - source
-#  packages:
-#    - dev-java/ant-core:0
-
+- tree: packages/atoms/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: virtual-17
+          name: jdk
+  uses:
+    disabled:
+      - static-libs
+      - source
+  packages:
+    - dev-java/ant-core:0
 
 - tree: packages/atoms/java
   replacements:
