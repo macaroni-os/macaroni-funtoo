@@ -1,86 +1,33 @@
 funtoo-stage:
 
   kits:
-
-    browser-kit:
-      specs:
-        - base-modified.yaml
-        - base.yaml
-
-    core-hw-kit:
-      specs:
-        - base-modified.yaml
-        - base.yaml
-
     core-kit:
       specs:
-        - base-modified.yaml
-        - base-extra.yaml
         - base.yaml
+        - base-custom.yaml
 
     core-server-kit:
       specs:
-        - base-modified.yaml
-        - base.yaml
-
-    desktop-kit:
-      specs:
-        - base-modified.yaml
-        - base.yaml
-
-    dev-kit:
-      specs:
-        - base-modified.yaml
-        - base.yaml
-
-    editors-kit:
-      specs:
-        - base-modified.yaml
         - base.yaml
 
     gnome-kit:
       specs:
-        - base-modified.yaml
-        - base.yaml
-
-    lang-kit:
-      specs:
-        - base-modified.yaml
-        - base.yaml
-
-    nokit:
-      specs:
-        - base-modified.yaml
         - base.yaml
 
     perl-kit:
       specs:
-        - base-modified.yaml
         - base.yaml
 
     python-kit:
       specs:
-        - base-modified.yaml
         - base.yaml
 
     python-modules-kit:
       specs:
-        - base-modified.yaml
         - base.yaml
 
     security-kit:
       specs:
-        - base-modified.yaml
-        - base.yaml
-
-    text-kit:
-      specs:
-        - base-modified.yaml
-        - base.yaml
-
-    kde-kit:
-      specs:
-        - base-modified.yaml
         - base.yaml
 
 # grep "kit:" packages/atoms/media-gfx/* -r | awk '{ print $3 }' | sort | uniq
@@ -88,356 +35,655 @@ extra-pkgs:
   kits:
     browser-kit:
       specs:
-        - browsers-extra.yaml
+        - base-xorg2.yml
+        - base-gtk.yml
 
     dev-kit:
       specs:
-        - dev-extra.yaml
-        - emulation-extra.yaml
-        - php-extra.yaml
-        - office.yaml
-        - office-extra.yaml
+        - base-extra.yaml
+        - base-tools.yml
+        - base-tools2.yml
+        - base-xorg.yml
+        - fonts.yml
+        - base-gtk2.yml
+        - base-editors.yml
+        - xorg-base.yml
+        - base-net.yml
+        - base-lang.yml
+        - db.yaml
+        - base-video.yaml
+        - base-multimedia.yaml
+        - base-text.yaml
+        - shells.yaml
+        - base-qt2.yaml
+        - base-gnome.yaml
+        - portage-tools.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - base-gnome4.yaml
+        - base-kde.yaml
+        - tools.yaml
+        - gnome-extra.yaml
+        - python-extra.yaml
         - emulation.yaml
-        - media-gfx.yaml
-        - server.yaml
-        - xorg-extra.yaml
-        - automation-extra.yaml
-        - web-extra.yaml
-        - enlightenment-extra.yaml
+        - base-multimedia4.yaml
         - lxqt.yaml
+        - xfce.yaml
+        - base-kde3.yaml
         - i3.yaml
+        - desktop.yaml
+        - devtools.yaml
+        - base-text2.yaml
+        - e17.yaml
+        - office.yaml
+        - emulation2.yaml
+        - server.yaml
+        - x11-misc2.yaml
+        - desktop2.yaml
 
     core-gl-kit:
       specs:
-        - media-gfx.yaml
-        - xorg-extra.yaml
-        - i3.yaml
+        - base-tools2.yml
+        - base-xorg.yml
+        - base-xorg2.yml
+        - fonts.yml
+        - base-gtk.yml
+        - base-gtk2.yml
+        - xorg-base.yml
+        - base-fs.yml
+        - base-video.yaml
+        - base-multimedia.yaml
+        - base-multimedia2.yaml
+        - base-gnome.yaml
+        - base-gnome2.yaml
+        - nvidia.yaml
+        - base-gnome4.yaml
+        - x11-misc.yaml
+        - base-kde3.yaml
+        - emulation2.yaml
+        - x11-misc2.yaml
 
     core-hw-kit:
       specs:
-        - dev-extra.yaml
-        - emulation.yaml
-        - calamares.yaml
-        - xfce-extra.yaml
-        - enlightenment-extra.yaml
-        - i3.yaml
+        - base-extra.yaml
+        - base-gnome2.yaml
+        - nvidia.yaml
+        - base-multimedia3.yaml
+        - tools.yaml
+        - firmware.yaml
 
     core-kit:
       specs:
-        - dev-extra.yaml
-        - emulation-extra.yaml
-        - net-extra.yaml
-        - php-extra.yaml
-        - java.yaml
+        - base-extra.yaml
+        - base-python.yml
+        - base-tools.yml
+        - base-tools2.yml
+        - base-xorg.yml
+        - base-xorg2.yml
+        - fonts.yml
+        - base-gtk.yml
+        - base-gtk2.yml
+        - base-editors.yml
+        - xorg-base.yml
+        - base-net.yml
+        - base-lang.yml
+        - base-fs.yml
+        - db.yaml
+        - base-audio.yaml
+        - base-video.yaml
+        - base-multimedia.yaml
+        - base-text.yaml
+        - base-multimedia2.yaml
         - boot.yaml
-        - office.yaml
+        - shells.yaml
+        - base-qt2.yaml
+        - base-gnome.yaml
+        - base-gnome2.yaml
+        - portage-tools.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - nvidia.yaml
+        - base-multimedia3.yaml
+        - base-gnome4.yaml
+        - tools.yaml
+        - python-extra.yaml
+        - java.yaml
         - emulation.yaml
-        - media-gfx.yaml
-        - server.yaml
-        - xorg-extra.yaml
-        - calamares.yaml
-        - tools-extra.yaml
-        - web-extra.yaml
-        - xfce-extra.yaml
-        - audio-extra.yaml
-        - release.yaml
         - lxqt.yaml
+        - funtoo.yaml
+        - desktop.yaml
+        - base-kde4.yaml
+        - emulation2.yaml
+        - server.yaml
+        - desktop2.yaml
 
     core-server-kit:
       specs:
-        - dev-extra.yaml
-        - php-extra.yaml
+        - base-net.yml
+        - db.yaml
+        - base-gnome.yaml
+        - base-gnome2.yaml
+        - base-net2.yaml
+        - tools.yaml
+        - gnome-extra.yaml
+        - telemetry.yaml
         - python-extra.yaml
-        - media-gfx.yaml
         - server.yaml
-        - telemetry-extra.yaml
-        - web-extra.yaml
-        - php-dev-extra.yaml
 
     desktop-kit:
       specs:
-        - dev-extra.yaml
-        - desktop-extra.yaml
-        - office.yaml
-        - xorg-extra.yaml
-        - xfce-extra.yaml
-        - audio-extra.yaml
-        - enlightenment-extra.yaml
+        - base-xorg.yml
+        - base-gtk.yml
+        - base-gtk2.yml
+        - xorg-base.yml
+        - base-gnome2.yaml
+        - base-gnome3.yaml
+        - base-multimedia3.yaml
+        - base-gnome4.yaml
+        - gnome-extra.yaml
+        - x11-misc.yaml
+        - python-extra.yaml
         - lxqt.yaml
         - i3.yaml
+        - desktop.yaml
+        - base-text2.yaml
+        - e17.yaml
+        - office.yaml
+        - x11-misc2.yaml
+        - desktop2.yaml
 
     java-kit:
       specs:
-        - dev-extra.yaml
         - java.yaml
 
     kde-kit:
       specs:
-        - dev-extra.yaml
-        - media-extra.yaml
-        - calamares.yaml
+        - base-kde.yaml
+        - base-kde2.yaml
         - lxqt.yaml
+        - base-kde3.yaml
+        - base-kde4.yaml
 
     media-kit:
       specs:
-        - dev-extra.yaml
-        - media-extra.yaml
-        - boot.yaml
-        - office.yaml
+        - base-xorg.yml
+        - base-xorg2.yml
+        - fonts.yml
+        - base-gtk.yml
+        - base-gtk2.yml
+        - xorg-base.yml
+        - base-fs.yml
+        - qt.yaml
+        - base-audio.yaml
+        - base-video.yaml
+        - base-multimedia.yaml
+        - base-latex.yaml
+        - base-multimedia2.yaml
+        - base-qt2.yaml
+        - base-gnome.yaml
+        - base-gnome2.yaml
+        - base-gnome3.yaml
+        - base-multimedia3.yaml
+        - base-gnome4.yaml
+        - tools.yaml
         - emulation.yaml
-        - media-gfx.yaml
-        - automation-extra.yaml
-        - xfce-extra.yaml
-        - enlightenment-extra.yaml
+        - base-multimedia4.yaml
+        - xfce.yaml
+        - base-kde3.yaml
         - i3.yaml
+        - desktop.yaml
+        - base-text2.yaml
+        - e17.yaml
+        - base-kde4.yaml
+        - office.yaml
+        - desktop2.yaml
+
 
     net-kit:
       specs:
-        - dev-extra.yaml
-        - net-extra.yaml
-        - php-extra.yaml
-        - java.yaml
+        - base-tools.yml
+        - base-tools2.yml
+        - base-gtk.yml
+        - base-net.yml
+        - base-fs.yml
+        - db.yaml
+        - qt.yaml
+        - base-audio.yaml
+        - base-video.yaml
+        - base-multimedia.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - base-multimedia3.yaml
+        - base-gnome4.yaml
+        - tools.yaml
+        - firmware.yaml
+        - telemetry.yaml
+        - x11-misc.yaml
+        - python-extra.yaml
         - emulation.yaml
-        - media-gfx.yaml
+        - desktop.yaml
+        - emulation2.yaml
         - server.yaml
-        - xorg-extra.yaml
-        - calamares.yaml
-        - gnome-extra.yaml
-        - telemetry-extra.yaml
-        - web-extra.yaml
-        - security-extra.yaml
+        - desktop2.yaml
 
     python-modules-kit:
       specs:
-        - dev-extra.yaml
-        - emulation-extra.yaml
+        - base-extra.yaml
+        - base-python.yml
+        - base-xorg.yml
+        - base-gtk2.yml
+        - base-net.yml
+        - base-fs.yml
+        - db.yaml
+        - base-multimedia.yaml
+        - base-gnome.yaml
+        - base-gnome2.yaml
+        - portage-tools.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - base-gnome4.yaml
         - python-extra.yaml
-        - media-gfx.yaml
+        - desktop.yaml
+        - e17.yaml
+        - emulation2.yaml
         - server.yaml
-        - xorg-extra.yaml
-        - automation-extra.yaml
-        - audio-extra.yaml
-        - enlightenment-extra.yaml
+
 
     text-kit:
       specs:
-        - dev-extra.yaml
-        - php-extra.yaml
-        - office.yaml
-        - media-gfx.yaml
-        - i3.yaml
+        - base-tools.yml
+        - base-xorg2.yml
+        - base-gtk.yml
+        - base-gtk2.yml
+        - xorg-base.yml
+        - base-net.yml
+        - qt.yaml
+        - base-multimedia.yaml
+        - base-text.yaml
+        - base-latex.yaml
+        - base-multimedia2.yaml
+        - boot.yaml
+        - base-qt2.yaml
+        - base-gnome.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - base-gnome4.yaml
+        - base-latex2.yaml
+        - gnome-extra.yaml
+        - python-extra.yaml
+        - base-kde3.yaml
+        - desktop.yaml
+        - base-text2.yaml
 
     xfce-kit:
       specs:
-        - dev-extra.yaml
+        - xfce.yaml
 
     gnome-kit:
       specs:
+        - base-tools.yml
+        - base-xorg.yml
+        - base-xorg2.yml
+        - base-gtk.yml
+        - base-gtk2.yml
+        - xorg-base.yml
+        - base-net.yml
+        - base-fs.yml
+        - qt.yaml
+        - base-multimedia.yaml
+        - base-multimedia2.yaml
+        - base-gnome.yaml
+        - base-gnome2.yaml
+        - base-gnome3.yaml
+        - base-gnome4.yaml
         - gnome-extra.yaml
-        - office.yaml
-        - media-gfx.yaml
-        - xorg-extra.yaml
-        - xfce-extra.yaml
+        - gnome-games.yaml
+        - base-multimedia4.yaml
+        - desktop.yaml
+        - desktop2.yaml
+
 
     qt-kit:
       specs:
-        - net-extra.yaml
-        - media-gfx.yaml
-        - calamares.yaml
-        - lxqt.yaml
-
-    nokit:
-      specs:
-        - net-extra.yaml
-        - emulation.yaml
-        - xorg-extra.yaml
-        - tools-extra.yaml
-        - audio-extra.yaml
+        - base-qt2.yaml
+        - python-extra.yaml
 
     geaaru-kit:
       specs:
+        - xorg-base.yml
+        - base-lang.yml
+        - base-fs.yml
+        - qt.yaml
+        - base-gnome.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - tools.yaml
+        - firmware.yaml
+        - gnome-extra.yaml
+        - base-kde2.yaml
+        - python-extra.yaml
         - java.yaml
         - emulation.yaml
-        - media-gfx.yaml
-        - automation-extra.yaml
+        - base-multimedia4.yaml
+        - desktop.yaml
+        - base-kde4.yaml
+        - emulation2.yaml
+        - desktop2.yaml
 
     science-kit:
       specs:
+        - base-audio.yaml
+        - base-multimedia2.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - base-gnome4.yaml
+        - python-extra.yaml
+        - base-kde3.yaml
+        - base-kde4.yaml
         - office.yaml
-        - media-gfx.yaml
+        - desktop2.yaml
 
     security-kit:
       specs:
-        - office.yaml
+        - base-extra.yaml
+        - base-net.yml
+        - boot.yaml
+        - base-gnome.yaml
+        - tools.yaml
         - emulation.yaml
-        - server.yaml
-        - php-extra.yaml
-        - security-extra.yaml
 
     lang-kit:
       specs:
+        - base-extra.yaml
+        - base-python.yml
+        - base-gtk.yml
+        - base-lang.yml
+        - base-audio.yaml
+        - base-multimedia2.yaml
+        - base-gnome.yaml
         - emulation.yaml
-        - php-extra.yaml
 
     perl-kit:
       specs:
-        - server.yaml
+        - base-extra.yaml
+        - base-tools.yml
+        - base-gtk.yml
+        - base-net.yml
+        - db.yaml
+        - base-text.yaml
+        - base-latex.yaml
+        - base-gnome.yaml
+        - portage-tools.yaml
+        - base-gnome3.yaml
+        - base-net2.yaml
+        - base-gnome4.yaml
         - i3.yaml
+        - emulation2.yaml
 
     editors-kit:
       specs:
-        - xorg-extra.yaml
+        - base-tools.yml
+        - base-editors.yml
+        - gnome-extra.yaml
+        - x11-misc.yaml
+        - devtools.yaml
 
     llvm-kit:
       specs:
-        - xorg-extra.yaml
-
-    xfce-kit:
-      specs:
-        - xfce-extra.yaml
+        - base-xorg.yml
 
     ruby-kit:
       specs:
-        - i3.yaml
+        - base-lang.yml
+
+    lisp-scheme-kit:
+      specs:
+        - base-tools2.yml
+
+    games-kit:
+      specs:
+        - gnome-games.yaml
+
+    mate-kit:
+      specs:
+        - x11-misc2.yaml
 
 seeds:
   - name: macaroni-funtoo-base
     prefix: packages/atoms
     specs:
-      - file: boot.yaml
-        dir: boot
-
-      - file: release.yaml
-        dir: release
+      - file: base-extra.yaml
+        dir: base-extra
 
   - name: macaroni-funtoo-race1
     prefix: packages/atoms
     specs:
-      - file: java.yaml
-        dir: java
+      - file: base-python.yml
+        dir: base-python
 
-  - name: macaroni-funtoo-office
+  - name: macaroni-funtoo-race2
     prefix: packages/atoms
     specs:
+      - file: base-tools.yml
+        dir: base-tools
 
-      - file: office.yaml
-        dir: office
+  - name: macaroni-funtoo-race3
+    prefix: packages/atoms
+    specs:
+      - file: base-tools2.yml
+        dir: base-tools2
 
-      - file: office-extra.yaml
-        dir: office
+  - name: macaroni-funtoo-race4
+    prefix: packages/atoms
+    specs:
+      - file: base-xorg.yml
+        dir: base-xorg
+
+  - name: macaroni-funtoo-race5
+    prefix: packages/atoms
+    specs:
+      - file: base-xorg2.yml
+        dir: base-xorg2
+
+      - file: fonts.yml
+        dir: fonts
+
+  - name: macaroni-funtoo-race6
+    prefix: packages/atoms
+    specs:
+      - file: base-gtk.yml
+        dir: base-gtk
+
+  - name: macaroni-funtoo-race7
+    prefix: packages/atoms
+    specs:
+      - file: base-gtk2.yml
+        dir: base-gtk2
+      - file: base-editors.yml
+        dir: base-editors
+
+  - name: macaroni-funtoo-race8
+    prefix: packages/atoms
+    specs:
+      - file: xorg-base.yml
+        dir: xorg-base
+
+      - file: base-net.yml
+        dir: base-net
+
+      - file: base-lang.yml
+        dir: base-lang
+
+      - file: base-fs.yml
+        dir: base-fs
+
+  - name: macaroni-funtoo-race9
+    prefix: packages/atoms
+    specs:
+      - file: db.yaml
+        dir: db
+
+      - file: qt.yaml
+        dir: base-qt
+
+      - file: base-audio.yaml
+        dir: base-audio
+
+      - file: base-video.yaml
+        dir: base-video
+
+  - name: macaroni-funtoo-race10
+    prefix: packages/atoms
+    specs:
+      - file: base-multimedia.yaml
+        dir: base-multimedia
+
+      - file: base-text.yaml
+        dir: base-text
+
+  - name: macaroni-funtoo-race11
+    prefix: packages/atoms
+    specs:
+      - file: base-latex.yaml
+        dir: base-latex
+
+      - file: base-multimedia2.yaml
+        dir: base-multimedia2
+
+      - file: boot.yaml
+        dir: boot
+
+      - file: shells.yaml
+        dir: shells
+
+  - name: macaroni-funtoo-race12
+    prefix: packages/atoms
+    specs:
+      - file: base-qt2.yaml
+        dir: base-qt2
+
+      - file: base-gnome.yaml
+        dir: base-gnome
+
+  - name: macaroni-funtoo-race13
+    prefix: packages/atoms
+    specs:
+      - file: base-gnome2.yaml
+        dir: base-gnome2
+
+      - file: portage-tools.yaml
+        dir: portage-tools
+
+  - name: macaroni-funtoo-race14
+    prefix: packages/atoms
+    specs:
+      - file: base-gnome3.yaml
+        dir: base-gnome3
+
+      - file: base-net2.yaml
+        dir: base-net2
+
+      - file: nvidia.yaml
+        dir: nvidia
+
+      - file: base-multimedia3.yaml
+        dir: base-multimedia3
+
+  - name: macaroni-funtoo-race15
+    prefix: packages/atoms
+    specs:
+      - file: base-gnome4.yaml
+        dir: base-gnome4
+
+      - file: base-kde.yaml
+        dir: base-kde
+
+      - file: tools.yaml
+        dir: tools
+
+      - file: base-latex2.yaml
+        dir: base-latex2
+
+      - file: firmware.yaml
+        dir: firmware
+
+  - name: macaroni-funtoo-race16
+    prefix: packages/atoms
+    specs:
+      - file: gnome-extra.yaml
+        dir: gnome-extra
+
+      - file: telemetry.yaml
+        dir: telemetry
+
+      - file: x11-misc.yaml
+        dir: x11-misc
+
+      - file: base-kde2.yaml
+        dir: base-kde2
+
+      - file: gnome-games.yaml
+        dir: gnome-games
+
+      - file: python-extra.yaml
+        dir: python-extra
+
+      - file: java.yaml
+        dir: java
 
       - file: emulation.yaml
         dir: emulation
 
-  - name: macaroni-funtoo-race2
-    prefix: packages/atoms
-
-    specs:
-      - file: media-gfx.yaml
-        dir: media-gfx
-
-  - name: macaroni-funtoo-race3
-    prefix: packages/atoms
-
-    specs:
-      - file: server.yaml
-        dir: server
-
-      - file: xorg-extra.yaml
-        dir: xorg-extra
-
-  - name: macaroni-funtoo-race4
-    prefix: packages/atoms
-
-    specs:
-      - file: calamares.yaml
-        dir: calamares
-
-  - name: macaroni-funtoo-python
-    prefix: packages/atoms
-
-    specs:
-      - file: python.yaml
-        dir: python
-
-  - name: macaroni-funtoo-geaaru
-    prefix: packages/atoms-extra
-
-    specs:
-      - file: geaaru-extra.yaml
-        dir: geaaru
-
-  - name: macaroni-funtoo-race5
-    prefix: packages/atoms-extra
-
-    specs:
-      - file: dev-extra.yaml
-        dir: dev
-
-      - file: net-extra.yaml
-        dir: net
-
-  - name: macaroni-funtoo-race6
-    prefix: packages/atoms-extra
-
-    specs:
-      - file: emulation-extra.yaml
-        dir: emulation
-
-      - file: desktop-extra.yaml
-        dir: desktop
-
-      - file: gnome-extra.yaml
-        dir: gnome
-
-      - file: media-extra.yaml
-        dir: media
-
-      - file: php-extra.yaml
-        dir: php
-
-      - file: browsers-extra.yaml
-        dir: browsers
-
-      - file: tools-extra.yaml
-        dir: tools
-
-      - file: telemetry-extra.yaml
-        dir: telemetry
-
-  - name: macaroni-funtoo-race7
-    prefix: packages/atoms-extra
-    specs:
-
-      - file: web-extra.yaml
-        dir: web
-
-      - file: automation-extra.yaml
-        dir: automation
-
-      - file: audio-extra.yaml
-        dir: audio
-
-      - file: security-extra.yaml
-        dir: security
-
-      - file: xfce-extra.yaml
-        dir: xfce
-
-      - file: php-dev-extra.yaml
-        dir: php-dev
-
-      - file: printer-extra.yaml
-        dir: printer
-
-  - name: macaroni-funtoo-race8
-    prefix: packages/atoms-extra
-    specs:
-      - file: enlightenment-extra.yaml
-        dir: enlightenment
+      - file: base-multimedia4.yaml
+        dir: base-multimedia4
 
       - file: lxqt.yaml
         dir: lxqt
 
+  - name: macaroni-funtoo-race17
+    prefix: packages/atoms
+    specs:
+      - file: xfce.yaml
+        dir: xfce
+
+      - file: funtoo.yaml
+        dir: funtoo
+
+      - file: base-kde3.yaml
+        dir: base-kde3
+
       - file: i3.yaml
         dir: i3
+
+      - file: desktop.yaml
+        dir: desktop
+
+      - file: devtools.yaml
+        dir: devtools
+
+      - file: base-text2.yaml
+        dir: base-text2
+
+      - file: e17.yaml
+        dir: e17
+
+  - name: macaroni-funtoo-race18
+    prefix: packages/atoms
+    specs:
+      - file: base-kde4.yaml
+        dir: base-kde4
+
+      - file: office.yaml
+        dir: office
+
+      - file: emulation2.yaml
+        dir: emulation2
+
+      - file: server.yaml
+        dir: server
+
+      - file: x11-misc2.yaml
+        dir: x11-misc2
+
+      - file: desktop2.yaml
+        dir: desktop2
