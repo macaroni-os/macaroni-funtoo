@@ -212,6 +212,14 @@ artefacts:
 - tree: packages/atoms/base-fs
   uses:
     disabled:
+      - debug
+    # device-mapper is needed for libvirt
+  packages:
+    - sys-block/parted
+
+- tree: packages/atoms/base-fs
+  uses:
+    disabled:
     - kernel
     - libressl
     - nettle
