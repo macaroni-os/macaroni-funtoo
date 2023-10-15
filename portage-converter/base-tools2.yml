@@ -234,6 +234,21 @@ artefacts:
   packages:
   - dev-libs/libbsd
 
+- tree: packages/atoms/base-tools2
+  packages:
+    - dev-scheme/guile:12
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      # The ccache files must be a date more updated of the scm files.
+      # Without this guile tool is pretty broken.
+      - >-
+        cd /usr/lib64/guile/2.2/ccache/ &&
+        for i in $(find . | grep '.go$' ) ; do touch $i ; done || true
+
+
 include_layers:
 - layers/macaroni-funtoo-race3.yaml
 
