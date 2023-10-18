@@ -1,5 +1,5 @@
 name: json-glib
-version: 1.6.6
+version: 1.8.0
 category: dev-libs
 use_flags:
 - -gtk-doc
@@ -24,14 +24,13 @@ labels:
   BDEPEND: ~app-text/docbook-xml-dtd-4.1.2 app-text/docbook-xsl-stylesheets dev-libs/libxslt
     dev-util/glib-utils gtk-doc? ( >=dev-util/gi-docgen-2021.6 ) >=sys-devel/gettext-0.18
     virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
-  DEPEND: '>=dev-libs/glib-2.54.0:2[-mgorny(-)] introspection? ( >=dev-libs/gobject-introspection-0.9.5:=
+  DEPEND: '>=dev-libs/glib-2.54.0:2 introspection? ( >=dev-libs/gobject-introspection-0.9.5:=
     )'
-  IUSE: gtk-doc +introspection abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: '>=dev-libs/glib-2.54.0:2[-mgorny(-)] introspection? ( >=dev-libs/gobject-introspection-0.9.5:=
+  IUSE: gtk-doc +introspection
+  RDEPEND: '>=dev-libs/glib-2.54.0:2 introspection? ( >=dev-libs/gobject-introspection-0.9.5:=
     )'
   emerge.packages: dev-libs/json-glib
   kit: gnome-kit
   original.package.name: dev-libs/json-glib
   original.package.slot: "0"
-  original.package.version: 1.6.6
+  original.package.version: 1.8.0-r1
