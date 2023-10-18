@@ -175,10 +175,25 @@ artefacts:
   - dev-python/charset_normalizer
   - dev-python/gpep517
   - dev-python/semantic_version
-  - dev-python/setuptools-rust
   - dev-python/tomli
   - dev-python/typing-extensions
 
+
+- tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: typing-extensions
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+  packages:
+  - dev-python/setuptools-rust
 
 - tree: packages/atoms/base-python
   mutations:
