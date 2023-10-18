@@ -1,5 +1,5 @@
 name: zfs
-version: 2.1.12
+version: 2.2.0
 category: sys-fs
 use_flags:
 - -kernel-builtin
@@ -69,7 +69,7 @@ labels:
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
     ) pam? ( sys-libs/pam ) python? ( virtual/python-cffi[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) !kernel-builtin? ( ~sys-fs/zfs-kmod-2.1.12 ) !prefix? ( virtual/udev ) rootfs?
+    ) !kernel-builtin? ( ~sys-fs/zfs-kmod-2.2.0 ) !prefix? ( virtual/udev ) rootfs?
     ( app-arch/cpio app-misc/pax-utils !<sys-kernel/genkernel-3.5.1.1 ) test-suite?
     ( sys-apps/kmod[tools] sys-apps/util-linux sys-devel/bc sys-block/parted sys-fs/lsscsi
     sys-fs/mdadm sys-process/procps )
@@ -77,4 +77,4 @@ labels:
   kit: core-kit
   original.package.name: sys-fs/zfs
   original.package.slot: "0"
-  original.package.version: 2.1.12
+  original.package.version: 2.2.0
