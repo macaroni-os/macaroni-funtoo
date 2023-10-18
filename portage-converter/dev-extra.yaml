@@ -348,13 +348,25 @@ artefacts:
     - dev-python/pyasn1
     - dev-python/pyasn1-modules
     - dev-python/zope-interface
-    - dev-python/httpcore
     - dev-python/curio
     - dev-python/colorama
     - dev-python/pip
     - dev-python/rfc3986
     - dev-python/brotlipy
     - dev-python/h2
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: hatch-fancy-pypi-readme
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/httpcore
 
 - tree: packages/atoms-extra/dev
   mutations:
