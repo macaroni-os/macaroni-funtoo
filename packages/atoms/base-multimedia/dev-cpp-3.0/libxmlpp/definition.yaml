@@ -1,5 +1,5 @@
 name: libxmlpp
-version: 3.0.1
+version: 3.2.4
 category: dev-cpp-3.0
 requires:
 - name: glibmm
@@ -20,14 +20,14 @@ uri:
 - http://libxmlplusplus.sourceforge.net/
 license: LGPL-2.1
 labels:
-  DEPEND: '>=dev-libs/libxml2-2.7.7 >=dev-cpp/glibmm-2.58 >=dev-cpp/mm-common-0.9
-    virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  IUSE: doc
-  RDEPEND: '>=dev-libs/libxml2-2.7.7 >=dev-cpp/glibmm-2.58'
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
+    >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: '>=dev-libs/libxml2-2.7.7 >=dev-cpp/glibmm-2.32.0:2 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: test
+  RDEPEND: '>=dev-libs/libxml2-2.7.7 >=dev-cpp/glibmm-2.32.0:2'
   emerge.packages: dev-cpp/libxmlpp:3.0
-  kit: gnome-kit
+  kit: dev-kit
   original.package.name: dev-cpp/libxmlpp
   original.package.slot: "3.0"
-  original.package.version: 3.0.1-r1
+  original.package.version: 3.2.4
