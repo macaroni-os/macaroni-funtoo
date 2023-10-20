@@ -1,4 +1,8 @@
 prelude:
+# TODO: analyze this behaviour. It seems there is something done by eclass
+# on postinst phase of the qtcore module.
+- >-
+  emerge -j qtcore
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
