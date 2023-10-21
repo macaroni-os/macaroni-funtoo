@@ -433,6 +433,14 @@ artefacts:
       packages:
         - category: macaroni
           name: entities-catalog
+    provides:
+      - category: app-emulation
+        name: docker-proxy
+        version: "24.0.6"
+    conflicts:
+      - category: app-emulation
+        name: docker-proxy
+        version: "<24.0.0"
   uses:
     disabled:
     - apparmor
@@ -835,6 +843,11 @@ artefacts:
     - udev
   packages:
   - sys-fs/cryptsetup
+
+- tree: packages/atoms-extra/server
+  packages:
+    - app-emulation/docker-buildx
+    - app-emulation/docker-compose
 
 include_layers:
 - layers/macaroni-funtoo-race7.yaml
