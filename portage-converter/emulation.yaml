@@ -286,6 +286,14 @@ artefacts:
       packages:
         - category: macaroni
           name: entities-catalog
+    provides:
+      - category: app-emulation
+        name: docker-proxy
+        version: "24.0.6"
+    conflicts:
+      - category: app-emulation
+        name: docker-proxy
+        version: "<24.0.0"
   annotations:
     subsets:
       rules:
