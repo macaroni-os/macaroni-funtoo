@@ -3,6 +3,12 @@ name: emulation
 version: "1"
 description: "Virtual package to install portage meta data of the emulation packages"
 requires:
+  - name: docker-buildx
+    category: app-emulation-2
+    version: '>=0'
+  - name: docker-compose
+    category: app-emulation-2
+    version: '>=0'
   - name: containerd
     category: app-emulation
     version: '>=0'
@@ -10,9 +16,6 @@ requires:
     category: app-emulation
     version: '>=0'
   - name: docker-cli
-    category: app-emulation
-    version: '>=0'
-  - name: docker-proxy
     category: app-emulation
     version: '>=0'
   - name: docker-slim
