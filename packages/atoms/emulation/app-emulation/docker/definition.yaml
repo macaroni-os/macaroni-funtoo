@@ -19,9 +19,6 @@ requires:
 - name: docker-cli
   version: '>=0'
   category: app-emulation
-- name: docker-proxy
-  version: '>=0'
-  category: app-emulation
 - name: sqlite
   version: '>=0'
   category: dev-db-3
@@ -43,6 +40,14 @@ requires:
 - name: entities-catalog
   version: '>=0'
   category: macaroni
+provides:
+- category: app-emulation
+  name: docker-proxy
+  version: "24.0.6"
+conflicts:
+- category: app-emulation
+  name: docker-proxy
+  version: "<24.0.0"
 annotations:
   subsets:
     rules:
