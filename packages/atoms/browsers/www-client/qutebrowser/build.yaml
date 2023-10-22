@@ -1,9 +1,7 @@
 prelude:
-# Temporary until next race
+# Temporary
 - >-
-  luet repo update &&
-  luet i -y dev-python/cssutils dev-python/pypeg2 dev-python/PyQtWebEngine &&
-  luet cleanup
+  cp qutebrowser-3.0.0.ebuild /var/git/meta-repo/kits/browser-kit/www-client/qutebrowser/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
