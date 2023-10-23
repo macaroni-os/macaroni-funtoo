@@ -243,16 +243,16 @@ src_prepare() {
 	sed -e '/ocv_install_3rdparty_licenses/d' \
 		-i cmake/OpenCVDetectOpenCL.cmake || die
 
--	sed -e '/ocv_install_3rdparty_licenses/d' \
--		-e '/ocv_add_external_target/d' \
--		-e '/set(CUSTOM_STATUS_flatbuffers/d' \
--		-e '/flatbuffers_VERSION /d' \
--		-i cmake/OpenCVDetectFlatbuffers.cmake || die
--
--	# Drop flatbuffers version check
--	sed -e 's|FLATBUFFERS_VERSION_MINOR == 5|FLATBUFFERS_VERSION_MINOR == FLATBUFFERS_VERSION_MINOR|g' \
--		-e 's|FLATBUFFERS_VERSION_REVISION == 9|FLATBUFFERS_VERSION_REVISION == FLATBUFFERS_VERSION_REVISION|g' \
--		-i modules/dnn/misc/tflite/schema_generated.h || die
+	sed -e '/ocv_install_3rdparty_licenses/d' \
+		-e '/ocv_add_external_target/d' \
+		-e '/set(CUSTOM_STATUS_flatbuffers/d' \
+		-e '/flatbuffers_VERSION /d' \
+		-i cmake/OpenCVDetectFlatbuffers.cmake || die
+
+	# Drop flatbuffers version check
+	sed -e 's|FLATBUFFERS_VERSION_MINOR == 5|FLATBUFFERS_VERSION_MINOR == FLATBUFFERS_VERSION_MINOR|g' \
+		-e 's|FLATBUFFERS_VERSION_REVISION == 9|FLATBUFFERS_VERSION_REVISION == FLATBUFFERS_VERSION_REVISION|g' \
+		-i modules/dnn/misc/tflite/schema_generated.h || die
 
 	if use examples; then
 		sed -i 's/\(opencv_dnn\)/\1\n  opencv_gapi/' samples/cpp/CMakeLists.txt  || die
