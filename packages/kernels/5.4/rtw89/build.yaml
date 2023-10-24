@@ -10,7 +10,8 @@ prelude:
 # macaroni-lts-full installs modules.order and modules.builtin
 - >-
   luet repo update &&
-  luet i kernel/macaroni-lts-full --finalizer-env "BUILD_ISO=1" &&
+  luet i kernel-5.4/macaroni-full kernel-5.4/macaroni-modules --nodeps --finalizer-env "BUILD_ISO=1" &&
+  luet i git make sys-apps/kmod &&
   luet cleanup
 - >-
   ln -s
