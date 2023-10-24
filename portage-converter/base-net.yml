@@ -1430,6 +1430,15 @@ artefacts:
   - net-wireless/iwd
   #- net-misc/connman
 
+- tree: packages/atoms/base-net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  packages:
+    - dev-libs/oniguruma
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
