@@ -260,38 +260,38 @@ artefacts:
 
 
 
-#- tree: packages/atoms/desktop
-#  mutations:
-#    uses:
-      # Quiet emerge for the app-office/dia[python] package
-#      - -python
-#  uses:
-#    disabled:
-#    - graphicsmagick
-#    - inkjar
-#    - jemalloc
-#    - nios2
-#    - python_single_target_python3_8
-#    - python_single_target_python3_7
-#    - python_targets_python3_8
-#    - python_targets_python3_7
-#    - sh
-#    - spell
-#    - static-libs
-#    - wpg
-#  packages:
-#  - media-gfx/inkscape
-#  finalizer:
-#    shell:
-#      - "/bin/bash"
-#      - "-c"
-#    install:
-#      - >-
-#        source /etc/profile &&
-#        macaronictl env-update &&
-#        whip hook gtk.mime_update_db &&
-#        whip hook gtk.glib_update_schemas &&
-#        whip hook gtk.gtk_update_icons
+- tree: packages/atoms/desktop
+  mutations:
+    uses:
+     # Quiet emerge for the app-office/dia[python] package
+      - -python
+  uses:
+    disabled:
+    - graphicsmagick
+    - inkjar
+    - jemalloc
+    - nios2
+    - python_single_target_python3_8
+    - python_single_target_python3_7
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+    - spell
+    - static-libs
+    - wpg
+  packages:
+  - media-gfx/inkscape
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
 
 - tree: packages/atoms/desktop
   uses:
@@ -412,10 +412,6 @@ artefacts:
   packages:
     - media-gfx/xsane
     - media-gfx/simple-scan
-
-#- tree: packages/atoms/desktop
-#  packages:
-#    - media-gfx/plantuml
 
 - tree: packages/atoms/desktop
   uses:
