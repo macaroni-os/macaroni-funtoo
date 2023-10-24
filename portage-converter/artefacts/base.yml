@@ -1550,8 +1550,23 @@ artefacts:
     - gold
     - nls
     - plugins
+  mutations:
+    provides:
+      - category: sys-devel-2.39
+        name: binutils
+        version: 2.40
+      - category: sys-devel-2.36
+        name: binutils
+        version: 2.40
+    conflicts:
+      - category: sys-devel-2.39
+        name: binutils
+        version: '<2.40'
+      - category: sys-devel-2.36
+        name: binutils
+        version: '<2.40'
   packages:
-  - sys-devel/binutils:2.39
+  - sys-devel/binutils:2.40
 - tree: packages/atoms/base
   uses:
     disabled:
