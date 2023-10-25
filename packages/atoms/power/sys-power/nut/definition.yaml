@@ -1,0 +1,82 @@
+name: nut
+version: 2.8.0
+category: sys-power
+use_flags:
+- -man
+- -selinux
+- -test
+- cgi
+- i2c
+- ipmi
+- modbus
+- snmp
+- ssl
+- tcpd
+- usb
+- xml
+- zeroconf
+requires:
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: libmodbus
+  version: '>=0'
+  category: dev-libs
+- name: gd
+  version: '>=0'
+  category: media-libs-2
+- name: net-snmp
+  version: '>=0'
+  category: net-analyzer
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: neon
+  version: '>=0'
+  category: net-libs
+- name: i2c-tools
+  version: '>=0'
+  category: sys-apps
+- name: freeipmi
+  version: '>=0'
+  category: sys-libs
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Network-UPS Tools
+uri:
+- https://networkupstools.org/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig man? ( app-text/asciidoc ) test? ( dev-util/cppunit )
+    virtual/pkgconfig virtual/pkgconfig
+  DEPEND: acct-group/nut acct-user/nut dev-libs/libltdl virtual/udev cgi? ( >=media-libs/gd-2[png]
+    ) i2c? ( sys-apps/i2c-tools ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus
+    ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers
+    ) usb? ( virtual/libusb:1 ) xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi
+    )
+  IUSE: cgi doc ipmi serial i2c +man snmp +usb modbus selinux split-usr ssl tcpd test
+    xml zeroconf kernel_linux
+  RDEPEND: acct-group/nut acct-user/nut dev-libs/libltdl virtual/udev cgi? ( >=media-libs/gd-2[png]
+    ) i2c? ( sys-apps/i2c-tools ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus
+    ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers
+    ) usb? ( virtual/libusb:1 ) xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi
+    ) selinux? ( sec-policy/selinux-nut ) virtual/tmpfiles
+  emerge.packages: sys-power/nut
+  kit: geaaru-kit
+  original.package.name: sys-power/nut
+  original.package.slot: "0"
+  original.package.version: 2.8.0-r2
