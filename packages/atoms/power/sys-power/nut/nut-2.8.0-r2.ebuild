@@ -3,7 +3,7 @@
 EAPI=7
 
 inherit bash-completion-r1 flag-o-matic linux-info optfeature systemd
-inherit tmpfiles toolchain-funcs udev users
+inherit tmpfiles toolchain-funcs udev user
 
 MY_P=${P/_/-}
 
@@ -56,8 +56,6 @@ PATCHES=(
 pkg_setup() {
 	enewgroup nut
 	enewuser nut -1 -1 /var/lib/nut nut
-
-	default
 }
 
 pkg_pretend() {
