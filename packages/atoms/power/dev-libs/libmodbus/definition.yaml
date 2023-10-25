@@ -1,0 +1,25 @@
+name: libmodbus
+version: 3.1.4
+category: dev-libs
+use_flags:
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Modbus library which supports RTU communication over a serial line or
+  a TCP link
+uri:
+- https://libmodbus.org/
+license: LGPL-3
+labels:
+  DEPEND: doc? ( app-text/asciidoc app-text/xmlto )
+  IUSE: static-libs test doc
+  emerge.packages: dev-libs/libmodbus
+  kit: geaaru-kit
+  original.package.name: dev-libs/libmodbus
+  original.package.slot: "0"
+  original.package.version: 3.1.4
