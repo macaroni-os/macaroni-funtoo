@@ -1,0 +1,30 @@
+name: freeipmi
+version: 1.6.3
+category: sys-libs
+use_flags:
+- -nagios
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Provides Remote-Console and System Management Software as per IPMI v1.5/2.0
+uri:
+- https://www.gnu.org/software/freeipmi/
+license: GPL-3
+labels:
+  DEPEND: dev-libs/libgcrypt:0= virtual/os-headers
+  IUSE: debug nagios
+  RDEPEND: dev-libs/libgcrypt:0= nagios? ( || ( net-analyzer/icinga net-analyzer/nagios
+    ) dev-lang/perl )
+  emerge.packages: sys-libs/freeipmi
+  kit: core-kit
+  original.package.name: sys-libs/freeipmi
+  original.package.slot: "0"
+  original.package.version: 1.6.3
