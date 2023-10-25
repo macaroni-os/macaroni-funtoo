@@ -1,0 +1,60 @@
+name: apcupsd
+version: 3.14.14
+category: sys-power
+use_flags:
+- cgi
+- gnome
+- modbus
+- snmp
+- usb
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gconf
+  version: '>=0'
+  category: gnome-base-2
+- name: gd
+  version: '>=0'
+  category: media-libs-2
+- name: net-snmp
+  version: '>=0'
+  category: net-analyzer
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: mailx
+  version: '>=0'
+  category: virtual
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: APC UPS daemon with integrated tcp/ip remote shutdown
+uri:
+- http://www.apcupsd.org/
+license: GPL-2
+labels:
+  DEPEND: '|| ( >=sys-apps/util-linux-2.23[tty-helpers(-)] sys-freebsd/freebsd-ubin
+    ) modbus? ( usb? ( virtual/libusb:0 ) ) cgi? ( >=media-libs/gd-1.8.4 ) snmp? (
+    >=net-analyzer/net-snmp-5.7.2 ) gnome? ( >=x11-libs/gtk+-2.4.0:2 dev-libs/glib:2
+    >=gnome-base/gconf-2.0 ) virtual/pkgconfig virtual/pkgconfig'
+  IUSE: snmp +usb +modbus cgi gnome kernel_linux kernel_linux
+  RDEPEND: '|| ( >=sys-apps/util-linux-2.23[tty-helpers(-)] sys-freebsd/freebsd-ubin
+    ) modbus? ( usb? ( virtual/libusb:0 ) ) cgi? ( >=media-libs/gd-1.8.4 ) snmp? (
+    >=net-analyzer/net-snmp-5.7.2 ) gnome? ( >=x11-libs/gtk+-2.4.0:2 dev-libs/glib:2
+    >=gnome-base/gconf-2.0 ) virtual/mailx'
+  emerge.packages: sys-power/apcupsd
+  kit: core-hw-kit
+  original.package.name: sys-power/apcupsd
+  original.package.slot: "0"
+  original.package.version: 3.14.14-r2
