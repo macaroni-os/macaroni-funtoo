@@ -9,8 +9,7 @@ install:
 - if [ ! -e /etc/portage/ ] ; then mkdir /etc/portage ; fi
 - >-
   if [ ! -e /etc/portage/make.conf ] ; then
-  export ARCH={{ ( index .Values.labels "gcc_arch" ) }} ;
-  echo "CHOST=\"${ARCH}-pc-linux-gnu\"" > /etc/portage/make.conf ;
+  echo 'CHOST="{{ ( index .Values.labels "gcc_arch" ) }}-pc-linux-gnu"' > /etc/portage/make.conf ;
   fi
 - if [ ! -e /etc/modules-load.d ] ; then mkdir /etc/modules-load.d ; fi
 # Move this to whip soon.
