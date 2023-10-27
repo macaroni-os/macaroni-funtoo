@@ -1,4 +1,10 @@
 prelude:
+# Temporary
+- >-
+  cp dracut-059.ebuild /var/git/meta-repo/kits/core-kit/sys-kernel/dracut/ &&
+  cd /var/git/meta-repo/kits/core-kit/sys-kernel/dracut/ &&
+  ebuild dracut-059.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
