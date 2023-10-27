@@ -93,31 +93,88 @@ global_annotations:
 
 artefacts:
 
-- tree: packages/atoms/devtools
+- tree: packages/atoms/ide
+  uses:
+    disabled:
+      - sasl
+  packages:
+    - app-editors/vscode-bin
+    - app-editors/vscodium-bin
+    - dev-util/webstorm
+    - dev-util/phpstorm
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+
+- tree: packages/atoms/ide
+  uses:
+    disabled:
+      - system-java
+      - prefix
+  packages:
+    - dev-util/pycharm-community
+    - dev-util/pycharm-professional
+    - dev-util/goland
+    - dev-util/idea-community
+    - dev-util/idea-ultimate
+    - dev-util/jetbrains-toolbox
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+
+
+- tree: packages/atoms/ide
   mutations:
     buildtime_deps:
       packages:
         - name: macaroni-funtoo-race17
           category: seed
   packages:
-    - dev-util/eclipse-sdk-bin:2023.06
+    - dev-util/clion
+    - dev-util/vpuml
+    - dev-util/vpumlce
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
 
-#- tree: packages/atoms/dev
-#  packages:
-#    - app-editors/kakoune
-
-- tree: packages/atoms/devtools
+- tree: packages/atoms/ide
   packages:
-    - dev-util/github-cli
-    - dev-util/jenkins-bin
-    - dev-util/jenkins-lts-bin
-    - dev-util/just
-    - dev-util/mongodb-compass
-    #- dev-util/radare2
-    - dev-embedded/arduino-bin
-    - dev-util/smem
-    - dev-util/gitlab-runner-bin
-
+    - dev-util/datagrip
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
 
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
