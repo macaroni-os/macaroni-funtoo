@@ -1,4 +1,41 @@
+image: macaronios/phoenix-dev-minimal-devel:latest-amd64
 prelude:
+- >-
+  luet repo update &&
+  luet install -y --force
+  system/luet-devkit
+  utils/jq
+  utils/yq
+  dev-util/pkgs-checker-minimal
+  app-admin/macaronictl
+  pinentry make git
+  toolchain/base
+  toolchain/meta-repo
+  toolchain/meta-geaaru-kit
+  system/entities
+  app-admin/whip
+  whip-profiles/macaroni
+  macaroni/whip-catalog
+  macaroni/entities-catalog
+  qtgui
+  qtdbus
+  qtcore
+  qtprintsupport
+  gcr
+  vala
+  libsecret
+  efl
+  eselect-pinentry
+  gcc-config &&
+  luet miner ri virtual/base &&
+  mkdir /tmp/ && chmod a+rwx /tmp &&
+  eselect gcc set 1 &&
+  eval 'rm /etc/localtime || true' &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  macaronictl env-update &&
+  eval 'locale-gen || true' &&
+  luet cleanup --purge-repos
+steps:
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -19,9 +56,15 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 includes:
-  {{ .Values.includes }}
-requires:
-# TODO: move this to race with efl to reduce compilation tasks.
-- name: macaroni-funtoo-race14
-  version: '>=0'
-  category: seed
+- /usr$
+- /usr/bin$
+{{ if eq .Values.name "pinentry-qt" }}
+- /usr/bin/pinentry-qt5
+- /usr/bin/pinentry-qt
+{{ end }}
+{{ if eq .Values.name "pinentry-gnome" }}
+- /usr/bin/pinentry-gnome3
+{{ end }}
+{{ if eq .Values.name "pinentry-efl" }}
+- /usr/bin/pinentry-efl
+{{ end }}
