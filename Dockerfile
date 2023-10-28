@@ -21,7 +21,7 @@ RUN system/luet-geaaru-thin
 RUN sys-apps/shadow
 RUN sys-apps/sed
 RUN app-shells/bash
-RUN sys-devel-9.2.0/gcc
+RUN gcc
 
 RUN virtual-entities/base
 
