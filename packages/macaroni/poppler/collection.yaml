@@ -1,6 +1,6 @@
 pinentry_pkg: &package
   category: app-text
-  version: 23.10.0
+  version: 23.10.0+1
   uri:
   - https://poppler.freedesktop.org/
   license: GPL-2
@@ -24,9 +24,3 @@ packages:
   - <<: *package
     name: "poppler-qt"
     description: PDF rendering library based on the xpdf-3.0 code base for Qt
-    includes:
-      - ^/usr/include/poppler/qt5/.*
-      - ^/usr/lib64/libpoppler-qt5.so
-      - ^/usr/lib64/libpoppler-qt5.so.*
-      - ^/usr/lib64/pkgconfig/poppler-qt5.pc
-
