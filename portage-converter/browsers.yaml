@@ -120,6 +120,47 @@ artefacts:
     - www-client/firefox-bin
     - www-client/firefox-beta-bin
     - www-client/opera
+
+- tree: packages/atoms/browsers
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: ctl
+  annotations:
+    desktop_browser: true
+    subsets:
+      rules:
+        devel:
+          - "^/usr/include/"
+        portage:
+          - "^/var/db/pkg/"
+  uses:
+    disabled:
+      - static-libs
+      - geckodriver
+    enabled:
+      - pulseaudio
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+      - >-
+        macaronictl browser conf www-client/brave-bin --exec
+        --system --defaults
+    uninstall:
+      - >-
+        macaronictl browser conf www-client/brave-bin --exec
+        --system --purge
+
+  packages:
     - www-client/brave-bin
 
 - tree: packages/atoms/browsers
@@ -167,6 +208,10 @@ artefacts:
       packages:
         - name: macaroni-funtoo-race17
           category: seed
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: ctl
   annotations:
     desktop_browser: true
     subsets:
@@ -186,12 +231,20 @@ artefacts:
         whip hook gtk.mime_update_db &&
         whip hook gtk.glib_update_schemas &&
         whip hook gtk.gtk_update_icons
+      - >-
+        macaronictl browser conf www-client/brave-bin --exec
+        --system --defaults
+    uninstall:
+      - >-
+        macaronictl browser conf www-client/brave-bin --exec
+        --system --purge
 
   packages:
-    - www-client/google-chrome
     - www-client/google-chrome-beta
     - www-client/google-chrome-unstable
+    - www-client/google-chrome
 
+- tree: packages/atoms/browsers
   mutations:
     buildtime_deps:
       packages:
