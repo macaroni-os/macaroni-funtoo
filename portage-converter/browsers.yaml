@@ -153,11 +153,11 @@ artefacts:
         whip hook gtk.glib_update_schemas &&
         whip hook gtk.gtk_update_icons
       - >-
-        macaronictl browser conf www-client/brave-bin --exec
+        HOME=/root macaronictl browser conf www-client/brave-bin --exec
         --system --defaults
     uninstall:
       - >-
-        macaronictl browser conf www-client/brave-bin --exec
+        HOME=/root macaronictl browser conf www-client/brave-bin --exec
         --system --purge
 
   packages:
