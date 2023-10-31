@@ -4,6 +4,8 @@ shell:
 install:
 - source /etc/profile && macaronictl env-update && whip hook gtk.mime_update_db &&
   whip hook gtk.glib_update_schemas && whip hook gtk.gtk_update_icons
-- macaronictl browser conf www-client/brave-bin --exec --system --defaults
+- HOME=/root macaronictl browser conf {{ .Values.category }}/{{ .Values.name }} --exec
+  --system --defaults
 uninstall:
-- macaronictl browser conf www-client/brave-bin --exec --system --purge
+- HOME=/root macaronictl browser conf {{ .Values.category }}/{{ .Values.name }} --exec
+  --system --purge
