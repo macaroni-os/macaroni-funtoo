@@ -19,6 +19,8 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Binary link is replaced by macaronictl script
+- rm /pkgdir/{{ .Values.name}}/usr/bin/brave-bin
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
