@@ -1,6 +1,4 @@
 prelude:
-# Temporary patch to install init.d scripts
-- cp *.ebuild /var/git/meta-repo/kits/net-kit/net-misc/ovn/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
