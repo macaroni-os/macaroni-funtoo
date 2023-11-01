@@ -24,6 +24,8 @@ steps:
   chmod a+rwx /tmp
 - luet install virtual-entities/base --force
 - >-
+  luet repo update &&
+  luet upgrade --force &&
   luet install --force
   system/luet-devkit
   utils/jq
