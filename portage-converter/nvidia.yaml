@@ -104,8 +104,16 @@ artefacts:
 - tree: packages/atoms/nvidia
   packages:
     - dev-util/opencl-headers
-    - dev-libs/ocl-icd
     - sys-power/acpid
+
+- tree: packages/atoms/nvidia
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: dev-util
+          name: opencl-headers
+  packages:
+    - dev-libs/ocl-icd
 
 - tree: packages/atoms/nvidia
   mutations:
