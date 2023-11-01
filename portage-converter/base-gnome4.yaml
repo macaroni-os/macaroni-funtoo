@@ -438,8 +438,21 @@ artefacts:
   packages:
     # to move on base-latex
     - virtual/tex-base
-    - virtual/opencl
     - media-libs/jbigkit
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race15
+    runtime_deps:
+      packages:
+        # Supply libOpenCL.so
+        - category: dev-libs
+          name: ocl-icd
+  packages:
+    - virtual/opencl
 
 - tree: packages/atoms/base-gnome4
   mutations:
