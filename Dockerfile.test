@@ -42,7 +42,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN macaronictl env-update && \
   luet rm -y --nodeps virtual-entities/base && \
-  luet cleanup --purge-repos &&
+  luet cleanup --purge-repos && \
   mkdir /tmp
 
 ENV TMPDIR=/tmp
