@@ -6,14 +6,16 @@
 Funtoo Macaroni Repository Tree
 
 Branches behavior:
-* `master`: branch for Phoenix release (Funtoo 1.4-prime). EOL end 2023.
-
 * `phoenix`: branch for Phoenix Next release (Funtoo Next based).
 
 * `terragon`: related to the `next` release of Funtoo but
   oriented to Container and with openRC.
 
-* `systemd`: branch for Eagle release.
+* `eagle`: branch for Eagle release (Funtoo Next based).
+
+* `master`: branch for Phoenix release (Funtoo 1.4-prime). EOL end 2023.
+
+* `systemd`: branch for Eagle release (Funtoo 1.4-prime). EOL end 2023.
 
 
 ## Generate packages with `luet-portage-converter`
