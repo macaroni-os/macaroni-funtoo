@@ -348,6 +348,11 @@ artefacts:
   - sys-process/tini
 
 - tree: packages/atoms/emulation
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: kernel-5.10
+          name: virtualbox-modules
   mutations:
     runtime_deps:
       packages:
