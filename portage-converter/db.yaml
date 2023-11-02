@@ -218,6 +218,11 @@ artefacts:
         eval 'mkdir -p /var/lib/postgresql || true' &&
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e postgres
+      # Set libpq.so
+      - |
+        if [ ! -e /usr/lib64/libpq.so ] ; then
+        eselect postgresql set {{ ( index .Values.labels "original.package.slot" ) }} ;
+        fi
 
 - tree: packages/atoms/db
   uses:
