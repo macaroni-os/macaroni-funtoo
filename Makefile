@@ -13,9 +13,10 @@ export TREE?=$(ROOT_DIR)/packages
 REPO_CACHE?=quay.io/geaaru/funtoo-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
-REPO_NAME?=macaroni-funtoo-systemd
-REPO_DESC?="Macaroni OS Funtoo Systemd"
-REPO_URL?="https://cdn.macaroni.funtoo.org/mottainai/macaroni-funtoo-systemd/"
+GENIDX_ARGS?=--only-upper-level --compress=false
+REPO_NAME?=macaroni-eagle
+REPO_DESC?="Macaroni OS Eagle"
+REPO_URL?="https://dl.macaronios.org/repos/macaroni-funtoo-systemd/"
 
 SUDO?=
 VALIDATE_OPTIONS?=
@@ -55,8 +56,12 @@ rebuild:
 rebuild-all:
 	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
+.PHONY: genidx
+genidx:
+	$(SUDO) $(LUET) tree genidx $(GENIDX_ARGS) --tree=$(TREE)
+
 .PHONY: create-repo
-create-repo:
+create-repo: genidx
 	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
@@ -64,8 +69,8 @@ create-repo:
     --descr "$(REPO_DESC) $(ARCH)" \
     --urls "$(REPO_URL)" \
     --tree-compression $(COMPRESSION) \
-    --tree-filename tree.tar \
-    --meta-compression $(COMPRESSION) \
+    --tree-filename tree.tar.zst \
+    --with-compilertree \
     --type http
 
 .PHONY: serve-repo
