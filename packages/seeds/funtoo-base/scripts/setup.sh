@@ -3,7 +3,7 @@
 
 set -x
 
-GCC_VERSION=9.2.0
+GCC_VERSION=11.3.0
 EROOT=${EROOT:-/}
 
 create_gcc_ldconfig() {
