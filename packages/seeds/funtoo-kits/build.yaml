@@ -1,0 +1,54 @@
+requires:
+  - name: funtoo-stage3
+    category: "seed"
+    version: ">=0"
+env:
+- JOBS=10
+- GIT_HISTORY_ENTRIES=10000
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+- LUET_YES=true
+- LUET_NOLOCK=true
+prelude:
+- >-
+  mv kits-versions / &&
+  curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh &&
+  luet install --sync-repos
+  dev-util/pkgs-checker-minimal utils/yq utils/jq system/luet-devkit &&
+  luet install system/entities --sync-repos && luet upgrade &&
+  luet cleanup &&
+  ego sync &&
+  cd /var/git/meta-repo/kits &&
+  chown root:root -R /var/git/meta-repo/kits &&
+  ls -l &&
+  for i in $(ls .) ; do
+  echo $i ;
+  if [ -e /kits-versions/$i.yml ] ; then
+  hash=$(yq r /kits-versions/$i.yml 'commit') ;
+  echo "For kit $i set hash $hash" ;
+  pushd $i ;
+  git pull -ff --depth=$GIT_HISTORY_ENTRIES ;
+  git checkout $hash || exit 1 ;
+  popd ;
+  fi ;
+  done
+- >-
+  cp patches/libical-3.0.11.ebuild /var/git/meta-repo/kits/core-kit/dev-libs/libical/ &&
+  cd /var/git/meta-repo/kits/core-kit/dev-libs/libical &&
+  ebuild libical-3.0.11.ebuild digest
+- >-
+  cp patches/text-kit/* /var/git/meta-repo/kits/text-kit/ -rfv
+
+# I want move ahead meson
+- >-
+  sed -e 's/^RDEPEND=.*/RDEPEND=""/g' -i
+  /var/git/meta-repo/kits/core-kit/sys-apps/baselayout/baselayout-*.ebuild &&
+  sed '/meson/d' -i
+  /var/git/meta-repo/kits/core-kit/profiles/package.mask/01-funtoo
+
+- >-
+  cp -rvf kits-patches/core-kit/* /var/git/meta-repo/kits/core-kit/ &&
+  sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g' /var/git/meta-repo/kits/core-kit/profiles/base/packages &&
+  sed -i -e 's|^*sys-apps/openrc|#*sys-apps/openrc|g'
+  -e 's|^*net-dns/openresolv|#*net-dns/openresolv|g'
+  /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages &&
+  cat /var/git/meta-repo/kits/core-kit/profiles/funtoo/1.0/linux-gnu/flavor/minimal/packages

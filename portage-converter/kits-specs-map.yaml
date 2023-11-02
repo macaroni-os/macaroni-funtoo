@@ -1,0 +1,285 @@
+funtoo-stage:
+
+  kits:
+    browser-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    core-hw-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    core-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    core-server-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    desktop-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    dev-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    editors-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    gnome-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    lang-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    nokit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    perl-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    python-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    python-modules-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    security-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+    text-kit:
+      specs:
+        - base-custom.yaml
+        - base.yaml
+
+# grep "kit:" packages/atoms-extra/java/* -r | awk '{ print $3 }' | sort | uniq
+extra-pkgs:
+  kits:
+
+    browser-kit:
+      specs:
+        - service-extra.yaml
+
+    dev-kit:
+      specs:
+        - dev-extra.yaml
+        - net-extra.yaml
+        - python-extra.yaml
+        - server-extra.yaml
+        - php-extra.yaml
+        - service-extra.yaml
+
+    core-gl-kit:
+      specs:
+        - python-extra.yaml
+        - xorg-extra.yaml
+
+    core-hw-kit:
+      specs:
+        - dev-extra.yaml
+
+    core-kit:
+      specs:
+        - db-extra.yaml
+        - dev-extra.yaml
+        - net-extra.yaml
+        - python-extra.yaml
+        - server-extra.yaml
+        - portage-extra.yaml
+        - java-extra.yaml
+        - php-extra.yaml
+        - service-extra.yaml
+        - xorg-extra.yaml
+
+    core-server-kit:
+      specs:
+        - db-extra.yaml
+        - dev-extra.yaml
+        - net-extra.yaml
+        - python-extra.yaml
+        - server-extra.yaml
+        - telemetry.yaml
+        - php-extra.yaml
+        - service-extra.yaml
+
+    lang-kit:
+      specs:
+        - dev-extra.yaml
+        - net-extra.yaml
+        - service-extra.yaml
+
+    lisp-scheme-kit:
+      specs:
+        - net-extra.yaml
+        - python-extra.yaml
+
+    media-kit:
+      specs:
+        - dev-extra.yaml
+        - python-extra.yaml
+        - php-extra.yaml
+        - xorg-extra.yaml
+
+    security-kit:
+      specs:
+        - net-extra.yaml
+
+    text-kit:
+      specs:
+        - net-extra.yaml
+        - python-extra.yaml
+        - server-extra.yaml
+        - php-extra.yaml
+        - service-extra.yaml
+        - xorg-extra.yaml
+
+    gnome-kit:
+      specs:
+        - python-extra.yaml
+        - server-extra.yaml
+        - service-extra.yaml
+
+    net-kit:
+      specs:
+        - db-extra.yaml
+        - dev-extra.yaml
+        - net-extra.yaml
+        - server-extra.yaml
+        - telemetry.yaml
+        - service-extra.yaml
+        - php-extra.yaml
+
+    python-modules-kit:
+      specs:
+        - db-extra.yaml
+        - net-extra.yaml
+        - python-extra.yaml
+        - server-extra.yaml
+        - portage-extra.yaml
+        - service-extra.yaml
+
+    perl-kit:
+      specs:
+        - db-extra.yaml
+        - net-extra.yaml
+        - python-extra.yaml
+        - service-extra.yaml
+        - xorg-extra.yaml
+
+    science-kit:
+      specs:
+        - python-extra.yaml
+
+    editors-kit:
+      specs:
+        - dev-extra.yaml
+
+    nokit:
+      specs:
+        - net-extra.yaml
+        - server-extra.yaml
+        - service-extra.yaml
+
+    geaaru-kit:
+      specs:
+        - geaaru-extra.yaml
+        - service-extra.yaml
+
+    gnome-kit:
+      specs:
+        - service-extra.yaml
+        - xorg-extra.yaml
+
+    desktop-kit:
+      specs:
+        - java-extra.yaml
+        - xorg-extra.yaml
+
+    java-kit:
+      specs:
+        - java-extra.yaml
+
+    llvm-kit:
+      specs:
+        - xorg-extra.yaml
+
+seeds:
+  - name: macaroni-funtoo-base
+    prefix: packages/atoms-extra
+    specs:
+      - file: release.yaml
+        dir: release
+      - file: net-extra.yaml
+        dir: net
+      - file: dev-extra.yaml
+        dir: dev
+
+  - name: macaroni-funtoo-geaaru
+    prefix: packages/atoms-extra
+    specs:
+      - file: geaaru-extra.yaml
+        dir: geaaru
+
+  - name: macaroni-funtoo-race1
+    prefix: packages/atoms-extra
+    specs:
+      - file: python-extra.yaml
+        dir: python
+
+  - name: macaroni-funtoo-race2
+    prefix: packages/atoms-extra
+    specs:
+      - file: db-extra.yaml
+        dir: db
+
+  - name: macaroni-funtoo-race3
+    prefix: packages/atoms-extra
+    specs:
+      - file: portage-extra.yaml
+        dir: portage
+
+      - file: server-extra.yaml
+        dir: server
+
+      - file: telemetry.yaml
+        dir: telemetry
+
+      - file: java-extra.yaml
+        dir: java
+
+  - name: macaroni-funtoo-race4
+    prefix: packages/atoms-extra
+    specs:
+
+      - file: php-extra.yaml
+        dir: php
+
+      - file: service-extra.yaml
+        dir: service
+
+      - file: xorg-extra.yaml
+        dir: xorg
