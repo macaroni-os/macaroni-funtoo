@@ -1,0 +1,24 @@
+name: libelf
+version: "3"
+category: virtual
+requires:
+- name: elfutils
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for libelf.so.1 provider dev-libs/elfutils
+uri:
+- ""
+labels:
+  RDEPEND: '>=dev-libs/elfutils-0.187'
+  emerge.packages: virtual/libelf
+  kit: core-kit
+  original.package.name: virtual/libelf
+  original.package.slot: "0"
+  original.package.version: "3"
