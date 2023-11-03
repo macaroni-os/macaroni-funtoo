@@ -1,0 +1,25 @@
+name: pager
+version: "0"
+category: virtual
+requires:
+- name: less
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for command-line pagers
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( sys-apps/less sys-apps/most sys-apps/util-linux[ncurses] app-text/lv
+    app-editors/vim[vim-pager] )'
+  emerge.packages: virtual/pager
+  kit: core-kit
+  original.package.name: virtual/pager
+  original.package.slot: "0"
+  original.package.version: "0"
