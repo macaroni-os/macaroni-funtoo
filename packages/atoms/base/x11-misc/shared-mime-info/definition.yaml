@@ -1,0 +1,31 @@
+name: shared-mime-info
+version: "1.10"
+category: x11-misc
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Shared MIME-info Database specification
+uri:
+- https://freedesktop.org/wiki/Software/shared-mime-info
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2 dev-libs/libxml2 dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig'
+  IUSE: test
+  RDEPEND: '>=dev-libs/glib-2 dev-libs/libxml2'
+  emerge.packages: x11-misc/shared-mime-info
+  kit: desktop-kit
+  original.package.name: x11-misc/shared-mime-info
+  original.package.slot: "0"
+  original.package.version: 1.10-r1
