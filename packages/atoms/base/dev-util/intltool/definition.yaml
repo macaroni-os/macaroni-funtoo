@@ -1,0 +1,29 @@
+name: intltool
+version: 0.51.0
+category: dev-util
+requires:
+- name: XML-Parser
+  version: '>=0'
+  category: dev-perl
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Internationalization Tool Collection
+uri:
+- https://launchpad.net/intltool/
+license: GPL-2
+labels:
+  DEPEND: dev-lang/perl dev-perl/XML-Parser
+  RDEPEND: dev-lang/perl dev-perl/XML-Parser sys-devel/gettext
+  emerge.packages: dev-util/intltool
+  kit: core-kit
+  original.package.name: dev-util/intltool
+  original.package.slot: "0"
+  original.package.version: 0.51.0-r2
