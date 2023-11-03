@@ -3,18 +3,19 @@
 name: Validate package specs
 on:
   push:
-    branches: [ master, systemd ]
+    branches: [ phoenix, eagle, terragon ]
   pull_request:
-    branches: [ master, systemd ]
+    branches: [ phoenix, eagle, terragon ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: |
         git fetch --prune --unshallow
+
     - name: Validate 🔧
       run: |
         #curl https://get.mocaccino.org/luet/get_luet_root.sh | sudo sh
