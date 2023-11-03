@@ -1,0 +1,24 @@
+name: python-exec
+version: 2.4.6
+category: dev-lang-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Python script wrapper
+uri:
+- https://github.com/mgorny/python-exec/
+license: BSD-2
+labels:
+  IUSE: python_targets_pypy3 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python2_7 python_targets_python3_10
+  RDEPEND: '!<app-eselect/eselect-python-20160206 !<dev-lang/python-2.7.10-r4:2.7
+    !<dev-lang/python-3.3.5-r4:3.3 !<dev-lang/python-3.4.3-r4:3.4 !<dev-lang/python-3.5.0-r3:3.5'
+  emerge.packages: dev-lang/python-exec:2
+  kit: core-kit
+  original.package.name: dev-lang/python-exec
+  original.package.slot: "2"
+  original.package.version: 2.4.6-r2
