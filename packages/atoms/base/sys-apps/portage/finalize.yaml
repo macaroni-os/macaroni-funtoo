@@ -1,0 +1,6 @@
+shell:
+- /bin/bash
+- -c
+install:
+- eval 'mkdir -p /var/tmp/portage || true' && entities merge --specs-dir /usr/share/macaroni/entities/
+  -e portage && eval 'chown portage:portage /var/tmp/portage -R || true'
