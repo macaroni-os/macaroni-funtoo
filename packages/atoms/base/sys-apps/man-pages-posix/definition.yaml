@@ -1,0 +1,25 @@
+name: man-pages-posix
+version: 2017a
+category: sys-apps
+requires:
+- name: man
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: POSIX man-pages (0p, 1p, 3p)
+uri:
+- https://www.kernel.org/doc/man-pages/
+license: man-pages-posix-2013
+labels:
+  RDEPEND: virtual/man !<sys-apps/man-pages-3
+  emerge.packages: sys-apps/man-pages-posix
+  kit: core-kit
+  original.package.name: sys-apps/man-pages-posix
+  original.package.slot: "0"
+  original.package.version: 2017a
