@@ -1,0 +1,69 @@
+name: gnupg
+version: 2.3.7
+category: app-crypt
+use_flags:
+- -doc
+- -ldap
+- -selinux
+- -tpm
+- -usb
+- -wks-server
+- bzip2
+- nls
+- readline
+- smartcard
+- ssl
+- tofu
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: pinentry
+  version: '>=0'
+  category: app-crypt
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: libksba
+  version: '>=0'
+  category: dev-libs
+- name: npth
+  version: '>=0'
+  category: dev-libs
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The GNU Privacy Guard, a GPL OpenPGP implementation
+uri:
+- https://gnupg.org/
+license: GPL-3+
+labels:
+  BDEPEND: virtual/pkgconfig doc? ( sys-apps/texinfo ) nls? ( sys-devel/gettext )
+  DEPEND: dev-libs/libassuan dev-libs/libgcrypt dev-libs/libgpg-error dev-libs/libksba
+    dev-libs/npth >=net-misc/curl-7.10 sys-libs/zlib bzip2? ( app-arch/bzip2 ) ldap?
+    ( net-nds/openldap:= ) readline? ( sys-libs/readline:0= ) smartcard? ( usb? (
+    virtual/libusb:1 ) ) tofu? ( >=dev-db/sqlite-3.27 ) tpm? ( >=app-crypt/tpm2-tss-2.4.0:=
+    ) ssl? ( >=net-libs/gnutls-3.0:0= )
+  IUSE: bzip2 doc ldap nls readline selinux +smartcard ssl test +tofu tpm tools usb
+    user-socket wks-server
+  RDEPEND: dev-libs/libassuan dev-libs/libgcrypt dev-libs/libgpg-error dev-libs/libksba
+    dev-libs/npth >=net-misc/curl-7.10 sys-libs/zlib bzip2? ( app-arch/bzip2 ) ldap?
+    ( net-nds/openldap:= ) readline? ( sys-libs/readline:0= ) smartcard? ( usb? (
+    virtual/libusb:1 ) ) tofu? ( >=dev-db/sqlite-3.27 ) tpm? ( >=app-crypt/tpm2-tss-2.4.0:=
+    ) ssl? ( >=net-libs/gnutls-3.0:0= ) app-crypt/pinentry nls? ( virtual/libintl
+    ) selinux? ( sec-policy/selinux-gpg ) wks-server? ( virtual/mta )
+  emerge.packages: app-crypt/gnupg
+  kit: core-kit
+  original.package.name: app-crypt/gnupg
+  original.package.slot: "0"
+  original.package.version: 2.3.7
