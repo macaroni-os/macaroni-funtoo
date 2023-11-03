@@ -1,0 +1,25 @@
+name: eselect-vi
+version: 1.1.9
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manages the /usr/bin/vi symlink
+uri:
+- https://www.gentoo.org/
+license: GPL-2
+labels:
+  RDEPEND: app-admin/eselect
+  emerge.packages: app-eselect/eselect-vi
+  kit: core-kit
+  original.package.name: app-eselect/eselect-vi
+  original.package.slot: "0"
+  original.package.version: 1.1.9-r1
