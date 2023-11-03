@@ -1,0 +1,38 @@
+name: gawk
+version: 5.1.0
+category: sys-apps
+use_flags:
+- -mpfr
+- nls
+- readline
+requires:
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GNU awk pattern-matching language
+uri:
+- https://www.gnu.org/software/gawk/gawk.html
+license: GPL-2
+labels:
+  BDEPEND: app-arch/xz-utils >=sys-apps/texinfo-6.7 >=sys-devel/bison-3.4.1 nls? (
+    sys-devel/gettext )
+  DEPEND: dev-libs/gmp:0= mpfr? ( dev-libs/mpfr:0= ) readline? ( sys-libs/readline:0=
+    )
+  IUSE: mpfr nls readline
+  RDEPEND: dev-libs/gmp:0= mpfr? ( dev-libs/mpfr:0= ) readline? ( sys-libs/readline:0=
+    )
+  emerge.packages: sys-apps/gawk
+  kit: core-kit
+  original.package.name: sys-apps/gawk
+  original.package.slot: "0"
+  original.package.version: 5.1.0
