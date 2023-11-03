@@ -40,3 +40,6 @@ dev-libs/glib static-libs
 sys-apps/attr static-libs
 sys-libs/zlib static-libs
 dev-libs/libpcre static-libs
+
+# Fix resolver. Enable pam requires -static but debian-kernel requires busybox[static]
+sys-apps/busybox static -pam
