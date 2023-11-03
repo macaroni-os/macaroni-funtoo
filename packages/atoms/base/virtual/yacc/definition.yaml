@@ -1,0 +1,24 @@
+name: yacc
+version: "0"
+category: virtual
+requires:
+- name: bison
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: virtual for yacc (yet another compiler compiler)
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( sys-devel/bison dev-util/byacc dev-util/yacc )'
+  emerge.packages: virtual/yacc
+  kit: core-kit
+  original.package.name: virtual/yacc
+  original.package.slot: "0"
+  original.package.version: "0"
