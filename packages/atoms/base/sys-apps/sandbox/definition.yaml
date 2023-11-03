@@ -1,0 +1,23 @@
+name: sandbox
+version: "2.24"
+category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: sandbox'd LD_PRELOAD hack
+uri:
+- https://wiki.gentoo.org/wiki/Project:Sandbox
+license: GPL-2
+labels:
+  DEPEND: app-arch/xz-utils >=app-misc/pax-utils-0.1.19
+  IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
+    abi_s390_64
+  emerge.packages: sys-apps/sandbox
+  kit: core-kit
+  original.package.name: sys-apps/sandbox
+  original.package.slot: "0"
+  original.package.version: "2.24"
