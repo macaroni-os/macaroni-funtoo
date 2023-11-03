@@ -1,0 +1,55 @@
+name: shadow
+version: "4.7"
+category: sys-apps
+use_flags:
+- -audit
+- -selinux
+- -skey
+- acl
+- cracklib
+- nls
+- pam
+- xattr
+requires:
+- name: acl
+  version: '>=0'
+  category: sys-apps
+- name: pambase
+  version: '>=0'
+  category: sys-auth
+- name: cracklib
+  version: '>=0'
+  category: sys-libs
+- name: libintl
+  version: '>=0'
+  category: virtual
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utilities to deal with user accounts
+uri:
+- https://github.com/shadow-maint/shadow http://pkg-shadow.alioth.debian.org/
+license: BSD GPL-2
+labels:
+  BDEPEND: app-arch/xz-utils nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+  DEPEND: acl? ( sys-apps/acl:0= ) audit? ( >=sys-process/audit-2.6:0= ) cracklib?
+    ( >=sys-libs/cracklib-2.7-r3:0= ) pam? ( virtual/pam:0= ) skey? ( sys-auth/skey:0=
+    ) selinux? ( >=sys-libs/libselinux-1.28:0= sys-libs/libsemanage:0= ) nls? ( virtual/libintl
+    ) xattr? ( sys-apps/attr:0= )
+  IUSE: acl audit +cracklib nls pam selinux skey xattr
+  RDEPEND: acl? ( sys-apps/acl:0= ) audit? ( >=sys-process/audit-2.6:0= ) cracklib?
+    ( >=sys-libs/cracklib-2.7-r3:0= ) pam? ( virtual/pam:0= ) skey? ( sys-auth/skey:0=
+    ) selinux? ( >=sys-libs/libselinux-1.28:0= sys-libs/libsemanage:0= ) nls? ( virtual/libintl
+    ) xattr? ( sys-apps/attr:0= ) pam? ( >=sys-auth/pambase-20150213 )
+  emerge.packages: sys-apps/shadow
+  kit: core-kit
+  original.package.name: sys-apps/shadow
+  original.package.slot: "0"
+  original.package.version: 4.7-r1
