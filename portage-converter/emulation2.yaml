@@ -158,22 +158,10 @@ artefacts:
     uses:
       - http
       - http2
-  uses:
-    disabled:
-      - doc
-      - gnutls
-      - libmount
-      - selinux
-      # require libsoup:3.0 n/a
-      - soup
-  packages:
-    - dev-util/ostree
-
-- tree: packages/atoms/emulation2
-  mutations:
-    uses:
-      - http
-      - http2
+    provides:
+      - category: dev-util
+        name: ostree
+        version: "2023.6"
   uses:
     disabled:
       - doc
