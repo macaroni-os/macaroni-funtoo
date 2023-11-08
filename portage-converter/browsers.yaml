@@ -157,7 +157,7 @@ artefacts:
         --system --defaults
     uninstall:
       - >-
-        HOME=/root macaronictl browser conf www-client/brave-bin --exec
+        HOME=/root macaronictl browser conf www-client/brave-bin
         --system --purge
 
   packages:
@@ -236,7 +236,7 @@ artefacts:
         --system --defaults
     uninstall:
       - >-
-        HOME=/root macaronictl browser conf {{ .Values.category }}/{{ .Values.name }} --exec
+        HOME=/root macaronictl browser conf {{ .Values.category }}/{{ .Values.name }}
         --system --purge
 
   packages:
