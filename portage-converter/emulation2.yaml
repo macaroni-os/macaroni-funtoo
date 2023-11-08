@@ -192,6 +192,14 @@ artefacts:
     # Added here because dependency of wine
     - sys-auth/rtkit
 
+- tree: packages/atoms/emulation2
+  uses:
+    disabled:
+      - systemd
+      - test
+  packages:
+    - app-admin/cloud-init
+
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
 
