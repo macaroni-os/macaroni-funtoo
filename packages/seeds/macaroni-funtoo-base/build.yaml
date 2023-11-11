@@ -43,7 +43,6 @@ steps:
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
   eselect gcc set 1 &&
-  eselect binutils set 1 &&
   mkdir -p /var/lib/portage &&
   epro list &&
   eval 'rm /etc/localtime || true' &&
@@ -57,13 +56,4 @@ steps:
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
 
 package_dir: /layer
-#excludes:
-#- ^/etc/gshadow
-#- ^/etc/group
-#- ^/etc/passwd
-#- ^/etc/shadow
-#- ^/etc/ld.so.cache
-#- ^/etc/ld.so.conf
-#- ^/etc/locatime
-#- ^/var/cache/ldconfig/aux-cache
 
