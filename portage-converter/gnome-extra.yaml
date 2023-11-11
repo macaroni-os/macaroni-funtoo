@@ -326,6 +326,34 @@ artefacts:
     - x11-themes/funtoo-gnome-shell-theme
     - x11-themes/gtk-engines:2
 
+- tree: packages/atoms/gnome-extra
+  uses:
+    disabled:
+      - gtk-doc
+  packages:
+    - dev-libs/libgit2-glib
+
+- tree: packages/atoms/gnome-extra
+  uses:
+    disabled:
+      - glade
+  packages:
+    - dev-vcs/gitg
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
+    uninstall:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
+
 include_layers:
 - layers/macaroni-funtoo-race16.yaml
 
