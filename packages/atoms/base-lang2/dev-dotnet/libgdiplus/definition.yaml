@@ -1,0 +1,48 @@
+name: libgdiplus
+version: 6.0.5
+category: dev-dotnet
+use_flags:
+- cairo
+requires:
+- name: giflib
+  version: '>=0'
+  category: media-libs
+- name: libexif
+  version: '>=0'
+  category: media-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libXt
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for using System.Drawing with Mono
+uri:
+- https://www.mono-project.com
+license: MIT
+labels:
+  DEPEND: dev-libs/glib media-libs/freetype media-libs/fontconfig >=media-libs/giflib-5.1.2
+    media-libs/libexif media-libs/libpng:0= media-libs/tiff x11-libs/cairo[X] x11-libs/libX11
+    x11-libs/libXrender x11-libs/libXt virtual/jpeg:0 !cairo? ( x11-libs/pango )
+  IUSE: cairo
+  RDEPEND: dev-libs/glib media-libs/freetype media-libs/fontconfig >=media-libs/giflib-5.1.2
+    media-libs/libexif media-libs/libpng:0= media-libs/tiff x11-libs/cairo[X] x11-libs/libX11
+    x11-libs/libXrender x11-libs/libXt virtual/jpeg:0 !cairo? ( x11-libs/pango )
+  emerge.packages: dev-dotnet/libgdiplus
+  kit: lang-kit
+  original.package.name: dev-dotnet/libgdiplus
+  original.package.slot: "0"
+  original.package.version: 6.0.5
