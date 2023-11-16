@@ -1,6 +1,3 @@
-ENV TMPDIR=/tmp
-ENTRYPOINT ["/bin/bash"]
-
 FROM alpine
 RUN mkdir /funtoo-minimal/etc/ -p
 FROM macaronios/luet:latest-amd64
