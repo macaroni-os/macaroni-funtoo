@@ -52,6 +52,7 @@ kits=(
   "tools"              # race15
   "base-latex2"        # race15
   "firmware"           # race15
+  "base-lang2"         # race15
 
   "gnome-extra"        # race16
   "telemetry"          # race16
