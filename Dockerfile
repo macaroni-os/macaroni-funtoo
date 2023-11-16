@@ -1,3 +1,6 @@
+ENV TMPDIR=/tmp
+ENTRYPOINT ["/bin/bash"]
+
 FROM alpine
 RUN mkdir /funtoo-minimal/etc/ -p
 FROM macaronios/luet:latest-amd64
@@ -8,29 +11,37 @@ ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 COPY --from=0 /funtoo-minimal/ /
 ENV USER=root
 
-SHELL ["/usr/bin/luet", "install", "-y", "--force", "--sync-repos"]
-RUN repository/mottainai-stable
-RUN repository/macaroni-commons
-RUN repository/macaroni-phoenix
+RUN [ \
+  "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "--cleanup", "--purge-repos", \
+  "repository/mottainai-stable", \
+  "repository/macaroni-commons", \
+  "repository/macaroni-phoenix"]
 
-RUN system/entities
-
-SHELL ["/usr/bin/luet", "install", "-y", "--force"]
-
-RUN system/luet-geaaru-thin
-RUN sys-apps/shadow
-RUN sys-apps/sed
-RUN app-shells/bash
-RUN gcc
-
-RUN virtual-entities/base
+RUN [ \
+  "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "--cleanup", "--purge-repos", \
+  "--skip-config-protect", \
+  "system/entities", \
+  "system/luet-geaaru-testing", \
+  "sys-apps/shadow", \
+  "sys-apps/sed", \
+  "app-shells/bash", \
+  "glibc", \
+  "gcc", \
+  "sys-apps/iproute2", \
+  "sysvinit", \
+  "sys-apps/coreutils", \
+  "sys-apps/openrc", \
+  "virtual/base", \
+  "virtual-entities/base", \
+  "app-admin/macaronictl-thin" ]
 
 SHELL ["/bin/bash", "-c"]
 
-RUN luet i -y iproute2 sysvinit coreutils sys-apps/openrc virtual/base macaronictl-thin --skip-config-protect && \
-  macaronictl env-update && \
-  luet cleanup --purge-repos && \
-  mkdir /tmp
+RUN macaronictl env-update && \
+  luet rm -y --nodeps virtual-entities/base && \
+  luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
