@@ -1,9 +1,8 @@
 name: networkmanager
-version: 1.44.2
+version: 1.44.2+1
 category: net-misc
 use_flags:
 - -audit
-- -concheck
 - -dhclient
 - -gnutls
 - -gtk-doc
@@ -18,6 +17,7 @@ use_flags:
 - -teamd
 - -test
 - bluetooth
+- concheck
 - connection-sharing
 - dhcpcd
 - elogind
@@ -53,6 +53,9 @@ requires:
 - name: libndp
   version: '>=0'
   category: net-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
 - name: dhcpcd
   version: '>=0'
   category: net-misc
