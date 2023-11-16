@@ -1,0 +1,39 @@
+name: mono
+version: 6.12.0.199
+category: dev-lang
+use_flags:
+- -nls
+- -pax_kernel
+- ia64
+requires:
+- name: libgdiplus
+  version: '>=0'
+  category: dev-dotnet
+- name: libunwind
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Mono runtime and class libraries, a C# compiler/interpreter
+uri:
+- https://mono-project.com
+license: MIT LGPL-2.1 GPL-2 BSD-4 NPL-1.1 Ms-PL GPL-2-with-linking-exception IDPL
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=dev-dotnet/libgdiplus-6.0.2 ia64? ( sys-libs/libunwind ) nls? ( sys-devel/gettext
+    ) sys-devel/bc virtual/yacc pax_kernel? ( sys-apps/elfix ) dev-util/cmake'
+  IUSE: nls pax_kernel xen doc kernel_linux
+  RDEPEND: '>=dev-dotnet/libgdiplus-6.0.2 ia64? ( sys-libs/libunwind ) nls? ( sys-devel/gettext
+    )'
+  emerge.packages: dev-lang/mono
+  kit: lang-kit
+  original.package.name: dev-lang/mono
+  original.package.slot: "0"
+  original.package.version: 6.12.0.199
