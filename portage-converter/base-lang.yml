@@ -354,6 +354,19 @@ artefacts:
   packages:
     - virtual/fortran
 
+- tree: packages/atoms/base-lang
+  uses:
+    disabled:
+      - pax_kernel
+      - xen
+      - doc
+      - nls
+      - debug
+  packages:
+    - dev-dotnet/libgdiplus
+    - dev-lang/mono
+
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
