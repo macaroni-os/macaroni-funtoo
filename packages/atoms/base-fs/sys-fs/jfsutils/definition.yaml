@@ -1,0 +1,33 @@
+name: jfsutils
+version: 1.1.15
+category: sys-fs
+use_flags:
+- -static
+requires:
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: IBM's Journaling Filesystem (JFS) Utilities
+uri:
+- http://jfs.sourceforge.net/
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '!static? ( sys-apps/util-linux:= ) static? ( sys-apps/util-linux:=[static-libs]
+    )'
+  IUSE: static
+  RDEPEND: '!static? ( sys-apps/util-linux:= )'
+  emerge.packages: sys-fs/jfsutils
+  kit: core-kit
+  original.package.name: sys-fs/jfsutils
+  original.package.slot: "0"
+  original.package.version: 1.1.15
