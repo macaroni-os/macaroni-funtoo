@@ -1,0 +1,31 @@
+name: dmraid
+version: 1.0.0
+category: sys-fs
+use_flags:
+- -static
+requires:
+- name: lvm2
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Device-mapper RAID tool and library
+uri:
+- https://people.redhat.com/~heinzm/sw/dmraid/
+license: GPL-2
+labels:
+  DEPEND: '>=sys-fs/lvm2-2.02.45 virtual/pkgconfig static? ( sys-fs/lvm2[static-libs]
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: intel_led led mini static kernel_linux
+  RDEPEND: '>=sys-fs/lvm2-2.02.45'
+  emerge.packages: sys-fs/dmraid
+  kit: core-kit
+  original.package.name: sys-fs/dmraid
+  original.package.slot: "0"
+  original.package.version: 1.0.0_rc16-r4
