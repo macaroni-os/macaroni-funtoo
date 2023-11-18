@@ -1,0 +1,125 @@
+name: gparted
+version: 1.5.0
+category: sys-block
+use_flags:
+- -policykit
+- btrfs
+- cryptsetup
+- dmraid
+- f2fs
+- fat
+- hfs
+- jfs
+- kde
+- mdadm
+- ntfs
+- reiser4
+- reiserfs
+- udf
+- wayland
+- xfs
+requires:
+- name: glibmm
+  version: '>=0'
+  category: dev-cpp-2
+- name: gtkmm
+  version: '>=0'
+  category: dev-cpp-3.0
+- name: kde-cli-tools
+  version: '>=0'
+  category: kde-plasma-5
+- name: parted
+  version: '>=0'
+  category: sys-block
+- name: btrfs-progs
+  version: '>=0'
+  category: sys-fs
+- name: cryptsetup
+  version: '>=0'
+  category: sys-fs
+- name: diskdev_cmds
+  version: '>=0'
+  category: sys-fs
+- name: dmraid
+  version: '>=0'
+  category: sys-fs
+- name: dosfstools
+  version: '>=0'
+  category: sys-fs
+- name: f2fs-tools
+  version: '>=0'
+  category: sys-fs
+- name: hfsutils
+  version: '>=0'
+  category: sys-fs
+- name: jfsutils
+  version: '>=0'
+  category: sys-fs
+- name: mdadm
+  version: '>=0'
+  category: sys-fs
+- name: mtools
+  version: '>=0'
+  category: sys-fs
+- name: multipath-tools
+  version: '>=0'
+  category: sys-fs
+- name: ntfs3g
+  version: '>=0'
+  category: sys-fs
+- name: reiser4progs
+  version: '>=0'
+  category: sys-fs
+- name: reiserfsprogs
+  version: '>=0'
+  category: sys-fs
+- name: udftools
+  version: '>=0'
+  category: sys-fs
+- name: xfsdump
+  version: '>=0'
+  category: sys-fs
+- name: xfsprogs
+  version: '>=0'
+  category: sys-fs
+- name: udev
+  version: '>=0'
+  category: virtual
+- name: xhost
+  version: '>=0'
+  category: x11-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Gnome Partition Editor
+uri:
+- https://gparted.org/
+license: GPL-2+ FDL-1.2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils'
+  DEPEND: '!policykit? ( kde? ( >=kde-plasma/kde-cli-tools-5.8.6-r1[kdesu] ) ) policykit?
+    ( >=sys-auth/polkit-0.102 ) >=dev-cpp/glibmm-2.45.40:2 >=dev-cpp/gtkmm-3:3.0 >=dev-libs/glib-2:2
+    >=sys-block/parted-3.2:= >=dev-libs/libsigc++-2.5.1:2 app-text/docbook-xml-dtd:4.1.2
+    app-text/gnome-doc-utils >=dev-util/intltool-0.36.0 sys-devel/gettext virtual/pkgconfig
+    dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: btrfs cryptsetup dmraid f2fs fat hfs jfs kde mdadm ntfs policykit reiserfs
+    reiser4 udf wayland xfs
+  RDEPEND: '!policykit? ( kde? ( >=kde-plasma/kde-cli-tools-5.8.6-r1[kdesu] ) ) policykit?
+    ( >=sys-auth/polkit-0.102 ) >=dev-cpp/glibmm-2.45.40:2 >=dev-cpp/gtkmm-3:3.0 >=dev-libs/glib-2:2
+    >=sys-block/parted-3.2:= >=dev-libs/libsigc++-2.5.1:2 >=sys-apps/util-linux-2.20
+    >=sys-fs/e2fsprogs-1.41 btrfs? ( sys-fs/btrfs-progs ) cryptsetup? ( sys-fs/cryptsetup
+    ) dmraid? ( >=sys-fs/lvm2-2.02.45 sys-fs/dmraid sys-fs/multipath-tools ) f2fs?
+    ( sys-fs/f2fs-tools ) fat? ( sys-fs/dosfstools sys-fs/mtools ) hfs? ( sys-fs/diskdev_cmds
+    virtual/udev sys-fs/hfsutils ) jfs? ( sys-fs/jfsutils ) mdadm? ( sys-fs/mdadm
+    ) ntfs? ( >=sys-fs/ntfs3g-2011.4.12[ntfsprogs] ) reiserfs? ( sys-fs/reiserfsprogs
+    ) reiser4? ( sys-fs/reiser4progs ) udf? ( sys-fs/udftools ) wayland? ( x11-apps/xhost
+    ) xfs? ( sys-fs/xfsprogs sys-fs/xfsdump )'
+  emerge.packages: sys-block/gparted
+  kit: core-hw-kit
+  original.package.name: sys-block/gparted
+  original.package.slot: "0"
+  original.package.version: 1.5.0
