@@ -347,6 +347,47 @@ artefacts:
   packages:
   - sys-fs/reiser4progs
 
+- tree: packages/atoms/base-fs
+  uses:
+    disabled:
+      - tcl
+      - tk
+      - static
+      - static-libs
+  packages:
+    - sys-fs/mtools
+    - sys-fs/f2fs-tools
+    - sys-fs/diskdev_cmds
+    - sys-fs/jfsutils
+    - sys-fs/udftools
+    - sys-fs/xfsdump
+
+- tree: packages/atoms/base-fs
+  uses:
+    disabled:
+      - static
+      - intel_led
+      - mini
+      - static-libs
+  packages:
+    - sys-apps/dmapi
+    - sys-fs/dmraid
+
+- tree: packages/atoms/base-fs
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  uses:
+    disabled:
+      - tcl
+      - tk
+      - static
+      - static-libs
+  packages:
+    - sys-fs/hfsutils
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
