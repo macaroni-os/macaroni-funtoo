@@ -354,6 +354,27 @@ artefacts:
         macaronictl env-update &&
         whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
 
+- tree: packages/atoms/gnome-extra
+  uses:
+    disabled:
+      - policykit
+  packages:
+    - sys-block/gparted
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
+    uninstall:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
+
 include_layers:
 - layers/macaroni-funtoo-race16.yaml
 
