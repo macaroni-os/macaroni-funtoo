@@ -240,6 +240,13 @@ artefacts:
         -e gluster
 
 - tree: packages/atoms/emulation
+  mutations:
+    runtime_deps:
+      packages:
+      # containerd doesn't start correctly
+      # without cni-plugins
+      - category: net-misc
+        name: cni-plugins
   uses:
     disabled:
     - apparmor
