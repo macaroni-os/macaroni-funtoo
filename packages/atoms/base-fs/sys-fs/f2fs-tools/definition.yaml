@@ -1,0 +1,31 @@
+name: f2fs-tools
+version: 1.12.0
+category: sys-fs
+use_flags:
+- -elibc_musl
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools for Flash-Friendly File System (F2FS)
+uri:
+- https://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/about/
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone
+    )
+  IUSE: selinux
+  RDEPEND: selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone
+    )
+  emerge.packages: sys-fs/f2fs-tools
+  kit: core-kit
+  original.package.name: sys-fs/f2fs-tools
+  original.package.slot: "0"
+  original.package.version: 1.12.0-r1
