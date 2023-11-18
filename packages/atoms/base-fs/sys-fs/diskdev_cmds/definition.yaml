@@ -1,0 +1,26 @@
+name: diskdev_cmds
+version: "332.14"
+category: sys-fs
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: HFS and HFS+ utils ported from OSX, supplies mkfs and fsck
+uri:
+- http://opendarwin.org
+license: APSL-2
+labels:
+  DEPEND: dev-libs/openssl:0=
+  RDEPEND: dev-libs/openssl:0=
+  emerge.packages: sys-fs/diskdev_cmds
+  kit: core-kit
+  original.package.name: sys-fs/diskdev_cmds
+  original.package.slot: "0"
+  original.package.version: 332.14_p1-r1
