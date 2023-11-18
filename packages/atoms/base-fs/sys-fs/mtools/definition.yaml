@@ -1,0 +1,35 @@
+name: mtools
+version: 4.0.23
+category: sys-fs
+use_flags:
+- X
+- elibc_glibc
+requires:
+- name: libXau
+  version: '>=0'
+  category: x11-libs
+- name: libXt
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: utilities to access MS-DOS disks from Unix without mounting them
+uri:
+- https://www.gnu.org/software/mtools/ https://savannah.gnu.org/projects/mtools
+license: GPL-3
+labels:
+  DEPEND: '!elibc_glibc? ( virtual/libiconv ) X? ( x11-libs/libICE x11-libs/libXau
+    x11-libs/libSM x11-libs/libX11 x11-libs/libXt )'
+  IUSE: X elibc_glibc
+  RDEPEND: '!elibc_glibc? ( virtual/libiconv ) X? ( x11-libs/libICE x11-libs/libXau
+    x11-libs/libSM x11-libs/libX11 x11-libs/libXt )'
+  emerge.packages: sys-fs/mtools
+  kit: core-kit
+  original.package.name: sys-fs/mtools
+  original.package.slot: "0"
+  original.package.version: 4.0.23
