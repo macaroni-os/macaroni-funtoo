@@ -2,4 +2,5 @@ shell:
 - /bin/bash
 - -c
 install:
-- entities merge --specs-dir /usr/share/macaroni/entities/ -e node_exporter
+- entities merge --specs-dir /usr/share/macaroni/entities/ -e node_exporter && chown
+  node_exporter:node_exporter /var/log/node_exporter/
