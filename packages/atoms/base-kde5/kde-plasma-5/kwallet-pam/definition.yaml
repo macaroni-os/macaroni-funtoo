@@ -1,0 +1,40 @@
+name: kwallet-pam
+version: 5.25.5
+category: kde-plasma-5
+requires:
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-5
+- name: socat
+  version: '>=0'
+  category: net-misc
+- name: pam
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PAM module to not enter KWallet password again after login
+uri:
+- https://kde.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+  DEPEND: dev-libs/libgcrypt:0= >=kde-frameworks/kwallet-5.98.0:5 sys-libs/pam dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.12.3:5 dev-util/desktop-file-utils
+  IUSE: debug
+  RDEPEND: dev-libs/libgcrypt:0= >=kde-frameworks/kwallet-5.98.0:5 sys-libs/pam net-misc/socat
+    >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.12.3:5
+  emerge.packages: kde-plasma/kwallet-pam:5
+  kit: kde-kit
+  original.package.name: kde-plasma/kwallet-pam
+  original.package.slot: "5"
+  original.package.version: 5.25.5
