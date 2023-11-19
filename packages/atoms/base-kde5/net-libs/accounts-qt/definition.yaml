@@ -1,0 +1,37 @@
+name: accounts-qt
+version: "1.16"
+category: net-libs
+use_flags:
+- -doc
+- -test
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtxml
+  version: '>=0'
+  category: dev-qt-5
+- name: libaccounts-glib
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt5 bindings for libaccounts-glib
+uri:
+- https://01.org/gsso/
+license: LGPL-2.1
+labels:
+  DEPEND: '>=net-libs/libaccounts-glib-1.23 dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtxml:5
+    doc? ( app-doc/doxygen ) test? ( dev-qt/qttest:5 )'
+  IUSE: doc test
+  RDEPEND: '>=net-libs/libaccounts-glib-1.23 dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtxml:5'
+  emerge.packages: net-libs/accounts-qt
+  kit: net-kit
+  original.package.name: net-libs/accounts-qt
+  original.package.slot: "0"
+  original.package.version: "1.16"
