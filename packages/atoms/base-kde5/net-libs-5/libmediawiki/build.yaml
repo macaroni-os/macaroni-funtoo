@@ -1,4 +1,10 @@
 prelude:
+# Temporaru
+- >-
+  cp libmediawiki-5.38.0.ebuild /var/git/meta-repo/kits/kde-kit/net-libs/libmediawiki &&
+  cd /var/git/meta-repo/kits/kde-kit/net-libs/libmediawiki &&
+  ebuild libmediawiki-5.38.0.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
