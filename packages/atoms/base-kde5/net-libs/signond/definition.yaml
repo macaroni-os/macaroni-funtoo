@@ -1,0 +1,44 @@
+name: signond
+version: "8.59"
+category: net-libs
+use_flags:
+- -doc
+- -test
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtnetwork
+  version: '>=0'
+  category: dev-qt-5
+- name: qtsql
+  version: '>=0'
+  category: dev-qt-5
+- name: libproxy
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Signon daemon for libaccounts-glib
+uri:
+- https://01.org/gsso/
+license: LGPL-2.1
+labels:
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5
+    net-libs/libproxy doc? ( app-doc/doxygen ) test? ( dev-qt/qttest:5 )
+  IUSE: doc test
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5
+    net-libs/libproxy !<net-libs/libproxy-0.4.12[kde]
+  emerge.packages: net-libs/signond
+  kit: net-kit
+  original.package.name: net-libs/signond
+  original.package.slot: "0"
+  original.package.version: 8.59-r1
