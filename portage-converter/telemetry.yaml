@@ -102,7 +102,6 @@ artefacts:
       - debug
       - test
   packages:
-    - app-metrics/node_exporter-bin
     - app-metrics/redis_exporter-bin
     - app-metrics/mysqld_exporter-bin
     - app-metrics/memcached_exporter-bin
@@ -111,6 +110,32 @@ artefacts:
     - app-metrics/prometheus-bin
     - app-metrics/alertmanager-bin
     - app-metrics/freeradius_exporter
+
+
+- tree: packages/atoms/telemetry
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race16
+  uses:
+    disabled:
+      - sasl
+      - libressl
+      - examples
+      - static-libs
+      - debug
+      - test
+  packages:
+    - app-metrics/node_exporter-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e node_exporter
 
 - tree: packages/atoms/telemetry
   uses:
