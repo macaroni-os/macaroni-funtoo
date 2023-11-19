@@ -19,7 +19,20 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 includes:
-  {{ .Values.includes }}
+{{ if eq .Values.name "gpgme-qt"  }}
+- ^/usr$
+- ^/usr/include$
+- ^/usr/include/QGpgME$
+- ^/usr/include/qgpgme$
+- ^/usr/include/QGpgME/.*
+- ^/usr/include/qgpgme/.*
+- ^/usr/lib64$
+- ^/usr/lib64/cmake$
+- ^/usr/lib64/cmake/QGpgme$
+- ^/usr/lib64/cmake/QGpgme/QGpgmeConfig.cmake
+- ^/usr/lib64/cmake/QGpgme/QGpgmeConfigVersion.cmake
+- ^/usr/lib64/libqgpgme.*
+{{ end }}
 requires:
 # TODO: move this to race with efl to reduce compilation tasks.
 - name: macaroni-funtoo-race15
