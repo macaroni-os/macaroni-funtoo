@@ -1,0 +1,38 @@
+name: accounts-qml
+version: "0.7"
+category: net-libs
+use_flags:
+- -doc
+- -test
+requires:
+- name: qtdeclarative
+  version: '>=0'
+  category: dev-qt-5
+- name: accounts-qt
+  version: '>=0'
+  category: net-libs
+- name: signond
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: QML bindings for accounts-qt and signond
+uri:
+- https://accounts-sso.gitlab.io/
+license: LGPL-2.1
+labels:
+  BDEPEND: doc? ( app-doc/doxygen )
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtdeclarative:5 net-libs/accounts-qt net-libs/signond
+    test? ( dev-qt/qtgui:5 dev-qt/qttest:5 )
+  IUSE: doc test
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdeclarative:5 net-libs/accounts-qt net-libs/signond
+  emerge.packages: net-libs/accounts-qml
+  kit: net-kit
+  original.package.name: net-libs/accounts-qml
+  original.package.slot: "0"
+  original.package.version: 0.7-r1
