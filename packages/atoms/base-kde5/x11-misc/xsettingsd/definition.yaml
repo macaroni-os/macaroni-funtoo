@@ -1,0 +1,30 @@
+name: xsettingsd
+version: 1.0.2
+category: x11-misc
+use_flags:
+- -test
+requires:
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Provides settings to X11 applications via the XSETTINGS specification
+uri:
+- https://github.com/derat/xsettingsd
+license: BSD
+labels:
+  BDEPEND: '>=dev-util/cmake-3.15 dev-util/ninja >=dev-util/cmake-3.9.6'
+  DEPEND: x11-libs/libX11 test? ( dev-cpp/gtest )
+  IUSE: test
+  RDEPEND: x11-libs/libX11
+  emerge.packages: x11-misc/xsettingsd
+  kit: desktop-kit
+  original.package.name: x11-misc/xsettingsd
+  original.package.slot: "0"
+  original.package.version: 1.0.2
