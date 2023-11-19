@@ -1,0 +1,41 @@
+name: kimageannotator
+version: 0.5.3
+category: media-libs
+use_flags:
+- -test
+- prefix
+requires:
+- name: qtsvg
+  version: '>=0'
+  category: dev-qt-5
+- name: kcolorpicker
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tool for annotating images
+uri:
+- https://github.com/ksnip/kImageAnnotator
+license: LGPL-3+
+labels:
+  BDEPEND: '>=dev-qt/linguist-tools-5.11.1:5 dev-util/ninja >=dev-util/cmake-3.9.6
+    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.57.0:5'
+  DEPEND: '>=dev-qt/qtcore-5.11.1:5 >=dev-qt/qtgui-5.11.1:5 >=dev-qt/qtsvg-5.11.1:5
+    >=dev-qt/qtwidgets-5.11.1:5[png] >=media-libs/kcolorpicker-0.1.6 x11-libs/libX11
+    test? ( >=dev-qt/qttest-5.11.1:5 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+    >=dev-qt/qtcore-5.11.1:5 dev-util/desktop-file-utils'
+  IUSE: test test debug
+  RDEPEND: '>=dev-qt/qtcore-5.11.1:5 >=dev-qt/qtgui-5.11.1:5 >=dev-qt/qtsvg-5.11.1:5
+    >=dev-qt/qtwidgets-5.11.1:5[png] >=media-libs/kcolorpicker-0.1.6 x11-libs/libX11
+    >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.57.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.11.1:5'
+  emerge.packages: media-libs/kimageannotator
+  kit: kde-kit
+  original.package.name: media-libs/kimageannotator
+  original.package.slot: "0"
+  original.package.version: 0.5.3
