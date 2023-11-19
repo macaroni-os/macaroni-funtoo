@@ -1,0 +1,38 @@
+name: grantlee
+version: 5.3.0
+category: dev-libs-5
+use_flags:
+- -doc
+- -test
+- prefix
+requires:
+- name: qtdeclarative
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ string template engine based on the Django template system
+uri:
+- https://github.com/steveire/grantlee
+license: LGPL-2.1+
+labels:
+  BDEPEND: doc? ( app-doc/doxygen[dot] ) test? ( dev-qt/linguist-tools:5 ) dev-util/ninja
+    dev-util/cmake test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
+    )
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 test? ( dev-qt/qttest:5
+    )
+  IUSE: debug doc test test
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5
+  emerge.packages: dev-libs/grantlee:5
+  kit: kde-kit
+  original.package.name: dev-libs/grantlee
+  original.package.slot: "5"
+  original.package.version: 5.3.0
