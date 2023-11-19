@@ -1,0 +1,42 @@
+name: qtspeech
+version: 5.15.2
+category: dev-qt-5
+use_flags:
+- -test
+- alsa
+- flite
+requires:
+- name: speech-dispatcher
+  version: '>=0'
+  category: app-accessibility
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Text-to-speech library for the Qt5 framework
+uri:
+- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
+labels:
+  BDEPEND: dev-lang/perl virtual/pkgconfig
+  DEPEND: '>=app-accessibility/speech-dispatcher-0.8.7 =dev-qt/qtcore-5.15.2* flite?
+    ( >=app-accessibility/flite-2[alsa?] =dev-qt/qtmultimedia-5.15.2*[alsa?] alsa?
+    ( media-libs/alsa-lib ) ) test? ( =dev-qt/qttest-5.15.2* )'
+  IUSE: alsa flite debug test
+  RDEPEND: '>=app-accessibility/speech-dispatcher-0.8.7 =dev-qt/qtcore-5.15.2* flite?
+    ( >=app-accessibility/flite-2[alsa?] =dev-qt/qtmultimedia-5.15.2*[alsa?] alsa?
+    ( media-libs/alsa-lib ) )'
+  emerge.packages: dev-qt/qtspeech:5
+  kit: qt-kit
+  original.package.name: dev-qt/qtspeech
+  original.package.slot: "5"
+  original.package.version: 5.15.2_p20231004
