@@ -544,6 +544,42 @@ artefacts:
   packages:
     - virtual/libusb:1
 
+- tree: packages/atoms/base-python
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/pathspec
+    - dev-python/pip
+
+- tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pip
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/pluggy
+
+- tree: packages/atoms/base-python
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  mutations:
+    buildtime_deps:
+      packages:
+        - name: pathspec
+          category: dev-python
+  packages:
+    - dev-python/hatchling
+
+
 include_layers:
 - layers/macaroni-funtoo-race1.yaml
 
