@@ -12,9 +12,6 @@ requires:
 - name: markupsafe
   version: '>=0'
   category: dev-python
-- name: setuptools
-  version: '>=0'
-  category: dev-python
 annotations:
   subsets:
     rules:
@@ -27,10 +24,7 @@ uri:
 - https://palletsprojects.com/p/jinja/ https://pypi.org/project/Jinja2/
 license: BSD
 labels:
-  BDEPEND: doc? ( || ( ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    dev-python/sphinx-issues[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    dev-python/pallets-sphinx-themes[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ( dev-lang/python:3.8 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: doc? ( || ( ( dev-lang/python:3.8 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/sphinx-issues[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/pallets-sphinx-themes[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_9(-),python_single_target_python3_9(+)]
@@ -39,18 +33,20 @@ labels:
     ) ( dev-lang/python:3.7 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_7(-),python_single_target_python3_7(+)]
     dev-python/sphinx-issues[python_targets_python3_7(-),python_single_target_python3_7(+)]
     dev-python/pallets-sphinx-themes[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-  IUSE: examples python_targets_python2_7 doc python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
+    ) ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/sphinx-issues[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/pallets-sphinx-themes[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: examples python_targets_python2_7 doc python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
   RDEPEND: python_targets_python2_7? ( dev-python/jinja-compat ) !dev-python/jinja:compat
-    dev-python/markupsafe[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
-    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/markupsafe[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/jinja
   kit: python-modules-kit
   original.package.name: dev-python/jinja
