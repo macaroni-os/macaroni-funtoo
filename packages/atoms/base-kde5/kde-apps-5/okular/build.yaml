@@ -1,4 +1,8 @@
 prelude:
+# We have poppler splitted. Ignoring this check
+- >-
+  sed -e 's|app-text/poppler\[qt5\]|app-text/poppler|g' -i
+  /var/git/meta-repo/kits/kde-kit/kde-apps/okular/okular-22.08.1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
