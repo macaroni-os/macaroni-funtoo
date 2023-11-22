@@ -1,0 +1,43 @@
+name: signon-ui
+version: "0.15"
+category: net-libs
+use_flags:
+- -test
+requires:
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-5
+- name: accounts-qt
+  version: '>=0'
+  category: net-libs
+- name: signond
+  version: '>=0'
+  category: net-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Online accounts signon UI
+uri:
+- https://gitlab.com/accounts-sso/signon-ui
+license: GPL-2 GPL-3
+labels:
+  BDEPEND: test? ( dev-qt/qttest:5 )
+  DEPEND: dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5
+    dev-qt/qtnetwork:5[ssl] dev-qt/qtwebengine:5 dev-qt/qtwidgets:5 net-libs/accounts-qt
+    net-libs/signond net-libs/libproxy x11-libs/libnotify
+  IUSE: test
+  RDEPEND: dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5
+    dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtwebengine:5 dev-qt/qtwidgets:5
+    net-libs/accounts-qt net-libs/signond net-libs/libproxy x11-libs/libnotify dev-qt/qtwebchannel:5
+  emerge.packages: net-libs/signon-ui
+  kit: net-kit
+  original.package.name: net-libs/signon-ui
+  original.package.slot: "0"
+  original.package.version: 0.15_p20171022
