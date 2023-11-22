@@ -350,7 +350,6 @@ artefacts:
     - dev-python/zope-interface
     - dev-python/curio
     - dev-python/colorama
-    - dev-python/pip
     - dev-python/rfc3986
     - dev-python/brotlipy
     - dev-python/h2
@@ -368,31 +367,6 @@ artefacts:
   packages:
     - dev-python/httpcore
 
-- tree: packages/atoms-extra/dev
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: pip
-  uses:
-    enabled:
-      - python_targets_python3_9
-      - python_single_target_python3_9
-  packages:
-    - dev-python/pluggy
-
-- tree: packages/atoms-extra/dev
-  uses:
-    enabled:
-      - python_targets_python3_9
-      - python_single_target_python3_9
-  mutations:
-    buildtime_deps:
-      packages:
-        - name: pathspec
-          category: dev-python
-  packages:
-    - dev-python/hatchling
 
 - tree: packages/atoms-extra/dev
   uses:
@@ -404,11 +378,6 @@ artefacts:
     - dev-python/pycurl
 
 - tree: packages/atoms-extra/dev
-  mutations:
-    buildtime_deps:
-      packages:
-        - name: hatchling
-          category: dev-python
   uses:
     enabled:
       - python_targets_python3_9
