@@ -1,0 +1,36 @@
+name: libkexiv2
+version: 22.08.1
+category: kde-apps-5
+requires:
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: exiv2
+  version: '>=0'
+  category: media-gfx
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Wrapper around exiv2 library
+uri:
+- https://kde.org/
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.57.0:5
+  DEPEND: '>=dev-qt/qtgui-5.15.1:5 >=media-gfx/exiv2-0.25:=[xmp=] dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.1:5 dev-util/desktop-file-utils'
+  IUSE: +xmp debug
+  RDEPEND: '>=dev-qt/qtgui-5.15.1:5 >=media-gfx/exiv2-0.25:=[xmp=] >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.57.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5'
+  emerge.packages: kde-apps/libkexiv2:5
+  kit: kde-kit
+  original.package.name: kde-apps/libkexiv2
+  original.package.slot: "5"
+  original.package.version: 22.08.1
