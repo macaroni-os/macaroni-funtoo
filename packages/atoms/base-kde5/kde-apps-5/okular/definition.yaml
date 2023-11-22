@@ -1,0 +1,126 @@
+name: okular
+version: 22.08.1
+category: kde-apps-5
+use_flags:
+- -test
+- chm
+- djvu
+- epub
+- handbook
+- image-backend
+- markdown
+- mobi
+- pdf
+- plucker
+- postscript
+- prefix
+- qml
+- share
+- speech
+- tiff
+requires:
+- name: discount
+  version: '>=0'
+  category: app-text
+- name: djvu
+  version: '>=0'
+  category: app-text
+- name: ebook-tools
+  version: '>=0'
+  category: app-text
+- name: libspectre
+  version: '>=0'
+  category: app-text
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: chmlib
+  version: '>=0'
+  category: dev-libs
+- name: qtspeech
+  version: '>=0'
+  category: dev-qt-5
+- name: kdegraphics-mobipocket
+  version: '>=0'
+  category: kde-apps-5
+- name: libkexiv2
+  version: '>=0'
+  category: kde-apps-5
+- name: kactivities
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-5
+- name: khtml
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kimageformats
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kpty
+  version: '>=0'
+  category: kde-frameworks-5
+- name: purpose
+  version: '>=0'
+  category: kde-frameworks-5
+- name: threadweaver
+  version: '>=0'
+  category: kde-frameworks-5
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Universal document viewer based on KDE Frameworks
+uri:
+- https://okular.kde.org https://apps.kde.org/en/okular
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.98.0:5 handbook? ( >=kde-frameworks/kdoctools-5.98.0:5
+    )
+  DEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
+    >=dev-qt/qtsvg-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=kde-frameworks/kactivities-5.98.0:5
+    >=kde-frameworks/karchive-5.98.0:5 >=kde-frameworks/kbookmarks-5.98.0:5 >=kde-frameworks/kcompletion-5.98.0:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/kcrash-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kjs-5.98.0:5 >=kde-frameworks/kparts-5.98.0:5 >=kde-frameworks/kpty-5.98.0:5
+    >=kde-frameworks/ktextwidgets-5.98.0:5 >=kde-frameworks/kwallet-5.98.0:5 >=kde-frameworks/threadweaver-5.98.0:5
+    media-libs/freetype >=media-libs/phonon-4.11.0 sys-libs/zlib chm? ( dev-libs/chmlib
+    dev-libs/libzip:= >=kde-frameworks/khtml-5.98.0:5 ) djvu? ( app-text/djvu ) epub?
+    ( app-text/ebook-tools ) image-backend? ( >=dev-qt/qtgui-5.15.1:5[gif,jpeg,png]
+    >=kde-apps/libkexiv2-22.08.1:5 ) markdown? ( app-text/discount ) mobi? ( >=kde-apps/kdegraphics-mobipocket-22.08.1:5
+    ) pdf? ( app-text/poppler[qt5] ) plucker? ( virtual/jpeg:0 ) postscript? ( app-text/libspectre
+    ) share? ( >=kde-frameworks/purpose-5.98.0:5 ) speech? ( >=dev-qt/qtspeech-5.15.1:5
+    ) tiff? ( media-libs/tiff:0 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+    test? ( >=dev-qt/qttest-5.15.1:5 ) >=dev-qt/qtcore-5.15.1:5 dev-util/desktop-file-utils'
+  IUSE: chm djvu epub +image-backend markdown mobi +pdf +plucker +postscript qml share
+    speech +tiff test debug +handbook test
+  RDEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
+    >=dev-qt/qtsvg-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=kde-frameworks/kactivities-5.98.0:5
+    >=kde-frameworks/karchive-5.98.0:5 >=kde-frameworks/kbookmarks-5.98.0:5 >=kde-frameworks/kcompletion-5.98.0:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/kcrash-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kjs-5.98.0:5 >=kde-frameworks/kparts-5.98.0:5 >=kde-frameworks/kpty-5.98.0:5
+    >=kde-frameworks/ktextwidgets-5.98.0:5 >=kde-frameworks/kwallet-5.98.0:5 >=kde-frameworks/threadweaver-5.98.0:5
+    media-libs/freetype >=media-libs/phonon-4.11.0 sys-libs/zlib chm? ( dev-libs/chmlib
+    dev-libs/libzip:= >=kde-frameworks/khtml-5.98.0:5 ) djvu? ( app-text/djvu ) epub?
+    ( app-text/ebook-tools ) image-backend? ( >=dev-qt/qtgui-5.15.1:5[gif,jpeg,png]
+    >=kde-apps/libkexiv2-22.08.1:5 ) markdown? ( app-text/discount ) mobi? ( >=kde-apps/kdegraphics-mobipocket-22.08.1:5
+    ) pdf? ( app-text/poppler[qt5] ) plucker? ( virtual/jpeg:0 ) postscript? ( app-text/libspectre
+    ) share? ( >=kde-frameworks/purpose-5.98.0:5 ) speech? ( >=dev-qt/qtspeech-5.15.1:5
+    ) tiff? ( media-libs/tiff:0 ) image-backend? ( >=kde-frameworks/kimageformats-5.98.0:5
+    ) qml? ( >=dev-qt/qtquickcontrols2-5.15.1:5 >=kde-frameworks/kirigami-5.98.0:5
+    ) >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.15.1:5'
+  emerge.packages: kde-apps/okular:5
+  kit: kde-kit
+  original.package.name: kde-apps/okular
+  original.package.slot: "5"
+  original.package.version: 22.08.1
