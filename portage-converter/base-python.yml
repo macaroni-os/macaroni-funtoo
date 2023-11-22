@@ -121,6 +121,41 @@ artefacts:
   - dev-python/packaging
   - dev-python/pyparsing
   - dev-python/pytz
+
+- tree: packages/atoms/base-python
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
+  - dev-python/importlib_metadata
+
+- tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: importlib_metadata
+        - category: dev-python
+          name: pyparsing
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+    enabled:
+    - python_targets_python3_9
+  packages:
   - dev-python/setuptools_scm
 
 - tree: packages/atoms/base-python
@@ -306,20 +341,6 @@ artefacts:
   packages:
   - dev-python/pygments
 
-- tree: packages/atoms/base-python
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - python_targets_python2_7
-    - python_targets_python3_10
-    - python_targets_python3_8
-    - python_targets_python3_7
-    - sh
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/importlib_metadata
 
 - tree: packages/atoms/base-python
   uses:
