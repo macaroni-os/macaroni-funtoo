@@ -8,7 +8,9 @@ env:
 prelude:
 # Temporary patch libbson ebuild (see FL-11724)
 - >-
+  rm /var/git/meta-repo/kits/dev-kit/dev-libs/libbson/*.ebuild &&
   cp libbson-1.24.4.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/libbson/
+
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -31,6 +33,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: mysql-connector-c
+- name: ossp-uuid
   version: '>=0'
-  category: dev-db
+  category: dev-libs
