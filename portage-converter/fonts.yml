@@ -217,6 +217,17 @@ artefacts:
   packages:
   - media-fonts/symbola
 
+- tree: packages/atoms/fonts
+  replacements:
+    runtime_deps:
+      ignore:
+        # Avoid to inject by default cjk fonts.
+        # This package could be added later from user.
+        - category: media-fonts
+          name: noto-cjk
+  packages:
+  - media-fonts/noto
+
 include_layers:
 - layers/macaroni-funtoo-race5.yaml
 
