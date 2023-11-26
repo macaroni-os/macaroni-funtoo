@@ -1,0 +1,29 @@
+name: libjaylink
+version: 0.1.0
+category: dev-embedded
+requires:
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library to access J-Link devices
+uri:
+- http://git.zapb.de/libjaylink.git
+license: GPL-2
+labels:
+  DEPEND: virtual/libusb:1 >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: static-libs
+  RDEPEND: virtual/libusb:1
+  emerge.packages: dev-embedded/libjaylink
+  kit: dev-kit
+  original.package.name: dev-embedded/libjaylink
+  original.package.slot: "0"
+  original.package.version: 0.1.0
