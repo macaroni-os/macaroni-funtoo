@@ -1,0 +1,48 @@
+name: kcron
+version: 22.08.1
+category: kde-apps-5
+use_flags:
+- handbook
+requires:
+- name: qtprintsupport
+  version: '>=0'
+  category: dev-qt-5
+- name: kiconthemes
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-5
+- name: cron
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Task Scheduler
+uri:
+- https://apps.kde.org/en/kcron
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+    handbook? ( >=kde-frameworks/kdoctools-5.98.0:5 )
+  DEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5
+    >=kde-frameworks/kauth-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kwidgetsaddons-5.98.0:5 dev-util/desktop-file-utils x11-misc/shared-mime-info
+    >=dev-qt/qtcore-5.15.1:5 dev-util/desktop-file-utils'
+  IUSE: debug +handbook
+  RDEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5
+    >=kde-frameworks/kauth-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kwidgetsaddons-5.98.0:5 virtual/cron >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5'
+  emerge.packages: kde-apps/kcron:5
+  kit: kde-kit
+  original.package.name: kde-apps/kcron
+  original.package.slot: "5"
+  original.package.version: 22.08.1
