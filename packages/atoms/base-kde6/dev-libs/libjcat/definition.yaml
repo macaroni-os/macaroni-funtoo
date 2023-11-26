@@ -1,0 +1,57 @@
+name: libjcat
+version: 0.1.14
+category: dev-libs
+use_flags:
+- -gtk-doc
+- -man
+- -test
+- gpg
+- introspection
+- pkcs7
+- vala
+requires:
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
+- name: vala
+  version: '>=0'
+  category: dev-lang-0.54
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
+- name: libgpg-error
+  version: '>=0'
+  category: dev-libs
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library and tool for reading and writing Jcat files
+uri:
+- https://github.com/hughsie/libjcat
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig || ( ( dev-lang/python:3.10[xml] dev-python/setuptools[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8[xml] dev-python/setuptools[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9[xml] dev-python/setuptools[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7[xml] dev-python/setuptools[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) gtk-doc? ( dev-util/gtk-doc ) man? ( sys-apps/help2man ) test? ( net-libs/gnutls[tools]
+    ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme dev-libs/libgpg-error
+    ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls
+    ) vala? ( dev-lang/vala:= )
+  IUSE: +gpg gtk-doc +introspection +man +pkcs7 test vala
+  RDEPEND: dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme dev-libs/libgpg-error
+    ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls
+    ) vala? ( dev-lang/vala:= )
+  emerge.packages: dev-libs/libjcat
+  kit: core-kit
+  original.package.name: dev-libs/libjcat
+  original.package.slot: "0"
+  original.package.version: 0.1.14
