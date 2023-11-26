@@ -1,0 +1,41 @@
+name: ksshaskpass
+version: 5.25.5
+category: kde-plasma-5
+requires:
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Implementation of ssh-askpass with KDE Wallet integration
+uri:
+- https://kde.org/ https://invent.kde.org/plasma/ksshaskpass
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+  DEPEND: '>=dev-qt/qtwidgets-5.15.2:5 >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5
+    >=kde-frameworks/kwallet-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils'
+  IUSE: debug
+  RDEPEND: '>=dev-qt/qtwidgets-5.15.2:5 >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5
+    >=kde-frameworks/kwallet-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5 >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
+  emerge.packages: kde-plasma/ksshaskpass:5
+  kit: kde-kit
+  original.package.name: kde-plasma/ksshaskpass
+  original.package.slot: "5"
+  original.package.version: 5.25.5
