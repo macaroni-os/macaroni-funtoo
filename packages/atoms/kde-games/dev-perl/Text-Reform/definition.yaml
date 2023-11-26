@@ -1,0 +1,29 @@
+name: Text-Reform
+version: 1.200.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manual text wrapping and reformatting
+uri:
+- https://metacpan.org/release/Text-Reform
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: dev-perl/Module-Build test? ( virtual/perl-Test-Simple ) dev-lang/perl:=[-build(-)]
+  IUSE: test
+  RDEPEND: dev-lang/perl:=[-build(-)]
+  emerge.packages: dev-perl/Text-Reform
+  kit: perl-kit
+  original.package.name: dev-perl/Text-Reform
+  original.package.slot: "0"
+  original.package.version: 1.200.0-r1
