@@ -1,0 +1,32 @@
+name: kdeadmin-meta
+version: 22.08.1
+category: kde-apps-5
+use_flags:
+- cron
+requires:
+- name: kcron
+  version: '>=0'
+  category: kde-apps-5
+- name: ksystemlog
+  version: '>=0'
+  category: kde-apps-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE administration tools - merge this to pull in all kdeadmin-derived
+  packages
+uri:
+- https://kde.org/
+license: metapackage
+labels:
+  IUSE: +cron
+  RDEPEND: '>=kde-apps/ksystemlog-22.08.1:5 cron? ( >=kde-apps/kcron-22.08.1:5 )'
+  emerge.packages: kde-apps/kdeadmin-meta:5
+  kit: kde-kit
+  original.package.name: kde-apps/kdeadmin-meta
+  original.package.slot: "5"
+  original.package.version: 22.08.1
