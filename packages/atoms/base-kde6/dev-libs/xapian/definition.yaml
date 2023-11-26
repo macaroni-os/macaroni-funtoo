@@ -1,0 +1,28 @@
+name: xapian
+version: 1.4.18
+category: dev-libs
+requires:
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Xapian Probabilistic Information Retrieval library
+uri:
+- https://www.xapian.org/
+license: GPL-2
+labels:
+  DEPEND: sys-apps/util-linux[-mgorny(-)] sys-libs/zlib[-mgorny(-)]
+  IUSE: doc static-libs cpu_flags_x86_sse cpu_flags_x86_sse2 +inmemory +remote abi_x86_32
+    abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: sys-apps/util-linux[-mgorny(-)] sys-libs/zlib[-mgorny(-)]
+  emerge.packages: dev-libs/xapian
+  kit: dev-kit
+  original.package.name: dev-libs/xapian
+  original.package.slot: "0"
+  original.package.version: 1.4.18
