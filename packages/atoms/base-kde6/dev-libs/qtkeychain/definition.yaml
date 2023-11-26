@@ -1,0 +1,33 @@
+name: qtkeychain
+version: 0.9.0
+category: dev-libs
+use_flags:
+- -gnome-keyring
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtdbus
+  version: '>=0'
+  category: dev-qt-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt API for storing passwords securely
+uri:
+- https://github.com/frankosterfeld/qtkeychain
+license: BSD
+labels:
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 gnome-keyring? ( dev-libs/glib:2 ) dev-qt/linguist-tools:5
+    gnome-keyring? ( gnome-base/libgnome-keyring ) sys-devel/make >=dev-util/cmake-3.9.6
+  IUSE: gnome-keyring
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 gnome-keyring? ( dev-libs/glib:2 )
+  emerge.packages: dev-libs/qtkeychain
+  kit: dev-kit
+  original.package.name: dev-libs/qtkeychain
+  original.package.slot: "0"
+  original.package.version: 0.9.0
