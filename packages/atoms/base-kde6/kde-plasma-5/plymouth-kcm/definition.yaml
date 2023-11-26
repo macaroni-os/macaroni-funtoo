@@ -1,0 +1,63 @@
+name: plymouth-kcm
+version: 5.25.5
+category: kde-plasma-5
+requires:
+- name: qtquickcontrols
+  version: '>=0'
+  category: dev-qt-5
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kauth
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kdeclarative
+  version: '>=0'
+  category: kde-frameworks-5
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-5
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kde-cli-tools
+  version: '>=0'
+  category: kde-plasma-5
+- name: plymouth
+  version: '>=0'
+  category: sys-boot
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Plasma control module for Plymouth
+uri:
+- https://invent.kde.org/plasma/plymouth-kcm
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+  DEPEND: '>=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtquickcontrols-5.15.2:5
+    >=dev-qt/qtwidgets-5.15.2:5 >=kde-frameworks/karchive-5.98.0:5 >=kde-frameworks/kauth-5.98.0:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kdeclarative-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5
+    >=kde-frameworks/kwidgetsaddons-5.98.0:5 sys-boot/plymouth dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils'
+  IUSE: debug
+  RDEPEND: '>=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtquickcontrols-5.15.2:5
+    >=dev-qt/qtwidgets-5.15.2:5 >=kde-frameworks/karchive-5.98.0:5 >=kde-frameworks/kauth-5.98.0:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kdeclarative-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5
+    >=kde-frameworks/kwidgetsaddons-5.98.0:5 sys-boot/plymouth >=kde-plasma/kde-cli-tools-5.25.5:5
+    >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.15.2:5'
+  emerge.packages: kde-plasma/plymouth-kcm:5
+  kit: kde-kit
+  original.package.name: kde-plasma/plymouth-kcm
+  original.package.slot: "5"
+  original.package.version: 5.25.5
