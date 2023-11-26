@@ -1,0 +1,57 @@
+name: libftdi
+version: "1.5"
+category: dev-embedded-1
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -test
+- cxx
+- python
+- python_single_target_python3_9
+- tools
+requires:
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: confuse
+  version: '>=0'
+  category: dev-libs
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Userspace access to FTDI USB interface chips
+uri:
+- https://www.intra2net.com/en/developer/libftdi/
+license: LGPL-2
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) python? ( dev-lang/swig ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/libusb:1 cxx? ( dev-libs/boost ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    ) tools? ( !<dev-embedded/ftdi_eeprom-1.0 dev-libs/confuse:= ) test? ( dev-libs/boost
+    )
+  IUSE: cxx doc examples python test tools python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: virtual/libusb:1 cxx? ( dev-libs/boost ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    ) tools? ( !<dev-embedded/ftdi_eeprom-1.0 dev-libs/confuse:= )
+  emerge.packages: dev-embedded/libftdi:1
+  kit: dev-kit
+  original.package.name: dev-embedded/libftdi
+  original.package.slot: "1"
+  original.package.version: 1.5-r3
