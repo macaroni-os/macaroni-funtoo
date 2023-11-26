@@ -1,0 +1,72 @@
+name: ksysguard
+version: 5.20.5
+category: kde-plasma-5
+use_flags:
+- -test
+- handbook
+- lm-sensors
+- network
+- networkmanager
+- prefix
+requires:
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kinit
+  version: '>=0'
+  category: kde-frameworks-5
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-5
+- name: networkmanager-qt
+  version: '>=0'
+  category: kde-frameworks-5
+- name: libksysguard
+  version: '>=0'
+  category: kde-plasma-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Network-enabled task manager and system monitor
+uri:
+- https://kde.org/
+license: GPL-2+
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.98.0:5 handbook? ( >=kde-frameworks/kdoctools-5.98.0:5
+    )
+  DEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5
+    >=dev-qt/qtxml-5.15.1:5 >=kde-frameworks/kcompletion-5.98.0:5 >=kde-frameworks/kconfig-5.98.0:5
+    >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5
+    >=kde-frameworks/kinit-5.98.0:5 >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/kitemviews-5.98.0:5
+    >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kwindowsystem-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-plasma/libksysguard-5.20.5:5
+    lm-sensors? ( sys-apps/lm-sensors:= ) network? ( dev-libs/libnl:3 net-libs/libpcap
+    sys-libs/libcap ) networkmanager? ( >=kde-frameworks/networkmanager-qt-5.98.0:5
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.1:5
+    dev-util/desktop-file-utils'
+  IUSE: lm-sensors +network networkmanager test debug +handbook
+  RDEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5
+    >=dev-qt/qtxml-5.15.1:5 >=kde-frameworks/kcompletion-5.98.0:5 >=kde-frameworks/kconfig-5.98.0:5
+    >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kiconthemes-5.98.0:5
+    >=kde-frameworks/kinit-5.98.0:5 >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/kitemviews-5.98.0:5
+    >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kwindowsystem-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-plasma/libksysguard-5.20.5:5
+    lm-sensors? ( sys-apps/lm-sensors:= ) network? ( dev-libs/libnl:3 net-libs/libpcap
+    sys-libs/libcap ) networkmanager? ( >=kde-frameworks/networkmanager-qt-5.98.0:5
+    ) >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.15.1:5'
+  emerge.packages: kde-plasma/ksysguard:5
+  kit: kde-kit
+  original.package.name: kde-plasma/ksysguard
+  original.package.slot: "5"
+  original.package.version: 5.20.5
