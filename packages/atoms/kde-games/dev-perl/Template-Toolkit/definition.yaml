@@ -1,0 +1,42 @@
+name: Template-Toolkit
+version: 2.270.0
+category: dev-perl
+use_flags:
+- -test
+- mysql
+- postgres
+requires:
+- name: AppConfig
+  version: '>=0'
+  category: dev-perl
+- name: DBD-Pg
+  version: '>=0'
+  category: dev-perl
+- name: DBD-mysql
+  version: '>=0'
+  category: dev-perl
+- name: Text-Autoformat
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Template Toolkit
+uri:
+- https://metacpan.org/release/Template-Toolkit
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: dev-perl/Text-Autoformat mysql? ( dev-perl/DBD-mysql ) postgres? ( dev-perl/DBD-Pg
+    ) >=dev-perl/AppConfig-1.56 test? ( dev-perl/CGI ) dev-lang/perl:=
+  IUSE: xml gd mysql postgres latex vim-syntax test
+  RDEPEND: dev-perl/Text-Autoformat mysql? ( dev-perl/DBD-mysql ) postgres? ( dev-perl/DBD-Pg
+    ) >=dev-perl/AppConfig-1.56 dev-lang/perl:=
+  emerge.packages: dev-perl/Template-Toolkit
+  kit: perl-kit
+  original.package.name: dev-perl/Template-Toolkit
+  original.package.slot: "0"
+  original.package.version: 2.270.0-r1
