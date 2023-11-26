@@ -125,8 +125,8 @@ artefacts:
       - test
   packages:
     - kde-plasma/kde-gtk-config
-    - kde-plasma/kwallet-pam
-    - kde-plasma/plasma-desktop
+    - kde-plasma/kwallet-pam:5
+    - kde-plasma/plasma-desktop:5
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -135,7 +135,7 @@ artefacts:
       - test
       - teamd
   packages:
-    - kde-plasma/plasma-nm
+    - kde-plasma/plasma-nm:5
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -145,21 +145,21 @@ artefacts:
       - selinux
       - flashexporter
   packages:
-    - kde-apps/kdenetwork-filesharing
-    - kde-apps/kdf
-    - kde-apps/kdialog
-    - kde-apps/keditbookmarks
-    - kde-apps/kfind
-    - kde-apps/kgpg
-    - kde-apps/killbots
-    - kde-apps/kipi-plugins
-    - kde-apps/kmag
-    - kde-apps/kmousetool
-    - kde-apps/kmouth
-    - kde-apps/konsole
+    - kde-apps/kdenetwork-filesharing:5
+    - kde-apps/kdf:5
+    - kde-apps/kdialog:5
+    - kde-apps/keditbookmarks:5
+    - kde-apps/kfind:5
+    - kde-apps/kgpg:5
+    - kde-apps/killbots:5
+    - kde-apps/kipi-plugins:5
+    - kde-apps/kmag:5
+    - kde-apps/kmousetool:5
+    - kde-apps/kmouth:5
+    - kde-apps/konsole:5
 #    - kde-apps/konsolekalendar
     - kde-apps/kwalletmanager
-      kde-apps/kwrite
+    - kde-apps/kwrite:5
 
 # TODO: move this on base-qt*
 - tree: packages/atoms/base-kde5
@@ -184,30 +184,13 @@ artefacts:
   packages:
     - kde-apps/akonadi:5
 
-# Games
-# kde-apps/bovo
-# kde-apps/bomber
-# kde-apps/kapman
-# kde-apps/kfourinline
-# kde-apps/kiriki
-# kde-apps/klines
-# kde-apps/kmahjongg
-# kde-apps/kmines
-# kde-apps/knetwalk
-# kde-apps/kolf
-# kde-apps/kollision
-# kde-apps/konquest
-# kde-apps/kpat
-# kde-apps/kreversi
-# kde-apps/kshisen
-# kde-apps/kspaceduel
-# kde-apps/ksquares
-# kde-apps/ksudoku
-# kde-apps/kubrick
-#
-# Scanner
-# kde-apps/ksanecore
-# kde-apps/libksane
+- tree: packages/atoms/base-kde5
+  packages:
+    - kde-apps/ksanecore:5
+    - kde-apps/libksane:5
+    - net-libs/libktorrent:5
+    - net-p2p/ktorrent:5
+
 include_layers:
 - layers/macaroni-funtoo-race19.yaml
 
