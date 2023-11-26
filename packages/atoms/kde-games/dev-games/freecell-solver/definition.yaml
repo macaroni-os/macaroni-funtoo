@@ -1,0 +1,49 @@
+name: freecell-solver
+version: 5.6.0
+category: dev-games
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: pysol_cards
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C library for automatically solving Freecell and some other solitaire
+  variants
+uri:
+- https://fc-solve.shlomifish.org/
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) dev-python/pysol_cards[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    dev-python/random2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    dev-python/six[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    dev-perl/Path-Tiny dev-perl/Template-Toolkit
+  IUSE: python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) dev-python/pysol_cards[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    dev-python/random2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    dev-python/six[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+  emerge.packages: dev-games/freecell-solver
+  kit: dev-kit
+  original.package.name: dev-games/freecell-solver
+  original.package.slot: "0"
+  original.package.version: 5.6.0
