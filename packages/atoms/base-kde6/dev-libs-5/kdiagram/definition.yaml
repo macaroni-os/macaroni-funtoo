@@ -1,0 +1,46 @@
+name: kdiagram
+version: 2.8.0
+category: dev-libs-5
+use_flags:
+- -doc
+- -test
+- prefix
+requires:
+- name: qtprintsupport
+  version: '>=0'
+  category: dev-qt-5
+- name: qtsvg
+  version: '>=0'
+  category: dev-qt-5
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Powerful libraries (KChart, KGantt) for creating business diagrams
+uri:
+- https://api.kde.org/kdiagram/index.html https://www.kdab.com/development-resources/qt-tools/kd-chart/
+license: GPL-2
+labels:
+  BDEPEND: '>=dev-qt/linguist-tools-5.15.1:5 dev-util/ninja >=dev-util/cmake-3.9.6
+    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.57.0:5
+    doc? ( >=dev-qt/qthelp-5.15.1:5 >=app-doc/doxygen-1.8.13-r1 )'
+  DEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5 >=dev-qt/qtsvg-5.15.1:5
+    >=dev-qt/qtwidgets-5.15.1:5 dev-util/desktop-file-utils x11-misc/shared-mime-info
+    test? ( >=dev-qt/qttest-5.15.1:5 ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5
+    ) dev-util/desktop-file-utils'
+  IUSE: test debug examples doc test
+  RDEPEND: '>=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5 >=dev-qt/qtsvg-5.15.1:5
+    >=dev-qt/qtwidgets-5.15.1:5 >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.57.0:5
+    kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5 doc? ( >=dev-qt/qt-docs-5.15.1:5
+    )'
+  emerge.packages: dev-libs/kdiagram:5
+  kit: kde-kit
+  original.package.name: dev-libs/kdiagram
+  original.package.slot: "5"
+  original.package.version: 2.8.0
