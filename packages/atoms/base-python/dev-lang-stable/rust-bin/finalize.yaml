@@ -1,0 +1,6 @@
+shell:
+- /bin/bash
+- -c
+uninstall:
+- eval 'rm -vf /etc/env.d/50rust-bin-{{ ( index .Values.labels "original.package.version"
+  ) }} || true' && eval 'macaronictl env-update || true'
