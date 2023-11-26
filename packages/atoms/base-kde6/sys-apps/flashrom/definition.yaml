@@ -1,0 +1,86 @@
+name: flashrom
+version: "1.2"
+category: sys-apps
+use_flags:
+- atahpt
+- atapromise
+- atavia
+- ch341a-spi
+- dediprog
+- developerbox-spi
+- digilent-spi
+- drkaiser
+- ft2232-spi
+- gfxnvidia
+- internal
+- internal-dmi
+- it8212
+- jlink-spi
+- nic3com
+- nicintel
+- nicintel-eeprom
+- nicintel-spi
+- nicnatsemi
+- nicrealtek
+- ogp-spi
+- pickit2-spi
+- rayer-spi
+- satamv
+- satasii
+- stlinkv3-spi
+- usbblaster-spi
+requires:
+- name: libftdi
+  version: '>=0'
+  category: dev-embedded-1
+- name: libjaylink
+  version: '>=0'
+  category: dev-embedded
+- name: pciutils
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility for reading, writing, erasing and verifying flash ROM chips
+uri:
+- https://flashrom.org/Flashrom
+license: GPL-2
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: atahpt? ( sys-apps/pciutils ) atapromise? ( sys-apps/pciutils ) atavia?
+    ( sys-apps/pciutils ) ch341a-spi? ( virtual/libusb:1 ) dediprog? ( virtual/libusb:1
+    ) developerbox-spi? ( virtual/libusb:1 ) digilent-spi? ( virtual/libusb:1 ) drkaiser?
+    ( sys-apps/pciutils ) ft2232-spi? ( dev-embedded/libftdi:1= ) gfxnvidia? ( sys-apps/pciutils
+    ) internal? ( sys-apps/pciutils ) it8212? ( sys-apps/pciutils ) jlink-spi? ( dev-embedded/libjaylink
+    ) nic3com? ( sys-apps/pciutils ) nicintel-eeprom? ( sys-apps/pciutils ) nicintel-spi?
+    ( sys-apps/pciutils ) nicintel? ( sys-apps/pciutils ) nicnatsemi? ( sys-apps/pciutils
+    ) nicrealtek? ( sys-apps/pciutils ) ogp-spi? ( sys-apps/pciutils ) pickit2-spi?
+    ( virtual/libusb:0 ) rayer-spi? ( sys-apps/pciutils ) satamv? ( sys-apps/pciutils
+    ) satasii? ( sys-apps/pciutils ) stlinkv3-spi? ( virtual/libusb:1 ) usbblaster-spi?
+    ( dev-embedded/libftdi:1= ) sys-apps/diffutils
+  IUSE: atahpt atapromise +atavia +buspirate-spi +ch341a-spi +dediprog +developerbox-spi
+    +digilent-spi +drkaiser +dummy +ft2232-spi +gfxnvidia +internal +it8212 jlink-spi
+    +linux-mtd +linux-spi mstarddc-spi +nic3com +nicintel +nicintel-eeprom +nicintel-spi
+    nicnatsemi +nicrealtek +ogp-spi +pickit2-spi +pony-spi +rayer-spi +satamv +satasii
+    +serprog +stlinkv3-spi +usbblaster-spi +internal-dmi tools
+  RDEPEND: atahpt? ( sys-apps/pciutils ) atapromise? ( sys-apps/pciutils ) atavia?
+    ( sys-apps/pciutils ) ch341a-spi? ( virtual/libusb:1 ) dediprog? ( virtual/libusb:1
+    ) developerbox-spi? ( virtual/libusb:1 ) digilent-spi? ( virtual/libusb:1 ) drkaiser?
+    ( sys-apps/pciutils ) ft2232-spi? ( dev-embedded/libftdi:1= ) gfxnvidia? ( sys-apps/pciutils
+    ) internal? ( sys-apps/pciutils ) it8212? ( sys-apps/pciutils ) jlink-spi? ( dev-embedded/libjaylink
+    ) nic3com? ( sys-apps/pciutils ) nicintel-eeprom? ( sys-apps/pciutils ) nicintel-spi?
+    ( sys-apps/pciutils ) nicintel? ( sys-apps/pciutils ) nicnatsemi? ( sys-apps/pciutils
+    ) nicrealtek? ( sys-apps/pciutils ) ogp-spi? ( sys-apps/pciutils ) pickit2-spi?
+    ( virtual/libusb:0 ) rayer-spi? ( sys-apps/pciutils ) satamv? ( sys-apps/pciutils
+    ) satasii? ( sys-apps/pciutils ) stlinkv3-spi? ( virtual/libusb:1 ) usbblaster-spi?
+    ( dev-embedded/libftdi:1= ) !internal-dmi? ( sys-apps/dmidecode )
+  emerge.packages: sys-apps/flashrom
+  kit: core-hw-kit
+  original.package.name: sys-apps/flashrom
+  original.package.slot: "0"
+  original.package.version: 1.2-r4
