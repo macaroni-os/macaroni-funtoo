@@ -143,6 +143,8 @@ artefacts:
       - "-c"
     install:
       - eval 'macaronictl env-update || true'
+    uninstall:
+      - rm -vf /etc/OpenCL/vendors/nvidia.icd || true
 
 include_layers:
 - layers/macaroni-funtoo-race14.yaml
