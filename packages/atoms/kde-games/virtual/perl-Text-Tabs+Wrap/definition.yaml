@@ -1,0 +1,25 @@
+name: perl-Text-Tabs+Wrap
+version: 2013.52.300
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Text::Tabs and Text::Wrap, also distributed as Text::Tabs+Wrap
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/Text-Tabs+Wrap-2013.52.300
+    ) dev-lang/perl:= !<perl-core/Text-Tabs+Wrap-2013.52.300 !>perl-core/Text-Tabs+Wrap-2013.52.300-r999'
+  emerge.packages: virtual/perl-Text-Tabs+Wrap
+  kit: perl-kit
+  original.package.name: virtual/perl-Text-Tabs+Wrap
+  original.package.slot: "0"
+  original.package.version: 2013.52.300-r10
