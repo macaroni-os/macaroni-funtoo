@@ -1,0 +1,30 @@
+name: DBD-Pg
+version: 3.7.0
+category: dev-perl
+requires:
+- name: DBI
+  version: '>=0'
+  category: dev-perl
+- name: perl-version
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PostgreSQL database driver for the DBI module
+uri:
+- https://metacpan.org/release/DBD-Pg
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-version >=dev-perl/DBI-1.614.0 dev-db/postgresql:* virtual/perl-ExtUtils-MakeMaker
+    dev-lang/perl:=
+  RDEPEND: virtual/perl-version >=dev-perl/DBI-1.614.0 dev-db/postgresql:* dev-lang/perl:=
+  emerge.packages: dev-perl/DBD-Pg
+  kit: perl-kit
+  original.package.name: dev-perl/DBD-Pg
+  original.package.slot: "0"
+  original.package.version: 3.7.0
