@@ -85,6 +85,8 @@ kits=(
 
   #"printers"           # race18
   #"php"                # race18
+
+  "base-kde5"          # race19
 )
 
 for i in ${kits[@]} ; do
