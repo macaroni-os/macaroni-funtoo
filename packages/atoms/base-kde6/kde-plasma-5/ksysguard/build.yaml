@@ -1,4 +1,7 @@
 prelude:
+- >-
+  sed -e 's|lm-sensors:=|lm_sensors|g' -i
+  /var/git/meta-repo/kits/kde-kit/kde-plasma/ksysguard/ksysguard-5.20.5.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
