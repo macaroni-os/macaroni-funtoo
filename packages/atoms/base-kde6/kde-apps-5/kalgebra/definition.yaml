@@ -1,0 +1,67 @@
+name: kalgebra
+version: 22.08.1
+category: kde-apps-5
+use_flags:
+- handbook
+- readline
+requires:
+- name: qtquickcontrols
+  version: '>=0'
+  category: dev-qt-5
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-5
+- name: analitza
+  version: '>=0'
+  category: kde-apps-5
+- name: kconfigwidgets
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kirigami
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-5
+- name: readline
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: MathML-based 2D and 3D graph calculator by KDE
+uri:
+- https://apps.kde.org/en/kalgebra https://edu.kde.org/kalgebra/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
+    handbook? ( >=kde-frameworks/kdoctools-5.98.0:5 )
+  DEPEND: '>=dev-qt/qtdeclarative-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
+    >=dev-qt/qtwebengine-5.15.1:5[widgets] >=dev-qt/qtwidgets-5.15.1:5 >=kde-apps/analitza-22.08.1:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kxmlgui-5.98.0:5 readline? ( sys-libs/readline:0= ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.1:5 dev-util/desktop-file-utils'
+  IUSE: readline debug +handbook
+  RDEPEND: '>=dev-qt/qtdeclarative-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
+    >=dev-qt/qtwebengine-5.15.1:5[widgets] >=dev-qt/qtwidgets-5.15.1:5 >=kde-apps/analitza-22.08.1:5
+    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
+    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
+    >=kde-frameworks/kxmlgui-5.98.0:5 readline? ( sys-libs/readline:0= ) >=dev-qt/qtquickcontrols-5.15.1:5
+    >=dev-qt/qtquickcontrols2-5.15.1:5 >=kde-frameworks/kirigami-5.98.0:5 >=kde-frameworks/kf-env-4
+    || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5'
+  emerge.packages: kde-apps/kalgebra:5
+  kit: kde-kit
+  original.package.name: kde-apps/kalgebra
+  original.package.slot: "5"
+  original.package.version: 22.08.1
