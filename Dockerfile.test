@@ -10,22 +10,25 @@ ENV USER=root
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "--cleanup", "--purge-repos", \
   "repository/mottainai-stable", \
   "repository/macaroni-commons-testing", \
   "repository/macaroni-terragon-testing"]
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "--cleanup", "--purge-repos", \
   "--skip-config-protect", \
   "system/entities", \
   "system/luet-geaaru-thin", \
   "sys-apps/shadow", \
   "sys-apps/sed", \
   "app-shells/bash", \
-  "sys-libs-2.2/glibc", \
-  "sys-devel-11.3.0/gcc", \
+  "glibc", \
+  "gcc", \
   "sys-apps/coreutils", \
   "sys-apps/iproute2", \
+  "sysvinit", \
   "virtual/base", \
   "virtual-entities/base", \
   "app-admin/macaronictl-thin" ]
