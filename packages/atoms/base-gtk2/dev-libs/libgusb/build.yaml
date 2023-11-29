@@ -1,4 +1,9 @@
 prelude:
+- >-
+  cp libgusb-0.3.5.ebuild /var/git/meta-repo/kits/gnome-kit/dev-libs/libgusb/ &&
+  cd /var/git/meta-repo/kits/gnome-kit/dev-libs/libgusb/ &&
+  ebuild libgusb-0.3.5.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
