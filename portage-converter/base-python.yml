@@ -425,7 +425,14 @@ artefacts:
     uninstall:
       - >-
         eval 'rm -vf /etc/env.d/50rust-bin-{{ ( index .Values.labels "original.package.version" ) }} || true' &&
-        eval 'macaronictl env-update || true'
+        source /etc/profile &&
+        eval 'macaronictl env-update || true' &&
+        eval 'macaronictl etc-update || true'
+    install:
+      - >-
+        source /etc/profile &&
+        eval 'macaronictl env-update || true' &&
+        eval 'macaronictl etc-update || true'
 
 - tree: packages/atoms/base-python
   mutations:
