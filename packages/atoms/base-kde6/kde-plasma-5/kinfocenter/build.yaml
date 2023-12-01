@@ -19,6 +19,11 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Add macaroni stuff
+- >-
+  mkdir -p /pkgdir/{{ .Values.name }}/usr/share/macaroni/kde/ &&
+  cp logo.png /pkgdir/{{ .Values.name }}/usr/share/macaroni/kde/ &&
+  cp kcm-about-distrorc /pkgdir/{{ .Values.name }}/etc/xdg/
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
