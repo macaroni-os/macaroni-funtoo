@@ -6,7 +6,7 @@ inherit go-module
 
 go-module_set_globals
 
-SRC_URI="https://github.com/slimtoolkit/docker-slim/tarball/e3969349528fb5c534eb129db19399236f7e6034 -> docker-slim-1.40.4-e396934.tar.gz"
+SRC_URI="https://github.com/slimtoolkit/docker-slim/tarball/ae3100726ad5a37a1ac21c5648b6b65cc83a8763 -> docker-slim-1.40.6-ae31007.tar.gz"
 
 DESCRIPTION="Make your containers better, smaller, more secure and do less to get there"
 HOMEPAGE="https://dockersl.im/ https://github.com/docker-slim/docker-slim"
