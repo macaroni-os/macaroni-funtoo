@@ -194,6 +194,12 @@ cp -vf patches/networkmanager-vpnc/networkmanager-vpnc-1.2.6.ebuild \
 # Add patch for dev-libs/redlang
 cp -vf patches/redland/redland-1.0.17-r2.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/redland/
 
+# Add patch (no more available on funtoo)
+cp -vf patches/spice-gtk/spice-gtk-0.42.ebuild /var/git/meta-repo/kits/net-kit/net-misc/spice-gtk/ 
+cd /var/git/meta-repo/kits/net-kit/net-misc/spice-gtk/ && \
+ebuild spice-gtk-0.42.ebuild digest && \
+cd -
+
 # ephoto needs a patch on autogen template. nls use flags is no more available.
 
 # dev-util/ostree to upgrade at release 2023.5 (fix compilation issues) or must be replaced
