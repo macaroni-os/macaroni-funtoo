@@ -53,9 +53,9 @@ HOOKS=(
 
 source ${EROOT}/var/lib/macaroni/live-core.sh
 
-main_lxqt() {
+main_kde() {
   main || return 1
 }
 
-main_lxqt
+main_kde
 exit $?
