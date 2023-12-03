@@ -87,6 +87,8 @@ kits=(
   #"php"                # race18
 
   "base-kde5"          # race19
+
+  "base-kde6"          # race20
 )
 
 for i in ${kits[@]} ; do
