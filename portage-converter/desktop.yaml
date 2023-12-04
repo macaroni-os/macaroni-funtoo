@@ -501,11 +501,24 @@ artefacts:
     disabled:
       - gtk4
   packages:
-    - net-vpn/networkmanager-openconnect
     - net-vpn/networkmanager-strongswan
     - net-vpn/networkmanager-vpnc
     - net-vpn/networkmanager-fortisslvpn
     - net-misc/youtube-dl
+
+- tree: packages/atoms/desktop
+  uses:
+    disabled:
+      - gtk4
+  packages:
+    - net-vpn/networkmanager-openconnect
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+    - entities merge --specs-dir /usr/share/macaroni/entities/
+      -e nm-openconnect
 
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
