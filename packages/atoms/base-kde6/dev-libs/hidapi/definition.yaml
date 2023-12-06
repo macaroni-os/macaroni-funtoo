@@ -1,0 +1,33 @@
+name: hidapi
+version: 0.14.0
+category: dev-libs
+use_flags:
+- -doc
+requires:
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A multi-platform library for USB and Bluetooth HID-Class devices
+uri:
+- https://github.com/libusb/hidapi
+license: '|| ( BSD GPL-3 HIDAPI )'
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: virtual/libusb:1 virtual/libudev:0
+  IUSE: doc
+  RDEPEND: virtual/libusb:1 virtual/libudev:0
+  emerge.packages: dev-libs/hidapi
+  kit: geaaru-kit
+  original.package.name: dev-libs/hidapi
+  original.package.slot: "0"
+  original.package.version: 0.14.0
