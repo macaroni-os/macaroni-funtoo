@@ -193,11 +193,21 @@ artefacts:
 #    - kde-apps/ktp-auth-handler:5
 
 - tree: packages/atoms/base-kde6
+  packages:
+    - dev-libs/hidapi
+
+- tree: packages/atoms/base-kde6
+  mutations:
+    uses:
+      - user-permissions
+  packages:
+    - app-misc/ddcutil
+
+- tree: packages/atoms/base-kde6
   uses:
     disabled:
       - debug
       - test
-      - brightness-control
   packages:
     - kde-plasma/powerdevil:5
 
