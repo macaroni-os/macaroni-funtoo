@@ -82,6 +82,7 @@ kits=(
   "server"             # race18
   "x11-misc2"          # race18
   "desktop2"           # race18
+  "power"              # race18
 
   #"printers"           # race18
   #"php"                # race18
