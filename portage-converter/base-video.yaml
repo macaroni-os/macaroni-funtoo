@@ -156,6 +156,31 @@ artefacts:
       - openmp
       - gtk-doc
   packages:
+    - media-libs/libavif
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        POSTINST=1 PACKAGE_CATEGORY=media-libs PACKAGE_NAME=libavif whip h gtk.gdk_pixbuf_update || true
+
+- tree: packages/atoms/base-video
+  uses:
+    disabled:
+      - utils
+      - static-libs
+      - pic
+      - opencl
+      - altivec
+      - debug
+      - examples
+      - test
+      - doc
+      - openmp
+      - gtk-doc
+  packages:
     - media-libs/x264
     - media-libs/libmatroska
     - media-libs/dav1d
@@ -166,7 +191,6 @@ artefacts:
     - media-libs/id3lib
     - media-libs/lib3mf
     - media-libs/libart_lgpl
-    - media-libs/libavif
     - media-libs/libcuefile
     - media-libs/libdc1394
     - media-libs/libdca
