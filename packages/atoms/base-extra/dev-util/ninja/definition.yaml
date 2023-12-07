@@ -1,0 +1,31 @@
+name: ninja
+version: 1.9.0
+category: dev-util
+use_flags:
+- -doc
+- -emacs
+- -test
+- -vim-syntax
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A small build system similar to make
+uri:
+- https://ninja-build.org/
+license: Apache-2.0
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 >=dev-lang/python-2.7.5-r2:2.7 dev-lang/python:3.8
+    dev-lang/python:3.9 dev-lang/python:3.7 ) dev-util/re2c doc? ( app-text/asciidoc
+    app-doc/doxygen dev-libs/libxslt ) test? ( dev-cpp/gtest )'
+  IUSE: doc emacs test vim-syntax
+  RDEPEND: emacs? ( virtual/emacs ) vim-syntax? ( || ( app-editors/vim app-editors/gvim
+    ) )
+  emerge.packages: dev-util/ninja
+  kit: core-kit
+  original.package.name: dev-util/ninja
+  original.package.slot: "0"
+  original.package.version: 1.9.0
