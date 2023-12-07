@@ -3,7 +3,7 @@ prelude:
 - >-
   export LUET_YES=true &&
   export LUET_NOLOCK=true &&
-  export LUET_VERSION=0.40.1 &&
+  export LUET_VERSION=0.38.1 &&
   LUET_ARCH=x86_64 &&
   apk add wget bash &&
   mkdir /macaroni-funtoo &&
@@ -11,14 +11,15 @@ prelude:
   chmod a+x /usr/bin/luet &&
   luet upgrade --sync-repos  &&
   luet install --force --config ./luet.yaml --sync-repos
-  repository/macaroni-eagle-dev
-  repository/macaroni-commons-dev
+  repository/macaroni-funtoo-systemd-dev
+  repository/macaroni-commons
   repository/mottainai-stable &&
   luet install --force --config ./luet.yaml --skip-finalizers --sync-repos
   system/luet-geaaru
   toolchain/base
   toolchain/meta-repo
   toolchain/meta-geaaru-kit
+  pkglist/funtoo-base
   system/entities
   utils/yq &&
   luet cleanup --config ./luet.yaml &&
