@@ -17,7 +17,7 @@ install:
 - if [ ! -e /etc/group ] ; then touch /etc/group ; fi
 - if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi
 - if [ ! -e /etc/modules-load.d ] ; then mkdir /etc/modules-load.d ; fi
-- chmod a+rx /vaa
+- chmod a+rx /var
 - |
   export EROOT=${EROOT:-/} ; \
   export GCC_VERSION={{ ( index .Values.labels "gcc_version" ) }} ; \
