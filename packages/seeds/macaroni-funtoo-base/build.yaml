@@ -49,11 +49,7 @@ steps:
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
-  build-docbook-catalog &&
   cd / && rm -rf /luetbuild &&
   mkdir /layer
 
-# build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
-
 package_dir: /layer
-
