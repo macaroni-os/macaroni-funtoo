@@ -65,54 +65,15 @@ global_annotations:
 artefacts:
 
 # Artefacts manually changed
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  packages:
-    - dev-libs/iniparser:0
-
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  packages:
-    - app-crypt/libmd
-
-- tree: packages/atoms/base
-  packages:
-    - sys-apps/help2man
-    - app-arch/cpio
-
-- tree: packages/atoms/base
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_8
-    - python_targets_python3_9
-    - python_targets_python2_7
-    - python_targets_pypy3
-    - sh
-    enabled:
-    - python_targets_python3_7
-  packages:
-  - dev-lang/python-exec:2
+#- tree: packages/atoms/base
+#  uses:
+#    disabled:
+#    - doc
+#    - nios2
+#    - sh
+#    - static-libs
+#  packages:
+#    - app-crypt/libmd
 
 - tree: packages/atoms/base
   mutations:
@@ -128,35 +89,6 @@ artefacts:
     - udev
   packages:
   - virtual/libusb:1
-
-- tree: packages/atoms/base
-  replacements:
-    buildtime_deps:
-      ignore:
-        - category: sys-fs
-          name: lvm2
-  uses:
-    disabled:
-      - btrfs
-      - ibm
-      - cryptsetup
-      - selinux
-  packages:
-  - sys-kernel/genkernel
-
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - clippy
-    - doc
-    - nios2
-    - rls
-    - rustfmt
-    - sh
-    enabled:
-    - cpu_flags_x86_sse2
-  packages:
-  - dev-lang/rust-bin:stable
 
 - tree: packages/atoms/base
   mutations:
@@ -230,15 +162,15 @@ artefacts:
   - virtual/libudev
 
 
-- tree: packages/atoms/base
-  uses:
-    disabled:
-    - nios2
-    - sh
-    enabled:
-    - ssl
-  packages:
-  - virtual/perl-libnet
+#- tree: packages/atoms/base
+#  uses:
+#    disabled:
+#    - nios2
+#    - sh
+#    enabled:
+#    - ssl
+#  packages:
+#  - virtual/perl-libnet
 
 - tree: packages/atoms/base
   uses:
@@ -266,47 +198,16 @@ artefacts:
   - virtual/editor
   - virtual/libc
   - virtual/libelf
-  - virtual/libffi
+#  - virtual/libffi
   - virtual/libiconv
-  - virtual/libintl
   - virtual/man
   - virtual/modutils
   - virtual/os-headers
   - virtual/package-manager
   - virtual/pager
   - virtual/pam
-  - virtual/perl-CPAN-Meta
-  - virtual/perl-CPAN-Meta-YAML
-  - virtual/perl-Carp
-  - virtual/perl-Data-Dumper
-  - virtual/perl-Digest-MD5
-  - virtual/perl-Digest-SHA
-  - virtual/perl-Encode
-  - virtual/perl-Exporter
-  - virtual/perl-ExtUtils-CBuilder
-  - virtual/perl-ExtUtils-Install
-  - virtual/perl-ExtUtils-MakeMaker
-  - virtual/perl-ExtUtils-Manifest
-  - virtual/perl-ExtUtils-ParseXS
-  - virtual/perl-File-Spec
-  - virtual/perl-File-Temp
-  - virtual/perl-Getopt-Long
-  - virtual/perl-IO
-  - virtual/perl-JSON-PP
-  - virtual/perl-MIME-Base64
-  - virtual/perl-Module-Metadata
-  - virtual/perl-Parse-CPAN-Meta
-  - virtual/perl-Perl-OSType
-  - virtual/perl-Pod-Parser
-  - virtual/perl-Scalar-List-Utils
-  - virtual/perl-Test-Harness
-  - virtual/perl-Text-ParseWords
-  - virtual/perl-podlators
-  - virtual/perl-version
   - virtual/pkgconfig
-  - virtual/rust
   - virtual/shadow
-  - virtual/w3m
 
 - tree: packages/atoms/base
   ignore_build_deps: true
@@ -345,7 +246,6 @@ artefacts:
     - sh
   packages:
   - virtual/libintl
-  - dev-util/glib-utils
 
 - tree: packages/atoms/base
   ignore_build_deps: true
@@ -381,12 +281,12 @@ artefacts:
     disabled:
     - nios2
     - python_targets_python3_8
-    - python_targets_python3_9
     - python_targets_python2_7
-    - sh
-    enabled:
     - python_targets_pypy3
     - python_targets_python3_7
+    - sh
+    enabled:
+    - python_targets_python3_9
   packages:
   - dev-lang/python-exec:2
 
@@ -405,88 +305,73 @@ artefacts:
   packages:
   - dev-libs/libusb:1
 
-- tree: packages/atoms/base
-  ignore_build_deps: true
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: funtoo-base
-  uses:
-    disabled:
-    - debug
-    - doc
-    - emacs
-    - nios2
-    - python_single_target_python3_8
-    - python_single_target_python3_9
-    - python_targets_python3_8
-    - python_targets_python3_9
-    - sh
-    enabled:
-    - python_single_target_python3_7
-    - python_targets_python3_7
-  packages:
-  - dev-util/gtk-doc
+#- tree: packages/atoms/base
+#  ignore_build_deps: true
+#  mutations:
+#    buildtime_deps:
+#      packages:
+#        - category: seed
+#          name: funtoo-base
+#  uses:
+#    disabled:
+#    - debug
+#    - doc
+#    - emacs
+#    - nios2
+#    - python_single_target_python3_8
+#    - python_single_target_python3_9
+#    - python_targets_python3_8
+#    - python_targets_python3_9
+#    - sh
+#    enabled:
+#    - python_single_target_python3_7
+#    - python_targets_python3_7
+#  packages:
+#  - dev-util/gtk-doc
 
 include_layers:
 - layers/funtoo-base.yaml
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
-#  - source1.json
-  - ./kit_cache/browser-kit-1.4-release
-  - ./kit_cache/core-gl-kit-2.0-release
-  - ./kit_cache/core-hw-kit-1.4-release
-  - ./kit_cache/core-kit-1.4-release
-  - ./kit_cache/core-server-kit-1.4-release
-  - ./kit_cache/desktop-kit-1.4-release
-  - ./kit_cache/dev-kit-1.4-release
-  - ./kit_cache/editors-kit-1.4-release
-  - ./kit_cache/games-kit-1.4-release
-  - ./kit_cache/gnome-kit-3.36-prime
-  - ./kit_cache/haskell-kit-1.4-release
-  - ./kit_cache/java-kit-1.4-release
-  - ./kit_cache/kde-kit-5.22-release
-  - ./kit_cache/lang-kit-1.4-release
-  - ./kit_cache/lisp-scheme-kit-1.4-release
-  - ./kit_cache/llvm-kit-1.4-release
-  - ./kit_cache/mate-kit-1.24-prime
-  - ./kit_cache/media-kit-1.4-release
-  - ./kit_cache/ml-lang-kit-1.4-release
-  - ./kit_cache/net-kit-1.4-release
-  - ./kit_cache/nokit-1.4-release
-  - ./kit_cache/perl-kit-5.32-release
-  - ./kit_cache/python-kit-3.7-release
-  - ./kit_cache/python-modules-kit-1.4-release
-  - ./kit_cache/qt-kit-5.15.2-release
-  - ./kit_cache/ruby-kit-2.7-prime
-  - ./kit_cache/science-kit-1.4-release
-  - ./kit_cache/security-kit-1.4-release
-  - ./kit_cache/text-kit-1.4-release
-  - ./kit_cache/xfce-kit-4.16-release
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
   - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
 
 # Disable use of category with slot as requires. Default is without slot.
 reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
-    - dev-lang/python:3.7
-    - dev-lang/ruby:2.6
-    - dev-lang/ruby:2.7
-    - sys-devel/gcc:9.2.0
-    - sys-devel/llvm:11
-    - sys-devel/clang:11
-    - dev-cpp/gtkmm:3.0
-    #- app-text/docbook-sgml-dtd:4.4
-    #- app-text/docbook-sgml-dtd:4.2
-    #- app-text/docbook-sgml-dtd:4.1
-    #- app-text/docbook-sgml-dtd:4.0
-    #- app-text/docbook-sgml-dtd:3.1
-    - app-text/docbook-sgml-dtd:3.0
-    - dev-cpp/cairomm:0
-    - dev-libs/iniparser:0
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
@@ -511,14 +396,14 @@ reposcan_disabled_use_flags:
   - gles2-only
   - python_single_target_python2_7
   - python_single_target_python3_6
-  - python_single_target_python3_9
+  - python_single_target_python3_7
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
   - python_single_target_pypy3
   - python_targets_python2_7
   - python_targets_python3_6
-  - python_targets_python3_9
+  - python_targets_python3_7
   - python_targets_python3_8
   - python_targets_python3_10
   - python_targets_pypy3
@@ -610,7 +495,8 @@ reposcan_disabled_use_flags:
 
   - userland_BSD
 
+  - X
+
 reposcan_disabled_keywords:
   #- ~amd64
   - -*
-  - next
