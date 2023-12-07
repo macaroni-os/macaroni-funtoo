@@ -1,0 +1,31 @@
+name: dosfstools
+version: "4.1"
+category: sys-fs
+use_flags:
+- -test
+- udev
+requires:
+- name: libudev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat
+uri:
+- https://github.com/dosfstools/dosfstools
+license: GPL-3
+labels:
+  DEPEND: udev? ( virtual/libudev ) test? ( app-editors/vim-core ) udev? ( virtual/pkgconfig
+    )
+  IUSE: +compat test +udev
+  RDEPEND: udev? ( virtual/libudev )
+  emerge.packages: sys-fs/dosfstools
+  kit: core-kit
+  original.package.name: sys-fs/dosfstools
+  original.package.slot: "0"
+  original.package.version: "4.1"
