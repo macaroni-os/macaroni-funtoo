@@ -1,0 +1,25 @@
+name: perl-podlators
+version: 4.140.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for podlators
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/podlators-4.140.0 ) dev-lang/perl:=
+    !<perl-core/podlators-4.140.0 !>perl-core/podlators-4.140.0-r999'
+  emerge.packages: virtual/perl-podlators
+  kit: perl-kit
+  original.package.name: virtual/perl-podlators
+  original.package.slot: "0"
+  original.package.version: 4.140.0
