@@ -1,0 +1,25 @@
+name: perl-ExtUtils-ParseXS
+version: 3.400.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for ExtUtils-ParseXS
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* =dev-lang/perl-5.30* ~perl-core/ExtUtils-ParseXS-3.400.0
+    ) dev-lang/perl:= !<perl-core/ExtUtils-ParseXS-3.400.0 !>perl-core/ExtUtils-ParseXS-3.400.0-r999'
+  emerge.packages: virtual/perl-ExtUtils-ParseXS
+  kit: perl-kit
+  original.package.name: virtual/perl-ExtUtils-ParseXS
+  original.package.slot: "0"
+  original.package.version: 3.400.0-r1
