@@ -1,0 +1,103 @@
+name: openvdb
+version: 11.0.0
+category: media-gfx
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -test
+- blosc
+- numpy
+- python
+- python_single_target_python3_9
+- zlib
+requires:
+- name: tbb
+  version: '>=0'
+  category: dev-cpp
+- name: c-blosc
+  version: '>=0'
+  category: dev-libs
+- name: jemalloc
+  version: '>=0'
+  category: dev-libs
+- name: log4cplus
+  version: '>=0'
+  category: dev-libs
+- name: glfw
+  version: '>=0'
+  category: media-libs
+- name: glu
+  version: '>=0'
+  category: media-libs
+- name: openexr
+  version: '>=0'
+  category: media-libs
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+- name: libXinerama
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for the efficient manipulation of volumetric data
+uri:
+- https://www.openvdb.org
+license: MPL-2.0
+labels:
+  BDEPEND: '>=dev-util/cmake-3.16.2-r1 virtual/pkgconfig doc? ( app-doc/doxygen dev-texlive/texlive-bibtexextra
+    dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex
+    dev-texlive/texlive-latexextra ) test? ( dev-util/cppunit dev-cpp/gtest ) dev-util/ninja
+    dev-util/cmake'
+  DEPEND: dev-cpp/tbb dev-libs/boost:= dev-libs/c-blosc:= dev-libs/jemalloc:= dev-libs/log4cplus:=
+    media-libs/glfw media-libs/glu >=dev-libs/imath-3:= >=media-libs/openexr-3:= sys-libs/zlib:=
+    x11-libs/libXcursor x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr blosc?
+    ( dev-libs/c-blosc:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-libs/boost:=[numpy?,python?,python_targets_python3_10(-)] numpy? ( dev-python/numpy[python_targets_python3_10(-)]
+    ) ) python_single_target_python3_7? ( dev-libs/boost:=[numpy?,python?,python_targets_python3_7(-)]
+    numpy? ( dev-python/numpy[python_targets_python3_7(-)] ) ) python_single_target_python3_9?
+    ( dev-libs/boost:=[numpy?,python?,python_targets_python3_9(-)] numpy? ( dev-python/numpy[python_targets_python3_9(-)]
+    ) ) python_single_target_python3_8? ( dev-libs/boost:=[numpy?,python?,python_targets_python3_8(-)]
+    numpy? ( dev-python/numpy[python_targets_python3_8(-)] ) ) ) zlib? ( sys-libs/zlib
+    )
+  IUSE: cpu_flags_x86_avx cpu_flags_x86_sse4_2 +blosc doc numpy python static-libs
+    test utils zlib abi9-compat abi10-compat +abi11-compat python_single_target_python3_10
+    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: dev-cpp/tbb dev-libs/boost:= dev-libs/c-blosc:= dev-libs/jemalloc:= dev-libs/log4cplus:=
+    media-libs/glfw media-libs/glu >=dev-libs/imath-3:= >=media-libs/openexr-3:= sys-libs/zlib:=
+    x11-libs/libXcursor x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr blosc?
+    ( dev-libs/c-blosc:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-libs/boost:=[numpy?,python?,python_targets_python3_10(-)] numpy? ( dev-python/numpy[python_targets_python3_10(-)]
+    ) ) python_single_target_python3_7? ( dev-libs/boost:=[numpy?,python?,python_targets_python3_7(-)]
+    numpy? ( dev-python/numpy[python_targets_python3_7(-)] ) ) python_single_target_python3_9?
+    ( dev-libs/boost:=[numpy?,python?,python_targets_python3_9(-)] numpy? ( dev-python/numpy[python_targets_python3_9(-)]
+    ) ) python_single_target_python3_8? ( dev-libs/boost:=[numpy?,python?,python_targets_python3_8(-)]
+    numpy? ( dev-python/numpy[python_targets_python3_8(-)] ) ) ) zlib? ( sys-libs/zlib
+    )
+  emerge.packages: media-gfx/openvdb
+  kit: media-kit
+  original.package.name: media-gfx/openvdb
+  original.package.slot: "0"
+  original.package.version: 11.0.0
