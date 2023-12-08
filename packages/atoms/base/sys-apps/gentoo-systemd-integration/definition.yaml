@@ -1,0 +1,26 @@
+name: gentoo-systemd-integration
+version: "7"
+category: sys-apps
+requires:
+- name: systemd
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: systemd integration files for Gentoo
+uri:
+- https://wiki.gentoo.org/wiki/Project:Systemd
+license: BSD
+labels:
+  DEPEND: '>=sys-apps/systemd-207 virtual/pkgconfig virtual/pkgconfig'
+  RDEPEND: '>=sys-apps/systemd-207 !sys-fs/eudev !sys-fs/udev'
+  emerge.packages: sys-apps/gentoo-systemd-integration
+  kit: geaaru-kit
+  original.package.name: sys-apps/gentoo-systemd-integration
+  original.package.slot: "0"
+  original.package.version: "7"
