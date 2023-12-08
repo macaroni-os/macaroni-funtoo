@@ -1,0 +1,44 @@
+name: c-blosc
+version: 1.21.5
+category: dev-libs
+use_flags:
+- lz4
+- snappy
+- zlib
+- zstd
+requires:
+- name: lz4
+  version: '>=0'
+  category: app-arch
+- name: snappy
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Blocking, shuffling and lossless compression library
+uri:
+- https://www.blosc.org/
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: lz4? ( >=app-arch/lz4-1.7.5:= ) snappy? ( app-arch/snappy ) zlib? ( sys-libs/zlib
+    ) zstd? ( app-arch/zstd )
+  IUSE: +lz4 +snappy test zlib zstd
+  RDEPEND: lz4? ( >=app-arch/lz4-1.7.5:= ) snappy? ( app-arch/snappy ) zlib? ( sys-libs/zlib
+    ) zstd? ( app-arch/zstd )
+  emerge.packages: dev-libs/c-blosc
+  kit: dev-kit
+  original.package.name: dev-libs/c-blosc
+  original.package.slot: "0"
+  original.package.version: 1.21.5
