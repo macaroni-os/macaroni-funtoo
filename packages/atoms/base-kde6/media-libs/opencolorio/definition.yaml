@@ -1,0 +1,76 @@
+name: opencolorio
+version: 2.1.2
+category: media-libs
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- opengl
+- python
+- python_single_target_python3_9
+requires:
+- name: pystring
+  version: '>=0'
+  category: dev-cpp
+- name: yaml-cpp
+  version: '>=0'
+  category: dev-cpp
+- name: imath
+  version: '>=0'
+  category: dev-libs
+- name: tinyxml
+  version: '>=0'
+  category: dev-libs
+- name: freeglut
+  version: '>=0'
+  category: media-libs
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: openimageio
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A color management framework for visual effects and animation.
+uri:
+- https://github.com/AcademySoftwareFoundation/OpenColorIO
+license: BSD
+labels:
+  BDEPEND: '>=dev-util/cmake-3.16.2-r1 virtual/pkgconfig doc? ( python_single_target_python3_10?
+    ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/testresources[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/sphinx[python_targets_python3_7(-)]
+    dev-python/testresources[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/sphinx[python_targets_python3_9(-)] dev-python/testresources[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/sphinx[python_targets_python3_8(-)]
+    dev-python/testresources[python_targets_python3_8(-)] ) ) dev-util/ninja dev-util/cmake'
+  DEPEND: dev-cpp/pystring dev-python/pybind11 dev-libs/imath dev-cpp/yaml-cpp:= dev-libs/tinyxml
+    opengl? ( media-libs/lcms:2 >=media-libs/openimageio-2.2.13.0 media-libs/glew:=
+    media-libs/freeglut virtual/opengl ) >=dev-libs/imath-3:= python? ( python_single_target_python3_10?
+    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) )
+  IUSE: cpu_flags_x86_sse2 doc opengl python static-libs python_single_target_python3_10
+    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: dev-cpp/pystring dev-python/pybind11 dev-libs/imath dev-cpp/yaml-cpp:=
+    dev-libs/tinyxml opengl? ( media-libs/lcms:2 >=media-libs/openimageio-2.2.13.0
+    media-libs/glew:= media-libs/freeglut virtual/opengl ) >=dev-libs/imath-3:= python?
+    ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) )
+  emerge.packages: media-libs/opencolorio
+  kit: media-kit
+  original.package.name: media-libs/opencolorio
+  original.package.slot: "0"
+  original.package.version: 2.1.2
