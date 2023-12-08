@@ -31,6 +31,8 @@ steps:
   dev-util/pkgs-checker-minimal
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
+  luet repo update &&
+  luet upgrade &&
   luet cleanup
 
 # Using steps to trace what files are generated
