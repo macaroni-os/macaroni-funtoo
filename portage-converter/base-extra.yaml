@@ -440,6 +440,29 @@ artefacts:
   - virtual/perl-version
 
 - tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-base
+  ignore_build_deps: true
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/Module-Build
+  - dev-perl/Pod-Parser
+
+- tree: packages/atoms/base-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-perl
+          name: Module-Build
+        - category: perl-core
+          name: File-Temp
   ignore_build_deps: true
   uses:
     disabled:
@@ -448,8 +471,6 @@ artefacts:
     - test
   packages:
   - dev-perl/Error
-  - dev-perl/Module-Build
-  - dev-perl/Pod-Parser
 
 - tree: packages/atoms/base-extra
   uses:
