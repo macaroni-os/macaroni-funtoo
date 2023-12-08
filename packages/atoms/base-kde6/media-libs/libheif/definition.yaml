@@ -1,0 +1,52 @@
+name: libheif
+version: 1.15.2
+category: media-libs
+use_flags:
+- aom
+- gdk-pixbuf
+- rav1e
+- x265
+requires:
+- name: dav1d
+  version: '>=0'
+  category: media-libs
+- name: libaom
+  version: '>=0'
+  category: media-libs
+- name: libde265
+  version: '>=0'
+  category: media-libs
+- name: x265
+  version: '>=0'
+  category: media-libs
+- name: rav1e
+  version: '>=0'
+  category: media-video
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+uri:
+- https://github.com/strukturag/libheif
+license: GPL-3
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/dav1d:= media-libs/libde265:= aom? ( >=media-libs/libaom-2.0.0:=
+    ) gdk-pixbuf? ( x11-libs/gdk-pixbuf ) rav1e? ( media-video/rav1e:= ) x265? ( media-libs/x265:=
+    )
+  IUSE: +aom gdk-pixbuf rav1e +threads x265
+  RDEPEND: media-libs/dav1d:= media-libs/libde265:= aom? ( >=media-libs/libaom-2.0.0:=
+    ) gdk-pixbuf? ( x11-libs/gdk-pixbuf ) rav1e? ( media-video/rav1e:= ) x265? ( media-libs/x265:=
+    )
+  emerge.packages: media-libs/libheif
+  kit: media-kit
+  original.package.name: media-libs/libheif
+  original.package.slot: "0"
+  original.package.version: 1.15.2
