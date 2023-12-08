@@ -1,4 +1,6 @@
 prelude:
+- >-
+  mkdir /run || true
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
