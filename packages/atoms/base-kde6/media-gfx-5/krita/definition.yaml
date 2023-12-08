@@ -1,0 +1,160 @@
+name: krita
+version: 5.1.1
+category: media-gfx-5
+use_flags:
+- -fftw
+- -heif
+- -jpegxl
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- color-management
+- gif
+- gsl
+- mypaint-brush-engine
+- openexr
+- pdf
+- python_single_target_python3_9
+- qtmedia
+- raw
+requires:
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: quazip
+  version: '>=0'
+  category: dev-libs
+- name: PyQt5
+  version: '>=0'
+  category: dev-python
+- name: sip
+  version: '>=0'
+  category: dev-python
+- name: qtconcurrent
+  version: '>=0'
+  category: dev-qt-5
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-5
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-5
+- name: exiv2
+  version: '>=0'
+  category: media-gfx
+- name: giflib
+  version: '>=0'
+  category: media-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
+- name: libmypaint
+  version: '>=0'
+  category: media-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: libraw
+  version: '>=0'
+  category: media-libs
+- name: opencolorio
+  version: '>=0'
+  category: media-libs
+- name: openexr
+  version: '>=0'
+  category: media-libs
+- name: gsl
+  version: '>=0'
+  category: sci-libs
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Free digital painting application. Digital Painting, Creative Freedom!
+uri:
+- https://apps.kde.org/krita/ https://krita.org/en/
+license: GPL-3
+labels:
+  BDEPEND: dev-cpp/eigen:3 dev-lang/perl sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) dev-libs/boost:= dev-libs/quazip:0=[qt5(+)] python_single_target_python3_10?
+    ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_10(-)] dev-python/sip:=[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_7(-)]
+    dev-python/sip:=[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_9(-)] dev-python/sip:=[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_8(-)]
+    dev-python/sip:=[python_targets_python3_8(-)] ) >=dev-qt/qtconcurrent-5.15.2:5
+    >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5=[-gles2-only]
+    >=dev-qt/qtnetwork-5.15.2:5 >=dev-qt/qtprintsupport-5.15.2:5 >=dev-qt/qtsql-5.15.2:5
+    >=dev-qt/qtsvg-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5
+    >=dev-qt/qtxml-5.15.2:5 >=kde-frameworks/kcompletion-5.82.0:5 >=kde-frameworks/kconfig-5.82.0:5
+    >=kde-frameworks/kcoreaddons-5.82.0:5 >=kde-frameworks/kcrash-5.82.0:5 >=kde-frameworks/kguiaddons-5.82.0:5
+    >=kde-frameworks/ki18n-5.82.0:5 >=kde-frameworks/kiconthemes-5.82.0:5 >=kde-frameworks/kitemmodels-5.82.0:5
+    >=kde-frameworks/kitemviews-5.82.0:5 >=kde-frameworks/kwidgetsaddons-5.82.0:5
+    >=kde-frameworks/kwindowsystem-5.82.0:5 >=kde-frameworks/kxmlgui-5.82.0:5 media-gfx/exiv2:=
+    media-libs/lcms media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/tiff:0
+    sys-libs/zlib virtual/opengl x11-libs/libX11 x11-libs/libXi color-management?
+    ( >=media-libs/opencolorio-2.0.0 ) fftw? ( sci-libs/fftw:3.0= ) gif? ( media-libs/giflib
+    ) gsl? ( sci-libs/gsl:= ) jpegxl? ( >=media-libs/libjxl-0.7.0_pre20220329 ) heif?
+    ( >=media-libs/libheif-1.11:= ) mypaint-brush-engine? ( media-libs/libmypaint:=
+    ) openexr? ( media-libs/openexr:= ) pdf? ( app-text/poppler[qt5] ) qtmedia? (
+    >=dev-qt/qtmultimedia-5.15.2:5 ) raw? ( media-libs/libraw:= )
+  IUSE: color-management fftw gif +gsl heif jpegxl +mypaint-brush-engine openexr pdf
+    qtmedia +raw python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) dev-libs/boost:= dev-libs/quazip:0=[qt5(+)] python_single_target_python3_10?
+    ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_10(-)] dev-python/sip:=[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_7(-)]
+    dev-python/sip:=[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_9(-)] dev-python/sip:=[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/PyQt5[declarative,gui,widgets,python_targets_python3_8(-)]
+    dev-python/sip:=[python_targets_python3_8(-)] ) >=dev-qt/qtconcurrent-5.15.2:5
+    >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5=[-gles2-only]
+    >=dev-qt/qtnetwork-5.15.2:5 >=dev-qt/qtprintsupport-5.15.2:5 >=dev-qt/qtsql-5.15.2:5
+    >=dev-qt/qtsvg-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5
+    >=dev-qt/qtxml-5.15.2:5 >=kde-frameworks/kcompletion-5.82.0:5 >=kde-frameworks/kconfig-5.82.0:5
+    >=kde-frameworks/kcoreaddons-5.82.0:5 >=kde-frameworks/kcrash-5.82.0:5 >=kde-frameworks/kguiaddons-5.82.0:5
+    >=kde-frameworks/ki18n-5.82.0:5 >=kde-frameworks/kiconthemes-5.82.0:5 >=kde-frameworks/kitemmodels-5.82.0:5
+    >=kde-frameworks/kitemviews-5.82.0:5 >=kde-frameworks/kwidgetsaddons-5.82.0:5
+    >=kde-frameworks/kwindowsystem-5.82.0:5 >=kde-frameworks/kxmlgui-5.82.0:5 media-gfx/exiv2:=
+    media-libs/lcms media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/tiff:0
+    sys-libs/zlib virtual/opengl x11-libs/libX11 x11-libs/libXi color-management?
+    ( >=media-libs/opencolorio-2.0.0 ) fftw? ( sci-libs/fftw:3.0= ) gif? ( media-libs/giflib
+    ) gsl? ( sci-libs/gsl:= ) jpegxl? ( >=media-libs/libjxl-0.7.0_pre20220329 ) heif?
+    ( >=media-libs/libheif-1.11:= ) mypaint-brush-engine? ( media-libs/libmypaint:=
+    ) openexr? ( media-libs/openexr:= ) pdf? ( app-text/poppler[qt5] ) qtmedia? (
+    >=dev-qt/qtmultimedia-5.15.2:5 ) raw? ( media-libs/libraw:= )
+  emerge.packages: media-gfx/krita:5
+  kit: kde-kit
+  original.package.name: media-gfx/krita
+  original.package.slot: "5"
+  original.package.version: 5.1.1-r1
