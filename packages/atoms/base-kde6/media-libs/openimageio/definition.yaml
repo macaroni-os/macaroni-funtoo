@@ -1,0 +1,129 @@
+name: openimageio
+version: 2.5.6.0
+category: media-libs
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- X
+- dicom
+- ffmpeg
+- field3d
+- gif
+- jpeg2k
+- opencv
+- opengl
+- openvdb
+- ptex
+- python
+- python_single_target_python3_9
+- qt5
+- raw
+- truetype
+requires:
+- name: robin-map
+  version: '>=0'
+  category: dev-cpp
+- name: libfmt
+  version: '>=0'
+  category: dev-libs
+- name: pugixml
+  version: '>=0'
+  category: dev-libs
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtopengl
+  version: '>=0'
+  category: dev-qt-5
+- name: openvdb
+  version: '>=0'
+  category: media-gfx
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: libheif
+  version: '>=0'
+  category: media-libs
+- name: libraw
+  version: '>=0'
+  category: media-libs
+- name: opencolorio
+  version: '>=0'
+  category: media-libs
+- name: opencv
+  version: '>=0'
+  category: media-libs
+- name: dcmtk
+  version: '>=0'
+  category: sci-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A library for reading and writing images
+uri:
+- https://sites.google.com/site/openimageio/ https://github.com/OpenImageIO
+license: BSD
+labels:
+  BDEPEND: doc? ( app-doc/doxygen dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra
+    dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: '>=dev-libs/boost-1.62:= dev-cpp/robin-map dev-libs/libfmt:= dev-libs/pugixml:=
+    >=media-libs/libheif-1.7.0:= media-libs/libpng:0= >=media-libs/libwebp-0.2.1:=
+    media-libs/opencolorio:= >=media-libs/openexr-3:= media-libs/tiff:0= sys-libs/zlib:=
+    virtual/jpeg:0 dicom? ( sci-libs/dcmtk ) ffmpeg? ( media-video/ffmpeg:= ) field3d?
+    ( media-libs/Field3D:= ) gif? ( media-libs/giflib:0= ) jpeg2k? ( >=media-libs/openjpeg-2.0:2=
+    ) opencv? ( media-libs/opencv:= ) opengl? ( media-libs/glew:= virtual/glu virtual/opengl
+    ) openvdb? ( dev-cpp/tbb:= media-gfx/openvdb:= ) ptex? ( media-libs/ptex:= ) python?
+    ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-libs/boost:=[python,python_targets_python3_10(-)]
+    dev-python/numpy[python_targets_python3_10(-)] dev-python/pybind11[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-libs/boost:=[python,python_targets_python3_7(-)]
+    dev-python/numpy[python_targets_python3_7(-)] dev-python/pybind11[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-libs/boost:=[python,python_targets_python3_9(-)]
+    dev-python/numpy[python_targets_python3_9(-)] dev-python/pybind11[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-libs/boost:=[python,python_targets_python3_8(-)]
+    dev-python/numpy[python_targets_python3_8(-)] dev-python/pybind11[python_targets_python3_8(-)]
+    ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 opengl? ( dev-qt/qtopengl:5
+    ) ) raw? ( media-libs/libraw:= ) truetype? ( media-libs/freetype:2= ) X? ( >=x11-apps/mkfontscale-1.2.0
+    media-fonts/encodings )'
+  IUSE: dicom doc ffmpeg field3d gif jpeg2k opencv opengl openvdb ptex python qt5
+    raw +truetype cpu_flags_x86_aes cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_ssse3
+    cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2
+    cpu_flags_x86_avx512f cpu_flags_x86_f16c X python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: '>=dev-libs/boost-1.62:= dev-cpp/robin-map dev-libs/libfmt:= dev-libs/pugixml:=
+    >=media-libs/libheif-1.7.0:= media-libs/libpng:0= >=media-libs/libwebp-0.2.1:=
+    media-libs/opencolorio:= >=media-libs/openexr-3:= media-libs/tiff:0= sys-libs/zlib:=
+    virtual/jpeg:0 dicom? ( sci-libs/dcmtk ) ffmpeg? ( media-video/ffmpeg:= ) field3d?
+    ( media-libs/Field3D:= ) gif? ( media-libs/giflib:0= ) jpeg2k? ( >=media-libs/openjpeg-2.0:2=
+    ) opencv? ( media-libs/opencv:= ) opengl? ( media-libs/glew:= virtual/glu virtual/opengl
+    ) openvdb? ( dev-cpp/tbb:= media-gfx/openvdb:= ) ptex? ( media-libs/ptex:= ) python?
+    ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-libs/boost:=[python,python_targets_python3_10(-)]
+    dev-python/numpy[python_targets_python3_10(-)] dev-python/pybind11[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-libs/boost:=[python,python_targets_python3_7(-)]
+    dev-python/numpy[python_targets_python3_7(-)] dev-python/pybind11[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-libs/boost:=[python,python_targets_python3_9(-)]
+    dev-python/numpy[python_targets_python3_9(-)] dev-python/pybind11[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-libs/boost:=[python,python_targets_python3_8(-)]
+    dev-python/numpy[python_targets_python3_8(-)] dev-python/pybind11[python_targets_python3_8(-)]
+    ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 opengl? ( dev-qt/qtopengl:5
+    ) ) raw? ( media-libs/libraw:= ) truetype? ( media-libs/freetype:2= )'
+  emerge.packages: media-libs/openimageio
+  kit: media-kit
+  original.package.name: media-libs/openimageio
+  original.package.slot: "0"
+  original.package.version: 2.5.6.0
