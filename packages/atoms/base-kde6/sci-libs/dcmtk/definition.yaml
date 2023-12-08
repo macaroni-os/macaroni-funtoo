@@ -1,0 +1,52 @@
+name: dcmtk
+version: 3.6.3
+category: sci-libs
+use_flags:
+- -doc
+- png
+- ssl
+- tcpd
+- tiff
+- xml
+- zlib
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+- name: jpeg
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The DICOM Toolkit
+uri:
+- https://dicom.offis.de/dcmtk.php.en
+license: OFFIS
+labels:
+  DEPEND: dev-libs/icu:= virtual/jpeg:0 png? ( media-libs/libpng:* ) ssl? ( dev-libs/openssl:0=
+    ) tcpd? ( sys-apps/tcp-wrappers ) tiff? ( media-libs/tiff:0 ) xml? ( dev-libs/libxml2:2
+    ) zlib? ( sys-libs/zlib ) media-gfx/graphviz doc? ( app-doc/doxygen ) sys-devel/make
+    >=dev-util/cmake-3.9.6
+  IUSE: doc png ssl tcpd tiff +threads xml zlib
+  RDEPEND: dev-libs/icu:= virtual/jpeg:0 png? ( media-libs/libpng:* ) ssl? ( dev-libs/openssl:0=
+    ) tcpd? ( sys-apps/tcp-wrappers ) tiff? ( media-libs/tiff:0 ) xml? ( dev-libs/libxml2:2
+    ) zlib? ( sys-libs/zlib )
+  emerge.packages: sci-libs/dcmtk
+  kit: science-kit
+  original.package.name: sci-libs/dcmtk
+  original.package.slot: "0"
+  original.package.version: 3.6.3
