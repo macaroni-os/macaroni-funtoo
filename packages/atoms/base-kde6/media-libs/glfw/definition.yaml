@@ -1,0 +1,42 @@
+name: glfw
+version: 3.3.8
+category: media-libs
+use_flags:
+- wayland-only
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Portable OpenGL FrameWork
+uri:
+- https://www.glfw.org/
+license: ZLIB
+labels:
+  BDEPEND: wayland-only? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: x11-libs/libxkbcommon wayland-only? ( dev-libs/wayland media-libs/mesa[egl(+),wayland]
+    ) !wayland-only? ( virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXinerama
+    x11-libs/libXrandr x11-libs/libXxf86vm ) wayland-only? ( dev-libs/wayland-protocols
+    ) !wayland-only? ( x11-base/xorg-proto x11-libs/libXi )
+  IUSE: wayland-only
+  RDEPEND: x11-libs/libxkbcommon wayland-only? ( dev-libs/wayland media-libs/mesa[egl(+),wayland]
+    ) !wayland-only? ( virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXinerama
+    x11-libs/libXrandr x11-libs/libXxf86vm )
+  emerge.packages: media-libs/glfw
+  kit: media-kit
+  original.package.name: media-libs/glfw
+  original.package.slot: "0"
+  original.package.version: 3.3.8
