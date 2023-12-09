@@ -12,13 +12,15 @@ prelude:
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- else }}
-  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }} && \
   {{- end }}
-- export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" && export LUET_PORTAGE_IGNORE_TAR_WARNING=1
-  && export LUET_PORTAGE_PKGMETA=1 && export LUET_PORTAGE_PKGFILES=1 && eval 'rm -rf
-  /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
-  .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
-  /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+  export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" && \
+  export LUET_PORTAGE_IGNORE_TAR_WARNING=1 && \
+  export LUET_PORTAGE_PKGMETA=1 && \
+  export LUET_PORTAGE_PKGFILES=1 && \
+  eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
+  luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
+  eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
