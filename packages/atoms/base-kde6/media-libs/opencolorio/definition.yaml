@@ -1,12 +1,12 @@
 name: opencolorio
-version: 2.1.2
+version: 2.1.2+1
 category: media-libs
 use_flags:
 - -doc
+- -opengl
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- opengl
 - python
 - python_single_target_python3_9
 requires:
@@ -16,21 +16,21 @@ requires:
 - name: yaml-cpp
   version: '>=0'
   category: dev-cpp
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: imath
   version: '>=0'
   category: dev-libs
 - name: tinyxml
   version: '>=0'
   category: dev-libs
-- name: freeglut
+- name: pybind11
   version: '>=0'
-  category: media-libs
-- name: lcms
-  version: '>=0'
-  category: media-libs-2
-- name: openimageio
-  version: '>=0'
-  category: media-libs
+  category: dev-python
 annotations:
   subsets:
     rules:
