@@ -1,0 +1,32 @@
+name: flex
+version: 2.6.4
+category: sys-devel
+use_flags:
+- -test
+- nls
+requires:
+- name: m4
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The Fast Lexical Analyzer
+uri:
+- https://flex.sourceforge.net/ https://github.com/westes/flex
+license: FLEX
+labels:
+  DEPEND: sys-devel/m4 app-arch/xz-utils nls? ( sys-devel/gettext ) test? ( sys-devel/bison
+    ) >=app-portage/elt-patches-20170815
+  IUSE: nls static test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
+    abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: sys-devel/m4
+  emerge.packages: sys-devel/flex
+  kit: core-kit
+  original.package.name: sys-devel/flex
+  original.package.slot: "0"
+  original.package.version: 2.6.4-r1
