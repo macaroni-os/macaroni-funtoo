@@ -1,4 +1,10 @@
 prelude:
+- >-
+  cp -vf opencolorio-2.3.0.ebuild /var/git/meta-repo/kits/media-kit/media-libs/opencolorio/ &&
+  cp -vf files/* /var/git/meta-repo/kits/media-kit/media-libs/opencolorio/files/ &&
+  cd /var/git/meta-repo/kits/media-kit/media-libs/opencolorio/ &&
+  ebuild opencolorio-2.3.0.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
