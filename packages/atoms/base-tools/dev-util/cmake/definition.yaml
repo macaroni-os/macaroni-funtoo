@@ -1,0 +1,67 @@
+name: cmake
+version: 3.24.1
+category: dev-util
+use_flags:
+- -doc
+- -emacs
+- -prefix
+- -qt5
+- -test
+- ncurses
+requires:
+- name: libarchive
+  version: '>=0'
+  category: app-arch
+- name: rhash
+  version: '>=0'
+  category: app-crypt
+- name: expat
+  version: '>=0'
+  category: dev-libs
+- name: jsoncpp
+  version: '>=0'
+  category: dev-libs
+- name: libuv
+  version: '>=0'
+  category: dev-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: pkgconfig
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Cross platform Make
+uri:
+- https://cmake.org/
+license: CMake
+labels:
+  BDEPEND: doc? ( dev-python/requests dev-python/sphinx ) test? ( app-arch/libarchive[zstd]
+    ) sys-devel/make test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
+    )
+  DEPEND: '>=app-arch/libarchive-3.3.3:= app-crypt/rhash >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0=
+    >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig
+    emacs? ( >=app-editors/emacs-23.1:* ) ncurses? ( sys-libs/ncurses:0= ) qt5? (
+    dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )'
+  IUSE: +doc emacs ncurses qt5 test test
+  RDEPEND: '>=app-arch/libarchive-3.3.3:= app-crypt/rhash >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0=
+    >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig
+    emacs? ( >=app-editors/emacs-23.1:* ) ncurses? ( sys-libs/ncurses:0= ) qt5? (
+    dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )'
+  emerge.packages: dev-util/cmake
+  kit: core-kit
+  original.package.name: dev-util/cmake
+  original.package.slot: "0"
+  original.package.version: 3.24.1
