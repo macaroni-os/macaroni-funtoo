@@ -1,0 +1,24 @@
+name: ssh
+version: "0"
+category: virtual
+use_flags:
+- -minimal
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for SSH client and server
+uri:
+- ""
+labels:
+  IUSE: minimal
+  RDEPEND: minimal? ( || ( net-misc/dropbear net-misc/openssh ) ) !minimal? ( || (
+    net-misc/openssh net-misc/dropbear ) )
+  emerge.packages: virtual/ssh
+  kit: core-kit
+  original.package.name: virtual/ssh
+  original.package.slot: "0"
+  original.package.version: "0"
