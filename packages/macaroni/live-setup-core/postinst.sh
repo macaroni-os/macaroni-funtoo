@@ -13,4 +13,7 @@ sed -i -e "s|macaroni-funtoo|${hostname}|g" /etc/hosts
 # Temporary until the ISO build process cleanup this
 rm -rf /luetdb || true
 
+# Remove sudoers config of macaroni user
+rm -f /etc/sudoers.d/99-macaroni || true
+
 exit 0
