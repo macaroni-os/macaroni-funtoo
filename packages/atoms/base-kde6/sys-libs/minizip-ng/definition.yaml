@@ -1,0 +1,49 @@
+name: minizip-ng
+version: 4.0.3
+category: sys-libs
+use_flags:
+- -compat
+- -test
+- openssl
+- zstd
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: zlib-ng
+  version: '>=0'
+  category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fork of the popular zip manipulation library found in the zlib distribution.
+uri:
+- https://github.com/zlib-ng/minizip-ng
+license: ZLIB
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: app-arch/bzip2 app-arch/xz-utils sys-libs/zlib-ng virtual/libiconv compat?
+    ( !sys-libs/zlib[minizip] ) openssl? ( dev-libs/openssl:= ) zstd? ( app-arch/zstd:=
+    ) test? ( dev-cpp/gtest )
+  IUSE: compat openssl test zstd
+  RDEPEND: app-arch/bzip2 app-arch/xz-utils sys-libs/zlib-ng virtual/libiconv compat?
+    ( !sys-libs/zlib[minizip] ) openssl? ( dev-libs/openssl:= ) zstd? ( app-arch/zstd:=
+    )
+  emerge.packages: sys-libs/minizip-ng
+  kit: core-kit
+  original.package.name: sys-libs/minizip-ng
+  original.package.slot: "0"
+  original.package.version: 4.0.3
