@@ -1,11 +1,10 @@
 prelude:
 - >-
-  sed -i -e 's|app-text/poppler\[qt5\]|app-text/poppler|g'
-  /var/git/meta-repo/kits/kde-kit/media-gfx/krita/krita-5.1.1-r1.ebuild &&
-  luet repo update &&
-  luet i -y poppler-qt &&
-  luet repo cleanup
-
+  cp -vf krita-5.1.5.ebuild /var/git/meta-repo/kits/kde-kit/media-gfx/krita/ &&
+  cp -vf files/* /var/git/meta-repo/kits/kde-kit/media-gfx/krita/files/ &&
+  cd /var/git/meta-repo/kits/kde-kit/media-gfx/krita/ &&
+  ebuild krita-5.1.5.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
