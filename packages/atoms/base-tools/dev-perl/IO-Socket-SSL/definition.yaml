@@ -1,0 +1,35 @@
+name: IO-Socket-SSL
+version: 2.52.0
+category: dev-perl
+use_flags:
+- -idn
+requires:
+- name: Net-SSLeay
+  version: '>=0'
+  category: dev-perl
+- name: perl-Scalar-List-Utils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Nearly transparent SSL encapsulation for IO::Socket::INET
+uri:
+- https://metacpan.org/release/IO-Socket-SSL
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/Net-SSLeay-1.460.0 virtual/perl-Scalar-List-Utils idn? ( ||
+    ( >=dev-perl/URI-1.50 dev-perl/Net-LibIDN dev-perl/Net-IDN-Encode ) ) virtual/perl-ExtUtils-MakeMaker
+    dev-lang/perl:='
+  IUSE: idn examples
+  RDEPEND: '>=dev-perl/Net-SSLeay-1.460.0 virtual/perl-Scalar-List-Utils idn? ( ||
+    ( >=dev-perl/URI-1.50 dev-perl/Net-LibIDN dev-perl/Net-IDN-Encode ) ) dev-lang/perl:='
+  emerge.packages: dev-perl/IO-Socket-SSL
+  kit: perl-kit
+  original.package.name: dev-perl/IO-Socket-SSL
+  original.package.slot: "0"
+  original.package.version: 2.52.0
