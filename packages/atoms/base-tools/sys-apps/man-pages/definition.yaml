@@ -1,0 +1,27 @@
+name: man-pages
+version: "5.13"
+category: sys-apps
+requires:
+- name: man
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A somewhat comprehensive collection of Linux man pages
+uri:
+- https://www.kernel.org/doc/man-pages/
+license: man-pages GPL-2+ BSD
+labels:
+  IUSE: l10n_de l10n_es l10n_fr l10n_it l10n_ja l10n_nl l10n_pl l10n_pt-BR l10n_ro
+    l10n_ru l10n_zh-CN
+  RDEPEND: virtual/man !<sys-apps/keyutils-1.5.9-r4 !<dev-libs/libbsd-0.8.3-r1
+  emerge.packages: sys-apps/man-pages
+  kit: core-kit
+  original.package.name: sys-apps/man-pages
+  original.package.slot: "0"
+  original.package.version: "5.13"
