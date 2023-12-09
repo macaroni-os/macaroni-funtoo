@@ -1,9 +1,7 @@
 prelude:
-- >-
-  cp -vf dcmtk-3.6.7.ebuild /var/git/meta-repo/kits/science-kit/sci-libs/dcmtk/ &&
-  cd /var/git/meta-repo/kits/science-kit/sci-libs/dcmtk/ &&
-  ebuild dcmtk-3.6.7.ebuild digest &&
-  cd -
+- cp -vf dcmtk-3.6.7.ebuild /var/git/meta-repo/kits/science-kit/sci-libs/dcmtk/ &&
+  cd /var/git/meta-repo/kits/science-kit/sci-libs/dcmtk/ && ebuild dcmtk-3.6.7.ebuild
+  digest && cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -29,6 +27,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: glfw
+- name: robin-map
   version: '>=0'
-  category: media-libs
+  category: dev-cpp
