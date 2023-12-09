@@ -1,9 +1,6 @@
 prelude:
-# Needs numpy
-- >-
-  eval 'eselect blas set 1 || true' &&
-  eval 'eselect cblas set 1 || true' &&
-  eval 'eselect lapack set 1 || true'
+- eval 'eselect blas set 1 || true' && eval 'eselect cblas set 1 || true' && eval
+  'eselect lapack set 1 || true'
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -29,6 +26,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: glfw
+- name: dcmtk
   version: '>=0'
-  category: media-libs
+  category: sci-libs
