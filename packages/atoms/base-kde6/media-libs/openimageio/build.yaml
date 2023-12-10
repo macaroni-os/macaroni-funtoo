@@ -1,7 +1,6 @@
 prelude:
 - >-
-  sed -i -e 's|/OpenImageIO-oiio-|/AcademySoftwareFoundation-OpenImageIO-|g'
-  /var/git/meta-repo/kits/media-kit/media-libs/openimageio/openimageio-2.5.6.0.ebuild
+  cp openimageio-2.5.6.0.ebuild /var/git/meta-repo/kits/media-kit/media-libs/openimageio/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
