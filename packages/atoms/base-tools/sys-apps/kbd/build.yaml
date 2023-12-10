@@ -1,4 +1,9 @@
 prelude:
+# Ensure that yacc link is available
+- >-
+  anise repo update &&
+  anise miner ri virtual/yacc &&
+  anise cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -26,6 +31,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-funtoo-race2
+- name: flex
   version: '>=0'
-  category: seed
+  category: sys-devel
