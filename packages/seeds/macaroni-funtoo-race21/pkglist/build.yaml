@@ -1,0 +1,13 @@
+requires:
+- category: "seed"
+  name: "{{ .Values.name }}"
+  version: ">=0"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  mkdir -p /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/ &&
+  qlist -ICSv > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/pkgslist &&
+  pkgs-checker portage gen-pkgs-uses
+  --luet-portage-converter-format
+  --filter-opts /usr/share/pkgs-checker/gen-uses-filter.yaml
+  --treePath packages/atoms/race21 > /{{ .Values.name }}/usr/share/macaroni/layers/{{ .Values.name }}/lpc-artefacts.yaml
