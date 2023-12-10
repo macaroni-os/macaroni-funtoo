@@ -1,0 +1,138 @@
+image: scratch
+env:
+- LUET_YES=true
+- LUET_NOLOCK=true
+- HTTP_TIMEOUT=0
+copy:
+  - package:
+      category: seed
+      name: macaroni-funtoo-stage
+      version: ">=0"
+    source: "/macaroni-funtoo"
+    destination: "/"
+# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
+steps:
+- >-
+  if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
+  if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi &&
+  if [ ! -e /etc/group ] ; then touch /etc/group ; fi &&
+  if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi &&
+  if [ ! -d /tmp ] ; then mkdir /tmp ; fi &&
+  if [ ! -d /var ] ; then mkdir /var ; fi &&
+  if [ ! -d /root ] ; then mkdir /root ; fi &&
+  chmod a+x /var &&
+  chmod a+rwx /tmp
+- luet install virtual-entities/base --force
+- >-
+  luet install --force
+  system/luet-devkit
+  utils/jq
+  utils/yq
+  app-admin/macaronictl
+  dev-util/pkgs-checker-minimal
+  kernel/macaroni-lts-sources &&
+  eselect kernel set 1 &&
+  luet cleanup
+
+# Using steps to trace what files are generated
+# by gcc-config/binutils-config.
+# steps:
+# sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
+- >-
+  cat /etc/luet/luet.yaml &&
+  luet miner ri virtual/base virtual/sh &&
+  luet repo update && luet upgrade &&
+  luet i
+  toolchain/base-extra
+  toolchain/base-python
+  toolchain/base-tools
+  toolchain/base-tools2
+  toolchain/base-xorg
+  toolchain/base-xorg2
+  toolchain/fonts
+  toolchain/base-gtk
+  toolchain/base-gtk2
+  toolchain/base-editors
+  toolchain/xorg-base
+  toolchain/base-net
+  toolchain/base-lang
+  toolchain/base-fs
+  toolchain/db
+  toolchain/base-qt
+  toolchain/base-audio
+  toolchain/base-video
+  toolchain/base-multimedia
+  toolchain/base-text
+  toolchain/base-latex
+  toolchain/base-multimedia2
+  toolchain/boot
+  toolchain/shells
+  toolchain/base-qt2
+  toolchain/base-gnome
+  toolchain/base-gnome2
+  toolchain/portage-tools
+  toolchain/base-gnome3
+  toolchain/release
+  toolchain/base-net2
+  toolchain/nvidia
+  toolchain/base-multimedia3
+  toolchain/base-gnome4
+  toolchain/base-kde
+  toolchain/tools
+  toolchain/firmware
+  toolchain/gnome-extra
+  toolchain/x11-misc
+  toolchain/base-kde2
+  toolchain/gnome-games
+  toolchain/python-extra
+  toolchain/java
+  toolchain/emulation
+  toolchain/base-multimedia4
+  toolchain/lxqt
+  toolchain/xfce
+  toolchain/base-kde3
+  toolchain/base-kde3
+  toolchain/i3
+  toolchain/desktop
+  toolchain/devtools
+  toolchain/base-text2
+  toolchain/base-kde4
+  toolchain/printers
+  toolchain/x11-misc2
+  toolchain/desktop2
+  toolchain/base-kde5
+  toolchain/power
+  toolchain/office
+  toolchain/power
+  toolchain/base-kde6
+  toolchain/kde-games
+  &&
+  luet cleanup &&
+  /usr/bin/gcc-config 1 &&
+  eselect gcc set 1 &&
+  mkdir -p /var/lib/portage &&
+  epro list &&
+  eval 'rm /etc/localtime || true' &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  luet miner ri libxml2 &&
+  macaronictl env-update &&
+  eval 'locale-gen || true' &&
+  build-docbook-catalog &&
+  whip h eclass_db.db_fix_so perl.postinst &&
+  whip h qt5.qconfig_gen &&
+  whip h sgml.update_catalog &&
+  eselect rust set 1 &&
+  eselect ruby set 1 &&
+  eselect postgresql set 13 &&
+  eval 'eselect blas set 1 || true' &&
+  eval 'eselect cblas set 1 || true' &&
+  eval 'eselect lapack set 1 || true' &&
+  cd / && rm -rf /luetbuild &&
+  eval 'mkdir -p /run || true' &&
+  mkdir /layer
+
+# build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
+
+# NOTE: luet miner ri libxml2 is needed for now
+#       until the luet chroot feature will be fixed.
+package_dir: /layer
