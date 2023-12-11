@@ -1,0 +1,52 @@
+name: libsignon-glib
+version: "2.1"
+category: net-libs
+use_flags:
+- -doc
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -test
+- introspection
+- python
+- python_targets_python3_9
+requires:
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: signond
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GLib binding for the D-Bus API provided by signond
+uri:
+- https://01.org/gsso/
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/gdbus-codegen dev-util/glib-utils doc? ( dev-util/gtk-doc ) test?
+    ( dev-libs/check ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 net-libs/signond introspection? ( dev-libs/gobject-introspection:=
+    ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    )
+  IUSE: debug doc +introspection python test python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: dev-libs/glib:2 net-libs/signond introspection? ( dev-libs/gobject-introspection:=
+    ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    )
+  emerge.packages: net-libs/libsignon-glib
+  kit: net-kit
+  original.package.name: net-libs/libsignon-glib
+  original.package.slot: "0"
+  original.package.version: "2.1"
