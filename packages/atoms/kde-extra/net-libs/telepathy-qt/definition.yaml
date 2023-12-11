@@ -1,0 +1,47 @@
+name: telepathy-qt
+version: 0.9.8
+category: net-libs
+use_flags:
+- farstream
+requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: qtnetwork
+  version: '>=0'
+  category: dev-qt-5
+- name: qtxml
+  version: '>=0'
+  category: dev-qt-5
+- name: telepathy-farstream
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt bindings for the Telepathy D-Bus protocol
+uri:
+- https://telepathy.freedesktop.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.9.6'
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtxml:5
+    farstream? ( >=net-libs/telepathy-farstream-0.2.2 >=net-libs/telepathy-glib-0.18.0
+    )
+  IUSE: debug farstream
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtxml:5
+    farstream? ( >=net-libs/telepathy-farstream-0.2.2 >=net-libs/telepathy-glib-0.18.0
+    )
+  emerge.packages: net-libs/telepathy-qt
+  kit: net-kit
+  original.package.name: net-libs/telepathy-qt
+  original.package.slot: "0"
+  original.package.version: 0.9.8
