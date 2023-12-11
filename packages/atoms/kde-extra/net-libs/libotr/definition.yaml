@@ -1,0 +1,27 @@
+name: libotr
+version: 4.1.1
+category: net-libs
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: (OTR) Messaging allows you to have private conversations over instant
+  messaging
+uri:
+- https://otr.cypherpunks.ca
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/libgcrypt-1.2:0 dev-libs/libgpg-error'
+  RDEPEND: '>=dev-libs/libgcrypt-1.2:0 dev-libs/libgpg-error'
+  emerge.packages: net-libs/libotr
+  kit: net-kit
+  original.package.name: net-libs/libotr
+  original.package.slot: "0"
+  original.package.version: 4.1.1-r1
