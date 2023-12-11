@@ -1,0 +1,64 @@
+name: lvm2
+version: 2.02.173
+category: sys-fs
+use_flags:
+- -clvm
+- -cman
+- -corosync
+- -lvm2create_initrd
+- -openais
+- -sanlock
+- -selinux
+- -static
+- -systemd
+- readline
+- thin
+- udev
+requires:
+- name: baselayout
+  version: '>=0'
+  category: sys-apps
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: thin-provisioning-tools
+  version: '>=0'
+  category: sys-block
+- name: libudev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: User-land utilities for LVM2 (device-mapper) software
+uri:
+- https://sourceware.org/lvm2/
+license: GPL-2
+labels:
+  DEPEND: clvm? ( cman? ( =sys-cluster/cman-3* ) corosync? ( sys-cluster/corosync
+    ) openais? ( sys-cluster/openais ) =sys-cluster/libdlm-3* ) readline? ( sys-libs/readline:0=
+    ) sanlock? ( sys-cluster/sanlock ) systemd? ( >=sys-apps/systemd-205:0= ) udev?
+    ( >=virtual/libudev-208:=[static-libs?] ) virtual/pkgconfig >=sys-devel/binutils-2.20.1-r1
+    sys-devel/autoconf-archive static? ( selinux? ( sys-libs/libselinux[static-libs]
+    ) udev? ( >=sys-fs/eudev-3.1.2[static-libs] ) >=sys-apps/util-linux-2.16[static-libs]
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    virtual/pkgconfig virtual/pkgconfig
+  IUSE: readline +static static-libs systemd clvm cman corosync lvm1 lvm2create_initrd
+    openais sanlock selinux +udev +thin device-mapper-only kernel_linux
+  RDEPEND: clvm? ( cman? ( =sys-cluster/cman-3* ) corosync? ( sys-cluster/corosync
+    ) openais? ( sys-cluster/openais ) =sys-cluster/libdlm-3* ) readline? ( sys-libs/readline:0=
+    ) sanlock? ( sys-cluster/sanlock ) systemd? ( >=sys-apps/systemd-205:0= ) udev?
+    ( >=virtual/libudev-208:=[static-libs?] ) >=sys-apps/baselayout-2.2 !<sys-apps/openrc-0.11
+    !<sys-fs/cryptsetup-1.1.2 !!sys-fs/clvm !!sys-fs/lvm-user >=sys-apps/util-linux-2.16
+    lvm2create_initrd? ( sys-apps/makedev ) thin? ( >=sys-block/thin-provisioning-tools-0.3.0
+    )
+  emerge.packages: sys-fs/lvm2
+  kit: core-kit
+  original.package.name: sys-fs/lvm2
+  original.package.slot: "0"
+  original.package.version: 2.02.173
