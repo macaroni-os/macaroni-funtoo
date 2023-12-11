@@ -1,0 +1,1045 @@
+skipped_resolutions:
+  categories:
+    - sys-freebsd
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: opentmpfiles
+      category: sys-apps
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: sysvinit
+      category: sys-apps
+
+    - name: openrc
+      category: sys-apps
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: eudev
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+artefacts:
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - debug
+    - examples
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - crypt
+    - python_single_target_python3_9
+    - python
+  packages:
+  - dev-libs/libxslt
+
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - app-admin/perl-cleaner
+  - app-eselect/eselect-python
+  - app-eselect/eselect-vi
+  - app-text/build-docbook-catalog
+  - app-text/docbook-dsssl-stylesheets
+  - app-text/manpager
+  - app-text/sgml-common
+  - virtual/libelf
+
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - app-text/docbook-sgml-dtd:3.0
+  - app-text/docbook-sgml-dtd:4.5
+  - app-text/yelp-tools
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - emacs
+    - nios2
+    - sh
+  packages:
+  - dev-util/desktop-file-utils
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - examples
+    - libressl
+    - lz4
+    - nios2
+    - sh
+    - static
+    - stunnel
+    - system-zlib
+    - xxhash
+    - zstd
+    enabled:
+    - acl
+    - cpu_flags_x86_sse2
+    - iconv
+    - ipv6
+    - ssl
+    - xattr
+  packages:
+  - net-misc/rsync
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - nis
+    - plipconfig
+    - selinux
+    - sh
+    - slattach
+    - static
+    enabled:
+    - arp
+    - hostname
+    - ipv6
+    - nls
+  packages:
+  - sys-apps/net-tools
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - python_single_target_python2_7
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - python_single_target_python3_9
+    - python_targets_python3_9
+  packages:
+  - dev-util/gdbus-codegen
+  - dev-util/itstool
+
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - clockdiff
+    - doc
+    - gcrypt
+    - idn
+    - nettle
+    - nios2
+    - rarpd
+    - rdisc
+    - sh
+    - static
+    - test
+    - tftpd
+    - tracepath
+    - traceroute6
+    enabled:
+    - arping
+    - caps
+    - filecaps
+    - ipv6
+    - nls
+    - ssl
+  packages:
+  - net-misc/iputils
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - reiserfs
+    - sh
+    - static
+    - static-libs
+    enabled:
+    - convert
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_9
+    - zstd
+  packages:
+  - sys-fs/btrfs-progs
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - dev-libs/libuv
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+  packages:
+  - dev-perl/TermReadKey
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - test
+  packages:
+  - dev-libs/libpipeline
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - test
+  packages:
+  - dev-libs/libaio
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - context
+    - debug
+    - doc
+    - lzma
+    - mpi
+    - nios2
+    - numpy
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    - tools
+    - python_targets_python3_7
+    enabled:
+    - zstd
+    - bzip2
+    - icu
+    - nls
+    - python
+    - python_targets_python3_9
+    - zlib
+  packages:
+  - dev-libs/boost
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - emacs
+    - nios2
+    - qt5
+    - sh
+    - test
+    enabled:
+    - doc
+    - ncurses
+  packages:
+  - dev-util/cmake
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - ruby
+    - sh
+  packages:
+  - app-text/docbook-xsl-stylesheets
+  - dev-util/b2
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - debug
+    - livecd
+    - make-symlinks
+    - math
+    - mdev
+    - nios2
+    - savedconfig
+    - selinux
+    - sep-usr
+    - sh
+    - static
+    - syslog
+    - systemd
+    enabled:
+    - ipv6
+    - pam
+  packages:
+  - sys-apps/busybox
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - X
+    - X509
+    - audit
+    - bindist
+    - debug
+    - hpn
+    - kerberos
+    - ldns
+    - libedit
+    - libressl
+    - livecd
+    - nios2
+    - sctp
+    - security-key
+    - selinux
+    - sh
+    - static
+    - test
+    - xmss
+    enabled:
+    - pam
+    - pie
+    - scp
+    - ssl
+  packages:
+  - net-misc/openssh
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - l10n_ja
+    - l10n_zh
+    - nios2
+    - sh
+  packages:
+  - dev-perl/MIME-Charset
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - sh
+  packages:
+  - dev-libs/nspr
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/MailTools
+
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    - test
+    - python_targets_python3_7
+    enabled:
+    - python
+    - python_targets_python3_9
+  packages:
+  - sys-libs/libseccomp
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/bison
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - forced-sandbox
+    - libedit
+    - nios2
+    - sh
+    - static
+    enabled:
+    - readline
+  packages:
+  - sys-devel/bc
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - minimal
+    - nios2
+    - sh
+  packages:
+  - virtual/ssh
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - kerberos
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - ipv6
+    - split-usr
+  packages:
+  - net-libs/libtirpc
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - examples
+    - idn
+    - nios2
+    - sh
+  packages:
+  - dev-perl/IO-Socket-SSL
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - selinux
+    - sh
+  packages:
+  - net-misc/bridge-utils
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - selinux
+    - sh
+  packages:
+  - dev-libs/iniparser:4
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - x11-misc/shared-mime-info
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - dns
+    - nios2
+    - sh
+    - static-libs
+    enabled:
+    - kmod
+    - udev
+    - zlib
+  packages:
+  - sys-apps/pciutils
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - elogind
+    - modern-top
+    - nios2
+    - selinux
+    - sh
+    - static-libs
+    - systemd
+    - test
+    enabled:
+    - kill
+    - ncurses
+    - nls
+    - split-usr
+    - unicode
+  packages:
+  - sys-process/procps
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - test
+  packages:
+  - sys-block/thin-provisioning-tools
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - conntrack
+    - netlink
+    - nftables
+    - nios2
+    - pcap
+    - sh
+    - static-libs
+    enabled:
+    - ipv6
+  packages:
+  - net-firewall/iptables
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - selinux
+    - sh
+    - static-libs
+    enabled:
+    - berkdb
+    - gdbm
+    - manpager
+    - nls
+    - seccomp
+    - zlib
+  packages:
+  - sys-apps/man-db
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - cgi
+    - cvs
+    - doc
+    - emacs
+    - gnome-keyring
+    - highlight
+    - libressl
+    - nios2
+    - perforce
+    - python_single_target_python2_7
+    - python_single_target_python3_10
+    - python_single_target_python3_7
+    - python_single_target_python3_8
+    - python_targets_python2_7
+    - python_targets_python3_10
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - sh
+    - test
+    - tk
+    - xinetd
+    enabled:
+    - blksha1
+    - curl
+    - gpg
+    - iconv
+    - nls
+    - pcre
+    - pcre-jit
+    - perl
+    - python_single_target_python3_9
+    - python_targets_python3_9
+    - threads
+    - webdav
+  packages:
+  - dev-vcs/git
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - l10n_de
+    - l10n_es
+    - l10n_fr
+    - l10n_it
+    - l10n_ja
+    - l10n_nl
+    - l10n_pl
+    - l10n_pt-BR
+    - l10n_ro
+    - l10n_ru
+    - l10n_zh-CN
+    - nios2
+    - sh
+  packages:
+  - sys-apps/man-pages
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - hwloc
+    - nios2
+    - sh
+    - tests
+    - valgrind
+  packages:
+  - dev-cpp/tbb
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static-libs
+  packages:
+  - net-libs/libmnl
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-devel/autoconf-archive
+  - virtual/man
+  - sys-apps/install-xattr
+  - sys-apps/man-pages-posix
+  - sys-libs/libxcrypt
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - ssl
+  packages:
+  - virtual/perl-libnet
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - debug
+    - nios2
+    - privsep
+    - sh
+    enabled:
+    - embedded
+    - ipv6
+    - udev
+  packages:
+  - net-misc/dhcpcd
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - examples
+    - libressl
+    - minimal
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/Net-SSLeay
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - minimal
+    - nios2
+    - sh
+    - test
+  packages:
+  - dev-perl/YAML-Tiny
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/flex
+
+- tree: packages/atoms/base-tools
+  # NOTE: without flex generation of analyze.h fails
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-devel
+          name: flex
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - nls
+    - pam
+  packages:
+  - sys-apps/kbd
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    enabled:
+    - static-libs
+  packages:
+  - dev-libs/mpc
+  - dev-libs/mpfr
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - nls
+  packages:
+  - app-text/opensp
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - ccache
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - pcre
+  packages:
+  - dev-lang/swig
+
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/flex
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - dev-perl/SGMLSpm
+  - dev-perl/Text-CharWidth
+  - dev-perl/Text-Unidecode
+  - dev-perl/Text-WrapI18N
+  - dev-perl/TimeDate
+  - dev-perl/Unicode-EastAsianWidth
+  - dev-perl/Unicode-LineBreak
+  - dev-perl/libintl-perl
+  - dev-util/intltool
+  - gnome-extra/yelp-xsl
+  - net-libs/libnsl
+  - net-libs/rpcsvc-proto
+
+- tree: packages/atoms/base-tools
+  packages:
+  - app-text/docbook-xml-dtd:4.1.2
+  - app-text/docbook-xml-dtd:4.2
+  - app-text/docbook-xml-dtd:4.3
+  - app-text/docbook-xml-dtd:4.4
+  - app-text/docbook-xml-dtd:4.5
+  - net-misc/ifenslave
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-text
+          name: build-docbook-catalog
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+  packages:
+  - app-text/po4a
+
+
+include_layers:
+- layers/macaroni-funtoo-race2.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+
+reposcan_disabled_use_flags:
+  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - elogind
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python2_7
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - sysvinit
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+
+  - X
+
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
