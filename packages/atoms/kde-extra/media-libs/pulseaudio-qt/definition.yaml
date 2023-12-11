@@ -1,0 +1,45 @@
+name: pulseaudio-qt
+version: "1.2"
+category: media-libs
+use_flags:
+- -doc
+- -test
+- handbook
+requires:
+- name: qtgui
+  version: '>=0'
+  category: dev-qt-5
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt bindings for libpulse
+uri:
+- https://invent.kde.org/libraries/pulseaudio-qt
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.57.0:5
+    handbook? ( >=kde-frameworks/kdoctools-5.57.0:5 ) doc? ( >=dev-qt/qthelp-5.12.3:5
+    >=app-doc/doxygen-1.8.13-r1 )
+  DEPEND: dev-libs/glib:2 >=dev-qt/qtdbus-5.12.3:5 >=dev-qt/qtgui-5.12.3:5 media-sound/pulseaudio
+    test? ( >=dev-qt/qtdeclarative-5.12.3:5 >=dev-qt/qtquickcontrols2-5.12.3:5 ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.12.3:5 ) >=dev-qt/qtcore-5.12.3:5
+    doc? ( >=dev-qt/qt-docs-5.12.3:5 ) dev-util/desktop-file-utils
+  IUSE: debug +handbook doc test
+  RDEPEND: dev-libs/glib:2 >=dev-qt/qtdbus-5.12.3:5 >=dev-qt/qtgui-5.12.3:5 media-sound/pulseaudio
+    >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.57.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.12.3:5 doc? ( >=dev-qt/qt-docs-5.12.3:5 )
+  emerge.packages: media-libs/pulseaudio-qt
+  kit: kde-kit
+  original.package.name: media-libs/pulseaudio-qt
+  original.package.slot: "0"
+  original.package.version: "1.2"
