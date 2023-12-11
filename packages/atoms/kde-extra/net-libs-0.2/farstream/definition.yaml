@@ -1,0 +1,46 @@
+name: farstream
+version: 0.2.8
+category: net-libs-0.2
+use_flags:
+- -test
+- introspection
+- upnp
+requires:
+- name: gst-plugins-bad
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-good
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-libnice
+  version: '>=0'
+  category: media-plugins-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Audio/video conferencing framework specifically designed for instant
+  messengers
+uri:
+- https://www.freedesktop.org/wiki/Software/Farstream
+license: LGPL-2.1+
+labels:
+  DEPEND: '>=media-libs/gstreamer-1.4:1.0 >=media-libs/gst-plugins-base-1.4:1.0 >=dev-libs/glib-2.32:2
+    >=net-libs/libnice-0.1.8 introspection? ( >=dev-libs/gobject-introspection-0.10.11:=
+    ) upnp? ( >=net-libs/gupnp-igd-0.2:= ) || ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-util/gtk-doc-am-1.18
+    virtual/pkgconfig test? ( media-libs/gst-plugins-base:1.0[vorbis] media-libs/gst-plugins-good:1.0
+    ) >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: +introspection test upnp
+  RDEPEND: '>=media-libs/gstreamer-1.4:1.0 >=media-libs/gst-plugins-base-1.4:1.0 >=dev-libs/glib-2.32:2
+    >=net-libs/libnice-0.1.8 introspection? ( >=dev-libs/gobject-introspection-0.10.11:=
+    ) upnp? ( >=net-libs/gupnp-igd-0.2:= ) >=media-libs/gst-plugins-good-1.4:1.0 >=media-libs/gst-plugins-bad-1.4:1.0
+    media-plugins/gst-plugins-libnice:1.0'
+  emerge.packages: net-libs/farstream:0.2
+  kit: media-kit
+  original.package.name: net-libs/farstream
+  original.package.slot: "0.2"
+  original.package.version: 0.2.8-r1
