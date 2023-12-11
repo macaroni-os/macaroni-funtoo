@@ -1,0 +1,59 @@
+name: iproute2
+version: 6.5.0
+category: sys-apps
+use_flags:
+- -atm
+- -elf
+- -libbsd
+- -minimal
+- -selinux
+- berkdb
+- bpf
+- caps
+- iptables
+requires:
+- name: libbpf
+  version: '>=0'
+  category: dev-libs
+- name: iptables
+  version: '>=0'
+  category: net-firewall
+- name: libmnl
+  version: '>=0'
+  category: net-libs
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: kernel routing and traffic control utilities
+uri:
+- https://wiki.linuxfoundation.org/networking/iproute2
+license: GPL-2
+labels:
+  BDEPEND: app-arch/xz-utils >=sys-devel/bison-2.4 sys-devel/flex virtual/pkgconfig
+  DEPEND: '!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-atm
+    ) berkdb? ( sys-libs/db:= ) bpf? ( dev-libs/libbpf:= ) caps? ( sys-libs/libcap
+    ) elf? ( virtual/libelf:= ) iptables? ( >=net-firewall/iptables-1.4.20:= ) libbsd?
+    ( dev-libs/libbsd ) selinux? ( sys-libs/libselinux ) >=sys-kernel/linux-headers-3.16'
+  IUSE: atm berkdb bpf caps elf +iptables ipv6 libbsd minimal selinux
+  RDEPEND: '!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-atm
+    ) berkdb? ( sys-libs/db:= ) bpf? ( dev-libs/libbpf:= ) caps? ( sys-libs/libcap
+    ) elf? ( virtual/libelf:= ) iptables? ( >=net-firewall/iptables-1.4.20:= ) libbsd?
+    ( dev-libs/libbsd ) selinux? ( sys-libs/libselinux )'
+  emerge.packages: sys-apps/iproute2
+  kit: core-kit
+  original.package.name: sys-apps/iproute2
+  original.package.slot: "0"
+  original.package.version: 6.5.0
