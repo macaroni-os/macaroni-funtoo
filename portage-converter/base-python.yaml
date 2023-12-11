@@ -553,6 +553,20 @@ artefacts:
   packages:
     - dev-python/hatchling
 
+- tree: packages/atoms/base-python
+  uses:
+    disabled:
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    enabled:
+    - icu
+    - lzma
+    - python_targets_python3_9
+  packages:
+  - dev-python/libxml2-python
 
 include_layers:
 - layers/macaroni-funtoo-race1.yaml
