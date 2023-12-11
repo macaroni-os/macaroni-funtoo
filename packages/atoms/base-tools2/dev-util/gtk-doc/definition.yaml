@@ -1,0 +1,71 @@
+name: gtk-doc
+version: "1.32"
+category: dev-util
+use_flags:
+- -emacs
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: docbook-dsssl-stylesheets
+  version: '>=0'
+  category: app-text
+- name: docbook-sgml-dtd
+  version: '>=0'
+  category: app-text-4.5
+- name: docbook-xml-dtd
+  version: '>=0'
+  category: app-text-4.5
+- name: docbook-xsl-stylesheets
+  version: '>=0'
+  category: app-text
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: pygments
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GTK+ Documentation Generator
+uri:
+- https://www.gtk.org/gtk-doc/
+license: GPL-2 FDL-1.1
+labels:
+  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) !<dev-util/gtk-doc-am-1.29-r2 >=dev-libs/glib-2.62.2:2 >=dev-lang/perl-5.18
+    dev-libs/libxslt >=dev-libs/libxml2-2.3.6:2 ~app-text/docbook-xml-dtd-4.3 app-text/docbook-xsl-stylesheets
+    ~app-text/docbook-sgml-dtd-3.0 >=app-text/docbook-dsssl-stylesheets-1.40 emacs?
+    ( virtual/emacs ) dev-python/pygments app-text/yelp-tools virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug doc emacs python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) !<dev-util/gtk-doc-am-1.29-r2 >=dev-libs/glib-2.62.2:2 >=dev-lang/perl-5.18
+    dev-libs/libxslt >=dev-libs/libxml2-2.3.6:2 ~app-text/docbook-xml-dtd-4.3 app-text/docbook-xsl-stylesheets
+    ~app-text/docbook-sgml-dtd-3.0 >=app-text/docbook-dsssl-stylesheets-1.40 emacs?
+    ( virtual/emacs ) dev-python/pygments
+  emerge.packages: dev-util/gtk-doc
+  kit: gnome-kit
+  original.package.name: dev-util/gtk-doc
+  original.package.slot: "0"
+  original.package.version: "1.32"
