@@ -1,0 +1,8 @@
+shell:
+- /bin/bash
+- -c
+install:
+- if [ -d /usr/share/macaroni/entities ] ; then entities --version 1>/dev/null 2>&1
+  ; if [ $? -eq 0 ] ; then entities merge --specs-dir /usr/share/macaroni/entities/
+  -e crontab ; fi ; else echo "Add macaroni/entities-catalog package and merge cronbase
+  entities!" ; fi

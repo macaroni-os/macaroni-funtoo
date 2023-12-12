@@ -1,0 +1,40 @@
+name: cronie
+version: 1.5.4
+category: sys-process
+use_flags:
+- -elibc_musl
+- anacron
+- pam
+requires:
+- name: cronbase
+  version: '>=0'
+  category: sys-process
+- name: pam
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Cronie is a standard UNIX daemon cron based on the original vixie-cron
+uri:
+- https://github.com/cronie-crond/cronie
+license: ISC BSD BSD-2 GPL-2
+labels:
+  BDEPEND: sys-apps/debianutils >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig
+  DEPEND: pam? ( virtual/pam ) anacron? ( !sys-process/anacron elibc_musl? ( sys-libs/obstack-standalone
+    ) ) >=sys-apps/sed-4.0.5 sys-apps/shadow
+  IUSE: +anacron +inotify pam selinux
+  RDEPEND: pam? ( virtual/pam ) anacron? ( !sys-process/anacron elibc_musl? ( sys-libs/obstack-standalone
+    ) ) >=sys-process/cronbase-0.3.2 !sys-process/vixie-cron !sys-process/bcron !sys-process/dcron
+    !sys-process/fcron
+  emerge.packages: sys-process/cronie
+  kit: core-kit
+  original.package.name: sys-process/cronie
+  original.package.slot: "0"
+  original.package.version: 1.5.4
