@@ -1,0 +1,1403 @@
+skipped_resolutions:
+  categories:
+    - sys-freebsd
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: opentmpfiles
+      category: sys-apps
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: sysvinit
+      category: sys-apps
+
+    - name: openrc
+      category: sys-apps
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: eudev
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - app-crypt/libmd
+
+- tree: packages/atoms/net
+  packages:
+    - sys-apps/ethtool
+    - net-analyzer/arpwatch
+    - net-analyzer/tcptraceroute
+    - net-analyzer/tcptrace
+    - net-wireless/wireless-tools
+    - net-vpn/wireguard-tools
+    - dev-libs/libbsd
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - gnutls
+    disabled:
+      - selinux
+      - resolvconf
+  packages:
+    - net-vpn/vpnc
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - gnutls
+      - nls
+      - lz4
+    disabled:
+      - selinux
+      - resolvconf
+      - doc
+      - gssapi
+      - libproxy
+      - smartcard
+      - static-libs
+      - stoken
+      - test
+  packages:
+    - net-vpn/openconnect
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - tcpdump
+      - pcapnav
+    disabled:
+      - debug
+  packages:
+    - net-analyzer/tcpreplay
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - python_targets_python3_9
+  packages:
+    - app-text/asciidoc
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+      - cairo
+      - test
+  packages:
+    - net-analyzer/tcpflow
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    enabled:
+      - ipv6
+      - split-usr
+    disabled:
+      - netgroups
+      - static-libs
+  packages:
+    - sys-apps/tcp-wrappers
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+      - static
+  packages:
+    - net-analyzer/traceroute
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        # libdnet requires libbsd but
+        # is not present on DEPEND or BDEPEND
+        - category: dev-libs
+          name: libbsd
+  uses:
+    enabled:
+      - python
+      - python_targets_python3_9
+  packages:
+    - dev-libs/libdnet
+
+#- tree: packages/atoms/net
+#  mutations:
+#    runtime_deps:
+#      packages:
+#        - category: macaroni
+#          name: entities-catalog
+#  uses:
+#    disabled:
+#    - libressl
+#    - nios2
+#    - selinux
+#    - sh
+#  packages:
+#  - net-misc/openntpd
+#  finalizer:
+#    shell:
+#      - "/bin/bash"
+#      - "-c"
+#    install:
+#      - >-
+#        eval 'mkdir -p /var/lib/openntpd/chroot || true' &&
+#        entities merge --specs-dir /usr/share/macaroni/entities/
+#        -e ntp
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - ssl
+      - threads
+    disabled:
+      - debug
+      - libressl
+      - static-libs
+      - test
+  packages:
+    - dev-libs/libevent
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - net-libs/http-parser
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - daemon
+      - xmlrpc
+    disabled:
+      - test
+      - selinux
+      - debug
+  packages:
+    - net-p2p/rtorrent
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - dbus
+      - dhcp
+      - dumpfile
+      - inotify
+      - ipv6
+      - nls
+    disabled:
+      - auth-dns
+      - conntrack
+      - dhcp-tools
+      - dnssec
+      - id
+      - idn
+      - libidn2
+      - lua
+      - lua_single_target_lua5-1
+      - lua_single_target_lua5-2
+      - lua_single_target_lua5-3
+      - lua_single_target_lua5-4
+      - lua_single_target_luajit
+      - nettlehash
+      - script
+      - selinux
+      - static
+      - tftp
+  packages:
+    - net-dns/dnsmasq
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e dnsmasq
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - openmp
+      - caps
+    disabled:
+      - custom-cflags
+  packages:
+    - net-wireless/wepattack
+    - net-wireless/wavemon
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - openmp
+      - caps
+      - zstd
+      - lzma
+      - systemd
+    disabled:
+      - libressl
+      - scrypt
+      - seccomp
+      - selinux
+      - test
+      - tor-hardening
+  packages:
+    - net-vpn/tor
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/tor || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e tor
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - pcre
+      - readline
+      - tcpd
+    disabled:
+      - selinux
+  packages:
+    - net-ftp/atftp
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - acl
+      - authfile
+      - ipv6
+      - kerberos
+      - ncurses
+      - nls
+      - pam
+      - pcre
+      - ssl
+      - tcpd
+    disabled:
+      - ident
+      - ban
+      - case
+      - caps
+      - clamav
+      - copy
+      - ctrls
+      - dso
+      - dynmasq
+      - deflate
+      - diskuse
+      - exec
+      - ifsession
+      - ifversion
+      - ldap
+      - libressl
+      - log_forensic
+      - mysql
+      - msg
+      - memcache
+      - rewrite
+      - postgres
+      - qos
+      - radius
+      - ratio
+      - readme
+      - selinux
+      - sftp
+      - shaper
+      - sitemisc
+      - snmp
+      - sodium
+      - test
+      - unique_id
+      - sqlite
+      - softquota
+      - vroot
+  packages:
+    - net-ftp/proftpd
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-crypt
+          name: mit-krb5
+  packages:
+    - virtual/krb5
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs
+          name: libverto
+    runtime_deps:
+      packages:
+        - category: dev-libs
+          name: libverto
+  uses:
+    enabled:
+      - nls
+      - pkinit
+      - keyutils
+      - threads
+    disabled:
+      - doc
+      - libressl
+      - lmdb
+      - openldap
+      - selinux
+      - test
+      - xinetd
+  packages:
+    - app-crypt/mit-krb5
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+      - prefix
+  packages:
+    - sys-apps/keyutils
+    - dev-util/cppunit
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - libevent
+      - threads
+    disabled:
+      - libev
+      - glib
+      - static-libs
+      - tevent
+  packages:
+    - dev-libs/libverto
+    - net-libs/libnfnetlink
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - gmp
+      - json
+      - modern_kernel
+      - readline
+      - cli
+    disabled:
+      - debug
+      - doc
+  packages:
+    - net-firewall/nftables
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+      - static-libs
+  packages:
+    - net-libs/libnfnetlink
+    - dev-libs/jansson
+
+
+- tree: packages/atoms/net
+  uses:
+    enabled:
+      - daemon
+      - xmlrpc
+    disabled:
+      - test
+      - selinux
+      - debug
+  packages:
+    - net-p2p/rtorrent
+
+
+- tree: packages/atoms/net
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+    - down-root
+    - examples
+    - libressl
+    - mbedtls
+    - nios2
+    - pkcs11
+    - selinux
+    - sh
+    - static
+    - test
+    enabled:
+    - systemd
+    - inotify
+    - lz4
+    - iproute2
+    - lzo
+    - pam
+    - plugins
+    - ssl
+  packages:
+  - net-vpn/openvpn
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e openvpn
+
+- tree: packages/atoms/net
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+    - cpp_test
+    - debug
+    - full
+    - google_perftools
+    - libatomic
+    - libressl
+    - luajit
+    - nginx_modules_dynamic_geoip
+    - nginx_modules_dynamic_image_filter
+    - nginx_modules_dynamic_mail
+    - nginx_modules_dynamic_perl
+    - nginx_modules_dynamic_stream_geoip
+    - nginx_modules_dynamic_xslt
+    - nginx_modules_external_accept_language
+    - nginx_modules_external_ajp
+    - nginx_modules_external_auth_pam
+    - nginx_modules_external_brotli
+    - nginx_modules_external_cache_purge
+    - nginx_modules_external_concat
+    - nginx_modules_external_dav_ext
+    - nginx_modules_external_echo
+    - nginx_modules_external_encrypted_session
+    - nginx_modules_external_fancyindex
+    - nginx_modules_external_headers_more
+    - nginx_modules_external_lua
+    - nginx_modules_external_metrics
+    - nginx_modules_external_modsecurity
+    - nginx_modules_external_mogilefs
+    - nginx_modules_external_naxsi
+    - nginx_modules_external_ndk
+    - nginx_modules_external_push
+    - nginx_modules_external_push_stream
+    - nginx_modules_external_rtmp
+    - nginx_modules_external_slowfs_cache
+    - nginx_modules_external_sticky
+    - nginx_modules_external_upload_progress
+    - nginx_modules_external_upstream_check
+    - nginx_modules_http_addition
+    - nginx_modules_http_auth_request
+    - nginx_modules_http_dav
+    - nginx_modules_http_degradation
+    - nginx_modules_http_flv
+    - nginx_modules_http_gzip_static
+    - nginx_modules_http_image_filter
+    - nginx_modules_http_mp4
+    - nginx_modules_http_perl
+    - nginx_modules_http_random_index
+    - nginx_modules_http_secure_link
+    - nginx_modules_http_stub_status
+    - nginx_modules_http_sub
+    - nginx_modules_http_xslt
+    - nginx_modules_mail_imap
+    - nginx_modules_mail_pop3
+    - nginx_modules_mail_smtp
+    - nginx_modules_stream_geoip
+    - nios2
+    - pcre-jit
+    - sh
+    - threads
+    - vim-syntax
+    enabled:
+    - aio
+    - http
+    - http-cache
+    - http2
+    - ipv6
+    - nginx_modules_dynamic_stream
+    - nginx_modules_http_realip
+    - nginx_modules_http_ssl
+    - nginx_modules_http_access
+    - nginx_modules_http_auth_basic
+    - nginx_modules_http_autoindex
+    - nginx_modules_http_browser
+    - nginx_modules_http_charset
+    - nginx_modules_http_empty_gif
+    - nginx_modules_http_fastcgi
+    - nginx_modules_http_geo
+    - nginx_modules_http_geoip
+    - nginx_modules_http_grpc
+    - nginx_modules_http_gunzip
+    - nginx_modules_http_gzip
+    - nginx_modules_http_limit_conn
+    - nginx_modules_http_limit_req
+    - nginx_modules_http_map
+    - nginx_modules_http_memcached
+    - nginx_modules_http_mirror
+    - nginx_modules_http_proxy
+    - nginx_modules_http_referer
+    - nginx_modules_http_rewrite
+    - nginx_modules_http_scgi
+    - nginx_modules_http_split_clients
+    - nginx_modules_http_ssi
+    - nginx_modules_http_upstream_hash
+    - nginx_modules_http_upstream_ip_hash
+    - nginx_modules_http_upstream_keepalive
+    - nginx_modules_http_upstream_least_conn
+    - nginx_modules_http_upstream_zone
+    - nginx_modules_http_userid
+    - nginx_modules_http_uwsgi
+    - nginx_modules_stream_access
+    - nginx_modules_stream_geo
+    - nginx_modules_stream_limit_conn
+    - nginx_modules_stream_map
+    - nginx_modules_stream_return
+    - nginx_modules_stream_split_clients
+    - nginx_modules_stream_upstream_hash
+    - nginx_modules_stream_upstream_least_conn
+    - nginx_modules_stream_upstream_zone
+    - nginx_modules_stream_realip
+    - nginx_modules_stream_ssl_preread
+    - pcre
+    - poll
+    - rtmp
+    - select
+    - ssl
+    - stream
+  packages:
+  - www-servers/nginx
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/nginx || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e nginx
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - modules
+    - nios2
+    - sh
+  packages:
+  - net-firewall/ipset
+
+#- tree: packages/atoms/net
+#  mutations:
+#    buildtime_deps:
+#      packages:
+#        - category: seed
+#          name: macaroni-funtoo-race4
+#  uses:
+#    disabled:
+#    - debug
+#    - embedded
+#    - nios2
+#    - obsolete
+#    - sh
+#    enabled:
+#    - syslog
+#  packages:
+#  - net-misc/ntpclient
+#  TODO: open an issue and move to
+#        https://github.com/troglobit/sntpd fork
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - debug
+    - embedded
+    - nios2
+    - obsolete
+    - sh
+    - elibc_Darwin
+  packages:
+  - net-misc/netkit-telnetd:0
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - debug
+    - embedded
+    - nios2
+    - obsolete
+    - sh
+    - elibc_Darwin
+  packages:
+  - net-analyzer/openbsd-netcat:0
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+      - static
+      - X
+      - doc
+      - elf
+      - kmem
+      - libressl
+      - lm-sensors
+      - mfd-rewrites
+      - minimal
+      - mysql
+      - netlink
+      - pci
+      - python
+      - rpm
+      - selinux
+      - smux
+      - pcap
+    enabled:
+      - systemd 
+      - perl
+      - bzip2
+      - ipv6
+      - ssl
+      - tcpd
+      - ucd-compat
+      - zlib
+  packages:
+    - net-analyzer/net-snmp
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - caps
+    - debug
+    - libressl
+    - nios2
+    - ntp-cron
+    - parse-clocks
+    - samba
+    - selinux
+    - sh
+    - snmp
+    - vim-syntax
+    - zeroconf
+    - openntpd
+    enabled:
+    - ipv6
+    - readline
+    - ssl
+    - threads
+  packages:
+  - net-misc/ntp
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - libressl
+    - nios2
+    - sh
+  packages:
+  - net-vpn/openfortivpn
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - activefilter
+    - atm
+    - eap-tls
+    - libressl
+    - nios2
+    - radius
+    - gtk
+    - sh
+    enabled:
+    - ipv6
+    - dhcp
+    - pam
+  packages:
+  - net-dialup/ppp
+
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+      - test
+  packages:
+    - net-analyzer/macchanger
+
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - pud
+    - sh
+    - gtk
+  packages:
+  - net-misc/olsrd
+
+# wvstreams need patch
+#- tree: packages/atoms/net
+#  uses:
+#    disabled:
+#    - boost
+#    - debug
+#    - doc
+#    - nios2
+#    - sh
+#    enabled:
+#    - dbus
+#    - pam
+#    - ssl
+#  packages:
+#  - net-libs/wvstreams
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - sys-process/cronbase
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        if [ -d /usr/share/macaroni/entities ] ; then
+        entities merge --specs-dir /usr/share/macaroni/entities/ -e cron ;
+        chown root:cron /var/spool/cron ;
+        else
+        echo "Add macaroni/entities-catalog package and merge cron entities!" ;
+        fi
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-process
+          name: cronbase
+  uses:
+    disabled:
+      - selinux
+  packages:
+    - sys-process/cronie
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        if [ -d /usr/share/macaroni/entities ] ; then
+        entities --version 1>/dev/null 2>&1 ;
+        if [ $? -eq 0 ] ; then
+        entities merge --specs-dir /usr/share/macaroni/entities/ -e crontab ;
+        fi ;
+        else
+        echo "Add macaroni/entities-catalog package and merge cronbase entities!" ;
+        fi
+
+
+- tree: packages/atoms/net
+  packages:
+    - app-admin/logrotate
+    - net-vpn/wireguard-tools
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - virtual/cron
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - idn
+    - nios2
+    - sh
+    enabled:
+    - iconv
+    - nls
+  packages:
+  - net-misc/whois
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - older-kernels-compatibility
+    - selinux
+    - sh
+    - static-libs
+    enabled:
+    - urandom
+  packages:
+  - dev-libs/apr:1
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs-1
+          name: apr-util
+    runtime_deps:
+      packages:
+        - category: dev-libs-1
+          name: apr-util
+    uses:
+    - apache2_modules_xml2enc
+    - apache2_modules_proxy_html
+    - apache2_modules_proxy_http
+    - apache2_modules_proxy_balancer
+    - apache2_modules_proxy_connect
+    - apache2_modules_proxy
+    - apache2_modules_vhost_alias
+    - apache2_modules_remoteip
+    - apache2_modules_reqtimeout
+    - apache2_modules_lbmethod_bybusyness
+    - apache2_modules_lbmethod_byrequests
+    - apache2_modules_lbmethod_bytraffic
+    # slotmem_shm is needed for lbmethod_*
+    - apache2_modules_slotmem_shm
+  uses:
+    disabled:
+    - apache2_modules_access_compat
+    - apache2_modules_asis
+    - apache2_modules_auth_form
+    - apache2_modules_authn_dbd
+    - apache2_modules_authn_socache
+    - apache2_modules_authz_dbd
+    - apache2_modules_brotli
+    - apache2_modules_cache_disk
+    - apache2_modules_cache_socache
+    - apache2_modules_cern_meta
+    - apache2_modules_charset_lite
+    - apache2_modules_dbd
+    - apache2_modules_dumpio
+    - apache2_modules_http2
+    - apache2_modules_ident
+    - apache2_modules_imagemap
+    - apache2_modules_lbmethod_heartbeat
+    - apache2_modules_log_forensic
+    - apache2_modules_macro
+    - apache2_modules_md
+    - apache2_modules_proxy_ajp
+    - apache2_modules_proxy_fcgi
+    - apache2_modules_proxy_ftp
+    - apache2_modules_proxy_http2
+    - apache2_modules_proxy_scgi
+    - apache2_modules_proxy_wstunnel
+    - apache2_modules_ratelimit
+    - apache2_modules_session
+    - apache2_modules_session_cookie
+    - apache2_modules_session_crypto
+    - apache2_modules_session_dbd
+    - apache2_modules_socache_memcache
+    - apache2_modules_substitute
+    - apache2_modules_version
+    - apache2_modules_watchdog
+    - apache2_mpms_event
+    - apache2_mpms_worker
+    - debug
+    - doc
+    - ldap
+    - libressl
+    - nios2
+    - selinux
+    - sh
+    - split-usr
+    - static
+    - suexec
+    - suexec-syslog
+    - threads
+    enabled:
+    - apache2_modules_remoteip
+    - apache2_modules_reqtimeout
+    - apache2_modules_lbmethod_bybusyness
+    - apache2_modules_lbmethod_byrequests
+    - apache2_modules_lbmethod_bytraffic
+    - apache2_modules_xml2enc
+    - apache2_modules_proxy_html
+    - apache2_modules_proxy_http
+    - apache2_modules_proxy_balancer
+    - apache2_modules_proxy_connect
+    - apache2_modules_proxy
+    - apache2_modules_actions
+    - apache2_modules_alias
+    - apache2_modules_auth_basic
+    - apache2_modules_auth_digest
+    - apache2_modules_authn_alias
+    - apache2_modules_authn_anon
+    - apache2_modules_authn_core
+    - apache2_modules_authn_dbm
+    - apache2_modules_authn_file
+    - apache2_modules_authz_core
+    - apache2_modules_authz_dbm
+    - apache2_modules_authz_groupfile
+    - apache2_modules_authz_host
+    - apache2_modules_authz_owner
+    - apache2_modules_authz_user
+    - apache2_modules_autoindex
+    - apache2_modules_cache
+    - apache2_modules_cgi
+    - apache2_modules_cgid
+    - apache2_modules_dav
+    - apache2_modules_dav_fs
+    - apache2_modules_dav_lock
+    - apache2_modules_deflate
+    - apache2_modules_dir
+    - apache2_modules_env
+    - apache2_modules_expires
+    - apache2_modules_ext_filter
+    - apache2_modules_file_cache
+    - apache2_modules_filter
+    - apache2_modules_headers
+    - apache2_modules_include
+    - apache2_modules_info
+    - apache2_modules_log_config
+    - apache2_modules_logio
+    - apache2_modules_mime
+    - apache2_modules_mime_magic
+    - apache2_modules_negotiation
+    - apache2_modules_rewrite
+    - apache2_modules_setenvif
+    - apache2_modules_socache_shmcb
+    - apache2_modules_slotmem_shm
+    - apache2_modules_speling
+    - apache2_modules_status
+    - apache2_modules_unique_id
+    - apache2_modules_unixd
+    - apache2_modules_userdir
+    - apache2_modules_usertrack
+    - apache2_modules_vhost_alias
+    - apache2_mpms_prefork
+    - gdbm
+    - ssl
+    - suexec-caps
+  packages:
+  - www-servers/apache:2
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e apache
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - libressl
+    - nios2
+    - sh
+    enabled:
+    - ssl
+  packages:
+  - app-admin/apache-tools
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+      - tcl
+  packages:
+    - net-analyzer/hping
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+      - debug
+      - sasl
+      - selinux
+      - test
+    enabled:
+      - seccomp
+  packages:
+    - net-misc/memcached
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e memcached
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+      - sasl
+  packages:
+    - dev-libs/libmemcached
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+      - libressl
+      - selinux
+      - samba
+      - html
+      - libedit
+      - nettle
+      - pps
+      - samba
+      - seccomp
+      - sechash
+  packages:
+    - net-misc/chrony
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e ntp
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+      - test
+      - doc
+      - dbi
+      - ldap
+      - libressl
+      - lua
+      - minimal
+      - mysql
+      - postgres
+      - sasl
+      - selinux
+      - mmap
+    enabled:
+      - bzip2
+      - fam
+      - gdbm
+      - geoip
+      - ipv6
+      - kerberos
+      - libev
+      - memcached
+      - pcre
+      - php
+      - rrdtool
+      - sqlite
+      - ssl
+      - webdav
+      - xattr
+      - zlib
+  packages:
+  - www-servers/lighttpd
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e lighttpd
+
+- tree: packages/atoms/net
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static
+    - examples
+    - test
+    - static-libs
+    enabled:
+    - perl
+  packages:
+  - net-firewall/ebtables
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - hardened
+    - nios2
+    - sh
+  packages:
+  - net-misc/socat
+  - net-proxy/cntlm
+
+- tree: packages/atoms/net
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    enabled:
+    - cthelper
+    - cttimeout
+    - libtirpc
+  packages:
+  - net-firewall/conntrack-tools
+
+
+include_layers:
+- layers/macaroni-funtoo-race4.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - sys-devel/gcc:11.3.0
+
+reposcan_disabled_use_flags:
+  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - elogind
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python2_7
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - sysvinit
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+
+  - X
+
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
