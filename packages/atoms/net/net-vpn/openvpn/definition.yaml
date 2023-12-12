@@ -1,0 +1,61 @@
+name: openvpn
+version: 2.5.9
+category: net-vpn
+use_flags:
+- -kernel_linux
+- -mbedtls
+- -openssl
+- -pkcs11
+- -selinux
+- iproute2
+- lz4
+- lzo
+- pam
+- systemd
+requires:
+- name: lzo
+  version: '>=0'
+  category: dev-libs-2
+- name: docutils
+  version: '>=0'
+  category: dev-python
+- name: pam
+  version: '>=0'
+  category: sys-libs
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+- name: entities-catalog
+  version: '>=0'
+  category: macaroni
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Robust and highly flexible tunneling application compatible with many
+  OSes
+uri:
+- https://openvpn.net/
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  DEPEND: kernel_linux? ( iproute2? ( sys-apps/iproute2[-minimal] ) ) lz4? ( app-arch/lz4
+    ) lzo? ( >=dev-libs/lzo-1.07 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( >=dev-libs/openssl-0.9.8:0=
+    ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) systemd? ( sys-apps/systemd
+    ) dev-python/docutils dev-python/docutils sys-apps/shadow
+  IUSE: down-root examples inotify iproute2 +openssl +lz4 +lzo mbedtls pam pkcs11
+    +plugins selinux static systemd test userland_BSD kernel_linux
+  RDEPEND: kernel_linux? ( iproute2? ( sys-apps/iproute2[-minimal] ) ) lz4? ( app-arch/lz4
+    ) lzo? ( >=dev-libs/lzo-1.07 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( >=dev-libs/openssl-0.9.8:0=
+    ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) systemd? ( sys-apps/systemd
+    ) dev-python/docutils selinux? ( sec-policy/selinux-openvpn ) virtual/tmpfiles
+  emerge.packages: net-vpn/openvpn
+  kit: net-kit
+  original.package.name: net-vpn/openvpn
+  original.package.slot: "0"
+  original.package.version: 2.5.9
