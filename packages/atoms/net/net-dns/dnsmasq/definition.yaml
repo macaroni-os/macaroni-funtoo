@@ -1,0 +1,60 @@
+name: dnsmasq
+version: "2.89"
+category: net-dns
+use_flags:
+- -conntrack
+- -dnssec
+- -idn
+- -libidn2
+- -lua
+- -lua_single_target_lua5-1
+- -lua_single_target_lua5-2
+- -lua_single_target_lua5-3
+- -lua_single_target_lua5-4
+- -lua_single_target_luajit
+- -selinux
+- -static
+- dbus
+- nls
+requires:
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Small forwarding DNS server
+uri:
+- http://www.thekelleys.org.uk/dnsmasq/doc.html
+license: '|| ( GPL-2 GPL-3 )'
+labels:
+  BDEPEND: app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext ) virtual/pkgconfig
+  DEPEND: dbus? ( sys-apps/dbus:= ) idn? ( !libidn2? ( net-dns/libidn:0= ) libidn2?
+    ( >=net-dns/libidn2-2.0:= ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:=
+    ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lua/lua:5.2
+    ) lua_single_target_lua5-3? ( dev-lua/lua:5.3 ) lua_single_target_lua5-4? ( dev-lua/lua:5.4
+    ) ) conntrack? ( net-libs/libnetfilter_conntrack:= ) nls? ( sys-devel/gettext
+    ) dnssec? ( dev-libs/nettle:=[gmp] static? ( >=dev-libs/nettle-3.4[static-libs(+)]
+    ) ) sys-apps/shadow
+  IUSE: auth-dns conntrack dbus +dhcp dhcp-tools dnssec +dumpfile id idn libidn2 +inotify
+    ipv6 lua nettlehash nls +script selinux static tftp lua_single_target_luajit lua_single_target_lua5-1
+    lua_single_target_lua5-2 lua_single_target_lua5-3 lua_single_target_lua5-4
+  RDEPEND: dbus? ( sys-apps/dbus:= ) idn? ( !libidn2? ( net-dns/libidn:0= ) libidn2?
+    ( >=net-dns/libidn2-2.0:= ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:=
+    ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lua/lua:5.2
+    ) lua_single_target_lua5-3? ( dev-lua/lua:5.3 ) lua_single_target_lua5-4? ( dev-lua/lua:5.4
+    ) ) conntrack? ( net-libs/libnetfilter_conntrack:= ) nls? ( sys-devel/gettext
+    ) dnssec? ( !static? ( >=dev-libs/nettle-3.4:=[gmp] ) ) selinux? ( sec-policy/selinux-dnsmasq
+    )
+  emerge.packages: net-dns/dnsmasq
+  kit: net-kit
+  original.package.name: net-dns/dnsmasq
+  original.package.slot: "0"
+  original.package.version: "2.89"
