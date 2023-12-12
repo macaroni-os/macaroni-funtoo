@@ -1,0 +1,53 @@
+name: conntrack-tools
+version: 1.4.5
+category: net-firewall
+use_flags:
+- -doc
+- cthelper
+- cttimeout
+- libtirpc
+requires:
+- name: libnetfilter_conntrack
+  version: '>=0'
+  category: net-libs
+- name: libnetfilter_cthelper
+  version: '>=0'
+  category: net-libs
+- name: libnetfilter_cttimeout
+  version: '>=0'
+  category: net-libs
+- name: libnetfilter_queue
+  version: '>=0'
+  category: net-libs
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Connection tracking userspace tools
+uri:
+- http://conntrack-tools.netfilter.org
+license: GPL-2
+labels:
+  DEPEND: '>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.7 cthelper?
+    ( >=net-libs/libnetfilter_cthelper-1.0.0 ) cttimeout? ( >=net-libs/libnetfilter_cttimeout-1.0.0
+    ) >=net-libs/libnetfilter_queue-1.0.2 >=net-libs/libnfnetlink-1.0.1 !libtirpc?
+    ( sys-libs/glibc[rpc(-)] ) libtirpc? ( net-libs/libtirpc ) doc? ( app-text/docbook-xml-dtd:4.1.2
+    app-text/xmlto ) virtual/pkgconfig sys-devel/bison sys-devel/flex >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: doc +cthelper +cttimeout +libtirpc kernel_linux
+  RDEPEND: '>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.7 cthelper?
+    ( >=net-libs/libnetfilter_cthelper-1.0.0 ) cttimeout? ( >=net-libs/libnetfilter_cttimeout-1.0.0
+    ) >=net-libs/libnetfilter_queue-1.0.2 >=net-libs/libnfnetlink-1.0.1 !libtirpc?
+    ( sys-libs/glibc[rpc(-)] ) libtirpc? ( net-libs/libtirpc )'
+  emerge.packages: net-firewall/conntrack-tools
+  kit: net-kit
+  original.package.name: net-firewall/conntrack-tools
+  original.package.slot: "0"
+  original.package.version: 1.4.5
