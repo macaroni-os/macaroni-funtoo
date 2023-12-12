@@ -1,0 +1,66 @@
+name: mit-krb5
+version: "1.21"
+category: app-crypt
+use_flags:
+- -amd64
+- -cpu_flags_x86_aes
+- -doc
+- -lmdb
+- -openldap
+- -selinux
+- -test
+- -x86
+- -xinetd
+- keyutils
+- nls
+- pkinit
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: keyutils
+  version: '>=0'
+  category: sys-apps
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+- name: e2fsprogs
+  version: '>=0'
+  category: sys-fs
+- name: libverto
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: MIT Kerberos V
+uri:
+- https://web.mit.edu/kerberos/www/
+license: openafs-krb5-a BSD MIT OPENLDAP BSD-2 HPND BSD-4 ISC RSA CC-BY-SA-3.0 ||
+  ( BSD-2 GPL-2+ )
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.9 ) virtual/yacc cpu_flags_x86_aes?
+    ( amd64? ( dev-lang/yasm ) x86? ( dev-lang/yasm ) ) doc? ( virtual/latex-base
+    ) test? ( dev-util/cmocka ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '!!app-crypt/heimdal >=sys-fs/e2fsprogs-1.46.4-r51 || ( >=dev-libs/libverto-0.2.5[libev]
+    >=dev-libs/libverto-0.2.5[libevent] ) keyutils? ( >=sys-apps/keyutils-1.5.8:=
+    ) lmdb? ( dev-db/lmdb:= ) nls? ( sys-devel/gettext ) openldap? ( >=net-nds/openldap-2.4.38-r1:=
+    ) pkinit? ( >=dev-libs/openssl-1.0.1h-r2:0= ) xinetd? ( sys-apps/xinetd )'
+  IUSE: cpu_flags_x86_aes doc +keyutils lmdb nls openldap +pkinit selinux +threads
+    test xinetd
+  RDEPEND: '!!app-crypt/heimdal >=sys-fs/e2fsprogs-1.46.4-r51 || ( >=dev-libs/libverto-0.2.5[libev]
+    >=dev-libs/libverto-0.2.5[libevent] ) keyutils? ( >=sys-apps/keyutils-1.5.8:=
+    ) lmdb? ( dev-db/lmdb:= ) nls? ( sys-devel/gettext ) openldap? ( >=net-nds/openldap-2.4.38-r1:=
+    ) pkinit? ( >=dev-libs/openssl-1.0.1h-r2:0= ) xinetd? ( sys-apps/xinetd ) selinux?
+    ( sec-policy/selinux-kerberos )'
+  emerge.packages: app-crypt/mit-krb5
+  kit: security-kit
+  original.package.name: app-crypt/mit-krb5
+  original.package.slot: "0"
+  original.package.version: "1.21"
