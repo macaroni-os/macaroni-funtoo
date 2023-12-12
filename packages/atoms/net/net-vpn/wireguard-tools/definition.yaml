@@ -1,0 +1,25 @@
+name: wireguard-tools
+version: 1.0.20210914
+category: net-vpn
+use_flags:
+- -selinux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Required tools for WireGuard, such as wg(8) and wg-quick(8)
+uri:
+- https://www.wireguard.com/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig virtual/pkgconfig
+  IUSE: selinux kernel_linux
+  RDEPEND: selinux? ( sec-policy/selinux-wireguard )
+  emerge.packages: net-vpn/wireguard-tools
+  kit: net-kit
+  original.package.name: net-vpn/wireguard-tools
+  original.package.slot: "0"
+  original.package.version: 1.0.20210914-r1
