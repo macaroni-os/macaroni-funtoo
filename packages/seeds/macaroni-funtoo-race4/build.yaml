@@ -59,6 +59,8 @@ steps:
   eval 'locale-gen || true' &&
   whip h xmlcatalog.update_catalog sgml.update_catalog eclass_db.db_fix_so &&
   build-docbook-catalog &&
+  eval 'mkdir -p /etc/portage/package.mask || true' &&
+  echo "sys-apps/systemd-tmpfiles" > /etc/portage/package.mask/00-macaroni.mask &&
   cd / && rm -rf /luetbuild &&
   mkdir /layer
 
