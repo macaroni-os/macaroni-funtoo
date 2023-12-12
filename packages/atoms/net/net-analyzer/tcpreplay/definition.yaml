@@ -1,0 +1,44 @@
+name: tcpreplay
+version: 4.4.4
+category: net-analyzer
+use_flags:
+- pcapnav
+- tcpdump
+requires:
+- name: libdnet
+  version: '>=0'
+  category: dev-libs
+- name: tcpdump
+  version: '>=0'
+  category: net-analyzer
+- name: libpcapnav
+  version: '>=0'
+  category: net-libs
+- name: autogen
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: utilities for editing and replaying previously captured network traffic
+uri:
+- http://tcpreplay.appneta.com/ https://github.com/appneta/tcpreplay
+license: BSD GPL-3
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '>=sys-devel/autogen-5.18.4[libopts] dev-libs/libdnet >=net-libs/libpcap-0.9
+    tcpdump? ( net-analyzer/tcpdump ) pcapnav? ( net-libs/libpcapnav )'
+  IUSE: debug pcapnav +tcpdump
+  RDEPEND: '>=sys-devel/autogen-5.18.4[libopts] dev-libs/libdnet >=net-libs/libpcap-0.9
+    tcpdump? ( net-analyzer/tcpdump ) pcapnav? ( net-libs/libpcapnav )'
+  emerge.packages: net-analyzer/tcpreplay
+  kit: net-kit
+  original.package.name: net-analyzer/tcpreplay
+  original.package.slot: "0"
+  original.package.version: 4.4.4
