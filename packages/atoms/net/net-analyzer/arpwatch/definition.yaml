@@ -1,0 +1,30 @@
+name: arpwatch
+version: 2.1.15
+category: net-analyzer
+use_flags:
+- -selinux
+requires:
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An ethernet monitor program that keeps track of ethernet/IP address pairings
+uri:
+- https://ee.lbl.gov/
+license: BSD GPL-2
+labels:
+  DEPEND: net-libs/libpcap sys-libs/ncurses:* sys-apps/shadow
+  IUSE: selinux
+  RDEPEND: net-libs/libpcap sys-libs/ncurses:* selinux? ( sec-policy/selinux-arpwatch
+    )
+  emerge.packages: net-analyzer/arpwatch
+  kit: net-kit
+  original.package.name: net-analyzer/arpwatch
+  original.package.slot: "0"
+  original.package.version: 2.1.15-r9
