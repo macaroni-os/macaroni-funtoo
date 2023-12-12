@@ -1,0 +1,84 @@
+name: lighttpd
+version: 1.4.73
+category: www-servers
+use_flags:
+- -dbi
+- -doc
+- -fam
+- -kernel_linux
+- -ldap
+- -libressl
+- -lua
+- -mysql
+- -postgres
+- -sasl
+- -selinux
+- -test
+- bzip2
+- libev
+- pcre
+- php
+- rrdtool
+- sqlite
+- ssl
+- webdav
+- xattr
+- zlib
+requires:
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: libev
+  version: '>=0'
+  category: dev-libs
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: rrdtool
+  version: '>=0'
+  category: net-analyzer
+- name: e2fsprogs
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Lightweight high-performance web server
+uri:
+- https://www.lighttpd.net https://github.com/lighttpd/lighttpd1.4
+license: BSD GPL-2
+labels:
+  BDEPEND: dev-libs/libgamin virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: bzip2? ( app-arch/bzip2 ) dbi? ( dev-db/libdbi ) fam? ( virtual/fam ) ldap?
+    ( >=net-nds/openldap-2.1.26 ) libev? ( >=dev-libs/libev-4.01 ) lua? ( >=dev-lang/lua-5.1:=
+    ) mysql? ( dev-db/mysql-connector-c:= ) pcre? ( >=dev-libs/libpcre-3.1 ) php?
+    ( dev-lang/php:*[cgi] ) postgres? ( dev-db/postgresql:* ) rrdtool? ( net-analyzer/rrdtool
+    ) sasl? ( dev-libs/cyrus-sasl ) ssl? ( !libressl? ( >=dev-libs/openssl-0.9.7:0=[kerberos(-)?]
+    ) libressl? ( dev-libs/libressl:= ) ) sqlite? ( dev-db/sqlite:3 ) webdav? ( dev-libs/libxml2
+    sys-fs/e2fsprogs ) xattr? ( kernel_linux? ( sys-apps/attr ) ) zlib? ( >=sys-libs/zlib-1.1
+    ) doc? ( dev-python/docutils ) test? ( virtual/perl-Test-Harness dev-libs/fcgi
+    ) sys-apps/shadow
+  IUSE: bzip2 dbi doc fam ipv6 kerberos ldap libev libressl lua minimal mmap mysql
+    pcre php postgres rrdtool sasl selinux ssl sqlite test webdav xattr zlib
+  RDEPEND: bzip2? ( app-arch/bzip2 ) dbi? ( dev-db/libdbi ) fam? ( virtual/fam ) ldap?
+    ( >=net-nds/openldap-2.1.26 ) libev? ( >=dev-libs/libev-4.01 ) lua? ( >=dev-lang/lua-5.1:=
+    ) mysql? ( dev-db/mysql-connector-c:= ) pcre? ( >=dev-libs/libpcre-3.1 ) php?
+    ( dev-lang/php:*[cgi] ) postgres? ( dev-db/postgresql:* ) rrdtool? ( net-analyzer/rrdtool
+    ) sasl? ( dev-libs/cyrus-sasl ) ssl? ( !libressl? ( >=dev-libs/openssl-0.9.7:0=[kerberos(-)?]
+    ) libressl? ( dev-libs/libressl:= ) ) sqlite? ( dev-db/sqlite:3 ) webdav? ( dev-libs/libxml2
+    sys-fs/e2fsprogs ) xattr? ( kernel_linux? ( sys-apps/attr ) ) zlib? ( >=sys-libs/zlib-1.1
+    ) selinux? ( sec-policy/selinux-apache )
+  emerge.packages: www-servers/lighttpd
+  kit: core-server-kit
+  original.package.name: www-servers/lighttpd
+  original.package.slot: "0"
+  original.package.version: 1.4.73
