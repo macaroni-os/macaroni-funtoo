@@ -1,0 +1,27 @@
+name: libbsd
+version: 0.11.7
+category: dev-libs
+requires:
+- name: libmd
+  version: '>=0'
+  category: app-crypt
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library to provide useful functions commonly found on BSD systems
+uri:
+- https://libbsd.freedesktop.org/wiki/ https://gitlab.freedesktop.org/libbsd/libbsd
+license: BSD BSD-2 BSD-4 ISC
+labels:
+  DEPEND: app-crypt/libmd[static-libs?] >=sys-kernel/linux-headers-3.17
+  IUSE: static-libs
+  RDEPEND: app-crypt/libmd[static-libs?]
+  emerge.packages: dev-libs/libbsd
+  kit: core-kit
+  original.package.name: dev-libs/libbsd
+  original.package.slot: "0"
+  original.package.version: 0.11.7-r1
