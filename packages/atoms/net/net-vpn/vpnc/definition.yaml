@@ -1,0 +1,43 @@
+name: vpnc
+version: 0.5.3
+category: net-vpn
+use_flags:
+- -resolvconf
+- -selinux
+- gnutls
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: iproute2
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Free client for Cisco VPN routing software
+uri:
+- https://www.unix-ag.uni-kl.de/~massar/vpnc/
+license: GPL-2 BSD
+labels:
+  DEPEND: dev-lang/perl dev-libs/libgcrypt:0= >=sys-apps/iproute2-2.6.19.20061214[-minimal]
+    gnutls? ( net-libs/gnutls ) !gnutls? ( dev-libs/openssl:0= ) virtual/pkgconfig
+  IUSE: resolvconf +gnutls selinux kernel_linux
+  RDEPEND: dev-lang/perl dev-libs/libgcrypt:0= >=sys-apps/iproute2-2.6.19.20061214[-minimal]
+    gnutls? ( net-libs/gnutls ) !gnutls? ( dev-libs/openssl:0= ) resolvconf? ( virtual/resolvconf
+    ) selinux? ( sec-policy/selinux-vpn )
+  emerge.packages: net-vpn/vpnc
+  kit: net-kit
+  original.package.name: net-vpn/vpnc
+  original.package.slot: "0"
+  original.package.version: 0.5.3_p550
