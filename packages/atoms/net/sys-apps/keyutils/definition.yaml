@@ -1,0 +1,24 @@
+name: keyutils
+version: 1.6.3
+category: sys-apps
+use_flags:
+- -prefix
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux Key Management Utilities
+uri:
+- https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git
+license: GPL-2 LGPL-2.1
+labels:
+  DEPEND: '!prefix? ( >=sys-kernel/linux-headers-2.6.11 )'
+  IUSE: static static-libs kernel_linux +split-usr
+  emerge.packages: sys-apps/keyutils
+  kit: security-kit
+  original.package.name: sys-apps/keyutils
+  original.package.slot: "0"
+  original.package.version: 1.6.3
