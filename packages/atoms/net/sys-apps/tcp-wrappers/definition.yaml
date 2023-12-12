@@ -1,0 +1,26 @@
+name: tcp-wrappers
+version: 7.6.32
+category: sys-apps
+use_flags:
+- -netgroups
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TCP Wrappers
+uri:
+- http://ftp.porcupine.org/pub/security
+license: tcp_wrappers_license
+labels:
+  DEPEND: netgroups? ( net-libs/libnsl:= )
+  IUSE: ipv6 netgroups static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
+    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 +split-usr
+  RDEPEND: netgroups? ( net-libs/libnsl:= )
+  emerge.packages: sys-apps/tcp-wrappers
+  kit: core-kit
+  original.package.name: sys-apps/tcp-wrappers
+  original.package.slot: "0"
+  original.package.version: 7.6.32
