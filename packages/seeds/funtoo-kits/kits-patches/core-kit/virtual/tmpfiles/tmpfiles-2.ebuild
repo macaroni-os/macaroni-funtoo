@@ -6,9 +6,4 @@ DESCRIPTION="Virtual to select between different tmpfiles.d handlers"
 SLOT="0"
 KEYWORDS="*"
 
-RDEPEND="
-	|| (
-		sys-apps/systemd-tmpfiles
-		sys-apps/systemd
-	)
-"
+RDEPEND="sys-apps/systemd"
