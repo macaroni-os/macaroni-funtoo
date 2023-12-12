@@ -1,0 +1,46 @@
+name: nftables
+version: 1.0.9
+category: net-firewall
+use_flags:
+- -doc
+- cli
+- gmp
+- json
+requires:
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+- name: jansson
+  version: '>=0'
+  category: dev-libs
+- name: libedit
+  version: '>=0'
+  category: dev-libs
+- name: libnftnl
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux kernel (3.13+) firewall, NAT and packet mangling tools
+uri:
+- https://netfilter.org/projects/nftables/
+license: GPL-2
+labels:
+  DEPEND: '>=net-libs/libmnl-1.0.3:0= gmp? ( dev-libs/gmp:0= ) json? ( dev-libs/jansson
+    ) cli? ( dev-libs/libedit:0= ) >=net-libs/libnftnl-1.2.6:0= >=app-text/docbook2X-0.8.8-r4
+    doc? ( >=app-text/dblatex-0.3.7 ) sys-devel/bison sys-devel/flex virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  IUSE: debug +cli doc +gmp json +modern_kernel python xtables kernel_linux
+  RDEPEND: '>=net-libs/libmnl-1.0.3:0= gmp? ( dev-libs/gmp:0= ) json? ( dev-libs/jansson
+    ) cli? ( dev-libs/libedit:0= ) >=net-libs/libnftnl-1.2.6:0='
+  emerge.packages: net-firewall/nftables
+  kit: net-kit
+  original.package.name: net-firewall/nftables
+  original.package.slot: "0"
+  original.package.version: 1.0.9
