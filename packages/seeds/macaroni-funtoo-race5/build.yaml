@@ -1,0 +1,69 @@
+image: scratch
+env:
+- LUET_YES=true
+- LUET_NOLOCK=true
+- HTTP_TIMEOUT=0
+copy:
+  - package:
+      category: seed
+      name: macaroni-funtoo-stage
+      version: ">=0"
+    source: "/macaroni-funtoo"
+    destination: "/"
+# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
+steps:
+- >-
+  if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
+  if [ ! -e /etc/shadow ] ; then touch /etc/shadow ; fi &&
+  if [ ! -e /etc/group ] ; then touch /etc/group ; fi &&
+  if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi &&
+  if [ ! -d /tmp ] ; then mkdir /tmp ; fi &&
+  if [ ! -d /var ] ; then mkdir /var ; fi &&
+  chmod a+x /var &&
+  chmod a+rwx /tmp
+- luet install virtual-entities/base --force
+- >-
+  luet install --force
+  system/luet-devkit
+  utils/jq
+  utils/yq
+  app-admin/macaronictl
+  dev-util/pkgs-checker-minimal
+  kernel/macaroni-lts-sources &&
+  eselect kernel set 1 &&
+  luet repo update &&
+  luet upgrade &&
+  luet install --force
+  toolchain/base-extra
+  toolchain/base-python
+  toolchain/base-tools
+  toolchain/base-tools2
+  toolchain/net
+  &&
+  luet cleanup
+
+# Using steps to trace what files are generated
+# by gcc-config/binutils-config.
+# steps:
+# sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
+- >-
+  cat /etc/luet/luet.yaml &&
+  luet install virtual/base --nodeps &&
+  /usr/bin/gcc-config 1 &&
+  source /etc/profile &&
+  eselect gcc set 1 &&
+  mkdir -p /var/lib/portage &&
+  epro list &&
+  eval 'rm /etc/localtime || true' &&
+  ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  macaronictl env-update &&
+  eval 'locale-gen || true' &&
+  whip h xmlcatalog.update_catalog sgml.update_catalog eclass_db.db_fix_so &&
+  whip h perl.postinst &&
+  build-docbook-catalog &&
+  eval 'mkdir -p /etc/portage/package.mask || true' &&
+  echo "sys-apps/systemd-tmpfiles" > /etc/portage/package.mask/00-macaroni.mask &&
+  cd / && rm -rf /luetbuild &&
+  mkdir /layer
+
+package_dir: /layer
