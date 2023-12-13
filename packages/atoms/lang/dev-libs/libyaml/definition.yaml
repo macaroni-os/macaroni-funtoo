@@ -1,0 +1,26 @@
+name: libyaml
+version: 0.2.5
+category: dev-libs
+use_flags:
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A C library for parsing and emitting YAML
+uri:
+- https://github.com/yaml/libyaml
+license: MIT
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: doc static-libs test
+  emerge.packages: dev-libs/libyaml
+  kit: core-kit
+  original.package.name: dev-libs/libyaml
+  original.package.slot: "0"
+  original.package.version: 0.2.5
