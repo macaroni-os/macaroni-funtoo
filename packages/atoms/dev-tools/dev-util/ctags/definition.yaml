@@ -1,0 +1,38 @@
+name: ctags
+version: "20190331"
+category: dev-util
+use_flags:
+- -json
+- -xml
+- -yaml
+requires:
+- name: eselect-ctags
+  version: '>=0'
+  category: app-eselect
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Exuberant Ctags creates tags files for code browsing in editors
+uri:
+- https://ctags.io/ https://github.com/universal-ctags/ctags
+license: GPL-2+
+labels:
+  DEPEND: json? ( dev-libs/jansson ) xml? ( dev-libs/libxml2:2 ) yaml? ( dev-libs/libyaml
+    ) dev-python/docutils virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  IUSE: json xml yaml
+  RDEPEND: json? ( dev-libs/jansson ) xml? ( dev-libs/libxml2:2 ) yaml? ( dev-libs/libyaml
+    ) app-eselect/eselect-ctags
+  emerge.packages: dev-util/ctags
+  kit: core-kit
+  original.package.name: dev-util/ctags
+  original.package.slot: "0"
+  original.package.version: "20190331"
