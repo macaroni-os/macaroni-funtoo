@@ -1,4 +1,8 @@
 prelude:
+- >-
+  eval 'mkdir -p /etc/portage/package.mask || true' &&
+  echo '>=net-libs/nodejs-15' > /etc/portage/package.mask/00-nodejs.mask
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
