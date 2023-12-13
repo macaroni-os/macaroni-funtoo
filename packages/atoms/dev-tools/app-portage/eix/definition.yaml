@@ -1,0 +1,43 @@
+name: eix
+version: 0.36.7
+category: app-portage
+use_flags:
+- -sqlite
+- nls
+requires:
+- name: push
+  version: '>=0'
+  category: app-shells
+- name: quoter
+  version: '>=0'
+  category: app-shells
+- name: libintl
+  version: '>=0'
+  category: virtual
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Search and query ebuilds
+uri:
+- https://github.com/vaeth/eix/
+license: GPL-2
+labels:
+  BDEPEND: app-arch/xz-utils nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: nls? ( virtual/libintl ) sqlite? ( >=dev-db/sqlite-3:= )
+  IUSE: debug doc nls sqlite
+  RDEPEND: nls? ( virtual/libintl ) sqlite? ( >=dev-db/sqlite-3:= ) >=app-shells/push-2.0-r1
+    >=app-shells/quoter-3.0_p2-r1 virtual/tmpfiles
+  emerge.packages: app-portage/eix
+  kit: core-kit
+  original.package.name: app-portage/eix
+  original.package.slot: "0"
+  original.package.version: 0.36.7
