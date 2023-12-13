@@ -77,7 +77,6 @@ artefacts:
     - net-analyzer/tcptraceroute
     - net-analyzer/tcptrace
     - net-wireless/wireless-tools
-    - net-vpn/wireguard-tools
     - dev-libs/libbsd
 
 - tree: packages/atoms/net
@@ -176,30 +175,6 @@ artefacts:
       - python_targets_python3_9
   packages:
     - dev-libs/libdnet
-
-#- tree: packages/atoms/net
-#  mutations:
-#    runtime_deps:
-#      packages:
-#        - category: macaroni
-#          name: entities-catalog
-#  uses:
-#    disabled:
-#    - libressl
-#    - nios2
-#    - selinux
-#    - sh
-#  packages:
-#  - net-misc/openntpd
-#  finalizer:
-#    shell:
-#      - "/bin/bash"
-#      - "-c"
-#    install:
-#      - >-
-#        eval 'mkdir -p /var/lib/openntpd/chroot || true' &&
-#        entities merge --specs-dir /usr/share/macaroni/entities/
-#        -e ntp
 
 - tree: packages/atoms/net
   uses:
@@ -1228,7 +1203,6 @@ artefacts:
     - libtirpc
   packages:
   - net-firewall/conntrack-tools
-
 
 include_layers:
 - layers/macaroni-funtoo-race4.yaml
