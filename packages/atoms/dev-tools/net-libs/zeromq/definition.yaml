@@ -1,0 +1,35 @@
+name: zeromq
+version: 4.3.5
+category: net-libs
+use_flags:
+- -doc
+- -elibc_Darwin
+- -pgm
+- -sodium
+- -unwind
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: ZeroMQ core engine in C++, implements ZMTP/3.1
+uri:
+- http://www.zeromq.org/
+license: LGPL-3
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: '!elibc_Darwin? ( unwind? ( sys-libs/libunwind ) ) sodium? ( dev-libs/libsodium:=
+    ) pgm? ( =net-libs/openpgm-5.2.122 ) !elibc_Darwin? ( sys-apps/util-linux ) doc?
+    ( app-text/asciidoc app-text/xmlto ) pgm? ( virtual/pkgconfig )'
+  IUSE: doc drafts pgm +sodium static-libs test unwind elibc_Darwin
+  RDEPEND: '!elibc_Darwin? ( unwind? ( sys-libs/libunwind ) ) sodium? ( dev-libs/libsodium:=
+    ) pgm? ( =net-libs/openpgm-5.2.122 )'
+  emerge.packages: net-libs/zeromq
+  kit: net-kit
+  original.package.name: net-libs/zeromq
+  original.package.slot: "0"
+  original.package.version: 4.3.5
