@@ -1,0 +1,56 @@
+name: ruby
+version: 3.1.4
+category: dev-lang-3.1
+use_flags:
+- -jemalloc
+- -jit
+- -socks5
+- -systemtap
+- -tk
+- berkdb
+- gdbm
+- ssl
+- -ruby_targets_ruby25
+- -ruby_targets_ruby26
+- -ruby_targets_ruby27
+- -ruby_targets_ruby30
+- ruby_targets_ruby31
+requires:
+- name: db
+  version: '>=0'
+  category: sys-libs-18.1
+- name: gdbm
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A dynamic, interpreted, object-oriented programming language
+uri:
+- https://www.ruby-lang.org/
+license: '|| ( Ruby-BSD BSD-2 )'
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) jemalloc? ( dev-libs/jemalloc:=
+    ) jit? ( || ( sys-devel/gcc:* sys-devel/clang:* ) ) ssl? ( dev-libs/openssl:0=
+    ) socks5? ( >=net-proxy/dante-1.1.13 ) systemtap? ( dev-util/systemtap ) tk? (
+    dev-lang/tcl:0=[threads] dev-lang/tk:0=[threads] ) dev-libs/libyaml dev-libs/libffi:=
+    sys-libs/readline:0= sys-libs/zlib >=app-eselect/eselect-ruby-20201225
+  IUSE: berkdb debug doc examples gdbm ipv6 jemalloc jit +rdoc rubytests socks5 +ssl
+    static-libs systemtap tk xemacs
+  RDEPEND: berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) jemalloc? ( dev-libs/jemalloc:=
+    ) jit? ( || ( sys-devel/gcc:* sys-devel/clang:* ) ) ssl? ( dev-libs/openssl:0=
+    ) socks5? ( >=net-proxy/dante-1.1.13 ) systemtap? ( dev-util/systemtap ) tk? (
+    dev-lang/tcl:0=[threads] dev-lang/tk:0=[threads] ) dev-libs/libyaml dev-libs/libffi:=
+    sys-libs/readline:0= sys-libs/zlib >=app-eselect/eselect-ruby-20201225
+  emerge.packages: dev-lang/ruby:3.1
+  kit: ruby-kit
+  original.package.name: dev-lang/ruby
+  original.package.slot: "3.1"
+  original.package.version: 3.1.4
