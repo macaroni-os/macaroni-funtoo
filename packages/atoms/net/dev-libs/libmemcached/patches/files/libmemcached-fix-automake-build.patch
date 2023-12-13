@@ -1,0 +1,17 @@
+diff -ruN libmemcached-1.0.18.orig/configure.ac libmemcached-1.0.18/configure.ac
+--- libmemcached-1.0.18.orig/configure.ac	2019-04-10 02:57:53.000000000 +0000
++++ libmemcached-1.0.18/configure.ac	2019-04-10 05:18:31.735276971 +0000
+@@ -12,12 +12,12 @@
+ 
+ AC_PREREQ([2.61])
+ AC_INIT([libmemcached],VERSION_NUMBER,[http://libmemcached.org/])
++AC_CONFIG_AUX_DIR([build-aux])
+ 
+ # Setup the compilers early on
+ AC_PROG_CC([cc gcc clang])
+ AC_PROG_CXX([c++ g++ clang++])
+ 
+-AC_CONFIG_AUX_DIR([build-aux])
+ AC_CONFIG_MACRO_DIR([m4])
+ 
+ AC_CANONICAL_HOST
