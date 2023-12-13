@@ -1,0 +1,50 @@
+name: rubygems
+version: 3.4.21
+category: dev-ruby
+use_flags:
+- -ruby_targets_ruby27
+- -ruby_targets_ruby30
+- -ruby_targets_ruby32
+- -test
+- ruby_targets_ruby31
+requires:
+- name: ruby
+  version: '>=0'
+  category: dev-lang-3.1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library packaging and distribution for Ruby.
+uri:
+- https://rubygems.org/ https://github.com/rubygems/rubygems
+license: GPL-2 || ( Ruby MIT )
+labels:
+  BDEPEND: ruby_targets_ruby32? ( test? ( dev-ruby/json[ruby_targets_ruby32(-)] dev-ruby/minitest:5[ruby_targets_ruby32(-)]
+    dev-ruby/rake[ruby_targets_ruby32(-)] dev-ruby/rdoc[ruby_targets_ruby32(-)] dev-ruby/webrick[ruby_targets_ruby32(-)]
+    ) ) ruby_targets_ruby31? ( test? ( dev-ruby/json[ruby_targets_ruby31(-)] dev-ruby/minitest:5[ruby_targets_ruby31(-)]
+    dev-ruby/rake[ruby_targets_ruby31(-)] dev-ruby/rdoc[ruby_targets_ruby31(-)] dev-ruby/webrick[ruby_targets_ruby31(-)]
+    ) ) ruby_targets_ruby30? ( test? ( dev-ruby/json[ruby_targets_ruby30(-)] dev-ruby/minitest:5[ruby_targets_ruby30(-)]
+    dev-ruby/rake[ruby_targets_ruby30(-)] dev-ruby/rdoc[ruby_targets_ruby30(-)] dev-ruby/webrick[ruby_targets_ruby30(-)]
+    ) ) ruby_targets_ruby27? ( test? ( dev-ruby/json[ruby_targets_ruby27(-)] dev-ruby/minitest:5[ruby_targets_ruby27(-)]
+    dev-ruby/rake[ruby_targets_ruby27(-)] dev-ruby/rdoc[ruby_targets_ruby27(-)] dev-ruby/webrick[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    )
+  DEPEND: ruby_targets_ruby32? ( virtual/ruby-ssl[ruby_targets_ruby32(-)] ) ruby_targets_ruby31?
+    ( virtual/ruby-ssl[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( virtual/ruby-ssl[ruby_targets_ruby30(-)]
+    ) ruby_targets_ruby27? ( virtual/ruby-ssl[ruby_targets_ruby27(-)] ) ruby_targets_ruby32?
+    ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30?
+    ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 )
+  IUSE: server test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32
+  RDEPEND: ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    )
+  emerge.packages: dev-ruby/rubygems
+  kit: ruby-kit
+  original.package.name: dev-ruby/rubygems
+  original.package.slot: "0"
+  original.package.version: 3.4.21
