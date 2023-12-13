@@ -1,0 +1,34 @@
+name: strace
+version: "6.6"
+category: dev-util
+use_flags:
+- -aio
+- -elfutils
+- -perl
+- -static
+- -unwind
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A useful diagnostic, instructional, and debugging tool
+uri:
+- https://strace.io/
+license: BSD
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: static? ( unwind? ( sys-libs/libunwind[static-libs(+)] ) elfutils? ( dev-libs/elfutils[static-libs(+)]
+    ) ) aio? ( >=dev-libs/libaio-0.3.106 ) sys-kernel/linux-headers
+  IUSE: aio perl static unwind elfutils
+  RDEPEND: '!static? ( unwind? ( sys-libs/libunwind ) elfutils? ( dev-libs/elfutils
+    ) ) perl? ( dev-lang/perl )'
+  emerge.packages: dev-util/strace
+  kit: dev-kit
+  original.package.name: dev-util/strace
+  original.package.slot: "0"
+  original.package.version: "6.6"
