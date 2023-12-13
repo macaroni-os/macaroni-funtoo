@@ -1,0 +1,23 @@
+name: go
+version: 1.21.3
+category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A concurrent garbage collected and typesafe programming language
+uri:
+- https://golang.org
+license: BSD
+labels:
+  BDEPEND: '|| ( dev-lang/go dev-lang/go-bootstrap )'
+  IUSE: cpu_flags_x86_sse2
+  RDEPEND: '!<dev-go/go-tools-0_pre20150902'
+  emerge.packages: dev-lang/go
+  kit: lang-kit
+  original.package.name: dev-lang/go
+  original.package.slot: "0"
+  original.package.version: 1.21.3
