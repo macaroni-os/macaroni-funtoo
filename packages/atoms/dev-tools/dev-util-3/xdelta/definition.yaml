@@ -1,0 +1,29 @@
+name: xdelta
+version: 3.0.11
+category: dev-util-3
+use_flags:
+- lzma
+requires:
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Computes changes between binary or text files and creates deltas
+uri:
+- http://xdelta.org/
+license: GPL-2
+labels:
+  DEPEND: lzma? ( app-arch/xz-utils:= )
+  IUSE: examples lzma
+  RDEPEND: lzma? ( app-arch/xz-utils:= )
+  emerge.packages: dev-util/xdelta:3
+  kit: dev-kit
+  original.package.name: dev-util/xdelta
+  original.package.slot: "3"
+  original.package.version: 3.0.11-r1
