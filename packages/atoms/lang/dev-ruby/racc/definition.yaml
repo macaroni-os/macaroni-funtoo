@@ -1,0 +1,67 @@
+name: racc
+version: 1.7.2
+category: dev-ruby
+use_flags:
+- -ruby_targets_ruby27
+- -ruby_targets_ruby30
+- -ruby_targets_ruby32
+- -test
+- ruby_targets_ruby31
+requires:
+- name: ruby-ssl
+  version: '>=0'
+  category: virtual
+- name: rubygems
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Racc is an LALR(1) parser generator. It is written in Ruby itself, and
+  generates ruby programs.
+uri:
+- https://github.com/ruby/racc
+license: LGPL-2.1
+labels:
+  BDEPEND: test? ( ruby_targets_ruby32? ( virtual/ruby-ssl[ruby_targets_ruby32(-)]
+    ) ruby_targets_ruby31? ( virtual/ruby-ssl[ruby_targets_ruby31(-)] ) ruby_targets_ruby30?
+    ( virtual/ruby-ssl[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/ruby-ssl[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby32? ( dev-ruby/rake[ruby_targets_ruby32(-)] test? ( dev-ruby/minitest[ruby_targets_ruby32(-)]
+    ) ) ruby_targets_ruby31? ( dev-ruby/rake[ruby_targets_ruby31(-)] test? ( dev-ruby/minitest[ruby_targets_ruby31(-)]
+    ) ) ruby_targets_ruby30? ( dev-ruby/rake[ruby_targets_ruby30(-)] test? ( dev-ruby/minitest[ruby_targets_ruby30(-)]
+    ) ) ruby_targets_ruby27? ( dev-ruby/rake[ruby_targets_ruby27(-)] test? ( dev-ruby/minitest[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    ) ruby_targets_ruby32? ( test? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31?
+    ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( test?
+    ( dev-ruby/rake[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)]
+    ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31?
+    ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)]
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby32?
+    ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)]
+    ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27?
+    ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
+  DEPEND: ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
+    ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
+    ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31?
+    ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)]
+    ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+  IUSE: doc test test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31
+    ruby_targets_ruby32 test test
+  RDEPEND: ruby_targets_ruby32? ( virtual/ruby-ssl[ruby_targets_ruby32(-)] ) ruby_targets_ruby31?
+    ( virtual/ruby-ssl[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( virtual/ruby-ssl[ruby_targets_ruby30(-)]
+    ) ruby_targets_ruby27? ( virtual/ruby-ssl[ruby_targets_ruby27(-)] ) ruby_targets_ruby32?
+    ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30?
+    ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby32?
+    ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)]
+    ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27?
+    ( virtual/rubygems[ruby_targets_ruby27(-)] )
+  emerge.packages: dev-ruby/racc
+  kit: ruby-kit
+  original.package.name: dev-ruby/racc
+  original.package.slot: "0"
+  original.package.version: 1.7.2
