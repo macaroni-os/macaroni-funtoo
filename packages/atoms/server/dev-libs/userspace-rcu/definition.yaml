@@ -1,0 +1,24 @@
+name: userspace-rcu
+version: 0.14.0
+category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Userspace RCU (read-copy-update) library
+uri:
+- https://liburcu.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  IUSE: static-libs test
+  emerge.packages: dev-libs/userspace-rcu
+  kit: dev-kit
+  original.package.name: dev-libs/userspace-rcu
+  original.package.slot: "0"
+  original.package.version: 0.14.0
