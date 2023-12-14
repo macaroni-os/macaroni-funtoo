@@ -1,0 +1,64 @@
+name: criu
+version: "3.18"
+category: sys-process
+use_flags:
+- -doc
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -selinux
+- -video_cards_amdgpu
+- python_targets_python3_9
+- setproctitle
+requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
+- name: protobuf-c
+  version: '>=0'
+  category: dev-libs
+- name: protobuf-python
+  version: '>=0'
+  category: dev-python
+- name: libnet
+  version: '>=0'
+  category: net-libs-1.1
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Checkpoint and Restore in Userspace is a utility to checkpoint/restore
+  Linux tasks
+uri:
+- https://criu.org/
+license: GPL-2
+labels:
+  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-libs/protobuf-c dev-libs/libnl:3 net-libs/libnet:1.1 sys-libs/libcap selinux?
+    ( sys-libs/libselinux ) setproctitle? ( dev-libs/libbsd ) video_cards_amdgpu?
+    ( x11-libs/libdrm[video_cards_amdgpu?] ) doc? ( app-text/asciidoc app-text/xmlto
+    )
+  IUSE: doc selinux setproctitle static-libs -video_cards_amdgpu kernel_linux python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-libs/protobuf-c dev-libs/libnl:3 net-libs/libnet:1.1 sys-libs/libcap selinux?
+    ( sys-libs/libselinux ) setproctitle? ( dev-libs/libbsd ) video_cards_amdgpu?
+    ( x11-libs/libdrm[video_cards_amdgpu?] ) dev-python/protobuf-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  emerge.packages: sys-process/criu
+  kit: core-kit
+  original.package.name: sys-process/criu
+  original.package.slot: "0"
+  original.package.version: "3.18"
