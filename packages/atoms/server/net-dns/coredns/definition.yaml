@@ -1,0 +1,25 @@
+name: coredns
+version: 1.11.1
+category: net-dns
+requires:
+- name: entities-catalog
+  version: '>=0'
+  category: macaroni
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: CoreDNS is a DNS server/forwarder, written in Go, that chains plugins
+uri:
+- https://coredns.io/ https://github.com/coredns/coredns
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.17 >=dev-lang/go-1.12 app-arch/unzip'
+  emerge.packages: net-dns/coredns
+  kit: net-kit
+  original.package.name: net-dns/coredns
+  original.package.slot: "0"
+  original.package.version: 1.11.1
