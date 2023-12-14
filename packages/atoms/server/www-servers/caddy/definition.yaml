@@ -1,0 +1,26 @@
+name: caddy
+version: 2.7.5
+category: www-servers
+use_flags:
+- filecaps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic
+  HTTPS
+uri:
+- https://caddyserver.com/ https://github.com/caddyserver/caddy
+license: Apache-2.0 BSD ECL-2.0 MIT
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  DEPEND: filecaps? ( sys-libs/libcap ) sys-apps/shadow
+  IUSE: +filecaps
+  emerge.packages: www-servers/caddy
+  kit: core-server-kit
+  original.package.name: www-servers/caddy
+  original.package.slot: "0"
+  original.package.version: 2.7.5
