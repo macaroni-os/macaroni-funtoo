@@ -1,0 +1,62 @@
+name: talloc
+version: 2.3.1
+category: sys-libs
+use_flags:
+- -elibc_Darwin
+- -elibc_FreeBSD
+- -elibc_SunOS
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python
+- python_single_target_python3_9
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Samba talloc library
+uri:
+- https://talloc.samba.org/
+license: GPL-3 LGPL-3+ LGPL-2
+labels:
+  DEPEND: '!elibc_FreeBSD? ( !elibc_SunOS? ( !elibc_Darwin? ( dev-libs/libbsd[-mgorny(-)]
+    ) ) ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7[threads(+)]
+    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) !!<sys-libs/talloc-2.0.5 sys-devel/gettext dev-libs/libxslt python_single_target_python3_7?
+    ( dev-lang/python:3.7[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    )'
+  IUSE: compat +python python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10 abi_x86_32
+    abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: '!elibc_FreeBSD? ( !elibc_SunOS? ( !elibc_Darwin? ( dev-libs/libbsd[-mgorny(-)]
+    ) ) ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7[threads(+)]
+    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) !!<sys-libs/talloc-2.0.5'
+  emerge.packages: sys-libs/talloc
+  kit: core-server-kit
+  original.package.name: sys-libs/talloc
+  original.package.slot: "0"
+  original.package.version: 2.3.1
