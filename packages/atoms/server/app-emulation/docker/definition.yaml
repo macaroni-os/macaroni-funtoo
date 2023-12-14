@@ -1,0 +1,71 @@
+name: docker
+version: 24.0.6
+category: app-emulation
+use_flags:
+- -apparmor
+- -device-mapper
+- -seccomp
+- btrfs
+- container-init
+- overlay
+requires:
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+- name: containerd
+  version: '>=0'
+  category: app-emulation
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: git
+  version: '>=0'
+  category: dev-vcs
+- name: iptables
+  version: '>=0'
+  category: net-firewall
+- name: procps
+  version: '>=0'
+  category: sys-process
+- name: tini
+  version: '>=0'
+  category: sys-process
+- name: entities-catalog
+  version: '>=0'
+  category: macaroni
+provides:
+- name: docker-proxy
+  version: 24.0.6
+  category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The core functions you need to create Docker images and run Docker containers
+uri:
+- https://www.docker.com/ https://github.com/moby/moby
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.19.12 dev-go/go-md2man virtual/pkgconfig >=dev-lang/go-1.10
+    virtual/pkgconfig virtual/pkgconfig'
+  DEPEND: '>=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1
+    ) device-mapper? ( >=sys-fs/lvm2-2.02.89[thin] ) seccomp? ( >=sys-libs/libseccomp-2.2.1
+    ) sys-apps/shadow'
+  IUSE: apparmor btrfs +container-init device-mapper overlay seccomp kernel_linux
+  RDEPEND: '>=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1
+    ) device-mapper? ( >=sys-fs/lvm2-2.02.89[thin] ) seccomp? ( >=sys-libs/libseccomp-2.2.1
+    ) >=net-firewall/iptables-1.4 sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9
+    dev-libs/libltdl >=app-emulation/containerd-1.7.1[apparmor?,btrfs?,device-mapper?,seccomp?]
+    !app-emulation/docker-proxy container-init? ( >=sys-process/tini-0.19.0[static]
+    )'
+  emerge.packages: app-emulation/docker
+  kit: core-kit
+  original.package.name: app-emulation/docker
+  original.package.slot: "0"
+  original.package.version: 24.0.6
