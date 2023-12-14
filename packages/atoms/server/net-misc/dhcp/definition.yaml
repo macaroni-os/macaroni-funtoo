@@ -1,0 +1,35 @@
+name: dhcp
+version: 4.4.3
+category: net-misc
+use_flags:
+- -client
+- -ipv6
+- -kernel_linux
+- -ldap
+- -selinux
+- -ssl
+- -vim-syntax
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: ISC Dynamic Host Configuration Protocol (DHCP) client/server
+uri:
+- https://www.isc.org/dhcp
+license: MPL-2.0 BSD SSLeay GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: client? ( kernel_linux? ( ipv6? ( sys-apps/iproute2 ) sys-apps/net-tools
+    ) ) ldap? ( net-nds/openldap:= ssl? ( dev-libs/openssl:= ) ) sys-apps/shadow
+  IUSE: +client ipv6 ldap selinux +server ssl vim-syntax
+  RDEPEND: client? ( kernel_linux? ( ipv6? ( sys-apps/iproute2 ) sys-apps/net-tools
+    ) ) ldap? ( net-nds/openldap:= ssl? ( dev-libs/openssl:= ) ) selinux? ( sec-policy/selinux-dhcp
+    ) vim-syntax? ( app-vim/dhcpd-syntax )
+  emerge.packages: net-misc/dhcp
+  kit: core-kit
+  original.package.name: net-misc/dhcp
+  original.package.slot: "0"
+  original.package.version: 4.4.3_p1
