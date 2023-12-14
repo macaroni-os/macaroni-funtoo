@@ -1,0 +1,52 @@
+name: polkit
+version: "0.119"
+category: sys-auth
+use_flags:
+- -elogind
+- -selinux
+- -spidermonkey
+- introspection
+- pam
+requires:
+- name: duktape
+  version: '>=0'
+  category: dev-lang
+- name: expat
+  version: '>=0'
+  category: dev-libs
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: pambase
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Policy framework for controlling privileges for system-wide services
+uri:
+- https://www.freedesktop.org/wiki/Software/polkit https://gitlab.freedesktop.org/polkit/polkit
+license: LGPL-2
+labels:
+  BDEPEND: app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xsl-stylesheets dev-libs/glib
+    dev-libs/gobject-introspection-common dev-libs/libxslt dev-util/glib-utils dev-util/gtk-doc-am
+    dev-util/intltool sys-devel/gettext virtual/pkgconfig introspection? ( dev-libs/gobject-introspection
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: spidermonkey? ( dev-lang/spidermonkey:78[-debug] ) !spidermonkey? ( dev-lang/duktape
+    ) dev-libs/glib:2 dev-libs/expat elogind? ( sys-auth/elogind ) pam? ( sys-auth/pambase
+    sys-libs/pam ) sys-apps/shadow
+  IUSE: elogind examples gtk +introspection jit kde nls pam selinux +spidermonkey
+    test
+  RDEPEND: spidermonkey? ( dev-lang/spidermonkey:78[-debug] ) !spidermonkey? ( dev-lang/duktape
+    ) dev-libs/glib:2 dev-libs/expat elogind? ( sys-auth/elogind ) pam? ( sys-auth/pambase
+    sys-libs/pam ) selinux? ( sec-policy/selinux-policykit )
+  emerge.packages: sys-auth/polkit
+  kit: gnome-kit
+  original.package.name: sys-auth/polkit
+  original.package.slot: "0"
+  original.package.version: 0.119-r4
