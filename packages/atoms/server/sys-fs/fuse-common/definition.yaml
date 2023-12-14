@@ -1,0 +1,23 @@
+name: fuse-common
+version: 3.4.1
+category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Common files for multiple slots of sys-fs/fuse
+uri:
+- https://github.com/libfuse/libfuse
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: virtual/pkgconfig
+  RDEPEND: '!<sys-fs/fuse-2.9.7-r1:0'
+  emerge.packages: sys-fs/fuse-common
+  kit: core-kit
+  original.package.name: sys-fs/fuse-common
+  original.package.slot: "0"
+  original.package.version: 3.4.1
