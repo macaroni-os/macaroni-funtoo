@@ -1,0 +1,52 @@
+name: haproxy
+version: 2.6.15
+category: net-proxy
+use_flags:
+- -device-atlas
+- -libressl
+- -lua
+- -pcre-jit
+- -pcre2
+- -pcre2-jit
+- -slz
+- pcre
+- ssl
+- tools
+- zlib
+requires:
+- name: libevent
+  version: '>=0'
+  category: dev-libs
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A TCP/HTTP reverse proxy for high availability environments
+uri:
+- http://www.haproxy.org
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: pcre? ( dev-libs/libpcre pcre-jit? ( dev-libs/libpcre[jit] ) ) tools? (
+    dev-libs/libevent ) pcre2? ( dev-libs/libpcre pcre2-jit? ( dev-libs/libpcre2[jit]
+    ) ) ssl? ( dev-libs/openssl:0= libressl? ( dev-libs/libressl:0= ) ) slz? ( dev-libs/libslz:=
+    ) zlib? ( sys-libs/zlib ) lua? ( dev-lua/lua:5.3 ) device-atlas? ( dev-libs/device-atlas-api-c
+    ) sys-apps/shadow
+  IUSE: +crypt doc examples libressl slz +net_ns +pcre pcre-jit pcre2 pcre2-jit prometheus-exporter
+    ssl systemd +threads tools vim-syntax +zlib lua device-atlas 51degrees wurfl kernel_linux
+  RDEPEND: pcre? ( dev-libs/libpcre pcre-jit? ( dev-libs/libpcre[jit] ) ) tools? (
+    dev-libs/libevent ) pcre2? ( dev-libs/libpcre pcre2-jit? ( dev-libs/libpcre2[jit]
+    ) ) ssl? ( dev-libs/openssl:0= libressl? ( dev-libs/libressl:0= ) ) slz? ( dev-libs/libslz:=
+    ) zlib? ( sys-libs/zlib ) lua? ( dev-lua/lua:5.3 ) device-atlas? ( dev-libs/device-atlas-api-c
+    )
+  emerge.packages: net-proxy/haproxy
+  kit: core-server-kit
+  original.package.name: net-proxy/haproxy
+  original.package.slot: "0"
+  original.package.version: 2.6.15
