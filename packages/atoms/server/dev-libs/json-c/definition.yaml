@@ -1,0 +1,26 @@
+name: json-c
+version: "0.17"
+category: dev-libs
+use_flags:
+- -doc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A JSON implementation in C
+uri:
+- https://github.com/json-c/json-c/wiki
+labels:
+  BDEPEND: doc? ( >=app-doc/doxygen-1.8.13 ) || ( >=sys-libs/glibc-2.36[static-libs?]
+    ( dev-libs/libbsd[static-libs?] app-crypt/libmd[static-libs?] ) ) dev-util/ninja
+    dev-util/cmake
+  DEPEND: '!dev-libs/json:0/True'
+  IUSE: cpu_flags_x86_rdrand doc static-libs threads
+  emerge.packages: dev-libs/json-c
+  kit: core-kit
+  original.package.name: dev-libs/json-c
+  original.package.slot: "0"
+  original.package.version: 0.17_p20230812
