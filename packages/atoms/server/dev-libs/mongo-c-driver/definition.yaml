@@ -1,0 +1,48 @@
+name: mongo-c-driver
+version: 1.24.4
+category: dev-libs
+use_flags:
+- -icu
+- -libressl
+- -sasl
+- -test
+- ssl
+requires:
+- name: snappy
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: libbson
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Client library written in C for MongoDB
+uri:
+- https://github.com/mongodb/mongo-c-driver
+license: Apache-2.0
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: app-arch/snappy:= app-arch/zstd:= >=dev-libs/libbson-1.24.4[static-libs?]
+    sys-libs/zlib:= icu? ( dev-libs/icu:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? (
+    !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) ) dev-python/sphinx
+    test? ( dev-db/mongodb dev-libs/libbson[static-libs] )
+  IUSE: debug examples icu libressl sasl ssl static-libs test
+  RDEPEND: app-arch/snappy:= app-arch/zstd:= >=dev-libs/libbson-1.24.4[static-libs?]
+    sys-libs/zlib:= icu? ( dev-libs/icu:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? (
+    !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) )
+  emerge.packages: dev-libs/mongo-c-driver
+  kit: dev-kit
+  original.package.name: dev-libs/mongo-c-driver
+  original.package.slot: "0"
+  original.package.version: 1.24.4
