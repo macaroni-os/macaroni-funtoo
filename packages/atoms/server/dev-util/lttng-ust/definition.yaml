@@ -1,0 +1,35 @@
+name: lttng-ust
+version: 2.13.6
+category: dev-util
+use_flags:
+- numa
+requires:
+- name: userspace-rcu
+  version: '>=0'
+  category: dev-libs
+- name: numactl
+  version: '>=0'
+  category: sys-process
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux Trace Toolkit - UST library
+uri:
+- https://lttng.org
+license: GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/userspace-rcu:= numa? ( sys-process/numactl )
+  IUSE: examples numa python java jni
+  RDEPEND: dev-libs/userspace-rcu:= numa? ( sys-process/numactl )
+  emerge.packages: dev-util/lttng-ust
+  kit: dev-kit
+  original.package.name: dev-util/lttng-ust
+  original.package.slot: "0"
+  original.package.version: 2.13.6
