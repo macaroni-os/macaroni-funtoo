@@ -1,0 +1,26 @@
+name: docker-buildx
+version: 0.11.2
+category: app-emulation-2
+requires:
+- name: docker-cli
+  version: '>=0'
+  category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Docker CLI plugin for extended build capabilities with BuildKit
+uri:
+- https://github.com/docker/buildx
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  RDEPEND: '>=app-emulation/docker-cli-23.0.0'
+  emerge.packages: app-emulation/docker-buildx:2
+  kit: core-kit
+  original.package.name: app-emulation/docker-buildx
+  original.package.slot: "2"
+  original.package.version: 0.11.2
