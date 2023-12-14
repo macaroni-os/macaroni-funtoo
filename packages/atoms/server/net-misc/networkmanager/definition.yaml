@@ -1,0 +1,122 @@
+name: networkmanager
+version: 1.44.2
+category: net-misc
+use_flags:
+- -audit
+- -bluetooth
+- -concheck
+- -connection-sharing
+- -dhcpcd
+- -elogind
+- -gnutls
+- -gtk-doc
+- -introspection
+- -iptables
+- -iwd
+- -libedit
+- -modemmanager
+- -nftables
+- -ofono
+- -ovs
+- -policykit
+- -ppp
+- -prefix
+- -psl
+- -resolvconf
+- -selinux
+- -teamd
+- -test
+- -tools
+- -vala
+- dhclient
+- nss
+- wifi
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: libndp
+  version: '>=0'
+  category: net-libs
+- name: dhcp
+  version: '>=0'
+  category: net-misc
+- name: wpa_supplicant
+  version: '>=0'
+  category: net-wireless
+- name: util-linux
+  version: '>=0'
+  category: sys-apps
+- name: libudev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A set of co-operative tools that make networking simple and straightforward
+uri:
+- https://wiki.gnome.org/Projects/NetworkManager
+license: GPL-2+ LGPL-2.1+
+labels:
+  BDEPEND: dev-util/gdbus-codegen dev-util/glib-utils gtk-doc? ( dev-util/gtk-doc
+    app-text/docbook-xml-dtd:4.1.2 ) >=dev-util/intltool-0.40 >=sys-devel/gettext-0.17
+    virtual/pkgconfig introspection? ( || ( ( dev-lang/python:3.10 dev-python/pygobject:3[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/pygobject:3[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/pygobject:3[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/pygobject:3[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) dev-lang/perl dev-libs/libxslt ) vala? ( || ( dev-lang/vala:0.50[vapigen(+)]
+    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
+    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
+    ) ) test? ( >=dev-libs/jansson-2.7 || ( ( dev-lang/python:3.10 dev-python/dbus-python[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/pygobject:3[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ( dev-lang/python:3.8 dev-python/dbus-python[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    dev-python/pygobject:3[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/dbus-python[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    dev-python/pygobject:3[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/dbus-python[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    dev-python/pygobject:3[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig test? (
+    !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+  DEPEND: sys-apps/util-linux elogind? ( >=sys-auth/elogind-219 ) >=virtual/libudev-175:=
+    sys-apps/dbus net-libs/libndp >=dev-libs/glib-2.40:2 introspection? ( >=dev-libs/gobject-introspection-0.10.3:=
+    ) selinux? ( sys-libs/libselinux ) audit? ( sys-process/audit ) teamd? ( >=dev-libs/jansson-2.7:=
+    >=net-misc/libteam-1.9 ) policykit? ( >=sys-auth/polkit-0.106 ) nss? ( >=dev-libs/nss-3.11:=
+    ) gnutls? ( >=net-libs/gnutls-2.12:= ) ppp? ( >=net-dialup/ppp-2.4.5:=[ipv6] )
+    modemmanager? ( net-misc/mobile-broadband-provider-info >=net-misc/modemmanager-0.7.991:0=
+    ) bluetooth? ( >=net-wireless/bluez-5 ) ofono? ( net-misc/ofono ) dhclient? (
+    >=net-misc/dhcp-4[client] ) dhcpcd? ( >=net-misc/dhcpcd-9.3.3 ) ovs? ( >=dev-libs/jansson-2.7:=
+    ) resolvconf? ( virtual/resolvconf ) connection-sharing? ( net-dns/dnsmasq[dbus,dhcp]
+    iptables? ( net-firewall/iptables ) nftables? ( net-firewall/nftables ) ) psl?
+    ( net-libs/libpsl ) concheck? ( net-misc/curl ) tools? ( >=dev-libs/newt-0.52.15
+    libedit? ( dev-libs/libedit ) !libedit? ( sys-libs/readline:= ) ) >=sys-kernel/linux-headers-3.18
+    net-libs/libndp sys-apps/shadow
+  IUSE: audit bluetooth +concheck connection-sharing debug dhclient dhcpcd elogind
+    gnutls +gtk-doc +introspection iptables iwd psl libedit lto +nss nftables +modemmanager
+    ofono ovs policykit +ppp resolvconf selinux syslog teamd test +tools +vala +wext
+    +wifi kernel_linux test
+  RDEPEND: sys-apps/util-linux elogind? ( >=sys-auth/elogind-219 ) >=virtual/libudev-175:=
+    sys-apps/dbus net-libs/libndp >=dev-libs/glib-2.40:2 introspection? ( >=dev-libs/gobject-introspection-0.10.3:=
+    ) selinux? ( sys-libs/libselinux ) audit? ( sys-process/audit ) teamd? ( >=dev-libs/jansson-2.7:=
+    >=net-misc/libteam-1.9 ) policykit? ( >=sys-auth/polkit-0.106 ) nss? ( >=dev-libs/nss-3.11:=
+    ) gnutls? ( >=net-libs/gnutls-2.12:= ) ppp? ( >=net-dialup/ppp-2.4.5:=[ipv6] )
+    modemmanager? ( net-misc/mobile-broadband-provider-info >=net-misc/modemmanager-0.7.991:0=
+    ) bluetooth? ( >=net-wireless/bluez-5 ) ofono? ( net-misc/ofono ) dhclient? (
+    >=net-misc/dhcp-4[client] ) dhcpcd? ( >=net-misc/dhcpcd-9.3.3 ) ovs? ( >=dev-libs/jansson-2.7:=
+    ) resolvconf? ( virtual/resolvconf ) connection-sharing? ( net-dns/dnsmasq[dbus,dhcp]
+    iptables? ( net-firewall/iptables ) nftables? ( net-firewall/nftables ) ) psl?
+    ( net-libs/libpsl ) concheck? ( net-misc/curl ) tools? ( >=dev-libs/newt-0.52.15
+    libedit? ( dev-libs/libedit ) !libedit? ( sys-libs/readline:= ) ) || ( net-misc/iputils[arping(+)]
+    net-analyzer/arping ) wifi? ( !iwd? ( >=net-wireless/wpa_supplicant-0.7.3-r3[dbus]
+    ) iwd? ( net-wireless/iwd ) )
+  emerge.packages: net-misc/networkmanager
+  kit: net-kit
+  original.package.name: net-misc/networkmanager
+  original.package.slot: "0"
+  original.package.version: 1.44.2
