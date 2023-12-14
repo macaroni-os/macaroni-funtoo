@@ -1,0 +1,623 @@
+skipped_resolutions:
+  categories:
+    - sys-freebsd
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: opentmpfiles
+      category: sys-apps
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: sysvinit
+      category: sys-apps
+
+    - name: openrc
+      category: sys-apps
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: eudev
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+- tree: packages/atoms/dev-tools
+  uses:
+    enabled:
+      - nls
+      - python
+      - server
+      - client
+      - xml
+      - python_single_target_python3_9
+      - python_targets_python3_9
+    disabled:
+      - python_single_target_python3_7
+      - python_targets_python3_7
+      - python_targets_python2_7
+      - lzma
+      - multitarget
+      - source-highlight
+      - test
+      - vanilla
+  packages:
+    - sys-devel/gdb
+
+- tree: packages/atoms/dev-tools
+  uses:
+    disabled:
+      - aio
+      - elfutils
+      - perl
+      - static
+      - unwind
+  packages:
+    - dev-util/strace
+
+- tree: packages/atoms/dev-tools
+  uses:
+    enabled:
+      - conch
+      - crypt
+      - soap
+      - python_targets_python3_9
+    disabled:
+      - examples
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
+    - dev-python/automat
+    - dev-python/pyserial
+    - dev-python/mistune
+
+- tree: packages/atoms/dev-tools
+  # FL-10708
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pyyaml
+  uses:
+    enabled:
+      - conch
+      - crypt
+      - soap
+      - python_targets_python3_9
+    disabled:
+      - examples
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
+    - sys-apps/metatools
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: mistune
+  uses:
+    enabled:
+      - python_targets_python3_9
+    disabled:
+      - examples
+      - python_targets_python3_7
+      - python_targets_python2_7
+  packages:
+    - dev-python/m2r
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race6
+  packages:
+    - app-text/discount
+    - net-misc/ipcalc
+    - virtual/python-cffi-0
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race6
+  packages:
+    - net-misc/sshpass
+
+- tree: packages/atoms/dev-tools
+  uses:
+    disabled:
+      - debug
+      - external-filters
+      - frontend-optional
+      - launch-frontend-setuid
+      - libedit
+      - launch-frontend
+      - static-libs
+    enabled:
+      - zlib
+      - readline
+      - acl
+      - xattr
+  packages:
+    - dev-libs/libisoburn
+    - dev-libs/libburn
+    - dev-libs/libisofs
+
+- tree: packages/atoms/dev-tools
+  uses:
+    disabled:
+      - debug
+      - examples
+      - test
+  packages:
+    - sys-fs/squashfs-tools
+    - dev-util/xdelta
+
+- tree: packages/atoms/dev-tools
+  uses:
+    disabled:
+      - debug
+      - examples
+      - test
+      - sqlite
+  packages:
+    - app-portage/eix
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race6
+  uses:
+    disabled:
+      - debug
+      - examples
+      - test
+      - sqlite
+  packages:
+    - app-shells/push
+    - app-shells/quoter
+    - app-eselect/eselect-ctags
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-libs
+          name: libseccomp
+  uses:
+    disabled:
+      - json
+      - xml
+      - yaml
+  packages:
+    - dev-util/ctags
+
+- tree: packages/atoms/dev-tools
+  uses:
+    disabled:
+      - debug
+      - selinux
+      - vim-syntax
+  packages:
+    - app-misc/tmux
+
+- tree: packages/atoms/dev-tools
+  uses:
+    enabled:
+      - nls
+  packages:
+    - dev-util/kbuild
+
+- tree: packages/atoms/dev-tools
+  uses:
+    enabled:
+      - python
+      - python_targets_python3_9
+      - python_single_target_python3_9
+      - acl
+      - gpm
+      - nls
+      - cscope
+    disabled:
+      # Enable this avoid to add dependency to
+      # vim-core and ctags util
+      - minimal
+      - python_targets_python3_7
+      - X
+      - debug
+      - lua
+      - luajit
+      - perl
+      - racket
+      - ruby
+      - selinux
+      - tcl
+      - vim-syntax
+  packages:
+    - app-editors/vim
+    - app-editors/vim-core
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-python
+          name: charset_normalizer
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/aiohttp
+
+- tree: packages/atoms/dev-tools
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/aiodns
+    - dev-python/aiosignal
+    - dev-python/async_timeout
+    - dev-python/frozenlist
+    - dev-python/multidict
+    - dev-python/pycares
+    - dev-python/yarl
+    - dev-python/pathspec
+    - dev-python/hyperlink
+    - dev-python/constantly
+    - dev-python/appdirs
+    - dev-python/defusedxml
+    - dev-python/pbr
+    - dev-python/wstools
+    - dev-python/pyasn1
+    - dev-python/pyasn1-modules
+    - dev-python/zope-interface
+    - dev-python/curio
+    - dev-python/colorama
+    - dev-python/rfc3986
+    - dev-python/brotlipy
+    - dev-python/incremental
+    - dev-python/h2
+    - dev-python/hatch-vcs
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: hatch-fancy-pypi-readme
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/httpcore
+
+- tree: packages/atoms/dev-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: hatch-vcs
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/service_identity
+
+- tree: packages/atoms/dev-tools
+  uses:
+    disabled:
+      - curl_ssl_gnutls
+      - python_targets_python3_7
+      - python_single_target_python3_7
+  packages:
+    - dev-python/pycurl
+
+- tree: packages/atoms/dev-tools
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/pyhamcrest
+
+- tree: packages/atoms/dev-tools
+  replacements:
+    runtime_deps:
+      packages:
+        - from:
+            category: dev-python
+            name: hyper-h2
+          to:
+            category: dev-python
+            name: h2
+    buildtime_deps:
+      packages:
+        - from:
+            category: dev-python
+            name: hyper-h2
+          to:
+            category: dev-python
+            name: h2
+  mutations:
+    runtime_deps:
+      packages:
+        # Need this because hyper-h2 is added on global ignore
+        # and the replacements doesn't work
+        - name: h2
+          category: dev-python
+    buildtime_deps:
+      packages:
+        # TODO: check and test what are the all needed bdep
+        - name: appdirs
+          category: dev-python
+        - name: automat
+          category: dev-python
+        - name: constantly
+          category: dev-python
+        - name: hyperlink
+          category: dev-python
+        - name: incremental
+          category: dev-python
+        - name: pyhamcrest
+          category: dev-python
+        - name: service_identity
+          category: dev-python
+        - name: zope-interface
+          category: dev-python
+        - name: pyasn1
+          category: dev-python
+        - name: h2
+          category: dev-python
+  uses:
+    enabled:
+      - conch
+      - crypt
+      - http2
+      - ssl
+      - python_targets_python3_9
+      - python_single_target_python3_9
+    disabled:
+      - examples
+  packages:
+    - dev-python/twisted
+
+
+include_layers:
+- layers/macaroni-funtoo-race6.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - dev-lang/ruby:3.1
+    - sys-devel/llvm:13
+    - sys-devel/gcc:11.3.0
+
+    # Waiting for the next upgrade for the upgrade of Nodejs.
+    - <net-libs/nodejs-15.0
+
+    - sys-devel/llvm:13
+    - sys-devel/clang:13
+    - sys-libs/compiler-rt:13.0.0
+    - sys-libs/compiler-rt-sanitizers:13.0.0
+
+    # Twisted requires priority version <2.0
+    - <dev-python/priority-2.0
+
+reposcan_disabled_use_flags:
+  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - elogind
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python2_7
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ruby_targets_ruby25
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby30
+  - ruby_targets_ruby32
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - sysvinit
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+
+  - X
+
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
