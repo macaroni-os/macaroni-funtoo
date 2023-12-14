@@ -1,0 +1,34 @@
+name: runc
+version: 1.1.8
+category: app-emulation
+use_flags:
+- -apparmor
+- -test
+- seccomp
+requires:
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: runc container cli tools
+uri:
+- http://github.com/opencontainers/runc/
+license: Apache-2.0 BSD-2 BSD MIT
+labels:
+  BDEPEND: dev-go/go-md2man test? ( seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc
+    apparmor? ( sys-libs/libapparmor ) ) >=dev-lang/go-1.12 app-arch/unzip
+  DEPEND: seccomp? ( sys-libs/libseccomp )
+  IUSE: apparmor hardened +kmem +seccomp test kernel_linux
+  RDEPEND: seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc apparmor? (
+    sys-libs/libapparmor )
+  emerge.packages: app-emulation/runc
+  kit: core-kit
+  original.package.name: app-emulation/runc
+  original.package.slot: "0"
+  original.package.version: 1.1.8
