@@ -11,19 +11,21 @@ ENV USER=root
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "--cleanup", "--purge-repos", \
   "repository/mottainai-stable", \
   "repository/macaroni-commons", \
   "repository/macaroni-funtoo-systemd"]
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "--cleanup", "--purge-repos", \
   "--skip-config-protect", \
   "system/entities", \
   "system/luet-geaaru-thin", \
   "sys-apps/shadow", \
   "sys-apps/sed", \
   "app-shells/bash", \
-  "sys-devel-9.2.0/gcc", \
+  "gcc", "glibc", \
   "sys-libs/ncurses", \
   "sys-apps/systemd", \
   "sys-apps/coreutils", \
@@ -35,7 +37,7 @@ RUN [ \
 SHELL ["/bin/bash", "-c"]
 
 RUN macaronictl env-update && \
-  luet rm -y --nodeps virtual-entities/base dev-lang-2.7/python && \
+  luet rm -y --nodeps virtual-entities/base macaroni/entities-catalog && \
   luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
