@@ -1,0 +1,87 @@
+name: postgresql
+version: "13.12"
+category: dev-db-13
+use_flags:
+- -elibc_glibc
+- -elibc_musl
+- -kerberos
+- -ldap
+- -llvm
+- -perl
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -selinux
+- -tcl
+- icu
+- nls
+- pam
+- python
+- python_single_target_python3_9
+- readline
+- ssl
+- uuid
+- xml
+- zlib
+- python_single_target_python3_9
+requires:
+- name: eselect-postgresql
+  version: '>=0'
+  category: app-eselect
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: ossp-uuid
+  version: '>=0'
+  category: dev-libs
+- name: less
+  version: '>=0'
+  category: sys-apps
+- name: pam
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PostgreSQL RDBMS
+uri:
+- https://www.postgresql.org/
+license: POSTGRESQL GPL-2
+labels:
+  DEPEND: '>=app-eselect/eselect-postgresql-2.0 sys-apps/less virtual/libintl icu?
+    ( dev-libs/icu:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) llvm?
+    ( sys-devel/llvm:= sys-devel/clang:= ) pam? ( sys-libs/pam ) perl? ( >=dev-lang/perl-5.8:=
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) readline? ( sys-libs/readline:0= ) ssl? ( >=dev-libs/openssl-0.9.6-r1:0= )
+    tcl? ( >=dev-lang/tcl-8:0= ) xml? ( dev-libs/libxml2 dev-libs/libxslt ) zlib?
+    ( sys-libs/zlib ) uuid? ( elibc_glibc? ( sys-apps/util-linux ) elibc_musl? ( sys-apps/util-linux
+    ) !elibc_glibc? ( !elibc_musl? ( dev-libs/ossp-uuid ) ) ) sys-devel/bison sys-devel/flex
+    nls? ( sys-devel/gettext ) xml? ( virtual/pkgconfig ) sys-apps/shadow'
+  IUSE: debug doc icu kerberos ldap llvm nls pam perl python +readline selinux +server
+    ssl static-libs tcl threads uuid xml zlib kernel_linux python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  RDEPEND: '>=app-eselect/eselect-postgresql-2.0 sys-apps/less virtual/libintl icu?
+    ( dev-libs/icu:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) llvm?
+    ( sys-devel/llvm:= sys-devel/clang:= ) pam? ( sys-libs/pam ) perl? ( >=dev-lang/perl-5.8:=
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) readline? ( sys-libs/readline:0= ) ssl? ( >=dev-libs/openssl-0.9.6-r1:0= )
+    tcl? ( >=dev-lang/tcl-8:0= ) xml? ( dev-libs/libxml2 dev-libs/libxslt ) zlib?
+    ( sys-libs/zlib ) uuid? ( elibc_glibc? ( sys-apps/util-linux ) elibc_musl? ( sys-apps/util-linux
+    ) !elibc_glibc? ( !elibc_musl? ( dev-libs/ossp-uuid ) ) ) selinux? ( sec-policy/selinux-postgresql
+    )'
+  emerge.packages: dev-db/postgresql:13
+  kit: core-server-kit
+  original.package.name: dev-db/postgresql
+  original.package.slot: "13"
+  original.package.version: "13.12"
