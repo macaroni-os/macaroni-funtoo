@@ -1,0 +1,37 @@
+name: lttng-tools
+version: 2.13.11
+category: dev-util
+use_flags:
+- ust
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: popt
+  version: '>=0'
+  category: dev-libs
+- name: lttng-ust
+  version: '>=0'
+  category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux Trace Toolkit - next generation
+uri:
+- https://lttng.org
+license: GPL-2
+labels:
+  DEPEND: dev-libs/userspace-rcu:= dev-libs/popt dev-libs/libxml2 ust? ( >=dev-util/lttng-ust-2.12.0:=
+    )
+  IUSE: +ust
+  RDEPEND: dev-libs/userspace-rcu:= dev-libs/popt dev-libs/libxml2 ust? ( >=dev-util/lttng-ust-2.12.0:=
+    )
+  emerge.packages: dev-util/lttng-tools
+  kit: dev-kit
+  original.package.name: dev-util/lttng-tools
+  original.package.slot: "0"
+  original.package.version: 2.13.11
