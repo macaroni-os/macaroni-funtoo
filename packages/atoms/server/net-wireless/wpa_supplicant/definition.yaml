@@ -1,0 +1,52 @@
+name: wpa_supplicant
+version: "2.10"
+category: net-wireless
+use_flags:
+- -eap-sim
+- -kernel_linux
+- -libressl
+- -qt5
+- -selinux
+- dbus
+- readline
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: IEEE 802.1X/WPA supplicant for secure wireless transfers
+uri:
+- https://w1.fi/wpa_supplicant/
+license: '|| ( GPL-2 BSD )'
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: dbus? ( sys-apps/dbus ) kernel_linux? ( dev-libs/libnl:3 net-wireless/crda
+    eap-sim? ( sys-apps/pcsc-lite ) ) !kernel_linux? ( net-libs/libpcap ) qt5? ( dev-qt/qtcore:5
+    dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ) readline? ( sys-libs/ncurses:0=
+    sys-libs/readline:0= ) !libressl? ( >=dev-libs/openssl-1.0.2k:0=[bindist=] ) libressl?
+    ( dev-libs/libressl:0= ) virtual/pkgconfig
+  IUSE: ap bindist dbus eap-sim eapol_test fasteap +fils +hs2-0 libressl macsec p2p
+    privsep ps3 qt5 readline selinux smartcard tdls uncommon-eap-types wimax wps kernel_linux
+    kernel_FreeBSD
+  RDEPEND: dbus? ( sys-apps/dbus ) kernel_linux? ( dev-libs/libnl:3 net-wireless/crda
+    eap-sim? ( sys-apps/pcsc-lite ) ) !kernel_linux? ( net-libs/libpcap ) qt5? ( dev-qt/qtcore:5
+    dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ) readline? ( sys-libs/ncurses:0=
+    sys-libs/readline:0= ) !libressl? ( >=dev-libs/openssl-1.0.2k:0=[bindist=] ) libressl?
+    ( dev-libs/libressl:0= ) selinux? ( sec-policy/selinux-networkmanager )
+  emerge.packages: net-wireless/wpa_supplicant
+  kit: core-kit
+  original.package.name: net-wireless/wpa_supplicant
+  original.package.slot: "0"
+  original.package.version: "2.10"
