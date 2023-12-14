@@ -1,0 +1,83 @@
+name: cryptsetup
+version: 2.6.1
+category: sys-fs
+use_flags:
+- -doc
+- -gcrypt
+- -nettle
+- -ssh
+- -static
+- -static-libs
+- -test
+- openssl
+- pwquality
+- udev
+requires:
+- name: argon2
+  version: '>=0'
+  category: app-crypt
+- name: json-c
+  version: '>=0'
+  category: dev-libs
+- name: libpwquality
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: popt
+  version: '>=0'
+  category: dev-libs
+- name: lvm2
+  version: '>=0'
+  category: sys-fs
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tool to setup encrypted devices with dm-crypt
+uri:
+- https://gitlab.com/cryptsetup/cryptsetup/blob/master/README.md
+license: GPL-2+
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: static-libs? ( >=dev-libs/json-c-0.16_p20220414:=[static-libs(+)] dev-libs/popt[static-libs(+)]
+    >=sys-apps/util-linux-2.31-r1[static-libs(+)] app-crypt/argon2:=[static-libs(+)]
+    gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] dev-libs/libgpg-error[static-libs(+)]
+    ) nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] ) openssl? ( dev-libs/openssl:0=[static-libs(+)]
+    ) pwquality? ( dev-libs/libpwquality[static-libs(+)] ) ssh? ( net-libs/libssh[static-libs(+)]
+    ) sys-fs/lvm2[static-libs(+)] ) >=dev-libs/json-c-0.16_p20220414:= dev-libs/popt
+    >=sys-apps/util-linux-2.31-r1 app-crypt/argon2:= gcrypt? ( dev-libs/libgcrypt:0=
+    dev-libs/libgpg-error ) nettle? ( >=dev-libs/nettle-2.4 ) openssl? ( dev-libs/openssl:0=
+    ) pwquality? ( dev-libs/libpwquality ) ssh? ( net-libs/libssh ) sys-fs/lvm2 udev?
+    ( virtual/libudev:= ) doc? ( app-text/asciidoctor ) static? ( >=dev-libs/json-c-0.16_p20220414:=[static-libs(+)]
+    dev-libs/popt[static-libs(+)] >=sys-apps/util-linux-2.31-r1[static-libs(+)] app-crypt/argon2:=[static-libs(+)]
+    gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] dev-libs/libgpg-error[static-libs(+)]
+    ) nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] ) openssl? ( dev-libs/openssl:0=[static-libs(+)]
+    ) pwquality? ( dev-libs/libpwquality[static-libs(+)] ) ssh? ( net-libs/libssh[static-libs(+)]
+    ) sys-fs/lvm2[static-libs(+)] ) test? ( app-editors/vim-core )
+  IUSE: gcrypt kernel nettle +openssl doc fips nls pwquality +reencrypt ssh static
+    static-libs test +udev urandom kernel_linux
+  RDEPEND: static-libs? ( >=dev-libs/json-c-0.16_p20220414:=[static-libs(+)] dev-libs/popt[static-libs(+)]
+    >=sys-apps/util-linux-2.31-r1[static-libs(+)] app-crypt/argon2:=[static-libs(+)]
+    gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] dev-libs/libgpg-error[static-libs(+)]
+    ) nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] ) openssl? ( dev-libs/openssl:0=[static-libs(+)]
+    ) pwquality? ( dev-libs/libpwquality[static-libs(+)] ) ssh? ( net-libs/libssh[static-libs(+)]
+    ) sys-fs/lvm2[static-libs(+)] ) >=dev-libs/json-c-0.16_p20220414:= dev-libs/popt
+    >=sys-apps/util-linux-2.31-r1 app-crypt/argon2:= gcrypt? ( dev-libs/libgcrypt:0=
+    dev-libs/libgpg-error ) nettle? ( >=dev-libs/nettle-2.4 ) openssl? ( dev-libs/openssl:0=
+    ) pwquality? ( dev-libs/libpwquality ) ssh? ( net-libs/libssh ) sys-fs/lvm2 udev?
+    ( virtual/libudev:= ) virtual/tmpfiles
+  emerge.packages: sys-fs/cryptsetup
+  kit: core-kit
+  original.package.name: sys-fs/cryptsetup
+  original.package.slot: "0"
+  original.package.version: 2.6.1-r1
