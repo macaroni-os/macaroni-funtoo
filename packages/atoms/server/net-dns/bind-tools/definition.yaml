@@ -1,0 +1,51 @@
+name: bind-tools
+version: 9.18.19
+category: net-dns
+use_flags:
+- -caps
+- -doc
+- -gssapi
+- -idn
+- -libedit
+- readline
+- xml
+requires:
+- name: libuv
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: jemalloc
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 'bind tools: dig, nslookup, host, nsupdate, dnssec-keygen'
+uri:
+- https://www.isc.org/software/bind
+license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
+labels:
+  BDEPEND: doc? ( dev-python/sphinx ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/libuv:= caps? ( sys-libs/libcap ) dev-libs/openssl:= xml? ( dev-libs/libxml2
+    ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5 ) libedit? ( dev-libs/libedit
+    ) !libedit? ( readline? ( sys-libs/readline:= ) )
+  IUSE: +caps doc gssapi idn ipv6 libedit readline xml
+  RDEPEND: dev-libs/libuv:= caps? ( sys-libs/libcap ) dev-libs/openssl:= xml? ( dev-libs/libxml2
+    ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5 ) libedit? ( dev-libs/libedit
+    ) !libedit? ( readline? ( sys-libs/readline:= ) ) !<=net-dns/bind-9.18.1-r2
+  emerge.packages: net-dns/bind-tools
+  kit: net-kit
+  original.package.name: net-dns/bind-tools
+  original.package.slot: "0"
+  original.package.version: 9.18.19
