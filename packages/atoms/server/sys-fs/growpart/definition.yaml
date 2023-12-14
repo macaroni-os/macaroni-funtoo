@@ -1,0 +1,25 @@
+name: growpart
+version: 0.0.30
+category: sys-fs
+requires:
+- name: gptfdisk
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A script that can grow your rootfs on first boot
+uri:
+- http://manpages.ubuntu.com/manpages/natty/man1/growpart.1.html
+license: GPL-3
+labels:
+  RDEPEND: sys-apps/gptfdisk
+  emerge.packages: sys-fs/growpart
+  kit: core-kit
+  original.package.name: sys-fs/growpart
+  original.package.slot: "0"
+  original.package.version: 0.0.30
