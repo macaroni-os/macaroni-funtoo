@@ -1,0 +1,36 @@
+name: Variable-Magic
+version: 0.620.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-Carp
+  version: '>=0'
+  category: virtual
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+- name: perl-XSLoader
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Associate user-defined magic to variables from Perl
+uri:
+- https://metacpan.org/release/Variable-Magic
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp virtual/perl-Exporter virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker
+    test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test examples
+  RDEPEND: virtual/perl-Carp virtual/perl-Exporter virtual/perl-XSLoader dev-lang/perl:=
+  emerge.packages: dev-perl/Variable-Magic
+  kit: perl-kit
+  original.package.name: dev-perl/Variable-Magic
+  original.package.slot: "0"
+  original.package.version: 0.620.0
