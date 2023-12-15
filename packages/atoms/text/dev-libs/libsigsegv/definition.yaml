@@ -1,0 +1,23 @@
+name: libsigsegv
+version: "2.12"
+category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for handling page faults in user mode
+uri:
+- https://www.gnu.org/software/libsigsegv/
+license: GPL-2
+labels:
+  DEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || (
+    >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  emerge.packages: dev-libs/libsigsegv
+  kit: dev-kit
+  original.package.name: dev-libs/libsigsegv
+  original.package.slot: "0"
+  original.package.version: 2.12-r1
