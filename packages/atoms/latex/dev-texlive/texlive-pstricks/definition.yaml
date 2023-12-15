@@ -1,0 +1,32 @@
+name: texlive-pstricks
+version: "2020"
+category: dev-texlive
+requires:
+- name: pgf
+  version: '>=0'
+  category: dev-tex
+- name: texlive-plaingeneric
+  version: '>=0'
+  category: dev-texlive
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TeXLive PSTricks
+uri:
+- http://www.tug.org/texlive/
+license: GPL-1 GPL-2 LGPL-2 LGPL-3 LPPL-1.2 LPPL-1.3 LPPL-1.3c
+labels:
+  BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
+  DEPEND: '>=dev-texlive/texlive-basic-2020 >=dev-texlive/texlive-plaingeneric-2020'
+  IUSE: source doc
+  RDEPEND: '>=dev-texlive/texlive-basic-2020 >=dev-texlive/texlive-plaingeneric-2020
+    dev-tex/pgf >=app-text/texlive-core-2020'
+  emerge.packages: dev-texlive/texlive-pstricks
+  kit: text-kit
+  original.package.name: dev-texlive/texlive-pstricks
+  original.package.slot: "0"
+  original.package.version: "2020"
