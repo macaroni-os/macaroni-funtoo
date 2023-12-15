@@ -1,0 +1,25 @@
+name: perl-Storable
+version: 3.210.0
+category: virtual
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Storable
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( =dev-lang/perl-5.32* ~perl-core/Storable-3.210.0 ) dev-lang/perl:=
+    !<perl-core/Storable-3.210.0 !>perl-core/Storable-3.210.0-r999'
+  emerge.packages: virtual/perl-Storable
+  kit: perl-kit
+  original.package.name: virtual/perl-Storable
+  original.package.slot: "0"
+  original.package.version: 3.210.0
