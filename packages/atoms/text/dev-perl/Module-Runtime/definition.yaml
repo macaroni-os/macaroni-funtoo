@@ -1,0 +1,29 @@
+name: Module-Runtime
+version: 0.16.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Runtime module handling
+uri:
+- https://metacpan.org/release/Module-Runtime
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: dev-perl/Module-Build test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: dev-lang/perl:=
+  emerge.packages: dev-perl/Module-Runtime
+  kit: perl-kit
+  original.package.name: dev-perl/Module-Runtime
+  original.package.slot: "0"
+  original.package.version: 0.16.0
