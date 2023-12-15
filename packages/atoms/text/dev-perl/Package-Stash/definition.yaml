@@ -1,0 +1,45 @@
+name: Package-Stash
+version: 0.370.0
+category: dev-perl
+use_flags:
+- -minimal
+- -test
+requires:
+- name: Dist-CheckConflicts
+  version: '>=0'
+  category: dev-perl
+- name: Module-Implementation
+  version: '>=0'
+  category: dev-perl
+- name: perl-Getopt-Long
+  version: '>=0'
+  category: virtual
+- name: perl-Scalar-List-Utils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Routines for manipulating stashes
+uri:
+- https://metacpan.org/release/Package-Stash
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp >=dev-perl/Dist-CheckConflicts-0.20.0 virtual/perl-Getopt-Long
+    >=dev-perl/Module-Implementation-0.60.0 virtual/perl-Scalar-List-Utils !minimal?
+    ( >=dev-perl/Package-Stash-XS-0.260.0 ) virtual/perl-ExtUtils-MakeMaker virtual/perl-File-Spec
+    virtual/perl-Text-ParseWords test? ( virtual/perl-IO dev-perl/Test-Fatal dev-perl/Test-Requires
+    >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl:=
+  IUSE: test minimal
+  RDEPEND: virtual/perl-Carp >=dev-perl/Dist-CheckConflicts-0.20.0 virtual/perl-Getopt-Long
+    >=dev-perl/Module-Implementation-0.60.0 virtual/perl-Scalar-List-Utils !minimal?
+    ( >=dev-perl/Package-Stash-XS-0.260.0 ) dev-lang/perl:=
+  emerge.packages: dev-perl/Package-Stash
+  kit: perl-kit
+  original.package.name: dev-perl/Package-Stash
+  original.package.slot: "0"
+  original.package.version: 0.370.0
