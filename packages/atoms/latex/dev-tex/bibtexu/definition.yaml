@@ -1,0 +1,30 @@
+name: bibtexu
+version: "3.71"
+category: dev-tex
+requires:
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: kpathsea
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 8-bit Implementation of BibTeX 0.99 with a Very Large Capacity
+uri:
+- http://tug.org/texlive/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  IUSE: doc source
+  RDEPEND: '>=dev-libs/kpathsea-6.2.1:= >=dev-libs/icu-4.4:='
+  emerge.packages: dev-tex/bibtexu
+  kit: text-kit
+  original.package.name: dev-tex/bibtexu
+  original.package.slot: "0"
+  original.package.version: 3.71_p20190410
