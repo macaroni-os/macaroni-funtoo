@@ -1,5 +1,5 @@
 name: poppler
-version: 23.11.0
+version: 23.11.0+1
 category: app-text
 use_flags:
 - -cairo
@@ -8,15 +8,18 @@ use_flags:
 - -introspection
 - -jpeg
 - -jpeg2k
-- -lcms
 - -nss
 - -png
 - -qt5
-- -tiff
+- lcms
+- tiff
 requires:
 - name: fontconfig
   version: '>=0'
   category: media-libs-1.0
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
 annotations:
   subsets:
     rules:
