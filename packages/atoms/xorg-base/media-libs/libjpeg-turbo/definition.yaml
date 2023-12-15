@@ -1,0 +1,38 @@
+name: libjpeg-turbo
+version: 3.0.1
+category: media-libs
+use_flags:
+- -amd64
+- -amd64-linux
+- -java
+- -x64-cygwin
+- -x64-macos
+- -x86
+- -x86-linux
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: MMX, SSE, and SSE2 SIMD accelerated JPEG library
+uri:
+- https://libjpeg-turbo.org/ https://sourceforge.net/projects/libjpeg-turbo/
+license: BSD IJG ZLIB
+labels:
+  BDEPEND: '>=dev-util/cmake-3.16.5 amd64? ( || ( dev-lang/nasm dev-lang/yasm ) )
+    x86? ( || ( dev-lang/nasm dev-lang/yasm ) ) amd64-linux? ( || ( dev-lang/nasm
+    dev-lang/yasm ) ) x86-linux? ( || ( dev-lang/nasm dev-lang/yasm ) ) x64-macos?
+    ( || ( dev-lang/nasm dev-lang/yasm ) ) x64-cygwin? ( || ( dev-lang/nasm dev-lang/yasm
+    ) ) dev-util/ninja dev-util/cmake'
+  DEPEND: '!media-libs/jpeg:0 !media-libs/jpeg:62 java? ( >=virtual/jdk-1.8:*[-headless-awt]
+    ) java? ( >=dev-java/java-config-2.2.0-r3 )'
+  IUSE: cpu_flags_arm_neon java static-libs elibc_FreeBSD java
+  RDEPEND: '!media-libs/jpeg:0 !media-libs/jpeg:62 java? ( >=virtual/jre-1.8:* ) java?
+    ( >=dev-java/java-config-2.2.0-r3 )'
+  emerge.packages: media-libs/libjpeg-turbo
+  kit: media-kit
+  original.package.name: media-libs/libjpeg-turbo
+  original.package.slot: "0"
+  original.package.version: 3.0.1
