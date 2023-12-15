@@ -1,0 +1,41 @@
+name: libpciaccess
+version: "0.16"
+category: x11-libs
+use_flags:
+- -ppc-aix
+- -x86-winnt
+- zlib
+requires:
+- name: hwids
+  version: '>=0'
+  category: sys-apps
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library providing generic access to the PCI bus and devices
+uri:
+- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/lib/libpciaccess
+license: MIT
+labels:
+  DEPEND: '!<x11-base/xorg-server-1.5 zlib? ( >=sys-libs/zlib-1.2.8-r1:=[-mgorny(-)]
+    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
+    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig[-mgorny(-)]'
+  IUSE: zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
+    abi_s390_32 abi_s390_64 static-libs
+  RDEPEND: '!<x11-base/xorg-server-1.5 zlib? ( >=sys-libs/zlib-1.2.8-r1:=[-mgorny(-)]
+    ) sys-apps/hwids'
+  emerge.packages: x11-libs/libpciaccess
+  kit: core-gl-kit
+  original.package.name: x11-libs/libpciaccess
+  original.package.slot: "0"
+  original.package.version: "0.16"
