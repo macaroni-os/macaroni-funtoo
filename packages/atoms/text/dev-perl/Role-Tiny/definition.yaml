@@ -1,0 +1,30 @@
+name: Role-Tiny
+version: 2.0.6
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Roles. Like a nouvelle cuisine portion size slice of Moose
+uri:
+- https://metacpan.org/release/Role-Tiny
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-Exporter-5.570.0 !<dev-perl/Moo-0.9.14 test? ( >=virtual/perl-Test-Simple-0.880.0
+    ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=virtual/perl-Exporter-5.570.0 !<dev-perl/Moo-0.9.14 dev-lang/perl:='
+  emerge.packages: dev-perl/Role-Tiny
+  kit: perl-kit
+  original.package.name: dev-perl/Role-Tiny
+  original.package.slot: "0"
+  original.package.version: 2.0.6
