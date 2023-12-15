@@ -1,0 +1,26 @@
+name: asdf
+version: 3.3.5
+category: dev-lisp
+use_flags:
+- -doc
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: ASDF is Another System Definition Facility for Common Lisp
+uri:
+- http://common-lisp.net/project/asdf/
+license: MIT
+labels:
+  DEPEND: '!dev-lisp/cl-asdf !<dev-lisp/asdf-2.33-r3 doc? ( virtual/texi2dvi ) test?
+    ( virtual/commonlisp )'
+  IUSE: doc test
+  emerge.packages: dev-lisp/asdf
+  kit: lisp-scheme-kit
+  original.package.name: dev-lisp/asdf
+  original.package.slot: "0"
+  original.package.version: 3.3.5
