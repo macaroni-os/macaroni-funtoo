@@ -1,0 +1,27 @@
+name: Devel-GlobalDestruction
+version: 0.140.0
+category: dev-perl
+requires:
+- name: Sub-Exporter-Progressive
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Returns the equivalent of ${^GLOBAL_PHASE} eq DESTRUCT for older perls
+uri:
+- https://metacpan.org/release/Devel-GlobalDestruction
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/Sub-Exporter-Progressive-0.1.11 virtual/perl-ExtUtils-MakeMaker
+    dev-lang/perl:='
+  RDEPEND: '>=dev-perl/Sub-Exporter-Progressive-0.1.11 dev-lang/perl:='
+  emerge.packages: dev-perl/Devel-GlobalDestruction
+  kit: perl-kit
+  original.package.name: dev-perl/Devel-GlobalDestruction
+  original.package.slot: "0"
+  original.package.version: 0.140.0
