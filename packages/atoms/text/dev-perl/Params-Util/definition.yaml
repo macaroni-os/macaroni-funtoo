@@ -1,0 +1,31 @@
+name: Params-Util
+version: 1.70.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-Scalar-List-Utils
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility functions to aid in parameter checking
+uri:
+- https://metacpan.org/release/Params-Util
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=virtual/perl-Scalar-List-Utils-1.180.0 >=virtual/perl-ExtUtils-CBuilder-0.270.0
+    >=virtual/perl-ExtUtils-MakeMaker-6.520.0 >=virtual/perl-File-Spec-0.800.0 test?
+    ( virtual/perl-Test-Simple ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=virtual/perl-Scalar-List-Utils-1.180.0 dev-lang/perl:='
+  emerge.packages: dev-perl/Params-Util
+  kit: perl-kit
+  original.package.name: dev-perl/Params-Util
+  original.package.slot: "0"
+  original.package.version: 1.70.0
