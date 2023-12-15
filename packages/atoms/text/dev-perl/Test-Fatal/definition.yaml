@@ -1,0 +1,41 @@
+name: Test-Fatal
+version: 0.14.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: Try-Tiny
+  version: '>=0'
+  category: dev-perl
+- name: perl-Carp
+  version: '>=0'
+  category: virtual
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+- name: perl-Test-Simple
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Incredibly simple helpers for testing code with exceptions
+uri:
+- https://metacpan.org/release/Test-Fatal
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp >=virtual/perl-Exporter-5.570.0 virtual/perl-Test-Simple
+    >=dev-perl/Try-Tiny-0.70.0 virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-CPAN-Meta-2.120.900
+    virtual/perl-File-Spec >=virtual/perl-Test-Simple-0.960.0 ) dev-lang/perl:=
+  IUSE: test examples
+  RDEPEND: virtual/perl-Carp >=virtual/perl-Exporter-5.570.0 virtual/perl-Test-Simple
+    >=dev-perl/Try-Tiny-0.70.0 dev-lang/perl:=
+  emerge.packages: dev-perl/Test-Fatal
+  kit: perl-kit
+  original.package.name: dev-perl/Test-Fatal
+  original.package.slot: "0"
+  original.package.version: 0.14.0
