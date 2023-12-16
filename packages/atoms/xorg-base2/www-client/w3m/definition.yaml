@@ -1,0 +1,63 @@
+name: w3m
+version: 0.5.3
+category: www-client
+use_flags:
+- -libressl
+- X
+- gdk-pixbuf
+- gpm
+- imlib
+- ssl
+- xface
+requires:
+- name: boehm-gc
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: gpm
+  version: '>=0'
+  category: sys-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: libXdmcp
+  version: '>=0'
+  category: x11-libs
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 'Debian''s w3m: WWW browsable pager'
+uri:
+- https://github.com/tats/w3m
+license: w3m
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/boehm-gc:= sys-libs/ncurses:0= sys-libs/zlib X? ( x11-libs/libXdmcp
+    x11-libs/libXext ) gdk-pixbuf? ( x11-libs/gdk-pixbuf[X?] ) !gdk-pixbuf? ( imlib?
+    ( media-libs/imlib2[X?] ) ) gpm? ( sys-libs/gpm ) ssl? ( !libressl? ( dev-libs/openssl:0=
+    ) libressl? ( dev-libs/libressl:0= ) ) xface? ( media-libs/compface ) virtual/pkgconfig
+  IUSE: X fbcon gdk-pixbuf gpm imlib l10n_de l10n_ja libressl lynxkeymap nls nntp
+    ssl unicode xface
+  RDEPEND: dev-libs/boehm-gc:= sys-libs/ncurses:0= sys-libs/zlib X? ( x11-libs/libXdmcp
+    x11-libs/libXext ) gdk-pixbuf? ( x11-libs/gdk-pixbuf[X?] ) !gdk-pixbuf? ( imlib?
+    ( media-libs/imlib2[X?] ) ) gpm? ( sys-libs/gpm ) ssl? ( !libressl? ( dev-libs/openssl:0=
+    ) libressl? ( dev-libs/libressl:0= ) ) xface? ( media-libs/compface )
+  emerge.packages: www-client/w3m
+  kit: browser-kit
+  original.package.name: www-client/w3m
+  original.package.slot: "0"
+  original.package.version: 0.5.3_p20230121
