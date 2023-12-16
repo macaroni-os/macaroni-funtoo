@@ -1,0 +1,49 @@
+name: libxkbcommon
+version: 1.4.1
+category: x11-libs
+use_flags:
+- -doc
+- -prefix
+- -test
+- -wayland
+- X
+requires:
+- name: doxygen
+  version: '>=0'
+  category: app-doc
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+- name: compose-tables
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: keymap handling library for toolkits and window systems
+uri:
+- https://xkbcommon.org/ https://github.com/xkbcommon/libxkbcommon/
+license: MIT
+labels:
+  BDEPEND: sys-devel/bison doc? ( app-doc/doxygen ) test? ( || ( dev-lang/python:3.10
+    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) ) wayland? ( dev-util/wayland-scanner
+    ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )
+  DEPEND: X? ( >=x11-libs/libxcb-1.10[xkb] ) wayland? ( >=dev-libs/wayland-1.2.0 )
+    dev-libs/libxml2 x11-misc/compose-tables app-doc/doxygen X? ( x11-base/xorg-proto
+    ) wayland? ( >=dev-libs/wayland-protocols-1.12 )
+  IUSE: doc static-libs test tools wayland X test
+  RDEPEND: X? ( >=x11-libs/libxcb-1.10[xkb] ) wayland? ( >=dev-libs/wayland-1.2.0
+    ) dev-libs/libxml2 x11-misc/compose-tables app-doc/doxygen
+  emerge.packages: x11-libs/libxkbcommon
+  kit: core-gl-kit
+  original.package.name: x11-libs/libxkbcommon
+  original.package.slot: "0"
+  original.package.version: 1.4.1
