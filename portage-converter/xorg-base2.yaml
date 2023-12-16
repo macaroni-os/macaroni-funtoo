@@ -1,0 +1,646 @@
+skipped_resolutions:
+  categories:
+    - sys-freebsd
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: opentmpfiles
+      category: sys-apps
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: sysvinit
+      category: sys-apps
+
+    - name: openrc
+      category: sys-apps
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: eudev
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    disabled:
+      - perl
+      - test
+      - static-libs
+  packages:
+    - media-gfx/graphite2
+
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    disabled:
+      - tls
+    enabled:
+      - headers
+      - X
+      - egl
+      - gles
+      - gles2
+      - glx
+      - asm
+  packages:
+    - media-libs/libglvnd
+
+- tree: packages/atoms/xorg-base2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: media-libs
+          name: libglvnd
+  uses:
+    disabled:
+      - perl
+      - test
+      - static-libs
+  packages:
+    - media-libs/glu
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    enabled:
+     # Needed for xorg
+      - graphite
+      - icu
+      - truetype
+      - cairo
+      # Needed for pango
+      - glib
+  packages:
+    - media-libs/harfbuzz
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    disabled:
+      - cjk
+      - gnutls
+      - idn
+      - xface
+      - fbconf
+      - lynxkeymap
+      - imlib
+      - libressl
+  packages:
+    # lynx needed to compile xdg-utils
+    - www-client/w3m
+
+- tree: packages/atoms/xorg-base2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: www-client
+          name: w3m
+  uses:
+    disabled:
+      - latex
+      - cjk
+      - gnutls
+      - idn
+      - libressl
+  packages:
+    - app-text/xmlto
+
+- tree: packages/atoms/xorg-base2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race9
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    - X
+  packages:
+  - virtual/perl-File-Path
+  - virtual/opengl
+
+- tree: packages/atoms/xorg-base2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: media-libs
+          name: glu
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - test
+    - X
+  packages:
+  - virtual/glu
+
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    disabled:
+    - cairo
+    - cjk
+    - curl
+    - introspection
+    - jpeg
+    - jpeg2k
+    - nss
+    - png
+    - qt5
+    - X
+  # TODO: it seems that disabling tiff, lcms is not applied
+  #       correctly on configuration phase and the compilation fails.
+    enabled:
+    - tiff
+    - lcms
+    - cxx
+    - utils
+  packages:
+  - app-text/poppler
+
+#- tree: packages/atoms/xorg-base2
+#  uses:
+#    enabled:
+#      - X
+#  packages:
+#    - x11-libs/libxkbcommon
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    enabled:
+      - X
+      - nls
+  packages:
+    - x11-libs/pango
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    enabled:
+      - python_single_target_python3_9
+      - python_targets_python3_9
+      - python
+  packages:
+    - dev-python/mako
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    enabled:
+      - nls
+  packages:
+    - net-dns/libidn
+    - dev-perl/File-BaseDir
+    - dev-perl/File-DesktopEntry
+    - dev-perl/File-MimeInfo
+    - dev-perl/IPC-System-Simple
+    - dev-perl/URI
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    enabled:
+      - X
+      - nls
+      - introspection
+  packages:
+    - dev-libs/atk
+#    - app-accessibility/at-spi2-core:2
+#    - app-accessibility/at-spi2-atk
+
+
+#- tree: packages/atoms/xorg-base2
+#  replacements:
+#    runtime_deps:
+#      ignore:
+#        - category: app-text
+#          name: qpdf
+#    # Break build cycle
+#    buildtime_deps:
+#      ignore:
+#        - category: app-text
+#          name: qpdf
+#  uses:
+#    disabled:
+#    - ldap
+#    - nios2
+#    - pclm
+#    - perl
+#    - sh
+#    - test
+#    enabled:
+#    - dbus
+#    - foomatic
+#    - jpeg
+#    - png
+#    - postscript
+#    - tiff
+#    - zeroconf
+#  packages:
+#  - net-print/cups-filters
+
+#- tree: packages/atoms/xorg-base2
+#  mutations:
+#    buildtime_deps:
+#      packages:
+#        # Maybe a luet-portage-converter bug or
+#        # related to ignore rule?
+#        - category: net-dns
+#          name: libidn
+#  replacements:
+#    buildtime_deps:
+#      ignore:
+#        - category: net-print
+#          name: cups
+#    runtime_deps:
+#      ignore:
+#        - category: net-print
+#          name: cups
+#  uses:
+#    disabled:
+#    - l10n_de
+#    - l10n_ja
+#    - l10n_ko
+#    - l10n_zh-CN
+#    - l10n_zh-TW
+#    - nios2
+#    - sh
+#    - static-libs
+#    - postscript
+#    enabled:
+#    - X
+#    - cups
+#    - dbus
+#    - unicode
+#  packages:
+#  - app-text/ghostscript-gpl
+#
+#
+#- tree: packages/atoms/xorg-base2
+#  uses:
+#    disabled:
+#    - abi_mips_n32
+#    - abi_mips_n64
+#    - abi_mips_o32
+#    - abi_s390_32
+#    - abi_s390_64
+#    - abi_x86_32
+#    - abi_x86_x32
+#    - debug
+#    - java
+#    - kerberos
+#    - lprng-compat
+#    - nios2
+#    - selinux
+#    - static-libs
+#    - usb
+#    - xinetd
+#    - zeroconf
+#    - systemd
+#    enabled:
+#    - sh
+#    - X
+#    - abi_x86_64
+#    - acl
+#    - dbus
+#    - pam
+#    - python
+#    - ssl
+#    - threads
+#  packages:
+#  - net-print/cups
+
+
+- tree: packages/atoms/xorg-base2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: mako
+  uses:
+    disabled:
+    - alternate-path
+    - android
+    - cpu_flags_x86_avx
+    - cpu_flags_x86_avx2
+    - cpu_flags_x86_avx512bw
+    - cpu_flags_x86_avx512er
+    - d3d9
+    - debug
+    - extra-hud
+    - haiku
+    - nios2
+    - opencl
+    - openmax
+    - pax_kernel
+    - pic
+    - selinux
+    - sensors
+    - sh
+    - unwind
+    - valgrind
+    - video_cards_gallium-freedreno
+    - video_cards_gallium-i915
+    - video_cards_gallium-imx
+    - video_cards_gallium-iris
+    - video_cards_gallium-osmesa
+    - video_cards_gallium-panfrost
+    - video_cards_gallium-pl111
+    - video_cards_gallium-r300
+    - video_cards_gallium-swr
+    - video_cards_gallium-swrast
+    - video_cards_gallium-tegra
+    - video_cards_gallium-v3d
+    - video_cards_gallium-vc4
+    - video_cards_gallium-virgl
+    - video_cards_gallium-vivante
+    - video_cards_i915
+    - video_cards_r100
+    - video_cards_r200
+    - video_cards_virgl
+    - shader-cache
+    - surfaceless
+    - vaapi
+    - vdpau
+    - video_cards_amdgpu
+    - video_cards_dri3
+    - video_cards_gallium-nouveau
+    - video_cards_gallium-r600
+    - video_cards_gallium-radeonsi
+    - video_cards_gallium-vmware
+    - video_cards_i965
+    - video_cards_intel
+    - video_cards_nouveau
+    - video_cards_osmesa
+    - video_cards_radeon
+    - video_cards_swrast
+    - video_cards_vulkan-amdgpu
+    - video_cards_vulkan-intel
+    - wayland
+    - xa
+    - ocl-icd
+    - xvmc
+    - opengl
+    - egl
+    enabled:
+    # Disable glvnd is not catched correctly
+    # by the ebuild
+    - glvnd
+    - X
+    - drm
+    - gbm
+    - gles1
+    - gles2
+    - glx
+    - llvm
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_9
+  packages:
+  - media-libs/mesa
+
+- tree: packages/atoms/xorg-base2
+  uses:
+    enabled:
+      - X
+  packages:
+    - media-fonts/font-adobe-100dpi
+    - media-fonts/font-adobe-75dpi
+    - media-fonts/font-adobe-utopia-100dpi
+    - media-fonts/font-adobe-utopia-75dpi
+    - media-fonts/font-adobe-utopia-type1
+    - media-fonts/font-alias
+    - x11-apps/bdftopcf
+    - media-fonts/liberation-fonts
+
+include_layers:
+- layers/macaroni-funtoo-race9.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - dev-lang/ruby:3.1
+    - sys-devel/llvm:13
+    - sys-devel/gcc:11.3.0
+
+    # Waiting for the next upgrade for the upgrade of Nodejs.
+    - <net-libs/nodejs-15.0
+
+    - sys-devel/llvm:13
+    - sys-devel/clang:13
+    - sys-libs/compiler-rt:13.0.0
+    - sys-libs/compiler-rt-sanitizers:13.0.0
+
+    # Twisted requires priority version <2.0
+    - <dev-python/priority-2.0
+
+    - dev-db/postgresql:16
+    - dev-db/postgresql:14
+    - dev-db/postgresql:13
+
+reposcan_disabled_use_flags:
+  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - elogind
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python2_7
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ruby_targets_ruby25
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby30
+  - ruby_targets_ruby32
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - sysvinit
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
