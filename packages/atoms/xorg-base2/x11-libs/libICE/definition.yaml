@@ -3,10 +3,13 @@ version: 1.0.10
 category: x11-libs
 use_flags:
 - -doc
-- -elibc_glibc
 - -ppc-aix
 - -x86-winnt
+- elibc_glibc
 requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
 - name: xorg-proto
   version: '>=0'
   category: x11-base
