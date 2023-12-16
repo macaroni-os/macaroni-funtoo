@@ -1,0 +1,66 @@
+name: ghostscript-gpl
+version: 9.53.3
+category: app-text
+use_flags:
+- -gtk
+- -l10n_ja
+- -l10n_ko
+- -l10n_zh-CN
+- -l10n_zh-TW
+- X
+- cups
+- dbus
+- unicode
+requires:
+- name: libpaper
+  version: '>=0'
+  category: app-text
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: jbig2dec
+  version: '>=0'
+  category: media-libs
+- name: openjpeg
+  version: '>=0'
+  category: media-libs-2
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: jpeg
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Interpreter for the PostScript language and PDF
+uri:
+- https://ghostscript.com/
+license: AGPL-3 CPL-1.0
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: app-text/libpaper media-libs/fontconfig >=media-libs/freetype-2.4.9:2= >=media-libs/jbig2dec-0.19:=
+    >=media-libs/lcms-2.6:2 >=media-libs/libpng-1.6.2:0= >=media-libs/openjpeg-2.1.0:2=
+    >=media-libs/tiff-4.0.1:0= >=sys-libs/zlib-1.2.7 virtual/jpeg:0 cups? ( >=net-print/cups-1.3.8
+    ) dbus? ( sys-apps/dbus ) gtk? ( || ( x11-libs/gtk+:3 x11-libs/gtk+:2 ) ) unicode?
+    ( net-dns/libidn:0= ) X? ( x11-libs/libXt x11-libs/libXext )
+  IUSE: cups dbus gtk l10n_de static-libs unicode X l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW
+  RDEPEND: app-text/libpaper media-libs/fontconfig >=media-libs/freetype-2.4.9:2=
+    >=media-libs/jbig2dec-0.19:= >=media-libs/lcms-2.6:2 >=media-libs/libpng-1.6.2:0=
+    >=media-libs/openjpeg-2.1.0:2= >=media-libs/tiff-4.0.1:0= >=sys-libs/zlib-1.2.7
+    virtual/jpeg:0 cups? ( >=net-print/cups-1.3.8 ) dbus? ( sys-apps/dbus ) gtk? (
+    || ( x11-libs/gtk+:3 x11-libs/gtk+:2 ) ) unicode? ( net-dns/libidn:0= ) X? ( x11-libs/libXt
+    x11-libs/libXext ) app-text/poppler-data >=media-fonts/urw-fonts-2.4.9 l10n_ja?
+    ( media-fonts/kochi-substitute ) l10n_ko? ( media-fonts/baekmuk-fonts ) l10n_zh-CN?
+    ( media-fonts/arphicfonts ) l10n_zh-TW? ( media-fonts/arphicfonts )
+  emerge.packages: app-text/ghostscript-gpl
+  kit: text-kit
+  original.package.name: app-text/ghostscript-gpl
+  original.package.slot: "0"
+  original.package.version: 9.53.3-r2
