@@ -1,0 +1,39 @@
+name: texlive-latexextra
+version: "2020"
+category: dev-texlive
+requires:
+- name: texlive-core
+  version: '>=0'
+  category: app-text
+- name: Spreadsheet-ParseExcel
+  version: '>=0'
+  category: dev-perl
+- name: texlive-latexrecommended
+  version: '>=0'
+  category: dev-texlive
+- name: texlive-pictures
+  version: '>=0'
+  category: dev-texlive
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TeXLive LaTeX additional packages
+uri:
+- http://www.tug.org/texlive/
+license: Apache-2.0 Artistic BSD CC-BY-SA-4.0 GPL-1 GPL-2 GPL-3 GPL-3+ LPPL-1.3
+labels:
+  BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
+  DEPEND: '>=dev-texlive/texlive-latexrecommended-2020 >=dev-texlive/texlive-pictures-2020
+    dev-perl/Spreadsheet-ParseExcel'
+  IUSE: source doc
+  RDEPEND: '>=dev-texlive/texlive-latexrecommended-2020 >=dev-texlive/texlive-pictures-2020
+    dev-perl/Spreadsheet-ParseExcel >=app-text/texlive-core-2020'
+  emerge.packages: dev-texlive/texlive-latexextra
+  kit: text-kit
+  original.package.name: dev-texlive/texlive-latexextra
+  original.package.slot: "0"
+  original.package.version: 2020-r2
