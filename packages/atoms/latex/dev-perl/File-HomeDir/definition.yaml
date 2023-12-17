@@ -1,0 +1,47 @@
+name: File-HomeDir
+version: 1.2.0
+category: dev-perl
+use_flags:
+- -test
+- -xdg
+requires:
+- name: File-Which
+  version: '>=0'
+  category: dev-perl
+- name: perl-Carp
+  version: '>=0'
+  category: virtual
+- name: perl-File-Path
+  version: '>=0'
+  category: virtual
+- name: perl-File-Spec
+  version: '>=0'
+  category: virtual
+- name: perl-File-Temp
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Get home directory for self or other user
+uri:
+- https://metacpan.org/release/File-HomeDir
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp >=virtual/perl-File-Path-2.10.0 >=virtual/perl-File-Spec-3
+    >=virtual/perl-File-Temp-0.190.0 >=dev-perl/File-Which-0.50.0 xdg? ( x11-misc/xdg-user-dirs
+    ) virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.900.0 )
+    dev-lang/perl:=
+  IUSE: +xdg test
+  RDEPEND: virtual/perl-Carp >=virtual/perl-File-Path-2.10.0 >=virtual/perl-File-Spec-3
+    >=virtual/perl-File-Temp-0.190.0 >=dev-perl/File-Which-0.50.0 xdg? ( x11-misc/xdg-user-dirs
+    ) dev-lang/perl:=
+  emerge.packages: dev-perl/File-HomeDir
+  kit: perl-kit
+  original.package.name: dev-perl/File-HomeDir
+  original.package.slot: "0"
+  original.package.version: 1.2.0
