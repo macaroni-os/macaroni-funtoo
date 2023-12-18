@@ -1,0 +1,74 @@
+name: mysql-community
+version: 8.0.35
+category: dev-db-8.0
+use_flags:
+- -cjk
+- -jemalloc
+- -kernel_linux
+- -numa
+- -prefix
+- -selinux
+- server
+- tcmalloc
+- router
+requires:
+- name: lz4
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: mysql-init-scripts
+  version: '>=0'
+  category: dev-db
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: libevent
+  version: '>=0'
+  category: dev-libs
+- name: protobuf
+  version: '>=0'
+  category: dev-libs
+- name: google-perftools
+  version: '>=0'
+  category: dev-util
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A fast, multi-threaded, multi-user SQL database server
+uri:
+- https://www.mysql.com/
+license: GPL-2
+labels:
+  BDEPEND: sys-devel/make dev-util/cmake
+  DEPEND: '>=app-arch/lz4-0_p131:= app-arch/zstd:= sys-libs/ncurses:0= >=sys-libs/zlib-1.2.3:0=
+    >=dev-libs/openssl-1.0.0:0= server? ( dev-libs/icu:= dev-libs/libevent:=[ssl,threads]
+    >=dev-libs/protobuf-3.8:= net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc?
+    ( dev-libs/jemalloc:0= ) kernel_linux? ( dev-libs/libaio:0= sys-process/procps:0=
+    ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:0= ) ) sys-devel/gcc
+    virtual/yacc server? ( net-libs/rpcsvc-proto ) sys-apps/shadow'
+  IUSE: cjk cracklib debug jemalloc latin1 numa +perl profiling router selinux +server
+    tcmalloc kernel_linux
+  RDEPEND: '>=app-arch/lz4-0_p131:= app-arch/zstd:= sys-libs/ncurses:0= >=sys-libs/zlib-1.2.3:0=
+    >=dev-libs/openssl-1.0.0:0= server? ( dev-libs/icu:= dev-libs/libevent:=[ssl,threads]
+    >=dev-libs/protobuf-3.8:= net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc?
+    ( dev-libs/jemalloc:0= ) kernel_linux? ( dev-libs/libaio:0= sys-process/procps:0=
+    ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:0= ) ) !dev-db/mariadb
+    !dev-db/mariadb-galera !dev-db/percona-server !dev-db/mysql-cluster selinux? (
+    sec-policy/selinux-mysql ) !prefix? ( dev-db/mysql-init-scripts )'
+  emerge.packages: dev-db/mysql-community:8.0
+  kit: core-server-kit
+  original.package.name: dev-db/mysql-community
+  original.package.slot: "8.0"
+  original.package.version: 8.0.35
