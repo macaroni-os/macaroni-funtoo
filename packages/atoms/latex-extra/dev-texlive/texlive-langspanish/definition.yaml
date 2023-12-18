@@ -1,0 +1,28 @@
+name: texlive-langspanish
+version: "2020"
+category: dev-texlive
+requires:
+- name: texlive-basic
+  version: '>=0'
+  category: dev-texlive
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TeXLive Spanish
+uri:
+- http://www.tug.org/texlive/
+license: GPL-2 LPPL-1.3 public-domain TeX-other-free
+labels:
+  BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
+  DEPEND: '>=dev-texlive/texlive-basic-2020'
+  IUSE: source doc
+  RDEPEND: '>=dev-texlive/texlive-basic-2020 >=app-text/texlive-core-2020'
+  emerge.packages: dev-texlive/texlive-langspanish
+  kit: text-kit
+  original.package.name: dev-texlive/texlive-langspanish
+  original.package.slot: "0"
+  original.package.version: "2020"
