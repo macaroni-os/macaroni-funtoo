@@ -1,0 +1,47 @@
+name: openjdk-bin
+version: "8.392"
+category: dev-java-8
+use_flags:
+- -arm
+- -cups
+- -selinux
+- alsa
+- headless-awt
+requires:
+- name: eselect-java
+  version: '>=0'
+  category: app-eselect
+- name: java-config
+  version: '>=0'
+  category: dev-java-2
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prebuilt Java JDK binaries provided by Eclipse Temurin
+uri:
+- https://adoptium.net
+license: GPL-2-with-classpath-exception
+labels:
+  BDEPEND: app-arch/unzip
+  DEPEND: dev-java/java-config app-eselect/eselect-java
+  IUSE: alsa cups examples headless-awt selinux source
+  RDEPEND: '>=sys-apps/baselayout-java-0.1.0-r1 media-libs/fontconfig:1.0 media-libs/freetype:2
+    >=sys-libs/glibc-2.2.5:* sys-libs/zlib alsa? ( media-libs/alsa-lib ) arm? ( dev-libs/libffi-compat:6
+    ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt?
+    ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst
+    ) dev-java/java-config app-eselect/eselect-java'
+  emerge.packages: dev-java/openjdk-bin:8
+  kit: java-kit
+  original.package.name: dev-java/openjdk-bin
+  original.package.slot: "8"
+  original.package.version: 8.392_p08
