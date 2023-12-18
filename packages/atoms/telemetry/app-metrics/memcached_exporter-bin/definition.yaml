@@ -1,0 +1,22 @@
+name: memcached_exporter-bin
+version: 0.13.0
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Exports metrics from memcached servers for consumption by Prometheus.
+uri:
+- https://github.com/prometheus/memcached_exporter
+license: Apache-2.0
+labels:
+  DEPEND: sys-apps/shadow
+  IUSE: amd64 arm64
+  emerge.packages: app-metrics/memcached_exporter-bin
+  kit: core-server-kit
+  original.package.name: app-metrics/memcached_exporter-bin
+  original.package.slot: "0"
+  original.package.version: 0.13.0
