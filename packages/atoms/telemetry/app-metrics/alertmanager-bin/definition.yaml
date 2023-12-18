@@ -1,0 +1,22 @@
+name: alertmanager-bin
+version: 0.26.0
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus Alertmanager
+uri:
+- https://github.com/prometheus/alertmanager
+license: Apache-2.0
+labels:
+  DEPEND: sys-apps/shadow
+  IUSE: amd64 arm64
+  emerge.packages: app-metrics/alertmanager-bin
+  kit: core-server-kit
+  original.package.name: app-metrics/alertmanager-bin
+  original.package.slot: "0"
+  original.package.version: 0.26.0
