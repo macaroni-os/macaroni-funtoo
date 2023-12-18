@@ -1,4 +1,9 @@
 prelude:
+# Until luet-build will be rewritten
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
+  emerge --nodeps dev-texlive/texlive-plaingeneric
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
