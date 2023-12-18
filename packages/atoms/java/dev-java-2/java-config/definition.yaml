@@ -1,13 +1,16 @@
 name: java-config
-version: 2.3.1
+version: 2.3.1+1
 category: dev-java-2
 use_flags:
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -python_targets_python3_9
 - -test
+- python_targets_python3_9
 requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
