@@ -1,0 +1,29 @@
+name: baselayout-java
+version: 0.1.0
+category: sys-apps
+requires:
+- name: p11-kit
+  version: '>=0'
+  category: app-crypt
+- name: ca-certificates
+  version: '>=0'
+  category: app-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Baselayout for Java
+uri:
+- https://wiki.gentoo.org/wiki/Project:Java
+license: GPL-2
+labels:
+  BDEPEND: app-crypt/p11-kit[trust] app-misc/ca-certificates
+  RDEPEND: app-crypt/p11-kit[trust] app-misc/ca-certificates !<dev-java/java-config-2.2
+  emerge.packages: sys-apps/baselayout-java
+  kit: java-kit
+  original.package.name: sys-apps/baselayout-java
+  original.package.slot: "0"
+  original.package.version: 0.1.0-r1
