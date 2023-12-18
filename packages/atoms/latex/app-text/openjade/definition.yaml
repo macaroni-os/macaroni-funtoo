@@ -1,0 +1,33 @@
+name: openjade
+version: 1.3.2
+category: app-text
+requires:
+- name: opensp
+  version: '>=0'
+  category: app-text
+- name: sgml-common
+  version: '>=0'
+  category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Jade is an implementation of DSSSL for formatting SGML and XML documents
+uri:
+- http://openjade.sourceforge.net
+license: MIT
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: app-text/sgml-common >=app-text/opensp-1.5.1 dev-lang/perl >=app-text/sgml-common-0.6.3-r2
+  IUSE: static-libs
+  RDEPEND: app-text/sgml-common >=app-text/opensp-1.5.1
+  emerge.packages: app-text/openjade
+  kit: core-kit
+  original.package.name: app-text/openjade
+  original.package.slot: "0"
+  original.package.version: 1.3.2-r8
