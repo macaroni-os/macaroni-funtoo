@@ -1,0 +1,48 @@
+name: oracle-jdk-bin
+version: 17.0.8
+category: dev-java-17
+use_flags:
+- -cups
+- -selinux
+- alsa
+- headless-awt
+requires:
+- name: eselect-java
+  version: '>=0'
+  category: app-eselect
+- name: java-config
+  version: '>=0'
+  category: dev-java-2
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prebuilt Java JDK binaries provided by Oracle
+uri:
+- https://www.oracle.com/java/technologies/downloads/
+license: Oracle-no-fee
+labels:
+  DEPEND: dev-java/java-config app-eselect/eselect-java app-arch/unzip
+  IUSE: alsa cups headless-awt selinux source cacerts
+  RDEPEND: app-eselect/eselect-java media-libs/fontconfig:1.0 media-libs/freetype:2
+    media-libs/harfbuzz >=sys-apps/baselayout-java-0.1.0-r1 >=sys-libs/glibc-2.2.5:*
+    sys-libs/zlib alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) selinux?
+    ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext
+    x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) dev-java/java-config app-eselect/eselect-java
+  emerge.packages: dev-java/oracle-jdk-bin:17
+  kit: java-kit
+  original.package.name: dev-java/oracle-jdk-bin
+  original.package.slot: "17"
+  original.package.version: 17.0.8
