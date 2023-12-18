@@ -1,4 +1,8 @@
 prelude:
+- >-
+  eselect  postgresql set 13 &&
+  whip h eclass_db.db_fix_so
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -26,6 +30,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: libzip
+- name: db
   version: '>=0'
-  category: dev-libs
+  category: sys-libs-5.3
