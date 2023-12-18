@@ -1,0 +1,25 @@
+name: yaml-cpp
+version: 0.8.0
+category: dev-cpp
+use_flags:
+- -test
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A YAML parser and emitter in C++
+uri:
+- https://github.com/jbeder/yaml-cpp
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: test? ( dev-cpp/gtest )
+  IUSE: test
+  emerge.packages: dev-cpp/yaml-cpp
+  kit: dev-kit
+  original.package.name: dev-cpp/yaml-cpp
+  original.package.slot: "0"
+  original.package.version: 0.8.0
