@@ -1,0 +1,41 @@
+name: redis
+version: 7.2.3
+category: dev-db
+use_flags:
+- -systemd
+- -tcmalloc
+- -test
+- ssl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A persistent caching system, key-value and data structures database
+uri:
+- https://redis.io
+license: BSD
+labels:
+  BDEPEND: ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc?
+    ( dev-util/google-perftools ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+  DEPEND: ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? (
+    dev-util/google-perftools ) test? ( dev-lang/tcl:0= ssl? ( dev-tcltk/tls ) ) sys-apps/shadow
+  IUSE: +jemalloc ssl split-conf systemd tcmalloc test
+  RDEPEND: ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc?
+    ( dev-util/google-perftools ) virtual/tmpfiles
+  emerge.packages: dev-db/redis
+  kit: core-server-kit
+  original.package.name: dev-db/redis
+  original.package.slot: "0"
+  original.package.version: 7.2.3
