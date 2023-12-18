@@ -1,0 +1,24 @@
+name: etcd
+version: 3.3.13
+category: dev-db
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Highly-available key value store for shared configuration and service
+  discovery
+uri:
+- https://github.com/etcd-io/etcd
+license: Apache-2.0
+labels:
+  DEPEND: '>=dev-lang/go-1.10:= sys-apps/shadow virtual/pkgconfig >=dev-lang/go-1.10'
+  IUSE: doc +server
+  RDEPEND: '!dev-db/etcdctl'
+  emerge.packages: dev-db/etcd
+  kit: dev-kit
+  original.package.name: dev-db/etcd
+  original.package.slot: "0"
+  original.package.version: 3.3.13
