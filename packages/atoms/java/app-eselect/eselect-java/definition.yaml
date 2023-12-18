@@ -1,0 +1,29 @@
+name: eselect-java
+version: 0.4.0
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A set of eselect modules for Java
+uri:
+- https://wiki.gentoo.org/wiki/Project:Java
+license: GPL-2
+labels:
+  DEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || (
+    >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  RDEPEND: '!app-eselect/eselect-ecj !app-eselect/eselect-maven !<dev-java/java-config-2.2
+    app-admin/eselect'
+  emerge.packages: app-eselect/eselect-java
+  kit: core-kit
+  original.package.name: app-eselect/eselect-java
+  original.package.slot: "0"
+  original.package.version: 0.4.0
