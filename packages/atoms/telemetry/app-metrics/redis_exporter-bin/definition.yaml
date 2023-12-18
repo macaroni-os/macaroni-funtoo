@@ -1,0 +1,23 @@
+name: redis_exporter-bin
+version: 1.55.0
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Prometheus Exporter for Redis Metrics. Supports Redis 2.x, 3.x, 4.x,
+  5.x, 6.x, and 7.x
+uri:
+- https://github.com/oliver006/redis_exporter
+license: Apache-2.0
+labels:
+  DEPEND: sys-apps/shadow
+  IUSE: amd64 arm64
+  emerge.packages: app-metrics/redis_exporter-bin
+  kit: core-server-kit
+  original.package.name: app-metrics/redis_exporter-bin
+  original.package.slot: "0"
+  original.package.version: 1.55.0
