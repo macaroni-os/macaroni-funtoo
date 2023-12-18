@@ -1,0 +1,80 @@
+name: openldap
+version: 2.6.3
+category: net-nds
+use_flags:
+- -argon2
+- -gnutls
+- -iodbc
+- -kerberos
+- -kernel_linux
+- -kinit
+- -minimal
+- -odbc
+- -perl
+- -samba
+- -selinux
+- -smbkrb5passwd
+- sasl
+- ssl
+- tcpd
+requires:
+- name: lmdb
+  version: '>=0'
+  category: dev-db
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
+- name: libltdl
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+- name: e2fsprogs
+  version: '>=0'
+  category: sys-fs
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: LDAP suite of application and development tools
+uri:
+- https://www.openldap.org/
+license: OPENLDAP GPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0 )'
+  DEPEND: kernel_linux? ( sys-apps/util-linux ) ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.1h-r2:0=
+    ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:= >=dev-libs/libgcrypt-1.5.3:0= ) ) sasl?
+    ( dev-libs/cyrus-sasl:= ) !minimal? ( dev-libs/libltdl sys-fs/e2fsprogs >=dev-db/lmdb-0.9.18:=
+    argon2? ( app-crypt/argon2:= ) tcpd? ( sys-apps/tcp-wrappers ) odbc? ( !iodbc?
+    ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc ) ) perl? ( dev-lang/perl:=[-build(-)]
+    ) samba? ( dev-libs/openssl:0= ) smbkrb5passwd? ( dev-libs/openssl:0= kerberos?
+    ( app-crypt/heimdal ) ) kerberos? ( virtual/krb5 kinit? ( !app-crypt/heimdal )
+    ) ) sys-apps/groff sys-apps/shadow
+  IUSE: argon2 +cleartext crypt experimental minimal samba tcpd overlays perl autoca
+    debug gnutls iodbc ipv6 odbc sasl ssl selinux static-libs +syslog test kerberos
+    kinit pbkdf2 sha2 smbkrb5passwd cxx ssl
+  RDEPEND: kernel_linux? ( sys-apps/util-linux ) ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.1h-r2:0=
+    ) gnutls? ( >=net-libs/gnutls-2.12.23-r6:= >=dev-libs/libgcrypt-1.5.3:0= ) ) sasl?
+    ( dev-libs/cyrus-sasl:= ) !minimal? ( dev-libs/libltdl sys-fs/e2fsprogs >=dev-db/lmdb-0.9.18:=
+    argon2? ( app-crypt/argon2:= ) tcpd? ( sys-apps/tcp-wrappers ) odbc? ( !iodbc?
+    ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc ) ) perl? ( dev-lang/perl:=[-build(-)]
+    ) samba? ( dev-libs/openssl:0= ) smbkrb5passwd? ( dev-libs/openssl:0= kerberos?
+    ( app-crypt/heimdal ) ) kerberos? ( virtual/krb5 kinit? ( !app-crypt/heimdal )
+    ) ) selinux? ( sec-policy/selinux-ldap ) virtual/tmpfiles
+  emerge.packages: net-nds/openldap
+  kit: net-kit
+  original.package.name: net-nds/openldap
+  original.package.slot: "0"
+  original.package.version: 2.6.3-r1
