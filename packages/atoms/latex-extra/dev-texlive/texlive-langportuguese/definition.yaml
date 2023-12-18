@@ -1,0 +1,28 @@
+name: texlive-langportuguese
+version: "2020"
+category: dev-texlive
+requires:
+- name: texlive-basic
+  version: '>=0'
+  category: dev-texlive
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TeXLive Portuguese
+uri:
+- http://www.tug.org/texlive/
+license: GPL-1 GPL-2 GPL-2+
+labels:
+  BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
+  DEPEND: '>=dev-texlive/texlive-basic-2020'
+  IUSE: source doc
+  RDEPEND: '>=dev-texlive/texlive-basic-2020 >=app-text/texlive-core-2020'
+  emerge.packages: dev-texlive/texlive-langportuguese
+  kit: text-kit
+  original.package.name: dev-texlive/texlive-langportuguese
+  original.package.slot: "0"
+  original.package.version: "2020"
