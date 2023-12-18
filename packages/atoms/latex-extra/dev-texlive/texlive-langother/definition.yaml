@@ -1,0 +1,32 @@
+name: texlive-langother
+version: "2020"
+category: dev-texlive
+requires:
+- name: texlive-basic
+  version: '>=0'
+  category: dev-texlive
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TeXLive Other languages
+uri:
+- http://www.tug.org/texlive/
+license: CC-BY-SA-4.0 GPL-1 GPL-2 LPPL-1.3
+labels:
+  BDEPEND: '>=app-text/texlive-core-2020 app-arch/xz-utils'
+  DEPEND: '>=dev-texlive/texlive-basic-2020 >=dev-texlive/texlive-basic-2019 !<dev-texlive/texlive-langcjk-2013
+    !<dev-texlive/texlive-basic-2016 !<dev-texlive/texlive-langafrican-2017 !<dev-texlive/texlive-langindic-2017
+    !<dev-texlive/texlive-langeuropean-2017'
+  IUSE: source doc
+  RDEPEND: '>=dev-texlive/texlive-basic-2020 >=dev-texlive/texlive-basic-2019 !<dev-texlive/texlive-langcjk-2013
+    !<dev-texlive/texlive-basic-2016 !<dev-texlive/texlive-langafrican-2017 !<dev-texlive/texlive-langindic-2017
+    !<dev-texlive/texlive-langeuropean-2017 >=app-text/texlive-core-2020'
+  emerge.packages: dev-texlive/texlive-langother
+  kit: text-kit
+  original.package.name: dev-texlive/texlive-langother
+  original.package.slot: "0"
+  original.package.version: "2020"
