@@ -1,0 +1,33 @@
+name: eselect-php
+version: 0.9.8
+category: app-eselect
+use_flags:
+- apache2
+- fpm
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+- name: apache
+  version: '>=0'
+  category: www-servers-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PHP eselect module
+uri:
+- https://gitweb.gentoo.org/proj/eselect-php.git/
+license: GPL-2
+labels:
+  IUSE: fpm apache2
+  RDEPEND: app-admin/eselect apache2? ( www-servers/apache[apache2_modules_dir] )
+    fpm? ( virtual/tmpfiles )
+  emerge.packages: app-eselect/eselect-php
+  kit: core-kit
+  original.package.name: app-eselect/eselect-php
+  original.package.slot: "0"
+  original.package.version: 0.9.8
