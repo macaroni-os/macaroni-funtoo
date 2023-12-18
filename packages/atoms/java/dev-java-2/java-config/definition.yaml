@@ -1,0 +1,47 @@
+name: java-config
+version: 2.3.1
+category: dev-java-2
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -python_targets_python3_9
+- -test
+requires:
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: baselayout-java
+  version: '>=0'
+  category: sys-apps
+- name: portage
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Java environment configuration query tool
+uri:
+- https://wiki.gentoo.org/wiki/Project:Java
+license: GPL-2
+labels:
+  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  DEPEND: test? ( sys-apps/portage[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    )
+  IUSE: test python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+    python_targets_python3_10
+  RDEPEND: '!dev-java/java-config-wrapper sys-apps/baselayout-java sys-apps/portage[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
+    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]'
+  emerge.packages: dev-java/java-config:2
+  kit: java-kit
+  original.package.name: dev-java/java-config
+  original.package.slot: "2"
+  original.package.version: 2.3.1
