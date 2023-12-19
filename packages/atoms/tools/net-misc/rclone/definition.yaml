@@ -1,0 +1,22 @@
+name: rclone
+version: 1.64.2
+category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A program to sync files to and from various cloud storage providers
+uri:
+- https://rclone.org/
+license: Apache-2.0 BSD BSD-2 ISC MIT
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  IUSE: +mount
+  emerge.packages: net-misc/rclone
+  kit: net-kit
+  original.package.name: net-misc/rclone
+  original.package.slot: "0"
+  original.package.version: 1.64.2
