@@ -1,0 +1,40 @@
+name: stunnel
+version: "5.55"
+category: net-misc
+use_flags:
+- -selinux
+- ssl
+- stunnel3
+- tcpd
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: TLS/SSL - Port Wrapper
+uri:
+- http://www.stunnel.org/index.html
+license: GPL-2
+labels:
+  DEPEND: dev-libs/openssl:0= tcpd? ( sys-apps/tcp-wrappers ) ssl? ( dev-libs/openssl:0
+    ) virtual/pkgconfig sys-apps/shadow
+  IUSE: ipv6 selinux stunnel3 tcpd ssl
+  RDEPEND: dev-libs/openssl:0= tcpd? ( sys-apps/tcp-wrappers ) stunnel3? ( dev-lang/perl
+    ) selinux? ( sec-policy/selinux-stunnel )
+  emerge.packages: net-misc/stunnel
+  kit: net-kit
+  original.package.name: net-misc/stunnel
+  original.package.slot: "0"
+  original.package.version: "5.55"
