@@ -1,0 +1,76 @@
+name: postfix
+version: 3.8.3
+category: mail-mta
+use_flags:
+- -ldap
+- -ldap-bind
+- -nis
+- -selinux
+- berkdb
+- cdb
+- eai
+- lmdb
+- memcached
+- mysql
+- pam
+- postgres
+- sasl
+- sqlite
+- ssl
+requires:
+- name: lmdb
+  version: '>=0'
+  category: dev-db
+- name: mysql-connector-c
+  version: '>=0'
+  category: dev-db
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
+- name: libpcre
+  version: '>=0'
+  category: dev-libs-3
+- name: memcached
+  version: '>=0'
+  category: net-misc
+- name: pam
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A fast and secure drop-in replacement for sendmail
+uri:
+- http://www.postfix.org/
+license: '|| ( IBM EPL-2.0 )'
+labels:
+  DEPEND: '>=dev-libs/libpcre-3.4 dev-lang/perl berkdb? ( >=sys-libs/db-3.2:* ) cdb?
+    ( || ( >=dev-db/tinycdb-0.76 >=dev-db/cdb-0.75-r4 ) ) eai? ( dev-libs/icu:= )
+    ldap? ( net-nds/openldap ) ldap-bind? ( net-nds/openldap[sasl] ) lmdb? ( >=dev-db/lmdb-0.9.11
+    ) mysql? ( dev-db/mysql-connector-c:0= ) nis? ( net-libs/libnsl ) pam? ( sys-libs/pam
+    ) postgres? ( dev-db/postgresql:* ) sasl? ( >=dev-libs/cyrus-sasl-2 ) sqlite?
+    ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) sys-apps/shadow'
+  IUSE: +berkdb cdb dovecot-sasl +eai ldap ldap-bind lmdb memcached mbox mysql nis
+    pam postgres sasl selinux sqlite ssl
+  RDEPEND: '>=dev-libs/libpcre-3.4 dev-lang/perl berkdb? ( >=sys-libs/db-3.2:* ) cdb?
+    ( || ( >=dev-db/tinycdb-0.76 >=dev-db/cdb-0.75-r4 ) ) eai? ( dev-libs/icu:= )
+    ldap? ( net-nds/openldap ) ldap-bind? ( net-nds/openldap[sasl] ) lmdb? ( >=dev-db/lmdb-0.9.11
+    ) mysql? ( dev-db/mysql-connector-c:0= ) nis? ( net-libs/libnsl ) pam? ( sys-libs/pam
+    ) postgres? ( dev-db/postgresql:* ) sasl? ( >=dev-libs/cyrus-sasl-2 ) sqlite?
+    ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) memcached? ( net-misc/memcached
+    ) net-mail/mailbase !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/mini-qmail
+    !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/qmail-ldap
+    !mail-mta/sendmail !mail-mta/opensmtpd !mail-mta/ssmtp[mta] !net-mail/fastforward
+    selinux? ( sec-policy/selinux-postfix )'
+  emerge.packages: mail-mta/postfix
+  kit: core-kit
+  original.package.name: mail-mta/postfix
+  original.package.slot: "0"
+  original.package.version: 3.8.3
