@@ -1,0 +1,37 @@
+name: lm_sensors
+version: 3.6.0
+category: sys-apps
+use_flags:
+- sensord
+requires:
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: rrdtool
+  version: '>=0'
+  category: net-analyzer
+- name: logger
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Hardware Monitoring user-space utilities
+uri:
+- https://hwmon.wiki.kernel.org/ https://github.com/lm-sensors/lm-sensors
+license: GPL-2+ LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: sensord? ( net-analyzer/rrdtool virtual/logger ) sys-devel/bison sys-devel/flex
+  IUSE: contrib sensord static-libs kernel_linux abi_x86_32 abi_x86_64 abi_x86_x32
+    abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: sensord? ( net-analyzer/rrdtool virtual/logger ) dev-lang/perl !<sys-apps/openrc-0.36
+  emerge.packages: sys-apps/lm_sensors
+  kit: core-hw-kit
+  original.package.name: sys-apps/lm_sensors
+  original.package.slot: "0"
+  original.package.version: 3.6.0
