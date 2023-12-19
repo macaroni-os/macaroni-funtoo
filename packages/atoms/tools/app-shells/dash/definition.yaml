@@ -1,0 +1,32 @@
+name: dash
+version: 0.5.12
+category: app-shells
+use_flags:
+- -static
+- libedit
+requires:
+- name: libedit
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Debian Almquist Shell
+uri:
+- http://gondor.apana.org.au/~herbert/dash/
+license: BSD
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: '!static? ( libedit? ( dev-libs/libedit ) ) libedit? ( static? ( dev-libs/libedit[static-libs]
+    ) )'
+  IUSE: libedit static
+  RDEPEND: '!static? ( libedit? ( dev-libs/libedit ) )'
+  emerge.packages: app-shells/dash
+  kit: core-kit
+  original.package.name: app-shells/dash
+  original.package.slot: "0"
+  original.package.version: 0.5.12
