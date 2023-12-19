@@ -1,0 +1,38 @@
+name: librdkafka
+version: 1.0.1
+category: dev-libs
+use_flags:
+- -lz4
+- -sasl
+- -static-libs
+- -zstd
+- ssl
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Apache Kafka C/C++ client library
+uri:
+- https://github.com/edenhill/librdkafka
+license: BSD-2
+labels:
+  DEPEND: '!static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= )
+    ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= ) virtual/pkgconfig
+    static-libs? ( lz4? ( app-arch/lz4:=[static-libs(+)] ) sasl? ( dev-libs/cyrus-sasl:=[static-libs(+)]
+    ) ssl? ( dev-libs/openssl:0=[static-libs(+)] ) zstd? ( app-arch/zstd:=[static-libs(+)]
+    ) sys-libs/zlib:=[static-libs(+)] )'
+  IUSE: lz4 sasl ssl static-libs zstd
+  RDEPEND: '!static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:=
+    ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= )'
+  emerge.packages: dev-libs/librdkafka
+  kit: dev-kit
+  original.package.name: dev-libs/librdkafka
+  original.package.slot: "0"
+  original.package.version: 1.0.1
