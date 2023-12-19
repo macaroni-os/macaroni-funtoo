@@ -1,0 +1,46 @@
+name: htop
+version: 3.2.2
+category: sys-process
+use_flags:
+- -hwloc
+- lm_sensors
+requires:
+- name: lm_sensors
+  version: '>=0'
+  category: sys-apps
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
+- name: libunwind
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: interactive process viewer
+uri:
+- https://htop.dev/ https://github.com/htop-dev/htop
+license: BSD GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4
+  DEPEND: sys-libs/ncurses:0= hwloc? ( sys-apps/hwloc ) lm_sensors? ( sys-apps/lm_sensors
+    ) || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug hwloc kernel_FreeBSD kernel_linux lm_sensors openvz unicode vserver
+    kernel_linux
+  RDEPEND: sys-libs/ncurses:0= hwloc? ( sys-apps/hwloc ) lm_sensors? ( sys-apps/lm_sensors
+    )
+  emerge.packages: sys-process/htop
+  kit: core-kit
+  original.package.name: sys-process/htop
+  original.package.slot: "0"
+  original.package.version: 3.2.2
