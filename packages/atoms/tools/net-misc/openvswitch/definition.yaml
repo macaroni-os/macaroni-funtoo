@@ -1,0 +1,69 @@
+name: openvswitch
+version: 3.0.5
+category: net-misc
+use_flags:
+- -debug
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- python_targets_python3_9
+- ssl
+- -modules
+requires:
+- name: ovs
+  version: '>=0'
+  category: dev-python
+- name: twisted
+  version: '>=0'
+  category: dev-python
+- name: zope-interface
+  version: '>=0'
+  category: dev-python
+- name: unbound
+  version: '>=0'
+  category: net-dns
+- name: libunwind
+  version: '>=0'
+  category: sys-libs
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+- name: libunwind
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Production quality, multilayer virtual switch
+uri:
+- https://www.openvswitch.org
+license: Apache-2.0 GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 virtual/pkgconfig
+  DEPEND: ssl? ( dev-libs/openssl:0= ) python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/ovs[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/twisted[conch,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/zope-interface[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    net-dns/unbound sys-libs/libunwind debug? ( dev-lang/perl ) sys-apps/util-linux[caps]
+  IUSE: debug monitor +ssl systemd python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python3_10
+  RDEPEND: ssl? ( dev-libs/openssl:0= ) python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/ovs[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/twisted[conch,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/zope-interface[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    net-dns/unbound sys-libs/libunwind debug? ( dev-lang/perl ) virtual/tmpfiles
+  emerge.packages: net-misc/openvswitch
+  kit: net-kit
+  original.package.name: net-misc/openvswitch
+  original.package.slot: "0"
+  original.package.version: 3.0.5
