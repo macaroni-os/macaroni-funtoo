@@ -1,0 +1,32 @@
+name: libiscsi
+version: 1.19.0
+category: net-libs
+use_flags:
+- -rdma
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: iscsi client library and utilities
+uri:
+- https://github.com/sahlberg/libiscsi
+license: GPL-2 LGPL-2
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/libgcrypt:0= rdma? ( sys-cluster/rdma-core )
+  IUSE: rdma static-libs
+  RDEPEND: dev-libs/libgcrypt:0= rdma? ( sys-cluster/rdma-core )
+  emerge.packages: net-libs/libiscsi
+  kit: net-kit
+  original.package.name: net-libs/libiscsi
+  original.package.slot: "0"
+  original.package.version: 1.19.0
