@@ -1,0 +1,65 @@
+name: pcsc-lite
+version: 1.8.25
+category: sys-apps
+use_flags:
+- -libusb
+- -python_single_target_python2_7
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -selinux
+- policykit
+- python
+- python_single_target_python3_9
+- udev
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: polkit
+  version: '>=0'
+  category: sys-auth
+- name: udev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PC/SC Architecture smartcard middleware library
+uri:
+- https://pcsclite.apdu.fr/
+license: BSD ISC MIT GPL-3+ GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig
+  DEPEND: libusb? ( virtual/libusb:1 ) udev? ( virtual/udev ) policykit? ( >=sys-auth/polkit-0.111
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) sys-apps/shadow
+  IUSE: python libusb policykit selinux systemd +udev python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python2_7
+    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8 python_targets_python2_7 python_targets_python3_10 abi_x86_32
+    abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  RDEPEND: libusb? ( virtual/libusb:1 ) udev? ( virtual/udev ) policykit? ( >=sys-auth/polkit-0.111
+    ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
+    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) ) !<app-crypt/ccid-1.4.1-r1 !<sys-apps/baselayout-2 !<sys-apps/openrc-0.11.8
+    selinux? ( sec-policy/selinux-pcscd )
+  emerge.packages: sys-apps/pcsc-lite
+  kit: core-kit
+  original.package.name: sys-apps/pcsc-lite
+  original.package.slot: "0"
+  original.package.version: 1.8.25
