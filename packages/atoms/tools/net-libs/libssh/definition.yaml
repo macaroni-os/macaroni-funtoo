@@ -1,0 +1,43 @@
+name: libssh
+version: 0.9.7
+category: net-libs
+use_flags:
+- -doc
+- -gcrypt
+- -gssapi
+- -libressl
+- -mbedtls
+- -test
+- -zlib
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Access a working SSH implementation by means of a library
+uri:
+- https://www.libssh.org/
+license: LGPL-2.1
+labels:
+  BDEPEND: doc? ( app-doc/doxygen[dot] ) dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: '!gcrypt? ( !mbedtls? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0= ) libressl?
+    ( dev-libs/libressl:= ) ) ) gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0 ) gssapi? (
+    >=virtual/krb5-0-r1 ) mbedtls? ( net-libs/mbedtls:= ) zlib? ( >=sys-libs/zlib-1.2.8-r1
+    ) test? ( >=dev-util/cmocka-0.3.1 )'
+  IUSE: debug doc examples gcrypt gssapi libressl mbedtls pcap server +sftp static-libs
+    test zlib
+  RDEPEND: '!gcrypt? ( !mbedtls? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0= )
+    libressl? ( dev-libs/libressl:= ) ) ) gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0 )
+    gssapi? ( >=virtual/krb5-0-r1 ) mbedtls? ( net-libs/mbedtls:= ) zlib? ( >=sys-libs/zlib-1.2.8-r1
+    )'
+  emerge.packages: net-libs/libssh
+  kit: net-kit
+  original.package.name: net-libs/libssh
+  original.package.slot: "0"
+  original.package.version: 0.9.7
