@@ -1,0 +1,6 @@
+shell:
+- /bin/bash
+- -c
+install:
+- for i in kvm qemu ; do entities merge --specs-dir /usr/share/macaroni/entities/
+  -e $i ; done
