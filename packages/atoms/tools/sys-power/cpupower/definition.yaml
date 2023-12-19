@@ -1,0 +1,30 @@
+name: cpupower
+version: "6.6"
+category: sys-power
+use_flags:
+- nls
+requires:
+- name: pciutils
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Shows and sets processor power related values
+uri:
+- https://www.kernel.org/
+license: GPL-2
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: sys-apps/pciutils virtual/os-headers nls? ( sys-devel/gettext )
+  IUSE: nls
+  RDEPEND: sys-apps/pciutils
+  emerge.packages: sys-power/cpupower
+  kit: core-hw-kit
+  original.package.name: sys-power/cpupower
+  original.package.slot: "0"
+  original.package.version: "6.6"
