@@ -1,0 +1,21 @@
+name: docker-registry
+version: 2.7.1
+category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Docker Registry 2.0
+uri:
+- https://github.com/docker/distribution
+license: Apache-2.0
+labels:
+  DEPEND: '>=dev-lang/go-1.10 virtual/pkgconfig sys-apps/shadow'
+  emerge.packages: app-emulation/docker-registry
+  kit: core-kit
+  original.package.name: app-emulation/docker-registry
+  original.package.slot: "0"
+  original.package.version: 2.7.1
