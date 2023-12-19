@@ -21,6 +21,17 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Override with macaroni files
+- >-
+  sed -i -e 's|^VERSION_ID.*|VERSION_ID={{ ( index .Values.labels "macaroni.version" ) }}|g'
+  -e 's|^VERSION=.*|VERSION="{{ ( index .Values.labels "macaroni.version" ) }} (Eagle)"|g'
+  os-release &&
+  cp os-release /pkgdir/{{ .Values.name }}/etc/os-release &&
+  mv /pkgdir/{{ .Values.name }}/etc/issue /pkgdir/{{ .Values.name }}/etc/issue.simple &&
+  cp issue /pkgdir/{{ .Values.name }}/etc/issue &&
+  sed -i -e 's|^CONFIG_PROTECT_MASK.*|CONFIG_PROTECT_MASK="/etc/gentoo-release /etc/os-release"|g'
+  /pkgdir/{{ .Values.name }}/etc/env.d/50baselayout
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
