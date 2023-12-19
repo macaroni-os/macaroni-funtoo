@@ -21,11 +21,21 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Apply macaroni customization
+- >-
+  sed -i
+  -e 's|^DISTRIB_RELEASE.*|DISTRIB_RELEASE={{ ( index .Values.labels "macaroni.version" ) }}|g'
+  -e 's|^LSB_VERSION.*|LSB_VERSION="funtoo-macaroni-{{ ( index .Values.labels "macaroni.version" ) }}-amd64"|g'
+  lsb-release &&
+  cp lsb-release /pkgdir/{{ .Values.name }}/etc/ &&
+  mkdir -p /pkgdir/{{ .Values.name }}/etc/env.d/ &&
+  echo 'CONFIG_PROTECT_MASK="/etc/lsb-release"' > /pkgdir/{{ .Values.name }}/etc/env.d/50lsb-release
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-funtoo-race12
+- name: macaroni-funtoo-base
   version: '>=0'
   category: seed
