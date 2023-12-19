@@ -1,0 +1,26 @@
+name: dtc
+version: 1.7.0
+category: sys-apps
+use_flags:
+- -yaml
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open Firmware device tree compiler
+uri:
+- https://devicetree.org/ https://git.kernel.org/cgit/utils/dtc/dtc.git/
+license: GPL-2
+labels:
+  BDEPEND: sys-devel/bison sys-devel/flex virtual/pkgconfig
+  DEPEND: yaml? ( dev-libs/libyaml )
+  IUSE: static-libs yaml
+  RDEPEND: yaml? ( dev-libs/libyaml )
+  emerge.packages: sys-apps/dtc
+  kit: core-hw-kit
+  original.package.name: sys-apps/dtc
+  original.package.slot: "0"
+  original.package.version: 1.7.0
