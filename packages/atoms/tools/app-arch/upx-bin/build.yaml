@@ -1,4 +1,8 @@
 prelude:
+# Temporary
+- >-
+  sed -e 's|THANKS||g' -i /var/git/meta-repo/kits/dev-kit/app-arch/upx-bin/upx-bin-4.2.1.ebuild
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
