@@ -1,0 +1,47 @@
+name: pycryptodome
+version: 3.9.8
+category: dev-python
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- python_targets_python3_9
+requires:
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+- name: python-cffi
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A self-contained cryptographic library for Python
+uri:
+- https://www.pycryptodome.org/ https://github.com/Legrandin/pycryptodome/ https://pypi.org/project/pycryptodome/
+license: BSD-2 Unlicense
+labels:
+  BDEPEND: virtual/python-cffi[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_7?
+    ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)]
+    ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/gpep517-6[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-62.3.3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/wheel[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  DEPEND: dev-libs/gmp:0=
+  IUSE: python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: dev-libs/gmp:0= virtual/python-cffi[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    !dev-python/pycrypto python_targets_python3_10? ( dev-lang/python:3.10[threads(+)]
+    ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  emerge.packages: dev-python/pycryptodome
+  kit: geaaru-kit
+  original.package.name: dev-python/pycryptodome
+  original.package.slot: "0"
+  original.package.version: 3.9.8
