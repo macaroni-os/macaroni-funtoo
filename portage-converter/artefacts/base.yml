@@ -468,18 +468,20 @@ artefacts:
 #    - standalone
 #  packages:
 #  - sys-apps/texinfo
-#- tree: packages/atoms/base
-#  uses:
-#    disabled:
-#    - examples
-#    - nios2
-#    - sh
-#    - static
-#    - test
-#    enabled:
-#    - nls
-#  packages:
-#  - sys-devel/bison
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - examples
+    - nios2
+    - sh
+    - static
+    - test
+    enabled:
+    - nls
+  packages:
+  - sys-devel/bison
+
 #- tree: packages/atoms/base
 #  uses:
 #    disabled:
@@ -935,6 +937,18 @@ artefacts:
     - readline
   packages:
   - dev-libs/libxml2:2
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+    - >-
+      eval 'mkdir /etc/env.d -p || true' &&
+      echo "PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" > /etc/env.d/99python-libxml &&
+      echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" >> /etc/env.d/99python-libxml &&
+      eval 'macaronictl env-update || true'
+    uninstall:
+    - eval 'rm -f /etc/env.d/99python-libxml || true'
 
 #- tree: packages/atoms/base
 #  uses:
@@ -2326,17 +2340,6 @@ artefacts:
 #    disabled:
 #    - nios2
 #    - sh
-#    - static
-#    - test
-#    enabled:
-#    - nls
-#  packages:
-#  - sys-devel/flex
-#- tree: packages/atoms/base
-#  uses:
-#    disabled:
-#    - nios2
-#    - sh
 #    - static-libs
 #    enabled:
 #    - split-usr
@@ -2575,20 +2578,6 @@ artefacts:
 #    - python_targets_python3_9
 #  packages:
 #  - dev-python/installer
-#- tree: packages/atoms/base
-#  uses:
-#    disabled:
-#    - nios2
-#    - python_targets_python3_10
-#    - python_targets_python3_7
-#    - python_targets_python3_8
-#    - sh
-#    enabled:
-#    - icu
-#    - lzma
-#    - python_targets_python3_9
-#  packages:
-#  - dev-python/libxml2-python
 - tree: packages/atoms/base
   uses:
     disabled:

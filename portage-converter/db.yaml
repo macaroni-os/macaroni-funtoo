@@ -62,23 +62,296 @@ global_annotations:
 
 artefacts:
 
-- tree: packages/atoms/php-extra
+- tree: packages/atoms/db
+  packages:
+    - dev-util/scons
+    - dev-python/cheetah3
+    - dev-db/mysql-init-scripts
+    #- dev-db/influxdb
+
+#- tree: packages/atoms/db
+#  uses:
+#    enabled:
+#      - xtpax
+#      - python_targets_python3_9
+#    disabled:
+#      - ptpax
+#  packages:
+#    - dev-python/pypax
+#    - sys-apps/elfix
+
+- tree: packages/atoms/db
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race11
+  packages:
+    - dev-libs/snowball-stemmer
+    - virtual/perl-Term-ANSIColor
+    - virtual/perl-Time-HiRes
+    - net-mail/mailbase
+    - dev-db/lmdb
+
+- tree: packages/atoms/db
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: cheetah3
+        - category: dev-util
+          name: scons
   uses:
     enabled:
-      - json
-      - session
-      - php_targets_php7-4
-      - php_targets_php8-1
-      - php_targets_php8-2
+      - python_targets_python3_9
+      - python_single_target_python3_9
+      - shell
+      - ssl
+      - tools
     disabled:
-      - examples
-      - igbinary
-      - sasl
+      - debug
+      - kerberos
+      - libressl
+      - lto
       - test
   packages:
-    - dev-php/pecl-mongodb
-      #    - dev-php/pecl-memcached:7
-    - dev-php/pecl-mcrypt
+    - dev-db/mongodb
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/lib/mongodb || true' &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mongodb
+      - >-
+        chown mongodb:mongodb /var/lib/mongodb &&
+        chown mongodb:mongodb /var/log/mongodb
+
+- tree: packages/atoms/db
+  mutations:
+    uses:
+      - router
+  uses:
+    enabled:
+      - client-libs
+      - cracklib
+      - latin1
+      - perl
+      - profiling
+      - server
+      - tcmalloc
+      - router
+    disabled:
+      - libressl
+      - jemalloc
+      - debug
+      - numa
+      - selinux
+      - static
+      - static-libs
+      - systemtap
+      - test
+  packages:
+    - dev-db/mysql-community:8.0
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mysql
+
+#- tree: packages/atoms/db
+#  mutations:
+#    uses:
+#    - rocksdb
+#  uses:
+#    enabled:
+#      - backup
+#      - cracklib
+#      - extraengine
+#      - innodb-lz4
+#      - innodb-lzo
+#      - pam
+#      - perl
+#      - rocksdb
+#      - server
+#      - xml
+#      - columnstore
+#      - kernel_linux
+#    disabled:
+#      - s3
+#      - bindist
+#      - debug
+#      - galera
+#      - innodb-snappy
+#      - jdbc
+#      - jemalloc
+#      - kerberos
+#      - latin1
+#      - libressl
+#      - mroonga
+#      - numa
+#      - odbc
+#      - oqgraph
+#      - profiling
+#      - selinux
+#      - sphinx
+#      - sst-mariabackup
+#      - sst-rsync
+#      - static
+#      - systemtap
+#      - tcmalloc
+#      - test
+#      - yassl
+#  packages:
+#    - dev-db/mariadb
+#  finalizer:
+#    shell:
+#      - "/bin/bash"
+#      - "-c"
+#    install:
+#      - >-
+#        entities merge --specs-dir /usr/share/macaroni/entities/
+#        -e mysql
+
+- tree: packages/atoms/db
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-db
+          name: lmdb
+  uses:
+    enabled:
+      - berkdb
+      - crypt
+      - cxx
+      - ipv6
+      - sasl
+      - ssl
+      - syslog
+      - tcpd
+    disabled:
+      - debug
+      - experimental
+      - gnutls
+      - iodbc
+      - kerberos
+      - kinit
+      - libressl
+      - minimal
+      - odbc
+      - overlays
+      - pbkdf2
+      - perl
+      - samba
+      - selinux
+      - sha2
+      - slp
+      - smbkrb5passwd
+      - static-libs
+      - test
+  packages:
+    - net-nds/openldap
+
+- tree: packages/atoms/db
+  uses:
+    enabled:
+      - pam
+      - ssl
+    disabled:
+      - authdaemond
+      - gdbm
+      - java
+      - kerberos
+      - libressl
+      - mysql
+      - openldap
+      - postgres
+      - selinux
+      - sqlite
+      - berkdb
+  packages:
+    - dev-libs/cyrus-sasl:2
+
+- tree: packages/atoms/db
+  uses:
+    enabled:
+      - server
+    disabled:
+      - doc
+  packages:
+    - dev-db/etcd
+
+#- tree: packages/atoms/db
+#  uses:
+#    enabled:
+#      - cracklib
+#      - perl
+#      - rocksdb
+#      - server
+#    disabled:
+#      - client-libs
+#      - cjk
+#      - debug
+#      - experimental 
+#      - jemalloc
+#      - latin1
+#      - libressl
+#      - numa
+#      - pam
+#      - profiling
+#      - selinux
+#      - static
+#      - static-libs
+#      - systemtap
+#      - tcmalloc
+#      - test
+#      - tokudb
+#      - tokudb-backup-plugin
+#      - yassl
+#  packages:
+#    - dev-db/percona-server
+
+- tree: packages/atoms/db
+  uses:
+    enabled:
+      - ssl
+      - jemalloc
+    disabled:
+      - luajit
+      - split-conf
+      - tcmalloc
+      - test
+  packages:
+    - dev-db/redis
+
+#- tree: packages/atoms-extra/db
+#  uses:
+#    disabled:
+#      - jemalloc
+#      - system-boot
+#  packages:
+#    - dev-db/arangodb:3
+#  finalizer:
+#    shell:
+#      - "/bin/bash"
+#      - "-c"
+#    install:
+#      - >-
+#        entities merge --specs-dir /usr/share/macaroni/entities/
+#        -e arangodb3
+
+- tree: packages/atoms/db
+  uses:
+    disabled:
+      - sasl
+  packages:
+    - app-admin/mongo-tools
+
 
 include_layers:
 - layers/macaroni-funtoo-race11.yaml
@@ -140,11 +413,6 @@ reposcan_contraints:
     - dev-db/postgresql:16
     - dev-db/postgresql:14
     - dev-db/postgresql:13
-
-    - virtual/jdk:8
-    - virtual/jdk:11
-    - virtual/jre:8
-    - virtual/jre:11
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
@@ -272,6 +540,8 @@ reposcan_disabled_use_flags:
   - ppc64
 
   - userland_BSD
+
+  - X
 
 reposcan_disabled_keywords:
   #- ~amd64
