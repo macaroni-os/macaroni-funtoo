@@ -4,8 +4,8 @@
 # NOTE: this script MUST be execute at the repo root level.
 
 files2bump=(
-  "packages/atoms-extra/release/sys-apps/baselayout/definition.yaml"
-  "packages/atoms-extra/release/sys-apps/lsb-release/definition.yaml"
+  "packages/atoms/release/sys-apps/baselayout/definition.yaml"
+  "packages/atoms/release/sys-apps/lsb-release/definition.yaml"
 )
 
 
