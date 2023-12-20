@@ -1,9 +1,11 @@
 layer:
-  name: macaroni-funtoo-race4
+  name: macaroni-funtoo-race5
   category: seed
 packages:
+  - app-admin/apache-tools:0
   - app-admin/ego:0
   - app-admin/eselect:0
+  - app-admin/logrotate:0
   - app-admin/perl-cleaner:0
   - app-arch/bzip2:0
   - app-arch/cpio:0
@@ -17,9 +19,12 @@ packages:
   - app-crypt/gnupg:0
   - app-crypt/gpgme:1
   - app-crypt/libb2:0
+  - app-crypt/libmd:0
+  - app-crypt/mit-krb5:0
   - app-crypt/p11-kit:0
   - app-crypt/pinentry:0
   - app-crypt/rhash:0
+  - app-crypt/trousers:0
   - app-editors/nano:0
   - app-eselect/eselect-python:0
   - app-eselect/eselect-rust:0
@@ -28,10 +33,12 @@ packages:
   - app-misc/editor-wrapper:0
   - app-misc/mime-types:0
   - app-misc/pax-utils:0
+  - app-misc/screen:0
   - app-portage/elt-patches:0
   - app-portage/gentoolkit:0
   - app-portage/portage-utils:0
   - app-shells/bash:0
+  - app-text/asciidoc:0
   - app-text/build-docbook-catalog:0
   - app-text/docbook-dsssl-stylesheets:0
   - app-text/docbook-sgml-dtd:3.0
@@ -42,6 +49,7 @@ packages:
   - app-text/docbook-xml-dtd:4.4
   - app-text/docbook-xml-dtd:4.5
   - app-text/docbook-xsl-stylesheets:0
+  - app-text/docbook2X:0
   - app-text/manpager:0
   - app-text/opensp:0
   - app-text/po4a:0
@@ -54,28 +62,46 @@ packages:
   - dev-lang/python:3.9
   - dev-lang/rust-bin:stable
   - dev-lang/swig:0
+  - dev-libs/apr-util:1
+  - dev-libs/apr:1
+  - dev-libs/boehm-gc:0
   - dev-libs/boost:0
+  - dev-libs/check:0
   - dev-libs/elfutils:0
   - dev-libs/expat:0
+  - dev-libs/geoip:0
   - dev-libs/glib:2
   - dev-libs/gmp:0
   - dev-libs/icu:0
   - dev-libs/iniparser:4
+  - dev-libs/jansson:0
   - dev-libs/jsoncpp:0
   - dev-libs/libaio:0
   - dev-libs/libassuan:0
+  - dev-libs/libatomic_ops:0
+  - dev-libs/libbpf:0
+  - dev-libs/libbsd:0
+  - dev-libs/libdnet:0
+  - dev-libs/libedit:0
+  - dev-libs/libev:0
+  - dev-libs/libevent:0
   - dev-libs/libffi:0
+  - dev-libs/libgamin:0
   - dev-libs/libgcrypt:0
   - dev-libs/libgpg-error:0
   - dev-libs/libksba:0
   - dev-libs/libltdl:0
+  - dev-libs/libmemcached:0
+  - dev-libs/libnl:3
   - dev-libs/libpcre2:0
   - dev-libs/libpcre:3
   - dev-libs/libpipeline:0
+  - dev-libs/libsigc++:2
   - dev-libs/libtasn1:0
   - dev-libs/libunistring:0
   - dev-libs/libusb:1
   - dev-libs/libuv:0
+  - dev-libs/libverto:0
   - dev-libs/libxml2:2
   - dev-libs/libxslt:0
   - dev-libs/lzo:2
@@ -87,6 +113,7 @@ packages:
   - dev-libs/nss:0
   - dev-libs/openssl:0
   - dev-libs/popt:0
+  - dev-libs/xmlrpc-c:0
   - dev-perl/Authen-SASL:0
   - dev-perl/Digest-HMAC:0
   - dev-perl/Error:0
@@ -105,7 +132,11 @@ packages:
   - dev-perl/TimeDate:0
   - dev-perl/Unicode-EastAsianWidth:0
   - dev-perl/Unicode-LineBreak:0
+  - dev-perl/XML-LibXML:0
+  - dev-perl/XML-NamespaceSupport:0
   - dev-perl/XML-Parser:0
+  - dev-perl/XML-SAX-Base:0
+  - dev-perl/XML-SAX:0
   - dev-perl/YAML-Tiny:0
   - dev-perl/libintl-perl:0
   - dev-python/Babel:0
@@ -119,6 +150,7 @@ packages:
   - dev-python/charset_normalizer:0
   - dev-python/commonmark:0
   - dev-python/cryptography:0
+  - dev-python/cython:0
   - dev-python/docutils:0
   - dev-python/editables:0
   - dev-python/flit_core:0
@@ -168,12 +200,15 @@ packages:
   - dev-python/urllib3:0
   - dev-python/wheel:0
   - dev-python/zipp:0
+  - dev-scheme/guile:12
   - dev-util/b2:0
   - dev-util/cmake:0
+  - dev-util/cppunit:0
   - dev-util/desktop-file-utils:0
   - dev-util/gdbus-codegen:0
   - dev-util/gperf:0
   - dev-util/gtk-doc-am:0
+  - dev-util/gtk-doc:0
   - dev-util/intltool:0
   - dev-util/itstool:0
   - dev-util/meson:0
@@ -182,22 +217,75 @@ packages:
   - dev-util/re2c:0
   - dev-vcs/git:0
   - gnome-extra/yelp-xsl:0
+  - net-analyzer/arpwatch:0
+  - net-analyzer/hping:0
+  - net-analyzer/macchanger:0
+  - net-analyzer/net-snmp:0
+  - net-analyzer/openbsd-netcat:0
+  - net-analyzer/rrdtool:0
+  - net-analyzer/tcpdump:0
+  - net-analyzer/tcpflow:0
+  - net-analyzer/tcping:0
+  - net-analyzer/tcpreplay:0
+  - net-analyzer/tcptrace:0
+  - net-analyzer/tcptraceroute:0
+  - net-analyzer/traceroute:0
+  - net-dialup/ppp:0
+  - net-dns/dnsmasq:0
   - net-dns/libidn2:0
+  - net-firewall/conntrack-tools:0
+  - net-firewall/ebtables:0
+  - net-firewall/ipset:0
   - net-firewall/iptables:0
+  - net-firewall/nftables:0
+  - net-ftp/atftp:0
+  - net-ftp/ftpbase:0
+  - net-ftp/proftpd:0
   - net-libs/gnutls:0
+  - net-libs/http-parser:0
   - net-libs/libmnl:0
+  - net-libs/libnet:1.1
+  - net-libs/libnetfilter_conntrack:0
+  - net-libs/libnetfilter_cthelper:0
+  - net-libs/libnetfilter_cttimeout:0
+  - net-libs/libnetfilter_queue:0
+  - net-libs/libnfnetlink:0
+  - net-libs/libnftnl:0
   - net-libs/libnsl:0
+  - net-libs/libpcap:0
+  - net-libs/libpcapnav:0
   - net-libs/libtirpc:0
+  - net-libs/libtorrent:0
   - net-libs/nghttp2:0
   - net-libs/rpcsvc-proto:0
   - net-misc/bridge-utils:0
+  - net-misc/chrony:0
   - net-misc/curl:0
   - net-misc/dhcpcd:0
+  - net-misc/ethertypes:0
   - net-misc/ifenslave:0
   - net-misc/iputils:0
+  - net-misc/memcached:0
+  - net-misc/netkit-telnetd:0
+  - net-misc/ntp:0
+  - net-misc/olsrd:0
   - net-misc/openssh:0
   - net-misc/rsync:0
+  - net-misc/socat:0
+  - net-misc/vconfig:0
   - net-misc/wget:0
+  - net-misc/whois:0
+  - net-p2p/rtorrent:0
+  - net-proxy/cntlm:0
+  - net-vpn/openconnect:0
+  - net-vpn/openfortivpn:0
+  - net-vpn/openvpn:0
+  - net-vpn/tor:0
+  - net-vpn/vpnc:0
+  - net-vpn/wireguard-tools:0
+  - net-wireless/wavemon:0
+  - net-wireless/wepattack:0
+  - net-wireless/wireless-tools:0
   - perl-core/File-Temp:0
   - sys-apps/acl:0
   - sys-apps/attr:0
@@ -207,6 +295,7 @@ packages:
   - sys-apps/dbus:0
   - sys-apps/debianutils:0
   - sys-apps/diffutils:0
+  - sys-apps/ethtool:0
   - sys-apps/file:0
   - sys-apps/findutils:0
   - sys-apps/gawk:0
@@ -218,7 +307,9 @@ packages:
   - sys-apps/help2man:0
   - sys-apps/hwids:0
   - sys-apps/install-xattr:0
+  - sys-apps/iproute2:0
   - sys-apps/kbd:0
+  - sys-apps/keyutils:0
   - sys-apps/kmod:0
   - sys-apps/less:0
   - sys-apps/man-db:0
@@ -231,6 +322,7 @@ packages:
   - sys-apps/sed:0
   - sys-apps/shadow:0
   - sys-apps/systemd:0
+  - sys-apps/tcp-wrappers:0
   - sys-apps/texinfo:0
   - sys-apps/usbutils:0
   - sys-apps/util-linux:0
@@ -240,6 +332,7 @@ packages:
   - sys-devel/autoconf-archive:0
   - sys-devel/autoconf-wrapper:0
   - sys-devel/autoconf:2.69
+  - sys-devel/autogen:0
   - sys-devel/automake-wrapper:0
   - sys-devel/automake:1.16
   - sys-devel/bc:0
@@ -257,6 +350,7 @@ packages:
   - sys-fs/btrfs-progs:0
   - sys-fs/dosfstools:0
   - sys-fs/e2fsprogs:0
+  - sys-fs/lvm2:0
   - sys-fs/mdadm:0
   - sys-fs/udev-init-scripts:0
   - sys-fs/xfsprogs:0
@@ -276,11 +370,15 @@ packages:
   - sys-libs/readline:0
   - sys-libs/timezone-data:0
   - sys-libs/zlib:0
+  - sys-process/cronbase:0
+  - sys-process/cronie:0
   - sys-process/procps:0
   - virtual/acl:0
   - virtual/awk:0
+  - virtual/cron:0
   - virtual/dev-manager:0
   - virtual/editor:0
+  - virtual/krb5:0
   - virtual/libc:0
   - virtual/libelf:0
   - virtual/libffi:0
@@ -333,18 +431,7 @@ packages:
   - virtual/tmpfiles:0
   - virtual/udev:0
   - virtual/yacc:0
+  - www-servers/apache:2
+  - www-servers/lighttpd:0
+  - www-servers/nginx:0
   - x11-misc/shared-mime-info:0
-
-  - dev-libs/boehm-gc:0
-  - dev-libs/libatomic_ops:0
-  - dev-libs/libbpf:0
-  - dev-scheme/guile:12
-  - dev-util/gtk-doc
-  - net-analyzer/tcpdump
-  - net-analyzer/tcpping
-  - net-libs/libpcap
-  - net-misc/ethertypes
-  - net-misc/vconfig
-  - sys-apps/iproute2
-  - sys-devel/autogen
-  - sys-fs/lvm2
