@@ -1,0 +1,770 @@
+skipped_resolutions:
+  categories:
+    - sys-freebsd
+  packages:
+    - name: elt-patches
+      category: app-portage
+
+    - name: binutils-apple
+      category: sys-devel
+
+    - name: gcc-apple
+      category: sys-devel
+
+    # Until conflicts detection is fixed.
+    - name: radiusclient-ng
+      category: net-dialup
+
+    - name: opentmpfiles
+      category: sys-apps
+
+    - name: argp-standalone
+      category: sys-libs
+
+    # This package is managed manually.
+    - name: nvidia-kernel-modules
+      category: x11-drivers
+
+    - name: debian-sources
+      category: sys-kernel
+
+    - name: debian-sources-lts
+      category: sys-kernel
+
+    - name: sysvinit
+      category: sys-apps
+
+    - name: openrc
+      category: sys-apps
+
+    # Force OR condition for app-text/xmlto
+    # on use virtual/w3m
+    - name: lynx
+      category: www-client
+    - name: elinks
+      category: www-client
+
+    - name: pkgcore
+      category: sys-apps
+
+    - name: eudev
+      category: sys-fs
+
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
+
+global_annotations:
+  subsets:
+    rules:
+      devel:
+        - "^/usr/include/"
+      portage:
+        - "^/var/db/pkg/"
+
+artefacts:
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - lm-sensors
+      - hwloc
+      - openvz
+      - debug
+      - vserver
+  packages:
+    - sys-process/htop
+    - sys-process/iotop
+    - sys-power/cpupower
+    - sys-apps/cpuid
+    - net-misc/stunnel
+    - net-dialup/minicom
+
+- tree: packages/atoms/tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-libs-3
+          name: libnl
+        - category: sys-libs
+          name: libunwind
+  uses:
+    disabled:
+      - lm-sensors
+      - hwloc
+      - openvz
+      - debug
+      - vserver
+  packages:
+    - sys-process/htop
+
+- tree: packages/atoms/tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+    uses:
+      - qemu_softmmu_targets_mips64
+      - qemu_softmmu_targets_mips64el
+      - qemu_softmmu_targets_mipsel
+      - qemu_softmmu_targets_riscv32
+      - qemu_softmmu_targets_riscv64
+      - qemu_softmmu_targets_sparc64
+      - qemu_softmmu_targets_s390x
+      - qemu_softmmu_targets_arm
+
+      - qemu_user_targets_arm
+      - qemu_user_targets_armeb
+      - qemu_user_targets_mips
+      - qemu_user_targets_mipsel
+      - qemu_user_targets_mips64
+      - qemu_user_targets_mips64el
+      - qemu_user_targets_riscv32
+      - qemu_user_targets_riscv64
+      - qemu_user_targets_s390x
+  uses:
+    enabled:
+      - pin-upstream-blobs
+
+      - python_targets_python3_9
+      - kernel_linux
+      - qemu_softmmu_targets_mips64
+      - qemu_softmmu_targets_mips64el
+      - qemu_softmmu_targets_mipsel
+      - qemu_softmmu_targets_riscv32
+      - qemu_softmmu_targets_riscv64
+      - qemu_softmmu_targets_sparc64
+      - qemu_softmmu_targets_s390x
+      - qemu_softmmu_targets_arm
+      - qemu_softmmu_targets_i386
+      - qemu_softmmu_targets_x86_64
+
+      - qemu_user_targets_arm
+      - qemu_user_targets_armeb
+      - qemu_user_targets_mips
+      - qemu_user_targets_mipsel
+      - qemu_user_targets_mips64
+      - qemu_user_targets_mips64el
+      - qemu_user_targets_riscv32
+      - qemu_user_targets_riscv64
+      - qemu_user_targets_s390x
+      - qemu_user_targets_i386
+      - qemu_user_targets_x86_64
+
+      - fuse
+      - bpf
+      - iscsi
+      - ssh
+      # vte require gtk
+      #- vte
+      - aio
+      - alsa
+      - bpf
+      - bzip2
+      - caps
+      - curl
+      - fdt
+      - filecaps
+      - fuse
+      #- glusterfs
+      - gnutls
+      #- gtk
+      - iscsi
+      - jpeg
+      - lzo
+      - multipath
+      - ncurses
+      - nfs
+      - nls
+      #- opengl
+      - oss
+      - pam
+      - plugins
+      - png
+      #- pulseaudio
+      - python
+      - sdl
+      - seccomp
+      - slirp
+      - spice
+      - ssh
+      - udev
+      - usb
+      - usbredir
+      - vhost-net
+      #- virgl
+      - virtfs
+      - vnc
+      - xattr
+      - xfs
+      - zstd
+      - static-user
+  packages:
+  - app-emulation/qemu
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        for i in kvm qemu ; do
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e $i ; done
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race12
+  packages:
+    - app-emulation/spice-protocol
+    - media-libs/opus
+    #- sys-firmware/edk2-ovmf
+    - sys-firmware/edk2-ovmf-bin
+    - sys-firmware/ipxe
+    - sys-firmware/seabios-bin
+    #- sys-firmware/seabios
+    - sys-firmware/sgabios
+    - app-arch/upx-bin
+
+- tree: packages/atoms/tools
+  packages:
+    - media-gfx/ascii-image-converter
+    - sys-apps/fchroot
+    - sys-power/iasl
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - debug
+      - doc
+      - examples
+      - maildir
+      - static
+  packages:
+    - app-shells/zsh
+    - app-shells/dash
+    - app-shells/tcsh
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - libusb
+      - python_single_target_python2_7
+      - python_single_target_python3_7
+      - python_targets_python2_7
+      - python_targets_python3_7
+      - python_targets_python3_8
+      - python_targets_python3_10
+  packages:
+    - sys-apps/pcsc-lite
+
+- tree: packages/atoms/tools
+  uses:
+    enabled:
+      - curl
+      - dbi
+      - elasticsearch
+      - gcrypt
+      - kafka
+      - kubernetes
+      - mongodb
+      - mysql
+      - clickhouse
+      - omhttp
+      - omhttpfs
+      - openssl
+      - redis
+      - snmp
+      - ssl
+      - usertools
+      - uuid
+      - normalize
+    disabled:
+      - systemd
+      # Disable until the next build cycle
+      # there are no ebuilds to satisfy ">=net-libs/czmq-4:=[drafts]"
+      - zeromq
+      - rabbitmq
+      - debug
+      - doc
+      - gnutls
+      - imhttp
+      - impcap
+      - jemalloc
+      - kerberos
+      - mdblookup
+      - omudpspoof
+      - postgres
+      - relp
+      - rfc3195
+      - rfc5424hmac
+      - test
+      - xxhash
+  packages:
+    - app-admin/rsyslog
+
+- tree: packages/atoms/tools
+  uses:
+    enabled:
+      - caps
+      - dbi
+      - geoip
+      - geoip2
+      - http
+      - ipv6
+      - json
+      - mongodb
+      - pacct
+      - python
+      - redis
+      - smtp
+      - tcpd
+      - python_single_target_python3_9
+      - python_targets_python3_9
+    disabled:
+      - systemd
+      - amqp
+      - spoof-source
+      - libressl
+  packages:
+    - app-admin/syslog-ng
+
+- tree: packages/atoms/tools
+  uses:
+    enabled:
+      - argon2
+      - bzip2
+      - caps
+      - ipv6
+      - kerberos
+      - lz4
+      - mysql
+      - pam
+      - postgres
+      - rpc
+      - sqlite
+      - tcpd
+    disabled:
+      - doc
+      - ldap
+      - libressl
+      - lua
+      - lucene
+      - managesieve
+      - selinux
+      - sieve
+      - solr
+      - static-libs
+      - suid
+  packages:
+    - net-mail/dovecot
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race12
+  packages:
+    - dev-db/tinycdb
+
+- tree: packages/atoms/tools
+  packages:
+    - sys-libs/db:6.2
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-libs-6.2
+          name: db
+        - category: dev-db
+          name: tinycdb
+  uses:
+    enabled:
+      - berkdb
+      - cdb
+      - dovecont-sasl
+      - eai
+      - lmdb
+      - mbox
+      - memcached
+      - mysql
+      - pam
+      - postgres
+      - sasl
+      - sqlite
+      - ssl
+    disabled:
+      - ldap
+      - ldap-bind
+      - nis
+      - selinux
+  packages:
+    - mail-mta/postfix
+
+- tree: packages/atoms/tools
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-libs
+          name: libunwind
+  mutations:
+    uses:
+      - -modules
+  uses:
+    disabled:
+      - debug
+      - modules
+      - systemd
+      - python_single_target_python3_7
+      - python_single_target_python3_8
+      - python_single_target_python3_10
+      - python_targets_python3_7
+      - python_targets_python3_8
+      - python_targets_python3_10
+  packages:
+    - net-misc/openvswitch
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - debug
+      - modules
+      - systemd
+      - python_single_target_python3_7
+      - python_single_target_python3_8
+      - python_single_target_python3_10
+      - python_targets_python3_7
+      - python_targets_python3_8
+      - python_targets_python3_10
+  packages:
+    - net-misc/ovn
+
+- tree: packages/atoms/tools
+  packages:
+    - app-emulation/docker-registry
+    - dev-util/patchelf
+    - dev-libs/libsodium
+
+- tree: packages/atoms/tools
+  uses:
+    enabled:
+      - python_single_target_python3_9
+      - python_targets_python3_9
+    disabled:
+      - doc
+      - test
+  packages:
+    - dev-python/j2cli
+    - app-admin/ansible
+    - app-admin/ansible-base
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs
+          name: libsodium
+  uses:
+    enabled:
+      - python_single_target_python3_9
+      - python_targets_python3_9
+    disabled:
+      - doc
+      - test
+  packages:
+    - dev-python/pynacl
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - selinux
+      - examples
+  packages:
+    - sys-process/lsof
+
+- tree: packages/atoms/tools
+  packages:
+    - net-misc/rclone
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+    - debug
+    - eap
+    - farp
+    - gcrypt
+    - ldap
+    - mysql
+    - nios2
+    - pkcs11
+    - selinux
+    - sh
+    - strongswan_plugins_aesni
+    - strongswan_plugins_ccm
+    - strongswan_plugins_chapoly
+    - strongswan_plugins_ctr
+    - strongswan_plugins_forecast
+    - strongswan_plugins_ha
+    - strongswan_plugins_ipseckey
+    - strongswan_plugins_newhope
+    - strongswan_plugins_ntru
+    - strongswan_plugins_padlock
+    - strongswan_plugins_rdrand
+    - strongswan_plugins_save-keys
+    - strongswan_plugins_unbound
+    enabled:
+    - dhcp
+    - sqlite
+    - systemd
+    - caps
+    - constraints
+    - curl
+    - gmp
+    - networkmanager
+    - non-root
+    - openssl
+    - pam
+    - strongswan_plugins_led
+    - strongswan_plugins_lookip
+    - strongswan_plugins_systime-fix
+    - strongswan_plugins_unity
+    - strongswan_plugins_vici
+    - strongswan_plugins_whitelist
+    - strongswan_plugins_blowfish
+    - strongswan_plugins_gcm
+  packages:
+  - net-vpn/strongswan
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+    - apparmor
+    - nios2
+    - sh
+    - test
+    enabled:
+    - ipv6
+    - nls
+    - dnsmasq
+    - daemon
+  packages:
+  - app-emulation/incus
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e incus &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e incus-admin
+
+- tree: packages/atoms/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race12
+  packages:
+    - app-admin/makepasswd
+
+include_layers:
+- layers/macaroni-funtoo-race12.yaml
+
+# Define the list of the files generated by Funtoo reposcan tool.
+reposcan_sources:
+  - ./kit_cache/browser-kit-next
+  - ./kit_cache/core-gl-kit-next
+  - ./kit_cache/core-hw-kit-next
+  - ./kit_cache/core-kit-next
+  - ./kit_cache/core-server-kit-next
+  - ./kit_cache/desktop-kit-next
+  - ./kit_cache/dev-kit-next
+  - ./kit_cache/editors-kit-next
+  - ./kit_cache/games-kit-next
+  - ./kit_cache/geaaru-kit-funtoo
+  - ./kit_cache/gnome-kit-next-3.36-prime
+  - ./kit_cache/haskell-kit-next
+  - ./kit_cache/java-kit-next
+  - ./kit_cache/kde-kit-next-5.25-release
+  - ./kit_cache/lang-kit-next
+  - ./kit_cache/lisp-scheme-kit-next
+  - ./kit_cache/llvm-kit-next
+  - ./kit_cache/mate-kit-next-1.24-prime
+  - ./kit_cache/media-kit-next
+  - ./kit_cache/ml-lang-kit-next
+  - ./kit_cache/net-kit-next
+  - ./kit_cache/perl-kit-next
+  - ./kit_cache/python-kit-next
+  - ./kit_cache/python-modules-kit-next
+  - ./kit_cache/qt-kit-next-5.15.2-release
+  - ./kit_cache/ruby-kit-next
+  - ./kit_cache/science-kit-next
+  - ./kit_cache/security-kit-next
+  - ./kit_cache/text-kit-next
+  - ./kit_cache/xfce-kit-next-4.16-release
+
+# Disable use of category with slot as requires. Default is without slot.
+reposcan_requires_slot: true
+
+reposcan_contraints:
+  packages:
+    - dev-lang/python:3.9
+    - dev-lang/ruby:3.1
+    - sys-devel/llvm:13
+    - sys-devel/gcc:11.3.0
+
+    # Waiting for the next upgrade for the upgrade of Nodejs.
+    - <net-libs/nodejs-15.0
+
+    - sys-devel/llvm:13
+    - sys-devel/clang:13
+    - sys-libs/compiler-rt:13.0.0
+    - sys-libs/compiler-rt-sanitizers:13.0.0
+
+    # Twisted requires priority version <2.0
+    - <dev-python/priority-2.0
+
+    - dev-db/postgresql:16
+    - dev-db/postgresql:14
+    - dev-db/postgresql:13
+
+    - virtual/jdk:8
+    - virtual/jdk:11
+    - virtual/jre:8
+    - virtual/jre:11
+
+reposcan_disabled_use_flags:
+  # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
+  - build
+
+  - emacs
+  - doc
+  - doctool
+  - elibc_Cygwin
+  - elibc_Darwin
+  - elibc_FreeBSD
+  - elibc_OpenBSD
+  - elibc_NetBSD
+  - elibc_SunOS
+  - elibc_musl
+  - elibc_mingw
+  - elibc_uclibc
+  - elibc_mintlib
+  - elogind
+  - libressl
+  - gtk-doc
+  - gles2-only
+  - python_single_target_python2_7
+  - python_single_target_python3_6
+  - python_single_target_python3_7
+  - python_single_target_python3_8
+  - python_single_target_python3_10
+  # I disable pypy support atm
+  - python_single_target_pypy3
+  - python_targets_python2_7
+  - python_targets_python3_6
+  - python_targets_python3_7
+  - python_targets_python3_8
+  - python_targets_python3_10
+  - python_targets_pypy3
+  - ruby_targets_ruby25
+  - ruby_targets_ruby24
+  - ruby_targets_ruby25
+  - ruby_targets_ruby26
+  - ruby_targets_ruby27
+  - ruby_targets_ruby30
+  - ruby_targets_ruby32
+  - ppc-aix
+  - x86-winnt
+  - kernel-builtin
+  - kernel_Winnt
+  - kernel_FreeBSD
+  - man
+  - minimal
+  # Cryptographic library for embedded systems
+  - mbedtls
+  - modules
+
+  - debug
+
+  - sysvinit
+
+  # Disable efl/e17
+  - ecore
+
+  # Disable redis (hiredis) from unbound
+  - redis
+
+  # Disable pptpclient
+  - pptp
+
+  # Disable LDAP integration at core level
+  - ldap
+  - openldap
+
+  - verify-sig
+
+  # Disable gnome-keyring for upper cycles
+  - gnome-keyring
+
+  - vim-syntax
+  - test
+  - test-full
+  - savedconfig
+  # ATM i disable selinux
+  - selinux
+
+  # Disable in GCC
+  - objc-gc
+  - systemtap
+  # Disable in glib
+  - fam
+
+  - valadoc
+  - cvs
+  # Disable brotli support from freetype
+  - brotli
+
+  # Disable media stuff
+  - allegro
+  - devil
+  - dumb
+
+  # Disable rados and ceph on core
+  - rados
+  - ceph
+  - cluster
+
+  - heif
+
+  # Disabled for mesa lib
+  - vulkan-overlay
+  - valgrind
+
+  # Disable fabric stuff
+  - ofed
+  - rdma
+  - ftdi
+
+  - mono
+  - libproxy
+  - java
+  - ruby
+
+  - x86-fbsd
+  - x64-macos
+  - x64-cygwin
+  - amd64-fbsd
+  - ppc
+  - ppc64
+
+  - userland_BSD
+
+reposcan_disabled_keywords:
+  #- ~amd64
+  - -*
