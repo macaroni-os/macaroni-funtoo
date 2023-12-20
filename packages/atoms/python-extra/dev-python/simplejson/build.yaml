@@ -1,4 +1,9 @@
 prelude:
+# Temporary workaround
+- >-
+  anise repo update &&
+  anise upgraade &&
+  anise cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
