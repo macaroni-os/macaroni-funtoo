@@ -1,0 +1,26 @@
+name: github-cli
+version: 2.38.0
+category: dev-util
+requires:
+- name: git
+  version: '>=0'
+  category: dev-vcs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GitHub CLI
+uri:
+- https://github.com/cli/cli
+license: MIT Apache-2.0 BSD BSD-2 MPL-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  RDEPEND: '>=dev-vcs/git-1.7.3'
+  emerge.packages: dev-util/github-cli
+  kit: dev-kit
+  original.package.name: dev-util/github-cli
+  original.package.slot: "0"
+  original.package.version: 2.38.0
