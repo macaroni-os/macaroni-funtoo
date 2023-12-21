@@ -21,6 +21,12 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+
+# Add systemd files
+- >-
+  eval 'mkdir /pkgdir/{{ .Values.name }}/lib/systemd/system/ -p || true' &&
+  mv memcached_exporter.service /pkgdir/{{ .Values.name }}/lib/systemd/system/
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
