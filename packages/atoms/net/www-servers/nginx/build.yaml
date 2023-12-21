@@ -21,6 +21,10 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+- >-
+  eval 'mkdir -p /pkgdir/{{ .Values.name }}/lib/systemd/system/' &&
+  cp nginx.service /pkgdir/{{ .Values.name }}/lib/systemd/system/
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
