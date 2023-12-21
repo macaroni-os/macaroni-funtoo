@@ -1,0 +1,24 @@
+name: xdg-user-dirs
+version: "0.16"
+category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A tool to help manage 'well known' user directories
+uri:
+- https://www.freedesktop.org/wiki/Software/xdg-user-dirs
+license: GPL-2
+labels:
+  DEPEND: app-text/docbook-xml-dtd:4.3 dev-libs/libxslt sys-devel/gettext >=app-portage/elt-patches-20170815
+    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
+    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+  IUSE: gtk
+  emerge.packages: x11-misc/xdg-user-dirs
+  kit: gnome-kit
+  original.package.name: x11-misc/xdg-user-dirs
+  original.package.slot: "0"
+  original.package.version: "0.16"
