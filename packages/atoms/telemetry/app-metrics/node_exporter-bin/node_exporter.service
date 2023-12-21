@@ -1,0 +1,10 @@
+[Unit]
+Description=Node Exporter
+
+[Service]
+User=node_exporter
+EnvironmentFile=/etc/conf.d/node_exporter
+ExecStart=/usr/bin/node_exporter $EXPORTER_ARGS
+
+[Install]
+WantedBy=multi-user.target
