@@ -63,12 +63,15 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/python-extra
+  uses:
+    disabled:
+      - test
+      - doc
   packages:
     - dev-python/prometheus_client
     - dev-python/prompt_toolkit
     - dev-python/pycryptodome
     - dev-python/ptyprocess
-    - dev-python/pycurl
     - dev-python/pykerberos
     - dev-python/python-memcached
     - dev-python/python-dateutil
@@ -85,6 +88,27 @@ artefacts:
     - dev-python/ecdsa
     - dev-python/pathlib2
     - dev-python/scandir
+    - dev-python/python-mimeparse
+    - www-servers/tornado
+    - www-servers/gunicorn
+
+- tree: packages/atoms/python-extra
+  mutations:
+    uses:
+      - curl_ssl_openssl
+      - -curl_ssl_nss
+      - -curl_ssl_axtls
+      - -curl_ssl_cyassl
+  uses:
+    disabled:
+      - test
+      - doc
+      - curl_ssl_gnutls
+      - curl_ssl_nss
+      - curl_ssl_axtls
+      - curl_ssl_cyassl
+  packages:
+    - dev-python/pycurl
 
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
