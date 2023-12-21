@@ -1,13 +1,17 @@
 name: pycurl
-version: 7.45.2
+version: 7.45.2+1
 category: dev-python
 use_flags:
+- -curl_ssl_gnutls
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- curl_ssl_gnutls
 - python_targets_python3_9
 - ssl
+- curl_ssl_openssl
+- -curl_ssl_nss
+- -curl_ssl_axtls
+- -curl_ssl_cyassl
 requires:
 - name: python
   version: '>=0'
@@ -15,9 +19,6 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
-- name: gnutls
-  version: '>=0'
-  category: net-libs
 - name: curl
   version: '>=0'
   category: net-misc
