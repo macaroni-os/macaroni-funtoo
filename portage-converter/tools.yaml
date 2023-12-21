@@ -573,6 +573,10 @@ artefacts:
     - app-admin/makepasswd
 
 - tree: packages/atoms/tools
+  uses:
+    disabled:
+      # Disable mpi on valgrind for now.
+      - mpi
   packages:
     - dev-util/github-cli
     - dev-vcs/hub
