@@ -26,7 +26,7 @@ prelude:
 # Override with macaroni files
 - >-
   sed -i -e 's|^VERSION_ID.*|VERSION_ID={{ ( index .Values.labels "macaroni.version" ) }}|g'
-  -e 's|^VERSION=.*|VERSION="{{ ( index .Values.labels "macaroni.version" ) }} (Terragon)"|g'
+  -e 's|^VERSION=.*|VERSION="{{ ( index .Values.labels "macaroni.version" ) }} (Phoenix)"|g'
   os-release &&
   cp os-release /pkgdir/{{ .Values.name }}/etc/os-release &&
   mv /pkgdir/{{ .Values.name }}/etc/issue /pkgdir/{{ .Values.name }}/etc/issue.simple &&
