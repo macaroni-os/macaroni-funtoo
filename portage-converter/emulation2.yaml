@@ -200,6 +200,36 @@ artefacts:
   packages:
     - app-admin/cloud-init
 
+- tree: packages/atoms/emulation2
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+  uses:
+    disabled:
+    - apparmor
+    - nios2
+    - sh
+    enabled:
+    - ipv6
+    - nls
+    - daemon
+    - dnsmasq
+  packages:
+  - app-emulation/incus
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e incus &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e incus-admin
+
+
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
 
