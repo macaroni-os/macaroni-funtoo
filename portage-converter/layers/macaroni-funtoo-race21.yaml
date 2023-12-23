@@ -1,5 +1,5 @@
 layer:
-  name: macaroni-funtoo-race20
+  name: macaroni-funtoo-race21
   category: seed
 packages:
   - app-accessibility/at-spi2-atk:2
@@ -63,11 +63,13 @@ packages:
   - app-crypt/mhash:0
   - app-crypt/mit-krb5:0
   - app-crypt/p11-kit:0
+  - app-crypt/paperkey:0
   - app-crypt/pinentry:0
   - app-crypt/qca:2
   - app-crypt/rhash:0
   - app-crypt/sbsigntools:0
   - app-crypt/seahorse:0
+  - app-crypt/tpm2-tss:0
   - app-crypt/trousers:0
   - app-dicts/gnome-dictionary:0
   - app-doc/doxygen:0
@@ -116,6 +118,7 @@ packages:
   - app-eselect/eselect-vi:0
   - app-eselect/eselect-wxwidgets:0
   - app-i18n/ibus:0
+  - app-i18n/translate-shell:0
   - app-i18n/uchardet:0
   - app-i18n/unicode-cldr:0
   - app-i18n/unicode-data:0
@@ -126,6 +129,7 @@ packages:
   - app-misc/asciinema:0
   - app-misc/bijiben:0
   - app-misc/ca-certificates:0
+  - app-misc/ddcutil:0
   - app-misc/editor-wrapper:0
   - app-misc/geoclue:2.0
   - app-misc/gnote:0
@@ -136,13 +140,18 @@ packages:
   - app-misc/neofetch:0
   - app-misc/pax-utils:0
   - app-misc/qtxdg-tools:0
+  - app-misc/rlwrap:0
   - app-misc/screen:0
   - app-misc/scrub:0
   - app-misc/tmux:0
   - app-misc/tracker-miners:0
   - app-misc/tracker:0
   - app-office/dia:0
+  - app-office/gnucash:0
+  - app-office/grisbi:0
   - app-office/hamster-time-tracker:0
+  - app-office/libreoffice-bin:0
+  - app-office/libreoffice-l10n:0
   - app-office/unoconv:0
   - app-pda/libimobiledevice:0
   - app-pda/libplist:0
@@ -273,11 +282,14 @@ packages:
   - dev-cpp/muParser:0
   - dev-cpp/nlohmann_json:0
   - dev-cpp/pangomm:1.4
+  - dev-cpp/pystring:0
+  - dev-cpp/robin-map:0
   - dev-cpp/tbb:0
   - dev-cpp/websocketpp:0
   - dev-cpp/yaml-cpp:0
   - dev-db/etcd:0
   - dev-db/influxdb:0
+  - dev-db/libdbi-drivers:0
   - dev-db/libdbi:0
   - dev-db/lmdb:0
   - dev-db/mariadb-connector-c:0
@@ -292,6 +304,9 @@ packages:
   - dev-db/tinycdb:0
   - dev-db/unixODBC:0
   - dev-embedded/arduino-bin:0
+  - dev-embedded/libftdi:1
+  - dev-embedded/libjaylink:0
+  - dev-games/freecell-solver:0
   - dev-go/go-md2man:0
   - dev-java/ant-core:0
   - dev-java/java-config:2
@@ -334,10 +349,12 @@ packages:
   - dev-libs/atk:0
   - dev-libs/boehm-gc:0
   - dev-libs/boost:0
+  - dev-libs/c-blosc:0
   - dev-libs/cJSON:0
   - dev-libs/check:0
   - dev-libs/chmlib:0
   - dev-libs/confuse:0
+  - dev-libs/crypto++:0
   - dev-libs/cyrus-sasl:2
   - dev-libs/dbus-c++:0
   - dev-libs/dbus-glib:0
@@ -361,6 +378,7 @@ packages:
   - dev-libs/gobject-introspection:0
   - dev-libs/gom:0
   - dev-libs/grantlee:5
+  - dev-libs/hidapi:0
   - dev-libs/hyphen:0
   - dev-libs/icu:0
   - dev-libs/imath:0
@@ -370,6 +388,7 @@ packages:
   - dev-libs/json-c:0
   - dev-libs/json-glib:0
   - dev-libs/jsoncpp:0
+  - dev-libs/kdiagram:5
   - dev-libs/keybinder:3
   - dev-libs/kpathsea:0
   - dev-libs/kuserfeedback:5
@@ -416,12 +435,14 @@ packages:
   - dev-libs/libinput:0
   - dev-libs/libisoburn:0
   - dev-libs/libisofs:0
+  - dev-libs/libjcat:0
   - dev-libs/libksba:0
   - dev-libs/liblinear:0
   - dev-libs/liblouis:0
   - dev-libs/libltdl:0
   - dev-libs/libmanette:0
   - dev-libs/libmaxminddb:0
+  - dev-libs/libmodbus:0
   - dev-libs/libmspack:0
   - dev-libs/libnatspec:0
   - dev-libs/libnl:3
@@ -448,6 +469,7 @@ packages:
   - dev-libs/libverto:0
   - dev-libs/libwacom:0
   - dev-libs/libxml2:2
+  - dev-libs/libxmlb:0
   - dev-libs/libxslt:0
   - dev-libs/libyaml:0
   - dev-libs/libzip:0
@@ -470,7 +492,10 @@ packages:
   - dev-libs/protobuf-c:0
   - dev-libs/protobuf:0
   - dev-libs/ptexenc:0
+  - dev-libs/pugixml:0
   - dev-libs/qqwing:0
+  - dev-libs/qtkeychain:0
+  - dev-libs/quazip:0
   - dev-libs/rasqal:0
   - dev-libs/re2:0
   - dev-libs/redland:0
@@ -484,7 +509,9 @@ packages:
   - dev-libs/vala-common:0
   - dev-libs/wayland-protocols:0
   - dev-libs/wayland:0
+  - dev-libs/xapian:0
   - dev-libs/xmlrpc-c:0
+  - dev-libs/xmlsec:0
   - dev-libs/xxhash:0
   - dev-libs/yajl:0
   - dev-libs/zziplib:0
@@ -498,6 +525,7 @@ packages:
   - dev-perl/AnyEvent-I3:0
   - dev-perl/AnyEvent:0
   - dev-perl/App-pwhich:0
+  - dev-perl/AppConfig:0
   - dev-perl/Authen-SASL:0
   - dev-perl/B-Hooks-EndOfScope:0
   - dev-perl/BSD-Resource:0
@@ -507,6 +535,7 @@ packages:
   - dev-perl/Crypt-OpenSSL-RSA:0
   - dev-perl/Crypt-OpenSSL-Random:0
   - dev-perl/Crypt-RC4:0
+  - dev-perl/DBD-Pg:0
   - dev-perl/DBD-SQLite:0
   - dev-perl/DBD-mysql:0
   - dev-perl/DBI:0
@@ -578,6 +607,7 @@ packages:
   - dev-perl/Params-Util:0
   - dev-perl/Params-ValidationCompiler:0
   - dev-perl/Parse-Yapp:0
+  - dev-perl/Path-Tiny:0
   - dev-perl/Perl-Tidy:0
   - dev-perl/PlRPC:0
   - dev-perl/Pod-LaTeX:0
@@ -595,10 +625,13 @@ packages:
   - dev-perl/Sub-Install:0
   - dev-perl/Sub-Name:0
   - dev-perl/Sub-Quote:0
+  - dev-perl/Template-Toolkit:0
   - dev-perl/TermReadKey:0
   - dev-perl/Test-Fatal:0
+  - dev-perl/Text-Autoformat:0
   - dev-perl/Text-CSV_XS:0
   - dev-perl/Text-CharWidth:0
+  - dev-perl/Text-Reform:0
   - dev-perl/Text-Unidecode:0
   - dev-perl/Text-WrapI18N:0
   - dev-perl/TimeDate:0
@@ -661,6 +694,7 @@ packages:
   - dev-python/chardet:0
   - dev-python/charset_normalizer:0
   - dev-python/cheetah3:0
+  - dev-python/cheroot:0
   - dev-python/cjkwrap:0
   - dev-python/colorama:0
   - dev-python/commonmark:0
@@ -715,10 +749,12 @@ packages:
   - dev-python/importlib_metadata:0
   - dev-python/importlib_resources:0
   - dev-python/incremental:0
+  - dev-python/iniparse:0
   - dev-python/installer:0
   - dev-python/ipaddress:0
   - dev-python/isodate:0
   - dev-python/j2cli:0
+  - dev-python/jaraco-functools:0
   - dev-python/jedi:0
   - dev-python/jeepney:0
   - dev-python/jinja:0
@@ -746,6 +782,7 @@ packages:
   - dev-python/mwparserfromhell:0
   - dev-python/mysql-connector-python:0
   - dev-python/namespace-google:0
+  - dev-python/namespace-jaraco:0
   - dev-python/namespace-sphinxcontrib:0
   - dev-python/namespace-zope:0
   - dev-python/netaddr:0
@@ -764,6 +801,7 @@ packages:
   - dev-python/pathlib2:0
   - dev-python/pathspec:0
   - dev-python/pbr:0
+  - dev-python/pefile:0
   - dev-python/pexpect:0
   - dev-python/pillow:0
   - dev-python/pip:0
@@ -781,8 +819,10 @@ packages:
   - dev-python/pyasn1-modules:0
   - dev-python/pyasn1:0
   - dev-python/pyatspi:0
+  - dev-python/pybind11:0
   - dev-python/pycairo:0
   - dev-python/pycares:0
+  - dev-python/pycountry:0
   - dev-python/pycparser:0
   - dev-python/pycryptodome:0
   - dev-python/pycups:0
@@ -800,9 +840,11 @@ packages:
   - dev-python/pypeg2:0
   - dev-python/pyrsistent:0
   - dev-python/pyserial:0
+  - dev-python/pysol_cards:0
   - dev-python/python-dateutil:0
   - dev-python/python-distutils-extra:0
   - dev-python/python-dotenv:0
+  - dev-python/python-levenshtein:0
   - dev-python/python-memcached:0
   - dev-python/python-sqlparse:0
   - dev-python/python-xlib:0
@@ -810,6 +852,7 @@ packages:
   - dev-python/pyxdg:0
   - dev-python/pyyaml:0
   - dev-python/pyzmq:0
+  - dev-python/random2:0
   - dev-python/rdflib:0
   - dev-python/regex:0
   - dev-python/reportlab:0
@@ -821,6 +864,7 @@ packages:
   - dev-python/rfc3986:0
   - dev-python/rich:0
   - dev-python/rsa:0
+  - dev-python/ruamel-yaml:0
   - dev-python/scandir:0
   - dev-python/secretstorage:0
   - dev-python/semantic_version:0
@@ -863,6 +907,7 @@ packages:
   - dev-python/tomli:0
   - dev-python/tomlkit:0
   - dev-python/traceback2:0
+  - dev-python/translate-toolkit:0
   - dev-python/trio:0
   - dev-python/trove-classifiers:0
   - dev-python/twisted:0
@@ -870,8 +915,10 @@ packages:
   - dev-python/typogrify:0
   - dev-python/uritemplate:0
   - dev-python/urllib3:0
+  - dev-python/utidylib:0
   - dev-python/versioneer:0
   - dev-python/virtualenv:0
+  - dev-python/vobject:0
   - dev-python/wcwidth:0
   - dev-python/webencodings:0
   - dev-python/websocket-client:0
@@ -1137,53 +1184,145 @@ packages:
   - gui-libs/libwpe:1.0
   - gui-libs/tepl:4
   - gui-libs/wpebackend-fdo:1.0
+  - kde-apps/akonadi-calendar:5
   - kde-apps/akonadi-contacts:5
+  - kde-apps/akonadi-mime:5
+  - kde-apps/akonadi-notes:5
+  - kde-apps/akonadi-search:5
   - kde-apps/akonadi:5
+  - kde-apps/analitza:5
   - kde-apps/ark:5
   - kde-apps/baloo-widgets:5
+  - kde-apps/bomber:5
+  - kde-apps/bovo:5
+  - kde-apps/calendarsupport:5
+  - kde-apps/dolphin-plugins-git:5
   - kde-apps/dolphin:5
+  - kde-apps/dragon:5
+  - kde-apps/eventviews:5
   - kde-apps/ffmpegthumbs:5
+  - kde-apps/filelight:5
+  - kde-apps/grantlee-editor:5
   - kde-apps/grantleetheme:5
   - kde-apps/gwenview:5
+  - kde-apps/incidenceeditor:5
+  - kde-apps/juk:5
   - kde-apps/k3b:5
   - kde-apps/kaccounts-integration:5
   - kde-apps/kaccounts-providers:5
+  - kde-apps/kaddressbook:5
+  - kde-apps/kalarm:5
+  - kde-apps/kalgebra:5
   - kde-apps/kamera:5
+  - kde-apps/kapman:5
   - kde-apps/kateprivate:5
+  - kde-apps/kbackup:5
   - kde-apps/kcalc:5
+  - kde-apps/kcalutils:5
   - kde-apps/kcharselect:5
   - kde-apps/kcolorchooser:5
+  - kde-apps/kcron:5
+  - kde-apps/kdeadmin-meta:5
+  - kde-apps/kdeedu-data:5
   - kde-apps/kdegraphics-mobipocket:5
   - kde-apps/kdenetwork-filesharing:5
+  - kde-apps/kdepim-runtime:5
   - kde-apps/kdf:5
   - kde-apps/kdialog:5
   - kde-apps/keditbookmarks:5
   - kde-apps/kfind:5
+  - kde-apps/kfourinline:5
+  - kde-apps/kget:5
   - kde-apps/kgpg:5
+  - kde-apps/kidentitymanagement:5
   - kde-apps/killbots:5
+  - kde-apps/kimap:5
   - kde-apps/kio-extras:5
   - kde-apps/kipi-plugins:5
+  - kde-apps/kiriki:5
+  - kde-apps/kldap:5
+  - kde-apps/kleopatra:5
+  - kde-apps/klines:5
   - kde-apps/kmag:5
+  - kde-apps/kmahjongg:5
+  - kde-apps/kmail-account-wizard:5
+  - kde-apps/kmail:5
+  - kde-apps/kmailtransport:5
+  - kde-apps/kmbox:5
   - kde-apps/kmime:5
+  - kde-apps/kmines:5
+  - kde-apps/kmix:5
   - kde-apps/kmousetool:5
   - kde-apps/kmouth:5
+  - kde-apps/knavalbattle:5
+  - kde-apps/knetwalk:5
+  - kde-apps/knights:5
+  - kde-apps/knotes:5
+  - kde-apps/kolf:5
+  - kde-apps/kollision:5
+  - kde-apps/kolourpaint:5
+  - kde-apps/kompare:5
+  - kde-apps/konquest:5
   - kde-apps/konsole:5
+  - kde-apps/konsolekalendar:5
+  - kde-apps/kontact:5
+  - kde-apps/kontactinterface:5
+  - kde-apps/korganizer:5
+  - kde-apps/kpat:5
   - kde-apps/kpimtextedit:5
+  - kde-apps/krdc:5
+  - kde-apps/kreversi:5
+  - kde-apps/krfb:5
   - kde-apps/ksanecore:5
+  - kde-apps/kshisen:5
+  - kde-apps/ksirk:5
+  - kde-apps/ksmtp:5
+  - kde-apps/kspaceduel:5
+  - kde-apps/ksquares:5
+  - kde-apps/ksudoku:5
+  - kde-apps/ksystemlog:5
+  - kde-apps/kteatime:5
+  - kde-apps/ktimer:5
+  - kde-apps/ktuberling:5
+  - kde-apps/kturtle:5
+  - kde-apps/kubrick:5
   - kde-apps/kwalletmanager:5
+  - kde-apps/kwordquiz:5
   - kde-apps/kwrite:5
+  - kde-apps/libgravatar:5
   - kde-apps/libkcddb:5
   - kde-apps/libkcompactdisc:5
   - kde-apps/libkdcraw:5
   - kde-apps/libkdegames:5
+  - kde-apps/libkdepim:5
+  - kde-apps/libkeduvocdocument:5
   - kde-apps/libkexiv2:5
   - kde-apps/libkgapi:5
   - kde-apps/libkipi:5
   - kde-apps/libkleo:5
+  - kde-apps/libkmahjongg:5
+  - kde-apps/libkomparediff2:5
   - kde-apps/libksane:5
+  - kde-apps/libksieve:5
+  - kde-apps/libktnef:5
+  - kde-apps/lokalize:5
+  - kde-apps/lskat:5
+  - kde-apps/mailcommon:5
+  - kde-apps/mailimporter:5
+  - kde-apps/mbox-importer:5
+  - kde-apps/messagelib:5
+  - kde-apps/minuet:5
   - kde-apps/okular:5
+  - kde-apps/palapeli:5
+  - kde-apps/parley:5
+  - kde-apps/picmi:5
+  - kde-apps/pim-data-exporter:5
+  - kde-apps/pim-sieve-editor:5
+  - kde-apps/pimcommon:5
   - kde-apps/print-manager:5
+  - kde-apps/spectacle:5
   - kde-apps/svgpart:5
+  - kde-apps/sweeper:5
   - kde-apps/thumbnailers:5
   - kde-apps/yakuake:5
   - kde-frameworks/attica:5
@@ -1206,6 +1345,7 @@ packages:
   - kde-frameworks/kcontacts:5
   - kde-frameworks/kcoreaddons:5
   - kde-frameworks/kcrash:5
+  - kde-frameworks/kdav:5
   - kde-frameworks/kdbusaddons:5
   - kde-frameworks/kdeclarative:5
   - kde-frameworks/kded:5
@@ -1267,27 +1407,54 @@ packages:
   - kde-misc/kdiff3:5
   - kde-misc/kio-fuse:5
   - kde-misc/kio-gdrive:5
+  - kde-misc/latte-dock:0
   - kde-misc/skanlite:5
+  - kde-plasma/breeze-grub:5
+  - kde-plasma/breeze-gtk:5
+  - kde-plasma/breeze-plymouth:5
   - kde-plasma/breeze:5
+  - kde-plasma/discover:5
+  - kde-plasma/drkonqi:5
   - kde-plasma/kactivitymanagerd:5
   - kde-plasma/kde-cli-tools:5
   - kde-plasma/kde-gtk-config:5
   - kde-plasma/kdecoration:5
+  - kde-plasma/kdeplasma-addons:5
+  - kde-plasma/kgamma:5
+  - kde-plasma/khotkeys:5
+  - kde-plasma/kinfocenter:5
+  - kde-plasma/kmenuedit:5
+  - kde-plasma/kscreen:5
   - kde-plasma/kscreenlocker:5
+  - kde-plasma/ksshaskpass:5
+  - kde-plasma/ksystemstats:5
   - kde-plasma/kwallet-pam:5
+  - kde-plasma/kwayland-integration:5
   - kde-plasma/kwayland-server:5
   - kde-plasma/kwin:5
+  - kde-plasma/kwrited:5
   - kde-plasma/layer-shell-qt:5
   - kde-plasma/libkscreen:5
   - kde-plasma/libksysguard:5
   - kde-plasma/libkworkspace:5
   - kde-plasma/milou:5
   - kde-plasma/oxygen:5
+  - kde-plasma/plasma-browser-integration:5
   - kde-plasma/plasma-desktop:5
+  - kde-plasma/plasma-disks:5
   - kde-plasma/plasma-integration:5
   - kde-plasma/plasma-nm:5
+  - kde-plasma/plasma-pa:5
+  - kde-plasma/plasma-sdk:5
+  - kde-plasma/plasma-systemmonitor:5
+  - kde-plasma/plasma-vault:5
+  - kde-plasma/plasma-workspace-wallpapers:5
   - kde-plasma/plasma-workspace:5
+  - kde-plasma/plymouth-kcm:5
   - kde-plasma/polkit-kde-agent:5
+  - kde-plasma/powerdevil:5
+  - kde-plasma/sddm-kcm:5
+  - kde-plasma/systemsettings:5
   - kde-plasma/xdg-desktop-portal-kde:5
   - lxde-base/lxmenu-data:0
   - lxde-base/menu-cache:0
@@ -1409,8 +1576,10 @@ packages:
   - media-gfx/graphviz:0
   - media-gfx/imagemagick:0
   - media-gfx/inkscape:0
+  - media-gfx/krita:5
   - media-gfx/lximage-qt:0
   - media-gfx/mypaint-brushes:1
+  - media-gfx/openvdb:0
   - media-gfx/plantuml:0
   - media-gfx/potrace:0
   - media-gfx/qrencode:0
@@ -1448,6 +1617,7 @@ packages:
   - media-libs/gexiv2:0
   - media-libs/giflib:0
   - media-libs/glew:0
+  - media-libs/glfw:0
   - media-libs/glm:0
   - media-libs/glu:0
   - media-libs/graphene:0
@@ -1485,6 +1655,7 @@ packages:
   - media-libs/libcuefile:0
   - media-libs/libdc1394:2
   - media-libs/libdca:0
+  - media-libs/libde265:0
   - media-libs/libdiscid:0
   - media-libs/libdmtx:0
   - media-libs/libdv:0
@@ -1501,6 +1672,7 @@ packages:
   - media-libs/libfreehand:0
   - media-libs/libglvnd:0
   - media-libs/libgphoto2:0
+  - media-libs/libheif:0
   - media-libs/libid3tag:0
   - media-libs/libiec61883:0
   - media-libs/libjpeg-turbo:0
@@ -1547,16 +1719,19 @@ packages:
   - media-libs/libvpx:0
   - media-libs/libwebp:0
   - media-libs/libwmf:0
+  - media-libs/libzmf:0
   - media-libs/lilv:0
   - media-libs/lv2:0
   - media-libs/mesa:0
   - media-libs/musicbrainz:5
   - media-libs/nas:0
   - media-libs/openal:0
+  - media-libs/opencolorio:0
   - media-libs/opencore-amr:0
   - media-libs/opencv:0
   - media-libs/openexr:0
   - media-libs/openh264:0
+  - media-libs/openimageio:0
   - media-libs/openjpeg:2
   - media-libs/opus:0
   - media-libs/opusfile:0
@@ -1665,6 +1840,7 @@ packages:
   - media-video/dvdauthor:0
   - media-video/ffmpeg:0
   - media-video/ffmpegthumbnailer:0
+  - media-video/gaupol:0
   - media-video/gnome-video-effects:0
   - media-video/kino:0
   - media-video/mjpegtools:1
@@ -1761,6 +1937,7 @@ packages:
   - net-libs/libhubbub:0
   - net-libs/libiscsi:0
   - net-libs/libktorrent:5
+  - net-libs/libmbim:0
   - net-libs/libmediawiki:5
   - net-libs/libmnl:0
   - net-libs/libndp:0
@@ -1892,6 +2069,8 @@ packages:
   - sci-geosciences/gnome-maps:0
   - sci-libs/blas-reference:0
   - sci-libs/cblas-reference:0
+  - sci-libs/colamd:0
+  - sci-libs/dcmtk:0
   - sci-libs/djbfft:0
   - sci-libs/fftw:3.0
   - sci-libs/gsl:0
@@ -1899,6 +2078,8 @@ packages:
   - sci-libs/lapack-reference:0
   - sci-libs/libcerf:0
   - sci-libs/libqalculate:0
+  - sci-libs/suitesparseconfig:0
+  - sci-mathematics/lpsolve:0
   - sci-visualization/gnuplot:0
   - sys-apps/accountsservice:0
   - sys-apps/acl:0
@@ -1922,7 +2103,10 @@ packages:
   - sys-apps/ethtool:0
   - sys-apps/file:0
   - sys-apps/findutils:0
+  - sys-apps/flashrom:0
   - sys-apps/flatpak:0
+  - sys-apps/fwupd-efi:0
+  - sys-apps/fwupd:0
   - sys-apps/fxload:0
   - sys-apps/gawk:0
   - sys-apps/gentoo-functions:0
@@ -1933,6 +2117,7 @@ packages:
   - sys-apps/help2man:0
   - sys-apps/hwids:0
   - sys-apps/hwloc:0
+  - sys-apps/i2c-tools:0
   - sys-apps/install-xattr:0
   - sys-apps/iproute2:0
   - sys-apps/iucode_tool:0
@@ -2034,6 +2219,7 @@ packages:
   - sys-firmware/sof-firmware:0
   - sys-firmware/vgabios:0
   - sys-fs/btrfs-progs:0
+  - sys-fs/cryfs:0
   - sys-fs/cryptsetup:0
   - sys-fs/diskdev_cmds:0
   - sys-fs/dmraid:0
@@ -2079,6 +2265,7 @@ packages:
   - sys-libs/db:5.3
   - sys-libs/e2fsprogs-libs:0
   - sys-libs/efivar:0
+  - sys-libs/freeipmi:0
   - sys-libs/gdbm:0
   - sys-libs/glibc:2.2
   - sys-libs/gpm:0
@@ -2097,11 +2284,13 @@ packages:
   - sys-libs/libosinfo:0
   - sys-libs/libraw1394:0
   - sys-libs/libseccomp:0
+  - sys-libs/libsmbios:0
   - sys-libs/libstatgrab:0
   - sys-libs/libunwind:0
   - sys-libs/liburing:0
   - sys-libs/libutempter:0
   - sys-libs/libxcrypt:0
+  - sys-libs/minizip-ng:0
   - sys-libs/mtdev:0
   - sys-libs/ncurses:0
   - sys-libs/pam:0
@@ -2111,12 +2300,15 @@ packages:
   - sys-libs/tdb:0
   - sys-libs/tevent:0
   - sys-libs/timezone-data:0
+  - sys-libs/zlib-ng:0
   - sys-libs/zlib:0
   - sys-power/acpi:0
   - sys-power/acpid:0
+  - sys-power/apcupsd:0
   - sys-power/cpupower:0
   - sys-power/hibernate-script:0
   - sys-power/iasl:0
+  - sys-power/nut:0
   - sys-power/pm-quirks:0
   - sys-power/pm-utils:0
   - sys-power/upower:0
@@ -2143,11 +2335,13 @@ packages:
   - virtual/freedesktop-icon-theme:0
   - virtual/glu:0
   - virtual/gsasl:0
+  - virtual/imagemagick-tools:0
   - virtual/jack:0
   - virtual/jdk:1.8
   - virtual/jdk:11
   - virtual/jdk:17
   - virtual/jdk:20
+  - virtual/jpeg-compat:62
   - virtual/jpeg:0
   - virtual/jre:11
   - virtual/jre:17
@@ -2217,6 +2411,7 @@ packages:
   - virtual/perl-Test-Harness:0
   - virtual/perl-Test-Simple:0
   - virtual/perl-Text-ParseWords:0
+  - virtual/perl-Text-Tabs+Wrap:0
   - virtual/perl-Time-HiRes:0
   - virtual/perl-Time-Local:0
   - virtual/perl-XSLoader:0
@@ -2536,6 +2731,3 @@ packages:
   - xfce-extra/xfce4-weather-plugin:0
   - xfce-extra/xfce4-windowck-plugin:0
   - xfce-extra/xfce4-xkb-plugin:0
-  - media-libs/libzmf:0
-
-  - sys-apps/i2c-tools:0
