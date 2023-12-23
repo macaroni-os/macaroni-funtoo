@@ -1,0 +1,229 @@
+packages:
+
+  keep_luet_db: "true"
+  rootfs:
+  - system/entities
+  - system/luet-geaaru-thin
+  - utils/yq
+  - utils/jq
+
+  - app-admin/whip
+  - app-admin/macaronictl-thin
+  - whip-profiles/macaroni
+  - macaroni/live-setup-kde
+  - macaroni-release/phoenix
+  - system/macaroni-funtoo-calamares
+  - macaroni/whip-catalog
+  - macaroni/skel-phoenix
+  - macaroni/skel-phoenix-kde
+  - macaroni/pageant
+
+  - virtual/sh
+  - virtual/base
+  - virtual/grub
+  - virtual/openrc
+
+  - virtual-entities/base
+
+  - sys-apps/lsb-release
+  - sys-apps/zram-init
+
+  # kernel stuff
+  - kernel-6.1/macaroni-full
+  - kernel-6.1/macaroni-modules
+  - kernel-6.1/macaroni-initramfs
+  - kernel-6.1/zfs-kmod
+  - kernel-6.1/virtualbox-guest-additions
+  - kernel-6.1/nvidia-kernel-modules
+  - kernel-6.1/lkrg
+
+  - app-editors/vim
+
+  - sys-kernel/linux-firmware
+  - sys-kernel/dracut
+  - sys-fs/mdadm
+  - www-client/firefox
+
+  - sys-apps/shadow
+  - sys-apps/iproute2
+  - sys-apps/corenetwork
+  - net-misc/dhcpcd
+  - net-libs/libmnl
+
+  - sys-process/procps
+  - sys-process/htop
+  - sys-apps/ethtool
+  - sys-apps/less
+  - net-wireless/wpa_supplicant
+  - net-wireless/wireless-regdb
+  - sys-fs/eudev
+  - sys-apps/kbd
+  - media-fonts/noto-emoji
+
+  # needed for /bin/hostname
+  - sys-apps/net-tools
+  # needed for format vfat uefi partition
+  - sys-fs/dosfstools
+  - sys-boot/efibootmgr
+
+  # Add support to multiple filesystem to ISO
+  - sys-fs/btrfs-progs
+  - sys-fs/xfsprogs
+  - sys-fs/reiserfsprogs
+  - sys-fs/zfs
+  - app-antivirus/lkrg
+
+  # Add plymouth
+  - sys-boot/plymouth
+  - sys-boot/plymouth-openrc-plugin
+  - x11-themes/plymouth-funtoo
+
+  - x11-apps/setxkbmap
+  - x11-apps/xrandr
+
+  # Package to add on virtual/xorg-base
+  - x11-drivers/xf86-video-vmware
+  - x11-drivers/xf86-video-nouveau
+  - x11-drivers/xf86-video-fbdev
+  - x11-drivers/xf86-video-ati
+  - x11-drivers/xf86-video-amdgpu
+  - x11-drivers/xf86-video-intel
+  - x11-drivers/xf86-video-vbox
+  - x11-drivers/xf86-video-vesa
+  - x11-base/xorg-drivers
+  - x11-drivers/xf86-input-mouse
+  - x11-drivers/xf86-input-synaptics
+  - x11-drivers/xf86-input-vmmouse
+  - x11-drivers/xf86-input-wacom
+  - x11-drivers/xf86-input-keyboard
+  - x11-drivers/xf86-input-evdev
+
+  - openssh
+
+  # KDE stuff
+
+  - net-misc/wget
+
+  # Needed for the font cache generation
+  - media-fonts/encodings
+
+  # Libraries missing on runtime deps (for issue on macaroni specs or funtoo)
+  # htop, wpa_supplicant
+  - dev-libs-3/libnl
+  # probably virtual/libusb to fix
+  - dev-libs-1/libusb
+  # grub
+  - sys-fs-3/fuse
+  - sys-fs/fuse
+  # Apache
+  - dev-libs-1/apr-util
+  # kadmind
+  - dev-libs/libverto
+  # thin-tools etc.
+  - dev-libs/libaio
+  - media-gfx/fontforge
+
+  # calamares plugin requires these packages
+  - x11-libs/xcb-util-wm
+  - x11-libs/xcb-util-image
+  - x11-libs/xcb-util-renderutil
+
+  - dev-qt-5/qtwayland
+  - x11-wm/twm
+  - x11-terms/xterm
+  - sys-libs/libutempter
+  - sys-apps/which
+
+  # Needed by /usr/lib64/dri/*.so
+  - sys-devel/llvm-common
+  - llvm
+
+# equery belongs libstd-008055cc7d873802.so (fix ldconfig)
+# * Searching for libstd-008055cc7d873802.so ... 
+#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/libstd-008055cc7d873802.so)
+#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/rustlib/x86_64-unknown-linux-gnu/lib/libstd-008055cc7d873802.so)
+  # rust-bin 
+
+    # Dependency of calamares
+  - kde-frameworks-5/plasma
+
+  - net-libs/libproxy
+
+  # Kde stuff
+  - app-admin/system-config-printer
+  - kde-plasma-5/kinfocenter
+  - kde-plasma-5/kscreen
+  - kde-plasma-5/kwayland-integration
+  - kde-plasma-5/plasma-browser-integration
+  - kde-plasma-5/plasma-workspace-wallpapers
+  - kde-plasma-5/sddm-kcm
+  - kde-plasma-5/systemsettings
+  - kde-plasma-5/plasma-disks
+  - kde-apps-5/ktimer
+  - kde-apps-5/ksystemlog
+  - kde-apps-5/knotes
+  - kde-apps-5/kmix
+  - kde-apps-5/kget
+  - kde-apps-5/kdepim-runtime
+  - kde-apps-5/kbackup
+  - kde-apps-5/kalarm
+  - kde-apps-5/kaddressbook
+  - kde-apps-5/dragon
+  - kde-apps-5/akonadi-search
+  - kde-apps-5/akonadi-notes
+  - kde-apps-5/akonadi-mime
+  - kde-apps-5/akonadi-calendar
+  - kde-apps-5/akonadi-contacts
+  - kde-apps-5/akonadi
+  - kde-apps-5/dolphin
+  - kde-apps-5/ffmpegthumbs
+  - kde-apps-5/kcalc
+  - kde-apps-5/kamera
+  - kde-apps-5/gwenview
+  - kde-apps-5/kwalletmanager
+  - kde-misc/latte-dock
+  - kde-misc-5/skanlite
+  - x11-misc/xsettingsd
+  - kde-plasma-5/plasma-desktop
+  - kde-plasma-5/plasma-nm
+  - kde-plasma-5/oxygen
+  - kde-plasma-5/kde-gtk-config
+  - kde-apps-5/print-manager
+  - kde-apps-5/thumbnailers
+  - kde-frameworks-5/kcontacts
+  - kde-frameworks-5/bluez-qt
+  - kde-apps-5/konsole
+  - kde-apps-5/kmousetool
+  - kde-apps-5/kgpg
+  - kde-apps-5/kdenetwork-filesharing
+  - kde-misc-5/kdeconnect
+
+  - ddcutil
+
+  uefi:
+  - live/systemd-boot
+  - system/macaroni-live-boot
+  isoimage:
+  - live/syslinux
+  - system/macaroni-live-boot
+
+# Repositories packages from repository-index
+repository:
+  packages:
+  - repository/mottainai-stable
+  - repository/macaroni-phoenix
+  - repository/macaroni-commons
+
+initramfs:
+  kernel_file: "bzImage"
+  rootfs_file: "Initrd"
+
+overlay: "true"
+image_prefix: "Macaroni-Funtoo-Phoenix-KDE-Testing-0."
+image_date: "true"
+
+overlay_hooks:
+  - /var/lib/macaroni/build-iso-hook.sh
+
+luet:
+  config: conf/luet-desktop-thin.yaml
