@@ -90,6 +90,7 @@ kits=(
   "base-kde5"          # race19
 
   "base-kde6"          # race20
+  "kde-games"          # race20
 )
 
 for i in ${kits[@]} ; do
