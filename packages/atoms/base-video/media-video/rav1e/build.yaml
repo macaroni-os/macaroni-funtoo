@@ -19,6 +19,14 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Workaround about linking issue of:
+# $ ldd /usr/lib64/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-avif.so | grep rav1e
+# librav1e.so.0.6 => not found
+- >-
+  cd /pkgdir/{{ .Values.name }}/usr/lib64/ &&
+  ln -s librav1e.so.0.6.6 librav1e.so.0.6 &&
+  cd -
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
