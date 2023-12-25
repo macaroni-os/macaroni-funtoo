@@ -12,15 +12,15 @@ import re
 # on the installed rootfs at the
 # end of the installation process.
 # Temporary list to move with a file.
-luet_packages2remove = [
+anise_packages2remove = [
     "macaroni/live-setup",
+    "macaroni/live-setup-core",
     "macaroni/live-setup-xfce4",
     "macaroni/live-setup-gnome",
     "kernel-6.1/macaroni-initramfs",
     "kernel-5.10/macaroni-initramfs",
     "kernel-5.10/virtualbox-guest-additions",
     "kernel-6.1/virtualbox-guest-additions",
-    "kernel-5.4/virtualbox-guest-additions",
     "system/macaroni-funtoo-calamares",
     "virtual/calamares",
     "app-admin-5/calamares",
@@ -133,13 +133,13 @@ def run():
         'userdel', '-f', '-r', 'macaroni',
     ])
 
-    if len(luet_packages2remove) > 0:
-        args = ["luet", "uninstall", "-y", "--force" ]
-        args = args + luet_packages2remove
-        # args = args + luet_packages2remove
+    if len(anise_packages2remove) > 0:
+        args = ["anise", "uninstall", "-y", "--force" ]
+        args = args + anise_packages2remove
+        # args = args + anise_packages2remove
         # libcalamares.utils.target_env_call(args)
         # Temporary trying to remove every package singolary
-        #for pkg in luet_packages2remove:
+        #for pkg in anise_packages2remove:
         libcalamares.utils.target_env_call(args)
 
     # It's better run this after that is uninstalled macaroni initramfs
