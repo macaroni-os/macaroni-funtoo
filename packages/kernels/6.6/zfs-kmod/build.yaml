@@ -11,7 +11,7 @@ steps:
   virtual/linux-sources kernel-6.6/macaroni-modules && luet cleanup &&
   sed -i -e 's|^ZFS_KERNEL_COMPAT.*|ZFS_KERNEL_COMPAT="6.6"|g'
   -e 's|DEPMOD.*|DEPMOD=depmod|g'
-  /var/git/meta-repo/kits/core-kit/sys-fs/zfs-kmod/zfs-kmod-2.2.2.ebuld
+  /var/git/meta-repo/kits/core-kit/sys-fs/zfs-kmod/zfs-kmod-2.2.2.ebuild
 - >-
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
