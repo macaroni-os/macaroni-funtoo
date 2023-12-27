@@ -625,6 +625,78 @@ artefacts:
   - sys-devel/gcc:11.3.0
 
 - tree: packages/atoms/base
+  uses:
+    disabled:
+    - altivec
+    - bootstrap
+    - bootstrap-O3
+    - bootstrap-lean
+    - bootstrap-lto
+    - bootstrap-profiled
+    - checking_all
+    - checking_assert
+    - checking_df
+    - checking_extra
+    - checking_fold
+    - checking_gc
+    - checking_gcac
+    - checking_misc
+    - checking_no
+    - checking_release
+    - checking_rtl
+    - checking_rtlflag
+    - checking_runtime
+    - checking_tree
+    - checking_valgrind
+    - checking_yes
+    - d
+    - dev_extra_warnings
+    - doc
+    - generic_host
+    - go
+    - jit
+    - libssp
+    - link_now
+    - multilib
+    - nios2
+    - objc
+    - objc++
+    - objc-gc
+    - pch
+    - sanitize
+    - sh
+    - ssp_all
+    - stage1_checking_all
+    - stage1_checking_assert
+    - stage1_checking_df
+    - stage1_checking_extra
+    - stage1_checking_fold
+    - stage1_checking_gc
+    - stage1_checking_gcac
+    - stage1_checking_misc
+    - stage1_checking_no
+    - stage1_checking_release
+    - stage1_checking_rtl
+    - stage1_checking_rtlflag
+    - stage1_checking_runtime
+    - stage1_checking_tree
+    - stage1_checking_valgrind
+    - stage1_checking_yes
+    - test
+    - vanilla
+    - vtv
+    enabled:
+    - cxx
+    - fortran
+    - nls
+    - openmp
+    - pie
+    - ssp
+    - stack_clash_protection
+  packages:
+  - sys-devel/gcc:12.3.0
+
+- tree: packages/atoms/base
   replacements:
     runtime_deps:
       ignore:
@@ -806,7 +878,10 @@ artefacts:
     provides:
       - category: sys-devel-2.36
         name: binutils
-        version: "2.39"
+        version: "2.40"
+      - category: sys-devel-2.39
+        name: binutils
+        version: "2.40"
   uses:
     disabled:
     - 64-bit-bfd
@@ -824,7 +899,7 @@ artefacts:
     - nls
     - plugins
   packages:
-  - sys-devel/binutils:2.39
+  - sys-devel/binutils:2.40
 
 - tree: packages/atoms/base
   uses:
