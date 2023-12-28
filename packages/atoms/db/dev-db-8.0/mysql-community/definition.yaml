@@ -4,10 +4,10 @@ category: dev-db-8.0
 use_flags:
 - -cjk
 - -jemalloc
-- -kernel_linux
 - -numa
 - -prefix
 - -selinux
+- kernel_linux
 - server
 - tcmalloc
 - router
@@ -24,6 +24,9 @@ requires:
 - name: icu
   version: '>=0'
   category: dev-libs
+- name: libaio
+  version: '>=0'
+  category: dev-libs
 - name: libevent
   version: '>=0'
   category: dev-libs
@@ -36,12 +39,9 @@ requires:
 - name: libtirpc
   version: '>=0'
   category: net-libs
-- name: ncurses
+- name: procps
   version: '>=0'
-  category: sys-libs
-- name: libaio
-  version: '>=0'
-  category: dev-libs
+  category: sys-process
 annotations:
   subsets:
     rules:
