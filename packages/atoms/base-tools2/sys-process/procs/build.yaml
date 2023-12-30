@@ -9,7 +9,8 @@ prelude:
 # Need rust setup
 - >-
   eselect rust cleanup &&
-  eselect rust list
+  eselect rust list &&
+  cp procs-0.14.4.ebuild /var/git/meta-repo/kits/core-kit/sys-process/procs/procs-0.14.4.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
