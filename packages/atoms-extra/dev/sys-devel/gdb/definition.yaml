@@ -45,24 +45,24 @@ labels:
   BDEPEND: app-arch/xz-utils sys-apps/texinfo virtual/yacc nls? ( sys-devel/gettext
     ) source-highlight? ( virtual/pkgconfig ) test? ( dev-util/dejagnu )
   DEPEND: dev-libs/mpfr:0= dev-libs/gmp:= >=sys-libs/ncurses-5.2-r2:0= >=sys-libs/readline-7:0=
-    sys-libs/zlib lzma? ( app-arch/xz-utils ) python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    sys-libs/zlib lzma? ( app-arch/xz-utils ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    ) guile? ( >=dev-scheme/guile-2.0 ) xml? ( dev-libs/expat ) source-highlight?
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) ) guile? ( >=dev-scheme/guile-2.0 ) xml? ( dev-libs/expat ) source-highlight?
     ( dev-util/source-highlight ) xxhash? ( dev-libs/xxhash )
   IUSE: cet guile lzma multitarget nls +python +server source-highlight test vanilla
-    xml xxhash python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
-    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
+    xml xxhash python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
   RDEPEND: dev-libs/mpfr:0= dev-libs/gmp:= >=sys-libs/ncurses-5.2-r2:0= >=sys-libs/readline-7:0=
-    sys-libs/zlib lzma? ( app-arch/xz-utils ) python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    sys-libs/zlib lzma? ( app-arch/xz-utils ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    ) guile? ( >=dev-scheme/guile-2.0 ) xml? ( dev-libs/expat ) source-highlight?
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) ) guile? ( >=dev-scheme/guile-2.0 ) xml? ( dev-libs/expat ) source-highlight?
     ( dev-util/source-highlight ) xxhash? ( dev-libs/xxhash )
   emerge.packages: sys-devel/gdb
   kit: core-kit
