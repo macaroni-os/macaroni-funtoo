@@ -143,8 +143,6 @@ artefacts:
       packages:
         - category: dev-python
           name: pyyaml
-        - category: dev-python
-          name: mistune
   uses:
     enabled:
       - conch
@@ -157,22 +155,6 @@ artefacts:
       - python_targets_python2_7
   packages:
     - sys-apps/metatools
-
-- tree: packages/atoms-extra/dev
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: mistune
-  uses:
-    enabled:
-      - python_targets_python3_9
-    disabled:
-      - examples
-      - python_targets_python3_7
-      - python_targets_python2_7
-  packages:
-    - dev-python/m2r
 
 - tree: packages/atoms-extra/dev
   mutations:
