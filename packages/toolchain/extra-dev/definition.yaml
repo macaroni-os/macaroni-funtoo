@@ -3,6 +3,9 @@ name: extra-dev
 version: "1"
 description: "Virtul package to install portage meta data of the extra-dev packages"
 requires:
+  - name: brotli
+    category: app-arch
+    version: '>=0'
   - name: vim
     category: app-editors
     version: '>=0'
@@ -72,9 +75,6 @@ requires:
   - name: brotlipy
     category: dev-python
     version: '>=0'
-  - name: calver
-    category: dev-python
-    version: '>=0'
   - name: colorama
     category: dev-python
     version: '>=0'
@@ -90,7 +90,10 @@ requires:
   - name: dict-toolbox
     category: dev-python
     version: '>=0'
-  - name: editables
+  - name: exceptiongroup
+    category: dev-python
+    version: '>=0'
+  - name: flit_scm
     category: dev-python
     version: '>=0'
   - name: frozenlist
@@ -108,13 +111,7 @@ requires:
   - name: hatch-vcs
     category: dev-python
     version: '>=0'
-  - name: hatchling
-    category: dev-python
-    version: '>=0'
   - name: hpack
-    category: dev-python
-    version: '>=0'
-  - name: html5lib
     category: dev-python
     version: '>=0'
   - name: httpcore
@@ -129,16 +126,10 @@ requires:
   - name: hyperlink
     category: dev-python
     version: '>=0'
-  - name: idna-ssl
-    category: dev-python
-    version: '>=0'
   - name: incremental
     category: dev-python
     version: '>=0'
   - name: lxml
-    category: dev-python
-    version: '>=0'
-  - name: m2r
     category: dev-python
     version: '>=0'
   - name: mistune
@@ -162,16 +153,13 @@ requires:
   - name: pbr
     category: dev-python
     version: '>=0'
-  - name: pip
-    category: dev-python
-    version: '>=0'
-  - name: pluggy
-    category: dev-python
-    version: '>=0'
   - name: priority
     category: dev-python
     version: '>=0'
   - name: psutil
+    category: dev-python
+    version: '>=0'
+  - name: py
     category: dev-python
     version: '>=0'
   - name: pyasn1
@@ -196,6 +184,9 @@ requires:
     category: dev-python
     version: '>=0'
   - name: pyyaml
+    category: dev-python
+    version: '>=0'
+  - name: pyzmq
     category: dev-python
     version: '>=0'
   - name: rfc3986
@@ -225,7 +216,7 @@ requires:
   - name: twisted
     category: dev-python
     version: '>=0'
-  - name: webencodings
+  - name: versioneer
     category: dev-python
     version: '>=0'
   - name: wstools
@@ -254,6 +245,9 @@ requires:
     version: '>=0'
   - name: strace
     category: dev-util
+    version: '>=0'
+  - name: zeromq
+    category: net-libs
     version: '>=0'
   - name: ipcalc
     category: net-misc
