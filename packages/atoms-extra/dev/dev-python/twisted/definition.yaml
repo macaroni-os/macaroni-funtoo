@@ -2,13 +2,10 @@ name: twisted
 version: 23.10.0
 category: dev-python
 use_flags:
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
 - -serial
-- -soap
-- -test
 - conch
 - crypt
 - http2
@@ -17,31 +14,13 @@ requires:
 - name: appdirs
   version: '>=0'
   category: dev-python
-- name: automat
-  version: '>=0'
-  category: dev-python
-- name: constantly
-  version: '>=0'
-  category: dev-python
-- name: hyperlink
+- name: bcrypt
   version: '>=0'
   category: dev-python
 - name: idna
   version: '>=0'
   category: dev-python
-- name: incremental
-  version: '>=0'
-  category: dev-python
-- name: priority
-  version: '>=0'
-  category: dev-python
-- name: pyhamcrest
-  version: '>=0'
-  category: dev-python
 - name: service_identity
-  version: '>=0'
-  category: dev-python
-- name: zope-interface
   version: '>=0'
   category: dev-python
 - name: h2
@@ -56,8 +35,7 @@ annotations:
       - ^/var/db/pkg/
 description: An asynchronous networking framework written in Python
 uri:
-- https://www.twistedmatrix.com/trac/
-license: MIT
+- https://pypi.org/project/Twisted/
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
