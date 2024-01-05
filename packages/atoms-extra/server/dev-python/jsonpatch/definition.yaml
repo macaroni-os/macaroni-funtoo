@@ -1,5 +1,5 @@
 name: jsonpatch
-version: "1.23"
+version: "1.33"
 category: dev-python
 use_flags:
 - -python_targets_python2_7
@@ -24,23 +24,26 @@ uri:
 - https://github.com/stefankoegl/python-json-patch
 license: BSD
 labels:
-  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+  BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/gpep517-6[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-62.3.3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/wheel[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   DEPEND: dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     test? ( >=dev-python/jsonpointer-1.9[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     )
-  IUSE: test python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-    python_targets_python2_7 python_targets_python3_10
-  RDEPEND: '>=dev-python/jsonpointer-1.9[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9? (
-    dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]'
+  IUSE: python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: python_targets_python3_10? ( dev-python/jsonpointer[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_7? ( dev-python/jsonpointer[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_9? ( dev-python/jsonpointer[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_8? ( dev-python/jsonpointer[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/jsonpatch
-  kit: python-modules-kit
+  kit: geaaru-kit
   original.package.name: dev-python/jsonpatch
   original.package.slot: "0"
-  original.package.version: "1.23"
+  original.package.version: "1.33"
