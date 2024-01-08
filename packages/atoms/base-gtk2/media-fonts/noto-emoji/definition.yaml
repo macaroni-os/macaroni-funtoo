@@ -1,5 +1,5 @@
 name: noto-emoji
-version: 20230310+1
+version: "20231117"
 category: media-fonts
 use_flags:
 - -buildfont
@@ -16,15 +16,15 @@ uri:
 - https://www.google.com/get/noto/ https://github.com/googlefonts/noto-emoji
 license: Apache-2.0 OFL-1.1
 labels:
-  BDEPEND: buildfont? ( || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9
-    dev-lang/python:3.7 ) app-arch/zopfli || ( ( dev-lang/python:3.10 dev-python/fonttools[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    dev-python/nototools[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ( dev-lang/python:3.8 dev-python/fonttools[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: buildfont? ( || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    dev-lang/python:3.10 ) app-arch/zopfli || ( ( dev-lang/python:3.8 dev-python/fonttools[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/nototools[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/fonttools[python_targets_python3_9(-),python_single_target_python3_9(+)]
     dev-python/nototools[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/fonttools[python_targets_python3_7(-),python_single_target_python3_7(+)]
     dev-python/nototools[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ( dev-lang/python:3.10 dev-python/fonttools[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/nototools[python_targets_python3_10(-),python_single_target_python3_10(+)]
     ) ) media-gfx/pngquant x11-libs/cairo || ( media-gfx/imagemagick[png] media-gfx/graphicsmagick[png]
     ) )
   DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
@@ -33,4 +33,4 @@ labels:
   kit: media-kit
   original.package.name: media-fonts/noto-emoji
   original.package.slot: "0"
-  original.package.version: "20230310"
+  original.package.version: "20231117"
