@@ -1,7 +1,8 @@
 prelude:
 # Temporary
 - >-
-  anise repo update && anise upgrade -y && anise cleanup
+  cd /var/git/extra-kits/geaaru-kit/ &&
+  git checkout funtoo && git pull -ff
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
