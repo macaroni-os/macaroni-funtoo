@@ -539,6 +539,9 @@ artefacts:
   - net-vpn/strongswan
 
 - tree: packages/atoms/tools
+  mutations:
+    uses:
+      - systemd
   uses:
     disabled:
     - apparmor
@@ -550,6 +553,7 @@ artefacts:
     - nls
     - dnsmasq
     - daemon
+    - systemd
   packages:
   - app-emulation/incus
   finalizer:
