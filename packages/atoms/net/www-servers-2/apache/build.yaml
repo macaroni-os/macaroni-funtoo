@@ -21,6 +21,10 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Fix apache logrotate on using systemd
+- >-
+  sed -i -e 's|/etc/init.d/apache2 .*|  systemctl reload apache2 >/dev/null 2>\&1 \|\| true|g'
+  /pkgdir/{{ .Values.name }}/etc/logrotate.d/apache2
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
