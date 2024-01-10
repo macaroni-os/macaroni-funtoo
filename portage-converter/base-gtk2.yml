@@ -479,6 +479,23 @@ artefacts:
     - media-fonts/noto-emoji
     - media-fonts/cantarell
 
+- tree: packages/atoms/base-gtk2
+  mutations:
+    uses:
+      - tiff
+      - jpeg
+      - png
+  uses:
+    disabled:
+      - introspection
+      - qt5
+      - cjk
+      - nss
+      - lcms
+      - jpeg2k
+  packages:
+    - app-text/poppler
+
 include_layers:
 - layers/macaroni-funtoo-race7.yaml
 
