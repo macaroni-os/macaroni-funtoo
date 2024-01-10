@@ -63,6 +63,18 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/python-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race12
+  packages:
+    - virtual/blas
+    - virtual/cblas
+    - virtual/fortran
+    - virtual/lapack
+
+- tree: packages/atoms/python-extra
   uses:
     disabled:
       - test
@@ -92,6 +104,8 @@ artefacts:
     - www-servers/tornado
     - www-servers/gunicorn
     - dev-python/dnspython
+    - dev-python/greenlet
+    - dev-python/numpy
 
 - tree: packages/atoms/python-extra
   mutations:
@@ -110,6 +124,7 @@ artefacts:
       - curl_ssl_cyassl
   packages:
     - dev-python/pycurl
+
 
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
