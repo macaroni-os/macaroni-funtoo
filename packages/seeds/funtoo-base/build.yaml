@@ -23,6 +23,9 @@ prelude:
   entities list users &&
   entities list groups
 #steps:
+# Tempory patch for iproute2
+- >-
+  sed '/-5.12.0-configure-nomagic.patch/d'  /var/git/meta-repo/kits/core-kit/sys-apps/iproute2/iproute2-6.7.0.ebuild  -i
 - >-
   emerge --unmerge
   sys-fs/lvm2
