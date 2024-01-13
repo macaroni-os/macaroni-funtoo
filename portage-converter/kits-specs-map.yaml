@@ -82,204 +82,200 @@ extra-pkgs:
 
     browser-kit:
       specs:
-        - service-extra.yaml
 
     dev-kit:
       specs:
-        - dev-extra.yaml
-        - net-extra.yaml
-        - python-extra.yaml
-        - server-extra.yaml
-        - php-extra.yaml
-        - service-extra.yaml
+        - base-extra.yaml
+        - base-tools.yaml
+        - base-tools2.yaml
 
     core-gl-kit:
       specs:
-        - python-extra.yaml
-        - xorg-extra.yaml
 
     core-hw-kit:
       specs:
-        - dev-extra.yaml
+        - base-extra.yaml
 
     core-kit:
       specs:
-        - db-extra.yaml
-        - dev-extra.yaml
-        - net-extra.yaml
-        - python-extra.yaml
-        - server-extra.yaml
-        - portage-extra.yaml
-        - java-extra.yaml
-        - php-extra.yaml
-        - service-extra.yaml
-        - xorg-extra.yaml
+        - release.yaml
+        - base-extra.yaml
+        - base-python.yaml
+        - base-tools.yaml
+        - base-tools2.yaml
 
     core-server-kit:
       specs:
-        - db-extra.yaml
-        - dev-extra.yaml
-        - net-extra.yaml
-        - python-extra.yaml
-        - server-extra.yaml
-        - telemetry.yaml
-        - php-extra.yaml
-        - service-extra.yaml
+        - base-tools2.yaml
 
     lang-kit:
       specs:
-        - dev-extra.yaml
-        - net-extra.yaml
-        - service-extra.yaml
+        - base-python.yaml
+        - base-tools.yaml
 
     lisp-scheme-kit:
       specs:
-        - net-extra.yaml
-        - python-extra.yaml
+        - base-tools2.yaml
 
     media-kit:
       specs:
-        - dev-extra.yaml
-        - python-extra.yaml
-        - php-extra.yaml
         - xorg-extra.yaml
 
     security-kit:
       specs:
-        - net-extra.yaml
+        - base-extra.yaml
 
     text-kit:
       specs:
-        - net-extra.yaml
-        - python-extra.yaml
-        - server-extra.yaml
-        - php-extra.yaml
-        - service-extra.yaml
-        - xorg-extra.yaml
+        - base-tools.yaml
 
     gnome-kit:
       specs:
-        - python-extra.yaml
-        - server-extra.yaml
-        - service-extra.yaml
+        - base-tools.yaml
+        - base-tools2.yaml
 
     net-kit:
       specs:
-        - db-extra.yaml
-        - dev-extra.yaml
-        - net-extra.yaml
-        - server-extra.yaml
-        - telemetry.yaml
-        - service-extra.yaml
-        - php-extra.yaml
+        - base-tools.yaml
+        - base-tools2.yaml
 
     python-modules-kit:
       specs:
-        - db-extra.yaml
-        - net-extra.yaml
-        - python-extra.yaml
-        - server-extra.yaml
-        - portage-extra.yaml
-        - service-extra.yaml
+        - base-python.yaml
 
     perl-kit:
       specs:
-        - db-extra.yaml
-        - net-extra.yaml
-        - python-extra.yaml
-        - service-extra.yaml
-        - xorg-extra.yaml
+        - base-extra.yaml
+        - base-tools.yaml
 
     science-kit:
       specs:
-        - python-extra.yaml
 
     editors-kit:
       specs:
-        - dev-extra.yaml
-
-    nokit:
-      specs:
-        - net-extra.yaml
-        - server-extra.yaml
-        - service-extra.yaml
 
     geaaru-kit:
       specs:
-        - geaaru-extra.yaml
-        - service-extra.yaml
 
     gnome-kit:
       specs:
-        - service-extra.yaml
-        - xorg-extra.yaml
 
     desktop-kit:
       specs:
-        - java-extra.yaml
-        - xorg-extra.yaml
 
     java-kit:
       specs:
-        - java-extra.yaml
 
     llvm-kit:
       specs:
-        - xorg-extra.yaml
 
 seeds:
   - name: macaroni-funtoo-base
-    prefix: packages/atoms-extra
+    prefix: packages/atoms
     specs:
       - file: release.yaml
         dir: release
-      - file: net-extra.yaml
-        dir: net
-      - file: dev-extra.yaml
-        dir: dev
 
-  - name: macaroni-funtoo-geaaru
-    prefix: packages/atoms-extra
-    specs:
-      - file: geaaru-extra.yaml
-        dir: geaaru
+      - file: base-extra.yaml
+        dir: base-extra
 
   - name: macaroni-funtoo-race1
-    prefix: packages/atoms-extra
+    prefix: packages/atoms
     specs:
-      - file: python-extra.yaml
-        dir: python
+      - file: base-python.yaml
+        dir: base-python
 
   - name: macaroni-funtoo-race2
-    prefix: packages/atoms-extra
+    prefix: packages/atoms
     specs:
-      - file: db-extra.yaml
-        dir: db
+      - file: base-tools.yaml
+        dir: base-tools
 
   - name: macaroni-funtoo-race3
-    prefix: packages/atoms-extra
+    prefix: packages/atoms
     specs:
-      - file: portage-extra.yaml
-        dir: portage
+      - file: base-tools2.yaml
+        dir: base-tools2
 
-      - file: server-extra.yaml
+  - name: macaroni-funtoo-race4
+    prefix: packages/atoms
+    specs:
+      - file: net.yaml
+        dir: net
+
+  - name: macaroni-funtoo-race5
+    prefix: packages/atoms
+    specs:
+      - file: lang.yaml
+        dir: lang
+
+  - name: macaroni-funtoo-race6
+    prefix: packages/atoms
+    specs:
+      - file: dev-tools.yaml
+        dir: dev-tools
+
+  - name: macaroni-funtoo-race7
+    prefix: packages/atoms
+    specs:
+
+      - file: server.yaml
         dir: server
+      - file: text.yaml
+        dir: text
+
+  - name: macaroni-funtoo-race8
+    prefix: packages/atoms
+    specs:
+
+      - file: xorg-base.yaml
+        dir: xorg-base
+
+  - name: macaroni-funtoo-race9
+    prefix: packages/atoms
+    specs:
+
+      - file: xorg-base2.yaml
+        dir: xorg-base2
+
+  - name: macaroni-funtoo-race10
+    prefix: packages/atoms
+    specs:
+
+      - file: xorg-base3.yaml
+        dir: xorg-base3
+
+      - file: latex.yaml
+        dir: latex
 
       - file: telemetry.yaml
         dir: telemetry
 
-      - file: java-extra.yaml
-        dir: java
+      - file: base-php.yaml
+        dir: base-php
 
-  - name: macaroni-funtoo-race4
-    prefix: packages/atoms-extra
+  - name: macaroni-funtoo-race11
+    prefix: packages/atoms
     specs:
 
+      - file: db.yaml
+        dir: db
+
+      - file: latex-extra.yaml
+        dir: latex-extra
+
+      - file: java.yaml
+        dir: java
+
       - file: php-extra.yaml
-        dir: php
+        dir: php-extra
 
-      - file: service-extra.yaml
-        dir: service
+  - name: macaroni-funtoo-race12
+    prefix: packages/atoms
+    specs:
 
-      - file: xorg-extra.yaml
-        dir: xorg
+      - file: tools.yaml
+        dir: tools
+
+      - file: python-extra.yaml
+        dir: python-extra
