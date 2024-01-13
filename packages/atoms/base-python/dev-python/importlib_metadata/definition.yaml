@@ -27,30 +27,30 @@ uri:
 - https://importlib-metadata.readthedocs.io/
 license: Apache-2.0
 labels:
-  BDEPEND: doc? ( || ( ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    >=dev-python/rst-linker-1.9[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ( dev-lang/python:3.8 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: doc? ( || ( ( dev-lang/python:3.8 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_8(-),python_single_target_python3_8(+)]
     >=dev-python/rst-linker-1.9[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_9(-),python_single_target_python3_9(+)]
     >=dev-python/rst-linker-1.9[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_7(-),python_single_target_python3_7(+)]
     >=dev-python/rst-linker-1.9[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-  IUSE: python_targets_python2_7 doc python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
-  RDEPEND: python_targets_python2_7? ( dev-python/importlib_metadata-compat ) dev-python/setuptools_scm[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/zipp[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/toml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    python_targets_python3_7? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
-    ) python_targets_python3_9? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
-    ) python_targets_python3_8? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
-    ) python_targets_python3_10? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_10(-)?,-python_single_target_python3_10(-)]
-    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ) ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    >=dev-python/rst-linker-1.9[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: python_targets_python2_7 doc python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_targets_python2_7? ( dev-python/importlib_metadata-compat ) dev-python/setuptools_scm[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/zipp[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/toml[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_10? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_7? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_9? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_8? ( >=dev-python/typing-extensions-3.6.4[python_targets_python3_10(-)?,-python_single_target_python3_10(-),python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/importlib_metadata
   kit: python-modules-kit
   original.package.name: dev-python/importlib_metadata

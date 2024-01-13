@@ -35,23 +35,23 @@ uri:
 - https://www.kernel.org/pub/linux/utils/usb/usbutils/ https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usbutils.git/
 license: GPL-2
 labels:
-  BDEPEND: app-arch/xz-utils virtual/pkgconfig python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+  BDEPEND: app-arch/xz-utils virtual/pkgconfig python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
     >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
   DEPEND: virtual/libusb:1= virtual/libudev:=
-  IUSE: python python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
-    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
-  RDEPEND: virtual/libusb:1= virtual/libudev:= sys-apps/hwids python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+  IUSE: python python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: virtual/libusb:1= virtual/libudev:= sys-apps/hwids python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    )
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) )
   emerge.packages: sys-apps/usbutils
   kit: core-kit
   original.package.name: sys-apps/usbutils

@@ -27,15 +27,17 @@ uri:
 - https://pypi.org/project/installer/ https://github.com/pypa/installer/ https://installer.readthedocs.io/en/latest/
 license: MIT
 labels:
-  BDEPEND: app-arch/unzip test? ( >=dev-python/pytest-7.1.2[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
-    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-  IUSE: test python_targets_pypy3 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
-  RDEPEND: python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
-    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  BDEPEND: app-arch/unzip test? ( >=dev-python/pytest-7.1.2[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_pypy3? (
+    >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: test python_targets_python3_10 python_targets_pypy3 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_pypy3?
+    ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_7? ( dev-lang/python:3.7
+    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/installer
   kit: python-modules-kit
   original.package.name: dev-python/installer
