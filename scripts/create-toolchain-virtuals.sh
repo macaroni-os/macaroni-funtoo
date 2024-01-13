@@ -4,17 +4,17 @@ SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 LUET_BUILD=${LUET_BUILD:-luet-build}
 
 kits=(
-  "base"
-  "base-extra"
-  "base-python"
-  "base-tools"
-  "base-tools2"
+  "base" # funtoo-base
+  "base-extra" # macaroni-funtoo-base
+  "base-python" # macaroni-funtoo-race1
+  "base-tools" # macaroni-funtoo-race2
+  "base-tools2" # macaroni-funtoo-race3
 
-  "net"   # race4
+  "net"   # macaroni-funtoo-race4
 
-  "lang"  # race5
+  "lang"  # macaroni-funtoo-race5
 
-  "dev-tools"   # race6
+  "dev-tools"   # macaroni-funtoo-race6
 
   "server"      # race7
   "text"        # race7
