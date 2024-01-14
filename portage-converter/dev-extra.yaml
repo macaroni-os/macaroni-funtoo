@@ -315,14 +315,11 @@ artefacts:
     - dev-python/aiosignal
     - dev-python/async_timeout
     - dev-python/frozenlist
-    - dev-python/idna-ssl
     - dev-python/multidict
     - dev-python/pycares
     - dev-python/yarl
-    - dev-python/pathspec
     - dev-python/service_identity
     - dev-python/hyperlink
-    - dev-python/constantly
     - dev-python/appdirs
     - dev-python/defusedxml
     - dev-python/pbr
@@ -335,6 +332,20 @@ artefacts:
     - dev-python/rfc3986
     - dev-python/brotlipy
     - dev-python/h2
+
+- tree: packages/atoms-extra/dev
+  mutations:
+    buildtime_deps:
+      # Ebuild issue
+      packages:
+        - category: dev-python
+          name: versioneer
+  uses:
+    enabled:
+      - python_targets_python3_9
+      - python_single_target_python3_9
+  packages:
+    - dev-python/constantly
 
 - tree: packages/atoms-extra/dev
   mutations:
