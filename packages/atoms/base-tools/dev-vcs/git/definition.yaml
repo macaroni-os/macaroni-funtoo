@@ -1,5 +1,5 @@
 name: git
-version: 2.42.0
+version: 2.43.0
 category: dev-vcs
 use_flags:
 - -cgi
@@ -74,9 +74,9 @@ labels:
     >=app-editors/emacs-23.1:* ) iconv? ( virtual/libiconv )
   IUSE: +blksha1 +curl cgi doc emacs gnome-keyring +gpg highlight +iconv libressl
     +nls +pcre +pcre-jit perforce +perl +ppcsha1 tk +threads +webdav xinetd cvs test
-    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
-    python_single_target_python2_7 python_single_target_python3_10 python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
+    python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_single_target_python2_7 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python2_7
   RDEPEND: app-arch/zstd gnome-keyring? ( app-crypt/libsecret ) !libressl? ( dev-libs/openssl:0=
     ) libressl? ( dev-libs/libressl:= ) sys-libs/zlib pcre? ( pcre-jit? ( dev-libs/libpcre2[jit(+)]
     ) !pcre-jit? ( dev-libs/libpcre2 ) ) perl? ( dev-lang/perl:=[-build(-)] ) tk?
@@ -84,15 +84,15 @@ labels:
     >=app-editors/emacs-23.1:* ) iconv? ( virtual/libiconv ) gpg? ( app-crypt/gnupg
     ) perl? ( dev-perl/Error dev-perl/MailTools dev-perl/Authen-SASL cgi? ( dev-perl/CGI
     highlight? ( app-text/highlight ) ) cvs? ( >=dev-vcs/cvsps-2.1:0 dev-perl/DBI
-    dev-perl/DBD-SQLite ) ) perforce? ( python_single_target_python3_7? ( dev-lang/python:3.7
-    >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    dev-perl/DBD-SQLite ) ) perforce? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
     ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
     ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python2_7?
     ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) )
   emerge.packages: dev-vcs/git
   kit: core-kit
   original.package.name: dev-vcs/git
   original.package.slot: "0"
-  original.package.version: 2.42.0
+  original.package.version: 2.43.0
