@@ -1,5 +1,5 @@
 name: apache
-version: 2.4.46+1
+version: 2.4.58
 category: www-servers-2
 use_flags:
 - -apache2_modules_brotli
@@ -60,20 +60,20 @@ uri:
 - https://httpd.apache.org/
 license: Apache-2.0 Apache-1.1
 labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
+    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0 ) virtual/pkgconfig'
   DEPEND: apache2_modules_brotli? ( >=app-arch/brotli-0.6.0:= ) apache2_modules_http2?
     ( >=net-libs/nghttp2-1.2.1 ) apache2_modules_proxy_http2? ( >=net-libs/nghttp2-1.2.1
     ) apache2_modules_md? ( >=dev-libs/jansson-2.10 ) apache2_modules_session_crypto?
     ( libressl? ( dev-libs/apr-util[libressl] ) !libressl? ( dev-libs/apr-util[openssl]
-    ) ) suexec? ( suexec-caps? ( sys-libs/libcap ) ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0
-    ) sys-apps/shadow >=dev-libs/apr-1.5.1:= !www-apache/mod_macro dev-lang/perl =dev-libs/apr-util-1*:=[gdbm=,ldap?]
-    dev-libs/libpcre apache2_modules_deflate? ( sys-libs/zlib ) apache2_modules_mime?
-    ( app-misc/mime-types ) gdbm? ( sys-libs/gdbm:= ) ldap? ( =net-nds/openldap-2*
-    ) ssl? ( !libressl? ( >=dev-libs/openssl-1.0.2:0= ) libressl? ( dev-libs/libressl:0=
-    ) ) !=www-servers/apache-1* virtual/pkgconfig
-  IUSE: +suexec-caps suexec-syslog split-usr ssl debug doc gdbm ldap libressl selinux
-    ssl static suexec threads apache2_modules_access_compat apache2_modules_actions
+    ) ) suexec? ( suexec-caps? ( sys-libs/libcap ) ) sys-apps/shadow >=dev-libs/apr-1.5.1:=
+    !www-apache/mod_macro dev-lang/perl =dev-libs/apr-util-1*:=[gdbm=,ldap?] dev-libs/libpcre
+    apache2_modules_deflate? ( sys-libs/zlib ) apache2_modules_mime? ( app-misc/mime-types
+    ) gdbm? ( sys-libs/gdbm:= ) ldap? ( =net-nds/openldap-2* ) ssl? ( !libressl? (
+    >=dev-libs/openssl-1.0.2:0= ) libressl? ( dev-libs/libressl:0= ) ) !=www-servers/apache-1*
+  IUSE: +suexec-caps suexec-syslog split-usr systemd ssl debug doc gdbm ldap libressl
+    selinux ssl static suexec threads apache2_modules_access_compat apache2_modules_actions
     apache2_modules_alias apache2_modules_asis apache2_modules_auth_basic apache2_modules_auth_digest
     apache2_modules_auth_form apache2_modules_authn_alias apache2_modules_authn_anon
     apache2_modules_authn_core apache2_modules_authn_dbd apache2_modules_authn_dbm
@@ -112,7 +112,7 @@ labels:
     ) ssl? ( !libressl? ( >=dev-libs/openssl-1.0.2:0= ) libressl? ( dev-libs/libressl:0=
     ) ) !=www-servers/apache-1* selinux? ( sec-policy/selinux-apache ) virtual/tmpfiles
   emerge.packages: www-servers/apache:2
-  kit: core-server-kit
+  kit: geaaru-kit
   original.package.name: www-servers/apache
   original.package.slot: "2"
-  original.package.version: 2.4.46
+  original.package.version: 2.4.58
