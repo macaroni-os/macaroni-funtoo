@@ -849,6 +849,36 @@ artefacts:
     - app-emulation/docker-buildx
     - app-emulation/docker-compose
 
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-emulation
+          name: lxc
+  uses:
+    disabled:
+    - apparmor
+    - nios2
+    - sh
+    - test
+    enabled:
+    - ipv6
+    - nls
+    - dnsmasq
+    - daemon
+  packages:
+  - app-emulation/incus
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e incus &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e incus-admin
+
 include_layers:
 - layers/macaroni-funtoo-race7.yaml
 
