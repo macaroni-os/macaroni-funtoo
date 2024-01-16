@@ -1,5 +1,5 @@
 name: lxc
-version: 5.0.3
+version: 5.0.3+1
 category: app-emulation
 use_flags:
 - -apparmor
@@ -7,22 +7,19 @@ use_flags:
 - -man
 - -selinux
 - -static
-- -systemd
 - caps
 - pam
 - seccomp
 - ssl
+- systemd
 - caps
 requires:
 - name: openssl
   version: '>=0'
   category: dev-libs
-- name: libcap
+- name: systemd
   version: '>=0'
-  category: sys-libs
-- name: libseccomp
-  version: '>=0'
-  category: sys-libs
+  category: sys-apps
 - name: pam
   version: '>=0'
   category: sys-libs
