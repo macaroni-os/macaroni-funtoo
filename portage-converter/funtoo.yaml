@@ -88,8 +88,16 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/funtoo
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-python
+          name: subpop
   packages:
     - sys-apps/metatools
+
+- tree: packages/atoms/funtoo
+  packages:
     - sys-apps/fchroot
     - sys-apps/ramdisk
 
