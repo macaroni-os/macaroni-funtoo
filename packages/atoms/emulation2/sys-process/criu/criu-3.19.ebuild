@@ -3,17 +3,17 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3+ )
+DISTUTILS_USE_PEP517=setuptools
+inherit toolchain-funcs linux-info flag-o-matic distutils-r1
 
-inherit toolchain-funcs linux-info flag-o-matic python-r1
-
-DESCRIPTION="Checkpoint and Restore in Userspace is a utility to checkpoint/restore Linux tasks"
+DESCRIPTION="Checkpoint/Restore tool"
 HOMEPAGE="https://criu.org/"
-SRC_URI="https://github.com/checkpoint-restore/criu/tarball/4c1a2ac41bb80843c927d2fde8f2ff4186f8d278 -> criu-3.18-4c1a2ac.tar.gz"
+SRC_URI="https://github.com/checkpoint-restore/criu/tarball/f8b14286b092853a4485813e1efd564109df9123 -> criu-3.19-f8b1428.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="*"
-IUSE="doc selinux setproctitle static-libs -video_cards_amdgpu"
+IUSE="bpf doc selinux setproctitle static-libs -video_cards_amdgpu"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -23,6 +23,7 @@ RDEPEND="
 	dev-libs/libnl:3
 	net-libs/libnet:1.1
 	sys-libs/libcap
+	bpf? ( dev-libs/libbpf:= )
 	selinux? ( sys-libs/libselinux )
 	setproctitle? ( dev-libs/libbsd )
 	video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu?] )"
@@ -71,11 +72,17 @@ src_prepare() {
 			-i Makefile.config || die
 	fi
 
+	if ! use bpf; then
+		sed \
+			-e 's:libbpf:no_libbpf:g' \
+			-i Makefile.config || die
+	fi
+
 	# Disabling criu amdgpu plugin temporarily
 	# There is an upstream bug breaking the amdgpu plugin compilation: https://github.com/checkpoint-restore/criu/issues/1877
 	# Also reference https://bugs.funtoo.org/browse/FL-9805 for more details and analysis
 	# Once the upstream bug is fixed, the if loop encasing the sed statements can be enabled for testing
-	#if ! use video_cards_amdgpu; then
+	if ! use video_cards_amdgpu; then
 	sed \
 		-e 's:pkg-config-check,libdrm:pkg-config-check,no_libdrm:g' \
 		-i Makefile.config || die
@@ -83,9 +90,10 @@ src_prepare() {
 	sed \
 		-e 's:install-compel install-amdgpu_plugin:install-compel:g' \
 		-i Makefile.install || die
-	#fi
+	fi
 
 	use doc || sed -i 's_\(install: \)install-man _\1_g' Makefile.install
+	distutils-r1_src_prepare
 }
 
 src_configure() {
@@ -98,6 +106,13 @@ src_configure() {
 	unset GCOV
 
 	python_setup
+	pushd crit >/dev/null || die
+	local -x \
+		CRIU_VERSION_MAJOR="$(ver_cut 1)" \
+		CRIU_VERSION_MINOR=$(ver_cut 2) \
+		CRIU_VERSION_SUBLEVEL=$(ver_cut 3)
+	distutils-r1_src_configure
+	popd >/dev/null || die
 }
 
 src_compile() {
@@ -115,6 +130,14 @@ src_compile() {
 		V=1 WERROR=0 DEBUG=0 \
 		SETPROCTITLE=$(usex setproctitle) \
 		${target}
+
+	pushd crit >/dev/null || die
+	local -x \
+		CRIU_VERSION_MAJOR="$(ver_cut 1)" \
+		CRIU_VERSION_MINOR=$(ver_cut 2) \
+		CRIU_VERSION_SUBLEVEL=$(ver_cut 3)
+	distutils-r1_src_compile
+	popd >/dev/null || die
 }
 
 src_test() {
@@ -124,14 +147,15 @@ src_test() {
 	fi
 }
 
-install_crit() {
+python_install() {
 	local -x \
 		CRIU_VERSION_MAJOR="$(ver_cut 1)" \
 		CRIU_VERSION_MINOR=$(ver_cut 2) \
 		CRIU_VERSION_SUBLEVEL=$(ver_cut 3)
 
-	python_optimize
+	distutils-r1_python_install
 }
+
 
 src_install() {
 	emake \
@@ -147,7 +171,9 @@ src_install() {
 
 	use doc && dodoc CREDITS README.md
 
-	python_foreach_impl install_crit
+	pushd crit >/dev/null || die
+	distutils-r1_src_install
+	popd >/dev/null || die
 
 	if ! use static-libs; then
 		find "${D}" -name "*.a" -delete || die
