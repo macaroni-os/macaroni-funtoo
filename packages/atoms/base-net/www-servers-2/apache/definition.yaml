@@ -1,5 +1,5 @@
 name: apache
-version: 2.4.58
+version: 2.4.58+1
 category: www-servers-2
 use_flags:
 - -apache2_modules_brotli
@@ -9,12 +9,12 @@ use_flags:
 - -ldap
 - -libressl
 - -selinux
-- -suexec
 - apache2_modules_deflate
 - apache2_modules_mime
 - apache2_modules_proxy_http2
 - gdbm
 - ssl
+- suexec
 - suexec-caps
 - apache2_modules_proxy_balancer
 - apache2_modules_proxy_connect
@@ -48,6 +48,7 @@ use_flags:
 - apache2_modules_authz_user
 - apache2_modules_autoindex
 - apache2_modules_cache
+- apache2_modules_cache_disk
 - apache2_modules_cgi
 - apache2_modules_cgid
 - apache2_modules_dav
