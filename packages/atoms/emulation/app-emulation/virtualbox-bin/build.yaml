@@ -22,6 +22,10 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# TODO: Fix this on ebuild
+# The generated udev rules file doesn't contain rules to setup correctly the Vbox devices.
+- >-
+  cp 60-vboxdrv.rules /pkgdir/{{ .Values.name }}/lib/udev/rules.d/
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
