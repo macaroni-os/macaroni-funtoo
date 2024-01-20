@@ -10,8 +10,8 @@ inherit python-r1 toolchain-funcs cmake-multilib
 DESCRIPTION="A collection of algorithms and sample code for various computer vision problems"
 HOMEPAGE="https://opencv.org"
 SRC_URI="
-	https://github.com/opencv/opencv/tarball/7d2cb72b9276aa2c411e71901aa2229946ced456 -> opencv-4.8.1-7d2cb72.tar.gz
-	contrib? ( https://github.com/opencv/opencv_contrib/tarball/f10c84d48b0714f2b408c9e5cccfac1277c8e6cc -> opencv_contrib-4.8.1-f10c84d.tar.gz )
+	https://github.com/opencv/opencv/tarball/d7d867066ae146114613661bd3a20a53cda9c16c -> opencv-4.9.0-d7d8670.tar.gz
+	contrib? ( https://github.com/opencv/opencv_contrib/tarball/c7602a8f74205e44389bd6a4e8d727d32e7e27b4 -> opencv_contrib-4.9.0-c7602a8.tar.gz )
 "
 
 LICENSE="BSD"
@@ -247,12 +247,12 @@ src_prepare() {
 		-e '/ocv_add_external_target/d' \
 		-e '/set(CUSTOM_STATUS_flatbuffers/d' \
 		-e '/flatbuffers_VERSION /d' \
-		-i cmake/OpenCVDetectFlatbuffers.cmake || die
+		-i cmake/OpenCVDetectFlatbuffers.cmake || die 
 
 	# Drop flatbuffers version check
 	sed -e 's|FLATBUFFERS_VERSION_MINOR == 5|FLATBUFFERS_VERSION_MINOR == FLATBUFFERS_VERSION_MINOR|g' \
 		-e 's|FLATBUFFERS_VERSION_REVISION == 9|FLATBUFFERS_VERSION_REVISION == FLATBUFFERS_VERSION_REVISION|g' \
-		-i modules/dnn/misc/tflite/schema_generated.h || die
+		-i modules/dnn/misc/tflite/schema_generated.h || die 
 
 	if use examples; then
 		sed -i 's/\(opencv_dnn\)/\1\n  opencv_gapi/' samples/cpp/CMakeLists.txt  || die
@@ -264,6 +264,7 @@ multilib_src_configure() {
 	GLOBALCMAKEARGS=(
 	# Optional 3rd party components
 	# ===================================================
+		-DOPENCV_GENERATE_PKGCONFIG=ON
 		-DENABLE_DOWNLOAD=OFF
 		-DWITH_1394=$(usex ieee1394)
 	#	-DWITH_AVFOUNDATION=OFF # IOS
