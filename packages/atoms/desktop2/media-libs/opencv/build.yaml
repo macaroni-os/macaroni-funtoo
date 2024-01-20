@@ -4,6 +4,9 @@ prelude:
   eval 'eselect cblas set 2 || true' &&
   eval 'eselect lapack set 1 || true' &&
   cp opencv-4.9.0.ebuild /var/git/meta-repo/kits/media-kit/media-libs/opencv/ &&
+  cd /var/git/meta-repo/kits/media-kit/media-libs/opencv/ &&
+  ebuild opencv-4.9.0.ebuild digest &&
+  cd - &&
   luet repo update &&
   luet upgrade &&
   luet cleanup
