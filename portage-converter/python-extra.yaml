@@ -107,7 +107,8 @@ artefacts:
     - dev-python/greenlet
     - dev-python/numpy
     - app-admin/awscli
-    - app-admin/awscliv2
+    - dev-python/aws-crt-python
+    - dev-python/distro
 
 - tree: packages/atoms/python-extra
   mutations:
@@ -127,6 +128,20 @@ artefacts:
   packages:
     - dev-python/pycurl
 
+- tree: packages/atoms/python-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: distro
+        - category: dev-python
+          name: aws-crt-python
+  uses:
+    disabled:
+      - test
+      - doc
+  packages:
+    - app-admin/awscliv2
 
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
