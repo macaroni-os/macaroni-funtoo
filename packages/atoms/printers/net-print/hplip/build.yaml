@@ -1,4 +1,7 @@
 prelude:
+# Remove invalid patch
+- >-
+  rm /var/git/meta-repo/kits/desktop-kit/net-print/hplip/files/012_hplip-3.20.6-hppsfilter-fix-return-values.patch
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
