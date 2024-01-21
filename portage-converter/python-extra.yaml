@@ -131,11 +131,22 @@ artefacts:
 - tree: packages/atoms/python-extra
   mutations:
     buildtime_deps:
+      # DEPEND missing and set as RDEPEND
       packages:
         - category: dev-python
           name: distro
         - category: dev-python
           name: aws-crt-python
+        - category: dev-python
+          name: jmespath
+        - category: dev-python
+          name: python-dateutil
+        - category: dev-python
+          name: ruamel-yaml
+        - category: dev-python
+          name: prompt_toolkit
+        - category: dev-python
+          name: wcwidth
   uses:
     disabled:
       - test
