@@ -1,10 +1,4 @@
 prelude:
-# Temporary
-- >-
-  cp hplip-*.ebuild /var/git/meta-repo/kits/desktop-kit/net-print/hplip/ &&
-  cd /var/git/meta-repo/kits/desktop-kit/net-print/hplip/ &&
-  ebuild hplip-3.23.5.ebuild digest &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
