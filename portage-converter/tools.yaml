@@ -587,6 +587,13 @@ artefacts:
     - dev-util/valgrind
     - dev-util/packer
 
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - hardened
+  packages:
+    - sys-cluster/kubectl
+
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
 
