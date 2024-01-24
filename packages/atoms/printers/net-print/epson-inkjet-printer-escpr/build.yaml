@@ -1,4 +1,11 @@
 prelude:
+- >-
+  cp epson-inkjet-printer-escpr-1.8.3.ebuild
+  /var/git/meta-repo/kits/desktop-kit/net-print/epson-inkjet-printer-escpr/ &&
+  cp files/* /var/git/meta-repo/kits/desktop-kit/net-print/epson-inkjet-printer-escpr/files/ &&
+  cd /var/git/meta-repo/kits/desktop-kit/net-print/epson-inkjet-printer-escpr/ &&
+  ebuild epson-inkjet-printer-escpr-1.8.3.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
