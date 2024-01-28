@@ -421,6 +421,14 @@ artefacts:
       ignore:
         - category: app-text
           name: qpdf
+
+  mutations:
+  # This is needed to avoid issues on
+  # start print jobs.
+    runtime_deps:
+      packages:
+        - category: app-text
+          name: qpdf
   uses:
     disabled:
     - ldap
