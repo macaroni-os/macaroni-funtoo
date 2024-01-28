@@ -351,6 +351,10 @@ artefacts:
   - virtual/perl-parent
 
 - tree: packages/atoms/base-gtk
+  mutations:
+    uses:
+      # Quiet emerge for ghostscript-gpl
+      - cups
   uses:
     disabled:
     - abi_mips_n32
