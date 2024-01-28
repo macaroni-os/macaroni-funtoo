@@ -3,3 +3,7 @@ shell:
 - -c
 install:
 - entities merge --specs-dir /usr/share/macaroni/entities/ -e alertmanager
+# Avoid 
+- >-
+  eval 'mkdir -p /var/lib/alertmanager/ || true' &&
+  eval 'chown alertmanager:alertmanager /var/lib/alertmanager/ || true'
