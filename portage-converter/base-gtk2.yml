@@ -412,23 +412,12 @@ artefacts:
 
 - tree: packages/atoms/base-gtk2
   replacements:
-    runtime_deps:
-      ignore:
-        - category: app-text
-          name: qpdf
     # Break build cycle
     buildtime_deps:
       ignore:
         - category: app-text
           name: qpdf
 
-  mutations:
-  # This is needed to avoid issues on
-  # start print jobs.
-    runtime_deps:
-      packages:
-        - category: app-text
-          name: qpdf
   uses:
     disabled:
     - ldap
