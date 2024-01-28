@@ -11,7 +11,8 @@ prelude:
   eval 'emerge --sync || true' &&
   cd /var/git/extra-kits/geaaru-kit &&
   git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' &&
-  git fetch -a &&
+  git fetch --depth 100 &&
+  git log -n 3 &&
   git checkout {{ ( index .Values.labels "repo_branch" ) }} &&
   git checkout {{ ( index .Values.labels "repo_hash" ) }} &&
   mkdir /{{ .Values.name }}
