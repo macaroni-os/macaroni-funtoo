@@ -1,5 +1,5 @@
 name: curl
-version: 8.5.0
+version: 8.6.0
 category: net-misc
 use_flags:
 - -adns
@@ -46,8 +46,7 @@ uri:
 license: curl
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig test? ( sys-apps/diffutils ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: ldap? ( net-nds/openldap[-mgorny(-)] ) brotli? ( app-arch/brotli:=[-mgorny(-)]
     ) ssl? ( gnutls? ( net-libs/gnutls:0=[static-libs?,-mgorny(-)] dev-libs/nettle:0=[-mgorny(-)]
     app-misc/ca-certificates ) mbedtls? ( net-libs/mbedtls:0=[-mgorny(-)] app-misc/ca-certificates
@@ -77,4 +76,4 @@ labels:
   kit: core-kit
   original.package.name: net-misc/curl
   original.package.slot: "0"
-  original.package.version: 8.5.0
+  original.package.version: 8.6.0
