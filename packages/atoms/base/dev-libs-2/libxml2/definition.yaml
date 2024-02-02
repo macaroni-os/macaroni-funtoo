@@ -3,12 +3,11 @@ version: 2.11.5
 category: dev-libs-2
 use_flags:
 - -lzma
-- -python_targets_python3_10
-- -python_targets_python3_7
-- -python_targets_python3_8
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
 - icu
-- python
-- python_targets_python3_9
+- python_single_target_python3_9
 - readline
 requires:
 - name: icu
@@ -20,6 +19,12 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
+- name: libxml2-python
+  version: '>=0'
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -29,7 +34,7 @@ annotations:
       - ^/var/db/pkg/
 description: XML C parser and toolkit
 uri:
-- http://www.xmlsoft.org/ https://gitlab.gnome.org/GNOME/libxml2
+- https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig dev-util/gtk-doc-am >=app-portage/elt-patches-20170815
