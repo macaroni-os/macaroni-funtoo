@@ -1812,6 +1812,11 @@ artefacts:
   packages:
   - app-crypt/gnupg
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-python
+          name: libxml2-python
   uses:
     disabled:
     - debug
@@ -1828,9 +1833,45 @@ artefacts:
     - icu
     - python
     - python_targets_python3_9
+    - python_single_target_python3_9
     - readline
   packages:
   - dev-libs/libxml2:2
+
+- tree: packages/atoms/base
+  uses:
+    disabled:
+    - debug
+    - examples
+    - lzma
+    - nios2
+    - python_targets_python3_10
+    - python_targets_python3_7
+    - python_targets_python3_8
+    - sh
+    - static-libs
+    - test
+    enabled:
+    - icu
+    - python
+    - python_targets_python3_9
+    - python_single_target_python3_9
+    - readline
+  packages:
+  - dev-python/libxml2-python
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+    - >-
+      eval 'mkdir /etc/env.d -p || true' &&
+      echo "PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" > /etc/env.d/99python-libxml &&
+      echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" >> /etc/env.d/99python-libxml &&
+      eval 'macaronictl env-update || true'
+    uninstall:
+    - eval 'rm -f /etc/env.d/99python-libxml || true'
+
 - tree: packages/atoms/base
   uses:
     disabled:
