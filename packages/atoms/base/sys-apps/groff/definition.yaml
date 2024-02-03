@@ -1,5 +1,5 @@
 name: groff
-version: 1.22.4+1
+version: 1.23.0
 category: sys-apps
 use_flags:
 - -X
@@ -15,13 +15,14 @@ uri:
 - https://www.gnu.org/software/groff/groff.html
 license: GPL-2
 labels:
-  DEPEND: X? ( x11-libs/libX11 x11-libs/libXt x11-libs/libXmu x11-libs/libXaw x11-libs/libSM
-    x11-libs/libICE ) dev-lang/perl sys-apps/texinfo
-  IUSE: examples X
-  RDEPEND: X? ( x11-libs/libX11 x11-libs/libXt x11-libs/libXmu x11-libs/libXaw x11-libs/libSM
-    x11-libs/libICE )
+  BDEPEND: dev-lang/perl sys-apps/texinfo
+  DEPEND: uchardet? ( app-i18n/uchardet ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11
+    x11-libs/libXaw x11-libs/libXmu x11-libs/libXt )
+  IUSE: examples uchardet X
+  RDEPEND: uchardet? ( app-i18n/uchardet ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11
+    x11-libs/libXaw x11-libs/libXmu x11-libs/libXt )
   emerge.packages: sys-apps/groff
   kit: core-kit
   original.package.name: sys-apps/groff
   original.package.slot: "0"
-  original.package.version: 1.22.4
+  original.package.version: 1.23.0
