@@ -1,0 +1,9 @@
+shell:
+- /bin/bash
+- -c
+install:
+- eval 'mkdir /etc/env.d -p || true' && echo "PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\""
+  > /etc/env.d/99python-libxml && echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\""
+  >> /etc/env.d/99python-libxml && eval 'macaronictl env-update || true'
+uninstall:
+- eval 'rm -f /etc/env.d/99python-libxml || true'
