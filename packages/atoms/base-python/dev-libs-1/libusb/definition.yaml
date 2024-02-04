@@ -1,5 +1,5 @@
 name: libusb
-version: 1.0.26+1
+version: 1.0.27
 category: dev-libs-1
 use_flags:
 - -doc
@@ -20,9 +20,8 @@ uri:
 - https://libusb.info/ https://github.com/libusb/libusb
 license: LGPL-2.1
 labels:
-  BDEPEND: doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+  BDEPEND: doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: udev? ( >=virtual/libudev-208:=[-mgorny(-)] ) !udev? ( virtual/os-headers
     )
   IUSE: debug doc examples static-libs test udev abi_x86_32 abi_x86_64 abi_x86_x32
@@ -32,4 +31,4 @@ labels:
   kit: core-kit
   original.package.name: dev-libs/libusb
   original.package.slot: "1"
-  original.package.version: 1.0.26
+  original.package.version: 1.0.27
