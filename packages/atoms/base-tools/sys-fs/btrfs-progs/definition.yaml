@@ -1,5 +1,5 @@
 name: btrfs-progs
-version: 6.5.2
+version: "6.7"
 category: sys-fs
 use_flags:
 - -doc
@@ -38,36 +38,35 @@ uri:
 license: GPL-2
 labels:
   BDEPEND: doc? ( || ( >=app-text/asciidoc-8.6.0 dev-ruby/asciidoctor ) app-text/docbook-xml-dtd:4.5
-    app-text/xmlto ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+    app-text/xmlto ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: dev-libs/lzo:2= sys-apps/util-linux:0=[static-libs(+)?] sys-libs/zlib:0=
     convert? ( sys-fs/e2fsprogs:0= sys-libs/e2fsprogs-libs:0= reiserfs? ( >=sys-fs/reiserfsprogs-3.6.27
-    ) ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) ) zstd? ( app-arch/zstd:0= ) convert? ( sys-apps/acl ) python? ( python_single_target_python3_7?
+    ) ) zstd? ( app-arch/zstd:0= ) convert? ( sys-apps/acl ) python? ( python_single_target_python3_10?
+    ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_7?
     ( dev-python/setuptools[python_targets_python3_7(-)] ) python_single_target_python3_9?
     ( dev-python/setuptools[python_targets_python3_9(-)] ) python_single_target_python3_8?
-    ( dev-python/setuptools[python_targets_python3_8(-)] ) python_single_target_python3_10?
-    ( dev-python/setuptools[python_targets_python3_10(-)] ) ) static? ( dev-libs/lzo:2[static-libs(+)]
+    ( dev-python/setuptools[python_targets_python3_8(-)] ) ) static? ( dev-libs/lzo:2[static-libs(+)]
     sys-apps/util-linux:0[static-libs(+)] sys-libs/zlib:0[static-libs(+)] convert?
     ( sys-fs/e2fsprogs:0[static-libs(+)] sys-libs/e2fsprogs-libs:0[static-libs(+)]
     reiserfs? ( >=sys-fs/reiserfsprogs-3.6.27[static-libs(+)] ) ) zstd? ( app-arch/zstd:0[static-libs(+)]
     ) )
-  IUSE: +convert doc python reiserfs static static-libs +zstd python_single_target_python3_7
-    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
-    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+  IUSE: +convert doc python reiserfs static static-libs +zstd python_single_target_python3_10
+    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
   RDEPEND: dev-libs/lzo:2= sys-apps/util-linux:0=[static-libs(+)?] sys-libs/zlib:0=
     convert? ( sys-fs/e2fsprogs:0= sys-libs/e2fsprogs-libs:0= reiserfs? ( >=sys-fs/reiserfsprogs-3.6.27
-    ) ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) ) zstd? ( app-arch/zstd:0= )
   emerge.packages: sys-fs/btrfs-progs
   kit: core-kit
   original.package.name: sys-fs/btrfs-progs
   original.package.slot: "0"
-  original.package.version: 6.5.2
+  original.package.version: "6.7"
