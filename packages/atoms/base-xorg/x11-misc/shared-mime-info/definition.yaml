@@ -1,5 +1,5 @@
 name: shared-mime-info
-version: "1.10"
+version: "2.4"
 category: x11-misc
 requires:
 - name: glib
@@ -20,12 +20,13 @@ uri:
 - https://freedesktop.org/wiki/Software/shared-mime-info
 license: GPL-2
 labels:
-  DEPEND: '>=dev-libs/glib-2 dev-libs/libxml2 dev-util/intltool sys-devel/gettext
-    virtual/pkgconfig'
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: dev-libs/glib dev-libs/libxml2 app-text/xmlto dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig
   IUSE: test
-  RDEPEND: '>=dev-libs/glib-2 dev-libs/libxml2'
+  RDEPEND: dev-libs/glib dev-libs/libxml2
   emerge.packages: x11-misc/shared-mime-info
   kit: desktop-kit
   original.package.name: x11-misc/shared-mime-info
   original.package.slot: "0"
-  original.package.version: 1.10-r1
+  original.package.version: "2.4"
