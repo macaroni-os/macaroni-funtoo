@@ -1,5 +1,5 @@
 name: arangodb
-version: 3.9.5
+version: 3.10.13
 category: dev-db-3
 use_flags:
 - -jemalloc
@@ -27,13 +27,13 @@ uri:
 license: Apache-2.0
 labels:
   DEPEND: '>=sys-libs/readline-6.2_p1 >=dev-libs/openssl-1.1.0[-bindist] system-boost?
-    ( dev-libs/boost ) jemalloc? ( dev-libs/jemalloc ) sys-apps/shadow virtual/pkgconfig
-    sys-devel/make >=dev-util/cmake-3.9.6'
-  IUSE: system-boost jemalloc systemd
+    ( dev-libs/boost ) jemalloc? ( dev-libs/jemalloc ) sys-devel/make >=dev-util/cmake-3.9.6
+    virtual/pkgconfig sys-apps/shadow'
+  IUSE: jemalloc +memsaver +system-boost systemd +memsaver
   RDEPEND: '>=sys-libs/readline-6.2_p1 >=dev-libs/openssl-1.1.0[-bindist] system-boost?
     ( dev-libs/boost ) jemalloc? ( dev-libs/jemalloc )'
   emerge.packages: dev-db/arangodb:3
   kit: core-server-kit
   original.package.name: dev-db/arangodb
   original.package.slot: "3"
-  original.package.version: 3.9.5
+  original.package.version: 3.10.13
