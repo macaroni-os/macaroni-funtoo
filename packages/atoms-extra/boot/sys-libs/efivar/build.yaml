@@ -1,4 +1,10 @@
 prelude:
+- >-
+  sed -i -e '/efivar-38-ia64-relro.patch/d'
+  -e '/efivar-38-march-native.patch/d'
+  -e '/efivar-38-Makefile-dep.patch/d'
+  -e '/efivar-38-binutils-2.36.patch/d'
+  /var/git/meta-repo/kits/core-kit/sys-libs/efivar/efivar-39.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
