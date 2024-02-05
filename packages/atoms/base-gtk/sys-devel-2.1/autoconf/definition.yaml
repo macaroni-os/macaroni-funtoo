@@ -1,5 +1,5 @@
 name: autoconf
-version: "2.13"
+version: 2.13+1
 category: sys-devel-2.1
 requires:
 - name: texinfo
@@ -23,11 +23,13 @@ uri:
 - https://www.gnu.org/software/autoconf/autoconf.html
 license: GPL-2
 labels:
+  BDEPEND: sys-apps/texinfo >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16
   DEPEND: '>=sys-apps/texinfo-4.3 =sys-devel/m4-1.4* dev-lang/perl'
-  IUSE: userland_BSD
-  RDEPEND: '>=sys-apps/texinfo-4.3 =sys-devel/m4-1.4* dev-lang/perl >=sys-devel/autoconf-wrapper-13'
+  IUSE: emacs
+  RDEPEND: sys-apps/texinfo >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 >=sys-devel/autoconf-wrapper-13
+    sys-devel/gnuconfig !~sys-devel/autoconf-2.13:2.5
   emerge.packages: sys-devel/autoconf:2.1
   kit: core-kit
   original.package.name: sys-devel/autoconf
   original.package.slot: "2.1"
-  original.package.version: 2.13-r1
+  original.package.version: 2.13-r2
