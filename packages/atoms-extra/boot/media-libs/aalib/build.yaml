@@ -1,4 +1,7 @@
 prelude:
+- >-
+  eval 'mkdir /etc/portage/patches/media-libs/aalib -p || true' &&
+  cp -vf patches/* /etc/portage/patches/media-libs/aalib/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
