@@ -1,5 +1,5 @@
 name: redis
-version: 7.2.1
+version: 7.2.4
 category: dev-db
 use_flags:
 - -systemd
@@ -27,8 +27,8 @@ license: BSD
 labels:
   BDEPEND: ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc?
     ( dev-util/google-perftools ) virtual/pkgconfig >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    virtual/pkgconfig
   DEPEND: ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? (
     dev-util/google-perftools ) test? ( dev-lang/tcl:0= ssl? ( dev-tcltk/tls ) ) sys-apps/shadow
   IUSE: +jemalloc ssl split-conf systemd tcmalloc test
@@ -38,4 +38,4 @@ labels:
   kit: core-server-kit
   original.package.name: dev-db/redis
   original.package.slot: "0"
-  original.package.version: 7.2.1
+  original.package.version: 7.2.4
