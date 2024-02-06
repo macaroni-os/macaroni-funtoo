@@ -1,5 +1,5 @@
 name: rsyslog
-version: 8.2312.0+1
+version: 8.2312.0+2
 category: app-admin
 use_flags:
 - -elibc_musl
@@ -16,7 +16,6 @@ use_flags:
 - -relp
 - -rfc3195
 - -rfc5424hmac
-- -systemd
 - -test
 - -xxhash
 - -zeromq
@@ -34,6 +33,7 @@ use_flags:
 - openssl
 - snmp
 - ssl
+- systemd
 - uuid
 requires:
 - name: libdbi
@@ -42,9 +42,6 @@ requires:
 - name: mysql-connector-c
   version: '>=0'
   category: dev-db
-- name: libgcrypt
-  version: '>=0'
-  category: dev-libs
 - name: liblognorm
   version: '>=0'
   category: dev-libs
@@ -57,10 +54,7 @@ requires:
 - name: net-snmp
   version: '>=0'
   category: net-analyzer
-- name: curl
-  version: '>=0'
-  category: net-misc
-- name: util-linux
+- name: systemd
   version: '>=0'
   category: sys-apps
 annotations:
