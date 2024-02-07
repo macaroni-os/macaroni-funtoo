@@ -1,5 +1,5 @@
 name: brotli
-version: 1.0.9
+version: 1.1.0
 category: app-arch
 use_flags:
 - -python_targets_python2_7
@@ -27,15 +27,13 @@ uri:
 - https://github.com/google/brotli
 license: MIT python? ( Apache-2.0 )
 labels:
-  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  BDEPEND: dev-util/ninja dev-util/cmake
   DEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
     ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
     ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
     )
-  IUSE: python test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32
-    abi_s390_32 abi_s390_64 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-    python_targets_python2_7 python_targets_python3_10
+  IUSE: python test
   RDEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
     ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_10? ( dev-lang/python:3.10
@@ -45,4 +43,4 @@ labels:
   kit: core-kit
   original.package.name: app-arch/brotli
   original.package.slot: "0"
-  original.package.version: 1.0.9
+  original.package.version: 1.1.0
