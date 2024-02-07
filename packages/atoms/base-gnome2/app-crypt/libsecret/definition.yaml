@@ -1,5 +1,5 @@
 name: libsecret
-version: 0.21.1
+version: 0.21.3
 category: app-crypt
 use_flags:
 - -test
@@ -26,32 +26,19 @@ uri:
 - https://wiki.gnome.org/Projects/Libsecret
 license: LGPL-2.1+ Apache-2.0
 labels:
-  BDEPEND: dev-libs/libxslt dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig
-    test? ( || ( ( dev-lang/python:3.10 dev-python/mock[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    dev-python/dbus-python[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    introspection? ( dev-python/pygobject:3[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ) ( dev-lang/python:3.8 dev-python/mock[python_targets_python3_8(-),python_single_target_python3_8(+)]
-    dev-python/dbus-python[python_targets_python3_8(-),python_single_target_python3_8(+)]
-    introspection? ( dev-python/pygobject:3[python_targets_python3_8(-),python_single_target_python3_8(+)]
-    ) ) ( dev-lang/python:3.9 dev-python/mock[python_targets_python3_9(-),python_single_target_python3_9(+)]
-    dev-python/dbus-python[python_targets_python3_9(-),python_single_target_python3_9(+)]
-    introspection? ( dev-python/pygobject:3[python_targets_python3_9(-),python_single_target_python3_9(+)]
-    ) ) ( dev-lang/python:3.7 dev-python/mock[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    dev-python/dbus-python[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    introspection? ( dev-python/pygobject:3[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) ) introspection? ( >=dev-libs/gjs-1.32 ) ) vala? ( || ( dev-lang/vala:0.50[vapigen(+)]
-    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
-    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
-    ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
-    )
-  DEPEND: '>=dev-libs/glib-2.44:2 crypt? ( >=dev-libs/libgcrypt-1.2.2:0= ) introspection?
-    ( >=dev-libs/gobject-introspection-1.29:= ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  IUSE: +crypt gtk-doc +introspection test +vala test
-  RDEPEND: '>=dev-libs/glib-2.44:2 crypt? ( >=dev-libs/libgcrypt-1.2.2:0= ) introspection?
-    ( >=dev-libs/gobject-introspection-1.29:= )'
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2'
+  DEPEND: '>=dev-libs/glib-2.44.0 crypt? ( >=dev-libs/libgcrypt-1.2.2 ) bash-completion?
+    ( app-shells/bash-completion ) tpm? ( >=app-crypt/tpm2-tss-3.0.3 ) >=sys-devel/gettext-0.19.8
+    virtual/pkgconfig gtk-doc? ( >=dev-util/gi-docgen-2021.7 ) introspection? ( >=dev-libs/gobject-introspection-1.29
+    ) vala? ( || ( dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44
+    dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36 ) ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info'
+  IUSE: bash-completion +crypt +gnome-keyring gtk-doc +introspection tpm +vala
+  RDEPEND: '>=dev-libs/glib-2.44.0 crypt? ( >=dev-libs/libgcrypt-1.2.2 ) bash-completion?
+    ( app-shells/bash-completion ) tpm? ( >=app-crypt/tpm2-tss-3.0.3 )'
   emerge.packages: app-crypt/libsecret
   kit: gnome-kit
   original.package.name: app-crypt/libsecret
   original.package.slot: "0"
-  original.package.version: 0.21.1
+  original.package.version: 0.21.3
