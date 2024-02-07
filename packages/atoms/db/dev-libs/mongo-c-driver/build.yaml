@@ -1,7 +1,4 @@
 prelude:
-# Temporary fix until FL-11505 is done
-- >-
-  cp *.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/mongo-c-driver/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
