@@ -1,5 +1,5 @@
 name: linux-firmware
-version: "20230919"
+version: "20240115"
 category: sys-kernel
 use_flags:
 - initramfs
@@ -16,11 +16,11 @@ uri:
 license: GPL-2 GPL-2+ GPL-3 BSD MIT MPL-1.1 linux-fw-redistributable BSD-2 BSD-4 ISC
   no-source-code
 labels:
-  BDEPEND: initramfs? ( app-arch/cpio )
+  BDEPEND: initramfs? ( app-arch/cpio ) app-misc/rdfind
   IUSE: initramfs
   RDEPEND: initramfs? ( !<=app-admin/ego-2.8.5 )
   emerge.packages: sys-kernel/linux-firmware
   kit: core-hw-kit
   original.package.name: sys-kernel/linux-firmware
   original.package.slot: "0"
-  original.package.version: "20230919"
+  original.package.version: "20240115"
