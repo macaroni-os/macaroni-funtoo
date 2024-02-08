@@ -1,5 +1,5 @@
 name: jq
-version: "1.7"
+version: 1.7.1
 category: app-misc
 use_flags:
 - -static-libs
@@ -20,9 +20,8 @@ uri:
 - https://stedolan.github.com/jq/
 license: MIT CC-BY-3.0
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: sys-devel/bison sys-devel/flex oniguruma? ( dev-libs/oniguruma:=[static-libs?]
     )
   IUSE: +oniguruma static-libs
@@ -31,4 +30,4 @@ labels:
   kit: dev-kit
   original.package.name: app-misc/jq
   original.package.slot: "0"
-  original.package.version: "1.7"
+  original.package.version: 1.7.1
