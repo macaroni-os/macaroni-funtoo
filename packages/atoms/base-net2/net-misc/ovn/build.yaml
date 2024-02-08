@@ -1,7 +1,4 @@
 prelude:
-# Temporary fix
-- >-
-  sed -i -e 's/|| die "sed failed"//g' /var/git/extra-kits/geaaru-kit/net-misc/ovn/ovn-23.06.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
