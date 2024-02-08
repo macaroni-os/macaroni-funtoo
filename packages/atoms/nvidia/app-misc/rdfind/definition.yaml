@@ -1,0 +1,28 @@
+name: rdfind
+version: 1.6.0
+category: app-misc
+requires:
+- name: nettle
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Find duplicate files based on their content
+uri:
+- https://github.com/pauldreik/rdfind
+license: GPL-2+
+labels:
+  BDEPEND: sys-devel/autoconf-archive >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/nettle:=
+  RDEPEND: dev-libs/nettle:=
+  emerge.packages: app-misc/rdfind
+  kit: core-kit
+  original.package.name: app-misc/rdfind
+  original.package.slot: "0"
+  original.package.version: 1.6.0
