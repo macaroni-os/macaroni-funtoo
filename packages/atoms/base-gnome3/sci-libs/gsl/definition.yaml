@@ -1,5 +1,5 @@
 name: gsl
-version: "2.5"
+version: 2.7.1
 category: sci-libs
 use_flags:
 - -cblas-external
@@ -15,14 +15,13 @@ uri:
 - https://www.gnu.org/software/gsl/
 license: GPL-3
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
-  DEPEND: cblas-external? ( virtual/cblas:= ) app-eselect/eselect-cblas virtual/pkgconfig
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: cblas-external? ( virtual/cblas:= )
   IUSE: cblas-external +deprecated static-libs
   RDEPEND: cblas-external? ( virtual/cblas:= )
   emerge.packages: sci-libs/gsl
-  kit: science-kit
+  kit: core-kit
   original.package.name: sci-libs/gsl
   original.package.slot: "0"
-  original.package.version: "2.5"
+  original.package.version: 2.7.1
