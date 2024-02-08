@@ -78,6 +78,10 @@ skipped_resolutions:
     - name: hyper-h2
       category: dev-python
 
+    # Temporary disable
+    - name: autoconf
+      category: sys-devel
+
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
@@ -123,6 +127,14 @@ artefacts:
           name: dummy-sources
   packages:
     - virtual/linux-sources
+
+- tree: packages/atoms/nvidia
+  packages:
+    - app-misc/rdfind
+
+- tree: packages/atoms/nvidia
+  packages:
+    - sys-kernel/linux-firmware
 
 - tree: packages/atoms/nvidia
   mutations:
