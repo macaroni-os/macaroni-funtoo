@@ -1,4 +1,8 @@
 prelude:
+# Temporary patch until FL-12052 is fixed
+- >-
+  sed -i -e 's|docs/PortingGuide2-3.md|website/PortingGuide.rst|g'
+  /var/git/meta-repo/kits/dev-kit/dev-libs/imath/imath-3.1.10.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
