@@ -1,5 +1,5 @@
 name: imath
-version: 3.1.9+1
+version: 3.1.10
 category: dev-libs
 use_flags:
 - -doc
@@ -27,44 +27,44 @@ uri:
 - https://imath.readthedocs.io
 license: BSD
 labels:
-  BDEPEND: virtual/pkgconfig doc? ( python_single_target_python3_7? ( dev-python/breathe[python_targets_python3_7(-)]
+  BDEPEND: virtual/pkgconfig doc? ( python_single_target_python3_10? ( dev-python/breathe[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/breathe[python_targets_python3_7(-)]
     ) python_single_target_python3_9? ( dev-python/breathe[python_targets_python3_9(-)]
     ) python_single_target_python3_8? ( dev-python/breathe[python_targets_python3_8(-)]
-    ) python_single_target_python3_10? ( dev-python/breathe[python_targets_python3_10(-)]
-    ) ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) ) dev-util/ninja dev-util/cmake
-  DEPEND: '!!media-libs/ilmbase sys-libs/zlib python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+  DEPEND: '!!media-libs/ilmbase sys-libs/zlib python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    python_single_target_python3_7? ( dev-libs/boost:=[python,python_targets_python3_7(-)]
-    dev-python/numpy[python_targets_python3_7(-)] ) python_single_target_python3_9?
-    ( dev-libs/boost:=[python,python_targets_python3_9(-)] dev-python/numpy[python_targets_python3_9(-)]
-    ) python_single_target_python3_8? ( dev-libs/boost:=[python,python_targets_python3_8(-)]
-    dev-python/numpy[python_targets_python3_8(-)] ) python_single_target_python3_10?
-    ( dev-libs/boost:=[python,python_targets_python3_10(-)] dev-python/numpy[python_targets_python3_10(-)]
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-libs/boost:=[python,python_targets_python3_10(-)]
+    dev-python/numpy[python_targets_python3_10(-)] ) python_single_target_python3_7?
+    ( dev-libs/boost:=[python,python_targets_python3_7(-)] dev-python/numpy[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-libs/boost:=[python,python_targets_python3_9(-)]
+    dev-python/numpy[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-libs/boost:=[python,python_targets_python3_8(-)] dev-python/numpy[python_targets_python3_8(-)]
     ) )'
-  IUSE: doc large-stack python static-libs test python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
-  RDEPEND: '!!media-libs/ilmbase sys-libs/zlib python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+  IUSE: doc large-stack python static-libs test python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: '!!media-libs/ilmbase sys-libs/zlib python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    python_single_target_python3_7? ( dev-libs/boost:=[python,python_targets_python3_7(-)]
-    dev-python/numpy[python_targets_python3_7(-)] ) python_single_target_python3_9?
-    ( dev-libs/boost:=[python,python_targets_python3_9(-)] dev-python/numpy[python_targets_python3_9(-)]
-    ) python_single_target_python3_8? ( dev-libs/boost:=[python,python_targets_python3_8(-)]
-    dev-python/numpy[python_targets_python3_8(-)] ) python_single_target_python3_10?
-    ( dev-libs/boost:=[python,python_targets_python3_10(-)] dev-python/numpy[python_targets_python3_10(-)]
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-libs/boost:=[python,python_targets_python3_10(-)]
+    dev-python/numpy[python_targets_python3_10(-)] ) python_single_target_python3_7?
+    ( dev-libs/boost:=[python,python_targets_python3_7(-)] dev-python/numpy[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-libs/boost:=[python,python_targets_python3_9(-)]
+    dev-python/numpy[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-libs/boost:=[python,python_targets_python3_8(-)] dev-python/numpy[python_targets_python3_8(-)]
     ) )'
   emerge.packages: dev-libs/imath
   kit: dev-kit
   original.package.name: dev-libs/imath
   original.package.slot: "0"
-  original.package.version: 3.1.9
+  original.package.version: 3.1.10
