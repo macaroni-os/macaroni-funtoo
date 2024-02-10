@@ -1,4 +1,15 @@
 prelude:
+# Temporary fix until next build workflow
+- >-
+  cd /var/git/meta-repo/kits/dev-kit/dev-db/libdbi/ &&
+  rm libdbi-0.9.0.ebuild &&
+  wget -O libdbi-0.9.0.ebuild https://raw.githubusercontent.com/funtoo/dev-kit/next/dev-db/libdbi/libdbi-0.9.0.ebuild &&
+  cd - && cd /var/git/meta-repo/kits/dev-kit/dev-db/libdbi-drivers/ &&
+  rm libdbi-drivers-0.9.0.ebuild &&
+  wget -O libdbi-drivers-0.9.0.ebuild
+  https://raw.githubusercontent.com/funtoo/dev-kit/next/dev-db/libdbi-drivers/libdbi-drivers-0.9.0.ebuild &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
