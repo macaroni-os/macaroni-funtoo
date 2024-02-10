@@ -1,9 +1,4 @@
 prelude:
-- >-
-  cp greenlet-0.4.17.ebuild /var/git/meta-repo/kits/python-modules-kit/dev-python/greenlet &&
-  cd /var/git/meta-repo/kits/python-modules-kit/dev-python/greenlet/ &&
-  ebuild greenlet-0.4.17.ebuild digest &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
