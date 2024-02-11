@@ -1,7 +1,4 @@
 prelude:
-- >-
-  sed -i -e 's|-${MY_PV}|-v${MY_PV}|g'
-  /var/git/meta-repo/kits/net-kit/www-apps/grafana-bin/grafana-bin-10.2.2.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
