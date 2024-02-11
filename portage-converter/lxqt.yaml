@@ -91,6 +91,7 @@ artefacts:
 - tree: packages/atoms/lxqt
   packages:
     - x11-themes/lxqt-themes
+    - x11-libs/libfm-qt
     - lxqt-base/lxqt-sudo
     - lxqt-base/lxqt-session
     - lxqt-base/lxqt-runner
@@ -106,6 +107,16 @@ artefacts:
     - lxqt-base/liblxqt
     - dev-util/lxqt-build-tools
     - lxqt-base/lxqt-panel
+    - x11-misc/pcmanfm-qt
+
+- tree: packages/atoms/lxqt
+  mutations:
+    provides:
+      - category: lxde-base
+        name: lxmenu-data
+        version: "1.4.1"
+  packages:
+    - lxqt-base/lxqt-menu-data
 
 - tree: packages/atoms/lxqt
   mutations:
