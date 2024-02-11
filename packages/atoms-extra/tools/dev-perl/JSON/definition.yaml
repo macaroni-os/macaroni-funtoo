@@ -1,0 +1,30 @@
+name: JSON
+version: 2.940.0
+category: dev-perl
+use_flags:
+- -test
+- xs
+requires:
+- name: JSON-XS
+  version: '>=0'
+  category: dev-perl
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: JSON (JavaScript Object Notation) encoder/decoder
+uri:
+- https://metacpan.org/release/JSON
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl:=
+  IUSE: test +xs examples
+  RDEPEND: xs? ( >=dev-perl/JSON-XS-2.340.0 ) dev-lang/perl:=
+  emerge.packages: dev-perl/JSON
+  kit: perl-kit
+  original.package.name: dev-perl/JSON
+  original.package.slot: "0"
+  original.package.version: 2.940.0
