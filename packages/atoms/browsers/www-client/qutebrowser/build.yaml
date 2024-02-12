@@ -1,7 +1,8 @@
 prelude:
-# Temporary
+# Temporary until FL-12056 is done
 - >-
-  cp qutebrowser-3.0.2.ebuild /var/git/meta-repo/kits/browser-kit/www-client/qutebrowser/
+  sed -i -e 's|doicon .*|doicon -s scalable qutebrowser/icons/${PN}.svg|g'
+  /var/git/meta-repo/kits/browser-kit/www-client/qutebrowser/qutebrowser-3.1.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
