@@ -1,9 +1,4 @@
 prelude:
-- >-
-  cp vpuml-17.1.20231001.ebuild /var/git/meta-repo/kits/dev-kit/dev-util/vpuml/ &&
-  cd /var/git/meta-repo/kits/dev-kit/dev-util/vpuml/ &&
-  ebuild vpuml-17.1.20231001.ebuild digest &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
