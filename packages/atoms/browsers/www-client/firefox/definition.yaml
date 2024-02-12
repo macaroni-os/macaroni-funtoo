@@ -1,5 +1,5 @@
 name: firefox
-version: "120.0"
+version: "122.0"
 category: www-client
 use_flags:
 - -clang
@@ -102,10 +102,9 @@ labels:
     clang? ( =sys-devel/lld-13* pgo? ( =sys-libs/compiler-rt-sanitizers-13*[profile]
     ) ) ) ( sys-devel/clang:11 sys-devel/llvm:11 clang? ( =sys-devel/lld-11* pgo?
     ( =sys-libs/compiler-rt-sanitizers-11*[profile] ) ) ) ) amd64? ( >=dev-lang/nasm-2.14
-    ) x86? ( >=dev-lang/nasm-2.14 ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) ~sys-devel/autoconf-2.13
-    >=sys-devel/libtool-2.4 pgo? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
-    )'
+    ) x86? ( >=dev-lang/nasm-2.14 ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) ~sys-devel/autoconf-2.13:2.1 >=sys-devel/libtool-2.4 pgo? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )'
   DEPEND: dev-libs/glib:2 dev-libs/atk dev-libs/expat dev-libs/libffi:= dev-libs/nss
     >=dev-libs/nspr-4.32 media-libs/alsa-lib media-libs/fontconfig media-libs/freetype
     media-libs/mesa media-video/ffmpeg sys-libs/zlib virtual/freedesktop-icon-theme
@@ -162,4 +161,4 @@ labels:
   kit: browser-kit
   original.package.name: www-client/firefox
   original.package.slot: "0"
-  original.package.version: "120.0"
+  original.package.version: "122.0"
