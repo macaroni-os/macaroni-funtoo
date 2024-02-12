@@ -1,5 +1,5 @@
 name: appstream
-version: 0.14.6
+version: 0.16.4
 category: dev-libs
 use_flags:
 - -doc
@@ -44,15 +44,15 @@ labels:
   BDEPEND: dev-libs/appstream-glib dev-libs/libxslt dev-util/itstool >=sys-devel/gettext-0.19.8
     doc? ( app-text/docbook-xml-dtd:4.5 ) test? ( dev-qt/linguist-tools:5 ) >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2
-  DEPEND: dev-db/lmdb:= >=dev-libs/glib-2.58:2 dev-libs/libxml2:2 dev-libs/libyaml
-    dev-libs/snowball-stemmer:= net-misc/curl introspection? ( >=dev-libs/gobject-introspection-1.56:=
-    ) qt5? ( dev-qt/qtcore:5 ) test? ( qt5? ( dev-qt/qttest:5 ) )
-  IUSE: apt doc +introspection qt5 test
-  RDEPEND: dev-db/lmdb:= >=dev-libs/glib-2.58:2 dev-libs/libxml2:2 dev-libs/libyaml
-    dev-libs/snowball-stemmer:= net-misc/curl introspection? ( >=dev-libs/gobject-introspection-1.56:=
-    ) qt5? ( dev-qt/qtcore:5 )
+  DEPEND: dev-db/lmdb >=dev-libs/glib-2.58 dev-libs/libxml2 dev-libs/libxmlb dev-libs/libyaml
+    dev-libs/snowball-stemmer >=net-misc/curl-7.62 dev-libs/gobject-introspection
+    qt5? ( dev-qt/qtcore:5 ) test? ( qt5? ( dev-qt/qttest:5 ) )
+  IUSE: doc qt5 test
+  RDEPEND: dev-db/lmdb >=dev-libs/glib-2.58 dev-libs/libxml2 dev-libs/libxmlb dev-libs/libyaml
+    dev-libs/snowball-stemmer >=net-misc/curl-7.62 dev-libs/gobject-introspection
+    qt5? ( dev-qt/qtcore:5 )
   emerge.packages: dev-libs/appstream
   kit: dev-kit
   original.package.name: dev-libs/appstream
   original.package.slot: "0"
-  original.package.version: 0.14.6
+  original.package.version: 0.16.4
