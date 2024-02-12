@@ -1,4 +1,10 @@
 prelude:
+- >-
+  cd /var/git/meta-repo/kits/dev-kit/dev-util/vpuml &&
+  rm *.ebuild &&
+  wget https://raw.githubusercontent.com/fmoro/faustoo/ba1bafb8549f77581be5d7312bce1f8baef56e7e/dev-util/vpumlce/vpumlce-17.1.20240201.ebuild &&
+  ebuild vpumlce-17.1.20240201.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
