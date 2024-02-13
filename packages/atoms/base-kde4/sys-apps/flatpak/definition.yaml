@@ -1,5 +1,5 @@
 name: flatpak
-version: 1.14.4
+version: 1.14.5
 category: sys-apps
 use_flags:
 - -doc
@@ -42,13 +42,13 @@ license: LGPL-2.1
 labels:
   BDEPEND: '>=sys-devel/automake-1.13.4 >=sys-devel/gettext-0.18.2 virtual/pkgconfig
     dev-util/gdbus-codegen sys-devel/bison introspection? ( >=dev-libs/gobject-introspection-1.40
-    ) doc? ( >=dev-util/gtk-doc-1.20 dev-libs/libxslt ) || ( ( dev-lang/python:3.10
-    dev-python/pyparsing[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ( dev-lang/python:3.8 dev-python/pyparsing[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) doc? ( >=dev-util/gtk-doc-1.20 dev-libs/libxslt ) || ( ( dev-lang/python:3.8
+    dev-python/pyparsing[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/pyparsing[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/pyparsing[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+    ) ( dev-lang/python:3.10 dev-python/pyparsing[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 )
+    >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: '>=sys-fs/libostree-2020.8[gpg(+)] >=net-libs/libsoup-2.4 >=gnome-base/dconf-0.26
     >=dev-libs/appstream-0.12 >=dev-libs/appstream-glib-0.5.10 x11-libs/gdk-pixbuf:2
     >=dev-libs/glib-2.56:2 >=dev-libs/libxml2-2.4 sys-apps/dbus dev-libs/json-glib
@@ -64,4 +64,4 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/flatpak
   original.package.slot: "0"
-  original.package.version: 1.14.4
+  original.package.version: 1.14.5
