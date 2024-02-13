@@ -1,5 +1,5 @@
 name: sdl2-mixer
-version: 2.6.3
+version: 2.8.0
 category: media-libs
 use_flags:
 - -flac
@@ -38,9 +38,8 @@ uri:
 - https://libsdl.org/projects/SDL_mixer/
 license: ZLIB
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: media-libs/libsdl2 flac? ( media-libs/flac ) midi? ( fluidsynth? ( media-sound/fluidsynth
     ) timidity? ( media-sound/timidity++ ) ) mod? ( modplug? ( media-libs/libmodplug
     ) libxmp? ( media-libs/libxmp ) ) mp3? ( media-sound/mpg123 ) opus? ( media-libs/opusfile
@@ -57,4 +56,4 @@ labels:
   kit: media-kit
   original.package.name: media-libs/sdl2-mixer
   original.package.slot: "0"
-  original.package.version: 2.6.3
+  original.package.version: 2.8.0
