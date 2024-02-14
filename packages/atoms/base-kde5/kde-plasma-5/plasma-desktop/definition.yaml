@@ -2,7 +2,6 @@ name: plasma-desktop
 version: 5.27.9
 category: kde-plasma-5
 use_flags:
-- -scim
 - -test
 - emoji
 - handbook
@@ -10,6 +9,7 @@ use_flags:
 - kaccounts
 - policykit
 - prefix
+- scim
 - semantic-desktop
 requires:
 - name: ibus
@@ -30,6 +30,9 @@ requires:
 - name: kde-cli-tools
   version: '>=0'
   category: kde-plasma-5
+- name: kpipewire
+  version: '>=0'
+  category: kde-plasma-5
 - name: oxygen
   version: '>=0'
   category: kde-plasma-5
@@ -48,12 +51,18 @@ requires:
 - name: setxkbmap
   version: '>=0'
   category: x11-apps
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
 - name: libXi
   version: '>=0'
   category: x11-libs
 - name: libxkbfile
   version: '>=0'
   category: x11-libs
+- name: xdg-user-dirs
+  version: '>=0'
+  category: x11-misc
 annotations:
   subsets:
     rules:
