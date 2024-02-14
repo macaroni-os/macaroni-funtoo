@@ -30,18 +30,18 @@ labels:
     dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36 ) dev-util/gdbus-codegen
     dev-util/glib-utils dev-libs/check doc? ( dev-util/gtk-doc ) >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2'
-  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  DEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     dev-db/sqlite:3 dev-libs/glib:2 dev-libs/gobject-introspection:= dev-libs/libxml2
-    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-  IUSE: doc python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-    python_targets_python3_10
-  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: doc python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     dev-db/sqlite:3 dev-libs/glib:2 dev-libs/gobject-introspection:= dev-libs/libxml2
-    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: net-libs/libaccounts-glib
   kit: gnome-kit
   original.package.name: net-libs/libaccounts-glib
