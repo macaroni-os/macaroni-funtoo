@@ -48,26 +48,26 @@ uri:
 - https://github.com/OpenPrinting/system-config-printer
 license: GPL-2+
 labels:
-  DEPEND: python_targets_python3_7? ( dev-lang/python:3.7[xml] ) python_targets_python3_9?
-    ( dev-lang/python:3.9[xml] ) python_targets_python3_8? ( dev-lang/python:3.8[xml]
-    ) python_targets_python3_10? ( dev-lang/python:3.10[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  DEPEND: python_targets_python3_10? ( dev-lang/python:3.10[xml] ) python_targets_python3_7?
+    ( dev-lang/python:3.7[xml] ) python_targets_python3_9? ( dev-lang/python:3.9[xml]
+    ) python_targets_python3_8? ( dev-lang/python:3.8[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     dev-libs/glib:2 net-print/cups[dbus] virtual/libusb:1 >=virtual/udev-172 x11-libs/gtk+:3[introspection]
     x11-libs/libnotify[introspection] x11-libs/pango[introspection] app-text/docbook-xml-dtd:4.1.2
     >=app-text/xmlto-0.0.22 dev-perl/XML-Parser dev-util/desktop-file-utils dev-util/intltool
     sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
     dev-util/desktop-file-utils x11-misc/shared-mime-info
-  IUSE: gnome-keyring policykit python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
-  RDEPEND: python_targets_python3_7? ( dev-lang/python:3.7[xml] ) python_targets_python3_9?
-    ( dev-lang/python:3.9[xml] ) python_targets_python3_8? ( dev-lang/python:3.8[xml]
-    ) python_targets_python3_10? ( dev-lang/python:3.10[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  IUSE: gnome-keyring policykit python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_targets_python3_10? ( dev-lang/python:3.10[xml] ) python_targets_python3_7?
+    ( dev-lang/python:3.7[xml] ) python_targets_python3_9? ( dev-lang/python:3.9[xml]
+    ) python_targets_python3_8? ( dev-lang/python:3.8[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     dev-libs/glib:2 net-print/cups[dbus] virtual/libusb:1 >=virtual/udev-172 x11-libs/gtk+:3[introspection]
-    x11-libs/libnotify[introspection] x11-libs/pango[introspection] dev-python/dbus-python[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/pycairo[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/pycups[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/requests[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/urllib3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    x11-libs/libnotify[introspection] x11-libs/pango[introspection] dev-python/dbus-python[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/pycups[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/requests[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/urllib3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     gnome-keyring? ( app-crypt/libsecret[introspection] ) policykit? ( net-print/cups-pk-helper
     )
   emerge.packages: app-admin/system-config-printer
