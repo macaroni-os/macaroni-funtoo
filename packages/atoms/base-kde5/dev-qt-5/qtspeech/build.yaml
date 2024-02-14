@@ -2,7 +2,7 @@ prelude:
 # Temporary. At the moment we haven't a flite-2. Trying to use flite 1.4
 - >-
   sed -i -e 's|>=app-accessibility/flite-2\[alsa.*|app-accessibility/flite|g'
-  /var/git/meta-repo/kits/qt-kit/dev-qt/qtspeech/qtspeech-5.15.2_p20231004.ebuild
+  /var/git/meta-repo/kits/qt-kit/dev-qt/qtspeech/qtspeech-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
