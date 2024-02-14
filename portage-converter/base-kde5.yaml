@@ -123,10 +123,34 @@ artefacts:
     disabled:
       - debug
       - test
+      - doc
+      - libressl
   packages:
     - kde-plasma/kde-gtk-config
     - kde-plasma/kwallet-pam:5
     - kde-plasma/plasma-desktop:5
+    - kde-apps/kaccounts-integration:5
+    - kde-apps/kaccounts-providers:5
+    - kde-apps/libkcompactdisc:5
+    - kde-apps/libkgapi:5
+    - kde-apps/okular:5
+    - net-irc/konversation:5
+    - kde-misc/skanlite:5
+    - kde-misc/kio-gdrive:5
+    - kde-frameworks/kjs:5
+    - kde-frameworks/kcalendarcore:5
+    - kde-frameworks/khtml:5
+    - kde-apps/yakuake:5
+    - kde-apps/thumbnailers:5
+    - kde-apps/svgpart:5
+    - kde-apps/print-manager:5
+
+- tree: packages/atoms/base-kde5
+  mutations:
+    uses:
+      - xmp
+  packages:
+    - kde-apps/libkexiv2:5
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -189,6 +213,30 @@ artefacts:
     - kde-apps/libksane:5
     - net-libs/libktorrent:5
     - net-p2p/ktorrent:5
+
+- tree: packages/atoms/base-kde5
+  uses:
+    disabled:
+      - gnome-keyring
+      - doc
+      - debug
+  packages:
+    - app-admin/system-config-printer
+    - dev-python/pycups
+
+- tree: packages/atoms/base-kde5
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race17
+  uses:
+    disabled:
+      - gnome-keyring
+      - doc
+      - debug
+  packages:
+    - dev-libs/chmlib
 
 include_layers:
 - layers/macaroni-funtoo-race19.yaml
