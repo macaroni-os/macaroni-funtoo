@@ -1,0 +1,44 @@
+name: qcoro5
+version: 0.8.0
+category: dev-libs
+use_flags:
+- dbus
+- examples
+- network
+- qml
+- websockets
+requires:
+- name: qtwebsockets
+  version: '>=0'
+  category: dev-qt-5
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-5
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ Coroutine Library for Qt5
+uri:
+- https://qcoro.dvratil.cz/ https://github.com/danvratil/qcoro
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.57.0:5
+  DEPEND: '>=dev-qt/qtcore-5.11.1:5 dev-qt/qtcore:5 dbus? ( >=dev-qt/qtdbus-5.11.1:5
+    ) network? ( >=dev-qt/qtnetwork-5.11.1:5 ) qml? ( >=dev-qt/qtdeclarative-5.11.1:5
+    ) websockets? ( >=dev-qt/qtwebsockets-5.11.1:5 ) examples? ( >=dev-qt/qtconcurrent-5.11.1:5
+    >=dev-qt/qtnetwork-5.11.1:5 >=dev-qt/qtwidgets-5.11.1:5 ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info >=dev-qt/qtcore-5.11.1:5 dev-util/desktop-file-utils'
+  IUSE: dbus examples +network qml websockets debug
+  RDEPEND: '>=dev-qt/qtcore-5.11.1:5 dev-qt/qtcore:5 dbus? ( >=dev-qt/qtdbus-5.11.1:5
+    ) network? ( >=dev-qt/qtnetwork-5.11.1:5 ) qml? ( >=dev-qt/qtdeclarative-5.11.1:5
+    ) websockets? ( >=dev-qt/qtwebsockets-5.11.1:5 ) >=kde-frameworks/kf-env-4 ||
+    ( >=kde-frameworks/breeze-icons-5.57.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.11.1:5'
+  emerge.packages: dev-libs/qcoro5
+  kit: kde-kit
+  original.package.name: dev-libs/qcoro5
+  original.package.slot: "0"
+  original.package.version: 0.8.0
