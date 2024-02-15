@@ -1,7 +1,7 @@
 prelude:
 - >-
   sed -e '/^DOCS.*/d' -i
-  /var/git/meta-repo/kits/kde-kit/kde-plasma/plymouth-kcm/plymouth-kcm-5.25.5.ebuild
+  /var/git/meta-repo/kits/kde-kit/kde-plasma/plymouth-kcm/plymouth-kcm-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
