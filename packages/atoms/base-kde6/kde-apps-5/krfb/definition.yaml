@@ -1,5 +1,5 @@
 name: krfb
-version: 22.08.1
+version: 23.08.2
 category: kde-apps-5
 use_flags:
 - handbook
@@ -51,37 +51,37 @@ uri:
 - https://apps.kde.org/en/krfb
 license: GPL-2
 labels:
-  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
-    handbook? ( >=kde-frameworks/kdoctools-5.98.0:5 )
-  DEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5
-    >=dev-qt/qtwidgets-5.15.1:5 >=dev-qt/qtx11extras-5.15.1:5 >=kde-frameworks/kcompletion-5.98.0:5
-    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
-    >=kde-frameworks/kcrash-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kdnssd-5.98.0:5
-    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5 >=kde-frameworks/kwallet-5.98.0:5
-    >=kde-frameworks/kwidgetsaddons-5.98.0:5 >=kde-frameworks/kwindowsystem-5.98.0:5
-    >=kde-frameworks/kxmlgui-5.98.0:5 >=net-libs/libvncserver-0.9.9 x11-libs/libX11
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.111.0:5
+    handbook? ( >=kde-frameworks/kdoctools-5.111.0:5 )
+  DEPEND: '>=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtnetwork-5.15.2:5
+    >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kcompletion-5.111.0:5
+    >=kde-frameworks/kconfig-5.111.0:5 >=kde-frameworks/kconfigwidgets-5.111.0:5 >=kde-frameworks/kcoreaddons-5.111.0:5
+    >=kde-frameworks/kcrash-5.111.0:5 >=kde-frameworks/kdbusaddons-5.111.0:5 >=kde-frameworks/kdnssd-5.111.0:5
+    >=kde-frameworks/ki18n-5.111.0:5 >=kde-frameworks/knotifications-5.111.0:5 >=kde-frameworks/kwallet-5.111.0:5
+    >=kde-frameworks/kwidgetsaddons-5.111.0:5 >=kde-frameworks/kwindowsystem-5.111.0:5
+    >=kde-frameworks/kxmlgui-5.111.0:5 >=net-libs/libvncserver-0.9.9 x11-libs/libX11
     x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image screencast? ( >=media-video/pipewire-0.3:=
-    ) wayland? ( dev-libs/wayland || ( >=dev-qt/qtgui-5.15.1:5[libinput] >=dev-qt/qtgui-5.15.1:5[X]
-    ) >=dev-qt/qtwayland-5.15.1:5 >=kde-frameworks/kwayland-5.98.0:5 media-libs/libepoxy
-    media-libs/mesa[gbm(+)] media-video/pipewire:= >=dev-libs/plasma-wayland-protocols-1.5.0
-    media-libs/libglvnd ) dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.1:5
+    ) wayland? ( dev-libs/wayland || ( >=dev-qt/qtgui-5.15.2:5[libinput] >=dev-qt/qtgui-5.15.2:5[X]
+    ) >=dev-qt/qtwayland-5.15.2:5 >=kde-frameworks/kwayland-5.111.0:5 >=kde-plasma/kpipewire-5.14.5:5
+    media-libs/libepoxy media-libs/mesa[gbm(+)] media-video/pipewire:= >=dev-libs/plasma-wayland-protocols-1.5.0
+    media-libs/libglvnd ) dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-qt/qtcore-5.15.2:5
     dev-util/desktop-file-utils'
   IUSE: screencast wayland debug +handbook
-  RDEPEND: '>=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5
-    >=dev-qt/qtwidgets-5.15.1:5 >=dev-qt/qtx11extras-5.15.1:5 >=kde-frameworks/kcompletion-5.98.0:5
-    >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
-    >=kde-frameworks/kcrash-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kdnssd-5.98.0:5
-    >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5 >=kde-frameworks/kwallet-5.98.0:5
-    >=kde-frameworks/kwidgetsaddons-5.98.0:5 >=kde-frameworks/kwindowsystem-5.98.0:5
-    >=kde-frameworks/kxmlgui-5.98.0:5 >=net-libs/libvncserver-0.9.9 x11-libs/libX11
+  RDEPEND: '>=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtnetwork-5.15.2:5
+    >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kcompletion-5.111.0:5
+    >=kde-frameworks/kconfig-5.111.0:5 >=kde-frameworks/kconfigwidgets-5.111.0:5 >=kde-frameworks/kcoreaddons-5.111.0:5
+    >=kde-frameworks/kcrash-5.111.0:5 >=kde-frameworks/kdbusaddons-5.111.0:5 >=kde-frameworks/kdnssd-5.111.0:5
+    >=kde-frameworks/ki18n-5.111.0:5 >=kde-frameworks/knotifications-5.111.0:5 >=kde-frameworks/kwallet-5.111.0:5
+    >=kde-frameworks/kwidgetsaddons-5.111.0:5 >=kde-frameworks/kwindowsystem-5.111.0:5
+    >=kde-frameworks/kxmlgui-5.111.0:5 >=net-libs/libvncserver-0.9.9 x11-libs/libX11
     x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image screencast? ( >=media-video/pipewire-0.3:=
-    ) wayland? ( dev-libs/wayland || ( >=dev-qt/qtgui-5.15.1:5[libinput] >=dev-qt/qtgui-5.15.1:5[X]
-    ) >=dev-qt/qtwayland-5.15.1:5 >=kde-frameworks/kwayland-5.98.0:5 media-libs/libepoxy
-    media-libs/mesa[gbm(+)] media-video/pipewire:= >=dev-libs/plasma-wayland-protocols-1.5.0
+    ) wayland? ( dev-libs/wayland || ( >=dev-qt/qtgui-5.15.2:5[libinput] >=dev-qt/qtgui-5.15.2:5[X]
+    ) >=dev-qt/qtwayland-5.15.2:5 >=kde-frameworks/kwayland-5.111.0:5 >=kde-plasma/kpipewire-5.14.5:5
+    media-libs/libepoxy media-libs/mesa[gbm(+)] media-video/pipewire:= >=dev-libs/plasma-wayland-protocols-1.5.0
     media-libs/libglvnd ) wayland? ( sys-apps/xdg-desktop-portal[screencast] ) >=kde-frameworks/kf-env-4
-    || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.1:5'
+    || ( >=kde-frameworks/breeze-icons-5.111.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
   emerge.packages: kde-apps/krfb:5
   kit: kde-kit
   original.package.name: kde-apps/krfb
   original.package.slot: "5"
-  original.package.version: 22.08.1-r1
+  original.package.version: 23.08.2
