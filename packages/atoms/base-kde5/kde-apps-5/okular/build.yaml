@@ -2,7 +2,7 @@ prelude:
 # We have poppler splitted. Ignoring this check
 - >-
   sed -e 's|app-text/poppler\[qt5\]|app-text/poppler|g' -i
-  /var/git/meta-repo/kits/kde-kit/kde-apps/okular/okular-22.08.1.ebuild &&
+  /var/git/meta-repo/kits/kde-kit/kde-apps/okular/okular-{{ ( index .Values.labels "original.package.version" ) }}.ebuild &&
   luet repo update &&
   luet i -y poppler-qt &&
   luet cleanup --purge-repos
