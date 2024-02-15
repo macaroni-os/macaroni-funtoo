@@ -1,5 +1,5 @@
 name: spectacle
-version: 22.08.1
+version: 23.08.2
 category: kde-apps-5
 use_flags:
 - -test
@@ -48,33 +48,35 @@ license: LGPL-2+ handbook? ( FDL-1.3 )
 labels:
   BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.98.0:5
     handbook? ( >=kde-frameworks/kdoctools-5.98.0:5 )
-  DEPEND: '>=dev-qt/qdbus-5.15.2:5 >=dev-qt/qtconcurrent-5.15.2:5 >=dev-qt/qtdbus-5.15.2:5
-    >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtsvg-5.15.2:5 >=dev-qt/qtprintsupport-5.15.2:5
-    >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kconfig-5.98.0:5
-    >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
-    >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kglobalaccel-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5
-    >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
+  DEPEND: '>=dev-libs/plasma-wayland-protocols-1.9 dev-libs/wayland dev-util/wayland-scanner
+    >=dev-qt/qdbus-5.15.2:5 >=dev-qt/qtconcurrent-5.15.2:5 >=dev-qt/qtdbus-5.15.2:5
+    >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtquickcontrols2-5.15.2:5 >=dev-qt/qtsvg-5.15.2:5
+    >=dev-qt/qtprintsupport-5.15.2:5 >=dev-qt/qtwayland-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5
+    >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5
+    >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kglobalaccel-5.98.0:5
+    >=kde-frameworks/kguiaddons-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kirigami-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
     >=kde-frameworks/kservice-5.98.0:5 >=kde-frameworks/kwayland-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
-    >=kde-frameworks/kwindowsystem-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5 x11-libs/libxcb
-    x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-image annotate? (
-    >=media-libs/kimageannotator-0.5.0 ) share? ( >=kde-frameworks/purpose-5.98.0:5
-    ) dev-util/desktop-file-utils x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.15.2:5
-    ) >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils'
-  IUSE: +annotate kipi share debug +handbook test
-  RDEPEND: '>=dev-qt/qdbus-5.15.2:5 >=dev-qt/qtconcurrent-5.15.2:5 >=dev-qt/qtdbus-5.15.2:5
-    >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtsvg-5.15.2:5 >=dev-qt/qtprintsupport-5.15.2:5
-    >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kconfig-5.98.0:5
-    >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcoreaddons-5.98.0:5
-    >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kglobalaccel-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5
-    >=kde-frameworks/kio-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
+    >=kde-frameworks/kwindowsystem-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-frameworks/purpose-5.98.0:5
+    >=kde-plasma/kpipewire-5.14.5:5 x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-cursor
+    x11-libs/xcb-util-image dev-util/desktop-file-utils x11-misc/shared-mime-info
+    test? ( >=dev-qt/qttest-5.15.2:5 ) >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils'
+  IUSE: debug +handbook test
+  RDEPEND: '>=dev-libs/plasma-wayland-protocols-1.9 dev-libs/wayland dev-util/wayland-scanner
+    >=dev-qt/qdbus-5.15.2:5 >=dev-qt/qtconcurrent-5.15.2:5 >=dev-qt/qtdbus-5.15.2:5
+    >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtquickcontrols2-5.15.2:5 >=dev-qt/qtsvg-5.15.2:5
+    >=dev-qt/qtprintsupport-5.15.2:5 >=dev-qt/qtwayland-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5
+    >=dev-qt/qtx11extras-5.15.2:5 >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5
+    >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kglobalaccel-5.98.0:5
+    >=kde-frameworks/kguiaddons-5.98.0:5 >=kde-frameworks/ki18n-5.98.0:5 >=kde-frameworks/kio-5.98.0:5
+    >=kde-frameworks/kirigami-5.98.0:5 >=kde-frameworks/knewstuff-5.98.0:5 >=kde-frameworks/knotifications-5.98.0:5
     >=kde-frameworks/kservice-5.98.0:5 >=kde-frameworks/kwayland-5.98.0:5 >=kde-frameworks/kwidgetsaddons-5.98.0:5
-    >=kde-frameworks/kwindowsystem-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5 x11-libs/libxcb
-    x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-image annotate? (
-    >=media-libs/kimageannotator-0.5.0 ) share? ( >=kde-frameworks/purpose-5.98.0:5
-    ) >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
-    ) >=dev-qt/qtcore-5.15.2:5'
+    >=kde-frameworks/kwindowsystem-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-frameworks/purpose-5.98.0:5
+    >=kde-plasma/kpipewire-5.14.5:5 x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-cursor
+    x11-libs/xcb-util-image >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5
+    kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
   emerge.packages: kde-apps/spectacle:5
   kit: kde-kit
   original.package.name: kde-apps/spectacle
   original.package.slot: "5"
-  original.package.version: 22.08.1
+  original.package.version: 23.08.2
