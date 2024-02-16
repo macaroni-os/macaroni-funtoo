@@ -1,5 +1,5 @@
 name: libde265
-version: 1.0.14
+version: 1.0.15
 category: media-libs
 use_flags:
 - dec265
@@ -20,9 +20,8 @@ uri:
 - https://github.com/strukturag/libde265
 license: GPL-3
 labels:
-  BDEPEND: dec265? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+  BDEPEND: dec265? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: dec265? ( sdl? ( media-libs/libsdl ) )
   IUSE: enc265 dec265 sdl tools debug cpu_flags_x86_sse4_1 cpu_flags_arm_neon cpu_flags_arm_thumb
     abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
@@ -32,4 +31,4 @@ labels:
   kit: media-kit
   original.package.name: media-libs/libde265
   original.package.slot: "0"
-  original.package.version: 1.0.14
+  original.package.version: 1.0.15
