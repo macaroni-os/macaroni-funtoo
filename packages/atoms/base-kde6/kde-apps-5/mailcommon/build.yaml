@@ -1,10 +1,4 @@
 prelude:
-- >-
-  luet repo update &&
-  luet i -y gpgme-qt &&
-  luet cleanup --purge-repos &&
-  sed -i -e 's|app-crypt/gpgme-1.15.0\[cxx,qt5\]|app-crypt/gpgme-1.15.0|g'
-  /var/git/meta-repo/kits/kde-kit/kde-apps/mailcommon/mailcommon-22.08.1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
