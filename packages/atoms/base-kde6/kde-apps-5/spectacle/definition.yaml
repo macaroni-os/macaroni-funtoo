@@ -3,13 +3,17 @@ version: 23.08.2
 category: kde-apps-5
 use_flags:
 - -test
-- annotate
 - handbook
-- share
 requires:
+- name: plasma-wayland-protocols
+  version: '>=0'
+  category: dev-libs
 - name: qdbus
   version: '>=0'
   category: dev-qt-5
+- name: wayland-scanner
+  version: '>=0'
+  category: dev-util
 - name: kconfigwidgets
   version: '>=0'
   category: kde-frameworks-5
@@ -22,15 +26,12 @@ requires:
 - name: kservice
   version: '>=0'
   category: kde-frameworks-5
-- name: kwayland
-  version: '>=0'
-  category: kde-frameworks-5
 - name: purpose
   version: '>=0'
   category: kde-frameworks-5
-- name: kimageannotator
+- name: kpipewire
   version: '>=0'
-  category: media-libs
+  category: kde-plasma-5
 - name: xcb-util-cursor
   version: '>=0'
   category: x11-libs
