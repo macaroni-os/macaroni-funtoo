@@ -1,5 +1,5 @@
 name: translate-toolkit
-version: 3.10.1
+version: 3.12.2
 category: dev-python
 use_flags:
 - -doc
@@ -34,6 +34,9 @@ requires:
 - name: ruamel-yaml
   version: '>=0'
   category: dev-python
+- name: setuptools
+  version: '>=0'
+  category: dev-python
 - name: utidylib
   version: '>=0'
   category: dev-python
@@ -58,38 +61,38 @@ uri:
 - https://github.com/translate/translate
 license: GPL-2
 labels:
-  BDEPEND: doc? ( || ( ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    dev-python/sphinx-bootstrap-theme[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ( dev-lang/python:3.8 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: doc? ( || ( ( dev-lang/python:3.8 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/sphinx-bootstrap-theme[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_9(-),python_single_target_python3_9(+)]
     dev-python/sphinx-bootstrap-theme[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_7(-),python_single_target_python3_7(+)]
     dev-python/sphinx-bootstrap-theme[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-  IUSE: +html +ical +ini +subtitles +yaml doc python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
-  RDEPEND: '!dev-python/pydiff app-text/iso-codes sys-devel/gettext >=dev-python/six-1.11.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/chardet-3.0.4[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/cheroot[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/lxml-4.3.1[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/pycountry-19.8.18[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/python-levenshtein-0.12.0[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/ruamel-yaml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    html? ( dev-python/utidylib[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) ical? ( dev-python/vobject[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) ini? ( >=dev-python/iniparse-0.5[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) yaml? ( dev-python/pyyaml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) subtitles? ( media-video/gaupol[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]'
+    ) ( dev-lang/python:3.10 >=dev-python/sphinx-4.5.0-r1[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/sphinx-bootstrap-theme[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: +html +ical +ini +subtitles +yaml doc python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: '!dev-python/pydiff app-text/iso-codes sys-devel/gettext >=dev-python/six-1.11.0[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/chardet-3.0.4[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/cheroot[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/lxml-4.3.1[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/pycountry-19.8.18[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/python-levenshtein-0.12.0[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/ruamel-yaml[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    html? ( dev-python/utidylib[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) ical? ( dev-python/vobject[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) ini? ( >=dev-python/iniparse-0.5[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) yaml? ( dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) subtitles? ( media-video/gaupol[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]'
   emerge.packages: dev-python/translate-toolkit
   kit: python-modules-kit
   original.package.name: dev-python/translate-toolkit
   original.package.slot: "0"
-  original.package.version: 3.10.1
+  original.package.version: 3.12.2
