@@ -36,25 +36,24 @@ uri:
 - http://linux.dell.com/files/libsmbios/
 license: GPL-2 OSL-2.0
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
-  DEPEND: dev-libs/libxml2 sys-libs/zlib nls? ( virtual/libintl ) python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/libxml2 sys-libs/zlib nls? ( virtual/libintl ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    ) virtual/pkgconfig doc? ( app-doc/doxygen ) graphviz? ( media-gfx/graphviz )
-    nls? ( sys-devel/gettext ) test? ( >=dev-util/cppunit-1.9.6 )
-  IUSE: doc graphviz nls python static-libs test python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_single_target_python3_10 python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
-  RDEPEND: dev-libs/libxml2 sys-libs/zlib nls? ( virtual/libintl ) python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) ) virtual/pkgconfig doc? ( app-doc/doxygen ) graphviz? ( media-gfx/graphviz
+    ) nls? ( sys-devel/gettext ) test? ( >=dev-util/cppunit-1.9.6 )
+  IUSE: doc graphviz nls python static-libs test python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: dev-libs/libxml2 sys-libs/zlib nls? ( virtual/libintl ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    )
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) )
   emerge.packages: sys-libs/libsmbios
   kit: core-kit
   original.package.name: sys-libs/libsmbios
