@@ -2,9 +2,9 @@ name: libmbim
 version: 1.30.0
 category: net-libs
 requires:
-- name: glib
+- name: gobject-introspection
   version: '>=0'
-  category: dev-libs-2
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -19,8 +19,8 @@ license: LGPL-2
 labels:
   BDEPEND: app-shells/bash-completion dev-util/glib-utils virtual/pkgconfig >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2
-  DEPEND: '>=dev-libs/glib-2.56:2'
-  RDEPEND: '>=dev-libs/glib-2.56:2'
+  DEPEND: '>=dev-libs/glib-2.56:2 dev-libs/gobject-introspection'
+  RDEPEND: '>=dev-libs/glib-2.56:2 dev-libs/gobject-introspection'
   emerge.packages: net-libs/libmbim
   kit: net-kit
   original.package.name: net-libs/libmbim
