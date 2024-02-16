@@ -1,5 +1,5 @@
 name: messagelib
-version: 22.08.1+3
+version: 23.08.2
 category: kde-apps-5
 use_flags:
 - -test
@@ -11,10 +11,10 @@ requires:
 - name: qtwebengine
   version: '>=0'
   category: dev-qt-5
-- name: akonadi-search
+- name: kidentitymanagement
   version: '>=0'
   category: kde-apps-5
-- name: incidenceeditor
+- name: kmailtransport
   version: '>=0'
   category: kde-apps-5
 - name: kmbox
@@ -41,13 +41,13 @@ labels:
   BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 test? ( !prefix? ( x11-base/xorg-server[xvfb]
     ) x11-apps/xhost ) >=kde-frameworks/extra-cmake-modules-5.98.0:5
   DEPEND: '>=app-crypt/gpgme-1.16.0-r1[cxx,qt5] >=app-crypt/qca-2.3.0:2 >=dev-libs/grantlee-5.2.0:5
-    >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
-    >=dev-qt/qtwebengine-5.15.1:5[widgets] >=dev-qt/qtwidgets-5.15.1:5 >=kde-apps/akonadi-22.08.1:5
-    >=kde-apps/akonadi-contacts-22.08.1:5 >=kde-apps/akonadi-mime-22.08.1:5 >=kde-apps/akonadi-search-22.08.1:5
-    >=kde-apps/grantleetheme-22.08.1:5 >=kde-apps/incidenceeditor-22.08.1:5 >=kde-apps/kidentitymanagement-22.08.1:5
-    >=kde-apps/kldap-22.08.1:5 >=kde-apps/kmailtransport-22.08.1:5 >=kde-apps/kmbox-22.08.1:5
-    >=kde-apps/kmime-22.08.1:5 >=kde-apps/kpimtextedit-22.08.1:5 >=kde-apps/libgravatar-22.08.1:5
-    >=kde-apps/libkdepim-22.08.1:5 >=kde-apps/libkleo-22.08.1:5 >=kde-frameworks/karchive-5.98.0:5
+    dev-libs/ktextaddons >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
+    >=dev-qt/qtwebengine-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=kde-apps/akonadi-23.08.2:5
+    >=kde-apps/akonadi-contacts-23.08.2:5 >=kde-apps/akonadi-mime-23.08.2:5 >=kde-apps/akonadi-search-23.08.2:5
+    >=kde-apps/grantleetheme-23.08.2:5 >=kde-apps/kidentitymanagement-23.08.2:5 >=kde-apps/kldap-23.08.2:5
+    >=kde-apps/kmailtransport-23.08.2:5 >=kde-apps/kmbox-23.08.2:5 >=kde-apps/kmime-23.08.2:5
+    >=kde-apps/kpimtextedit-23.08.2:5 >=kde-apps/libgravatar-23.08.2:5 >=kde-apps/libkdepim-23.08.2:5
+    >=kde-apps/libkleo-23.08.2:5 >=kde-apps/pimcommon-23.08.2:5 >=kde-frameworks/karchive-5.98.0:5
     >=kde-frameworks/kcalendarcore-5.98.0:5 >=kde-frameworks/kcodecs-5.98.0:5 >=kde-frameworks/kcompletion-5.98.0:5
     >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcontacts-5.98.0:5
     >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kguiaddons-5.98.0:5
@@ -60,13 +60,13 @@ labels:
     ) >=dev-qt/qtcore-5.15.1:5 dev-util/desktop-file-utils'
   IUSE: test debug test
   RDEPEND: '>=app-crypt/gpgme-1.16.0-r1[cxx,qt5] >=app-crypt/qca-2.3.0:2 >=dev-libs/grantlee-5.2.0:5
-    >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
-    >=dev-qt/qtwebengine-5.15.1:5[widgets] >=dev-qt/qtwidgets-5.15.1:5 >=kde-apps/akonadi-22.08.1:5
-    >=kde-apps/akonadi-contacts-22.08.1:5 >=kde-apps/akonadi-mime-22.08.1:5 >=kde-apps/akonadi-search-22.08.1:5
-    >=kde-apps/grantleetheme-22.08.1:5 >=kde-apps/incidenceeditor-22.08.1:5 >=kde-apps/kidentitymanagement-22.08.1:5
-    >=kde-apps/kldap-22.08.1:5 >=kde-apps/kmailtransport-22.08.1:5 >=kde-apps/kmbox-22.08.1:5
-    >=kde-apps/kmime-22.08.1:5 >=kde-apps/kpimtextedit-22.08.1:5 >=kde-apps/libgravatar-22.08.1:5
-    >=kde-apps/libkdepim-22.08.1:5 >=kde-apps/libkleo-22.08.1:5 >=kde-frameworks/karchive-5.98.0:5
+    dev-libs/ktextaddons >=dev-qt/qtgui-5.15.1:5 >=dev-qt/qtnetwork-5.15.1:5 >=dev-qt/qtprintsupport-5.15.1:5
+    >=dev-qt/qtwebengine-5.15.1:5 >=dev-qt/qtwidgets-5.15.1:5 >=kde-apps/akonadi-23.08.2:5
+    >=kde-apps/akonadi-contacts-23.08.2:5 >=kde-apps/akonadi-mime-23.08.2:5 >=kde-apps/akonadi-search-23.08.2:5
+    >=kde-apps/grantleetheme-23.08.2:5 >=kde-apps/kidentitymanagement-23.08.2:5 >=kde-apps/kldap-23.08.2:5
+    >=kde-apps/kmailtransport-23.08.2:5 >=kde-apps/kmbox-23.08.2:5 >=kde-apps/kmime-23.08.2:5
+    >=kde-apps/kpimtextedit-23.08.2:5 >=kde-apps/libgravatar-23.08.2:5 >=kde-apps/libkdepim-23.08.2:5
+    >=kde-apps/libkleo-23.08.2:5 >=kde-apps/pimcommon-23.08.2:5 >=kde-frameworks/karchive-5.98.0:5
     >=kde-frameworks/kcalendarcore-5.98.0:5 >=kde-frameworks/kcodecs-5.98.0:5 >=kde-frameworks/kcompletion-5.98.0:5
     >=kde-frameworks/kconfig-5.98.0:5 >=kde-frameworks/kconfigwidgets-5.98.0:5 >=kde-frameworks/kcontacts-5.98.0:5
     >=kde-frameworks/kcoreaddons-5.98.0:5 >=kde-frameworks/kdbusaddons-5.98.0:5 >=kde-frameworks/kguiaddons-5.98.0:5
@@ -81,4 +81,4 @@ labels:
   kit: kde-kit
   original.package.name: kde-apps/messagelib
   original.package.slot: "5"
-  original.package.version: 22.08.1
+  original.package.version: 23.08.2
