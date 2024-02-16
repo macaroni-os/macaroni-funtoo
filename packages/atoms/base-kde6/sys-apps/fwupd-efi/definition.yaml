@@ -13,12 +13,12 @@ uri:
 - https://fwupd.org
 license: LGPL-2.1+
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
-  DEPEND: sys-boot/gnu-efi || ( ( dev-lang/python:3.10 dev-python/pefile[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ( dev-lang/python:3.8 dev-python/pefile[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  DEPEND: sys-boot/gnu-efi || ( ( dev-lang/python:3.8 dev-python/pefile[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/pefile[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/pefile[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ( dev-lang/python:3.10 dev-python/pefile[python_targets_python3_10(-),python_single_target_python3_10(+)]
     ) )
   RDEPEND: '!<sys-apps/fwupd-1.6.0'
   emerge.packages: sys-apps/fwupd-efi
