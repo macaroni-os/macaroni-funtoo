@@ -1,18 +1,21 @@
 name: translate-toolkit
-version: 3.12.2
+version: 3.12.2+1
 category: dev-python
 use_flags:
 - -doc
+- -html
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- html
 - ical
 - ini
 - python_targets_python3_9
 - subtitles
 - yaml
 requires:
+- name: iso-codes
+  version: '>=0'
+  category: app-text
 - name: cheroot
   version: '>=0'
   category: dev-python
@@ -35,9 +38,6 @@ requires:
   version: '>=0'
   category: dev-python
 - name: setuptools
-  version: '>=0'
-  category: dev-python
-- name: utidylib
   version: '>=0'
   category: dev-python
 - name: vobject
