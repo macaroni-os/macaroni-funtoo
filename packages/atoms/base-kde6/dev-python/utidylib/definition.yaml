@@ -1,5 +1,5 @@
 name: utidylib
-version: "0.9"
+version: 0.9+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -7,6 +7,9 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
+- name: htmltidy
+  version: '>=0'
+  category: app-text
 - name: python
   version: '>=0'
   category: dev-lang-3.9
@@ -34,7 +37,7 @@ labels:
   DEPEND: dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   IUSE: python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
     python_targets_python3_8
-  RDEPEND: app-text/htmldity python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+  RDEPEND: app-text/htmltidy python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/utidylib
