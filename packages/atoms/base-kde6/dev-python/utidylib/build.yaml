@@ -4,7 +4,10 @@ prelude:
   anise repo update &&
   anise upgrade -y &&
   anise cleanup &&
-  sed -i -e 's|app-text/htmldity|app-text/tidy-html5|g' /var/git/extra-kits/geaaru-kit/dev-python/utidylib/utidylib-0.9.ebuild
+  cd /var/git/extra-kits/geaaru-kit/dev-python/utidylib/ &&
+  rm -v *.ebuild &&
+  wget https://raw.githubusercontent.com/geaaru/geaaru_overlay/funtoo/dev-python/utidylib/utidylib-0.9.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
