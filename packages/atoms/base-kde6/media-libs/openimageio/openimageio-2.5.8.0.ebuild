@@ -8,7 +8,7 @@ inherit cmake font python-single-r1 flag-o-matic
 
 DESCRIPTION="A library for reading and writing images"
 HOMEPAGE="https://sites.google.com/site/openimageio/ https://github.com/OpenImageIO"
-SRC_URI="https://api.github.com/repos/AcademySoftwareFoundation/OpenImageIO/tarball/v2.5.6.0 -> openimageio-2.5.6.0.tar.gz"
+SRC_URI="https://api.github.com/repos/AcademySoftwareFoundation/OpenImageIO/tarball/v2.5.8.0 -> openimageio-2.5.8.0.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/2.2"
