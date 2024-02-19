@@ -1813,6 +1813,9 @@ artefacts:
   - app-crypt/gnupg
 - tree: packages/atoms/base
   mutations:
+  # This helps support upgrade
+  # of old system. ATTENTION: This generate dep
+  # cycles without the replacements on libxml2-python.
     runtime_deps:
       packages:
         - category: dev-python
@@ -1839,6 +1842,12 @@ artefacts:
   - dev-libs/libxml2:2
 
 - tree: packages/atoms/base
+  # Avoid to generate build cycle
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: dev-libs-2
+          name: libxml2
   uses:
     disabled:
     - debug
