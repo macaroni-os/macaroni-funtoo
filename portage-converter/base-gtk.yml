@@ -355,6 +355,12 @@ artefacts:
     uses:
       # Quiet emerge for ghostscript-gpl
       - cups
+  # Break cycle deps with x11-libs/gtk+[cups] and 
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: net-dns
+          name: avahi
   uses:
     disabled:
     - abi_mips_n32
