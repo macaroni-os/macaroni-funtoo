@@ -1,0 +1,30 @@
+name: libxcvt
+version: 0.1.2
+category: x11-libs
+use_flags:
+- -ppc-aix
+- -x86-winnt
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X.Org xcvt library and cvt program
+uri:
+- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/lib/libxcvt
+license: BSD
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a
+    sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) x86-winnt?
+    ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0
+    ) virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  IUSE: static-libs
+  RDEPEND: '!<=x11-base/xorg-server-1.20.11'
+  emerge.packages: x11-libs/libxcvt
+  kit: geaaru-kit
+  original.package.name: x11-libs/libxcvt
+  original.package.slot: "0"
+  original.package.version: 0.1.2
