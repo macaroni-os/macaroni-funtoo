@@ -1,0 +1,31 @@
+name: egl-wayland
+version: 1.1.13
+category: gui-libs
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: EGLStream-based Wayland external platform
+uri:
+- https://github.com/NVIDIA/egl-wayland/
+license: MIT
+labels:
+  BDEPEND: dev-util/wayland-scanner >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/wayland x11-libs/libdrm !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)]
+    dev-libs/wayland-protocols gui-libs/eglexternalplatform media-libs/libglvnd
+  RDEPEND: dev-libs/wayland x11-libs/libdrm !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)]
+  emerge.packages: gui-libs/egl-wayland
+  kit: geaaru-kit
+  original.package.name: gui-libs/egl-wayland
+  original.package.slot: "0"
+  original.package.version: 1.1.13
