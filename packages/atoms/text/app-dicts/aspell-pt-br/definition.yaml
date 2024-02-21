@@ -1,0 +1,26 @@
+name: aspell-pt-br
+version: 6.0.20090702
+category: app-dicts
+requires:
+- name: aspell
+  version: '>=0'
+  category: app-text
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Brazilian Portuguese language dictionary for aspell
+uri:
+- http://aspell.net
+license: LGPL-2
+labels:
+  DEPEND: '>=app-text/aspell-0.60'
+  RDEPEND: '!<app-dicts/aspell-pt-0.50.2-r1 >=app-text/aspell-0.60'
+  emerge.packages: app-dicts/aspell-pt-br
+  kit: text-kit
+  original.package.name: app-dicts/aspell-pt-br
+  original.package.slot: "0"
+  original.package.version: 6.0.20090702
