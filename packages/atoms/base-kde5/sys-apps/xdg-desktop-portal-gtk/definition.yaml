@@ -1,0 +1,38 @@
+name: xdg-desktop-portal-gtk
+version: 1.8.0
+category: sys-apps
+use_flags:
+- X
+- wayland
+requires:
+- name: gnome-desktop
+  version: '>=0'
+  category: gnome-base-3
+- name: xdg-desktop-portal
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GTK/GNOME backend for xdg-desktop-portal
+uri:
+- https://github.com/flatpak/xdg-desktop-portal-gtk
+license: LGPL-2.1
+labels:
+  DEPEND: gnome-base/gnome-desktop:3 gnome-base/gsettings-desktop-schemas media-libs/fontconfig
+    >=dev-libs/glib-2.44:2[dbus] >=x11-libs/gtk+-3.14:3 wayland? ( >=x11-libs/gtk+-3.21.5:3[wayland]
+    ) X? ( >=x11-libs/gtk+-3.14:3[X] ) >=sys-apps/xdg-desktop-portal-1.5 virtual/pkgconfig
+    >=sys-devel/gettext-0.18.3 virtual/pkgconfig
+  IUSE: wayland X
+  RDEPEND: gnome-base/gnome-desktop:3 gnome-base/gsettings-desktop-schemas media-libs/fontconfig
+    >=dev-libs/glib-2.44:2[dbus] >=x11-libs/gtk+-3.14:3 wayland? ( >=x11-libs/gtk+-3.21.5:3[wayland]
+    ) X? ( >=x11-libs/gtk+-3.14:3[X] ) >=sys-apps/xdg-desktop-portal-1.5
+  emerge.packages: sys-apps/xdg-desktop-portal-gtk
+  kit: gnome-kit
+  original.package.name: sys-apps/xdg-desktop-portal-gtk
+  original.package.slot: "0"
+  original.package.version: 1.8.0
