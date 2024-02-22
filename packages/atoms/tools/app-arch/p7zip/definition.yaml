@@ -1,0 +1,24 @@
+name: p7zip
+version: "17.05"
+category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Port of 7-Zip archiver for Unix
+uri:
+- http://p7zip.sourceforge.net/
+license: LGPL-2.1 rar? ( unRAR )
+labels:
+  DEPEND: dev-lang/yasm
+  IUSE: doc +pch rar static python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  emerge.packages: app-arch/p7zip
+  kit: core-kit
+  original.package.name: app-arch/p7zip
+  original.package.slot: "0"
+  original.package.version: "17.05"
