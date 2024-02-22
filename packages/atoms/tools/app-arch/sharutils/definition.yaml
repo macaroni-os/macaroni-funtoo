@@ -1,0 +1,24 @@
+name: sharutils
+version: 4.15.2
+category: app-arch
+use_flags:
+- nls
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools to deal with shar archives
+uri:
+- https://www.gnu.org/software/sharutils/
+license: GPL-3
+labels:
+  DEPEND: app-arch/xz-utils sys-apps/texinfo nls? ( >=sys-devel/gettext-0.10.35 )
+  IUSE: nls
+  emerge.packages: app-arch/sharutils
+  kit: core-kit
+  original.package.name: app-arch/sharutils
+  original.package.slot: "0"
+  original.package.version: 4.15.2-r2
