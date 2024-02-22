@@ -1,0 +1,29 @@
+name: rar
+version: 5.7.1
+category: app-arch
+use_flags:
+- all_sfx
+requires:
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: RAR compressor/uncompressor
+uri:
+- https://rarlab.com/
+license: RAR BSD BSD-2
+labels:
+  DEPEND: all_sfx? ( app-arch/unrar )
+  IUSE: all_sfx
+  RDEPEND: sys-libs/glibc
+  emerge.packages: app-arch/rar
+  kit: core-kit
+  original.package.name: app-arch/rar
+  original.package.slot: "0"
+  original.package.version: 5.7.1_p20190427
