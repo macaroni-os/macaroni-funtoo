@@ -72,7 +72,6 @@ skipped_resolutions:
     - name: eselect-lib-bin-symlink
       category: app-eselect
 
-
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
@@ -228,6 +227,13 @@ artefacts:
 
 - tree: packages/atoms/xorg-base
   mutations:
+    runtime_deps:
+      packages:
+        # The old xorg was with both x11 and xwayland.
+        # Forcing installation of xwayland
+        - category: x11-base
+          name: xwayland
+  mutations:
     uses:
       - xnest
       - suid
@@ -257,6 +263,29 @@ artefacts:
     - wayland
   packages:
   - x11-base/xorg-server
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  packages:
+    - gui-libs/eglexternalplatform
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    conflicts:
+      - category: x11-bae
+        name: xorg-server
+        version: '<=1.20.11'
+  uses:
+    disabled:
+    - debug
+    - selinux
+    - unwind
+  packages:
+  - x11-base/xwayland
 
 - tree: packages/atoms/xorg-base
   uses:

@@ -2,58 +2,32 @@ name: xorg-server
 version: 21.1.11+2
 category: x11-base
 use_flags:
-- -dmx
 - -elogind
 - -minimal
-- -ppc-aix
 - -selinux
 - -systemd
 - -unwind
-- -x86-winnt
 - kdrive
 - udev
-- wayland
 - xephyr
+- xnest
+- xorg
 - xnest
 - suid
 requires:
-- name: openssl
+- name: flex
   version: '>=0'
-  category: dev-libs
-- name: wayland
-  version: '>=0'
-  category: dev-libs
-- name: wayland-protocols
-  version: '>=0'
-  category: dev-libs
-- name: libepoxy
-  version: '>=0'
-  category: media-libs
+  category: sys-devel
 - name: libudev
   version: '>=0'
   category: virtual
-- name: iceauth
-  version: '>=0'
-  category: x11-apps
-- name: rgb
-  version: '>=0'
-  category: x11-apps
 - name: xinit
   version: '>=0'
   category: x11-apps
-- name: xkbcomp
-  version: '>=0'
-  category: x11-apps
-- name: libXfont2
-  version: '>=0'
-  category: x11-libs
 - name: libXv
   version: '>=0'
   category: x11-libs
 - name: libdrm
-  version: '>=0'
-  category: x11-libs
-- name: pixman
   version: '>=0'
   category: x11-libs
 - name: xcb-util-image
@@ -68,12 +42,12 @@ requires:
 - name: xcb-util-wm
   version: '>=0'
   category: x11-libs
-- name: xbitmaps
-  version: '>=0'
-  category: x11-misc
 - name: xkeyboard-config
   version: '>=0'
   category: x11-misc
+- name: xwayland
+  version: '>=0'
+  category: x11-base
 annotations:
   subsets:
     rules:
@@ -81,9 +55,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: X.Org X servers
+description: x.org X server
 uri:
-- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/xserver/xorg-server
+- https://www.x.org/wiki
 license: MIT
 labels:
   BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
