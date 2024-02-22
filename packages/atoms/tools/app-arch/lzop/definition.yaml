@@ -1,0 +1,26 @@
+name: lzop
+version: "1.04"
+category: app-arch
+requires:
+- name: lzo
+  version: '>=0'
+  category: dev-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility for fast (even real-time) compression/decompression
+uri:
+- http://www.lzop.org/
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/lzo-2'
+  RDEPEND: '>=dev-libs/lzo-2'
+  emerge.packages: app-arch/lzop
+  kit: core-kit
+  original.package.name: app-arch/lzop
+  original.package.slot: "0"
+  original.package.version: "1.04"
