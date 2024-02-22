@@ -1,0 +1,27 @@
+name: pigz
+version: "2.4"
+category: app-arch
+use_flags:
+- -test
+- static
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A parallel implementation of gzip
+uri:
+- http://www.zlib.net/pigz/
+license: ZLIB
+labels:
+  DEPEND: '!static? ( sys-libs/zlib ) static? ( sys-libs/zlib[static-libs(+)] ) test?
+    ( app-arch/ncompress )'
+  IUSE: static symlink test
+  RDEPEND: '!static? ( sys-libs/zlib )'
+  emerge.packages: app-arch/pigz
+  kit: core-kit
+  original.package.name: app-arch/pigz
+  original.package.slot: "0"
+  original.package.version: "2.4"
