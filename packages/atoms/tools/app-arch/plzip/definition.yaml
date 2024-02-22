@@ -1,0 +1,26 @@
+name: plzip
+version: "1.10"
+category: app-arch
+requires:
+- name: lzlib
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Parallel lzip compressor
+uri:
+- https://www.nongnu.org/lzip/plzip.html
+license: GPL-3
+labels:
+  DEPEND: app-arch/lzlib:0=
+  RDEPEND: app-arch/lzlib:0=
+  emerge.packages: app-arch/plzip
+  kit: core-kit
+  original.package.name: app-arch/plzip
+  original.package.slot: "0"
+  original.package.version: "1.10"
