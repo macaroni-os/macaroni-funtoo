@@ -2,9 +2,7 @@ shell:
 - /bin/bash
 - -c
 install:
-- source /etc/profile && eval 'macaronictl env-update || true' && eval 'macaronictl
-  etc-update || true'
+- source /etc/profile && eval 'macaronictl env-update || true'
 uninstall:
 - eval 'rm -vf /etc/env.d/50rust-bin-{{ ( index .Values.labels "original.package.version"
-  ) }} || true' && source /etc/profile && eval 'macaronictl env-update || true' &&
-  eval 'macaronictl etc-update || true'
+  ) }} || true' && source /etc/profile && eval 'macaronictl env-update || true'
