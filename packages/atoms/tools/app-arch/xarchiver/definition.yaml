@@ -1,0 +1,35 @@
+name: xarchiver
+version: 0.5.4.14
+category: app-arch
+use_flags:
+- -doc
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A GTK+ archive manager that can be used with Thunar
+uri:
+- https://github.com/ib/xarchiver
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2:= x11-libs/gtk+:3= !!<app-arch/pigz-2.4[symlink] dev-util/intltool
+    sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd app-text/docbook-xsl-stylesheets
+    dev-libs/libxml2 dev-libs/libxslt ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  IUSE: doc
+  RDEPEND: '>=dev-libs/glib-2:= x11-libs/gtk+:3= !!<app-arch/pigz-2.4[symlink]'
+  emerge.packages: app-arch/xarchiver
+  kit: core-kit
+  original.package.name: app-arch/xarchiver
+  original.package.slot: "0"
+  original.package.version: 0.5.4.14
