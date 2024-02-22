@@ -1,12 +1,12 @@
 name: xorg-server
-version: 21.1.11+2
+version: 21.1.11+3
 category: x11-base
 use_flags:
-- -elogind
 - -minimal
 - -selinux
 - -systemd
 - -unwind
+- elogind
 - kdrive
 - udev
 - xephyr
@@ -15,12 +15,15 @@ use_flags:
 - xnest
 - suid
 requires:
+- name: dbus
+  version: '>=0'
+  category: sys-apps
 - name: flex
   version: '>=0'
   category: sys-devel
-- name: libudev
+- name: pam
   version: '>=0'
-  category: virtual
+  category: sys-libs
 - name: xinit
   version: '>=0'
   category: x11-apps
