@@ -1,4 +1,7 @@
 prelude:
+- >-
+  eval 'mkdir /etc/portage/package.license -p || true' &&
+  echo 'app-arch/rar RAR' > /etc/portage/package.license/01-rar.license
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
