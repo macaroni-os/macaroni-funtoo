@@ -87,7 +87,9 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.3.1-tests-optional.patch
 	"${FILESDIR}"/krita-5.1.5-ocio-2.3.0.patch
-#	"${FILESDIR}"/${P}-add_missing_header_qbuffer.patch
+	"${FILESDIR}/${P}-sip-6.8.patch" # bug 919139
+	"${FILESDIR}/${P}-libjxl-0.9.patch" # bug 922524
+	"${FILESDIR}/${P}-lto.patch" # bug 922520
 )
 
 pkg_setup() {
