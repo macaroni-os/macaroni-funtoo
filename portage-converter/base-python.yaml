@@ -417,6 +417,19 @@ artefacts:
     - cpu_flags_x86_sse2
   packages:
   - dev-lang/rust-bin:stable
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    uninstall:
+      - >-
+        eval 'rm -vf /etc/env.d/50rust-bin-{{ ( index .Values.labels "original.package.version" ) }} || true' &&
+        source /etc/profile &&
+        eval 'macaronictl env-update || true'
+    install:
+      - >-
+        source /etc/profile &&
+        eval 'macaronictl env-update || true'
 
 - tree: packages/atoms/base-python
   mutations:
