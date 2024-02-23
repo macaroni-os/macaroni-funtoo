@@ -1,0 +1,12 @@
+# Macaroni metalog.service
+[Unit]
+Description=System Logger Daemon
+
+[Service]
+EnvironmentFile=-/etc/conf.d/metalog
+ExecStart=/usr/sbin/metalog ${METALOG_OPTS}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=syslog.service
