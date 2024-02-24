@@ -1,5 +1,5 @@
 name: openvpn
-version: 2.5.9+1
+version: 2.6.8
 category: net-vpn
 use_flags:
 - -kernel_linux
@@ -41,21 +41,20 @@ uri:
 - https://openvpn.net/
 license: GPL-2
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 virtual/pkgconfig'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: kernel_linux? ( iproute2? ( sys-apps/iproute2[-minimal] ) ) lz4? ( app-arch/lz4
     ) lzo? ( >=dev-libs/lzo-1.07 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( >=dev-libs/openssl-0.9.8:0=
-    ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) systemd? ( sys-apps/systemd
-    ) dev-python/docutils dev-python/docutils sys-apps/shadow
+    ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) dev-python/docutils
+    dev-libs/libnl:3= dev-python/docutils sys-apps/shadow
   IUSE: down-root examples inotify iproute2 +openssl +lz4 +lzo mbedtls pam pkcs11
-    +plugins selinux static systemd test userland_BSD kernel_linux
+    +plugins selinux static test userland_BSD kernel_linux
   RDEPEND: kernel_linux? ( iproute2? ( sys-apps/iproute2[-minimal] ) ) lz4? ( app-arch/lz4
     ) lzo? ( >=dev-libs/lzo-1.07 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( >=dev-libs/openssl-0.9.8:0=
-    ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) systemd? ( sys-apps/systemd
-    ) dev-python/docutils selinux? ( sec-policy/selinux-openvpn ) virtual/tmpfiles
+    ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) dev-python/docutils
+    dev-libs/libnl:3= selinux? ( sec-policy/selinux-openvpn ) virtual/tmpfiles
   emerge.packages: net-vpn/openvpn
   kit: net-kit
   original.package.name: net-vpn/openvpn
   original.package.slot: "0"
-  original.package.version: 2.5.9
+  original.package.version: 2.6.8
