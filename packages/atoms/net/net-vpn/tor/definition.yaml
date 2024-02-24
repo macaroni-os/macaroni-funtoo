@@ -1,5 +1,5 @@
 name: tor
-version: 0.4.7.9
+version: 0.4.8.10
 category: net-vpn
 use_flags:
 - -libressl
@@ -39,15 +39,14 @@ labels:
   DEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap
     ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
     ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp
-    ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) sys-apps/shadow
-  IUSE: caps libressl lzma scrypt seccomp selinux systemd tor-hardening test zstd
+    ) zstd? ( app-arch/zstd ) sys-apps/shadow
+  IUSE: caps libressl lzma scrypt seccomp selinux tor-hardening test zstd
   RDEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap
     ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
     ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp
-    ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) selinux? ( sec-policy/selinux-tor
-    )
+    ) zstd? ( app-arch/zstd ) selinux? ( sec-policy/selinux-tor )
   emerge.packages: net-vpn/tor
   kit: net-kit
   original.package.name: net-vpn/tor
   original.package.slot: "0"
-  original.package.version: 0.4.7.9
+  original.package.version: 0.4.8.10
