@@ -1,4 +1,8 @@
 prelude:
+# Add patch for xorg-server 21.1.11
+- >-
+  eval 'mkdir -p /etc/portage/patches/x11-drivers/xf86-video-nouveau || true' &&
+  cp files/* /etc/portage/patches/x11-drivers/xf86-video-nouveau/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
