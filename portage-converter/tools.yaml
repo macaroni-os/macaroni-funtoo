@@ -75,6 +75,9 @@ skipped_resolutions:
     - name: zfs-kmod
       category: sys-fs
 
+    - name: autoconf
+      category: sys-devel
+
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
@@ -426,6 +429,37 @@ artefacts:
   packages:
     - app-misc/asciinema
     - net-analyzer/speedtest-cli
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - static
+      - symlink
+      - test
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race15
+  packages:
+    # compression packages
+    - app-arch/zoo
+    - app-arch/xarchiver
+    - app-arch/unrar
+    - app-arch/sharutils
+    - app-arch/rar
+    # TODO: autogen (ebuild seems old)
+    #- app-arch/pxz
+    - app-arch/plzip
+    - app-arch/pigz
+    - app-arch/pbzip2
+    - app-arch/p7zip
+    - app-arch/ncompress
+    - app-arch/lzop
+    - app-arch/lzlib
+    - app-arch/lziprecover
+    - app-arch/lrzip
+
 
 include_layers:
 - layers/macaroni-funtoo-race15.yaml
