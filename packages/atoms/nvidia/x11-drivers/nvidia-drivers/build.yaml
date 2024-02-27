@@ -19,6 +19,10 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Add file for tmpfiles.d for SidebandSocketPath
+- >-
+  eval 'mkdir /pkgdir/{{ .Values.name }}/etc/tmpfiles.d/ -p || true' &&
+  echo "/run/nvidia-xdriver 0775 root video -" > /pkgdir/{{ .Values.name }}/etc/tmpfiles.d/nvidia-drivers.conf
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
