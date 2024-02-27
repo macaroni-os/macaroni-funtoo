@@ -1,5 +1,5 @@
 name: gdm
-version: 3.36.3
+version: 3.36.3+1
 category: gnome-base
 use_flags:
 - -accessibility
@@ -11,6 +11,7 @@ use_flags:
 - plymouth
 - tcpd
 - xinerama
+- wayland
 requires:
 - name: iso-codes
   version: '>=0'
@@ -64,9 +65,8 @@ uri:
 - https://wiki.gnome.org/Projects/GDM
 license: GPL-2+ branding? ( CC-BY-SA-4.0 )
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 app-arch/xz-utils virtual/pkgconfig'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 app-arch/xz-utils virtual/pkgconfig'
   DEPEND: app-text/iso-codes >=dev-libs/glib-2.70.0-r1:2= dev-libs/libgudev >=x11-libs/gtk+-2.91.1:3
     >=gnome-base/dconf-0.20 >=gnome-base/gnome-settings-daemon-3.1.4 gnome-base/gsettings-desktop-schemas
     >=media-libs/fontconfig-2.5.0:1.0 >=media-libs/libcanberra-0.4[gtk3] sys-apps/dbus
