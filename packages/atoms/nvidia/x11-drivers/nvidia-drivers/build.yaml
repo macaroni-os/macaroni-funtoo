@@ -26,7 +26,7 @@ prelude:
 # Add file for tmpfiles.d for SidebandSocketPath
 - >-
   eval 'mkdir /pkgdir/{{ .Values.name }}/etc/tmpfiles.d/ -p || true' &&
-  echo "/run/nvidia-xdriver 0775 root video -" > /pkgdir/{{ .Values.name }}/etc/tmpfiles.d/nvidia-drivers.conf
+  echo "d /run/nvidia-xdriver 0775 root video -" > /pkgdir/{{ .Values.name }}/etc/tmpfiles.d/nvidia-drivers.conf
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
