@@ -3,7 +3,5 @@ shell:
 - -c
 install:
 - eval 'macaronictl env-update || true'
-- eval 'mkdir /var/run/nvidia-xdriver || true' && chmod ug+rwx /var/run/nvidia-xdriver/
-  && chown root:users /var/run/nvidia-xdriver/
 uninstall:
 - rm -vf /etc/OpenCL/vendors/nvidia.icd || true
