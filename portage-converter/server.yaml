@@ -810,6 +810,19 @@ artefacts:
   packages:
     - sys-process/procs
 
+- tree: packages/atoms/server
+  packages:
+    - dev-db/unixODBC
+
+- tree: packages/atoms/server
+  mutations:
+    provides:
+      - category: provides
+        name: service-logger
+        version: "1"
+  packages:
+    - app-admin/metalog
+
 include_layers:
 - layers/macaroni-funtoo-race7.yaml
 
