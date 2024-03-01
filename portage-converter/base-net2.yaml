@@ -107,6 +107,35 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race14
+    runtime_deps:
+      packages:
+        - category: provides
+          name: service-logger
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: app-admin
+          name: metalog
+        - category: app-admin
+          name: rsyslog
+        - category: app-admin
+          name: syslog-ng
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - ldap
+  packages:
+    - virtual/logger
+
+- tree: packages/atoms/base-net2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
   uses:
     disabled:
       - debug
@@ -116,7 +145,6 @@ artefacts:
       - ldap
   packages:
     - dev-db/tinycdb
-    - virtual/logger
     - app-text/libexttextcat
 
 - tree: packages/atoms/base-net2
