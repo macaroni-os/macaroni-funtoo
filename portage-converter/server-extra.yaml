@@ -851,6 +851,15 @@ artefacts:
 
 - tree: packages/atoms-extra/server
   mutations:
+    provides:
+      - category: provides
+        name: service-logger
+        version: "1"
+  packages:
+    - app-admin/metalog
+
+- tree: packages/atoms-extra/server
+  mutations:
     buildtime_deps:
       packages:
         - category: app-emulation
@@ -878,6 +887,8 @@ artefacts:
         -e incus &&
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e incus-admin
+
+
 
 include_layers:
 - layers/macaroni-funtoo-race7.yaml
