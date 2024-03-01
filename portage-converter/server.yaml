@@ -630,6 +630,11 @@ artefacts:
         -e postgres
 
 - tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - name: entities-catalog
+          category: macaroni
   uses:
     disabled:
       - debug
@@ -663,6 +668,14 @@ artefacts:
       - python_targets_python3_9
   packages:
     - net-dialup/freeradius
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e radius
 
 - tree: packages/atoms/server
   mutations:
