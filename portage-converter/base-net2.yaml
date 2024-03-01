@@ -542,6 +542,15 @@ artefacts:
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e ntp
 
+- tree: packages/atoms/base-net2
+  mutations:
+    provides:
+      - category: provides
+        name: service-logger
+        version: "1"
+  packages:
+    - app-admin/metalog
+
 include_layers:
 - layers/macaroni-funtoo-race14.yaml
 
