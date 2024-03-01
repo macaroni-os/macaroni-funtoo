@@ -187,11 +187,35 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race7
+    runtime_deps:
+      packages:
+        - category: provides
+          name: service-logger
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: app-admin
+          name: metalog
+        - category: app-admin
+          name: rsyslog
+        - category: app-admin
+          name: syslog-ng
   uses:
     disabled:
       - test
   packages:
     - virtual/logger
+
+- tree: packages/atoms-extra/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
+  uses:
+    disabled:
+      - test
+  packages:
     - virtual/mta
     - sys-fs/growpart
     - dev-libs/libdaemon
