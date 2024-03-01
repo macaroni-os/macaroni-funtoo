@@ -127,16 +127,6 @@ artefacts:
     - dev-libs/libmemcached
 
 - tree: packages/atoms/server
-  uses:
-    disabled:
-      - dbi
-      - libressl
-      - spoof-source
-      - systemd
-  packages:
-    - app-admin/syslog-ng
-
-- tree: packages/atoms/server
   mutations:
     buildtime_deps:
       packages:
@@ -170,6 +160,11 @@ artefacts:
     - dev-libs/libmcrypt
 
 - tree: packages/atoms/server
+  mutations:
+    provides:
+      - category: provides
+        name: service-logger
+        version: "1"
   uses:
     disabled:
       - static-libs
