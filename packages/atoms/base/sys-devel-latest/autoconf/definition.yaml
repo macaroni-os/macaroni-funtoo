@@ -1,0 +1,37 @@
+name: autoconf
+version: "2.72"
+category: sys-devel-latest
+requires:
+- name: texinfo
+  version: '>=0'
+  category: sys-apps
+- name: autoconf-wrapper
+  version: '>=0'
+  category: sys-devel
+- name: gnuconfig
+  version: '>=0'
+  category: sys-devel
+- name: m4
+  version: '>=0'
+  category: sys-devel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Used to create autoconfiguration files
+uri:
+- https://www.gnu.org/software/autoconf/autoconf.html
+license: GPL-3+
+labels:
+  BDEPEND: sys-apps/texinfo >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16
+  IUSE: emacs
+  RDEPEND: sys-apps/texinfo >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 >=sys-devel/autoconf-wrapper-13
+    sys-devel/gnuconfig !~sys-devel/autoconf-2.72:2.5
+  emerge.packages: sys-devel/autoconf:latest
+  kit: core-kit
+  original.package.name: sys-devel/autoconf
+  original.package.slot: latest
+  original.package.version: "2.72"
