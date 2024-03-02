@@ -1,4 +1,9 @@
 prelude:
+# Avoid dep cycle - FL-11821
+- >-
+  sed -i -e '/^DISTUTILS_USE_PEP517.*/d'
+  /var/git/meta-repo/kits/python-modules-kit/dev-python/packaging/packaging-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
