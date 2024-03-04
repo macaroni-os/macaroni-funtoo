@@ -22,7 +22,7 @@ steps:
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force
+- luet install virtual-entities/base --force --sync-repos
 - >-
   luet install --force
   system/luet-devkit
