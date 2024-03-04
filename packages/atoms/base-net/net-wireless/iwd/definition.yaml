@@ -1,5 +1,5 @@
 name: iwd
-version: "2.13"
+version: "2.15"
 category: net-wireless
 use_flags:
 - -systemd
@@ -35,14 +35,14 @@ uri:
 license: GPL-2
 labels:
   BDEPEND: virtual/pkgconfig virtual/pkgconfig
-  DEPEND: sys-apps/dbus client? ( sys-libs/readline:0= ) ~dev-libs/ell-0.61
+  DEPEND: sys-apps/dbus client? ( sys-libs/readline:0= ) ~dev-libs/ell-0.63
   IUSE: +client cpu_flags_x86_aes cpu_flags_x86_ssse3 +crda +monitor ofono standalone
     systemd wired kernel_linux
-  RDEPEND: sys-apps/dbus client? ( sys-libs/readline:0= ) ~dev-libs/ell-0.61 net-wireless/wireless-regdb
+  RDEPEND: sys-apps/dbus client? ( sys-libs/readline:0= ) ~dev-libs/ell-0.63 net-wireless/wireless-regdb
     crda? ( net-wireless/crda ) standalone? ( systemd? ( sys-apps/systemd ) !systemd?
     ( virtual/resolvconf ) )
   emerge.packages: net-wireless/iwd
   kit: core-kit
   original.package.name: net-wireless/iwd
   original.package.slot: "0"
-  original.package.version: "2.13"
+  original.package.version: "2.15"
