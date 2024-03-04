@@ -1,5 +1,5 @@
 name: libnetfilter_conntrack
-version: 1.0.7
+version: 1.0.9
 category: net-libs
 requires:
 - name: libmnl
@@ -21,13 +21,13 @@ uri:
 - https://www.netfilter.org/projects/libnetfilter_conntrack/
 license: GPL-2
 labels:
-  DEPEND: '>=net-libs/libmnl-1.0.3 >=net-libs/libnfnetlink-1.0.0 virtual/pkgconfig
-    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
-  IUSE: static-libs kernel_linux
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: '>=net-libs/libmnl-1.0.3 >=net-libs/libnfnetlink-1.0.0'
+  IUSE: kernel_linux
   RDEPEND: '>=net-libs/libmnl-1.0.3 >=net-libs/libnfnetlink-1.0.0'
   emerge.packages: net-libs/libnetfilter_conntrack
   kit: net-kit
   original.package.name: net-libs/libnetfilter_conntrack
   original.package.slot: "0"
-  original.package.version: 1.0.7
+  original.package.version: 1.0.9
