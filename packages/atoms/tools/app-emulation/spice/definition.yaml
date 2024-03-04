@@ -38,17 +38,17 @@ uri:
 - https://www.spice-space.org/
 license: LGPL-2.1
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
-    ) sys-devel/autoconf-archive virtual/pkgconfig || ( ( dev-lang/python:3.10 >=dev-python/pyparsing-1.5.6-r2[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    dev-python/six[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ( dev-lang/python:3.8 >=dev-python/pyparsing-1.5.6-r2[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) sys-devel/autoconf-archive virtual/pkgconfig || ( ( dev-lang/python:3.8 >=dev-python/pyparsing-1.5.6-r2[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/six[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 >=dev-python/pyparsing-1.5.6-r2[python_targets_python3_9(-),python_single_target_python3_9(+)]
     dev-python/six[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 >=dev-python/pyparsing-1.5.6-r2[python_targets_python3_7(-),python_single_target_python3_7(+)]
     dev-python/six[python_targets_python3_7(-),python_single_target_python3_7(+)]
-    ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+    ) ( dev-lang/python:3.10 >=dev-python/pyparsing-1.5.6-r2[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    dev-python/six[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 )
+    >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: dev-lang/orc[static-libs(+)?] >=dev-libs/glib-2.38:2[static-libs(+)?] dev-libs/openssl:0=[static-libs(+)?]
     media-libs/opus[static-libs(+)?] media-libs/libjpeg-turbo:0=[static-libs(+)?]
     sys-libs/zlib[static-libs(+)?] >=x11-libs/pixman-0.17.7[static-libs(+)?] lz4?
