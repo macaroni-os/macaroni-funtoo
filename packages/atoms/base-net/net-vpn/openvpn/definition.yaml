@@ -1,5 +1,5 @@
 name: openvpn
-version: 2.6.8
+version: 2.6.9
 category: net-vpn
 use_flags:
 - -kernel_linux
@@ -49,15 +49,15 @@ labels:
   DEPEND: kernel_linux? ( iproute2? ( sys-apps/iproute2[-minimal] ) ) lz4? ( app-arch/lz4
     ) lzo? ( >=dev-libs/lzo-1.07 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( >=dev-libs/openssl-0.9.8:0=
     ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) dev-python/docutils
-    dev-python/docutils sys-apps/shadow
+    dev-libs/libnl:3= dev-python/docutils sys-apps/shadow
   IUSE: down-root examples inotify iproute2 +openssl +lz4 +lzo mbedtls pam pkcs11
     +plugins selinux static test userland_BSD kernel_linux
   RDEPEND: kernel_linux? ( iproute2? ( sys-apps/iproute2[-minimal] ) ) lz4? ( app-arch/lz4
     ) lzo? ( >=dev-libs/lzo-1.07 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( >=dev-libs/openssl-0.9.8:0=
     ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) dev-python/docutils
-    selinux? ( sec-policy/selinux-openvpn ) virtual/tmpfiles
+    dev-libs/libnl:3= selinux? ( sec-policy/selinux-openvpn ) virtual/tmpfiles
   emerge.packages: net-vpn/openvpn
   kit: net-kit
   original.package.name: net-vpn/openvpn
   original.package.slot: "0"
-  original.package.version: 2.6.8
+  original.package.version: 2.6.9
