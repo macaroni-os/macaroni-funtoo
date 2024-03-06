@@ -1,7 +1,7 @@
 prelude:
 # Temporary patch
 - >-
-  sed -e 's:None|str:None/str:g' /var/git/meta-repo/kits/dev-kit/dev-libs/libbson/libbson-1.26.0.ebuild
+  sed -i -e 's:None|str:None/str:g' /var/git/meta-repo/kits/dev-kit/dev-libs/libbson/libbson-1.26.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
