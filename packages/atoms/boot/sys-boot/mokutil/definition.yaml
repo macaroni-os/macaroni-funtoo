@@ -1,5 +1,5 @@
 name: mokutil
-version: 0.6.0
+version: 0.7.0
 category: sys-boot
 requires:
 - name: openssl
@@ -23,13 +23,12 @@ uri:
 - https://github.com/lcp/mokutil
 license: GPL-3
 labels:
-  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: dev-libs/openssl:= sys-apps/keyutils:= sys-libs/efivar:=
   RDEPEND: dev-libs/openssl:= sys-apps/keyutils:= sys-libs/efivar:=
   emerge.packages: sys-boot/mokutil
   kit: core-kit
   original.package.name: sys-boot/mokutil
   original.package.slot: "0"
-  original.package.version: 0.6.0
+  original.package.version: 0.7.0
