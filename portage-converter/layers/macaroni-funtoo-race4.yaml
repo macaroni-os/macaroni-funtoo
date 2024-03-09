@@ -54,6 +54,7 @@ packages:
   - dev-lang/python:3.9
   - dev-lang/rust-bin:stable
   - dev-lang/swig:0
+  - dev-libs/boehm-gc:0
   - dev-libs/boost:0
   - dev-libs/elfutils:0
   - dev-libs/expat:0
@@ -64,6 +65,8 @@ packages:
   - dev-libs/jsoncpp:0
   - dev-libs/libaio:0
   - dev-libs/libassuan:0
+  - dev-libs/libatomic_ops:0
+  - dev-libs/libbpf:0
   - dev-libs/libffi:0
   - dev-libs/libgcrypt:0
   - dev-libs/libgpg-error:0
@@ -168,12 +171,14 @@ packages:
   - dev-python/urllib3:0
   - dev-python/wheel:0
   - dev-python/zipp:0
+  - dev-scheme/guile:12
   - dev-util/b2:0
   - dev-util/cmake:0
   - dev-util/desktop-file-utils:0
   - dev-util/gdbus-codegen:0
   - dev-util/gperf:0
   - dev-util/gtk-doc-am:0
+  - dev-util/gtk-doc:0
   - dev-util/intltool:0
   - dev-util/itstool:0
   - dev-util/meson:0
@@ -182,21 +187,26 @@ packages:
   - dev-util/re2c:0
   - dev-vcs/git:0
   - gnome-extra/yelp-xsl:0
+  - net-analyzer/tcpdump:0
+  - net-analyzer/tcping:0
   - net-dns/libidn2:0
   - net-firewall/iptables:0
   - net-libs/gnutls:0
   - net-libs/libmnl:0
   - net-libs/libnsl:0
+  - net-libs/libpcap:0
   - net-libs/libtirpc:0
   - net-libs/nghttp2:0
   - net-libs/rpcsvc-proto:0
   - net-misc/bridge-utils:0
   - net-misc/curl:0
   - net-misc/dhcpcd:0
+  - net-misc/ethertypes:0
   - net-misc/ifenslave:0
   - net-misc/iputils:0
   - net-misc/openssh:0
   - net-misc/rsync:0
+  - net-misc/vconfig:0
   - net-misc/wget:0
   - perl-core/File-Temp:0
   - sys-apps/acl:0
@@ -218,6 +228,7 @@ packages:
   - sys-apps/help2man:0
   - sys-apps/hwids:0
   - sys-apps/install-xattr:0
+  - sys-apps/iproute2:0
   - sys-apps/kbd:0
   - sys-apps/kmod:0
   - sys-apps/less:0
@@ -240,6 +251,8 @@ packages:
   - sys-devel/autoconf-archive:0
   - sys-devel/autoconf-wrapper:0
   - sys-devel/autoconf:2.69
+  - sys-devel/autoconf:latest
+  - sys-devel/autogen:0
   - sys-devel/automake-wrapper:0
   - sys-devel/automake:1.16
   - sys-devel/bc:0
@@ -257,6 +270,7 @@ packages:
   - sys-fs/btrfs-progs:0
   - sys-fs/dosfstools:0
   - sys-fs/e2fsprogs:0
+  - sys-fs/lvm2:0
   - sys-fs/mdadm:0
   - sys-fs/udev-init-scripts:0
   - sys-fs/xfsprogs:0
@@ -334,17 +348,3 @@ packages:
   - virtual/udev:0
   - virtual/yacc:0
   - x11-misc/shared-mime-info:0
-
-  - dev-libs/boehm-gc:0
-  - dev-libs/libatomic_ops:0
-  - dev-libs/libbpf:0
-  - dev-scheme/guile:12
-  - dev-util/gtk-doc
-  - net-analyzer/tcpdump
-  - net-analyzer/tcpping
-  - net-libs/libpcap
-  - net-misc/ethertypes
-  - net-misc/vconfig
-  - sys-apps/iproute2
-  - sys-devel/autogen
-  - sys-fs/lvm2
