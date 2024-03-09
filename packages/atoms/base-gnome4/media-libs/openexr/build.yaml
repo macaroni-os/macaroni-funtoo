@@ -1,7 +1,8 @@
 prelude:
 # Temporary
 - >-
-  sed -i -e 's|docs/SymbolVisibility.rst||g' /var/git/meta-repo/kits/media-kit/media-libs/openexr/openexr-3.2.1.ebuild
+  sed -i -e 's|docs/SymbolVisibility.rst||g'
+  /var/git/meta-repo/kits/media-kit/media-libs/openexr/openexr-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
