@@ -1,5 +1,5 @@
 name: pillow
-version: 10.0.1+2
+version: 10.2.0
 category: dev-python
 use_flags:
 - -doc
@@ -40,33 +40,22 @@ uri:
 - https://python-pillow.org/
 license: HPND
 labels:
-  DEPEND: dev-python/olefile[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    imagequant? ( media-gfx/libimagequant:0 ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( media-libs/openjpeg:2=
-    ) lcms? ( media-libs/lcms:2= ) tiff? ( media-libs/tiff:0=[jpeg,zlib] ) truetype?
-    ( media-libs/freetype:2= ) webp? ( media-libs/libwebp:0= ) zlib? ( sys-libs/zlib:0=
-    ) media-libs/libraqm dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    doc? ( dev-python/sphinx[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    dev-python/sphinx_rtd_theme[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    ) test? ( dev-python/pytest[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    ) python_targets_python3_7? ( dev-lang/python:3.7[tk?,threads(+)] ) python_targets_python3_9?
-    ( dev-lang/python:3.9[tk?,threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[tk?,threads(+)]
-    ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[tk?,threads(+)] )
-    python_targets_python3_10? ( dev-lang/python:3.10[tk?,threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
-  IUSE: doc examples truetype imagequant jpeg jpeg2k lcms test tiff tk webp zlib python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8 python_targets_python2_7 python_targets_python3_10
-    test
-  RDEPEND: dev-python/olefile[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
-    imagequant? ( media-gfx/libimagequant:0 ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( media-libs/openjpeg:2=
-    ) lcms? ( media-libs/lcms:2= ) tiff? ( media-libs/tiff:0=[jpeg,zlib] ) truetype?
-    ( media-libs/freetype:2= ) webp? ( media-libs/libwebp:0= ) zlib? ( sys-libs/zlib:0=
-    ) media-libs/libraqm python_targets_python3_7? ( dev-lang/python:3.7[tk?,threads(+)]
-    ) python_targets_python3_9? ( dev-lang/python:3.9[tk?,threads(+)] ) python_targets_python3_8?
-    ( dev-lang/python:3.8[tk?,threads(+)] ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[tk?,threads(+)]
-    ) python_targets_python3_10? ( dev-lang/python:3.10[tk?,threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-),-python_single_target_python3_10(-)]
+  BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  DEPEND: imagequant? ( media-gfx/libimagequant ) jpeg? ( media-libs/libjpeg-turbo
+    ) jpeg2k? ( media-libs/openjpeg ) lcms? ( media-libs/lcms ) tiff? ( media-libs/tiff
+    ) truetype? ( media-libs/freetype ) webp? ( media-libs/libwebp ) xcb? ( x11-libs/libxcb
+    ) zlib? ( sys-libs/zlib )
+  IUSE: +jpeg examples imagequant jpeg2k lcms test tiff tk truetype webp xcb zlib
+    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: dev-python/olefile[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/pillow
   kit: python-modules-kit
   original.package.name: dev-python/pillow
   original.package.slot: "0"
-  original.package.version: 10.0.1
+  original.package.version: 10.2.0
