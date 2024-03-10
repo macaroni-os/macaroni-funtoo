@@ -1,4 +1,10 @@
 prelude:
+- >-
+  cd /var/git/meta-repo/kits/net-kit/www-apps/gitea &&
+  rm *.ebuild &&
+  wget https://raw.githubusercontent.com/funtoo/net-kit/next/www-apps/gitea/gitea-1.21.7.ebuild &&
+  ebuild gitea-1.21.7.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
