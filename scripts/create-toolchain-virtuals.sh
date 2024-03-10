@@ -84,8 +84,8 @@ kits=(
   "desktop2"           # race18
   "power"              # race18
 
-  #"printers"           # race18
-  #"php"                # race18
+  "printers"           # race18
+  "php"                # race18
 
   "base-kde5"          # race19
 
@@ -103,4 +103,7 @@ for i in ${kits[@]} ; do
   }
 
   TARGET_PKG=packages/toolchain/${i} SOURCE_PKGS_DIR=packages/atoms/${i}  ${SCRIPT_DIR}/toolchain-requires.sh
+
+  rm packages/atoms/${i}/.anise-idx.json
+
 done
