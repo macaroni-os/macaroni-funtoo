@@ -7,10 +7,11 @@ prelude:
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
   USE="libkms -valgrind" VIDEO_CARDS="radeon amdgpu intel nouveau vmware"
   emerge x11-libs/libdrm -j -t
+# Fix build order
 - >-
   anise repo update &&
   anise upgrade &&
-  anise i -y vulkan-loader &&
+  anise i -y vulkan-loader glslang &&
   anise cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
