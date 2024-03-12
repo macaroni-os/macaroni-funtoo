@@ -19,6 +19,10 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Just considering that NVIDIA cards works correctly with Wayland. Users with issues could enabled it.
+- >-
+  mv /pkgdir/{{ .Values.name }}/lib/udev/rules.d/61-gdm.rules /pkgdir/{{ .Values.name }}/lib/udev/rules.d/61-gdm.rules.disabled
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
