@@ -1,0 +1,45 @@
+name: yt-dlp
+version: 2023.12.30
+category: net-misc
+use_flags:
+- -brotli
+- certifi
+- ffmpeg
+- xattr
+requires:
+- name: pandoc-bin
+  version: '>=0'
+  category: app-text
+- name: certifi
+  version: '>=0'
+  category: dev-python
+- name: pyxattr
+  version: '>=0'
+  category: dev-python
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A youtube-dl fork with additional features and fixes
+uri:
+- https://github.com/yt-dlp/yt-dlp
+license: Unlicense
+labels:
+  BDEPEND: app-arch/zip
+  IUSE: brotli certifi +ffmpeg xattr python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: '>=dev-lang/python-3.7 || ( app-text/pandoc-bin app-text/pandoc ) brotli?
+    ( app-arch/brotli ) certifi? ( dev-python/certifi ) ffmpeg? ( media-video/ffmpeg
+    ) xattr? ( dev-python/pyxattr )'
+  emerge.packages: net-misc/yt-dlp
+  kit: media-kit
+  original.package.name: net-misc/yt-dlp
+  original.package.slot: "0"
+  original.package.version: 2023.12.30
