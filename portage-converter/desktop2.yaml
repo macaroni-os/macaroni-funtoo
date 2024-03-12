@@ -113,8 +113,17 @@ artefacts:
   uses:
     disabled:
       - debug
+      - rdp
+      # vinagre compile only with freerdp-2.x
+      # and will be replaced by Connections tool.
   packages:
     - net-misc/vinagre
+
+- tree: packages/atoms/desktop2
+  uses:
+    disabled:
+      - debug
+  packages:
     - net-misc/vino
 
 - tree: packages/atoms/desktop2
@@ -345,11 +354,27 @@ artefacts:
   packages:
     - media-sound/timidity-freepats
     - app-eselect/eselect-timidity
+    - app-text/pandoc-bin
 
 - tree: packages/atoms/desktop2
   packages:
     # need opecv
     - media-gfx/shotwell
+
+- tree: packages/atoms/desktop2
+  mutations:
+    buildtime_deps:
+      packages:
+        # Needed for compilation
+        - category: app-text
+          name: pandoc-bin
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: app-text
+          name: pandoc-bin
+  packages:
+    - net-misc/yt-dlp
 
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
