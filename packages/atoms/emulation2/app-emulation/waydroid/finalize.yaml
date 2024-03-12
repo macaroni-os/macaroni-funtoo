@@ -1,0 +1,7 @@
+shell:
+- /bin/bash
+- -c
+install:
+- source /etc/profile && macaronictl env-update && whip hook gtk.postinst
+uninstall:
+- source /etc/profile && macaronictl env-update && whip hook gtk.postinst
