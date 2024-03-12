@@ -1,0 +1,45 @@
+name: vulkan-tools
+version: 1.3.236
+category: dev-util
+use_flags:
+- -cube
+- X
+- wayland
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: vulkan-loader
+  version: '>=0'
+  category: media-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Official Vulkan Tools and Utilities for Windows, Linux, Android, and
+  MacOS
+uri:
+- https://github.com/KhronosGroup/Vulkan-Tools
+license: Apache-2.0
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) >=dev-util/cmake-3.10.2 cube? ( dev-util/glslang:= ) dev-util/ninja >=dev-util/cmake-3.9.6'
+  DEPEND: '>=media-libs/vulkan-loader-1.3.236:=[wayland?,X?] wayland? ( dev-libs/wayland:=
+    ) X? ( x11-libs/libX11:= x11-libs/libXrandr:= ) >=dev-util/vulkan-headers-1.3.236'
+  IUSE: cube wayland +X
+  RDEPEND: '>=media-libs/vulkan-loader-1.3.236:=[wayland?,X?] wayland? ( dev-libs/wayland:=
+    ) X? ( x11-libs/libX11:= x11-libs/libXrandr:= )'
+  emerge.packages: dev-util/vulkan-tools
+  kit: core-gl-kit
+  original.package.name: dev-util/vulkan-tools
+  original.package.slot: "0"
+  original.package.version: 1.3.236
