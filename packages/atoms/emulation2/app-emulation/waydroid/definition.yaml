@@ -1,0 +1,36 @@
+name: waydroid
+version: 1.4.2
+category: app-emulation
+requires:
+- name: lxc
+  version: '>=0'
+  category: app-emulation
+- name: gbinder-python
+  version: '>=0'
+  category: dev-python
+- name: pyclip
+  version: '>=0'
+  category: dev-python
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Container-based approach to boot a full Android system on a regular GNU/Linux
+uri:
+- https://github.com/waydroid/waydroid
+license: GPL-3.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  DEPEND: dev-python/gbinder-python[python3+] sys-libs/libgbinder
+  IUSE: systemd apparmor nftables
+  RDEPEND: dev-python/gbinder-python[python3+] sys-libs/libgbinder app-emulation/lxc
+    dev-python/pyclip[python3+]
+  emerge.packages: app-emulation/waydroid
+  kit: geaaru-kit
+  original.package.name: app-emulation/waydroid
+  original.package.slot: "0"
+  original.package.version: 1.4.2
