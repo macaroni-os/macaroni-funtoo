@@ -1,0 +1,57 @@
+name: gnome-software
+version: 3.36.1
+category: gnome-extra
+use_flags:
+- -gtk-doc
+- -packagekit
+- -spell
+- firmware
+- flatpak
+- gnome
+- udev
+requires:
+- name: gnome-desktop
+  version: '>=0'
+  category: gnome-base-3
+- name: gnome-online-accounts
+  version: '>=0'
+  category: net-libs
+- name: flatpak
+  version: '>=0'
+  category: sys-apps
+- name: fwupd
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Gnome install & update software
+uri:
+- https://wiki.gnome.org/Apps/Software
+license: GPL-2+
+labels:
+  BDEPEND: dev-libs/libxml2:2 dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig
+    gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) >=app-portage/elt-patches-20170815
+    app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: '>=dev-libs/appstream-glib-0.7.14:0 >=x11-libs/gdk-pixbuf-2.32.0:2 >=dev-libs/libxmlb-0.1.7
+    net-libs/gnome-online-accounts:= >=x11-libs/gtk+-3.22.4:3 >=dev-libs/glib-2.56:2
+    >=dev-libs/json-glib-1.2.0 >=net-libs/libsoup-2.52.0:2.4 gnome? ( >=gnome-base/gnome-desktop-3.18.0:3=
+    ) spell? ( app-text/gspell:= ) sys-auth/polkit packagekit? ( >=app-admin/packagekit-base-1.1.0
+    ) firmware? ( >=sys-apps/fwupd-1.0.3 ) flatpak? ( sys-apps/flatpak ) udev? ( dev-libs/libgudev
+    ) >=gnome-base/gsettings-desktop-schemas-3.11.5 dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: +firmware +flatpak gnome gtk-doc packagekit spell udev
+  RDEPEND: '>=dev-libs/appstream-glib-0.7.14:0 >=x11-libs/gdk-pixbuf-2.32.0:2 >=dev-libs/libxmlb-0.1.7
+    net-libs/gnome-online-accounts:= >=x11-libs/gtk+-3.22.4:3 >=dev-libs/glib-2.56:2
+    >=dev-libs/json-glib-1.2.0 >=net-libs/libsoup-2.52.0:2.4 gnome? ( >=gnome-base/gnome-desktop-3.18.0:3=
+    ) spell? ( app-text/gspell:= ) sys-auth/polkit packagekit? ( >=app-admin/packagekit-base-1.1.0
+    ) firmware? ( >=sys-apps/fwupd-1.0.3 ) flatpak? ( sys-apps/flatpak ) udev? ( dev-libs/libgudev
+    ) >=gnome-base/gsettings-desktop-schemas-3.11.5'
+  emerge.packages: gnome-extra/gnome-software
+  kit: gnome-kit
+  original.package.name: gnome-extra/gnome-software
+  original.package.slot: "0"
+  original.package.version: 3.36.1
