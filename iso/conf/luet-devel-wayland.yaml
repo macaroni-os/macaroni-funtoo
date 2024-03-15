@@ -1,0 +1,48 @@
+general:
+  debug: false
+
+  # spinner every 30m
+  spinner_ms: 1800000
+  spinner_charset: 12
+  client_timeout: 0
+
+repositories:
+- name: "geaaru-repo-index"
+  description: "Geaaru Repository index"
+  type: "http"
+  enable: true
+  cached: true
+  priority: 1
+  urls:
+    - "https://dl.macaronios.org/repos/geaaru-repo-index"
+    - "https://raw.githubusercontent.com/geaaru/repo-index/gh-pages"
+
+subsets_defdir:
+- /etc/luet/subsets.def.d
+subsets_confdir:
+- /etc/luet/subsets.conf.d
+
+subsets:
+  enabled:
+    # Enable this subset to
+    # add portage metadata.
+    - portage
+    #
+    # Enable this subset to enable
+    # installation of the
+    # /usr/include/* files.
+    - devel
+
+    # Enable desktop subset to install
+    # macaroni browser catalog
+    - desktop
+
+finalizer_envs:
+  - key: "BUILD_ISO"
+    value: "1"
+  - key: "GNOME_WAYLAND_ENABLE"
+    value: "1"
+
+tar_flows:
+  max_openfiles: 50
+  copy_buffer_size: 64
