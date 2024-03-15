@@ -13,7 +13,6 @@ ENABLED_BOOT_SERVICES=(
   "binfmt"
   "elogind"
   "hostname"
-  "opentmpfiles-setup"
   "procfs"
   "root"
   "swap"
@@ -49,9 +48,7 @@ HOOKS=(
   "fonts.setup_all_fonts"
   "colord.colord_setup"
   "gdm.setup"
-  "gtk.glib_update_schemas"
-  "gtk.gtk_update_icons"
-  "gtk.mime_update_db"
+  "gtk.postinst"
 )
 GNOME_SHELL_EXTS=(
   "dash-to-dock"
