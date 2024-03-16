@@ -19,6 +19,8 @@ setup_general() {
   chmod a+rw /var
 
   mkdir /var/tmp || true
+  # Fix permission of /var/tmp (for example for flatpak)
+  chmod a+rwx /var/tmp
 
   if [ -n "${DEF_TIMEZONE}" ] ; then
     echo "${DEF_TIMEZONE}" > /etc/timezone
