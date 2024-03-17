@@ -6,6 +6,10 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Branding openrc with Macaroni OS
+- >-
+  sed -i -e 's|Funtoo Linux|Macaroni OS|g'
+  /var/git/meta-repo/kits/core-kit/sys-apps/openrc/openrc-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
