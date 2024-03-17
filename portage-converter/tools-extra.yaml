@@ -594,6 +594,15 @@ artefacts:
   packages:
     - net-misc/rclone
 
+- tree: packages/atoms-extra/tools
+  uses:
+    disabled:
+      - selinux
+      - vim-syntax
+  packages:
+    - www-apps/gitea
+    - dev-vcs/gitolite
+
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
 
