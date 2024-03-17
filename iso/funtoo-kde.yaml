@@ -138,13 +138,13 @@ packages:
   - sys-devel/llvm-common
   - llvm
 
-# equery belongs libstd-008055cc7d873802.so (fix ldconfig)
-# * Searching for libstd-008055cc7d873802.so ... 
-#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/libstd-008055cc7d873802.so)
-#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/rustlib/x86_64-unknown-linux-gnu/lib/libstd-008055cc7d873802.so)
-  # rust-bin 
+  - waydroid
+  - flatpak
 
-    # Dependency of calamares
+  # Add module for manage flatpak software
+  - discover
+
+  # Dependency of calamares
   - kde-frameworks-5/plasma
 
   - net-libs/libproxy
@@ -217,8 +217,10 @@ packages:
 repository:
   packages:
   - repository/mottainai-stable
-  - repository/macaroni-phoenix
-  - repository/macaroni-commons
+  - repository/macaroni-phoenix-testing
+  - repository/macaroni-commons-testing
+  #- repository/macaroni-phoenix
+  #- repository/macaroni-commons
   - repository/macaroni-security
 
 initramfs:
