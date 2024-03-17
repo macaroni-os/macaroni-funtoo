@@ -25,7 +25,7 @@ packages:
 
   - virtual-entities/base
 
-  - www-client/firefox-bin
+  - www-client/firefox
   - gnome-base/gnome
 
   - app-editors/vim
@@ -132,6 +132,7 @@ packages:
   #- x11-wm/twm
   #- x11-terms/xterm
   - sys-libs/libutempter
+  - repository/macaroni-commons
 
   # Needed by /usr/lib64/dri/*.so
   - sys-devel/llvm-common
@@ -139,6 +140,11 @@ packages:
 
   # Temporary until next release
   - sys-apps/gentoo-functions
+
+  # Pinentry splitted package
+  - pinentry-gnome
+  - gnome-software
+  - flatpak
 
   uefi:
   - live/systemd-boot
@@ -151,9 +157,11 @@ packages:
 repository:
   packages:
   - repository/mottainai-stable
-  - repository/macaroni-funtoo
+  #- repository/macaroni-phoenix
+  #- repository/macaroni-commons
+  - repository/macaroni-funtoo-testing
+  - repository/macaroni-commons-testing
   #- repository/macaroni-funtoo-dev
-  - repository/macaroni-commons
   #- repository/macaroni-commons-dev
   - repository/macaroni-security
 
