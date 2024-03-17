@@ -1,4 +1,9 @@
 prelude:
+
+# Branding openrc with Macaroni OS
+- >-
+  sed -i -e 's|Funtoo Linux|Macaroni OS|g'
+  /var/git/meta-repo/kits/core-kit/sys-apps/openrc/openrc-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
