@@ -1,26 +1,23 @@
 name: glusterfs
-version: "11.1"
+version: 11.1+1
 category: sys-cluster
 use_flags:
 - -emacs
-- -libressl
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
+- -selinux
+- -tcmalloc
 - -test
+- -uring
 - elibc_glibc
 - fuse
-- georeplication
-- libtirpc
 - python_single_target_python3_9
 - xml
 requires:
 - name: python
   version: '>=0'
   category: dev-lang-3.9
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
 - name: libaio
   version: '>=0'
   category: dev-libs
@@ -39,6 +36,9 @@ requires:
 - name: fuse
   version: '>=0'
   category: sys-fs-3
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
 - name: entities-catalog
   version: '>=0'
   category: macaroni
