@@ -1,5 +1,5 @@
 name: libX11
-version: 1.8.2
+version: 1.8.7
 category: x11-libs
 use_flags:
 - -doc
@@ -25,20 +25,19 @@ uri:
 - https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/lib/libX11
 license: MIT
 labels:
-  BDEPEND: test? ( dev-lang/perl ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
-    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig
-    doc? ( doc? ( || ( app-text/asciidoc dev-ruby/asciidoctor ) app-text/xmlto app-doc/doxygen
-    app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.3
-    ) )
+  BDEPEND: test? ( dev-lang/perl ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a
+    sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) x86-winnt?
+    ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0
+    ) virtual/pkgconfig doc? ( doc? ( || ( app-text/asciidoc dev-ruby/asciidoctor
+    ) app-text/xmlto app-doc/doxygen app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xml-dtd:4.2
+    app-text/docbook-xml-dtd:4.3 ) )
   DEPEND: '>=x11-libs/libxcb-1.11.1 x11-misc/compose-tables !<xfce-base/xfce4-settings-4.16.3
     x11-base/xorg-proto x11-libs/xtrans'
   IUSE: test static-libs doc
   RDEPEND: '>=x11-libs/libxcb-1.11.1 x11-misc/compose-tables !<xfce-base/xfce4-settings-4.16.3'
   emerge.packages: x11-libs/libX11
-  kit: core-gl-kit
+  kit: geaaru-kit
   original.package.name: x11-libs/libX11
   original.package.slot: "0"
-  original.package.version: 1.8.2
+  original.package.version: 1.8.7
