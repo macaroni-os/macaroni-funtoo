@@ -1,5 +1,5 @@
 name: audit
-version: "4.0"
+version: 4.0.1
 category: sys-process
 use_flags:
 - -ldap
@@ -35,9 +35,8 @@ uri:
 - https://people.redhat.com/sgrubb/audit/
 license: GPL-2+ LGPL-2.1+
 labels:
-  BDEPEND: python? ( dev-lang/swig ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 virtual/pkgconfig
+  BDEPEND: python? ( dev-lang/swig ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
   DEPEND: gssapi? ( virtual/krb5 ) ldap? ( net-nds/openldap ) python? ( python_targets_python3_10?
     ( dev-lang/python:3.10 ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
@@ -55,4 +54,4 @@ labels:
   kit: security-kit
   original.package.name: sys-process/audit
   original.package.slot: "0"
-  original.package.version: "4.0"
+  original.package.version: 4.0.1
