@@ -1,5 +1,5 @@
 name: libxcb
-version: "1.16"
+version: 1.16.1
 category: x11-libs
 use_flags:
 - -doc
@@ -28,14 +28,13 @@ uri:
 - https://xcb.freedesktop.org/
 license: MIT
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
-    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig[-mgorny(-)]
-    doc? ( doc? ( || ( app-text/asciidoc dev-ruby/asciidoctor ) app-text/xmlto app-doc/doxygen
-    app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.3
-    ) )'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 ppc-aix? ( >=sys-devel/libtool-2.2.6a
+    sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) x86-winnt?
+    ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0
+    ) virtual/pkgconfig[-mgorny(-)] doc? ( doc? ( || ( app-text/asciidoc dev-ruby/asciidoctor
+    ) app-text/xmlto app-doc/doxygen app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xml-dtd:4.2
+    app-text/docbook-xml-dtd:4.3 ) )'
   DEPEND: dev-libs/libpthread-stubs[-mgorny(-)] x11-libs/libXau[-mgorny(-)] x11-libs/libXdmcp[-mgorny(-)]
     test? ( dev-libs/check[-mgorny(-)] ) doc? ( app-doc/doxygen[dot] ) dev-libs/libxslt
     || ( dev-lang/python:3.8[xml] dev-lang/python:3.9[xml] dev-lang/python:3.7[xml]
@@ -51,4 +50,4 @@ labels:
   kit: core-gl-kit
   original.package.name: x11-libs/libxcb
   original.package.slot: "0"
-  original.package.version: "1.16"
+  original.package.version: 1.16.1
