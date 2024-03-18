@@ -6,13 +6,6 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Temporary patch libbson ebuild (see FL-11724)
-- >-
-  rm /var/git/meta-repo/kits/dev-kit/dev-libs/libbson/*.ebuild &&
-  cp libbson-1.24.4.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/libbson/ &&
-  cd /var/git/meta-repo/kits/dev-kit/dev-libs/libbson/ &&
-  ebuild libbson-1.24.4.ebuild digest &&
-  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
