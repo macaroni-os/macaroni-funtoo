@@ -1,5 +1,5 @@
 name: gitea
-version: 1.21.7+1
+version: 1.21.8
 category: www-apps
 requires:
 - name: git
@@ -20,10 +20,12 @@ uri:
 - https://github.com/go-gitea/gitea
 license: MIT
 labels:
-  DEPEND: dev-go/go-bindata sys-libs/pam >=dev-lang/go-1.10 sys-apps/shadow
-  RDEPEND: dev-vcs/git sys-libs/pam
+  BDEPEND: '>=dev-lang/go-1.21:= >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig'
+  DEPEND: sys-libs/pam filecaps? ( sys-libs/libcap ) sys-apps/shadow
+  IUSE: systemd +filecaps
+  RDEPEND: sys-libs/pam dev-vcs/git virtual/tmpfiles
   emerge.packages: www-apps/gitea
   kit: net-kit
   original.package.name: www-apps/gitea
   original.package.slot: "0"
-  original.package.version: 1.21.7
+  original.package.version: 1.21.8
