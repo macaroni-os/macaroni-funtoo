@@ -10,15 +10,6 @@ requires:
 - name: qemu
   version: '>=0'
   category: app-emulation
-- name: python
-  version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
 annotations:
   subsets:
     rules:
@@ -26,21 +17,22 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
+description: Funtoo franken-chroot tool.
 uri:
 - https://code.funtoo.org/bitbucket/users/drobbins/repos/fchroot/browse https://pypi.org/project/fchroot/
 license: Apache-2.0
 labels:
-  BDEPEND: python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-  IUSE: python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-    python_targets_python3_10
+  BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
   RDEPEND: app-emulation/qemu[static-user,qemu_user_targets_aarch64,qemu_user_targets_arm,qemu_user_targets_riscv64,qemu_user_targets_ppc64]
     dev-libs/glib[static-libs] sys-apps/attr[static-libs] sys-libs/zlib[static-libs]
-    dev-libs/libpcre[static-libs] python_targets_python3_7? ( dev-lang/python:3.7
-    ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
-    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    dev-libs/libpcre[static-libs] python_targets_python3_10? ( dev-lang/python:3.10
+    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: sys-apps/fchroot
   kit: core-kit
   original.package.name: sys-apps/fchroot
