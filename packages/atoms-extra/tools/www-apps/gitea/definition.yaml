@@ -1,6 +1,8 @@
 name: gitea
 version: 1.21.8
 category: www-apps
+use_flags:
+- filecaps
 requires:
 - name: git
   version: '>=0'
@@ -8,6 +10,9 @@ requires:
 - name: pam
   version: '>=0'
   category: sys-libs
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -15,10 +20,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A painless self-hosted Git service, written in Go
+description: A painless self-hosted Git service
 uri:
-- https://github.com/go-gitea/gitea
-license: MIT
+- https://gitea.com https://github.com/go-gitea/gitea
+license: Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0
 labels:
   BDEPEND: '>=dev-lang/go-1.21:= >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig'
   DEPEND: sys-libs/pam filecaps? ( sys-libs/libcap ) sys-apps/shadow

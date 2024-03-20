@@ -1,13 +1,4 @@
 prelude:
-- >-
-  cd /var/git/meta-repo/kits/net-kit/www-apps/gitea &&
-  rm *.ebuild &&
-  wget https://raw.githubusercontent.com/funtoo/net-kit/next/www-apps/gitea/gitea-1.21.7.ebuild &&
-  ebuild gitea-1.21.7.ebuild digest &&
-  wget https://raw.githubusercontent.com/funtoo/net-kit/next/www-apps/gitea/files/gitea.confd-r1 -O files/gitea.confd-r1 &&
-  wget https://raw.githubusercontent.com/funtoo/net-kit/next/www-apps/gitea/files/gitea.initd-r3 -O files/gitea.initd-r3 &&
-  wget https://raw.githubusercontent.com/funtoo/net-kit/next/www-apps/gitea/files/gitea.service-r4 -O files/gitea.service-r4 &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -33,6 +24,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: go-bindata
+- name: macaroni-funtoo-race10
   version: '>=0'
-  category: dev-go
+  category: seed
