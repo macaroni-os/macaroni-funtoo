@@ -89,13 +89,12 @@ artefacts:
 - tree: packages/atoms-extra/tools
   uses:
     disabled:
-      - lm-sensors
+      - lm_sensors
       - hwloc
       - openvz
       - debug
       - vserver
   packages:
-    - sys-process/htop
     - sys-process/iotop
     - sys-power/cpupower
     - sys-apps/cpuid
@@ -116,7 +115,7 @@ artefacts:
           name: libunwind
   uses:
     disabled:
-      - lm-sensors
+      - lm_sensors
       - hwloc
       - openvz
       - debug
@@ -482,15 +481,9 @@ artefacts:
     - dev-db/tinycdb
 
 - tree: packages/atoms-extra/tools
-  packages:
-    - sys-libs/db:6.2
-
-- tree: packages/atoms-extra/tools
   mutations:
     buildtime_deps:
       packages:
-        - category: sys-libs-6.2
-          name: db
         - category: dev-db
           name: tinycdb
   uses:
