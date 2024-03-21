@@ -379,6 +379,14 @@ artefacts:
     - ssl
   packages:
   - net-misc/openssh
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir /var/empty -p || true' && entities merge --specs-dir /usr/share/macaroni/entities/
+        -e sshd
 
 - tree: packages/atoms/base-tools
   uses:
