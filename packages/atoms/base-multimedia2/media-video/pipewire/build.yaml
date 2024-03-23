@@ -1,11 +1,4 @@
 prelude:
-# Temporary fix SEGFAULT of Gnome Control Center.
-# This package is autogen so will be fixed from Funtoo soon.
-- >-
-  cp pipewire-0.3.80.ebuild /var/git/meta-repo/kits/gnome-kit/media-video/pipewire/ &&
-  cd /var/git/meta-repo/kits/gnome-kit/media-video/pipewire/ &&
-  ebuild pipewire-0.3.80.ebuild digest &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -31,6 +24,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: alsa-plugins
+- name: libldac
   version: '>=0'
-  category: media-plugins
+  category: media-libs

@@ -1,18 +1,18 @@
 name: pipewire
-version: 1.0.3
+version: 1.0.4
 category: media-video
 use_flags:
 - -doc
 - -echo-cancel
-- -extra
 - -jack-sdk
-- -pipewire-alsa
 - -systemd
 - X
 - bluetooth
+- extra
 - gstreamer
 - jack-client
 - lv2
+- pipewire-alsa
 - ssl
 - v4l
 - zeroconf
@@ -44,9 +44,6 @@ requires:
 - name: sbc
   version: '>=0'
   category: media-libs
-- name: alsa-plugins
-  version: '>=0'
-  category: media-plugins
 - name: jack2
   version: '>=0'
   category: media-sound-2
@@ -59,6 +56,9 @@ requires:
 - name: libusb
   version: '>=0'
   category: virtual-1
+- name: libXfixes
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -80,28 +80,30 @@ labels:
     virtual/pkgconfig'
   DEPEND: media-libs/alsa-lib sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
     virtual/libintl virtual/libudev bluetooth? ( media-libs/fdk-aac media-libs/libldac
-    media-libs/libfreeaptx media-libs/sbc >=net-wireless/bluez-4.101:= virtual/libusb:1
-    ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra? ( >=media-libs/libsndfile-1.0.20
-    ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0 media-libs/gst-plugins-base:1.0
-    ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
-    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7
-    !media-plugins/alsa-plugins[pulseaudio] ) !pipewire-alsa? ( media-plugins/alsa-plugins[pulseaudio]
-    ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
-    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi ) >=sys-kernel/linux-headers-4.19-r1
-  IUSE: bluetooth doc echo-cancel extra gstreamer jack-client jack-sdk lv2 pipewire-alsa
-    ssl systemd test v4l X zeroconf examples
+    media-libs/libfreeaptx media-libs/opus media-libs/sbc >=net-wireless/bluez-4.101:=
+    virtual/libusb:1 ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra?
+    ( >=media-libs/libsndfile-1.0.20 ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0
+    media-libs/gst-plugins-base:1.0 ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus]
+    ) jack-sdk? ( !media-sound/jack-audio-connection-kit !media-sound/jack2 ) lv2?
+    ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7 ) !pipewire-alsa?
+    ( media-plugins/alsa-plugins[pulseaudio] ) ssl? ( dev-libs/openssl:= ) systemd?
+    ( sys-apps/systemd ) v4l? ( media-libs/libv4l ) X? ( media-libs/libcanberra x11-libs/libX11
+    >=x11-libs/libXfixes-6.0.0 ) zeroconf? ( net-dns/avahi ) >=sys-kernel/linux-headers-4.19-r1
+  IUSE: bluetooth doc echo-cancel extra flatpak gstreamer jack-client jack-sdk lv2
+    modemmanager pipewire-alsa ssl systemd test v4l X zeroconf examples
   RDEPEND: media-libs/alsa-lib sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
     virtual/libintl virtual/libudev bluetooth? ( media-libs/fdk-aac media-libs/libldac
-    media-libs/libfreeaptx media-libs/sbc >=net-wireless/bluez-4.101:= virtual/libusb:1
-    ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra? ( >=media-libs/libsndfile-1.0.20
-    ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0 media-libs/gst-plugins-base:1.0
-    ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
-    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7
-    !media-plugins/alsa-plugins[pulseaudio] ) !pipewire-alsa? ( media-plugins/alsa-plugins[pulseaudio]
-    ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
-    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi )
+    media-libs/libfreeaptx media-libs/opus media-libs/sbc >=net-wireless/bluez-4.101:=
+    virtual/libusb:1 ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra?
+    ( >=media-libs/libsndfile-1.0.20 ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0
+    media-libs/gst-plugins-base:1.0 ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus]
+    ) jack-sdk? ( !media-sound/jack-audio-connection-kit !media-sound/jack2 ) lv2?
+    ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7 ) !pipewire-alsa?
+    ( media-plugins/alsa-plugins[pulseaudio] ) ssl? ( dev-libs/openssl:= ) systemd?
+    ( sys-apps/systemd ) v4l? ( media-libs/libv4l ) X? ( media-libs/libcanberra x11-libs/libX11
+    >=x11-libs/libXfixes-6.0.0 ) zeroconf? ( net-dns/avahi )
   emerge.packages: media-video/pipewire
-  kit: gnome-kit
+  kit: geaaru-kit
   original.package.name: media-video/pipewire
   original.package.slot: "0"
-  original.package.version: 1.0.3
+  original.package.version: 1.0.4
