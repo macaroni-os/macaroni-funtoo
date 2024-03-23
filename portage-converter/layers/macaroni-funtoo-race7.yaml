@@ -7,6 +7,7 @@ packages:
   - app-admin/eselect:0
   - app-admin/logrotate:0
   - app-admin/perl-cleaner:0
+  - app-arch/brotli:0
   - app-arch/bzip2:0
   - app-arch/cpio:0
   - app-arch/gzip:0
@@ -19,6 +20,7 @@ packages:
   - app-crypt/gnupg:0
   - app-crypt/gpgme:1
   - app-crypt/libb2:0
+  - app-crypt/libmd:0
   - app-crypt/mit-krb5:0
   - app-crypt/p11-kit:0
   - app-crypt/pinentry:0
@@ -81,6 +83,7 @@ packages:
   - dev-lang/swig:0
   - dev-lang/tcl:0
   - dev-lang/yasm:0
+  - dev-lang/zig-bin:0
   - dev-libs/apr-util:1
   - dev-libs/apr:1
   - dev-libs/boehm-gc:0
@@ -102,6 +105,7 @@ packages:
   - dev-libs/libbsd:0
   - dev-libs/libburn:0
   - dev-libs/libdnet:0
+  - dev-libs/libedit:0
   - dev-libs/libev:0
   - dev-libs/libevent:0
   - dev-libs/libffi:0
@@ -181,8 +185,10 @@ packages:
   - dev-python/async_timeout:0
   - dev-python/attrs:0
   - dev-python/automat:0
+  - dev-python/bcrypt:0
   - dev-python/beautifulsoup:0
   - dev-python/brotlipy:0
+  - dev-python/calver:0
   - dev-python/certifi:0
   - dev-python/cffi:0
   - dev-python/chardet:0
@@ -197,20 +203,21 @@ packages:
   - dev-python/dict-toolbox:0
   - dev-python/docutils:0
   - dev-python/editables:0
+  - dev-python/exceptiongroup:0
   - dev-python/flit_core:0
+  - dev-python/flit_scm:0
   - dev-python/frozenlist:0
   - dev-python/gpep517:0
   - dev-python/h11:0
+  - dev-python/h2:0
+  - dev-python/hatch-fancy-pypi-readme:0
   - dev-python/hatch-vcs:0
   - dev-python/hatchling:0
   - dev-python/hpack:0
-  - dev-python/html5lib:0
   - dev-python/httpcore:0
   - dev-python/httpx:0
-  - dev-python/hyper-h2:0
   - dev-python/hyperframe:0
   - dev-python/hyperlink:0
-  - dev-python/idna-ssl:0
   - dev-python/idna:0
   - dev-python/imagesize:0
   - dev-python/importlib_metadata:0
@@ -218,22 +225,25 @@ packages:
   - dev-python/installer:0
   - dev-python/ipaddress:0
   - dev-python/jinja:0
+  - dev-python/libxml2-python:0
   - dev-python/lxml:0
-  - dev-python/m2r:0
   - dev-python/markupsafe:0
   - dev-python/mistune:0
   - dev-python/msgpack:0
   - dev-python/multidict:0
   - dev-python/mwparserfromhell:0
+  - dev-python/namespace-sphinxcontrib:0
   - dev-python/namespace-zope:0
   - dev-python/outcome:0
   - dev-python/packaging:0
   - dev-python/pathspec:0
   - dev-python/pbr:0
+  - dev-python/pip:0
   - dev-python/pluggy:0
   - dev-python/ply:0
   - dev-python/priority:0
   - dev-python/psutil:0
+  - dev-python/py:0
   - dev-python/pyasn1-modules:0
   - dev-python/pyasn1:0
   - dev-python/pycares:0
@@ -248,8 +258,10 @@ packages:
   - dev-python/pyserial:0
   - dev-python/pytz:0
   - dev-python/pyyaml:0
+  - dev-python/pyzmq:0
   - dev-python/requests:0
   - dev-python/rfc3986:0
+  - dev-python/rich:0
   - dev-python/semantic_version:0
   - dev-python/service_identity:0
   - dev-python/setuptools-rust:0
@@ -265,6 +277,7 @@ packages:
   - dev-python/sphinxcontrib-applehelp:0
   - dev-python/sphinxcontrib-devhelp:0
   - dev-python/sphinxcontrib-htmlhelp:0
+  - dev-python/sphinxcontrib-jquery:0
   - dev-python/sphinxcontrib-jsmath:0
   - dev-python/sphinxcontrib-qthelp:0
   - dev-python/sphinxcontrib-serializinghtml:0
@@ -272,10 +285,11 @@ packages:
   - dev-python/toml:0
   - dev-python/tomli:0
   - dev-python/trio:0
+  - dev-python/trove-classifiers:0
   - dev-python/twisted:0
   - dev-python/typing-extensions:0
   - dev-python/urllib3:0
-  - dev-python/webencodings:0
+  - dev-python/versioneer:0
   - dev-python/wheel:0
   - dev-python/wstools:0
   - dev-python/xmltodict:0
@@ -300,7 +314,7 @@ packages:
   - dev-ruby/xmlrpc:0
   - dev-scheme/guile:12
   - dev-tcltk/expect:0
-  - dev-util/boost-build:0
+  - dev-util/b2:0
   - dev-util/cmake:0
   - dev-util/colm:0
   - dev-util/cppunit:0
@@ -366,6 +380,7 @@ packages:
   - net-libs/nghttp2:0
   - net-libs/nodejs:0
   - net-libs/rpcsvc-proto:0
+  - net-libs/zeromq:0
   - net-misc/bridge-utils:0
   - net-misc/chrony:0
   - net-misc/curl:0
@@ -446,12 +461,14 @@ packages:
   - sys-devel/autoconf-archive:0
   - sys-devel/autoconf-wrapper:0
   - sys-devel/autoconf:2.69
+  - sys-devel/autoconf:latest
   - sys-devel/autogen:0
   - sys-devel/automake-wrapper:0
   - sys-devel/automake:1.16
   - sys-devel/bc:0
-  - sys-devel/binutils:2.36
+  - sys-devel/binutils:2.40
   - sys-devel/bison:0
+  - sys-devel/clang-common:0
   - sys-devel/clang:11
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
@@ -475,6 +492,8 @@ packages:
   - sys-fs/xfsprogs:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
+  - sys-libs/compiler-rt-sanitizers:11.0.0
+  - sys-libs/compiler-rt:11.0.0
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
   - sys-libs/e2fsprogs-libs:0
