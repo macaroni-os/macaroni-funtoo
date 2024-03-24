@@ -1,5 +1,5 @@
 name: systemd
-version: "253.16"
+version: "253.17"
 category: sys-apps
 use_flags:
 - -apparmor
@@ -106,13 +106,13 @@ labels:
     ) lzma? ( >=app-arch/xz-utils-5.0.5-r1:0=[-mgorny(-)] ) nat? ( net-firewall/iptables:0=
     ) pam? ( virtual/pam:=[-mgorny(-)] ) pcre? ( dev-libs/libpcre2 ) qrcode? ( media-gfx/qrencode:0=
     ) seccomp? ( >=sys-libs/libseccomp-2.3.3:0= ) selinux? ( sys-libs/libselinux:0=
-    ) xkb? ( >=x11-libs/libxkbcommon-0.4.1:0= ) >=sys-apps/baselayout-2.2 selinux?
-    ( sec-policy/selinux-base-policy[systemd] ) sysv-utils? ( !sys-apps/sysvinit )
-    !sysv-utils? ( sys-apps/sysvinit ) resolvconf? ( !net-dns/openresolv ) !build?
+    ) xkb? ( >=x11-libs/libxkbcommon-0.4.1:0= ) app-arch/zstd >=sys-apps/baselayout-2.2
+    selinux? ( sec-policy/selinux-base-policy[systemd] ) sysv-utils? ( !sys-apps/sysvinit
+    ) !sysv-utils? ( sys-apps/sysvinit ) resolvconf? ( !net-dns/openresolv ) !build?
     ( || ( sys-apps/util-linux[kill(-)] sys-process/procps[kill(+)] sys-apps/coreutils[kill(-)]
     ) ) !sys-auth/nss-myhostname !<sys-kernel/dracut-044 !sys-fs/eudev !sys-fs/udev'
   emerge.packages: sys-apps/systemd
   kit: geaaru-kit
   original.package.name: sys-apps/systemd
   original.package.slot: "0"
-  original.package.version: "253.16"
+  original.package.version: "253.17"
