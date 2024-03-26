@@ -19,6 +19,11 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Add wireplumber configuration to keep enable alsa on suspend. This permits
+# to avoid the starts of the pulseaudio daemon as replacer of pipewire.
+- >-
+  mkdir -p /pkgdir/{{ .Values.name }}/etc/wireplumber/wireplumber.conf.d &&
+  cp 51-disable-suspension.conf /pkgdir/{{ .Values.name }}/etc/wireplumber/wireplumber.conf.d/
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
