@@ -10,6 +10,8 @@ steps:
   luet i -y sys-apps/kmod virtual/modutils pkgconf virtual/libelf
   virtual/linux-sources && luet cleanup
 - >-
+  sed -i -e 's|^ZFS_KERNEL_COMPAT.*|ZFS_KERNEL_COMPAT="6.7"|g' /var/git/meta-repo/kits/core-kit/sys-fs/zfs-kmod/zfs-kmod-2.2.3.ebuild
+- >-
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
