@@ -7,7 +7,15 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  luet i -y --sync-repos kernel-6.7/macaroni-zen-modules app-antivirus/lkrg --nodeps && luet cleanup &&
+  luet i -y --sync-repos kernel-6.7/macaroni-zen-modules
+  app-antivirus/lkrg
+  virtual/linux-sources
+  dummy-sources
+  sys-apps/kmod
+  virtual/pkgconfig
+  dev-util/pkgconf
+  dev-python/cython
+  --nodeps && luet cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
 - >-
