@@ -7,7 +7,12 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  luet i -y nvidia-drivers && luet cleanup &&
+  luet i -y nvidia-drivers
+  virtual/linux-sources
+  dummy-sources
+  sys-apps/pciutils
+  &&
+  luet cleanup &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
