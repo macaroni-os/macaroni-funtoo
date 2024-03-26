@@ -1,4 +1,7 @@
 prelude:
+- >-
+  sed -i -e 's|dev-python/packaging.*|"|g'
+  /var/git/meta-repo/kits/python-modules-kit/dev-python/wheel/wheel-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
