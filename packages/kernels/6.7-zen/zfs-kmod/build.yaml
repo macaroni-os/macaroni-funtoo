@@ -8,9 +8,12 @@ package_dir: /{{ .Values.name }}
 steps:
 - >-
   luet i -y sys-apps/kmod virtual/modutils pkgconf virtual/libelf
-  virtual/linux-sources && luet cleanup
+  virtual/linux-sources kernel-6.7/macaroni-zen-minimal && luet cleanup
 - >-
   sed -i -e 's|^ZFS_KERNEL_COMPAT.*|ZFS_KERNEL_COMPAT="6.7"|g' /var/git/meta-repo/kits/core-kit/sys-fs/zfs-kmod/zfs-kmod-2.2.3.ebuild
+# I need investigate on this. For now forcing set of DEPMOD variable.
+- >-
+  sed -i -e 's|^: ${DEPMOD.*|DEPMOD=depmod|g' /usr/src/linux/scripts/depmod.sh
 - >-
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
