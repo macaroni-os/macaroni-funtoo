@@ -1,5 +1,5 @@
 name: bind-tools
-version: 9.18.21
+version: 9.18.25
 category: net-dns
 use_flags:
 - -caps
@@ -35,8 +35,7 @@ uri:
 license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
 labels:
   BDEPEND: doc? ( dev-python/sphinx ) virtual/pkgconfig >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: dev-libs/libuv:= caps? ( sys-libs/libcap ) dev-libs/openssl:= xml? ( dev-libs/libxml2
     ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5 ) libedit? ( dev-libs/libedit
     ) !libedit? ( readline? ( sys-libs/readline:= ) )
@@ -48,4 +47,4 @@ labels:
   kit: net-kit
   original.package.name: net-dns/bind-tools
   original.package.slot: "0"
-  original.package.version: 9.18.21
+  original.package.version: 9.18.25
