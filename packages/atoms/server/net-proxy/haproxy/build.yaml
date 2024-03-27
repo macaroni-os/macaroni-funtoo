@@ -1,4 +1,11 @@
 prelude:
+# Temporary fix until next build cycle
+- >-
+  cd /var/git/extra-kits/geaaru-kit/net-proxy/haproxy/ &&
+  rm Manifest &&
+  wget https://raw.githubusercontent.com/geaaru/geaaru_overlay/funtoo/net-proxy/haproxy/Manifest &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
