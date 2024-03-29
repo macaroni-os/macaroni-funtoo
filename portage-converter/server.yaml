@@ -293,6 +293,8 @@ artefacts:
 
 - tree: packages/atoms/server
   mutations:
+    uses:
+      - georeplication
     runtime_deps:
       packages:
         - category: macaroni
@@ -310,6 +312,7 @@ artefacts:
       - python_single_target_python3_8
       - python_targets_python3_7
       - python_targets_python3_9
+      - uring
     enabled:
       - bd-xlator
       - crypt-xlator
