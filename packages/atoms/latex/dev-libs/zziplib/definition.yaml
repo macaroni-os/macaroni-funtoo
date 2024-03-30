@@ -1,5 +1,5 @@
 name: zziplib
-version: 0.13.72+1
+version: 0.13.74
 category: dev-libs
 use_flags:
 - -sdl
@@ -21,15 +21,13 @@ uri:
 - http://zziplib.sourceforge.net/
 license: '|| ( LGPL-2.1 MPL-1.1 )'
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
-  DEPEND: sys-libs/zlib sdl? ( >=media-libs/libsdl-1.2.6 ) || ( >=dev-lang/python-2.7.5-r2:2.7
-    ) virtual/pkgconfig test? ( app-arch/zip )
-  IUSE: doc sdl static-libs test
+  BDEPEND: '|| ( dev-lang/python:3.8[xml(+)] dev-lang/python:3.9[xml(+)] dev-lang/python:3.7[xml(+)]
+    dev-lang/python:3.10[xml(+)] ) dev-util/ninja dev-util/cmake'
+  DEPEND: sys-libs/zlib sdl? ( >=media-libs/libsdl-1.2.6 )
+  IUSE: sdl static-libs
   RDEPEND: sys-libs/zlib sdl? ( >=media-libs/libsdl-1.2.6 )
   emerge.packages: dev-libs/zziplib
   kit: dev-kit
   original.package.name: dev-libs/zziplib
   original.package.slot: "0"
-  original.package.version: 0.13.72
+  original.package.version: 0.13.74
