@@ -1,11 +1,9 @@
 prelude:
-# Temporary fix using last ebuild available
+# Temporary fix
 - >-
-  cp zziplib-0.13.72.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/zziplib/ &&
-  cd /var/git/meta-repo/kits/dev-kit/dev-libs/zziplib &&
-  ebuild zziplib-0.13.72.ebuild digest &&
-  cd -
-
+  sed -i -e '/-0.13.72-incompatible-pointer-types.patch/d'
+  -e '/-0.13.72-Wint-conversion.patch/d'
+  /var/git/meta-repo/kits/dev-kit/dev-libs/zziplib/zziplib-0.13.74.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
