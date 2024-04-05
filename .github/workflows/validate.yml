@@ -17,7 +17,6 @@ jobs:
         git fetch --prune --unshallow
     - name: Validate 🔧
       run: |
-        #curl https://get.mocaccino.org/luet/get_luet_root.sh | sudo sh
         curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sudo sh
         sudo luet upgrade -y && sudo luet i system/luet-build -y
         make validate
