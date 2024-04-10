@@ -214,3 +214,8 @@ cd -
 # patch media-libs/quirc (needed for opencv)
 
 # patch dev-libs/flatbuffers
+
+# Avoid dep cycle - FL-11821
+sed -i -e '/^DISTUTILS_USE_PEP517.*/d' \
+/var/git/meta-repo/kits/python-modules-kit/dev-python/packaging/packaging-*.ebuild
+
