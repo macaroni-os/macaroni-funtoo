@@ -72,6 +72,9 @@ skipped_resolutions:
     - name: eselect-lib-bin-symlink
       category: app-eselect
 
+    - name: autoconf
+      category: sys-devel
+
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
@@ -251,6 +254,8 @@ artefacts:
     - unwind
     - xcsecurity
     enabled:
+    # We need elogind for GDM
+    - elogind
     - xvfb
     - xephyr
     - xnest
@@ -286,6 +291,19 @@ artefacts:
     - unwind
   packages:
   - x11-base/xwayland
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    conflicts:
+      - category: x11-bae
+        name: xorg-server
+        version: '<=1.20.11'
+  uses:
+    disabled:
+      - x86-winnt
+      - ppc-aix
+  packages:
+    - x11-libs/libxcvt
 
 - tree: packages/atoms/xorg-base
   uses:
@@ -366,7 +384,7 @@ artefacts:
   - dev-cpp/cairomm:1
 
 - tree: packages/atoms/xorg-base
-  replacements:
+  mutations:
     uses:
       - X
   uses:
@@ -542,6 +560,18 @@ artefacts:
     - wayland
   packages:
   - media-libs/vulkan-loader
+
+- tree: packages/atoms/xorg-base
+  packages:
+    - app-misc/wayland-utils
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - cube
+  packages:
+    - media-libs/vulkan-layers
+    - dev-util/vulkan-tools
 
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
