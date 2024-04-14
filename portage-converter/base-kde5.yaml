@@ -223,6 +223,8 @@ artefacts:
   packages:
     - app-admin/system-config-printer
     - dev-python/pycups
+    - dev-libs/qtkeychain
+    - dev-libs/ktextaddons:5
 
 - tree: packages/atoms/base-kde5
   mutations:
@@ -237,6 +239,10 @@ artefacts:
       - debug
   packages:
     - dev-libs/chmlib
+
+- tree: packages/atoms/base-kde5
+  packages:
+    - sys-apps/xdg-desktop-portal-gtk
 
 include_layers:
 - layers/macaroni-funtoo-race19.yaml
