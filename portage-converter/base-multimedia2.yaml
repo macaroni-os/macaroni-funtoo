@@ -208,12 +208,13 @@ artefacts:
       - examples
       - jack-sdk
       - echo-cancel
-      - extra
       - systemd
       # Conflicts with alsa-plugins[pulseaudio]
-      - pipewire-alsa
+      #- pipewire-alsa
+      - lua_single_target_lua5-1
   packages:
     - media-video/pipewire
+    - media-video/wireplumber
 
 - tree: packages/atoms/base-multimedia2
   uses:
