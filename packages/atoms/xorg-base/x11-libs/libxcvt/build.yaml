@@ -1,10 +1,4 @@
 prelude:
-# Temoprary patch
-- >-
-  cd /var/git/extra-kits/geaaru-kit/x11-libs/libxcvt &&
-  rm *.ebuild &&
-  wget https://raw.githubusercontent.com/geaaru/geaaru_overlay/funtoo/x11-libs/libxcvt/libxcvt-0.1.2.ebuild &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -30,6 +24,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: iceauth
+- name: libXfont2
   version: '>=0'
-  category: x11-apps
+  category: x11-libs

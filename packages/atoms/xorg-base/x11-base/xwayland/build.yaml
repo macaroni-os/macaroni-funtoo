@@ -1,8 +1,4 @@
 prelude:
-- >-
-  anise repo update &&
-  anise upgrade -y &&
-  anise cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -28,6 +24,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: libXfont2
+- name: xkbcomp
   version: '>=0'
-  category: x11-libs
+  category: x11-apps

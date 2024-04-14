@@ -1,4 +1,5 @@
 prelude:
+
 # Add patch for xorg-server 21.1.11
 - >-
   eval 'mkdir -p /etc/portage/patches/x11-drivers/xf86-video-nouveau || true' &&
@@ -28,6 +29,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: xorg-server
+- name: util-macros
   version: '>=0'
-  category: x11-base
+  category: x11-misc
