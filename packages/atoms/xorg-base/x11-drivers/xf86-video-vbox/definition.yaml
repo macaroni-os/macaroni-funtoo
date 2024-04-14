@@ -8,9 +8,6 @@ requires:
 - name: m4
   version: '>=0'
   category: sys-devel
-- name: xorg-proto
-  version: '>=0'
-  category: x11-base
 - name: xorg-server
   version: '>=0'
   category: x11-base
@@ -31,9 +28,8 @@ description: Driver for xorg-server
 uri:
 - ""
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
     >=x11-misc/util-macros-1.18
   IUSE: kernel_linux
