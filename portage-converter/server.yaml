@@ -298,6 +298,16 @@ artefacts:
   packages:
     - app-admin/rsyslog
 
+- tree: packages/atoms/server
+  uses:
+    disabled:
+      - selinux
+      - vim-syntax
+  packages:
+    - www-apps/gitea
+    - dev-vcs/gitolite
+
+
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
 
