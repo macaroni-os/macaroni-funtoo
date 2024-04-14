@@ -78,6 +78,9 @@ skipped_resolutions:
     - name: packagekit-qt
       category: app-admin
 
+    - name: autoconf
+      category: sys-devel
+
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
@@ -179,6 +182,7 @@ artefacts:
     - kde-apps/dolphin-plugins-git:5
     # Ebuild broken. TODO: Investigate.
     #- kde-apps/kjots:5
+    - kde-plasma/ksystemstats:5
 
     - kde-apps/juk:5
     - kde-apps/krdc:5
@@ -208,6 +212,18 @@ artefacts:
       - test
   packages:
     - dev-python/pefile
+
+- tree: packages/atoms/base-kde6
+  mutations:
+    uses:
+      # quiet emerge
+      - mysql
+  uses:
+    disabled:
+      - debug
+      - test
+  packages:
+    - kde-apps/akonadi-mime:5
 
 - tree: packages/atoms/base-kde6
   mutations:
@@ -335,6 +351,31 @@ artefacts:
       - jpegxl
   packages:
     - media-gfx/krita:5
+
+- tree: packages/atoms/base-kde6
+  uses:
+    disabled:
+      - debug
+      - static-libs
+      # TODO: app-text/htmldity
+      - html
+  packages:
+    - dev-python/translate-toolkit
+    - dev-python/utidylib
+
+- tree: packages/atoms/base-kde6
+  mutations:
+    runtime_deps:
+      packages:
+        # We have splitted packages
+        - category: app-crypt-1
+          name: gpgme-qt
+  uses:
+    disabled:
+      - text
+  packages:
+    - kde-apps/messagelib:5
+
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
