@@ -158,6 +158,14 @@ artefacts:
     # Adding this package because xdg-desktop-* stuff
     # is here.
     - sys-apps/flatpak
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e flatpak
 
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
