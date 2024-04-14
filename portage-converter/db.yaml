@@ -317,11 +317,12 @@ artefacts:
       - pam
       - perl
       - rocksdb
-      - s3
       - server
       - xml
-      - columnstore
+      - s3
     disabled:
+      # Temprary disable columnstore for issue with GCC 11
+      - columnstore
       - bindist
       - debug
       - galera
@@ -346,7 +347,7 @@ artefacts:
       - test
       - yassl
   packages:
-    - dev-db/mariadb
+    - dev-db/mariadb:6
   finalizer:
     shell:
       - "/bin/bash"
