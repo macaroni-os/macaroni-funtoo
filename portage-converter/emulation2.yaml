@@ -71,6 +71,8 @@ skipped_resolutions:
 
     - name: zfs-kmod
       category: sys-fs
+    - name: autoconf
+      category: sys-devel
 
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
@@ -189,8 +191,22 @@ artefacts:
       - spriv-tools
   packages:
     - app-emulation/vkd3d
+
+- tree: packages/atoms/emulation2
+  uses:
+    disabled:
+      - spriv-tools
+  packages:
     # Added here because dependency of wine
     - sys-auth/rtkit
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e rtkit
 
 - tree: packages/atoms/emulation2
   uses:
@@ -229,6 +245,50 @@ artefacts:
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e incus-admin
 
+# ---------------------------------------------------
+# Waydroid stuff
+# ---------------------------------------------------
+- tree: packages/atoms/emulation2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race18
+  uses:
+    disabled:
+      - systemd
+      - nftables
+      - apparmor
+  packages:
+    - sys-libs/libglibutil
+
+- tree: packages/atoms/emulation2
+  packages:
+    - sys-libs/libgbinder
+    - dev-python/gbinder-python
+    - dev-python/pyclip
+
+- tree: packages/atoms/emulation2
+  uses:
+    disabled:
+      - systemd
+      - nftables
+      - apparmor
+  packages:
+    - app-emulation/waydroid
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile && macaronictl env-update &&
+        whip hook gtk.postinst
+    uninstall:
+      - >-
+        source /etc/profile && macaronictl env-update &&
+        whip hook gtk.postinst
+# ---------------------------------------------------
 
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
