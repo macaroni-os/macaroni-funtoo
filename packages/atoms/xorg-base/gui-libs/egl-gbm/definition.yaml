@@ -1,0 +1,31 @@
+name: egl-gbm
+version: 1.1.1
+category: gui-libs
+requires:
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GBM EGL external platform library
+uri:
+- https://github.com/NVIDIA/egl-gbm/
+license: MIT
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: media-libs/mesa[gbm(+)] x11-libs/libdrm !<x11-drivers/nvidia-drivers-495.46-r20[wayland(-)]
+    gui-libs/eglexternalplatform media-libs/libglvnd
+  RDEPEND: media-libs/mesa[gbm(+)] x11-libs/libdrm !<x11-drivers/nvidia-drivers-495.46-r20[wayland(-)]
+  emerge.packages: gui-libs/egl-gbm
+  kit: geaaru-kit
+  original.package.name: gui-libs/egl-gbm
+  original.package.slot: "0"
+  original.package.version: 1.1.1
