@@ -1,5 +1,5 @@
 name: libplist
-version: 2.2.0
+version: 2.4.0
 category: app-pda
 use_flags:
 - -python_targets_python3_10
@@ -26,21 +26,21 @@ uri:
 - https://www.libimobiledevice.org/
 license: GPL-2 LGPL-2.1
 labels:
-  BDEPEND: virtual/pkgconfig python? ( >=dev-python/cython-0.17[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-  DEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  BDEPEND: virtual/pkgconfig python? ( >=dev-python/cython-0.17[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4
+  DEPEND: python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     )
-  IUSE: python python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-    python_targets_python3_10
-  RDEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  IUSE: python python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     )
   emerge.packages: app-pda/libplist
   kit: core-hw-kit
   original.package.name: app-pda/libplist
   original.package.slot: "0"
-  original.package.version: 2.2.0-r3
+  original.package.version: 2.4.0
