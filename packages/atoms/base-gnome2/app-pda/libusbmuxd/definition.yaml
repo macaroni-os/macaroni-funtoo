@@ -1,5 +1,5 @@
 name: libusbmuxd
-version: 2.0.2
+version: 2.1.0
 category: app-pda
 requires:
 - name: libplist
@@ -17,14 +17,13 @@ uri:
 - https://www.libimobiledevice.org/
 license: GPL-2+ LGPL-2.1+
 labels:
-  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
-  DEPEND: '>=app-pda/libplist-2.2.0:='
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: '>=app-pda/libplist-2.2.0:= >=app-pda/libimobiledevice-glue-1.2.0:='
   IUSE: static-libs
-  RDEPEND: '>=app-pda/libplist-2.2.0:='
+  RDEPEND: '>=app-pda/libplist-2.2.0:= >=app-pda/libimobiledevice-glue-1.2.0:='
   emerge.packages: app-pda/libusbmuxd
   kit: core-hw-kit
   original.package.name: app-pda/libusbmuxd
   original.package.slot: "0"
-  original.package.version: 2.0.2
+  original.package.version: 2.1.0
