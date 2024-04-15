@@ -1,4 +1,7 @@
 prelude:
+# Temporary until FL-12243 is fixed
+- >-
+  cp PyQt-builder-1.16.0.ebuild /var/git/meta-repo/kits/qt-kit/dev-python/PyQt-builder/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
