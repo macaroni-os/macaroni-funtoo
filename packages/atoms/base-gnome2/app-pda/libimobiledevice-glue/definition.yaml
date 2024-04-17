@@ -1,0 +1,29 @@
+name: libimobiledevice-glue
+version: 1.2.0
+category: app-pda
+requires:
+- name: libplist
+  version: '>=0'
+  category: app-pda
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: USB multiplex daemon for use with Apple iPhone/iPod Touch devices
+uri:
+- https://www.libimobiledevice.org/
+license: GPL-2+ LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: '>=app-pda/libplist-2.3.0:='
+  IUSE: static-libs
+  RDEPEND: '>=app-pda/libplist-2.3.0:='
+  emerge.packages: app-pda/libimobiledevice-glue
+  kit: core-hw-kit
+  original.package.name: app-pda/libimobiledevice-glue
+  original.package.slot: "0"
+  original.package.version: 1.2.0
