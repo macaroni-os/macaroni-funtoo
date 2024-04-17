@@ -1,16 +1,23 @@
 name: libsecret
-version: 0.21.4
+version: 0.21.4+1
 category: app-crypt
 use_flags:
-- -test
+- -gtk-doc
+- bash-completion
 - crypt
 - introspection
-- prefix
+- tpm
 - vala
 requires:
-- name: gobject-introspection
+- name: tpm2-tss
   version: '>=0'
-  category: dev-libs
+  category: app-crypt
+- name: bash-completion
+  version: '>=0'
+  category: app-shells
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: libgcrypt
   version: '>=0'
   category: dev-libs
@@ -21,10 +28,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: GObject library for accessing the freedesktop.org Secret Service API
+description: A GObject-based library for accessing the Secret Service API of the freedesktop.org
+  project, a cross-desktop effort to access passwords, tokens and other types of secrets.
 uri:
 - https://wiki.gnome.org/Projects/Libsecret
-license: LGPL-2.1+ Apache-2.0
+license: LGPL-2.1+
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2'
