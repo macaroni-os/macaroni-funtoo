@@ -1,5 +1,5 @@
 name: freerdp
-version: 3.3.0+1
+version: 3.4.0
 category: net-misc
 use_flags:
 - -doc
@@ -75,32 +75,34 @@ license: Apache-2.0
 labels:
   BDEPEND: virtual/pkgconfig X? ( doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto
     ) ) dev-util/ninja dev-util/cmake
-  DEPEND: dev-libs/openssl:0= sys-libs/zlib:0 alsa? ( media-libs/alsa-lib ) cups?
-    ( net-print/cups ) usb? ( virtual/libudev:0= sys-apps/util-linux:0= dev-libs/dbus-glib:0=
+  DEPEND: dev-libs/openssl:0= dev-libs/pkcs11-helper sys-libs/zlib:0 alsa? ( media-libs/alsa-lib
+    ) cups? ( net-print/cups ) usb? ( virtual/libudev:0= sys-apps/util-linux:0= dev-libs/dbus-glib:0=
     virtual/libusb:1= ) X? ( x11-libs/libXcursor x11-libs/libXext x11-libs/libXi x11-libs/libXrender
     xinerama? ( x11-libs/libXinerama ) xv? ( x11-libs/libXv ) ) ffmpeg? ( media-video/ffmpeg:0=
-    ) !ffmpeg? ( x11-libs/cairo:0= ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
-    x11-libs/libXrandr ) jpeg? ( virtual/jpeg:0 ) openh264? ( media-libs/openh264:0=
-    ) pulseaudio? ( media-sound/pulseaudio ) server? ( X? ( x11-libs/libXcursor x11-libs/libXdamage
-    x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libXtst xinerama?
-    ( x11-libs/libXinerama ) ) ) smartcard? ( sys-apps/pcsc-lite ) systemd? ( sys-apps/systemd:0=
-    ) wayland? ( dev-libs/wayland x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libxkbfile
+    ) !ffmpeg? ( x11-libs/cairo:0= ) fuse? ( sys-fs/fuse:3 ) gstreamer? ( media-libs/gstreamer:1.0
+    media-libs/gst-plugins-base:1.0 x11-libs/libXrandr ) jpeg? ( virtual/jpeg:0 )
+    kerberos? ( virtual/krb5 ) openh264? ( media-libs/openh264:0= ) pulseaudio? (
+    media-sound/pulseaudio ) sdl? ( media-libs/libsdl2 ) server? ( X? ( x11-libs/libXcursor
+    x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libXtst
+    xinerama? ( x11-libs/libXinerama ) ) ) smartcard? ( sys-apps/pcsc-lite ) wayland?
+    ( dev-libs/wayland x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libxkbfile
     )
-  IUSE: alsa cpu_flags_arm_neon cups debug doc +ffmpeg gstreamer jpeg openh264 pulseaudio
-    server smartcard systemd test usb wayland X xinerama xv
-  RDEPEND: dev-libs/openssl:0= sys-libs/zlib:0 alsa? ( media-libs/alsa-lib ) cups?
-    ( net-print/cups ) usb? ( virtual/libudev:0= sys-apps/util-linux:0= dev-libs/dbus-glib:0=
+  IUSE: alsa cpu_flags_arm_neon cups debug doc +ffmpeg fuse gstreamer jpeg kerberos
+    openh264 pulseaudio sdl server smartcard test usb wayland X xinerama xv
+  RDEPEND: dev-libs/openssl:0= dev-libs/pkcs11-helper sys-libs/zlib:0 alsa? ( media-libs/alsa-lib
+    ) cups? ( net-print/cups ) usb? ( virtual/libudev:0= sys-apps/util-linux:0= dev-libs/dbus-glib:0=
     virtual/libusb:1= ) X? ( x11-libs/libXcursor x11-libs/libXext x11-libs/libXi x11-libs/libXrender
     xinerama? ( x11-libs/libXinerama ) xv? ( x11-libs/libXv ) ) ffmpeg? ( media-video/ffmpeg:0=
-    ) !ffmpeg? ( x11-libs/cairo:0= ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
-    x11-libs/libXrandr ) jpeg? ( virtual/jpeg:0 ) openh264? ( media-libs/openh264:0=
-    ) pulseaudio? ( media-sound/pulseaudio ) server? ( X? ( x11-libs/libXcursor x11-libs/libXdamage
-    x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libXtst xinerama?
-    ( x11-libs/libXinerama ) ) ) smartcard? ( sys-apps/pcsc-lite ) systemd? ( sys-apps/systemd:0=
-    ) wayland? ( dev-libs/wayland x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libxkbfile
+    ) !ffmpeg? ( x11-libs/cairo:0= ) fuse? ( sys-fs/fuse:3 ) gstreamer? ( media-libs/gstreamer:1.0
+    media-libs/gst-plugins-base:1.0 x11-libs/libXrandr ) jpeg? ( virtual/jpeg:0 )
+    kerberos? ( virtual/krb5 ) openh264? ( media-libs/openh264:0= ) pulseaudio? (
+    media-sound/pulseaudio ) sdl? ( media-libs/libsdl2 ) server? ( X? ( x11-libs/libXcursor
+    x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libXtst
+    xinerama? ( x11-libs/libXinerama ) ) ) smartcard? ( sys-apps/pcsc-lite ) wayland?
+    ( dev-libs/wayland x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libxkbfile
     )
   emerge.packages: net-misc/freerdp
   kit: net-kit
   original.package.name: net-misc/freerdp
   original.package.slot: "0"
-  original.package.version: 3.3.0
+  original.package.version: 3.4.0
