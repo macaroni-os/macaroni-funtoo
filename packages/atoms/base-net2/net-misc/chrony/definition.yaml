@@ -1,15 +1,28 @@
 name: chrony
-version: "4.5"
+version: 4.5+1
 category: net-misc
 use_flags:
-- -html
-- -libedit
+- -doc
+- -libtomcrypt
 - -nettle
 - -pps
 - -seccomp
 - -selinux
 - caps
+- nss
+- nts
+- readline
+- sechash
 requires:
+- name: libedit
+  version: '>=0'
+  category: dev-libs
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: gnutls
+  version: '>=0'
+  category: net-libs
 - name: libcap
   version: '>=0'
   category: sys-libs
@@ -25,7 +38,7 @@ annotations:
       - ^/var/db/pkg/
 description: NTP client and server programs
 uri:
-- https://chrony.tuxfamily.org/
+- https://chrony-project.org/
 license: GPL-2
 labels:
   BDEPEND: doc? ( app-text/asciidoctor ) nts? ( virtual/pkgconfig ) sechash? ( nettle?
