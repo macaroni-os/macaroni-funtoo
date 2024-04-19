@@ -1,4 +1,11 @@
 prelude:
+# Temporary until next race
+- >-
+  /var/git/extra-kits/geaaru-kit/net-misc/ovn/ &&
+  rm ovn-23.09.3.ebuild &&
+  wget https://raw.githubusercontent.com/geaaru/geaaru_overlay/funtoo/net-misc/ovn/ovn-23.09.3.ebuild &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
