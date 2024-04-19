@@ -1,6 +1,7 @@
 prelude:
 - >-
-  sed -i -e 's|,_cmsgpack||g' /var/git/meta-repo/kits/python-modules-kit/dev-python/msgpack/msgpack-1.0.7-r1.ebuild
+  sed -i -e 's|,_cmsgpack||g'
+  /var/git/meta-repo/kits/python-modules-kit/dev-python/msgpack/msgpack-{{ ( index .Values.labels "original.package.version" ) }} .ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
