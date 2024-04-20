@@ -188,19 +188,6 @@ artefacts:
     - virtual/jre:17
 
 - tree: packages/atoms/java
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: virtual-17
-          name: jdk
-  uses:
-    disabled:
-      - static-libs
-      - source
-  packages:
-    - dev-java/ant-core:0
-
-- tree: packages/atoms/java
   replacements:
     ignore:
       - name: oracle-jdk-bin
@@ -233,6 +220,31 @@ artefacts:
           name: openjdk-jre-bin
   packages:
     - virtual/jre:20
+
+
+- tree: packages/atoms/java
+  mutations:
+    conflicts:
+      - category: dev-java
+        name: ant-core
+        version: '<=1.10.5'
+    provides:
+      - category: dev-java
+        name: ant-core
+        version: 1.10.13
+    buildtime_deps:
+      packages:
+        - category: virtual-17
+          name: jdk
+  packages:
+    - dev-java/ant-bin
+
+- tree: packages/atoms/java
+  uses:
+    disabled:
+      - sources
+  packages:
+    - media-gfx/plantuml
 
 include_layers:
 - layers/macaroni-funtoo-race16.yaml
