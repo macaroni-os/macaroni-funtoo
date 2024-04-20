@@ -1,4 +1,8 @@
 prelude:
+# Temporary patch to ignore errors on docs generation.
+# Probably depends on vala version.
+- >-
+  cp gegl-0.4.48.ebuild /var/git/meta-repo/kits/gnome-kit/media-libs/gegl/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
