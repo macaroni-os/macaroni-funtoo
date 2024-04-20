@@ -1,0 +1,22 @@
+name: deno
+version: 1.42.1
+category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Deno is a simple, modern and secure runtime for JavaScript and TypeScript
+uri:
+- https://github.com/denoland/deno
+license: MIT
+labels:
+  BDEPEND: sys-devel/llvm:* sys-devel/clang:* sys-devel/lld:* dev-util/gn >=virtual/rust-1.37.0
+  IUSE: debug
+  emerge.packages: net-libs/deno
+  kit: core-server-kit
+  original.package.name: net-libs/deno
+  original.package.slot: "0"
+  original.package.version: 1.42.1
