@@ -2,19 +2,24 @@ prelude:
 - >-
   anise repo update &&
   anise upgrade -y &&
-  anise cleanup
+  anise cleanup &&
+  eval 'mkdir -p /etc/portage/package.mask || true' &&
+  echo 'x11-drivers/nvidia-drivers::core-gl-kit' > /etc/portage/package.mask/00-nvidia.mask
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
+  USE="{{ join " " .Values.use_flags }}" \
+  emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}::{{ ( index .Values.labels "kit" ) }} -pv -t && \
   {{- else }}
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
   {{- end }}
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps \
+  ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}::{{ ( index .Values.labels "kit" ) }}
   {{- else }}
   emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- end }}
