@@ -1,0 +1,59 @@
+name: alacritty
+version: 0.13.2
+category: x11-terms
+use_flags:
+- X
+- wayland
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GPU-accelerated terminal emulator
+uri:
+- https://github.com/alacritty/alacritty
+license: Apache-2.0 Apache-2.0-with-LLVM-exceptions Boost-1.0 BSD BSD-2 CC0-1.0 FTL
+  ISC MIT MPL-2.0 Unlicense WTFPL-2 ZLIB
+labels:
+  BDEPEND: dev-util/cmake >=virtual/rust-1.37.0
+  DEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    )'
+  IUSE: wayland +X debug
+  RDEPEND: media-libs/fontconfig:= media-libs/freetype:2 X? ( x11-libs/libxcb:=[xkb]
+    ) media-libs/mesa[X?,wayland?] sys-libs/zlib sys-libs/ncurses:0 wayland? ( dev-libs/wayland
+    ) X? ( x11-libs/libXcursor x11-libs/libXi x11-libs/libXrandr )
+  emerge.packages: x11-terms/alacritty
+  kit: desktop-kit
+  original.package.name: x11-terms/alacritty
+  original.package.slot: "0"
+  original.package.version: 0.13.2
