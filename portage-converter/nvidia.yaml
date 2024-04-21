@@ -155,6 +155,15 @@ artefacts:
       - "-c"
     install:
       - eval 'macaronictl env-update || true'
+      # NOTE: This is created by the file for systemd-tmpfiles package
+      #       on build.yaml
+      # Create SidebandSocketPath directory
+      # - >-
+      #  eval 'mkdir /var/run/nvidia-xdriver || true' &&
+      #  chmod ug+rwx /var/run/nvidia-xdriver/ &&
+      #  chown root:video /var/run/nvidia-xdriver/
+      # Add this row to default nvidia class
+      # Option         "SidebandSocketPath" "/var/run/nvidia-xdriver/"
     uninstall:
       - rm -vf /etc/OpenCL/vendors/nvidia.icd || true
 
