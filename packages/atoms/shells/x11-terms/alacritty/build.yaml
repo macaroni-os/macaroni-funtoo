@@ -1,4 +1,8 @@
 prelude:
+# Temporary disable the man files generation
+- >-
+  sed -e '/alacritty.man/d' -i
+  /var/git/meta-repo/kits/desktop-kit/x11-terms/alacritty/alacritty-0.13.2.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
