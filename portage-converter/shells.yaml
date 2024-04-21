@@ -152,6 +152,17 @@ artefacts:
     - x11-terms/alacritty
     - x11-terms/cool-retro-term
     - x11-terms/st
+
+- tree: packages/atoms/shells
+  uses:
+    disabled:
+      - debug
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race11
+  packages:
     - x11-terms/tilix-bin
 
 include_layers:
