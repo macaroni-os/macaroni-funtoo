@@ -1,4 +1,10 @@
 prelude:
+# Temporary fix typo
+- >-
+  cd /var/git/extra-kits/geaaru-kit/x11-base/xorg-server/ &&
+  rm Manifest &&
+  wget https://raw.githubusercontent.com/geaaru/geaaru_overlay/funtoo/x11-base/xorg-server/Manifest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
