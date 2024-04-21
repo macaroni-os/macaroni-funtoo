@@ -574,8 +574,19 @@ artefacts:
     - dev-util/vulkan-tools
 
 - tree: packages/atoms/xorg-base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: app-admin
+          name: gpu-configurator
   packages:
     - gui-libs/egl-gbm
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    uninstall:
+      - /usr/bin/gpu-configurator nvidia gbmlib --disable-driver --purge || true
 
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
