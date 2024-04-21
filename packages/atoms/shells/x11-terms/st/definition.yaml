@@ -1,0 +1,34 @@
+name: st
+version: 0.9.1
+category: x11-terms
+requires:
+- name: ncurses
+  version: '>=0'
+  category: sys-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXft
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: simple terminal implementation for X
+uri:
+- https://st.suckless.org/
+license: MIT-with-advertising
+labels:
+  DEPEND: '>=sys-libs/ncurses-6.0:0= media-libs/fontconfig x11-libs/libX11 x11-libs/libXft
+    virtual/pkgconfig x11-base/xorg-proto'
+  IUSE: savedconfig savedconfig
+  RDEPEND: '>=sys-libs/ncurses-6.0:0= media-libs/fontconfig x11-libs/libX11 x11-libs/libXft'
+  emerge.packages: x11-terms/st
+  kit: desktop-kit
+  original.package.name: x11-terms/st
+  original.package.slot: "0"
+  original.package.version: 0.9.1
