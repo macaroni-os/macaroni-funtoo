@@ -1,4 +1,9 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/extra-kits/geaaru-kit/ &&
+  git pull -ff &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
