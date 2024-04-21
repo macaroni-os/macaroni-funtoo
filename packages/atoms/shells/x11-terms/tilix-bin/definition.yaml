@@ -1,0 +1,25 @@
+name: tilix-bin
+version: 1.9.3
+category: x11-terms
+use_flags:
+- -gnome-keyring
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A tiling terminal emulator for Linux using GTK+ 3
+uri:
+- https://github.com/gnunn1/tilix
+license: GPL-2
+labels:
+  IUSE: gnome-keyring
+  RDEPEND: gnome-keyring? ( app-crypt/libsecret ) gnome-keyring? ( gnome-base/gnome-keyring
+    )
+  emerge.packages: x11-terms/tilix-bin
+  kit: gnome-kit
+  original.package.name: x11-terms/tilix-bin
+  original.package.slot: "0"
+  original.package.version: 1.9.3
