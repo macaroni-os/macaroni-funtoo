@@ -1,5 +1,5 @@
 name: chrony
-version: 4.0+1
+version: "4.5"
 category: net-misc
 use_flags:
 - -html
@@ -28,16 +28,20 @@ uri:
 - https://chrony.tuxfamily.org/
 license: GPL-2
 labels:
-  BDEPEND: virtual/pkgconfig
-  DEPEND: caps? ( sys-libs/libcap ) libedit? ( dev-libs/libedit ) nettle? ( dev-libs/nettle:=
-    ) seccomp? ( sys-libs/libseccomp ) html? ( dev-ruby/asciidoctor ) pps? ( net-misc/pps-tools
-    )
-  IUSE: caps +cmdmon html ipv6 libedit +ntp +phc pps readline +refclock +rtc seccomp
-    selinux +adns nettle sechash samba
-  RDEPEND: caps? ( sys-libs/libcap ) libedit? ( dev-libs/libedit ) nettle? ( dev-libs/nettle:=
-    ) seccomp? ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-chronyd ) virtual/tmpfiles
+  BDEPEND: doc? ( app-text/asciidoctor ) nts? ( virtual/pkgconfig ) sechash? ( nettle?
+    ( virtual/pkgconfig ) nss? ( virtual/pkgconfig ) )
+  DEPEND: caps? ( sys-libs/libcap ) libtomcrypt? ( dev-libs/libtomcrypt:= ) nettle?
+    ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps?
+    ( net-misc/pps-tools ) readline? ( dev-libs/libedit ) seccomp? ( sys-libs/libseccomp
+    ) sys-apps/shadow
+  IUSE: +caps +cmdmon debug doc html libtomcrypt +nettle nss +ntp +nts +phc pps +readline
+    +refclock +rtc samba +seccomp +sechash selinux
+  RDEPEND: caps? ( sys-libs/libcap ) libtomcrypt? ( dev-libs/libtomcrypt:= ) nettle?
+    ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps?
+    ( net-misc/pps-tools ) readline? ( dev-libs/libedit ) seccomp? ( sys-libs/libseccomp
+    ) selinux? ( sec-policy/selinux-chronyd ) virtual/tmpfiles
   emerge.packages: net-misc/chrony
   kit: net-kit
   original.package.name: net-misc/chrony
   original.package.slot: "0"
-  original.package.version: "4.0"
+  original.package.version: "4.5"
