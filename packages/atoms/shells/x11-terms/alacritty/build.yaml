@@ -3,6 +3,8 @@ prelude:
   cd /var/git/meta-repo/kits/desktop-kit/x11-terms/alacritty/ &&
   rm alacritty-0.13.2.ebuild &&
   wget https://raw.githubusercontent.com/funtoo/desktop-kit/next/x11-terms/alacritty/alacritty-0.13.2.ebuild &&
+  rm Manifest &&
+  ebuild alacritty-0.13.2.ebuild digest &&
   cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
