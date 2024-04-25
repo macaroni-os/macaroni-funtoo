@@ -3,9 +3,8 @@ prelude:
 #       Waiting next build pipeline before upgrade ibus (under i18n-kit)
 - >-
   rm -v /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus/*.ebuild &&
-  cp patches/*.ebuild /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus/ &&
+  cp -v patches/*.ebuild /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus/ &&
   cd /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus &&
-  rm *.ebuild &&
   ebuild ibus-1.5.28-r1.ebuild digest &&
   cd -
 - |-
