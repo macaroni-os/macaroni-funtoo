@@ -1,8 +1,11 @@
 prelude:
-# TODO: Move this patch to funtoo-kits level
+# TODO: Move this patch to funtoo-kits level.
+#       Waiting next build pipeline before upgrade ibus (under i18n-kit)
 - >-
-  cp patches/*.ebuild /var/git/meta-repo/kits/gnome-kit/app-i18n/ibus/ &&
-  cd /var/git/meta-repo/kits/gnome-kit/app-i18n/ibus &&
+  rm -v /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus/*.ebuild &&
+  cp patches/*.ebuild /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus/ &&
+  cd /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus &&
+  rm *.ebuild &&
   ebuild ibus-1.5.28-r1.ebuild digest &&
   cd -
 - |-
