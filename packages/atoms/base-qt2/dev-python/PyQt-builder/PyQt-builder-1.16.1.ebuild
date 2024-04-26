@@ -14,7 +14,10 @@ IUSE=""
 SLOT="0"
 LICENSE="BSD"
 KEYWORDS="*"
-S="${WORKDIR}/PyQt-builder-1.16.1"
+
+post_src_unpack() {
+	mv pyqt_builder-* "${S}"
+}
 
 src_prepare() {
 	sed -i -e "s|^dynamic.*|version = \"${PV}\"|g" \
