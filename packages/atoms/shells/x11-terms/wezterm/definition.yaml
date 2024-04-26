@@ -1,0 +1,71 @@
+name: wezterm
+version: "20240203"
+category: x11-terms
+use_flags:
+- X
+- wayland
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-image
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-keysyms
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-wm
+  version: '>=0'
+  category: x11-libs
+- name: hicolor-icon-theme
+  version: '>=0'
+  category: x11-themes
+- name: xcursor-themes
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A GPU-accelerated cross-platform terminal emulator and multiplexer written
+  by @wez and implemented in Rust
+uri:
+- https://github.com/wez/wezterm
+license: Apache-2.0 Boost-1.0 BSD BSD-2 CC0-1.0 ISC LGPL-3+ MIT Apache-2.0 Unlicense
+  ZLIB
+labels:
+  BDEPEND: dev-util/cmake dev-vcs/git virtual/pkgconfig virtual/rust >=virtual/rust-1.37.0
+  DEPEND: dev-libs/openssl media-libs/fontconfig media-libs/mesa[X?,wayland?] x11-libs/libxkbcommon[X,wayland?]
+    sys-apps/dbus wayland? ( dev-libs/wayland ) X? ( x11-themes/hicolor-icon-theme
+    x11-libs/libX11 x11-libs/libxkbcommon x11-libs/libxcb:=[xkb] x11-libs/xcb-util
+    x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-themes/xcursor-themes
+    )
+  IUSE: wayland +X debug
+  RDEPEND: dev-libs/openssl media-libs/fontconfig media-libs/mesa[X?,wayland?] x11-libs/libxkbcommon[X,wayland?]
+    sys-apps/dbus wayland? ( dev-libs/wayland ) X? ( x11-themes/hicolor-icon-theme
+    x11-libs/libX11 x11-libs/libxkbcommon x11-libs/libxcb:=[xkb] x11-libs/xcb-util
+    x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-themes/xcursor-themes
+    )
+  emerge.packages: x11-terms/wezterm
+  kit: desktop-kit
+  original.package.name: x11-terms/wezterm
+  original.package.slot: "0"
+  original.package.version: "20240203"
