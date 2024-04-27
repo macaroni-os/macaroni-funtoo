@@ -1,5 +1,5 @@
 name: apache
-version: 2.4.58
+version: 2.4.59
 category: www-servers-2
 use_flags:
 - -apache2_modules_brotli
@@ -60,9 +60,9 @@ uri:
 - https://httpd.apache.org/
 license: Apache-2.0 Apache-1.1
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0 ) virtual/pkgconfig'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0
+    ) virtual/pkgconfig'
   DEPEND: apache2_modules_brotli? ( >=app-arch/brotli-0.6.0:= ) apache2_modules_http2?
     ( >=net-libs/nghttp2-1.2.1 ) apache2_modules_proxy_http2? ( >=net-libs/nghttp2-1.2.1
     ) apache2_modules_md? ( >=dev-libs/jansson-2.10 ) apache2_modules_session_crypto?
@@ -112,7 +112,7 @@ labels:
     ) ssl? ( !libressl? ( >=dev-libs/openssl-1.0.2:0= ) libressl? ( dev-libs/libressl:0=
     ) ) !=www-servers/apache-1* selinux? ( sec-policy/selinux-apache ) virtual/tmpfiles
   emerge.packages: www-servers/apache:2
-  kit: geaaru-kit
+  kit: core-server-kit
   original.package.name: www-servers/apache
   original.package.slot: "2"
-  original.package.version: 2.4.58
+  original.package.version: 2.4.59
