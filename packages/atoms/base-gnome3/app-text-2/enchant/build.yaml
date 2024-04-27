@@ -1,4 +1,6 @@
 prelude:
+- >-
+  cp enchant-2.7.0.ebuild /var/git/meta-repo/kits/text-kit/app-text/enchant/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
