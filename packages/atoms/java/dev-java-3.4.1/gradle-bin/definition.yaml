@@ -1,0 +1,30 @@
+name: gradle-bin
+version: 3.4.1
+category: dev-java-3.4.1
+requires:
+- name: java-config
+  version: '>=0'
+  category: dev-java-2
+- name: jdk
+  version: '>=0'
+  category: virtual-17
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A project automation and build tool with a Groovy based DSL
+uri:
+- http://www.gradle.org/
+license: Apache-2.0
+labels:
+  DEPEND: app-arch/zip app-eselect/eselect-gradle >=dev-java/java-config-2.2.0-r3
+  IUSE: source doc examples elibc_FreeBSD
+  RDEPEND: '>=virtual/jdk-1.6 >=dev-java/java-config-2.2.0-r3'
+  emerge.packages: dev-java/gradle-bin:3.4.1
+  kit: java-kit
+  original.package.name: dev-java/gradle-bin
+  original.package.slot: 3.4.1
+  original.package.version: 3.4.1-r1
