@@ -106,10 +106,12 @@ artefacts:
     - dev-java/openjdk-jre-bin:11
     - dev-java/openjdk-jre-bin:17
     - dev-java/openjdk-jre-bin:20
+    - dev-java/openjdk-jre-bin:21
     - dev-java/openjdk-bin:8
     - dev-java/openjdk-bin:11
     - dev-java/openjdk-bin:17
     - dev-java/openjdk-bin:20
+    - dev-java/openjdk-bin:21
     - dev-java/maven-bin:3.9
     - app-eselect/eselect-java
 
@@ -208,6 +210,23 @@ artefacts:
   replacements:
     ignore:
       - name: oracle-jdk-bin
+        category: dev-java
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-java-21
+          name: openjdk-bin
+    buildtime_deps:
+      packages:
+        - category: dev-java-21
+          name: openjdk-bin
+  packages:
+    - virtual/jdk:21
+
+- tree: packages/atoms/java
+  replacements:
+    ignore:
+      - name: oracle-jdk-bin
         category: dev-java-20
   mutations:
     runtime_deps:
@@ -221,6 +240,22 @@ artefacts:
   packages:
     - virtual/jre:20
 
+- tree: packages/atoms/java
+  replacements:
+    ignore:
+      - name: oracle-jdk-bin
+        category: dev-java-21
+  mutations:
+    runtime_deps:
+      packages:
+        - category: dev-java-21
+          name: openjdk-jre-bin
+    buildtime_deps:
+      packages:
+        - category: dev-java-21
+          name: openjdk-jre-bin
+  packages:
+    - virtual/jre:21
 
 - tree: packages/atoms/java
   mutations:
@@ -245,6 +280,24 @@ artefacts:
       - sources
   packages:
     - media-gfx/plantuml
+
+- tree: packages/atoms/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race16
+  packages:
+    - app-eselect/eselect-gradle
+
+- tree: packages/atoms/java
+  uses:
+    disabled:
+      - doc
+      - examples
+      - source
+  packages:
+    - dev-java/gradle-bin:3.4.1
 
 include_layers:
 - layers/macaroni-funtoo-race16.yaml
