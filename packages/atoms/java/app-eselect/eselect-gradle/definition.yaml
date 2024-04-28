@@ -1,0 +1,25 @@
+name: eselect-gradle
+version: "0.1"
+category: app-eselect
+requires:
+- name: eselect
+  version: '>=0'
+  category: app-admin
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Manage multiple Gradle versions on one system
+uri:
+- http://www.gentoo.org
+license: GPL-2
+labels:
+  RDEPEND: app-admin/eselect
+  emerge.packages: app-eselect/eselect-gradle
+  kit: core-kit
+  original.package.name: app-eselect/eselect-gradle
+  original.package.slot: "0"
+  original.package.version: "0.1"
