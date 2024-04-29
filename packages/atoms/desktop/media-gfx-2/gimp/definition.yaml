@@ -1,5 +1,5 @@
 name: gimp
-version: 2.10.20+1
+version: 2.10.36
 category: media-gfx-2
 use_flags:
 - -aqua
@@ -78,10 +78,13 @@ uri:
 - https://www.gimp.org/
 license: GPL-3 LGPL-3
 labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 app-arch/xz-utils test? (
+    !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
   DEPEND: '>=app-text/poppler-0.50[cairo] >=app-text/poppler-data-0.4.7 >=dev-libs/atk-2.2.0
     >=dev-libs/glib-2.56.2:2 >=dev-libs/json-glib-1.2.6 dev-libs/libxml2:2 dev-libs/libxslt
     >=gnome-base/librsvg-2.40.6:2 media-gfx/mypaint-brushes:1 >=media-libs/babl-0.1.78
-    >=media-libs/fontconfig-2.12.4 >=media-libs/freetype-2.1.7 >=media-libs/gegl-0.4.24:0.4[cairo]
+    >=media-libs/fontconfig-2.12.4 >=media-libs/freetype-2.1.7 >=media-libs/gegl-0.4.38:0.4[cairo]
     >=media-libs/gexiv2-0.10.6 >=media-libs/harfbuzz-0.9.19 >=media-libs/lcms-2.8:2
     >=media-libs/libmypaint-1.3.0:= >=media-libs/libpng-1.6.25:0= >=media-libs/tiff-3.5.7:0
     net-libs/glib-networking[ssl] sys-libs/zlib virtual/jpeg >=x11-libs/cairo-1.12.2
@@ -89,24 +92,18 @@ labels:
     aalib? ( media-libs/aalib ) alsa? ( >=media-libs/alsa-lib-1.0.0 ) aqua? ( >=x11-libs/gtk-mac-integration-2.0.0
     ) heif? ( >=media-libs/libheif-1.3.2:= ) jpeg2k? ( >=media-libs/openjpeg-2.1.0:2=
     ) mng? ( media-libs/libmng:= ) openexr? ( >=media-libs/openexr-1.6.1:= ) postscript?
-    ( app-text/ghostscript-gpl ) python? ( python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
-    >=dev-lang/python-exec-2:=[python_targets_python2_7] ) python_single_target_python2_7?
-    ( >=dev-python/pycairo-1.0.2[python_targets_python2_7(-)] >=dev-python/pygtk-2.10.4:2[python_targets_python2_7(-)]
-    ) ) udev? ( dev-libs/libgudev:= ) unwind? ( >=sys-libs/libunwind-1.1.0:= ) webp?
-    ( >=media-libs/libwebp-0.6.0:= ) wmf? ( >=media-libs/libwmf-0.2.8 ) xpm? ( x11-libs/libXpm
-    ) >=dev-lang/perl-5.10.0 dev-libs/appstream-glib dev-util/gtk-update-icon-cache
+    ( app-text/ghostscript-gpl ) udev? ( dev-libs/libgudev:= ) unwind? ( >=sys-libs/libunwind-1.1.0:=
+    ) webp? ( >=media-libs/libwebp-0.6.0:= ) wmf? ( >=media-libs/libwmf-0.2.8 ) xpm?
+    ( x11-libs/libXpm ) >=dev-lang/perl-5.10.0 dev-libs/appstream-glib dev-util/gtk-update-icon-cache
     >=dev-util/intltool-0.40.1 sys-apps/findutils >=sys-devel/gettext-0.19 >=sys-devel/libtool-2.2
-    virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info
-    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
-  IUSE: aalib alsa aqua debug doc gnome heif jpeg2k mng openexr postscript python
-    udev unwind vector-icons webp wmf xpm cpu_flags_ppc_altivec cpu_flags_x86_mmx
-    cpu_flags_x86_sse python_single_target_python2_7 python_targets_python2_7 test
+    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: aalib alsa aqua debug doc gnome heif jpeg2k mng openexr postscript udev unwind
+    vector-icons webp wmf xpm cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse
+    test
   RDEPEND: '>=app-text/poppler-0.50[cairo] >=app-text/poppler-data-0.4.7 >=dev-libs/atk-2.2.0
     >=dev-libs/glib-2.56.2:2 >=dev-libs/json-glib-1.2.6 dev-libs/libxml2:2 dev-libs/libxslt
     >=gnome-base/librsvg-2.40.6:2 media-gfx/mypaint-brushes:1 >=media-libs/babl-0.1.78
-    >=media-libs/fontconfig-2.12.4 >=media-libs/freetype-2.1.7 >=media-libs/gegl-0.4.24:0.4[cairo]
+    >=media-libs/fontconfig-2.12.4 >=media-libs/freetype-2.1.7 >=media-libs/gegl-0.4.38:0.4[cairo]
     >=media-libs/gexiv2-0.10.6 >=media-libs/harfbuzz-0.9.19 >=media-libs/lcms-2.8:2
     >=media-libs/libmypaint-1.3.0:= >=media-libs/libpng-1.6.25:0= >=media-libs/tiff-3.5.7:0
     net-libs/glib-networking[ssl] sys-libs/zlib virtual/jpeg >=x11-libs/cairo-1.12.2
@@ -114,14 +111,11 @@ labels:
     aalib? ( media-libs/aalib ) alsa? ( >=media-libs/alsa-lib-1.0.0 ) aqua? ( >=x11-libs/gtk-mac-integration-2.0.0
     ) heif? ( >=media-libs/libheif-1.3.2:= ) jpeg2k? ( >=media-libs/openjpeg-2.1.0:2=
     ) mng? ( media-libs/libmng:= ) openexr? ( >=media-libs/openexr-1.6.1:= ) postscript?
-    ( app-text/ghostscript-gpl ) python? ( python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7
-    >=dev-lang/python-exec-2:=[python_targets_python2_7] ) python_single_target_python2_7?
-    ( >=dev-python/pycairo-1.0.2[python_targets_python2_7(-)] >=dev-python/pygtk-2.10.4:2[python_targets_python2_7(-)]
-    ) ) udev? ( dev-libs/libgudev:= ) unwind? ( >=sys-libs/libunwind-1.1.0:= ) webp?
-    ( >=media-libs/libwebp-0.6.0:= ) wmf? ( >=media-libs/libwmf-0.2.8 ) xpm? ( x11-libs/libXpm
-    ) x11-themes/hicolor-icon-theme gnome? ( gnome-base/gvfs )'
+    ( app-text/ghostscript-gpl ) udev? ( dev-libs/libgudev:= ) unwind? ( >=sys-libs/libunwind-1.1.0:=
+    ) webp? ( >=media-libs/libwebp-0.6.0:= ) wmf? ( >=media-libs/libwmf-0.2.8 ) xpm?
+    ( x11-libs/libXpm ) x11-themes/hicolor-icon-theme gnome? ( gnome-base/gvfs )'
   emerge.packages: media-gfx/gimp:2
   kit: media-kit
   original.package.name: media-gfx/gimp
   original.package.slot: "2"
-  original.package.version: 2.10.20
+  original.package.version: 2.10.36
