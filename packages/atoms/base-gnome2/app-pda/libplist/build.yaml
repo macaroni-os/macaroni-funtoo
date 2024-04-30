@@ -1,4 +1,7 @@
 prelude:
+# Temporary fix until FL-12307 is done
+- >-
+  sed -i -e '/so.3.3.0/d' /var/git/meta-repo/kits/core-hw-kit/app-pda/libplist/libplist-2.4.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
