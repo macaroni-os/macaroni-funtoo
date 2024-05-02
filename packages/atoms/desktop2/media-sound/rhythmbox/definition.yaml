@@ -1,0 +1,122 @@
+name: rhythmbox
+version: 3.4.6
+category: media-sound
+use_flags:
+- -cdr
+- -gnome-keyring
+- -gtk-doc
+- -ipod
+- -lirc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- -test
+- daap
+- dbus
+- libnotify
+- mtp
+- prefix
+- python
+- python_single_target_python3_9
+- udev
+- upnp-av
+requires:
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
+- name: libpeas
+  version: '>=0'
+  category: dev-libs
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: libmtp
+  version: '>=0'
+  category: media-libs
+- name: grilo-plugins
+  version: '>=0'
+  category: media-plugins-0.3
+- name: gst-plugins-cdparanoia
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-meta
+  version: '>=0'
+  category: media-plugins-1.0
+- name: tdb
+  version: '>=0'
+  category: sys-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libnotify
+  version: '>=0'
+  category: x11-libs
+- name: adwaita-icon-theme
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Music management and playback software for GNOME
+uri:
+- https://wiki.gnome.org/Apps/Rhythmbox
+license: GPL-2
+labels:
+  BDEPEND: gtk-doc? ( dev-util/gtk-doc ) >=dev-util/intltool-0.35 dev-util/itstool
+    virtual/pkgconfig test? ( dev-libs/check ) app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
+    )
+  DEPEND: x11-libs/cairo >=x11-libs/gdk-pixbuf-2.18:2 >=dev-libs/glib-2.56.0:2 >=dev-libs/gobject-introspection-0.10:=
+    >=media-libs/gstreamer-1.4.0:1.0[introspection] >=media-libs/gst-plugins-base-1.4.0:1.0[introspection]
+    >=x11-libs/gtk+-3.20.0:3[introspection] dev-libs/json-glib >=dev-libs/libpeas-0.7.3[gtk]
+    >=net-libs/libsoup-2.42.0:2.4 >=dev-libs/libxml2-2.7.8:2 x11-libs/pango >=sys-libs/tdb-1.2.6
+    >=dev-libs/totem-pl-parser-3.2 cdr? ( >=app-cdr/brasero-2.91.90 ) daap? ( >=net-libs/libdmapsharing-2.9.19:3.0
+    >=media-plugins/gst-plugins-soup-1.4:1.0 ) gnome-keyring? ( >=app-crypt/libsecret-0.18
+    ) libnotify? ( >=x11-libs/libnotify-0.7.0 ) lirc? ( app-misc/lirc ) python? (
+    python_single_target_python3_10? ( dev-lang/python:3.10[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( >=dev-python/pygobject-3.0:3[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( >=dev-python/pygobject-3.0:3[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/pygobject-3.0:3[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-python/pygobject-3.0:3[python_targets_python3_8(-)]
+    ) ) udev? ( dev-libs/libgudev:= ipod? ( >=media-libs/libgpod-0.7.92[udev] ) mtp?
+    ( >=media-libs/libmtp-0.3 ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: cdr daap dbus gnome-keyring gtk-doc ipod libnotify lirc mtp +python test +udev
+    upnp-av python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 test
+  RDEPEND: x11-libs/cairo >=x11-libs/gdk-pixbuf-2.18:2 >=dev-libs/glib-2.56.0:2 >=dev-libs/gobject-introspection-0.10:=
+    >=media-libs/gstreamer-1.4.0:1.0[introspection] >=media-libs/gst-plugins-base-1.4.0:1.0[introspection]
+    >=x11-libs/gtk+-3.20.0:3[introspection] dev-libs/json-glib >=dev-libs/libpeas-0.7.3[gtk]
+    >=net-libs/libsoup-2.42.0:2.4 >=dev-libs/libxml2-2.7.8:2 x11-libs/pango >=sys-libs/tdb-1.2.6
+    >=dev-libs/totem-pl-parser-3.2 cdr? ( >=app-cdr/brasero-2.91.90 ) daap? ( >=net-libs/libdmapsharing-2.9.19:3.0
+    >=media-plugins/gst-plugins-soup-1.4:1.0 ) gnome-keyring? ( >=app-crypt/libsecret-0.18
+    ) libnotify? ( >=x11-libs/libnotify-0.7.0 ) lirc? ( app-misc/lirc ) python? (
+    python_single_target_python3_10? ( dev-lang/python:3.10[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( >=dev-python/pygobject-3.0:3[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( >=dev-python/pygobject-3.0:3[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/pygobject-3.0:3[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-python/pygobject-3.0:3[python_targets_python3_8(-)]
+    ) ) udev? ( dev-libs/libgudev:= ipod? ( >=media-libs/libgpod-0.7.92[udev] ) mtp?
+    ( >=media-libs/libmtp-0.3 ) ) media-plugins/gst-plugins-soup:1.0 media-plugins/gst-plugins-libmms:1.0
+    || ( media-plugins/gst-plugins-cdparanoia:1.0 media-plugins/gst-plugins-cdio:1.0
+    ) media-plugins/gst-plugins-meta:1.0 media-plugins/gst-plugins-taglib:1.0 x11-themes/adwaita-icon-theme
+    python? ( >=dev-libs/libpeas-0.7.3[python,python_single_target_python3_10(-)?,python_single_target_python3_7(-)?,python_single_target_python3_9(-)?,python_single_target_python3_8(-)?]
+    net-libs/libsoup:2.4[introspection] x11-libs/gdk-pixbuf:2[introspection] x11-libs/gtk+:3[introspection]
+    x11-libs/pango[introspection] dbus? ( sys-apps/dbus ) gnome-keyring? ( >=app-crypt/libsecret-0.18[introspection]
+    ) ) upnp-av? ( >=media-libs/grilo-0.3:0.3 >=media-plugins/grilo-plugins-0.3:0.3[upnp-av]
+    )
+  emerge.packages: media-sound/rhythmbox
+  kit: media-kit
+  original.package.name: media-sound/rhythmbox
+  original.package.slot: "0"
+  original.package.version: 3.4.6
