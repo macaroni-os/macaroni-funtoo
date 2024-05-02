@@ -1,9 +1,7 @@
 prelude:
-# Temporary
+# Forcing Funtoo ebuild
 - >-
-  anise repo update &&
-  anise upgrade -y &&
-  anise cleanup
+  rm /var/git/extra-kits/geaaru-kit/media-gfx/inkscape/inkscape-1.3.2.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
