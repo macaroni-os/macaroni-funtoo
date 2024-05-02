@@ -1,4 +1,9 @@
 prelude:
+- >-
+  cd /var/git/extra-kits/geaaru-kit/app-emulation/incus/ &&
+  rm incus-6.0.0.ebuild &&
+  wget https://raw.githubusercontent.com/geaaru/geaaru_overlay/funtoo/app-emulation/incus/incus-6.0.0.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
