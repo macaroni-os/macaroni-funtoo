@@ -1,5 +1,5 @@
 name: open-vm-tools
-version: 12.3.5
+version: 12.4.0
 category: app-emulation
 use_flags:
 - -doc
@@ -70,8 +70,8 @@ uri:
 license: LGPL-2.1
 labels:
   BDEPEND: dev-util/glib-utils virtual/pkgconfig doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    virtual/pkgconfig
   DEPEND: dev-libs/glib net-libs/libtirpc deploypkg? ( dev-libs/libmspack ) fuse?
     ( sys-fs/fuse:0 ) pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0 ) vgauth? (
     dev-libs/libxml2 dev-libs/xmlsec ) X? ( x11-libs/libXext multimon? ( x11-libs/libXinerama
@@ -92,4 +92,4 @@ labels:
   kit: core-kit
   original.package.name: app-emulation/open-vm-tools
   original.package.slot: "0"
-  original.package.version: 12.3.5
+  original.package.version: 12.4.0
