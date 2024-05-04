@@ -7,6 +7,10 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
+  sed -i -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass &&
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild &&
+- >-
   luet i -y nvidia-drivers
   virtual/linux-sources
   dummy-sources
@@ -14,15 +18,15 @@ steps:
   &&
   luet cleanup &&
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  USE="{{ join " " .Values.use_flags }}" emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
   {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
   {{- end }}
 - |
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
   {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }}
+  emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
   {{- end }}
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
