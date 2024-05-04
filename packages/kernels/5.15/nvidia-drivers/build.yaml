@@ -10,18 +10,19 @@ steps:
 - >-
   eval 'mkdir -p /etc/portage/patches/x11-drivers/nvidia-kernel-modules/ || true' &&
   cp nvidia-drivers-gpl-pfn_valid.patch /etc/portage/patches/x11-drivers/nvidia-kernel-modules/
+  sed -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass
 - >-
   luet i -y nvidia-drivers && luet cleanup &&
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  USE="{{ join " " .Values.use_flags }}" emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
   {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
+  emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
   {{- end }}
 - |
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
   {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }}
+  emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
   {{- end }}
 - |
   eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
