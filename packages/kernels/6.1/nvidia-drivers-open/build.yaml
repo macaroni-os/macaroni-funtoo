@@ -1,0 +1,44 @@
+requires:
+  - name: "kernel"
+    category: "seed-6.1"
+    version: ">=0"
+env:
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  sed -i -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass
+- >-
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild &&
+  luet i -y nvidia-drivers && luet cleanup &&
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
+  {{- else }}
+  emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
+  {{- end }}
+- |
+  {{- if .Values.use_flags }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
+  {{- else }}
+  emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
+  {{- end }}
+- |
+  eval 'rm -rf /{{ .Values.name }} || true' && mkdir /{{ .Values.name }} && \
+  luet-portage --dir /{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }}
+# It seems that the compression is not handled correct from the ebuild
+# I run manually compression for every module
+- >-
+  for i in /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/video/*.ko ; do
+  zstd ${i} -o ${i}.zst --rm ;
+  done
+excludes:
+# Funtoo/Portage stuff
+- ^/var/db/pkg/
+- ^/var/cache/portage/
+- ^/var/git/
+
+# Files supply by kernel/nvidia-drivers-common
+- ^/usr/share/doc/
+- ^/etc/modprobe.d/
+- ^/lib/udev/
