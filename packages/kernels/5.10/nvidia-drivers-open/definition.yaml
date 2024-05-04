@@ -1,6 +1,8 @@
 name: nvidia-kernel-open-modules
-version: 535.86.05
+version: 535.86.05+1
 category: kernel-5.10
+use_flags:
+- open-kernel
 requires:
 - name: nvidia-drivers-common
   version: '>=0'
@@ -9,13 +11,11 @@ conflicts:
 - name: nvidia-kernel-modules
   version: 535.86.05
   category: kernel-5.10
-use_flags:
-- open-kernel
 annotations:
   kernel_module: true
 labels:
   emerge.packages: x11-drivers/nvidia-kernel-modules
-  original.package.version: 535.86.05
   kernel.suffix: macaroni
   kernel.type: vanilla
   kernel.version: 5.10.215
+  original.package.version: 535.86.05

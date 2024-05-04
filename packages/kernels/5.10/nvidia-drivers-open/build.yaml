@@ -12,6 +12,8 @@ steps:
   cp nvidia-drivers-gpl-pfn_valid.patch /etc/portage/patches/x11-drivers/nvidia-kernel-modules/ &&
   sed -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass
 - >-
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild &&
   luet i -y nvidia-drivers && luet cleanup &&
   USE="open-kernel" emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
 - |
