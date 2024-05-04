@@ -14,7 +14,7 @@ steps:
 - >-
   rm /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild -vf &&
   rm /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild -vf &&
-  luet i -y nvidia-drivers && luet cleanup &&
+  anise i -y nvidia-drivers && anise upgrade -y && anise cleanup &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
   {{- else }}
