@@ -1,0 +1,19 @@
+name: nvidia-kernel-modules
+version: 535.86.05
+category: kernel-6.6
+requires:
+- name: nvidia-drivers-common
+  version: '>=0'
+  category: kernel
+conflicts:
+- name: nvidia-kernel-open-modules
+  version: 535.86.05
+  category: kernel-6.6
+annotations:
+  kernel_module: true
+labels:
+  emerge.packages: x11-drivers/nvidia-kernel-modules
+  kernel.suffix: macaroni
+  kernel.type: vanilla
+  kernel.version: 6.6.28
+  original.package.version: 535.86.05
