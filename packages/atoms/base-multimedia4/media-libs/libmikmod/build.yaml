@@ -19,6 +19,9 @@ prelude:
   /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
   .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
   /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# It seems that is created a wrong link /usr/lib64/libmikmod. Needs investigation.
+- >-
+  rm -v /pkgdir/{{ .Values.name }}/usr/lib64/libmikmod || true
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
