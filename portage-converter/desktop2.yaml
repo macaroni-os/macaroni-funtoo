@@ -386,6 +386,16 @@ artefacts:
       - cdr
   packages:
     - media-sound/rhythmbox
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        whip h gtk.postinst
+    uninstall:
+      - >-
+        whip h gtk.postinst
 
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
