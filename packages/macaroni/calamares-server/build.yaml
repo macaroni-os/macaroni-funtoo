@@ -19,6 +19,13 @@ steps:
   cp xinitrc /{{ .Values.name }}/home/macaroni/.xinitrc &&
   cp -rfv installer-desktop-icon.png /{{.Values.name}}/usr/share/pixmaps &&
   cp macaroni-server /{{ .Values.name }}/usr/bin/
+# New Xorg.wrap doesn't permit to run Xorg without override Xwrapper.config.
+# NOTE: Probably ebuild of xorg-server need a fix. Normally the right path of
+#       this file is: /etc/X11/Xwrapper.config
+- >-
+  mkdir -p /{{ .Values.name }}/etc/X11/X11 &&
+  echo "needs_root_rights=yes" > /{{ .Values.name }}/etc/X11/X11/Xwrapper.config &&
+  echo "allowed_users=anybody" >> /{{ .Values.name }}/etc/X11/X11/Xwrapper.config
 # Branding
 - >-
   mkdir -p /{{.Values.name}}/etc/calamares/branding/default/ &&
