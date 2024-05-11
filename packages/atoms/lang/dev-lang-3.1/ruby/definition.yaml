@@ -1,5 +1,5 @@
 name: ruby
-version: 3.1.4
+version: 3.1.5
 category: dev-lang-3.1
 use_flags:
 - -jemalloc
@@ -34,9 +34,8 @@ uri:
 - https://www.ruby-lang.org/
 license: '|| ( Ruby-BSD BSD-2 )'
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) jemalloc? ( dev-libs/jemalloc:=
     ) jit? ( || ( sys-devel/gcc:* sys-devel/clang:* ) ) ssl? ( dev-libs/openssl:0=
     ) socks5? ( >=net-proxy/dante-1.1.13 ) systemtap? ( dev-util/systemtap ) tk? (
@@ -53,4 +52,4 @@ labels:
   kit: ruby-kit
   original.package.name: dev-lang/ruby
   original.package.slot: "3.1"
-  original.package.version: 3.1.4
+  original.package.version: 3.1.5
