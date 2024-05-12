@@ -1,8 +1,7 @@
 name: postgresql
-version: "13.15"
+version: 13.15+1
 category: dev-db-13
 use_flags:
-- -elibc_glibc
 - -elibc_musl
 - -kerberos
 - -ldap
@@ -13,6 +12,7 @@ use_flags:
 - -python_single_target_python3_8
 - -selinux
 - -tcl
+- elibc_glibc
 - icu
 - nls
 - pam
@@ -24,6 +24,7 @@ use_flags:
 - xml
 - zlib
 - python_single_target_python3_9
+- threads
 requires:
 - name: eselect-postgresql
   version: '>=0'
@@ -31,15 +32,9 @@ requires:
 - name: libxslt
   version: '>=0'
   category: dev-libs
-- name: ossp-uuid
-  version: '>=0'
-  category: dev-libs
 - name: less
   version: '>=0'
   category: sys-apps
-- name: pam
-  version: '>=0'
-  category: sys-libs
 annotations:
   subsets:
     rules:
