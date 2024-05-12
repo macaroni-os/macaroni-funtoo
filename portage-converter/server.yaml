@@ -611,6 +611,7 @@ artefacts:
   mutations:
     uses:
       - python_single_target_python3_9
+      - threads
   uses:
     enabled:
       - python_targets_python3_9
@@ -629,6 +630,8 @@ artefacts:
       - zlib
       - uuid
       - systemd
+      - threads
+      - elibc_glibc
     disabled:
       - python_targets_python3_7
       - python_single_target_python3_7
@@ -641,7 +644,6 @@ artefacts:
       - selinux
       - static-libs
       - tcl
-      - threads
   packages:
     - dev-db/postgresql:13
     - dev-db/postgresql:14
