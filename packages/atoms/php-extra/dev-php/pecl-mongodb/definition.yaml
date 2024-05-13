@@ -1,5 +1,5 @@
 name: pecl-mongodb
-version: 1.16.2
+version: 1.18.1
 category: dev-php
 use_flags:
 - -php_targets_php8-0
@@ -35,11 +35,11 @@ license: Apache-2.0
 labels:
   BDEPEND: php_targets_php7-4? ( dev-lang/php:7.4[json,ssl,zlib] ) php_targets_php8-0?
     ( dev-lang/php:8.0[ssl,zlib] ) php_targets_php8-1? ( dev-lang/php:8.1[ssl,zlib]
-    ) virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-4? ( dev-lang/php:7.4
-    ) php_targets_php8-0? ( dev-lang/php:8.0 ) php_targets_php8-1? ( dev-lang/php:8.1
-    ) php_targets_php8-2? ( dev-lang/php:8.2 )
+    ) virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool
+    php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0
+    ) php_targets_php8-1? ( dev-lang/php:8.1 ) php_targets_php8-2? ( dev-lang/php:8.2
+    )
   DEPEND: php_targets_php7-4? ( dev-lang/php:7.4[json,ssl,zlib] ) php_targets_php8-0?
     ( dev-lang/php:8.0[ssl,zlib] ) php_targets_php8-1? ( dev-lang/php:8.1[ssl,zlib]
     ) >=dev-libs/libbson-1.18.0 >=dev-libs/mongo-c-driver-1.18.0[sasl?,ssl] dev-libs/openssl:0=
@@ -57,4 +57,4 @@ labels:
   kit: core-server-kit
   original.package.name: dev-php/pecl-mongodb
   original.package.slot: "0"
-  original.package.version: 1.16.2
+  original.package.version: 1.18.1
