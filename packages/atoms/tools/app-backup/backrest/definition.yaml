@@ -1,0 +1,28 @@
+name: backrest
+version: 0.17.2
+category: app-backup
+requires:
+- name: restic
+  version: '>=0'
+  category: app-backup
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Backrest is a web UI and orchestrator for restic backup
+uri:
+- https://github.com/garethgeorge/backrest
+license: GPL-3.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig'
+  DEPEND: app-backup/restic net-libs/nodejs sys-apps/shadow
+  IUSE: systemd
+  RDEPEND: app-backup/restic
+  emerge.packages: app-backup/backrest
+  kit: geaaru-kit
+  original.package.name: app-backup/backrest
+  original.package.slot: "0"
+  original.package.version: 0.17.2
