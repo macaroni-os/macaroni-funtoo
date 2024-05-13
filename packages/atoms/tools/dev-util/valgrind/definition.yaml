@@ -1,5 +1,5 @@
 name: valgrind
-version: 3.22.0+1
+version: 3.23.0
 category: dev-util
 use_flags:
 - -mpi
@@ -15,9 +15,8 @@ uri:
 - https://www.valgrind.org
 license: GPL-2
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: mpi? ( virtual/mpi )
   IUSE: mpi
   RDEPEND: mpi? ( virtual/mpi )
@@ -25,4 +24,4 @@ labels:
   kit: dev-kit
   original.package.name: dev-util/valgrind
   original.package.slot: "0"
-  original.package.version: 3.22.0
+  original.package.version: 3.23.0
