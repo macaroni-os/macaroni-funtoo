@@ -598,6 +598,28 @@ artefacts:
   packages:
     - sys-cluster/kubectl
 
+- tree: packages/atoms/tools
+  packages:
+    - net-fs/minio
+    - net-fs/minio-client
+    - app-backup/restic
+    - app-backup/backrest
+    # used by restic
+    - sys-fs/fuse:0
+
+    # Authentication stuff
+    - media-gfx/qrencode
+    - sys-auth/google-authenticator
+
+    - net-vpn/tailscale
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - portage
+  packages:
+    - app-admin/webapp-config
+
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
 
