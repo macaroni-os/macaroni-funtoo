@@ -1,0 +1,28 @@
+name: google-authenticator
+version: "1.10"
+category: sys-auth
+requires:
+- name: pam
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PAM Module for two step verification via mobile platform
+uri:
+- https://github.com/google/google-authenticator-libpam
+license: Apache-2.0
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  DEPEND: sys-libs/pam
+  RDEPEND: sys-libs/pam
+  emerge.packages: sys-auth/google-authenticator
+  kit: core-kit
+  original.package.name: sys-auth/google-authenticator
+  original.package.slot: "0"
+  original.package.version: "1.10"
