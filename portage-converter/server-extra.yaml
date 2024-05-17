@@ -692,6 +692,7 @@ artefacts:
   mutations:
     uses:
       - python_single_target_python3_9
+      - threads
   uses:
     enabled:
       - python_targets_python3_9
@@ -709,6 +710,7 @@ artefacts:
       - xml
       - zlib
       - uuid
+      - threads
     disabled:
       - python_targets_python3_7
       - python_single_target_python3_7
@@ -722,8 +724,8 @@ artefacts:
       - selinux
       - static-libs
       - tcl
-      - threads
   packages:
+    - dev-db/postgresql:16
     - dev-db/postgresql:13
     - dev-db/postgresql:11
   finalizer:
@@ -968,6 +970,7 @@ reposcan_contraints:
     - sys-devel/clang:11
     - dev-lang/ruby:2.7
 
+    - dev-db/postgresql:16
     - dev-db/postgresql:13
     - dev-db/postgresql:11
 
