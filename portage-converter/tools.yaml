@@ -599,11 +599,39 @@ artefacts:
     - sys-cluster/kubectl
 
 - tree: packages/atoms/tools
+  mutations:
+    uses:
+      - systemd
   packages:
     - net-fs/minio
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e minio
+
+- tree: packages/atoms/tools
+  mutations:
+    uses:
+      - systemd
+  packages:
+    - app-backup/backrest
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e backrest || true
+
+- tree: packages/atoms/tools
+  packages:
     - net-fs/minio-client
     - app-backup/restic
-    - app-backup/backrest
     # used by restic
     - sys-fs/fuse:0
 
