@@ -6,11 +6,9 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-- >-
-  cd /var/git/extra-kits/geaaru-kit/app-emulation/incus/ &&
-  rm incus-6.0.0.ebuild &&
-  wget https://raw.githubusercontent.com/geaaru/geaaru_overlay/funtoo/app-emulation/incus/incus-6.0.0.ebuild &&
-  cd -
+# Force using the ebuild from geaaru-kit
+ - >-
+   rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/incus/
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -33,9 +31,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: lxc
-  version: '>=0'
-  category: app-emulation
 - name: lxc
   version: '>=0'
   category: app-emulation
