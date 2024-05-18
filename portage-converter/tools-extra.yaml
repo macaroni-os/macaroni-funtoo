@@ -596,6 +596,73 @@ artefacts:
     - www-apps/gitea
     - dev-vcs/gitolite
 
+- tree: packages/atoms-extra/tools
+  uses:
+    disabled:
+      # Disable mpi on valgrind for now.
+      - mpi
+  packages:
+    - dev-util/github-cli
+    - dev-vcs/hub
+    - dev-util/valgrind
+    - dev-util/packer
+
+- tree: packages/atoms-extra/tools
+  uses:
+    disabled:
+      - hardened
+  packages:
+    - sys-cluster/kubectl
+
+- tree: packages/atoms-extra/tools
+  packages:
+    - net-fs/minio
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e minio
+      - >-
+        eval 'mkdir -p /var/lib/minio || true' &&
+        eval 'chown minio:minio /var/lib/minio || true' &&
+        eval 'chown minio:minio /var/log/minio || true'
+
+- tree: packages/atoms-extra/tools
+  packages:
+    - app-backup/backrest
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e backrest || true
+
+- tree: packages/atoms-extra/tools
+  packages:
+    - net-fs/minio-client
+    - app-backup/restic
+    # used by restic
+    - sys-fs/fuse:0
+
+    # Authentication stuff
+    - media-gfx/qrencode
+    - sys-auth/google-authenticator
+
+    - net-vpn/tailscale
+
+- tree: packages/atoms-extra/tools
+  uses:
+    disabled:
+      - portage
+  packages:
+    - app-admin/webapp-config
+
+
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
 
