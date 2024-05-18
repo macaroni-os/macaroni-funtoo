@@ -1,0 +1,23 @@
+name: minio
+version: 2024.05.10.01.41.38
+category: net-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An Amazon S3 compatible object storage server
+uri:
+- https://min.io/ https://github.com/minio/minio
+license: Apache-2.0 BSD BSD-2 MIT MPL-2.0
+labels:
+  BDEPEND: dev-lang/go >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
+  DEPEND: sys-apps/shadow
+  IUSE: systemd
+  emerge.packages: net-fs/minio
+  kit: geaaru-kit
+  original.package.name: net-fs/minio
+  original.package.slot: "0"
+  original.package.version: 2024.05.10.01.41.38
