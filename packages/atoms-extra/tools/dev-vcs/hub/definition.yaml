@@ -1,0 +1,26 @@
+name: hub
+version: 2.14.2
+category: dev-vcs
+requires:
+- name: git
+  version: '>=0'
+  category: dev-vcs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Command-line wrapper for git that makes you better at GitHub
+uri:
+- https://github.com/github/hub
+license: MIT
+labels:
+  BDEPEND: sys-apps/groff >=dev-lang/go-1.12 app-arch/unzip
+  RDEPEND: '>=dev-vcs/git-1.7.3'
+  emerge.packages: dev-vcs/hub
+  kit: dev-kit
+  original.package.name: dev-vcs/hub
+  original.package.slot: "0"
+  original.package.version: 2.14.2
