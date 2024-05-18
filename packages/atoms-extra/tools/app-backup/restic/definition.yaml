@@ -1,0 +1,27 @@
+name: restic
+version: 0.16.4
+category: app-backup
+requires:
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A backup program that is fast, efficient and secure
+uri:
+- https://restic.github.io/
+license: Apache-2.0 BSD BSD-2 LGPL-3-with-linking-exception MIT
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  DEPEND: sys-fs/fuse:0
+  RDEPEND: sys-fs/fuse:0
+  emerge.packages: app-backup/restic
+  kit: geaaru-kit
+  original.package.name: app-backup/restic
+  original.package.slot: "0"
+  original.package.version: 0.16.4
