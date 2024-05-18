@@ -1,0 +1,29 @@
+name: tailscale
+version: 1.66.1
+category: net-vpn
+requires:
+- name: iptables
+  version: '>=0'
+  category: net-firewall
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tailscale vpn client
+uri:
+- https://tailscale.com
+license: MIT
+labels:
+  BDEPEND: '>=dev-lang/go-1.12 app-arch/unzip'
+  RDEPEND: net-firewall/iptables virtual/tmpfiles
+  emerge.packages: net-vpn/tailscale
+  kit: net-kit
+  original.package.name: net-vpn/tailscale
+  original.package.slot: "0"
+  original.package.version: 1.66.1
