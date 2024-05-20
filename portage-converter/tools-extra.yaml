@@ -679,6 +679,20 @@ artefacts:
     - sys-apps/eza
     - app-misc/google-cloud-sdk
 
+- tree: packages/atoms-extra/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race10
+  uses:
+    disabled:
+      - buildfont
+      - X
+  packages:
+    - media-fonts/noto-emoji
+    - app-i18n/unicode-emoji
+
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
 
