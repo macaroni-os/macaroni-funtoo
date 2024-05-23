@@ -144,6 +144,19 @@ artefacts:
 - tree: packages/atoms/base-video
   uses:
     disabled:
+      - doc
+  mutations:
+    uses:
+      - cpu_flags_x86_mmx
+      - cpu_flags_x86_sse2
+      - cpu_flags_x86_sse3
+      - cpu_flags_x86_ssse3
+  packages:
+    - media-libs/libaom
+
+- tree: packages/atoms/base-video
+  uses:
+    disabled:
       - utils
       - static-libs
       - pic
