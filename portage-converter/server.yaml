@@ -307,6 +307,40 @@ artefacts:
     - www-apps/gitea
     - dev-vcs/gitolite
 
+- tree: packages/atoms/server
+  packages:
+    - net-fs/minio
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e minio
+      - >-
+        eval 'mkdir -p /var/lib/minio || true' &&
+        eval 'chown minio:minio /var/lib/minio || true' &&
+        eval 'chown minio:minio /var/log/minio || true'
+
+- tree: packages/atoms/server
+  packages:
+    - app-backup/backrest
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e backrest || true
+
+- tree: packages/atoms/server
+  packages:
+    - net-fs/minio-client
+    - app-backup/restic
+    - net-vpn/tailscale
+    - app-backup/borgbackup
 
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
