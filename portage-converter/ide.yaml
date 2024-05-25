@@ -164,6 +164,7 @@ artefacts:
 - tree: packages/atoms/ide
   packages:
     - dev-util/datagrip
+    - dev-vcs/gitkraken
   finalizer:
     shell:
       - "/bin/bash"
@@ -172,9 +173,7 @@ artefacts:
       - >-
         source /etc/profile &&
         macaronictl env-update &&
-        whip hook gtk.mime_update_db &&
-        whip hook gtk.glib_update_schemas &&
-        whip hook gtk.gtk_update_icons
+        whip hook gtk.postinst
 
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
