@@ -1,0 +1,31 @@
+name: eza
+version: 0.18.16
+category: sys-apps
+use_flags:
+- git
+requires:
+- name: libgit2
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A modern, maintained replacement for ls
+uri:
+- https://eza.rocks https://github.com/eza-community/eza
+license: Apache-2.0 Boost-1.0 BSD BSD-2 CC0-1.0 ISC LGPL-3+ MIT Apache-2.0 Unlicense
+  ZLIB
+labels:
+  BDEPEND: '|| ( app-text/pandoc-bin app-text/pandoc ) virtual/rust >=virtual/rust-1.37.0'
+  DEPEND: git? ( dev-libs/libgit2:= )
+  IUSE: +git debug
+  RDEPEND: git? ( dev-libs/libgit2:= )
+  emerge.packages: sys-apps/eza
+  kit: dev-kit
+  original.package.name: sys-apps/eza
+  original.package.slot: "0"
+  original.package.version: 0.18.16
