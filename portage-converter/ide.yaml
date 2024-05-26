@@ -78,6 +78,8 @@ skipped_resolutions:
     - name: dev-python-2
       category: pygtk
 
+    - name: libgnome-keyring
+      category: gnome-base
 
 include_files:
 
@@ -164,6 +166,27 @@ artefacts:
 - tree: packages/atoms/ide
   packages:
     - dev-util/datagrip
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.postinst
+
+- tree: packages/atoms/ide
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: gnome-base
+          name: libgnome-keyring
+    buildtime_deps:
+      ignore:
+        - category: gnome-base
+          name: libgnome-keyring
+  packages:
     - dev-vcs/gitkraken
   finalizer:
     shell:
