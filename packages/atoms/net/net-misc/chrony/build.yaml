@@ -24,6 +24,12 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+# Add systemd .service and drop openrc file
+- >-
+  mkdir -p /pkgdir/{{ .Values.name }}/lib/systemd/system/ &&
+  cp chronyd.service /pkgdir/{{ .Values.name }}/lib/systemd/system/ &&
+  rm /pkgdir/{{ .Values.name }}/etc/init.d/chronyd
+
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
