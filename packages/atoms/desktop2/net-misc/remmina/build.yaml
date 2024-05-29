@@ -1,4 +1,8 @@
 prelude:
+# Temporary fix until FL-12392 is done
+- >-
+  cp remmina-1.4.35.ebuild
+  /var/git/meta-repo/kits/net-kit/net-misc/remmina/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
