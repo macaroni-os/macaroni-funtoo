@@ -4,6 +4,8 @@ prelude:
   cd /var/git/meta-repo/kits/kde-kit/dev-util/lxqt-build-tools/ &&
   rm *.ebuild &&
   wget https://raw.githubusercontent.com/funtoo/kde-kit/next/5.27-release/dev-util/lxqt-build-tools/lxqt-build-tools-0.13.0.ebuild &&
+  rm Manifest &&
+  ebuild lxqt-build-tools-0.13.0.ebuild digest &&
   cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
