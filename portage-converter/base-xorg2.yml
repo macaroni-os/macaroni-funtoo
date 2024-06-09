@@ -82,11 +82,19 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/base-xorg2
+  mutations:
+    uses:
+      - gles
+      - gles2
+      - egl
+      - asm
+      - glx
+      - tls
+      - headers
   uses:
     disabled:
     - nios2
     - sh
-    - tls
     enabled:
     - X
     - asm
@@ -95,6 +103,7 @@ artefacts:
     - gles2
     - glx
     - headers
+    - tls
   packages:
   - media-libs/libglvnd
 
