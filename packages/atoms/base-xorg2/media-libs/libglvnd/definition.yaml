@@ -1,8 +1,15 @@
 name: libglvnd
-version: 1.7.0
+version: 1.7.0+1
 category: media-libs
 use_flags:
 - X
+- gles
+- gles2
+- egl
+- asm
+- glx
+- tls
+- headers
 requires:
 - name: libXext
   version: '>=0'
@@ -19,7 +26,7 @@ annotations:
       - ^/var/db/pkg/
 description: The GL Vendor-Neutral Dispatch library
 uri:
-- ""
+- https://gitlab.freedesktop.org/glvnd/libglvnd
 license: MIT
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
