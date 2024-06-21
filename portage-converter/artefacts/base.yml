@@ -69,6 +69,19 @@ artefacts:
   - app-arch/xz-utils
 
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-apps
+          name: diffutils
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-devel/gcc-config
+
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -88,7 +101,6 @@ artefacts:
   - sys-devel/automake-wrapper
   - sys-devel/gnuconfig
   - sys-libs/binutils-libs
-  - sys-devel/gcc-config
   - sys-apps/sandbox
   - sys-apps/which
 
