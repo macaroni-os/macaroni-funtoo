@@ -204,6 +204,19 @@ artefacts:
         eval 'chown portage:portage /var/tmp/portage -R || true'
 
 - tree: packages/atoms/base
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-apps
+          name: diffutils
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-devel/gcc-config
+
+- tree: packages/atoms/base
   uses:
     disabled:
     - nios2
@@ -243,7 +256,6 @@ artefacts:
   - sys-devel/autoconf-archive
   - sys-devel/autoconf-wrapper
   - sys-devel/automake-wrapper
-  - sys-devel/gcc-config
   - sys-devel/gnuconfig
   - sys-fs/udev-init-scripts
   - sys-libs/binutils-libs
