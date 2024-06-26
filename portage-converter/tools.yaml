@@ -645,12 +645,17 @@ artefacts:
 
     - net-vpn/tailscale
 
+
 - tree: packages/atoms/tools
   uses:
     disabled:
       - portage
   packages:
     - app-admin/webapp-config
+
+- tree: packages/atoms/tools
+  packages:
+    - sys-cluster/keepalived
 
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
