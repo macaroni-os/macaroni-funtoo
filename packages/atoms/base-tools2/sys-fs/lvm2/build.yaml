@@ -1,4 +1,8 @@
 prelude:
+# Relax thin-provisioning-tools constraint
+- >-
+  sed -i -e 's|>=sys-block/thin-provisioning-tools-1.0.6|sys-block/thin-provisioning-tools|g'
+  /var/git/meta-repo/kits/core-kit/sys-fs/lvm2/lvm2-2.03.24.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
