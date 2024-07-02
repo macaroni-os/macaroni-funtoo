@@ -21,7 +21,9 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
-- cp cronie.service /pkgdir/{{ .Values.name }}/lib/systemd/system/
+- >-
+  mkdir /pkgdir/{{ .Values.name }}/lib/systemd/system/ -p &&
+  cp cronie.service /pkgdir/{{ .Values.name }}/lib/systemd/system/
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
