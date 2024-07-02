@@ -1,0 +1,13 @@
+[Unit]
+Description=Command Scheduler
+After=auditd.service nss-user-lookup.target systemd-user-sessions.service time-sync.target ypbind.service autofs.service
+[Service]
+ExecStart=/usr/sbin/crond
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=30s
+Type=forking
+PIDFile=/run/crond.pid
+[Install]
+WantedBy=multi-user.target
