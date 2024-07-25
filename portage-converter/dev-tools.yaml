@@ -112,6 +112,27 @@ artefacts:
     - dev-python/mistune
 
 - tree: packages/atoms/dev-tools
+  packages:
+    - dev-python/hatch-requirements-txt
+
+- tree: packages/atoms/dev-tools
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: dev-python
+          name: hatch-requirements-txt
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: hatch-requirements-txt
+  uses:
+    disabled:
+      - kerberos
+  packages:
+    - dev-python/pymongo
+
+- tree: packages/atoms/dev-tools
   # FL-10708
   mutations:
     buildtime_deps:
