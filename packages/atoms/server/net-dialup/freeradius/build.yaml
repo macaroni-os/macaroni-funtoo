@@ -1,4 +1,8 @@
 prelude:
+# Temporary fix typo
+- >-
+  sed -i -e 's/${P}-3.0.x-rlm_sql_mongo-quiet-warn.patch/${PN}-3.0.x-rlm_sql_mongo-quiet-warn.patch/g'
+  /var/git/extra-kits/geaaru-kit/net-dialup/freeradius/freeradius-3.0.20-r5.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
