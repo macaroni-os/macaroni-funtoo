@@ -6,6 +6,11 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Avoid error with rst2html on retrieve locale data
+- >-
+  export LC_ALL="en_US.UTF-8" &&
+  export LC_CTYPE="en_US.UTF-8" &&
+  locale-gen
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
@@ -28,6 +33,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: lz4
+- name: libnl
   version: '>=0'
-  category: app-arch
+  category: dev-libs-3

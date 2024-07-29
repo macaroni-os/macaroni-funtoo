@@ -1,24 +1,29 @@
 name: openvpn
-version: 2.6.12
+version: 2.6.12+1
 category: net-vpn
 use_flags:
 - -kernel_linux
 - -mbedtls
-- -openssl
 - -pkcs11
 - -selinux
-- -systemd
 - iproute2
 - lz4
 - lzo
+- openssl
 - pam
 requires:
 - name: lz4
   version: '>=0'
   category: app-arch
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
 - name: lzo
   version: '>=0'
   category: dev-libs-2
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: docutils
   version: '>=0'
   category: dev-python
