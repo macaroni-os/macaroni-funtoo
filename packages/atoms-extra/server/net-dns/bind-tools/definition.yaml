@@ -1,8 +1,7 @@
 name: bind-tools
-version: 9.20.0
+version: 9.20.0+1
 category: net-dns
 use_flags:
-- -caps
 - -doc
 - -gssapi
 - -idn
@@ -19,6 +18,12 @@ requires:
 - name: openssl
   version: '>=0'
   category: dev-libs
+- name: userspace-rcu
+  version: '>=0'
+  category: dev-libs
+- name: libcap
+  version: '>=0'
+  category: sys-libs
 - name: jemalloc
   version: '>=0'
   category: dev-libs
