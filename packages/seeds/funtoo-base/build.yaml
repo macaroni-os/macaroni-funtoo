@@ -21,6 +21,11 @@ prelude:
   entities merge -s /usr/share/macaroni/entities -a &&
   entities list users &&
   entities list groups
+# Continue to receive issues with ipv6 not available
+# on container. I dunno if a problem of LXD dnsmasq setup
+# or a network issue. Try to forcing ipv4
+- >-
+  echo "104.21.43.147    dev.gentoo.org" >> /etc/hosts
 #steps:
 - >-
   emerge --unmerge
