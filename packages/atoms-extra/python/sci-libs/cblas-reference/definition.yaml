@@ -1,0 +1,36 @@
+name: cblas-reference
+version: "20161223"
+category: sci-libs
+requires:
+- name: eselect-cblas
+  version: '>=0'
+  category: app-eselect
+- name: blas
+  version: '>=0'
+  category: virtual
+- name: fortran
+  version: '>=0'
+  category: virtual
+- name: pkgconfig
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C wrapper interface to the F77 reference BLAS implementation
+uri:
+- http://www.netlib.org/cblas/
+license: BSD
+labels:
+  DEPEND: app-eselect/eselect-cblas >=virtual/blas-3.6 virtual/pkgconfig virtual/fortran
+    sys-devel/make >=dev-util/cmake-3.9.6
+  RDEPEND: app-eselect/eselect-cblas >=virtual/blas-3.6 virtual/pkgconfig virtual/fortran
+  emerge.packages: sci-libs/cblas-reference
+  kit: science-kit
+  original.package.name: sci-libs/cblas-reference
+  original.package.slot: "0"
+  original.package.version: "20161223"
