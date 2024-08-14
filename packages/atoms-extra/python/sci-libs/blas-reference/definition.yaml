@@ -1,0 +1,33 @@
+name: blas-reference
+version: "20161223"
+category: sci-libs
+use_flags:
+- -doc
+requires:
+- name: eselect-blas
+  version: '>=0'
+  category: app-eselect
+- name: fortran
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Basic Linear Algebra Subprograms F77 reference implementations
+uri:
+- http://www.netlib.org/blas/
+license: BSD
+labels:
+  DEPEND: app-eselect/eselect-blas doc? ( app-doc/blas-docs ) virtual/pkgconfig virtual/fortran
+    sys-devel/make >=dev-util/cmake-3.9.6
+  IUSE: doc
+  RDEPEND: app-eselect/eselect-blas doc? ( app-doc/blas-docs ) virtual/fortran
+  emerge.packages: sci-libs/blas-reference
+  kit: science-kit
+  original.package.name: sci-libs/blas-reference
+  original.package.slot: "0"
+  original.package.version: "20161223"
