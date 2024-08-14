@@ -1,0 +1,24 @@
+name: lapack
+version: "3.7"
+category: virtual
+requires:
+- name: lapack-reference
+  version: '>=0'
+  category: sci-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Linear Algebra Package FORTRAN 77 (LAPACK) implementation
+uri:
+- ""
+labels:
+  RDEPEND: '|| ( >=sci-libs/lapack-reference-3.7 >=sci-libs/mkl-10 )'
+  emerge.packages: virtual/lapack
+  kit: science-kit
+  original.package.name: virtual/lapack
+  original.package.slot: "0"
+  original.package.version: "3.7"
