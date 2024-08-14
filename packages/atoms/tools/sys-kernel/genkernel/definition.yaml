@@ -1,5 +1,5 @@
 name: genkernel
-version: 4.0.3+2
+version: 4.3.10
 category: sys-kernel
 use_flags:
 - -selinux
@@ -31,13 +31,22 @@ uri:
 - http://www.gentoo.org
 license: GPL-2
 labels:
+  BDEPEND: app-text/asciidoc
   DEPEND: sys-fs/e2fsprogs selinux? ( sys-libs/libselinux )
-  IUSE: btrfs cryptsetup ibm selinux
-  RDEPEND: sys-fs/e2fsprogs selinux? ( sys-libs/libselinux ) btrfs? ( sys-fs/btrfs-progs
-    ) cryptsetup? ( sys-fs/cryptsetup[static] ) sys-fs/lvm2[static] sys-fs/mdadm[static]
-    app-misc/pax-utils !<sys-apps/openrc-0.9.9
+  IUSE: ibm +firmware python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) app-arch/cpio >=app-misc/pax-utils-1.2.2 app-portage/elt-patches app-portage/portage-utils
+    dev-util/gperf sys-apps/sandbox sys-devel/autoconf sys-devel/autoconf-archive
+    sys-devel/automake sys-devel/bc virtual/yacc sys-devel/flex sys-devel/libtool
+    virtual/pkgconfig elibc_glibc? ( sys-libs/glibc[static-libs(+)] ) firmware? (
+    sys-kernel/linux-firmware )
   emerge.packages: sys-kernel/genkernel
   kit: core-kit
   original.package.name: sys-kernel/genkernel
   original.package.slot: "0"
-  original.package.version: 4.0.3-r3
+  original.package.version: 4.3.10-r3
