@@ -1,0 +1,26 @@
+name: fortran
+version: "0"
+category: virtual
+requires:
+- name: gcc
+  version: '>=0'
+  category: sys-devel-11.3.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Fortran Compiler
+uri:
+- ""
+labels:
+  IUSE: openmp
+  RDEPEND: '|| ( sys-devel/gcc[fortran,openmp?] sys-devel/gcc-apple[fortran,openmp?]
+    dev-lang/ekopath dev-lang/ifc )'
+  emerge.packages: virtual/fortran
+  kit: core-kit
+  original.package.name: virtual/fortran
+  original.package.slot: "0"
+  original.package.version: "0"
