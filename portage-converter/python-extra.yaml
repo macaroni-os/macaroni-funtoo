@@ -97,6 +97,7 @@ artefacts:
     - virtual/cblas
     - virtual/fortran
     - virtual/lapack
+    - app-eselect/eselect-lapack
 
 - tree: packages/atoms-extra/python
   uses:
@@ -104,6 +105,9 @@ artefacts:
       - test
       - doc
   packages:
+    - sci-libs/lapack-reference
+    - sci-libs/blas-reference
+    - sci-libs/cblas-reference
 
     - dev-python/prometheus_client
     - dev-python/prompt_toolkit
@@ -129,11 +133,26 @@ artefacts:
     - www-servers/gunicorn
     - dev-python/dnspython
     - dev-python/greenlet
-    - dev-python/numpy
     - app-admin/awscli
     - dev-python/aws-crt-python
     - dev-python/distro
 
+- tree: packages/atoms-extra/python
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sci-libs
+          name: cblas-reference
+        - category: sci-libs
+          name: blas-reference
+        - category: sci-libs
+          name: lapack-reference
+  uses:
+    disabled:
+      - test
+      - doc
+  packages:
+    - dev-python/numpy
 
 - tree: packages/atoms-extra/python
   mutations:
