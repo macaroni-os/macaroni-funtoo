@@ -136,6 +136,19 @@ artefacts:
     - app-admin/awscli
     - dev-python/aws-crt-python
     - dev-python/distro
+    - dev-python/pyproject-metadata
+
+- tree: packages/atoms-extra/python
+  uses:
+    disabled:
+      - test
+      - doc
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pyproject-metadata
+  packages:
     - dev-python/meson-python
 
 - tree: packages/atoms-extra/python
