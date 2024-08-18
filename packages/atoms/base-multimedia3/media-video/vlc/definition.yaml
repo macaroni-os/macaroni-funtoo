@@ -1,5 +1,5 @@
 name: vlc
-version: 3.0.21
+version: 3.0.18+1
 category: media-video
 use_flags:
 - -aom
@@ -219,9 +219,10 @@ uri:
 license: LGPL-2.1 GPL-2
 labels:
   BDEPEND: '>=sys-devel/gettext-0.19.8 virtual/pkgconfig amd64? ( dev-lang/yasm )
-    x86? ( dev-lang/yasm ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 test? ( !prefix? ( x11-base/xorg-server[xvfb]
-    ) x11-apps/xhost )'
+    x86? ( dev-lang/yasm ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
+    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
+    >=sys-devel/libtool-2.4 test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
+    )'
   DEPEND: net-dns/libidn:= sys-libs/zlib[minizip] virtual/libintl virtual/opengl a52?
     ( media-libs/a52dec ) alsa? ( media-libs/alsa-lib ) aom? ( media-libs/libaom:=
     ) archive? ( app-arch/libarchive:= ) aribsub? ( media-libs/aribb24 ) bidi? ( dev-libs/fribidi
@@ -321,4 +322,4 @@ labels:
   kit: media-kit
   original.package.name: media-video/vlc
   original.package.slot: "0"
-  original.package.version: 3.0.21
+  original.package.version: 3.0.18
