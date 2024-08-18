@@ -1,5 +1,6 @@
 prelude:
 - |-
+  export GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles https://dev.macaronios.org/distfiles" && \
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
