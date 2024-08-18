@@ -1,4 +1,8 @@
 prelude:
+# Temporary certificate workaround
+- >-
+  sed -i -e 's|https://freedesktop.org/software|https://www.freedesktop.org/software|g'
+  /var/git/meta-repo/kits/gnome-kit/media-sound/pulseaudio/pulseaudio-16.1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
