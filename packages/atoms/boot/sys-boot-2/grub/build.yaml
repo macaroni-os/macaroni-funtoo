@@ -1,9 +1,4 @@
 prelude:
-# Trying to apply patch to fix integration with e2fs 1.47.0
-- >-
-  mkdir -p /etc/portage/patches/sys-boot/grub/ &&
-  cp grub-2.06-fs-ext2-ignore-checksum-seed.patch /etc/portage/patches/sys-boot/grub/
-
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
