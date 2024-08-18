@@ -1,6 +1,11 @@
 prelude:
 # Need ruby
-- eselect ruby set 1 && macaronictl env-update
+- >-
+  eselect ruby set 1 && macaronictl env-update &&
+  cd /var/git/meta-repo/kits/core-gl-kit/dev-libs/ocl-icd &&
+  cp ocl-icd-2.2.14.ebuild ocl-icd-2.3.2.ebuild &&
+  ebuild ocl-icd-2.3.2.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
