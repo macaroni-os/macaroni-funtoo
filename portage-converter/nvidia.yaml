@@ -138,6 +138,9 @@ artefacts:
 
 - tree: packages/atoms/nvidia
   mutations:
+    provides:
+      - category: x11-drivers
+        name: nvidia-drivers
     uses:
       - static-libs
       - acpi
@@ -148,7 +151,7 @@ artefacts:
       - test
       - doc
   packages:
-    - x11-drivers/nvidia-drivers
+    - x11-drivers/nvidia-drivers:555
   finalizer:
     shell:
       - "/bin/bash"
@@ -166,6 +169,39 @@ artefacts:
       # Option         "SidebandSocketPath" "/var/run/nvidia-xdriver/"
     uninstall:
       - rm -vf /etc/OpenCL/vendors/nvidia.icd || true
+
+- tree: packages/atoms/nvidia
+  mutations:
+    uses:
+      - static-libs
+      - acpi
+  # NOTE: static-libs is needed for xfce4-sensors-plugin
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+  packages:
+    - x11-drivers/nvidia-drivers:550
+    - x11-drivers/nvidia-drivers:535
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - eval 'macaronictl env-update || true'
+      # NOTE: This is created by the file for systemd-tmpfiles package
+      #       on build.yaml
+      # Create SidebandSocketPath directory
+      # - >-
+      #  eval 'mkdir /var/run/nvidia-xdriver || true' &&
+      #  chmod ug+rwx /var/run/nvidia-xdriver/ &&
+      #  chown root:video /var/run/nvidia-xdriver/
+      # Add this row to default nvidia class
+      # Option         "SidebandSocketPath" "/var/run/nvidia-xdriver/"
+    uninstall:
+      - rm -vf /etc/OpenCL/vendors/nvidia.icd || true
+
 
 include_layers:
 - layers/macaroni-funtoo-race14.yaml
@@ -223,9 +259,6 @@ reposcan_contraints:
     - <net-libs/nodejs-15.0
 
     - dev-lang/ruby:3.1
-
-    # Ensure nvidia-drivers version now used in Macaroni
-    - =x11-drivers/nvidia-drivers-535.86.05
 
 reposcan_disabled_use_flags:
   - build
