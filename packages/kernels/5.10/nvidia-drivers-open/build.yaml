@@ -7,9 +7,9 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 # Temporary patch until added to Funtoo tree and drop verionator from nvidia-driver eclass
+#cp nvidia-drivers-gpl-pfn_valid.patch /etc/portage/patches/x11-drivers/nvidia-kernel-modules/ &&
 - >-
   eval 'mkdir -p /etc/portage/patches/x11-drivers/nvidia-kernel-modules/ || true' &&
-  cp nvidia-drivers-gpl-pfn_valid.patch /etc/portage/patches/x11-drivers/nvidia-kernel-modules/ &&
   sed -i -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass
 - >-
   rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
