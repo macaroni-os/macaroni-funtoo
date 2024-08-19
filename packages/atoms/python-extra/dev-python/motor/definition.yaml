@@ -1,5 +1,5 @@
 name: motor
-version: 3.5.1
+version: 3.5.1+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -7,6 +7,12 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: pymongo
   version: '>=0'
   category: dev-python
@@ -19,7 +25,7 @@ annotations:
       - ^/var/db/pkg/
 description: Non-blocking MongoDB driver for Tornado or asyncio
 uri:
-- https://github.com/mongodb/motor/ https://pypi.org/project/motor/
+- https://pypi.org/project/motor/
 license: Apache-2.0
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
