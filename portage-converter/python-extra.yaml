@@ -158,7 +158,6 @@ artefacts:
     - dev-python/matplotlib
     - dev-python/mistune
     - dev-python/more-itertools
-    - dev-python/motor
     - dev-python/msgpack
     - dev-python/multidict
     - dev-python/mysql-connector-python
@@ -186,7 +185,6 @@ artefacts:
     - dev-python/pycares
     - dev-python/pycryptodome
     - dev-python/pycurl
-    - dev-python/pymongo
     - dev-python/pynacl
     - dev-python/pyserial
     - dev-python/python-dateutil
@@ -210,6 +208,26 @@ artefacts:
     - dev-python/simplejson
     - dev-python/sniffio
     - dev-python/soupsieve
+    - dev-python/hatch-requirements-txt
+
+
+- tree: packages/atoms/python-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: hatch-requirements-txt
+  packages:
+    - dev-python/pymongo
+
+- tree: packages/atoms/python-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pymongo
+  packages:
+    - dev-python/motor
 
 - tree: packages/atoms/python-extra
   mutations:
