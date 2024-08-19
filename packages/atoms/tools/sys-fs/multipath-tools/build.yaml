@@ -1,6 +1,8 @@
 prelude:
 - >-
-  cp multipath-tools-0.9.8.ebuild /var/git/meta-repo/kits/core-kit/sys-fs/multipath-tools
+  sed -i
+  -e '/mv "/d' -e '/rmdir/d'
+  /var/git/meta-repo/kits/core-kit/sys-fs/multipath-tools/multipath-tools-{{ ( index .Values.labels "original.package.version" )
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
