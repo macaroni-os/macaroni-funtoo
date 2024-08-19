@@ -14,7 +14,8 @@ steps:
 - >-
   rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
   rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild &&
-  luet i -y nvidia-drivers && luet cleanup &&
+  anise i -y x11-drivers-{{ ( index .Values.labels "original.package.slot" ) }}/nvidia-drivers &&
+  anise cleanup &&
   USE="open-kernel" emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
 - |
   USE="open-kernel" emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }}
@@ -24,7 +25,7 @@ steps:
 # It seems that the compression is not handled correct from the ebuild
 # I run manually compression for every module
 - >-
-  for i in /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/video/*.ko ; do
+  for i in /{{ .Values.name }}/lib/modules/nvidia-open/{{ ( index .Values.labels "original.package.version" ) }}/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/video/*.ko ; do
   xz -z ${i} ;
   done
 
