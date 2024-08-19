@@ -14,6 +14,7 @@ steps:
 - >-
   rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
   rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild &&
+  anise repo update && anise upgrade -y &&
   anise i -y x11-drivers-{{ ( index .Values.labels "original.package.slot" ) }}/nvidia-drivers &&
   anise cleanup &&
   USE="open-kernel" emerge -j ${JOBS} ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
