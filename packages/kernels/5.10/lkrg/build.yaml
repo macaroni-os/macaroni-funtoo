@@ -10,6 +10,20 @@ steps:
   luet i -y --sync-repos kernel-5.10/macaroni-lts-modules --nodeps && luet cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
+# There is an issue on regen Module.symvers with kernel 5.10.
+# Using kernel 6.1 doesn't present the same issue.
+# For now i just force the compilation without regen Module.symvers that
+# will be created with depmod on installation phase.
+# Here the issue:
+#  MODPOST /var/tmp/portage/app-antivirus/lkrg-0.9.8/work/lkrg-org-lkrg-3475496/Module.symvers
+#  ERROR: modpost: "find_module" [/var/tmp/portage/app-antivirus/lkrg-0.9.8/work/lkrg-org-lkrg-3475496/lkrg.ko] undefined!
+#  ERROR: modpost: "module_mutex" [/var/tmp/portage/app-antivirus/lkrg-0.9.8/work/lkrg-org-lkrg-3475496/lkrg.ko] undefined!
+#  make[2]: *** [scripts/Makefile.modpost:123: /var/tmp/portage/app-antivirus/lkrg-0.9.8/work/lkrg-org-lkrg-3475496/Module.symvers] Error 1
+#  make[2]: *** Deleting file '/var/tmp/portage/app-antivirus/lkrg-0.9.8/work/lkrg-org-lkrg-3475496/Module.symvers'
+#  make[1]: *** [Makefile:1759: modules] Error 2
+- >-
+  rm /usr/src/linux/Module.symvers
+
 - >-
   epro list &&
   {{- if .Values.use_flags }}
