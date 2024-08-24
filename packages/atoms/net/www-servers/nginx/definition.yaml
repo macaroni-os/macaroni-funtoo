@@ -1,5 +1,5 @@
 name: nginx
-version: 1.22.0+1
+version: 1.26.2
 category: www-servers
 use_flags:
 - -arm
@@ -77,11 +77,10 @@ labels:
     ( dev-libs/libxml2 dev-libs/libxslt ) nginx_modules_external_lua? ( dev-lang/luajit:2=
     ) nginx_modules_external_auth_pam? ( virtual/pam ) nginx_modules_external_metrics?
     ( dev-libs/yajl ) nginx_modules_external_dav_ext? ( dev-libs/libxml2 ) nginx_modules_external_modsecurity?
-    ( dev-libs/apr dev-libs/apr-util dev-libs/libxml2 net-misc/curl www-servers/apache
-    ) nginx_modules_stream_geoip? ( dev-libs/geoip ) arm? ( dev-libs/libatomic_ops
-    ) libatomic? ( dev-libs/libatomic_ops ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0 ) sys-apps/shadow'
+    ( dev-libs/modsecurity ) nginx_modules_stream_geoip? ( dev-libs/geoip ) arm? (
+    dev-libs/libatomic_ops ) libatomic? ( dev-libs/libatomic_ops ) >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    ssl? ( dev-libs/openssl:0 ) sys-apps/shadow'
   IUSE: +aio +http +http2 +http-cache +pcre pcre-jit +poll rtmp +select cpp_test debug
     full google_perftools +ipv6 libatomic libressl luajit ssl stream threads vim-syntax
     +nginx_modules_http_upstream_hash +nginx_modules_http_upstream_ip_hash +nginx_modules_http_upstream_keepalive
@@ -106,15 +105,15 @@ labels:
     nginx_modules_mail_imap nginx_modules_mail_pop3 nginx_modules_mail_smtp nginx_modules_dynamic_xslt
     nginx_modules_dynamic_image_filter nginx_modules_dynamic_geoip nginx_modules_dynamic_perl
     nginx_modules_dynamic_mail nginx_modules_dynamic_stream nginx_modules_dynamic_stream_geoip
-    nginx_modules_external_slowfs_cache nginx_modules_external_echo nginx_modules_external_dav_ext
-    nginx_modules_external_modsecurity nginx_modules_external_sticky nginx_modules_external_upstream_check
-    nginx_modules_external_upload_progress nginx_modules_external_headers_more nginx_modules_external_rtmp
-    nginx_modules_external_concat nginx_modules_external_brotli nginx_modules_external_naxsi
-    nginx_modules_external_encrypted_session nginx_modules_external_auth_pam nginx_modules_external_metrics
-    nginx_modules_external_lua nginx_modules_external_push nginx_modules_external_ajp
-    nginx_modules_external_accept_language nginx_modules_external_ndk nginx_modules_external_cache_purge
-    nginx_modules_external_fancyindex nginx_modules_external_push_stream nginx_modules_external_mogilefs
-    ssl
+    nginx_modules_external_vhost_traffic_status nginx_modules_external_brotli nginx_modules_external_push
+    nginx_modules_external_concat nginx_modules_external_auth_pam nginx_modules_external_ndk
+    nginx_modules_external_echo nginx_modules_external_modsecurity nginx_modules_external_headers_more
+    nginx_modules_external_naxsi nginx_modules_external_metrics nginx_modules_external_fancyindex
+    nginx_modules_external_sticky nginx_modules_external_slowfs_cache nginx_modules_external_cache_purge
+    nginx_modules_external_rtmp nginx_modules_external_encrypted_session nginx_modules_external_ajp
+    nginx_modules_external_upstream_check nginx_modules_external_lua nginx_modules_external_push_stream
+    nginx_modules_external_mogilefs nginx_modules_external_dav_ext nginx_modules_external_upload_progress
+    nginx_modules_external_njs nginx_modules_external_accept_language ssl
   RDEPEND: '!www-server/nginx:0 google_perftools? ( dev-util/google-perftools ) http-cache?
     ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:= ) ) pcre?
     ( dev-libs/libpcre ) pcre-jit? ( dev-libs/libpcre[jit] ) ssl? ( !libressl? ( dev-libs/openssl:0=
@@ -128,10 +127,9 @@ labels:
     ( dev-libs/libxml2 dev-libs/libxslt ) nginx_modules_external_lua? ( dev-lang/luajit:2=
     ) nginx_modules_external_auth_pam? ( virtual/pam ) nginx_modules_external_metrics?
     ( dev-libs/yajl ) nginx_modules_external_dav_ext? ( dev-libs/libxml2 ) nginx_modules_external_modsecurity?
-    ( dev-libs/apr dev-libs/apr-util dev-libs/libxml2 net-misc/curl www-servers/apache
-    ) nginx_modules_stream_geoip? ( dev-libs/geoip )'
+    ( dev-libs/modsecurity ) nginx_modules_stream_geoip? ( dev-libs/geoip )'
   emerge.packages: www-servers/nginx
   kit: core-server-kit
   original.package.name: www-servers/nginx
   original.package.slot: "0"
-  original.package.version: 1.22.0-r1
+  original.package.version: 1.26.2
