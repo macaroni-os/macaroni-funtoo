@@ -41,13 +41,16 @@ requires:
 - name: libvdpau
   version: '>=0'
   category: x11-libs
+- name: gpu-configurator
+  version: '>=0'
+  category: app-admin
+conflicts:
+- name: nvidia-drivers
+  version: <555.42.02
+  category: x11-drivers
 provides:
 - name: nvidia-drivers
   version: 555.42.02
-  category: x11-drivers
-conflicts:
-- name: nvidia-drivers
-  version: '<555.42.02'
   category: x11-drivers
 annotations:
   subsets:
