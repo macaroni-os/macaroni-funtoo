@@ -1,5 +1,5 @@
 name: numpy
-version: 1.21.5
+version: 2.0.1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -32,23 +32,23 @@ uri:
 - https://numpy.org/
 license: BSD
 labels:
-  BDEPEND: lapack? ( virtual/cblas virtual/lapack ) app-arch/unzip >=dev-python/cython-0.29.24[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    lapack? ( virtual/pkgconfig ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)]
+  BDEPEND: lapack? ( virtual/cblas virtual/lapack ) app-arch/unzip >=dev-python/cython-3.0.0[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    lapack? ( virtual/pkgconfig ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 python_targets_python3_10?
+    ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)]
     ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8?
-    ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)]
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    ( dev-lang/python:3.8[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/gpep517-6[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/meson-python[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   DEPEND: lapack? ( virtual/fortran )
-  IUSE: lapack python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-    python_targets_python3_10
-  RDEPEND: lapack? ( virtual/cblas virtual/lapack ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)]
-    ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8?
-    ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)]
-    ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  IUSE: lapack python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
+  RDEPEND: lapack? ( virtual/cblas virtual/lapack ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)]
+    ) python_targets_python3_7? ( dev-lang/python:3.7[threads(+)] ) python_targets_python3_9?
+    ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)]
+    ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     lapack? ( virtual/fortran )
   emerge.packages: dev-python/numpy
-  kit: python-modules-kit
+  kit: geaaru-kit
   original.package.name: dev-python/numpy
   original.package.slot: "0"
-  original.package.version: 1.21.5
+  original.package.version: 2.0.1
