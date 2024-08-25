@@ -1,5 +1,5 @@
 name: asio
-version: 1.13.0
+version: 1.28.1
 category: dev-cpp
 use_flags:
 - -libressl
@@ -20,13 +20,14 @@ uri:
 - https://think-async.com
 license: Boost-1.0
 labels:
-  DEPEND: dev-libs/boost ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
-    ) )
-  IUSE: doc examples libressl ssl test
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: test? ( dev-libs/boost dev-libs/openssl )
+  IUSE: doc examples test
   RDEPEND: dev-libs/boost ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0=
     ) )
   emerge.packages: dev-cpp/asio
   kit: dev-kit
   original.package.name: dev-cpp/asio
   original.package.slot: "0"
-  original.package.version: 1.13.0
+  original.package.version: 1.28.1
