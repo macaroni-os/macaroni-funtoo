@@ -138,6 +138,10 @@ artefacts:
 
 - tree: packages/atoms/nvidia
   mutations:
+    runtime_deps:
+      packages:
+        - category: app-admin
+          name: gpu-configurator
     provides:
       - category: x11-drivers
         name: nvidia-drivers
@@ -162,6 +166,10 @@ artefacts:
       - "/bin/bash"
       - "-c"
     install:
+      - >-
+        gpu-configurator nvidia configure --with-video-group
+        {{ ( index .Values.labels "original.package.version" ) }} --if-not-set || true
+
       - eval 'macaronictl env-update || true'
       # NOTE: This is created by the file for systemd-tmpfiles package
       #       on build.yaml
@@ -173,10 +181,16 @@ artefacts:
       # Add this row to default nvidia class
       # Option         "SidebandSocketPath" "/var/run/nvidia-xdriver/"
     uninstall:
-      - rm -vf /etc/OpenCL/vendors/nvidia.icd || true
+      - >-
+        gpu-configurator nvidia configure --with-video-group
+        {{ ( index .Values.labels "original.package.version" ) }} --if-not-set --purge || true
 
 - tree: packages/atoms/nvidia
   mutations:
+    runtime_deps:
+      packages:
+        - category: app-admin
+          name: gpu-configurator
     uses:
       - static-libs
       - acpi
@@ -194,6 +208,9 @@ artefacts:
       - "/bin/bash"
       - "-c"
     install:
+      - >-
+        gpu-configurator nvidia configure --with-video-group
+        {{ ( index .Values.labels "original.package.version" ) }} --if-not-set || true
       - eval 'macaronictl env-update || true'
       # NOTE: This is created by the file for systemd-tmpfiles package
       #       on build.yaml
@@ -205,7 +222,9 @@ artefacts:
       # Add this row to default nvidia class
       # Option         "SidebandSocketPath" "/var/run/nvidia-xdriver/"
     uninstall:
-      - rm -vf /etc/OpenCL/vendors/nvidia.icd || true
+      - >-
+        gpu-configurator nvidia configure --with-video-group
+        {{ ( index .Values.labels "original.package.version" ) }} --if-not-set --purge || true
 
 
 include_layers:
