@@ -5,6 +5,10 @@ packages:
   category: kernel-5.10
   annotations:
     kernel_module: true
+  requires:
+    - category: app-admin
+      name: gpu-configurator
+      version: '>=0'
   labels:
     emerge.packages: x11-drivers/nvidia-kernel-modules
     kernel.suffix: macaroni
@@ -16,6 +20,10 @@ packages:
 - name: nvidia-550-kernel-modules
   version: "550.78"
   category: kernel-5.10
+  requires:
+    - category: app-admin
+      name: gpu-configurator
+      version: '>=0'
   annotations:
     kernel_module: true
   labels:
@@ -29,6 +37,10 @@ packages:
 - name: nvidia-555-kernel-modules
   version: "555.42.02"
   category: kernel-5.10
+  requires:
+    - category: app-admin
+      name: gpu-configurator
+      version: '>=0'
   provides:
   - name: nvidia-kernel-modules
     category: kernel-5.10

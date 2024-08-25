@@ -1,6 +1,11 @@
 install:
 - >-
-  depmod -a {{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} || true
+  gpu-configurator nvidia kernel {{ ( index .Values.labels "original.package.version" ) }}
+  {{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} || true
+uninstall:
+- >-
+  gpu-configurator nvidia kernel --purge {{ ( index .Values.labels "original.package.version" ) }}
+  {{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} || true
 shell:
-  - bash
+  - /bin/bash
   - -c
