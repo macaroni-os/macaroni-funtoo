@@ -1,5 +1,5 @@
 name: numpy
-version: 2.0.1
+version: 2.0.1+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -8,9 +8,12 @@ use_flags:
 - lapack
 - python_targets_python3_9
 requires:
-- name: setuptools
+- name: python
   version: '>=0'
-  category: dev-python
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: cblas
   version: '>=0'
   category: virtual
