@@ -105,10 +105,42 @@ artefacts:
     - www-servers/gunicorn
     - dev-python/dnspython
     - dev-python/greenlet
-    - dev-python/numpy
     - app-admin/awscli
     - dev-python/aws-crt-python
     - dev-python/distro
+    - dev-python/pyproject-metadata
+
+- tree: packages/atoms/python-extra
+  uses:
+    disabled:
+      - test
+      - doc
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-python
+          name: pyproject-metadata
+  packages:
+    - dev-python/meson-python
+
+- tree: packages/atoms/python-extra
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sci-libs
+          name: cblas-reference
+        - category: sci-libs
+          name: blas-reference
+        - category: sci-libs
+          name: lapack-reference
+        - category: dev-python
+          name: meson-python
+  uses:
+    disabled:
+      - test
+      - doc
+  packages:
+    - dev-python/numpy
 
 - tree: packages/atoms/python-extra
   mutations:
@@ -158,6 +190,9 @@ artefacts:
   packages:
     - dev-python/click
     - dev-python/uvicorn
+    - net-misc/s3cmd
+    - dev-python/s3transfer
+    - dev-vcs/python-gitlab
 
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
