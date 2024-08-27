@@ -2,7 +2,7 @@ prelude:
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
-  expot GENTOO_MIRRORS="https://dev.macaronios.org/distfiles" && \
+  export GENTOO_MIRRORS="https://dev.macaronios.org/distfiles" && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
