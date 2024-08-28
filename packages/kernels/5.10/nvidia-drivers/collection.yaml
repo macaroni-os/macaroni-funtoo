@@ -54,3 +54,20 @@ packages:
     kernel.version: 5.10.223
     original.package.version: 555.58.02
     original.package.slot: "555"
+
+- name: nvidia-560-kernel-modules
+  version: "560.35.03"
+  category: kernel-5.10
+  requires:
+    - category: app-admin
+      name: gpu-configurator
+      version: '>=0'
+  annotations:
+    kernel_module: true
+  labels:
+    emerge.packages: x11-drivers/nvidia-kernel-modules
+    kernel.suffix: macaroni
+    kernel.type: vanilla
+    kernel.version: 5.10.223
+    original.package.version: 560.35.03
+    original.package.slot: "560"
