@@ -225,6 +225,11 @@ artefacts:
     - dev-util/xdelta
 
 - tree: packages/atoms-extra/dev
+  mutations:
+    runtime_deps:
+      packages:
+        - category: sys-apps
+          name: portage
   uses:
     disabled:
       - debug
@@ -233,6 +238,15 @@ artefacts:
       - sqlite
   packages:
     - app-portage/eix
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        eval 'mkdir -p /var/cache/eix || true' &&
+        chown portage:portage /var/cache/eix &&
+        chmod ug+rw -R /var/cache/eix
 
 - tree: packages/atoms-extra/dev
   mutations:
