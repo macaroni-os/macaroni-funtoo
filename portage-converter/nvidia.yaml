@@ -145,11 +145,11 @@ artefacts:
     provides:
       - category: x11-drivers
         name: nvidia-drivers
-        version: '555.42.02'
+        version: '550.107.02'
     conflicts:
       - category: x11-drivers
         name: nvidia-drivers
-        version: '<555.42.02'
+        version: '<550.107.02'
     uses:
       - static-libs
       - acpi
@@ -160,7 +160,7 @@ artefacts:
       - test
       - doc
   packages:
-    - x11-drivers/nvidia-drivers:555
+    - x11-drivers/nvidia-drivers:550
   finalizer:
     shell:
       - "/bin/bash"
@@ -201,8 +201,9 @@ artefacts:
       - test
       - doc
   packages:
-    - x11-drivers/nvidia-drivers:550
     - x11-drivers/nvidia-drivers:535
+    - x11-drivers/nvidia-drivers:555
+    - x11-drivers/nvidia-drivers:560
   finalizer:
     shell:
       - "/bin/bash"
