@@ -1,5 +1,5 @@
 name: nvidia-drivers
-version: "535.179"
+version: 535.183.01
 category: x11-drivers-535
 use_flags:
 - X
@@ -57,19 +57,21 @@ uri:
 license: GPL-2 NVIDIA-r2
 labels:
   BDEPEND: virtual/pkgconfig
-  DEPEND: opencl? ( dev-libs/ocl-icd ) >=sys-libs/glibc-2.6.1 X? ( app-misc/pax-utils
-    !glvnd? ( >=app-eselect/eselect-opengl-1.0.9 ) glvnd? ( >=media-libs/libglvnd-1.0.0.20180424
-    ) ) sys-apps/pciutils virtual/linux-sources kernel_linux? ( virtual/modutils )
-    sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf ) sys-apps/shadow
+  DEPEND: '!x11-drivers/nvidia-drivers opencl? ( dev-libs/ocl-icd ) >=sys-libs/glibc-2.6.1
+    X? ( app-misc/pax-utils !glvnd? ( >=app-eselect/eselect-opengl-1.0.9 ) glvnd?
+    ( >=media-libs/libglvnd-1.0.0.20180424 ) ) sys-apps/pciutils virtual/linux-sources
+    kernel_linux? ( virtual/modutils ) sys-apps/sed kernel_linux? ( virtual/linux-sources
+    virtual/libelf ) sys-apps/shadow'
   IUSE: static-libs acpi +X +opencl +cuda +tools +egl +glvnd +uvm +wayland +powerd
     kernel_linux kernel_linux kernel_linux
-  RDEPEND: opencl? ( dev-libs/ocl-icd ) >=sys-libs/glibc-2.6.1 X? ( app-misc/pax-utils
-    !glvnd? ( >=app-eselect/eselect-opengl-1.0.9 ) glvnd? ( >=media-libs/libglvnd-1.0.0.20180424
-    ) ) acpi? ( sys-power/acpid ) wayland? ( dev-libs/wayland ) X? ( >=x11-base/xorg-server-1.20.8
-    >=x11-libs/libX11-1.6.2 >=x11-libs/libXext-1.3.2 >=x11-libs/libvdpau-1.0 sys-libs/zlib
-    x11-libs/gtk+:3 ) kernel_linux? ( virtual/modutils )
+  RDEPEND: '!x11-drivers/nvidia-drivers opencl? ( dev-libs/ocl-icd ) >=sys-libs/glibc-2.6.1
+    X? ( app-misc/pax-utils !glvnd? ( >=app-eselect/eselect-opengl-1.0.9 ) glvnd?
+    ( >=media-libs/libglvnd-1.0.0.20180424 ) ) acpi? ( sys-power/acpid ) wayland?
+    ( dev-libs/wayland ) X? ( >=x11-base/xorg-server-1.20.8 >=x11-libs/libX11-1.6.2
+    >=x11-libs/libXext-1.3.2 >=x11-libs/libvdpau-1.0 sys-libs/zlib x11-libs/gtk+:3
+    ) kernel_linux? ( virtual/modutils )'
   emerge.packages: x11-drivers/nvidia-drivers:535
   kit: geaaru-kit
   original.package.name: x11-drivers/nvidia-drivers
   original.package.slot: "535"
-  original.package.version: "535.179"
+  original.package.version: 535.183.01
