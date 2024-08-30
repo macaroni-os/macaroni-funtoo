@@ -1,0 +1,19 @@
+name: virtualbox-guest-additions
+version: 7.0.20.163906
+category: kernel-6.6
+use_flags:
+- X
+- dbus
+annotations:
+  kernel_module: true
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+labels:
+  emerge.packages: app-emulation/virtualbox-guest-additions
+  kernel.suffix: macaroni
+  kernel.type: vanilla
+  kernel.version: 6.6.45
