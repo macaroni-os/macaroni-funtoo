@@ -38,8 +38,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN macaronictl env-update && \
   luet rm -y --nodeps virtual-entities/base macaroni/entities-catalog && \
-  luet cleanup --purge-repos && \
-  mkdir /tmp
+  luet cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
