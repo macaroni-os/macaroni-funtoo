@@ -29,6 +29,11 @@ ENABLED_SERVICES=(
   "xdm"
   "virtualbox-guest-additions"
   "zram-init"
+  # This is needed to correctly
+  # received configuration events
+  # from Gnome settings panel to
+  # configure Date & Time and timezone.
+  "openrc-settingsd"
 )
 ENABLED_SYSINIT_SERVICES=(
   "udev-postmount"
