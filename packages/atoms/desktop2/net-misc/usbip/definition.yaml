@@ -1,0 +1,47 @@
+name: usbip
+version: "2.0"
+category: net-misc
+use_flags:
+- -build
+- tcpd
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: hwids
+  version: '>=0'
+  category: sys-apps
+- name: tcp-wrappers
+  version: '>=0'
+  category: sys-apps
+- name: linux-headers
+  version: '>=0'
+  category: sys-kernel
+- name: libudev
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Userspace utilities for a general USB device sharing system over IP networks
+uri:
+- https://www.kernel.org/
+license: GPL-2
+labels:
+  DEPEND: '>=dev-libs/glib-2.6 sys-apps/hwids >=sys-kernel/linux-headers-3.17 virtual/libudev
+    tcpd? ( sys-apps/tcp-wrappers ) virtual/pkgconfig >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    !build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31 )'
+  IUSE: static-libs tcpd symlink build
+  RDEPEND: '>=dev-libs/glib-2.6 sys-apps/hwids >=sys-kernel/linux-headers-3.17 virtual/libudev
+    tcpd? ( sys-apps/tcp-wrappers ) !build? ( dev-lang/perl sys-devel/bc sys-devel/bison
+    sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf )'
+  emerge.packages: net-misc/usbip
+  kit: net-kit
+  original.package.name: net-misc/usbip
+  original.package.slot: "0"
+  original.package.version: 2.0_p61106
