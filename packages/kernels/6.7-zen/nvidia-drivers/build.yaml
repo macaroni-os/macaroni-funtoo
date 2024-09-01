@@ -7,16 +7,13 @@ env:
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  sed -i -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass &&
-  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
-  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild
+  sed -i -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass
 - >-
-  anise i --sync-repos -y nvidia-drivers
-  virtual/linux-sources
-  dummy-sources
-  sys-apps/pciutils
-  &&
-  anise upgrade -y &&
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild &&
+  rm -vf /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild &&
+  anise repo update &&
+  anise repo update && anise upgrade -y &&
+  anise i -y x11-drivers-{{ ( index .Values.labels "original.package.slot" ) }}/nvidia-drivers &&
   anise cleanup &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge ={{ ( index .Values.labels "emerge.packages" ) }}-{{ ( index .Values.labels "original.package.version" ) }} -pv -t
@@ -35,7 +32,7 @@ steps:
 # It seems that the compression is not handled correct from the ebuild
 # I run manually compression for every module
 - >-
-  for i in /{{ .Values.name }}/lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/video/*.ko ; do
+  for i in /{{ .Values.name }}/lib/modules/nvidia/{{ ( index .Values.labels "original.package.version" ) }}/{{ ( index .Values.labels "kernel.version" ) }}-macaroni/video/*.ko ; do
   zstd ${i} -o ${i}.zst --rm ;
   done
 excludes:
