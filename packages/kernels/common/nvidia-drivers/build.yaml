@@ -1,9 +1,0 @@
-requires:
-  - name: "nvidia-kernel-modules"
-    category: "kernel-{{ ( index .Values.labels "kernel.branch" ) }}"
-    version: ">=0"
-env:
-- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
-package_dir: /nvidia-kernel-modules
-excludes:
-- ^/lib/modules/
