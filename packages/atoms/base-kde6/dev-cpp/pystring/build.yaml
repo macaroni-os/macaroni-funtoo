@@ -3,7 +3,12 @@ prelude:
 - >-
   sed -i
   -e 's|^SRC_URI.*|SRC_URI="https://github.com/imageworks/pystring/archive/76a2024e132bcc83bec1ecfebeacd5d20d490bfe.tar.gz -> pystring-1.1.4_p20230723.tar.gz"|g'
-  /var/git/meta-repo/kits/dev-kit/dev-cpp/pystring/pystring-*.ebuild
+  /var/git/meta-repo/kits/dev-kit/dev-cpp/pystring/pystring-*.ebuild &&
+  cd /var/git/meta-repo/kits/dev-kit/dev-cpp/pystring/ &&
+  mv pystring-1.1.4_p20240818.ebuild pystring-1.1.4_p20230723.ebuild &&
+  rm Manifest &&
+  ebuild pystring-1.1.4_p20230723.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
