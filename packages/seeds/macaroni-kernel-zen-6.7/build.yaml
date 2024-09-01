@@ -5,6 +5,10 @@ env:
 prelude:
 # dev-util/kbuild is needed for virtualbox-guest-additions
 - >-
+  anise repo disable mottainai-stable &&
+  anise repo enable mottainai-dev &&
+  anise repo update
+- >-
   luet repo update && luet upgrade &&
   luet install --sync-repos
   kernel-6.7/macaroni-zen-sources
