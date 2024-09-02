@@ -1,0 +1,21 @@
+commit e380ae90ebb6325d1820b6f34e10bf3474710899
+Author: Max Kellermann <max.kellermann@gmail.com>
+Date:   Sun Jul 7 10:09:08 2024 +0200
+
+    Log: add missing include for std::back_inserter()
+    
+    Closes https://github.com/MusicPlayerDaemon/MPD/issues/2071
+
+diff --git a/src/Log.cxx b/src/Log.cxx
+index d5a3db2aa..78e0efb54 100644
+--- a/src/Log.cxx
++++ b/src/Log.cxx
+@@ -8,6 +8,8 @@
+ 
+ #include <fmt/format.h>
+ 
++#include <iterator> // for std::back_inserter()
++
+ static constexpr Domain exception_domain("exception");
+ 
+ void

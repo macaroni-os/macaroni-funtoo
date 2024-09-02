@@ -1,4 +1,7 @@
 prelude:
+- >-
+  eval 'mkdir -p /etc/portage/patches/media-sound/mpd/ || true' &&
+  cp -v patches/* /etc/portage/patches/media-sound/mpd/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
