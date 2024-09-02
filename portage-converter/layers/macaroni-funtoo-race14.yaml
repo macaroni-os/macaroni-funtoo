@@ -42,6 +42,7 @@ packages:
   - app-crypt/pinentry:0
   - app-crypt/rhash:0
   - app-crypt/sbsigntools:0
+  - app-crypt/tpm2-tss:0
   - app-crypt/trousers:0
   - app-doc/doxygen:0
   - app-doc/xmltoman:0
@@ -71,6 +72,8 @@ packages:
   - app-misc/pax-utils:0
   - app-misc/screen:0
   - app-misc/tmux:0
+  - app-misc/wayland-utils:0
+  - app-pda/libimobiledevice-glue:0
   - app-pda/libimobiledevice:0
   - app-pda/libplist:0
   - app-pda/libusbmuxd:0
@@ -148,6 +151,7 @@ packages:
   - dev-cpp/glibmm:2
   - dev-cpp/libxmlpp:3.0
   - dev-cpp/mm-common:0
+  - dev-cpp/robin-hood-hashing:0
   - dev-cpp/tbb:0
   - dev-cpp/yaml-cpp:0
   - dev-db/etcd:0
@@ -160,6 +164,8 @@ packages:
   - dev-db/mysql-init-scripts:0
   - dev-db/postgresql:11
   - dev-db/postgresql:13
+  - dev-db/postgresql:15
+  - dev-db/postgresql:16
   - dev-db/redis:0
   - dev-db/sqlite:3
   - dev-lang/fpc:0
@@ -448,6 +454,7 @@ packages:
   - dev-python/jinja:0
   - dev-python/jsonschema:0
   - dev-python/lark:0
+  - dev-python/libxml2-python:0
   - dev-python/lxml:0
   - dev-python/m2crypto:0
   - dev-python/mako:0
@@ -637,6 +644,7 @@ packages:
   - dev-util/spirv-tools:0
   - dev-util/sysprof:0
   - dev-util/vulkan-headers:0
+  - dev-util/vulkan-tools:0
   - dev-util/wayland-scanner:0
   - dev-vcs/git:0
   - dev-vcs/mercurial:0
@@ -653,6 +661,9 @@ packages:
   - gnome-extra/gnome-color-manager:0
   - gnome-extra/yelp-xsl:0
   - gnome-extra/zenity:0
+  - gui-libs/egl-gbm:0
+  - gui-libs/egl-wayland:0
+  - gui-libs/eglexternalplatform:0
   - gui-libs/libwpe:1.0
   - gui-libs/wpebackend-fdo:1.0
   - media-fonts/aquafont:0
@@ -851,6 +862,7 @@ packages:
   - media-libs/sratom:0
   - media-libs/tiff:0
   - media-libs/vo-amrwbenc:0
+  - media-libs/vulkan-layers:0
   - media-libs/vulkan-loader:0
   - media-libs/webrtc-audio-processing:0
   - media-libs/woff2:0
@@ -902,6 +914,7 @@ packages:
   - media-video/pipewire:0
   - media-video/rav1e:0
   - media-video/rtmpdump:0
+  - media-video/wireplumber:0
   - net-analyzer/arpwatch:0
   - net-analyzer/macchanger:0
   - net-analyzer/net-snmp:0
@@ -1026,6 +1039,7 @@ packages:
   - sys-apps/dbus:0
   - sys-apps/debianutils:0
   - sys-apps/diffutils:0
+  - sys-apps/dmapi:0
   - sys-apps/ed:0
   - sys-apps/ethtool:0
   - sys-apps/file:0
@@ -1079,6 +1093,7 @@ packages:
   - sys-devel/autoconf-wrapper:0
   - sys-devel/autoconf:2.1
   - sys-devel/autoconf:2.69
+  - sys-devel/autoconf:latest
   - sys-devel/autogen:0
   - sys-devel/automake-wrapper:0
   - sys-devel/automake:1.16
@@ -1103,24 +1118,32 @@ packages:
   - sys-devel/patch:0
   - sys-fs/btrfs-progs:0
   - sys-fs/cryptsetup:0
+  - sys-fs/diskdev_cmds:0
+  - sys-fs/dmraid:0
   - sys-fs/dosfstools:0
   - sys-fs/e2fsprogs:0
   - sys-fs/encfs:0
   - sys-fs/eudev:0
   - sys-fs/exfat-utils:0
+  - sys-fs/f2fs-tools:0
   - sys-fs/fuse-common:0
   - sys-fs/fuse-exfat:0
   - sys-fs/fuse:0
   - sys-fs/fuse:3
   - sys-fs/growpart:0
+  - sys-fs/hfsutils:0
+  - sys-fs/jfsutils:0
   - sys-fs/lsscsi:0
   - sys-fs/lvm2:0
   - sys-fs/mdadm:0
+  - sys-fs/mtools:0
   - sys-fs/ntfs3g:0
   - sys-fs/reiser4progs:0
   - sys-fs/reiserfsprogs:0
   - sys-fs/squashfs-tools:0
+  - sys-fs/udftools:0
   - sys-fs/udisks:2
+  - sys-fs/xfsdump:0
   - sys-fs/xfsprogs:0
   - sys-fs/zfs:0
   - sys-kernel/dracut:0
@@ -1310,6 +1333,7 @@ packages:
   - x11-base/xorg-drivers:0
   - x11-base/xorg-proto:0
   - x11-base/xorg-server:0
+  - x11-base/xwayland:0
   - x11-drivers/xf86-input-evdev:0
   - x11-drivers/xf86-input-libinput:0
   - x11-drivers/xf86-input-mouse:0
@@ -1367,6 +1391,7 @@ packages:
   - x11-libs/libva:0
   - x11-libs/libvdpau:0
   - x11-libs/libxcb:0
+  - x11-libs/libxcvt:0
   - x11-libs/libxkbcommon:0
   - x11-libs/libxkbfile:0
   - x11-libs/libxklavier:0
@@ -1432,6 +1457,7 @@ packages:
   - x11-proto/xineramaproto:0
   - x11-proto/xproto:0
   - x11-proto/xproxymngproto:0
+  - x11-proto/xwaylandproto:0
   - x11-terms/xterm:0
   - x11-themes/adwaita-icon-theme:0
   - x11-themes/gnome-themes-standard:0
