@@ -1,6 +1,4 @@
 prelude:
-- >-
-  cp lxd-5.18-r1.ebuild /var/git/extra-kits/geaaru-kit/app-emulation/lxd/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -29,6 +27,3 @@ requires:
 - name: xdelta
   version: '>=0'
   category: dev-util-3
-- name: lxc
-  version: '>=0'
-  category: app-emulation
