@@ -24,6 +24,9 @@ steps:
   luet cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
+# Temporary drop broken patch
+- >-
+  rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-guest-additions/files/patches/009-virtualbox-5.1.0-add_missing_gl_header.patch
 - >-
   epro list &&
   {{- if .Values.use_flags }}
