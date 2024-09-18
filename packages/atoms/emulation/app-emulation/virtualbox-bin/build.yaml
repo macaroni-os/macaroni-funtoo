@@ -2,6 +2,9 @@ prelude:
 - >-
   eval 'mkdir -p /etc/portage/package.license' &&
   echo 'app-emulation/virtualbox-bin PUEL' >> /etc/portage/package.license/00-virtualbox.license
+- >-
+  sed -e 's|XPCOMIPCD,||g' -e 's|TestOGL,||g' -i
+  /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-bin/virtualbox-bin-7.1.0.164728.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
