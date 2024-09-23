@@ -1,11 +1,11 @@
 name: openjdk-jre-bin
-version: 11.0.23
+version: 11.0.23+1
 category: dev-java-11
 use_flags:
 - -cups
+- -headless-awt
 - -selinux
 - alsa
-- headless-awt
 requires:
 - name: eselect-java
   version: '>=0'
@@ -25,6 +25,12 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
+- name: libXrender
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
