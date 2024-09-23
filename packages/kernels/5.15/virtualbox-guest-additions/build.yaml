@@ -6,9 +6,14 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 package_dir: /{{ .Values.name }}
 steps:
+# Temporary drop broken patch
 - >-
-  luet i -y --sync-repos kernel-5.15/macaroni-lts-modules --nodeps &&
-  luet i -y sys-apps/kmod bison flex virtual/linux-sources
+  rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-guest-additions/files/patches/009-virtualbox-5.1.0-add_missing_gl_header.patch &&
+  rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-guest-additions/files/patches/012_virtualbox-6.1.0-include_opengl_headers.patch &&
+  rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-guest-additions/files/patches/014_virtualbox-6.0.14-Glsizeiptr.patch
+- >-
+  anise i -y --sync-repos kernel-5.15/macaroni-lts-modules --nodeps &&
+  anise i -y sys-apps/kmod bison flex virtual/linux-sources
   yasm virtual/libelf dbus xmlto
   app-text-4.2/docbook-xml-dtd
   app-text-4.4/docbook-xml-dtd
@@ -17,11 +22,11 @@ steps:
   app-text/build-docbook-catalog
   app-text/sgml-common
   pkgconf iasl
-  $(luet s x11-drivers --quiet)
+  $(anise s x11-drivers --quiet)
   xrandr xrefresh
   &&
   build-docbook-catalog &&
-  luet cleanup &&
+  anise cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
 - >-
