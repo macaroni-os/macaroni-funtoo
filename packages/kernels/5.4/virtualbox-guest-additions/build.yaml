@@ -6,6 +6,12 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 package_dir: /{{ .Values.name }}
 steps:
+# Temporary drop broken patch
+- >-
+  rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-guest-additions/files/patches/009-virtualbox-5.1.0-add_missing_gl_header.patch &&
+  rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-guest-additions/files/patches/012_virtualbox-6.1.0-include_opengl_headers.patch &&
+  rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/virtualbox-guest-additions/files/patches/014_virtualbox-6.0.14-Glsizeiptr.patch
+
 - >-
   luet i -y --sync-repos kernel-5.4/macaroni-lts-modules --nodeps &&
   luet i -y sys-apps/kmod bison flex virtual/linux-sources
