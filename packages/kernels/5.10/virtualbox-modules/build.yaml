@@ -8,6 +8,8 @@ package_dir: /{{ .Values.name }}
 steps:
 - >-
   epro list &&
+  eselect kernel set linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
+  eselect kernel list &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
