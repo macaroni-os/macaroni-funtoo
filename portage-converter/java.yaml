@@ -96,10 +96,11 @@ artefacts:
   uses:
     enabled:
       - alsa
-      - headless-awt
     disabled:
       - selinux
       - cups
+      # GUI needs libawt_xawt.so
+      - headless-awt
       #- system-java
   packages:
     - dev-java/openjdk-jre-bin:8
