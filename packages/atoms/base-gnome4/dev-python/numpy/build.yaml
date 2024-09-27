@@ -1,4 +1,11 @@
 prelude:
+# Setup lapack and add missing dependency to cblas
+- >-
+  emerge sci-libs/cblas-reference -j &&
+  eselect blas set 1 &&
+  eselect cblas set 1 &&
+  eselect lapack set 1 &&
+  macaronictl env-update
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
