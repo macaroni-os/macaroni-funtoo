@@ -17,7 +17,7 @@ SRC_URI="ftp://ftp.isc.org/isc/dhcp/${MY_P}.tar.gz
 
 LICENSE="MPL-2.0 BSD SSLeay GPL-2" # GPL-2 only for init script
 SLOT="0"
-KEYWORDS="next"
+KEYWORDS="*"
 IUSE="+client ipv6 ldap selinux +server ssl vim-syntax"
 
 DEPEND="
