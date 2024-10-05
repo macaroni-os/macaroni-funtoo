@@ -1,0 +1,34 @@
+name: gnome-orchis-theme
+version: "20240902"
+category: x11-themes
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: gtk-engines-murrine
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Orchis is a Material Design theme for GNOME/GTK based desktop environments.
+uri:
+- https://github.com/vinceliuice/Orchis-theme
+license: GPL-3.0
+labels:
+  DEPEND: dev-libs/libxml2:2 x11-libs/gtk+:3 x11-themes/gtk-engines-murrine dev-libs/glib:2
+    dev-lang/sassc x11-libs/gdk-pixbuf:2 dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: compact solid black purple pink red orange yellow primary macos
+  RDEPEND: dev-libs/libxml2:2 x11-libs/gtk+:3 x11-themes/gtk-engines-murrine
+  emerge.packages: x11-themes/gnome-orchis-theme
+  kit: geaaru-kit
+  original.package.name: x11-themes/gnome-orchis-theme
+  original.package.slot: "0"
+  original.package.version: "20240902"
