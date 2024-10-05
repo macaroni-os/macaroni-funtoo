@@ -520,6 +520,15 @@ artefacts:
     - entities merge --specs-dir /usr/share/macaroni/entities/
       -e nm-openconnect
 
+- tree: packages/atoms/desktop
+  uses:
+    disabled:
+      - black
+      - primary
+      - solid
+  packages:
+    - x11-themes/gnome-orchis-theme
+
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
 
