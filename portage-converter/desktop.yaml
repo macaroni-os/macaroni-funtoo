@@ -536,6 +536,15 @@ artefacts:
       - solid
   packages:
     - x11-themes/gnome-orchis-theme
+    - x11-themes/papirus-icon-theme
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - whip h gtk.postinst
+    uninstall:
+      - whip h gtk.postinst
 
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
