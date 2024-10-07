@@ -15,6 +15,7 @@ prelude:
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- end }}
 - |
+  export GENTOO_MIRRORS="https://dev.macaronios.org/distfiles" && \
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
   {{- else }}
