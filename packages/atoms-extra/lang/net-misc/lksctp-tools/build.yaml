@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary fix until macaroni-os/mark-issues#147 is fixed
+- >-
+  rm /var/git/meta-repo/kits/net-kit/net-misc/lksctp-tools/*.ebuild &&
+  cp lksctp-tools-1.0.21.ebuild /var/git/meta-repo/kits/net-kit/net-misc/lksctp-tools/ &&
+  cd /var/git/meta-repo/kits/net-kit/net-misc/lksctp-tools &&
+  ebuild lksctp-tools-1.0.21.ebuild digest &&
+  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
