@@ -1,5 +1,5 @@
 name: postgresql
-version: "16.3"
+version: "16.4"
 category: dev-db-16
 use_flags:
 - -elibc_glibc
@@ -74,7 +74,7 @@ labels:
     ) !elibc_glibc? ( !elibc_musl? ( dev-libs/ossp-uuid ) ) ) sys-devel/bison sys-devel/flex
     nls? ( sys-devel/gettext ) xml? ( virtual/pkgconfig ) sys-apps/shadow'
   IUSE: debug doc icu kerberos ldap llvm lz4 nls pam perl python +readline selinux
-    +server ssl static-libs tcl threads uuid xml zlib kernel_linux python_single_target_python3_10
+    +server ssl static-libs tcl uuid xml zlib kernel_linux python_single_target_python3_10
     python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
     python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
   RDEPEND: '>=app-eselect/eselect-postgresql-2.0 sys-apps/less virtual/libintl icu?
@@ -94,4 +94,4 @@ labels:
   kit: core-server-kit
   original.package.name: dev-db/postgresql
   original.package.slot: "16"
-  original.package.version: "16.3"
+  original.package.version: "16.4"
