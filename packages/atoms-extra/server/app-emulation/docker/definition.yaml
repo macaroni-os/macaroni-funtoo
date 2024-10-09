@@ -1,5 +1,5 @@
 name: docker
-version: 24.0.6
+version: 24.0.6+1
 category: app-emulation
 use_flags:
 - -apparmor
@@ -40,13 +40,13 @@ requires:
 - name: entities-catalog
   version: '>=0'
   category: macaroni
+conflicts:
+- name: docker-proxy
+  version: <24.0.0
+  category: app-emulation
 provides:
 - name: docker-proxy
   version: 24.0.6
-  category: app-emulation
-conflicts:
-- name: docker-proxy
-  version: "<24.0.0"
   category: app-emulation
 annotations:
   subsets:
