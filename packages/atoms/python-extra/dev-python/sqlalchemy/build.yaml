@@ -1,8 +1,4 @@
 prelude:
-# Temporary patch until next race
-- >-
-   sed -i -e 's|SQLAlchemy-2.0.34|sqlalchemy-2.0.34|g'
-   /var/git/meta-repo/kits/python-modules-kit/dev-python/sqlalchemy/sqlalchemy-2.0.34.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
