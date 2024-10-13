@@ -1,18 +1,17 @@
 name: firefox
-version: "130.0"
+version: 130.0+1
 category: www-client
 use_flags:
-- -clang
 - -pgo
 - -selinux
 - -sndio
 - -system-av1
 - -system-libvpx
-- -system-png
 - -wifi
 - -x86
 - X
 - amd64
+- clang
 - dbus
 - jack
 - kernel_linux
@@ -25,6 +24,7 @@ use_flags:
 - system-icu
 - system-jpeg
 - system-libevent
+- system-png
 - system-webp
 - wayland
 requires:
@@ -58,9 +58,6 @@ requires:
 - name: libproxy
   version: '>=0'
   category: net-libs
-- name: zlib
-  version: '>=0'
-  category: sys-libs
 - name: freedesktop-icon-theme
   version: '>=0'
   category: virtual
