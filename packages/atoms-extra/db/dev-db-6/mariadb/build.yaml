@@ -6,6 +6,13 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
+# Temporary patch until https://github.com/macaroni-os/mark-issues/issues/155 is fixed
+- >-
+  cp mariadb-10.6.19.ebuild /var/git/meta-repo/kits/core-server-kit/dev-db/mariadb/ &&
+  cp patches/* /var/git/meta-repo/kits/core-server-kit/dev-db/mariadb/files/10.6/ &&
+  cd /var/git/meta-repo/kits/core-server-kit/dev-db/mariadb/ &&
+  ebuild mariadb-10.6.19.ebuild digest &&
+  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \

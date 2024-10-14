@@ -1,0 +1,329 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1d9b8b8b..c01ec614 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -393,8 +393,6 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}/include)
+ MYSQL_CHECK_ZLIB_WITH_COMPRESS()
+ # Add bundled wolfssl/wolfcrypt or system openssl.
+ MYSQL_CHECK_SSL()
+-# Add readline or libedit.
+-MYSQL_CHECK_READLINE()
+ 
+ SET(MALLOC_LIBRARY "system")
+ 
+@@ -444,25 +442,35 @@ MARK_AS_ADVANCED(PYTHON_SHEBANG)
+ # Add storage engines and plugins.
+ CONFIGURE_PLUGINS()
+ 
+-ADD_SUBDIRECTORY(include)
++IF(NOT WITHOUT_CLIENTLIBS)
++ ADD_SUBDIRECTORY(include)
++ENDIF(NOT WITHOUT_CLIENTLIBS)
+ ADD_SUBDIRECTORY(dbug)
+ ADD_SUBDIRECTORY(strings)
+ ADD_SUBDIRECTORY(vio)
+ ADD_SUBDIRECTORY(mysys)
+ ADD_SUBDIRECTORY(mysys_ssl)
+-ADD_SUBDIRECTORY(client)
+ ADD_SUBDIRECTORY(extra)
+ ADD_SUBDIRECTORY(libservices)
+ ADD_SUBDIRECTORY(sql/share)
+ 
++IF(NOT WITHOUT_TOOLS)
++  # Add readline or libedit.
++  MYSQL_CHECK_READLINE()
++  ADD_SUBDIRECTORY(client)
++ENDIF(NOT WITHOUT_TOOLS)
++
+ IF(NOT WITHOUT_SERVER)
+   ADD_SUBDIRECTORY(tests)
+   ADD_SUBDIRECTORY(sql)
+   OPTION (WITH_EMBEDDED_SERVER "Compile MariaDB with embedded server" OFF)
+   IF(WITH_EMBEDDED_SERVER)
+-    ADD_SUBDIRECTORY(libmysqld)
+-    ADD_SUBDIRECTORY(libmysqld/examples)
+-    ADD_SUBDIRECTORY(unittest/embedded)
++   IF(WITHOUT_TOOLS)
++     MYSQL_CHECK_READLINE()
++   ENDIF(WITHOUT_TOOLS)
++   ADD_SUBDIRECTORY(libmysqld)
++   ADD_SUBDIRECTORY(libmysqld/examples)
++   ADD_SUBDIRECTORY(unittest/embedded)
+   ENDIF(WITH_EMBEDDED_SERVER)
+   IF(NOT WIN32)
+     ADD_FEATURE_INFO(EMBEDDED_SERVER WITH_EMBEDDED_SERVER "Embedded MariaDB Server Library")
+diff --git a/cmake/mariadb_connector_c.cmake b/cmake/mariadb_connector_c.cmake
+index a9b10334..72c46fa3 100644
+--- a/cmake/mariadb_connector_c.cmake
++++ b/cmake/mariadb_connector_c.cmake
+@@ -40,7 +40,7 @@ SET(CLIENT_PLUGIN_PVIO_SOCKET STATIC)
+ MESSAGE("== Configuring MariaDB Connector/C")
+ ADD_SUBDIRECTORY(libmariadb)
+ 
+-IF(UNIX)
++IF(UNIX AND NOT WITHOUT_CLIENTLIBS)
+   INSTALL(CODE "EXECUTE_PROCESS(
+                   COMMAND ${CMAKE_COMMAND} -E make_directory \$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/${INSTALL_BINDIR})
+                 EXECUTE_PROCESS(
+diff --git a/extra/CMakeLists.txt b/extra/CMakeLists.txt
+index 5021128e..48698b5c 100644
+--- a/extra/CMakeLists.txt
++++ b/extra/CMakeLists.txt
+@@ -46,10 +46,15 @@ ADD_CUSTOM_TARGET(GenError
+                   DEPENDS
+                   ${CMAKE_BINARY_DIR}/include/mysqld_error.h.tmp)
+ 
+-MYSQL_ADD_EXECUTABLE(my_print_defaults my_print_defaults.c COMPONENT Client)
++IF(NOT WITHOUT_CLIENTLIBS)
++MYSQL_ADD_EXECUTABLE(my_print_defaults my_print_defaults.c)
++MYSQL_ADD_EXECUTABLE(perror perror.c)
++ELSE(NOT WITHOUT_CLIENTLIBS)
++ADD_EXECUTABLE(my_print_defaults my_print_defaults.c)
++ADD_EXECUTABLE(perror perror.c)
++ENDIF(NOT WITHOUT_CLIENTLIBS)
+ TARGET_LINK_LIBRARIES(my_print_defaults  mysys)
+ 
+-MYSQL_ADD_EXECUTABLE(perror perror.c)
+ ADD_DEPENDENCIES(perror GenError)
+ TARGET_LINK_LIBRARIES(perror mysys)
+ 
+diff --git a/libmariadb/CMakeLists.txt b/libmariadb/CMakeLists.txt
+index 206e4e03..e108e88e 100644
+--- a/libmariadb/CMakeLists.txt
++++ b/libmariadb/CMakeLists.txt
+@@ -428,7 +428,7 @@ ENDIF()
+ INCLUDE(${CC_SOURCE_DIR}/plugins/CMakeLists.txt)
+ ADD_SUBDIRECTORY(include)
+ ADD_SUBDIRECTORY(libmariadb)
+-IF((NOT WIN32) OR CYGWIN)
++IF(((NOT WIN32) OR CYGWIN) AND NOT WITHOUT_CLIENTLIBS)
+   ADD_SUBDIRECTORY(mariadb_config)
+ ENDIF()
+ 
+@@ -445,10 +445,6 @@ IF(CLIENT_DOCS)
+           COMPONENT SharedLibraries)
+ ENDIF()
+ 
+-IF(UNIX)
+-  ADD_SUBDIRECTORY(man)
+-ENDIF()
+-
+ IF(WIN32 AND WITH_MSI AND CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+   ADD_SUBDIRECTORY(win/packaging)
+ ENDIF()
+diff --git a/libmariadb/include/CMakeLists.txt b/libmariadb/include/CMakeLists.txt
+index b9eed535..0ef4fd0b 100644
+--- a/libmariadb/include/CMakeLists.txt
++++ b/libmariadb/include/CMakeLists.txt
+@@ -27,6 +27,7 @@ IF(WIN32)
+   SET(WIX_INCLUDES ${MARIADB_CLIENT_INCLUDES} ${MARIADB_ADDITIONAL_INCLUDES} ${MYSQL_ADDITIONAL_INCLUDES} PARENT_SCOPE)
+ ENDIF()
+ 
++IF(NOT WITHOUT_CLIENTLIBS)
+ INSTALL(FILES
+    ${MARIADB_CLIENT_INCLUDES}
+    DESTINATION ${INSTALL_INCLUDEDIR}
+@@ -39,3 +40,4 @@ INSTALL(FILES
+    ${MARIADB_ADDITIONAL_INCLUDES}
+    DESTINATION ${INSTALL_INCLUDEDIR}/mariadb
+    COMPONENT Development)
++ENDIF(NOT WITHOUT_CLIENTLIBS)
+diff --git a/libmariadb/libmariadb/CMakeLists.txt b/libmariadb/libmariadb/CMakeLists.txt
+index 43ed67b4..c3392c5d 100644
+--- a/libmariadb/libmariadb/CMakeLists.txt
++++ b/libmariadb/libmariadb/CMakeLists.txt
+@@ -443,8 +443,10 @@ IF(WIN32)
+                    "FILE_DESCRIPTION:Dynamic lib for client/server communication")
+ ENDIF()
+ 
+-ADD_LIBRARY(mariadbclient STATIC  ${MARIADB_OBJECTS} ${EMPTY_FILE})
+-TARGET_LINK_LIBRARIES(mariadbclient ${SYSTEM_LIBS} ${CRYPTO_LIBS})
++IF(ENABLE_STATIC_LIBS OR NOT WITHOUT_TOOLS)
++ ADD_LIBRARY(mariadbclient STATIC  ${MARIADB_OBJECTS} ${EMPTY_FILE})
++ TARGET_LINK_LIBRARIES(mariadbclient ${SYSTEM_LIBS} ${CRYPTO_LIBS})
++ENDIF(ENABLE_STATIC_LIBS OR NOT WITHOUT_TOOLS)
+ 
+ IF(UNIX)
+   ADD_LIBRARY(libmariadb SHARED ${libmariadb_RC} ${MARIADB_OBJECTS} ${EMPTY_FILE})
+@@ -467,7 +469,9 @@ IF(CMAKE_SYSTEM_NAME MATCHES "Linux" OR
+   SET_TARGET_PROPERTIES(libmariadb PROPERTIES LINK_FLAGS "${CC_BINARY_DIR}/libmariadb/mariadbclient.def")
+ ENDIF()
+ 
+-SET_TARGET_PROPERTIES(mariadbclient PROPERTIES IMPORTED_INTERFACE_LINK_LIBRARIES "${SYSTEM_LIBS}")
++IF(ENABLE_STATIC_LIBS OR NOT WITHOUT_TOOLS)
++ SET_TARGET_PROPERTIES(mariadbclient PROPERTIES IMPORTED_INTERFACE_LINK_LIBRARIES "${SYSTEM_LIBS}")
++ENDIF(ENABLE_STATIC_LIBS OR NOT WITHOUT_TOOLS)
+ SET_TARGET_PROPERTIES(libmariadb PROPERTIES IMPORTED_INTERFACE_LINK_LIBRARIES "${SYSTEM_LIBS}")
+ 
+ SET_TARGET_PROPERTIES(libmariadb PROPERTIES PREFIX "")
+@@ -481,12 +485,12 @@ INCLUDE(${CC_SOURCE_DIR}/cmake/symlink.cmake)
+ # of the config program. To make sure these programs can
+ # use mariadb client library we provide libmysql symlinks
+ 
+-IF(WITH_MYSQLCOMPAT)
++IF(WITH_MYSQLCOMPAT AND NOT WITHOUT_CLIENTLIBS)
+   create_symlink(libmysqlclient${CMAKE_SHARED_LIBRARY_SUFFIX} libmariadb ${INSTALL_LIBDIR})
+-  create_symlink(libmysqlclient_r${CMAKE_SHARED_LIBRARY_SUFFIX} libmariadb ${INSTALL_LIBDIR})
+-  IF(NOT CMAKE_SYSTEM_NAME MATCHES AIX)
++#  create_symlink(libmysqlclient_r${CMAKE_SHARED_LIBRARY_SUFFIX} libmariadb ${INSTALL_LIBDIR})
++  IF(ENABLE_STATIC_LIBS AND NOT CMAKE_SYSTEM_NAME MATCHES AIX)
+     create_symlink(libmysqlclient${CMAKE_STATIC_LIBRARY_SUFFIX} mariadbclient ${INSTALL_LIBDIR})
+-    create_symlink(libmysqlclient_r${CMAKE_STATIC_LIBRARY_SUFFIX} mariadbclient ${INSTALL_LIBDIR})
++#    create_symlink(libmysqlclient_r${CMAKE_STATIC_LIBRARY_SUFFIX} mariadbclient ${INSTALL_LIBDIR})
+   ENDIF()
+ ENDIF()
+ 
+@@ -500,23 +504,15 @@ IF(NOT WIN32)
+   SET_TARGET_PROPERTIES(mariadbclient PROPERTIES OUTPUT_NAME "${LIBMARIADB_STATIC_NAME}")
+ ENDIF()
+ 
++IF(NOT WITHOUT_CLIENTLIBS)
++IF(ENABLE_STATIC_LIBS)
+ INSTALL(TARGETS mariadbclient
+           COMPONENT Development
+           DESTINATION ${INSTALL_LIBDIR})
+-IF(WIN32)
+-INSTALL(TARGETS libmariadb
+-        COMPONENT SharedLibraries
+-        DESTINATION ${INSTALL_LIBDIR})
+-ELSE()
+-# in cmake 3.12+ we can use
+-#INSTALL(TARGETS libmariadb LIBRARY DESTINATION ${INSTALL_LIBDIR}
+-#        COMPONENT SharedLibraries NAMELINK_COMPONENT Development)
+-# but as long as we build on CentOS 7 with its cmake 2.8.12.2 we have to use
++ENDIF(ENABLE_STATIC_LIBS)
+ INSTALL(TARGETS libmariadb LIBRARY DESTINATION ${INSTALL_LIBDIR}
+-        COMPONENT SharedLibraries NAMELINK_SKIP)
+-INSTALL(TARGETS libmariadb LIBRARY DESTINATION ${INSTALL_LIBDIR}
+-        COMPONENT Development NAMELINK_ONLY)
+-ENDIF()
++        COMPONENT SharedLibraries NAMELINK_COMPONENT Development)
++ENDIF(NOT WITHOUT_CLIENTLIBS)
+ 
+ IF(MSVC)
+    # On Windows, install PDB
+diff --git a/man/CMakeLists.txt b/man/CMakeLists.txt
+index e6d7ab32..fad9bfe8 100644
+--- a/man/CMakeLists.txt
++++ b/man/CMakeLists.txt
+@@ -38,7 +38,7 @@ SET(MAN1_CLIENT msql2mysql.1 mysql.1 mysql_find_rows.1 mysql_waitpid.1
+                 mysql_plugin.1 mysql_embedded.1 my_print_defaults.1
+                 mysqlhotcopy.1 mysql_setpermission.1 mysql_tzinfo_to_sql.1
+                 mysql_convert_table_format.1 replace.1 mysql_secure_installation.1
+-		perror.1 resolve_stack_dump.1)
++                resolve_stack_dump.1)
+ SET(MAN1_DEVEL mysql_config.1)
+ SET(MAN1_TEST mysql-stress-test.pl.1 mysql-test-run.pl.1 mysql_client_test.1
+               mysqltest.1 mysqltest_embedded.1 mysql_client_test_embedded.1
+diff --git a/scripts/CMakeLists.txt b/scripts/CMakeLists.txt
+index 9eec793c..67255418 100644
+--- a/scripts/CMakeLists.txt
++++ b/scripts/CMakeLists.txt
+@@ -333,19 +333,25 @@ ELSE()
+   # On Unix, most of the files end up in the bin directory
+   SET(BIN_SCRIPTS
+     msql2mysql
+-    mariadb-setpermission
+-    mariadb-secure-installation
+-    mariadb-access
+-    mariadb-convert-table-format
+-    mariadb-find-rows
++    mysql_setpermission
++    mysql_secure_installation
++    mysqlaccess
++    mysql_convert_table_format
++    mysql_find_rows
+     mariadb-dumpslow
+-    mysql_config
+     mytop
+     mariadb-hotcopy
+     ${SERVER_SCRIPTS}
+     ${WSREP_SCRIPTS}
+   )
+ 
++  IF(NOT WITHOUT_CLIENTLIBS)
++    SET(BIN_SCRIPTS
++      ${BIN_SCRIPTS}
++      mysql_config
++    )
++  ENDIF(NOT WITHOUT_CLIENTLIBS)
++
+   FOREACH(file ${BIN_SCRIPTS})
+     # set name of executable
+     GET_SYMLINK(${file} binname)
+diff --git a/scripts/mysql_install_db.sh b/scripts/mysql_install_db.sh
+index c88abee1..d165f2c9 100644
+--- a/scripts/mysql_install_db.sh
++++ b/scripts/mysql_install_db.sh
+@@ -293,10 +293,10 @@ then
+   print_defaults="$builddir/extra/my_print_defaults"
+ elif test -n "$basedir"
+ then
+-  print_defaults=`find_in_dirs my_print_defaults $basedir/bin $basedir/extra`
++  print_defaults=`find_in_dirs my_print_defaults $basedir/libexec/mariadb $basedir/bin $basedir/extra`
+   if test -z "$print_defaults"
+   then
+-    cannot_find_file my_print_defaults $basedir/bin $basedir/extra
++    cannot_find_file my_print_defaults $basedir/libexec/mariadb $basedir/bin $basedir/extra
+     exit 1
+   fi
+ elif test -n "$dirname0" -a -x "$dirname0/@bindir@/my_print_defaults"
+diff --git a/scripts/mysqld_safe.sh b/scripts/mysqld_safe.sh
+index 34a2de1c..c2b2a89b 100644
+--- a/scripts/mysqld_safe.sh
++++ b/scripts/mysqld_safe.sh
+@@ -108,7 +108,13 @@ EOF
+ }
+ 
+ find_in_bin() {
+-  if test -x "$MY_BASEDIR_VERSION/bin/$1"
++  if test -x "$MY_BASEDIR_VERSION/libexec/mariadb/$1"
++  then
++    echo "$MY_BASEDIR_VERSION/libexec/mariadb/$1"
++  elif test -x "@bindir@/../libexec/mariadb/$1"
++  then
++    echo "@bindir@/../libexec/mariadb/$1"
++  elif test -x "$MY_BASEDIR_VERSION/$1"
+   then
+     echo "$MY_BASEDIR_VERSION/bin/$1"
+   elif test -x "@bindir@/$1"
+diff --git a/scripts/wsrep_sst_common.sh b/scripts/wsrep_sst_common.sh
+index bf96f79e..d2083ee4 100644
+--- a/scripts/wsrep_sst_common.sh
++++ b/scripts/wsrep_sst_common.sh
+@@ -805,6 +805,7 @@ script_binary=$(dirname "$0")
+ SCRIPTS_DIR=$(cd "$script_binary"; pwd)
+ EXTRA_DIR="$SCRIPTS_DIR/../extra"
+ CLIENT_DIR="$SCRIPTS_DIR/../client"
++LIBEXEC_DIR="$SCRIPTS_DIR/../libexec/mariadb"
+ 
+ if [ -x "$CLIENT_DIR/mariadb" ]; then
+     MYSQL_CLIENT="$CLIENT_DIR/mariadb"
+@@ -841,7 +842,9 @@ wsrep_log_info()
+     wsrep_log "[INFO] $*"
+ }
+ 
+-if [ -x "$SCRIPTS_DIR/my_print_defaults" ]; then
++if [ -x "$LIBEXEC_DIR/my_print_defaults" ]; then
++    MY_PRINT_DEFAULTS="$LIBEXEC_DIR/my_print_defaults"
++elif [ -x "$SCRIPTS_DIR/my_print_defaults" ]; then
+     MY_PRINT_DEFAULTS="$SCRIPTS_DIR/my_print_defaults"
+ elif [ -x "$EXTRA_DIR/my_print_defaults" ]; then
+     MY_PRINT_DEFAULTS="$EXTRA_DIR/my_print_defaults"
+diff --git a/support-files/CMakeLists.txt b/support-files/CMakeLists.txt
+index f4cc5f26..96a2fc48 100644
+--- a/support-files/CMakeLists.txt
++++ b/support-files/CMakeLists.txt
+@@ -95,8 +95,10 @@ IF(UNIX AND NOT WITHOUT_SERVER)
+     ENDIF()
+   ENDIF()
+ 
+-  CONFIGURE_FILE(mariadb.pc.in ${CMAKE_CURRENT_BINARY_DIR}/mariadb.pc @ONLY)
+-  INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/mariadb.pc DESTINATION ${INSTALL_LIBDIR}/pkgconfig COMPONENT Development)
++  IF(NOT WITHOUT_CLIENTLIBS)
++    CONFIGURE_FILE(mariadb.pc.in ${CMAKE_CURRENT_BINARY_DIR}/mariadb.pc @ONLY)
++    INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/mariadb.pc DESTINATION ${INSTALL_LIBDIR}/pkgconfig COMPONENT Development)
++  ENDIF(NOT WITHOUT_CLIENTLIBS)
+ 
+   INSTALL(FILES mysql.m4 DESTINATION ${INSTALL_SHAREDIR}/aclocal COMPONENT Development)
+   
