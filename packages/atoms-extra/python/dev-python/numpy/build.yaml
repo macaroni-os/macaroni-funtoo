@@ -4,6 +4,10 @@ prelude:
   eval 'eselect cblas set 1 || true' &&
   eval 'eselect lapack set 1 || true'
 
+# Temporary fix until https://github.com/macaroni-os/mark-issues/issues/159 is fixed
+- >-
+  cp /var/git/extra-kits/geaaru-kit/eclass/distutils-r1.eclass /var/git/meta-repo/kits/core-kit/eclass/
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
