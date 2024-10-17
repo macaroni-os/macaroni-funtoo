@@ -1,4 +1,9 @@
 prelude:
+# Temporary fix until next race
+- >-
+  eval 'mkdir -p /var/git/meta-repo/kits/core-hw-kit/sys-firmware/ipxe/ || true' &&
+  cp *.ebuild Manifest /var/git/meta-repo/kits/core-hw-kit/sys-firmware/ipxe/
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
