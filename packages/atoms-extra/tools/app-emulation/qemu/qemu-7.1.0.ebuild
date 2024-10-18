@@ -204,21 +204,23 @@ X86_FIRMWARE_DEPEND="
 	pin-upstream-blobs? (
 		~sys-firmware/edk2-ovmf-bin-${EDK2_OVMF_VERSION}
 		~sys-firmware/seabios-bin-${SEABIOS_VERSION}
-		~sys-firmware/sgabios-0.1_pre10[binary]
 	)
 	!pin-upstream-blobs? (
 		>=sys-firmware/edk2-ovmf-${EDK2_OVMF_VERSION}
-		>=sys-firmware/seabios-${SEABIOS_VERSION}[seavgabios]
+		|| (
+			>=sys-firmware/seabios-${SEABIOS_VERSION}[seavgabios]
 			>=sys-firmware/seabios-bin-${SEABIOS_VERSION}
-		sys-firmware/sgabios
+		)
 	)"
 PPC_FIRMWARE_DEPEND="
 	pin-upstream-blobs? (
 		~sys-firmware/seabios-bin-${SEABIOS_VERSION}
 	)
 	!pin-upstream-blobs? (
+		|| (
 			>=sys-firmware/seabios-${SEABIOS_VERSION}[seavgabios]
 			>=sys-firmware/seabios-bin-${SEABIOS_VERSION}
+		)
 	)
 "
 
@@ -249,6 +251,7 @@ CDEPEND="
 "
 DEPEND="${CDEPEND}
 	sys-firmware/ipxe[qemu]
+	sys-firmware/sgabios
 	kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 )
 	static? (
 		${ALL_DEPEND}
