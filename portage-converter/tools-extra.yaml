@@ -74,6 +74,9 @@ skipped_resolutions:
     - name: binutils-config
       category: sys-devel
 
+    - category: app-arch
+      name: upx
+
 build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
 
 global_annotations:
@@ -248,13 +251,37 @@ artefacts:
     - media-libs/opus
     - sys-firmware/edk2-ovmf
     - sys-firmware/edk2-ovmf-bin
-    - sys-firmware/ipxe
     - sys-firmware/seabios-bin
     - sys-firmware/seabios
     - sys-firmware/sgabios
     - app-arch/upx-bin
+    - virtual/perl-Digest
+    - sys-fs/mtools
+    - app-cdr/cdrtools
+
+- tree: packages/atoms-extra/tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: app-arch
+          name: upx-bin
+        - category: app-cdr
+          name: cdrtools
+  packages:
+    - sys-boot/syslinux
 #    - sys-libs/libxcrypt
 #    - app-misc/neofetch
+
+- tree: packages/atoms-extra/tools
+  mutations:
+    uses:
+      - qemu
+      - efi
+      - lkrn
+      - usb
+      - vmware
+  packages:
+    - sys-firmware/ipxe
 
 - tree: packages/atoms-extra/tools
   mutations:
