@@ -1,4 +1,8 @@
 prelude:
+# Temporary patch
+- >-
+  eval 'mkdir -p /var/git/meta-repo/kits/core-hw-kit/sys-firmware/sgabios/ || true' &&
+  cp Manifest *.ebuild /var/git/meta-repo/kits/core-hw-kit/sys-firmware/sgabios/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
