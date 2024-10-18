@@ -1,4 +1,12 @@
 prelude:
+# Temporary pin 6.10.4
+- >-
+  rm /var/git/meta-repo/kits/core-hw-kit/sys-power/cpupower/*.ebuild &&
+  cp *.ebuild /var/git/meta-repo/kits/core-hw-kit/sys-power/cpupower/ &&
+  cd /var/git/meta-repo/kits/core-hw-kit/sys-power/cpupower &&
+  rm Manifest &&
+  ebuild *.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
