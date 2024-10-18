@@ -260,6 +260,17 @@ artefacts:
     - app-cdr/cdrtools
 
 - tree: packages/atoms-extra/tools
+  uses:
+    disabled:
+      - gstreamer
+      - lz4
+      - sasl
+      - smartcard
+      - test
+  packages:
+    - app-emulation/spice
+
+- tree: packages/atoms-extra/tools
   mutations:
     buildtime_deps:
       packages:
