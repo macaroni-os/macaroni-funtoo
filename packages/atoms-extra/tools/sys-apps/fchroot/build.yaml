@@ -1,4 +1,9 @@
 prelude:
+# Temporary until next race
+- >-
+  sed -i -e '/sys-firmware\/ipxe/d'
+  -e '/sys-firmware\/sgabios/d'
+  /var/git/meta-repo/kits/core-kit/app-emulation/qemu/qemu-7.1.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
