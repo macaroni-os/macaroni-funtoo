@@ -6,12 +6,12 @@
 Funtoo Macaroni Repository Tree
 
 Branches behavior:
-* `phoenix`: branch for Phoenix Next release (Funtoo Next based).
+* `phoenix`: branch for Phoenix Next release (MARK *next* based).
 
-* `terragon`: related to the `next` release of Funtoo but
+* `terragon`: related to the `mark-testing` branch of MARK but
   oriented to Container and with openRC.
 
-* `eagle`: branch for Eagle release (Funtoo Next based).
+* `eagle`: branch for Eagle release (MARK Next based).
 
 * `master`: branch for Phoenix release (Funtoo 1.4-prime). EOL end 2023.
 
