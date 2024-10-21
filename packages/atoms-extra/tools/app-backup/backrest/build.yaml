@@ -1,4 +1,9 @@
 prelude:
+# Backreset webui doesn't compile with Nodejs22. Using nodejs20
+- >-
+  anise rm nodejs --nodeps -f &&
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  emerge =net-libs/nodejs-20.17.0 -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
