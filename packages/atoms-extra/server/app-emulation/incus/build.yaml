@@ -9,6 +9,9 @@ prelude:
 # Force using the ebuild from geaaru-kit
 - >-
    rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/incus/
+# temporary patch
+- >-
+  anise miner ri toolchain/meta-geaaru-kit
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
