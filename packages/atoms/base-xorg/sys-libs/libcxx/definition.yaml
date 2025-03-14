@@ -1,5 +1,5 @@
 name: libcxx
-version: 16.0.6
+version: 16.0.6+1
 category: sys-libs
 use_flags:
 - clang
@@ -21,7 +21,8 @@ uri:
 license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
 labels:
   BDEPEND: clang? ( sys-devel/clang:16 ) dev-util/ninja dev-util/cmake
-  DEPEND: sys-devel/llvm:16
+  DEPEND: libcxxabi? ( ~sys-libs/libcxxabi-16.0.6[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
+    ) sys-devel/llvm:16
   IUSE: static-libs clang +libcxxabi +libunwind
   RDEPEND: libcxxabi? ( ~sys-libs/libcxxabi-16.0.6[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
     )
