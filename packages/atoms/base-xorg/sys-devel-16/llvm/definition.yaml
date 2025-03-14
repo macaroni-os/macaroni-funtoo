@@ -1,5 +1,5 @@
 name: llvm
-version: 16.0.6
+version: 16.0.6+1
 category: sys-devel-16
 use_flags:
 - -doc
@@ -54,7 +54,10 @@ labels:
     ) ( dev-lang/python:3.10 dev-python/recommonmark[python_targets_python3_10(-),python_single_target_python3_10(+)]
     dev-python/sphinx[python_targets_python3_10(-),python_single_target_python3_10(+)]
     ) ) ) libffi? ( virtual/pkgconfig ) dev-util/ninja dev-util/cmake
-  DEPEND: gold? ( sys-libs/binutils-libs )
+  DEPEND: sys-libs/zlib:= exegesis? ( dev-libs/libpfm:= ) gold? ( sys-devel/binutils:*[plugins]
+    ) libedit? ( dev-libs/libedit:= ) libffi? ( dev-libs/libffi:0= ) ncurses? ( sys-libs/ncurses:0=
+    ) xar? ( app-arch/xar ) xml? ( dev-libs/libxml2:2= ) z3? ( >=sci-mathematics/z3-4.7.1:0=
+    ) zstd? ( app-arch/zstd:= ) gold? ( sys-libs/binutils-libs )
   IUSE: debug doc exegesis gold libedit +libffi ncurses xar xml z3 zstd binutils-plugin
     llvm_targets_ARC llvm_targets_CSKY llvm_targets_DirectX llvm_targets_M68k llvm_targets_SPIRV
     llvm_targets_Xtensa llvm_targets_AArch64 llvm_targets_AMDGPU llvm_targets_ARM
@@ -70,4 +73,4 @@ labels:
   kit: llvm-kit
   original.package.name: sys-devel/llvm
   original.package.slot: "16"
-  original.package.version: 16.0.6
+  original.package.version: 16.0.6-r1
