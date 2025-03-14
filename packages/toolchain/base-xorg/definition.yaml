@@ -3,6 +3,9 @@ name: base-xorg
 version: "1"
 description: "Virtual package to install portage meta data of the base-xorg packages"
 requires:
+  - name: xmlto
+    category: app-text
+    version: '>=0'
   - name: yelp-tools
     category: app-text
     version: '>=0'
@@ -16,6 +19,12 @@ requires:
     category: dev-libs
     version: '>=0'
   - name: gobject-introspection-common
+    category: dev-libs
+    version: '>=0'
+  - name: libedit
+    category: dev-libs
+    version: '>=0'
+  - name: libpfm
     category: dev-libs
     version: '>=0'
   - name: libsodium
@@ -54,14 +63,32 @@ requires:
   - name: libpng
     category: media-libs
     version: '>=0'
-  - name: clang-common
-    category: sys-devel
+  - name: z3
+    category: sci-mathematics
+    version: '>=0'
+  - name: clang
+    category: sys-devel-16
+    version: '>=0'
+  - name: clang-runtime
+    category: sys-devel-16
     version: '>=0'
   - name: lld
+    category: sys-devel-16
+    version: '>=0'
+  - name: llvm
+    category: sys-devel-16
+    version: '>=0'
+  - name: clang-common
     category: sys-devel
     version: '>=0'
   - name: llvm-common
     category: sys-devel
+    version: '>=0'
+  - name: compiler-rt
+    category: sys-libs-16
+    version: '>=0'
+  - name: compiler-rt-sanitizers
+    category: sys-libs-16
     version: '>=0'
   - name: libcxx
     category: sys-libs
