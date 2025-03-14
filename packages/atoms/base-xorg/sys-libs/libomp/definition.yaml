@@ -2,16 +2,14 @@ name: libomp
 version: 16.0.6
 category: sys-libs
 use_flags:
-- -cuda
 - -hwloc
-- -test
 - llvm_targets_AMDGPU
 - llvm_targets_NVPTX
 - offload
 requires:
 - name: llvm
   version: '>=0'
-  category: sys-devel-13
+  category: sys-devel-16
 - name: libelf
   version: '>=0'
   category: virtual
@@ -24,13 +22,11 @@ annotations:
       - ^/var/db/pkg/
 description: OpenMP runtime library for LLVM/clang compiler
 uri:
-- https://openmp.llvm.org
+- https://openmp.llvm.org/
 license: Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
 labels:
   BDEPEND: dev-lang/perl offload? ( llvm_targets_AMDGPU? ( sys-devel/clang ) llvm_targets_NVPTX?
     ( sys-devel/clang ) virtual/pkgconfig ) dev-util/ninja dev-util/cmake
-  DEPEND: hwloc? ( sys-apps/hwloc:0=[-mgorny(-)] ) offload? ( virtual/libelf:=[-mgorny(-)]
-    dev-libs/libffi:=[-mgorny(-)] ~sys-devel/llvm-16.0.0[-mgorny(-)] ) !!sys-devel/llvm:0
   IUSE: cuda debug hwloc offload ompt llvm_targets_AMDGPU llvm_targets_NVPTX abi_x86_64
   RDEPEND: hwloc? ( sys-apps/hwloc:0= ) offload? ( virtual/libelf dev-libs/libffi
     ~sys-devel/llvm-16.0.6 )
