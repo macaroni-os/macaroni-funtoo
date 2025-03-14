@@ -886,9 +886,6 @@ artefacts:
     - sh
   packages:
     - dev-lang/yasm
-    - sys-devel/clang:16
-    - sys-devel/clang-runtime:16
-
 
 - tree: packages/atoms/base-tools
   uses:
@@ -898,8 +895,8 @@ artefacts:
     - debug
     - test
   packages:
-    - sys-libs/compiler-rt:16.0.0
-    - sys-libs/compiler-rt-sanitizers:16.0.0
+    - sys-libs/compiler-rt:16
+    - sys-libs/compiler-rt-sanitizers:16
 
 - tree: packages/atoms/base-tools
   uses:
@@ -947,6 +944,35 @@ artefacts:
     - xml
   packages:
   - sys-devel/llvm:16
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        # Seems a bug of anise-portage-converter for
+        # pkg starting with ~
+        - category: sys-devel-16
+          name: llvm
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/clang:16
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/clang-runtime:16
+
 
 - tree: packages/atoms/base-tools
   uses:
@@ -1059,7 +1085,31 @@ artefacts:
   - x11-misc/shared-mime-info
   - app-text/yelp-tools
 
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-libs/libunwind
+  - sys-libs/libcxx
 
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-libs
+          name: libunwind
+    runtime_deps:
+      packages:
+        - category: sys-libs
+          name: libunwind
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - sys-libs/libcxxabi
 
 include_layers:
 - layers/macaroni-funtoo-race2.yaml
