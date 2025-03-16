@@ -1,18 +1,4 @@
 prelude:
-# Temporary fix for libdrm
-- >-
-  eval 'mkdir -p /var/cache/portage/distfiles || true' &&
-  chown portage:portage -R /var/cache/portage/ &&
-  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
-  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
-  USE="libkms -valgrind" VIDEO_CARDS="radeon amdgpu intel nouveau vmware"
-  emerge x11-libs/libdrm -j -t
-# Fix build order
-- >-
-  anise repo update &&
-  anise upgrade &&
-  anise i -y vulkan-loader glslang &&
-  anise cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -38,6 +24,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: libva
+- name: libwebp
   version: '>=0'
-  category: x11-libs
+  category: media-libs
