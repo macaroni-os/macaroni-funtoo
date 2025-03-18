@@ -1,14 +1,15 @@
 name: ruby-ssl
-version: 13.0+1
+version: 13.0+2
 category: virtual
 use_flags:
+- -ruby_targets_ruby27
 - -ruby_targets_ruby30
-- -ruby_targets_ruby31
-- ruby_targets_ruby27
+- -ruby_targets_ruby32
+- ruby_targets_ruby31
 requires:
 - name: ruby
   version: '>=0'
-  category: dev-lang-2.7
+  category: dev-lang-3.1
 annotations:
   subsets:
     rules:
@@ -17,8 +18,6 @@ annotations:
       portage:
       - ^/var/db/pkg/
 description: Virtual ebuild for the Ruby OpenSSL bindings
-uri:
-- ""
 labels:
   BDEPEND: ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1
     ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7
