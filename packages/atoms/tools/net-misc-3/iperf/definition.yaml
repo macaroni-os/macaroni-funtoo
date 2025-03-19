@@ -1,0 +1,36 @@
+name: iperf
+version: "3.6"
+category: net-misc-3
+use_flags:
+- -libressl
+- sctp
+requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: lksctp-tools
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A TCP, UDP, and SCTP network bandwidth measurement tool
+uri:
+- https://github.com/esnet/iperf/
+license: BSD
+labels:
+  DEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) sctp?
+    ( net-misc/lksctp-tools ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  IUSE: libressl sctp static-libs
+  RDEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= )
+    sctp? ( net-misc/lksctp-tools )'
+  emerge.packages: net-misc/iperf:3
+  kit: net-kit
+  original.package.name: net-misc/iperf
+  original.package.slot: "3"
+  original.package.version: "3.6"
