@@ -8,7 +8,7 @@ env:
 prelude:
 # Temporary fix until macaroni-os/mark-issues#316 is done
 - >-
-  cp files/ /var/git/meta-repo/kits/ruby-kit/dev-ruby/rubygems/ &&
+  cp -rf files/ /var/git/meta-repo/kits/ruby-kit/dev-ruby/rubygems/ &&
   sed -i -e 's|${REPODIR}/dev-ruby/files/${PN}|${FILESDIR}|g' /var/git/meta-repo/kits/ruby-kit/dev-ruby/rubygems/rubygems-3.6.6.ebuild
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
