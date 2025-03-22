@@ -1,5 +1,5 @@
 name: freeradius
-version: 3.0.27+3
+version: 3.0.27+4
 category: net-dialup
 use_flags:
 - -firebird
@@ -81,12 +81,12 @@ labels:
     dev-libs/libmemcached ) mysql? ( dev-db/mysql-connector-c ) mongo? ( >=dev-libs/mongo-c-driver-1.13.0-r1
     ) postgres? ( dev-db/postgresql:= ) firebird? ( dev-db/firebird ) pam? ( sys-libs/pam
     ) rest? ( dev-libs/json-c:= ) samba? ( net-fs/samba ) redis? ( dev-libs/hiredis:=
-    ) ssl? ( !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
-    ) ) ldap? ( net-nds/openldap ) kerberos? ( virtual/krb5 ) sqlite? ( dev-db/sqlite:3
-    ) odbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc ) systemd? ( sys-apps/systemd
-    ) oracle? ( dev-db/oracle-instantclient-basic ) sys-apps/shadow'
-  IUSE: debug firebird iodbc kerberos ldap libressl memcached mysql odbc oracle pam
-    pcap postgres python readline rest samba sqlite ssl redis systemd mongo systemd-integration
+    ) ssl? ( dev-libs/openssl ) ldap? ( net-nds/openldap ) kerberos? ( virtual/krb5
+    ) sqlite? ( dev-db/sqlite:3 ) odbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc
+    ) systemd? ( sys-apps/systemd ) oracle? ( dev-db/oracle-instantclient-basic )
+    sys-apps/shadow'
+  IUSE: debug firebird iodbc kerberos ldap memcached mysql odbc oracle pam pcap postgres
+    python readline rest samba sqlite ssl redis systemd mongo systemd-integration
     python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
     python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
     python_targets_python3_9 python_targets_python3_8
@@ -99,12 +99,11 @@ labels:
     dev-libs/libmemcached ) mysql? ( dev-db/mysql-connector-c ) mongo? ( >=dev-libs/mongo-c-driver-1.13.0-r1
     ) postgres? ( dev-db/postgresql:= ) firebird? ( dev-db/firebird ) pam? ( sys-libs/pam
     ) rest? ( dev-libs/json-c:= ) samba? ( net-fs/samba ) redis? ( dev-libs/hiredis:=
-    ) ssl? ( !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
-    ) ) ldap? ( net-nds/openldap ) kerberos? ( virtual/krb5 ) sqlite? ( dev-db/sqlite:3
-    ) odbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc ) systemd? ( sys-apps/systemd
-    ) oracle? ( dev-db/oracle-instantclient-basic )'
+    ) ssl? ( dev-libs/openssl ) ldap? ( net-nds/openldap ) kerberos? ( virtual/krb5
+    ) sqlite? ( dev-db/sqlite:3 ) odbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc
+    ) systemd? ( sys-apps/systemd ) oracle? ( dev-db/oracle-instantclient-basic )'
   emerge.packages: net-dialup/freeradius
   kit: geaaru-kit
   original.package.name: net-dialup/freeradius
   original.package.slot: "0"
-  original.package.version: 3.0.27
+  original.package.version: 3.0.27-r2
