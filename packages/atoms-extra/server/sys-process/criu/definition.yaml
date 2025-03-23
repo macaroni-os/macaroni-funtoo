@@ -1,5 +1,5 @@
 name: criu
-version: 4.0+1
+version: 4.0+2
 category: sys-process
 use_flags:
 - -doc
@@ -8,9 +8,13 @@ use_flags:
 - -python_targets_python3_8
 - -selinux
 - -video_cards_amdgpu
+- bpf
 - python_targets_python3_9
 - setproctitle
 requires:
+- name: libbpf
+  version: '>=0'
+  category: dev-libs
 - name: libbsd
   version: '>=0'
   category: dev-libs
@@ -36,8 +40,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Checkpoint and Restore in Userspace is a utility to checkpoint/restore
-  Linux tasks
+description: Checkpoint/Restore tool
 uri:
 - https://criu.org/
 license: GPL-2
@@ -67,7 +70,7 @@ labels:
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: sys-process/criu
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: sys-process/criu
   original.package.slot: "0"
   original.package.version: "4.0"
