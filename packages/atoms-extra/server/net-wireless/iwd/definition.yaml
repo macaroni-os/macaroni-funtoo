@@ -1,5 +1,5 @@
 name: iwd
-version: "3.4"
+version: 3.4+1
 category: net-wireless
 use_flags:
 - -systemd
@@ -7,6 +7,9 @@ use_flags:
 - crda
 - standalone
 requires:
+- name: ell
+  version: '>=0'
+  category: dev-libs
 - name: crda
   version: '>=0'
   category: net-wireless
@@ -16,6 +19,9 @@ requires:
 - name: readline
   version: '>=0'
   category: sys-libs
+- name: resolvconf
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
