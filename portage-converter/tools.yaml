@@ -656,7 +656,6 @@ artefacts:
 
 - tree: packages/atoms/tools
   mutations:
-
     runtime_deps:
       packages:
         # missing runtime deps
@@ -664,6 +663,16 @@ artefacts:
           name: libnftnl
   packages:
     - sys-cluster/keepalived
+
+
+- tree: packages/atoms/tools
+  uses:
+    disabled:
+      - libressl
+      - static-libs
+      - debug
+  packages:
+    - net-misc/iperf:3
 
 include_layers:
 - layers/macaroni-funtoo-race12.yaml
