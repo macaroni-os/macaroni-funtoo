@@ -1,12 +1,4 @@
 prelude:
-# Temporary patch
-- >-
-  cd /var/git/meta-repo/kits/core-kit/sys-boot/syslinux/ &&
-  rm *.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/kit-fixups/refs/heads/mark-testing/core-kit/curated/sys-boot/syslinux/syslinux-6.04_pre3.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/kit-fixups/refs/heads/mark-testing/core-kit/curated/sys-boot/syslinux/files/6.04_pre1/0005-stddef_addwchar_t.patch
-  -O files/6.04_pre1/0005-stddef_addwchar_t.patch &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
