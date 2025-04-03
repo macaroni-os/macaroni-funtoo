@@ -2,7 +2,7 @@ name: libcxxabi
 version: 16.0.6
 category: sys-libs
 use_flags:
-- -test
+- clang
 - libunwind
 requires:
 - name: libunwind
@@ -18,7 +18,7 @@ annotations:
 description: Low level support for a standard C++ library
 uri:
 - https://libcxxabi.llvm.org/
-license: Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
 labels:
   BDEPEND: clang? ( sys-devel/clang:16 ) dev-util/ninja dev-util/cmake
   DEPEND: libunwind? ( || ( sys-libs/libunwind[static-libs?] sys-libs/llvm-libunwind[static-libs?]
