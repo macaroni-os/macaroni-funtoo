@@ -1,5 +1,5 @@
 name: openssh
-version: 9.8+1
+version: "9.9"
 category: net-misc
 use_flags:
 - -X
@@ -44,7 +44,7 @@ labels:
     ) selinux? ( >=sys-libs/libselinux-1.28[static-libs(+)] ) ssl? ( >=dev-libs/openssl-1.1.1l:0=[static-libs(+)]
     ) >=sys-libs/zlib-1.2.3:=[static-libs(+)] ) sys-apps/shadow'
   IUSE: abi_mips_n32 audit bindist debug hpn kerberos kernel_linux ldns libedit livecd
-    pam +pie +scp security-key sctp selinux +ssl static test X xmss dsa
+    pam +pie +scp security-key sctp selinux +ssl static test X xmss
   RDEPEND: '!static? ( audit? ( sys-process/audit ) ldns? ( net-libs/ldns[ecdsa(+),ssl(+)]
     ) libedit? ( dev-libs/libedit:= ) security-key? ( >=dev-libs/libfido2-1.5.0:=
     ) selinux? ( >=sys-libs/libselinux-1.28 ) ssl? ( >=dev-libs/openssl-1.1.1l:0=
@@ -52,7 +52,7 @@ labels:
     ( >=sys-auth/pambase-20081028 ) !prefix? ( sys-apps/shadow ) X? ( x11-apps/xauth
     )'
   emerge.packages: net-misc/openssh
-  kit: geaaru-kit
+  kit: security-kit
   original.package.name: net-misc/openssh
   original.package.slot: "0"
-  original.package.version: 9.8_p1
+  original.package.version: 9.9_p2
