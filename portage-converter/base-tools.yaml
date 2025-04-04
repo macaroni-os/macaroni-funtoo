@@ -563,39 +563,6 @@ artefacts:
   - sys-process/procps
 
 - tree: packages/atoms/base-tools
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
-  packages:
-    - sys-devel/llvm-common
-    - sys-devel/clang-common
-
-- tree: packages/atoms/base-tools
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - dev-lang/yasm
-    - sys-devel/clang:16
-    - sys-libs/libunwind
-
-- tree: packages/atoms/base-tools
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - sys-devel/clang-runtime:16
-
-- tree: packages/atoms/base-tools
   uses:
     disabled:
     - nios2
@@ -654,17 +621,54 @@ artefacts:
   - sys-devel/llvm:16
 
 - tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: sys-devel-16
+          name: llvm
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/clang:16
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/clang-runtime:16
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  packages:
+    - sys-devel/llvm-common
+    - sys-devel/clang-common
+
+- tree: packages/atoms/base-tools
   uses:
     disabled:
     - nios2
     - sh
     - test
-    enabled:
-    - libcxxabi
-    - libunwind
     - static-libs
   packages:
-  - sys-libs/libcxx
+    - dev-lang/yasm
+    - sys-libs/libunwind
+    - sys-libs/libcxx
+
+
 
 - tree: packages/atoms/base-tools
   mutations:
@@ -681,8 +685,6 @@ artefacts:
     - nios2
     - sh
     - test
-    enabled:
-    - libunwind
     - static-libs
   packages:
   - sys-libs/libcxxabi
@@ -1094,6 +1096,9 @@ reposcan_contraints:
   packages:
     - dev-lang/python:3.9
     - sys-devel/gcc:12.3.0
+
+    - sys-devel/llvm:16
+    - sys-devel/clang:16
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
