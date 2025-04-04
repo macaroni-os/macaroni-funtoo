@@ -46,4 +46,6 @@ for i in ${kits[@]} ; do
   }
 
   TARGET_PKG=packages/toolchain/${i} SOURCE_PKGS_DIR=packages/atoms/${i}  ${SCRIPT_DIR}/toolchain-requires.sh
+
+  rm packages/atoms/${i}/.anise-idx.json || true
 done
