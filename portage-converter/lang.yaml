@@ -63,11 +63,6 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/lang
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-lang
-          name: go-bootstrap
   uses:
     enabled:
       - nls
@@ -76,12 +71,54 @@ artefacts:
 
 - tree: packages/atoms/lang
   mutations:
+    uses:
+      - amd64
     buildtime_deps:
       packages:
         - category: seed
           name: macaroni-funtoo-race5
+  custom_path: dev-lang/go
+  uses:
+    enabled:
+      - amd64
   packages:
-    - dev-lang/go-bootstrap
+    - dev-lang/go
+
+- tree: packages/atoms/lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  custom_path: dev-lang/go/1.22
+  conditions:
+    - '<dev-lang/go-1.23'
+    - '>=dev-lang/go-1.22.0'
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.22
+
+- tree: packages/atoms/lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  custom_path: dev-lang/go/1.23
+  conditions:
+    - '<dev-lang/go-1.24'
+    - '>=dev-lang/go-1.23.0'
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.23
 
 - tree: packages/atoms/lang
   uses:
@@ -134,6 +171,64 @@ artefacts:
       - test
   packages:
     - net-libs/nodejs
+
+- tree: packages/atoms/lang
+  custom_path: net-libs/nodejs/20
+  conditions:
+    - '<net-libs/nodejs-22'
+    - '>=net-libs/nodejs-20'
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  uses:
+    enabled:
+      - icu
+      - inspector
+      - npm
+      - snapshot
+      - ssl
+      - system-icu
+      - system-ssl
+    disabled:
+      - debug
+      - doc
+      - lto
+      - pax-kernel
+      - systemtap
+      - test
+  packages:
+    - net-libs/nodejs,nodejs20
+
+- tree: packages/atoms/lang
+  custom_path: net-libs/nodejs/14
+  conditions:
+    - '<net-libs/nodejs-15'
+    - '>=net-libs/nodejs-14'
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  uses:
+    enabled:
+      - icu
+      - inspector
+      - npm
+      - snapshot
+      - ssl
+      - system-icu
+      - system-ssl
+    disabled:
+      - debug
+      - doc
+      - lto
+      - pax-kernel
+      - systemtap
+      - test
+  packages:
+    - net-libs/nodejs,nodejs14
 
 - tree: packages/atoms/lang
   uses:
@@ -330,6 +425,23 @@ artefacts:
 - tree: packages/atoms/lang
   packages:
     - dev-lang/zig-bin
+
+- tree: packages/atoms/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  packages:
+    - dev-lang/fpc
+
+- tree: packages/atoms/lang
+  uses:
+    disabled:
+      - minimal
+      - extras
+  packages:
+    - dev-lang/lazarus
 
 include_layers:
 - layers/macaroni-funtoo-race5.yaml
