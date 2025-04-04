@@ -428,6 +428,9 @@ artefacts:
 
 - tree: packages/atoms/lang
   mutations:
+    uses:
+      # Needed by lazarus
+      - source
     buildtime_deps:
       packages:
         - category: seed
@@ -435,11 +438,14 @@ artefacts:
   packages:
     - dev-lang/fpc
 
+# Lazarus 
 - tree: packages/atoms/lang
   uses:
     disabled:
       - minimal
       - extras
+      - gui
+      - gtk2
   packages:
     - dev-lang/lazarus
 
