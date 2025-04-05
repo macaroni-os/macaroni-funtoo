@@ -721,6 +721,58 @@ artefacts:
       packages:
         - name: entities-catalog
           category: macaroni
+  uses:
+    disabled:
+      - debug
+      - firebird
+      - kerberos
+      - ldap
+      - libressl
+      - oracle
+      - samba
+      - python_targets_python2_7
+      - python_single_target_python3_7
+      - python_targets_python3_7
+    enabled:
+      - systemd
+      - odbc
+      - iodbc
+      - memcache
+      - memcached
+      - mongo
+      - mysql
+      - pam
+      - pcap
+      - postgres
+      - python
+      - readline
+      - redis
+      - rest
+      - sqlite
+      - ssl
+      - python_single_target_python3_9
+      - python_targets_python3_9
+  custom_path: net-dialup/freeradius/3.0.20
+  packages:
+    - net-dialup/freeradius,rad3.0.20
+  conditions:
+    - '<net-dialup/freeradius-3.0.27'
+    - '>=net-dialup/freeradius-3.0.20'
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e radius
+
+- tree: packages/atoms/server
+  mutations:
+    runtime_deps:
+      packages:
+        - name: entities-catalog
+          category: macaroni
   packages:
     - net-dns/coredns
   finalizer:
