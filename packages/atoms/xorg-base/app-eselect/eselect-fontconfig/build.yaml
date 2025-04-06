@@ -25,3 +25,7 @@ package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
+requires:
+- name: xcb-proto
+  version: '>=0'
+  category: x11-base
