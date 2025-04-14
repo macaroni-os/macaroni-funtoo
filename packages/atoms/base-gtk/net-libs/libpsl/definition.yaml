@@ -1,5 +1,5 @@
 name: libpsl
-version: 0.20.2+1
+version: 0.20.2+2
 category: net-libs
 use_flags:
 - -doc
@@ -37,26 +37,23 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-uri:
-- ""
 license: MIT
 labels:
-  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+  DEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) sys-devel/gettext virtual/pkgconfig sys-devel/libtool doc? ( dev-util/gtk-doc
     ) man? ( dev-libs/libxslt ) idn2? ( net-dns/libidn2[static-libs?] ) idn? ( net-dns/libidn[static-libs?]
-    ) icu? ( dev-libs/icu[static-libs?] ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
-  IUSE: doc man nls static-libs rpath +icu -idn -idn2 python_single_target_python3_7
-    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
-    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
-  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) icu? ( dev-libs/icu[static-libs?] ) >=app-portage/elt-patches-20170815 || (
+    >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  IUSE: doc man nls static-libs rpath +icu -idn -idn2 python_single_target_python3_10
+    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) sys-devel/gettext virtual/pkgconfig sys-devel/libtool doc? ( dev-util/gtk-doc
     ) man? ( dev-libs/libxslt ) idn2? ( net-dns/libidn2[static-libs?] ) idn? ( net-dns/libidn[static-libs?]
     ) icu? ( dev-libs/icu[static-libs?] )
