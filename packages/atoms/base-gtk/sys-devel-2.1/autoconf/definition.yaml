@@ -1,11 +1,14 @@
 name: autoconf
-version: 2.13+1
+version: 2.13+2
 category: sys-devel-2.1
 requires:
 - name: texinfo
   version: '>=0'
   category: sys-apps
 - name: autoconf-wrapper
+  version: '>=0'
+  category: sys-devel
+- name: gnuconfig
   version: '>=0'
   category: sys-devel
 - name: m4
@@ -24,7 +27,6 @@ uri:
 license: GPL-2
 labels:
   BDEPEND: sys-apps/texinfo >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16
-  DEPEND: '>=sys-apps/texinfo-4.3 =sys-devel/m4-1.4* dev-lang/perl'
   IUSE: emacs
   RDEPEND: sys-apps/texinfo >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 >=sys-devel/autoconf-wrapper-13
     sys-devel/gnuconfig !~sys-devel/autoconf-2.13:2.5
