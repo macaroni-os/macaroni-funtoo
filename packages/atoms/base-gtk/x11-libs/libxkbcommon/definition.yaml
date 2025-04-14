@@ -1,19 +1,19 @@
 name: libxkbcommon
-version: 1.4.1+1
+version: 1.4.1+2
 category: x11-libs
 use_flags:
 - -doc
 - -prefix
 - -test
+- -wayland
 - X
-- wayland
 requires:
 - name: doxygen
   version: '>=0'
   category: app-doc
-- name: wayland
+- name: libxml2
   version: '>=0'
-  category: dev-libs
+  category: dev-libs-2
 - name: libxcb
   version: '>=0'
   category: x11-libs
@@ -29,7 +29,8 @@ annotations:
       - ^/var/db/pkg/
 description: keymap handling library for toolkits and window systems
 uri:
-- https://xkbcommon.org/ https://github.com/xkbcommon/libxkbcommon/
+- https://xkbcommon.org/
+- https://github.com/xkbcommon/libxkbcommon/
 license: MIT
 labels:
   BDEPEND: sys-devel/bison doc? ( app-doc/doxygen ) test? ( || ( dev-lang/python:3.8
@@ -43,7 +44,7 @@ labels:
   RDEPEND: X? ( >=x11-libs/libxcb-1.10[xkb] ) wayland? ( >=dev-libs/wayland-1.2.0
     ) dev-libs/libxml2 x11-misc/compose-tables app-doc/doxygen
   emerge.packages: x11-libs/libxkbcommon
-  kit: core-gl-kit
+  kit: xorg-kit
   original.package.name: x11-libs/libxkbcommon
   original.package.slot: "0"
   original.package.version: 1.4.1
