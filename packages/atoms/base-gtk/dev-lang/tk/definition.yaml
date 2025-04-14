@@ -1,5 +1,5 @@
 name: tk
-version: 8.6.9.1+1
+version: 8.6.9.1+2
 category: dev-lang
 use_flags:
 - -aqua
@@ -29,10 +29,9 @@ uri:
 - http://www.tcl.tk/
 license: tcltk
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost
-    )'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 test? ( !prefix? ( x11-base/xorg-server[xvfb]
+    ) x11-apps/xhost )'
   DEPEND: '!aqua? ( >=media-libs/fontconfig-2.10.92[-mgorny(-)] >=x11-libs/libX11-1.6.2[-mgorny(-)]
     >=x11-libs/libXt-1.1.4[-mgorny(-)] truetype? ( >=x11-libs/libXft-2.3.1-r1[-mgorny(-)]
     ) xscreensaver? ( >=x11-libs/libXScrnSaver-1.2.2-r1[-mgorny(-)] ) ) ~dev-lang/tcl-8.6.9:0=[-mgorny(-)]
