@@ -1,4 +1,9 @@
 prelude:
+# Temporary fix related to macaroni-os/mark-issues#336
+- >-
+  cp spidermonkey-78.15.0-r2.ebuild
+  /var/git/meta-repo/kits/browser-kit/dev-lang/spidermonkey/
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
