@@ -1,4 +1,14 @@
 prelude:
+# Fix ebuild/portage issues on correctly setup gtk cache before emerge adwaita.
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
+  emerge dev-util/gtk-update-icon-cache --nodeps -j &&
+  emerge x11-themes/hicolor-icon-theme --nodeps -j &&
+  emerge gnome-base/librsvg -j &&
+  whip h gtk.postinst &&
+  emerge x11-themes/adwaita-icon-theme --nodeps -j
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
