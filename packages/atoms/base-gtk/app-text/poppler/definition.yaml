@@ -1,34 +1,28 @@
 name: poppler
-version: 24.04.0
+version: 24.04.0+1
 category: app-text
 use_flags:
 - -cjk
 - -introspection
 - -jpeg2k
-- -lcms
 - -nss
 - -qt5
 - cairo
 - curl
 - jpeg
+- lcms
 - png
 - tiff
-- tiff
-- jpeg
-- png
 requires:
 - name: nss
   version: '>=0'
   category: dev-libs
-- name: tiff
+- name: lcms
   version: '>=0'
-  category: media-libs
+  category: media-libs-2
 - name: curl
   version: '>=0'
   category: net-misc
-- name: jpeg
-  version: '>=0'
-  category: virtual
 - name: cairo
   version: '>=0'
   category: x11-libs
