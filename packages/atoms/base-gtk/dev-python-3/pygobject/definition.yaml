@@ -1,19 +1,22 @@
 name: pygobject
-version: 3.36.1
+version: 3.36.1+1
 category: dev-python-3
 use_flags:
-- -cairo
 - -prefix
 - -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
 - -test
+- cairo
 - python_targets_python3_9
 requires:
 - name: gobject-introspection
   version: '>=0'
   category: dev-libs
+- name: pycairo
+  version: '>=0'
+  category: dev-python
 annotations:
   subsets:
     rules:
