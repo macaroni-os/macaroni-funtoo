@@ -69,7 +69,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -80,90 +80,6 @@ global_annotations:
         - "^/var/db/pkg/"
 
 artefacts:
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  packages:
-    - dev-lang/vala:0.54
-
-- tree: packages/atoms/base-gtk2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-lang-0.54
-          name: vala
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  packages:
-    - dev-libs/libgusb
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - doc
-    - nios2
-    - sh
-    - static-libs
-  packages:
-    - net-libs/rest:0.7
-    - x11-themes/gnome-themes-standard
-
-- tree: packages/atoms/base-gtk2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-lang-0.54
-          name: vala
-  uses:
-    disabled:
-      - samba
-      - gtk-doc
-      - gssapi
-      - brotli
-  packages:
-    - net-libs/libsoup:2.4
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-  - app-doc/xmltoman
-
-- tree: packages/atoms/base-gtk2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race7
-  uses:
-    disabled:
-    - abi_mips_n32
-    - abi_mips_n64
-    - abi_mips_o32
-    - abi_s390_32
-    - abi_s390_64
-    - abi_x86_32
-    - abi_x86_x32
-    - doc
-    - examples
-    - nios2
-    - sh
-    - static-libs
-    enabled:
-    - abi_x86_64
-  packages:
-  - dev-libs/libdaemon
 
 - tree: packages/atoms/base-gtk2
   mutations:
@@ -185,130 +101,6 @@ artefacts:
     - threads
   packages:
   - dev-libs/libevent
-
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - doc
-    - test
-  packages:
-  - dev-libs/libcroco
-  - media-libs/libepoxy
-
-- tree: packages/atoms/base-gtk2
-  mutations:
-    runtime_deps:
-      packages:
-        - category: macaroni
-          name: entities-catalog
-        - category: macaroni
-          name: whip-catalog
-    buildtime_deps:
-      packages:
-        - category: dev-lang-0.54
-          name: vala
-        - category: dev-libs
-          name: libgusb
-  uses:
-    disabled:
-    - argyllcms
-    - examples
-    - extra-print-profiles
-    - nios2
-    - scanner
-    - sh
-    - systemd
-    enabled:
-    - vala
-    - gusb
-    - introspection
-    - policykit
-    - udev
-  packages:
-  - x11-misc/colord
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    install:
-      - >-
-        entities merge --specs-dir /usr/share/macaroni/entities/
-        -e colord &&
-        eval 'whip hook colord.colord_setup || true'
-
-- tree: packages/atoms/base-gtk2
-  # Use flags tools needed to build
-  # adwaita-icon-theme.
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-lang-0.54
-          name: vala
-    uses:
-      - tools
-  uses:
-    disabled:
-    - doc
-    - test
-  packages:
-    - gnome-base/librsvg:2
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - python_targets_python3_8
-    - python_targets_python3_7
-    - python_targets_python2_7
-    - sh
-    - test
-    enabled:
-    - cairo
-    - python_targets_python3_9
-  packages:
-  - dev-python/pygobject:3
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - doc
-    - examples
-    - nios2
-    - python_targets_pypy3
-    - python_targets_python2_7
-    - python_targets_python3_8
-    - python_targets_python3_7
-    - sh
-    - test
-    enabled:
-    - python_targets_python3_9
-  packages:
-  - dev-python/dbus-python
-
-- tree: packages/atoms/base-gtk2
-  uses:
-    disabled:
-    - aqua
-    - broadway
-    - examples
-    - nios2
-    - sh
-    - test
-    - vim-syntax
-    enabled:
-    - wayland
-    - X
-    - cloudprint
-    - colord
-    - cups
-    - doc
-    - introspection
-    - xinerama
-  packages:
-  - x11-libs/gtk+:2
-  - x11-libs/gtk+:3
 
 - tree: packages/atoms/base-gtk2
   mutations:
@@ -362,55 +154,6 @@ artefacts:
         -e avahi-autoipd
 
 - tree: packages/atoms/base-gtk2
-  # Trying to resolve cycles dep.
-  # vala -> graphviz -> librsvg -> vala
-  # TODO: Check if we really want vala on libsoup and librsvg.
-  replacements:
-    buildtime_deps:
-      ignore:
-        - category: gnome-base-2
-          name: librsvg
-  uses:
-    disabled:
-    - devil
-    - doc
-    - examples
-    - gdk-pixbuf
-    - gts
-    - guile
-    - java
-    - lasi
-    - nios2
-    - perl
-    - postscript
-    - python_single_target_python2_7
-    - python_single_target_python3_7
-    - python_single_target_python3_8
-    - python_single_target_python3_9
-    - python_targets_python2_7
-    - python_targets_python3_8
-    - python_targets_python3_7
-    - python_targets_python3_9
-    - qt5
-    - ruby
-    - sh
-    - static-libs
-    - tcl
-    enabled:
-    - X
-    - cairo
-    - gtk
-    - nls
-    - pdf
-    - python
-    - python_single_target_python3_9
-    - python_targets_python3_9
-    - svg
-  packages:
-  - media-gfx/graphviz
-
-
-- tree: packages/atoms/base-gtk2
   replacements:
     # Break build cycle
     buildtime_deps:
@@ -439,19 +182,53 @@ artefacts:
 
 - tree: packages/atoms/base-gtk2
   mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-lang-0.54
-          name: vala
+    uses:
+      # Quiet emerge for ghostscript-gpl
+      - cups
+  # Break cycle deps with x11-libs/gtk+[cups] and 
+  replacements:
+    runtime_deps:
+      ignore:
+        - category: net-dns
+          name: avahi
+  uses:
+    disabled:
+    - abi_mips_n32
+    - abi_mips_n64
+    - abi_mips_o32
+    - abi_s390_32
+    - abi_s390_64
+    - abi_x86_32
+    - abi_x86_x32
+    - debug
+    - java
+    - kerberos
+    - lprng-compat
+    - nios2
+    - selinux
+    - static-libs
+    - xinetd
+    - systemd
+    enabled:
+    - sh
+    - X
+    - abi_x86_64
+    - acl
+    - dbus
+    - pam
+    - python
+    - ssl
+    - threads
+    - usb
+    - zeroconf
+  packages:
+  - net-print/cups
+
+- tree: packages/atoms/base-gtk2
   packages:
     - app-arch/gcab
 
 - tree: packages/atoms/base-gtk2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-lang-0.54
-          name: vala
   uses:
     disabled:
       - test
@@ -472,65 +249,82 @@ artefacts:
   uses:
     disabled:
       - buildfont
+      - doc
   packages:
     - media-fonts/noto-emoji
     - media-fonts/cantarell
+    - x11-misc/xdg-utils
 
 - tree: packages/atoms/base-gtk2
   mutations:
-    uses:
-      - tiff
-      - jpeg
-      - png
-  uses:
-    disabled:
-      - introspection
-      - qt5
-      - cjk
-      - nss
-      - lcms
-      - jpeg2k
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race7
   packages:
-    - app-text/poppler
+    - virtual/perl-Compress-Raw-Bzip2
+    - virtual/perl-Compress-Raw-Zlib
+    - virtual/perl-IO-Compress
+    - virtual/perl-Storable
+    - virtual/perl-Time-HiRes
+    - virtual/perl-Time-Local
+    - virtual/perl-XSLoader
+    - dev-perl/Try-Tiny
+
 
 include_layers:
 - layers/macaroni-funtoo-race7.yaml
 
+trees:
+- ../packages/seeds
+- ../packages/virtual
+- ../packages/entities
+- ../packages/atoms/base
+- ../packages/atoms/base-extra
+- ../packages/atoms/base-python
+- ../packages/atoms/base-tools
+- ../packages/atoms/base-tools2
+- ../packages/atoms/base-xorg
+- ../packages/atoms/base-xorg2
+- ../packages/atoms/fonts
+- ../packages/atoms/base-gtk
+- ../packages/atoms/base-gtk2
+
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
+- kit_cache/browser-kit-mark-iii
+- kit_cache/core-gl-kit-mark-iii
+- kit_cache/core-hw-kit-mark-iii
+- kit_cache/core-kit-mark-iii
+- kit_cache/core-server-kit-mark-iii
+- kit_cache/desktop-kit-mark-iii
+- kit_cache/dev-kit-mark-iii
+- kit_cache/editors-kit-mark-iii
+- kit_cache/games-kit-mark-iii
+- kit_cache/gnome-kit-mark-iii
+- kit_cache/i18n-kit-mark-iii
+- kit_cache/java-kit-mark-iii
+- kit_cache/kde-kit-mark-iii
+- kit_cache/kernel-kit-mark-iii
+- kit_cache/lang-kit-mark-iii
+- kit_cache/llvm-kit-mark-iii
+- kit_cache/mark-kit-mark-iii
+- kit_cache/media-kit-mark-iii
+- kit_cache/net-kit-mark-iii
+- kit_cache/perl-kit-mark-iii
+- kit_cache/portage-kit-mark-iii
+- kit_cache/python-kit-mark-iii
+- kit_cache/python-modules-kit-mark-iii
+- kit_cache/qt-kit-mark-iii
+- kit_cache/ruby-kit-mark-iii
+- kit_cache/science-kit-mark-iii
+- kit_cache/security-kit-mark-iii
+- kit_cache/text-kit-mark-iii
+- kit_cache/xfce-kit-mark-iii
+- kit_cache/xorg-kit-mark-iii
+- kit_cache/lisp-scheme-kit-mark-iii
 
-  - ./kit_cache/browser-kit-next
-  - ./kit_cache/core-gl-kit-next
-  - ./kit_cache/core-hw-kit-next
-  - ./kit_cache/core-kit-next
-  - ./kit_cache/core-server-kit-next
-  - ./kit_cache/desktop-kit-next
-  - ./kit_cache/dev-kit-next
-  - ./kit_cache/editors-kit-next
-  - ./kit_cache/games-kit-next
-  - ./kit_cache/geaaru-kit-funtoo
-  - ./kit_cache/gnome-kit-next-3.36-prime
-  - ./kit_cache/haskell-kit-next
-  - ./kit_cache/java-kit-next
-  - ./kit_cache/kde-kit-next-5.27-release
-  - ./kit_cache/lang-kit-next
-  - ./kit_cache/lisp-scheme-kit-next
-  - ./kit_cache/llvm-kit-next
-  - ./kit_cache/mate-kit-next-1.24-prime
-  - ./kit_cache/media-kit-next
-  - ./kit_cache/ml-lang-kit-next
-  - ./kit_cache/net-kit-next
-  - ./kit_cache/perl-kit-next
-  - ./kit_cache/python-kit-next
-  - ./kit_cache/python-modules-kit-next
-  - ./kit_cache/qt-kit-next-5.15.2-release
-  - ./kit_cache/ruby-kit-next
-  - ./kit_cache/science-kit-next
-  - ./kit_cache/security-kit-next
-  - ./kit_cache/text-kit-next
-  - ./kit_cache/xfce-kit-next-4.16-release
-
-
+- ./kit_cache/geaaru-kit-funtoo
 
 # Disable use of category with slot as requires. Default is without slot.
 reposcan_requires_slot: true
@@ -538,13 +332,13 @@ reposcan_requires_slot: true
 reposcan_contraints:
   packages:
     - dev-lang/python:3.9
-    - sys-devel/gcc:11.3.0
-    - sys-devel/llvm:13
+    - sys-devel/gcc:12.3.0
+    - sys-devel/llvm:16
     - dev-lang/vala:0.54
 
-    - sys-libs/compiler-rt:13.0.0
-    - sys-devel/clang:13
-    - sys-devel/clang-runtime:13.0.0
+    - sys-libs/compiler-rt:16
+    - sys-devel/clang:16
+    - sys-devel/clang-runtime:16
 
 reposcan_disabled_use_flags:
   - build
