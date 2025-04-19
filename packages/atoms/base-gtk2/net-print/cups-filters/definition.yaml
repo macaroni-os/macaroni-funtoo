@@ -1,5 +1,5 @@
 name: cups-filters
-version: 1.28.17
+version: 1.28.17+1
 category: net-print
 use_flags:
 - -braille
@@ -21,12 +21,9 @@ requires:
 - name: poppler
   version: '>=0'
   category: app-text
-- name: glib
+- name: qpdf
   version: '>=0'
-  category: dev-libs-2
-- name: lcms
-  version: '>=0'
-  category: media-libs-2
+  category: app-text
 - name: avahi
   version: '>=0'
   category: net-dns
@@ -36,9 +33,6 @@ requires:
 - name: bc
   version: '>=0'
   category: sys-devel
-- name: qpdf
-  version: '>=0'
-  category: app-text
 annotations:
   subsets:
     rules:
@@ -52,9 +46,8 @@ uri:
 license: MIT GPL-2
 labels:
   BDEPEND: dev-util/gdbus-codegen >=sys-devel/gettext-0.18.3 virtual/pkgconfig test?
-    ( media-fonts/dejavu ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+    ( media-fonts/dejavu ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: '>=app-text/poppler-0.32:=[cxx,jpeg?,lcms,tiff?,utils] >=app-text/qpdf-8.4.2:=
     dev-libs/glib:2 media-libs/fontconfig media-libs/freetype:2 media-libs/lcms:2
     >=net-print/cups-2.2.2 !<=net-print/cups-1.5.9999 sys-devel/bc sys-libs/zlib braille?
@@ -74,7 +67,7 @@ labels:
     ) postscript? ( >=app-text/ghostscript-gpl-9.09[cups] ) tiff? ( media-libs/tiff:0
     ) zeroconf? ( net-dns/avahi[dbus] )'
   emerge.packages: net-print/cups-filters
-  kit: desktop-kit
+  kit: net-kit
   original.package.name: net-print/cups-filters
   original.package.slot: "0"
   original.package.version: 1.28.17
