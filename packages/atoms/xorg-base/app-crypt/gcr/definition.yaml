@@ -1,5 +1,5 @@
 name: gcr
-version: 3.36.0
+version: 3.36.0+1
 category: app-crypt
 use_flags:
 - -prefix
@@ -20,6 +20,9 @@ requires:
 - name: libtasn1
   version: '>=0'
   category: dev-libs
+- name: dbus
+  version: '>=0'
+  category: sys-apps
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -51,7 +54,7 @@ labels:
     >=dev-libs/libtasn1-1:= >=sys-apps/dbus-1 gtk? ( >=x11-libs/gtk+-3.24.12:3[X,introspection?]
     ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) !<gnome-base/gnome-keyring-3.3'
   emerge.packages: app-crypt/gcr
-  kit: gnome-kit
+  kit: security-kit
   original.package.name: app-crypt/gcr
   original.package.slot: "0"
   original.package.version: 3.36.0
