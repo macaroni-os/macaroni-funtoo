@@ -1,5 +1,5 @@
 name: libinput
-version: 1.19.4+1
+version: 1.19.4+2
 category: dev-libs
 use_flags:
 - -doc
@@ -29,7 +29,8 @@ annotations:
       - ^/var/db/pkg/
 description: Library to handle input devices in Wayland
 uri:
-- https://www.freedesktop.org/wiki/Software/libinput/ https://gitlab.freedesktop.org/libinput/libinput
+- https://www.freedesktop.org/wiki/Software/libinput/
+- https://gitlab.freedesktop.org/libinput/libinput
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig doc? ( || ( ( dev-lang/python:3.8 dev-python/commonmark[python_targets_python3_8(-),python_single_target_python3_8(+)]
@@ -56,7 +57,7 @@ labels:
   RDEPEND: input_devices_wacom? ( >=dev-libs/libwacom-0.27 ) >=dev-libs/libevdev-1.9
     >=sys-libs/mtdev-1.1 virtual/libudev:= virtual/udev
   emerge.packages: dev-libs/libinput
-  kit: gnome-kit
+  kit: xorg-kit
   original.package.name: dev-libs/libinput
   original.package.slot: "0"
   original.package.version: 1.19.4
