@@ -1,5 +1,5 @@
 name: mesa-progs
-version: 8.5.0
+version: 8.5.0+1
 category: x11-apps
 requires:
 - name: mesa
@@ -20,7 +20,8 @@ annotations:
       - ^/var/db/pkg/
 description: Mesa's OpenGL utility and demo programs (glxgears and glxinfo)
 uri:
-- https://www.mesa3d.org/ https://mesa.freedesktop.org/
+- https://www.mesa3d.org/
+- https://mesa.freedesktop.org/
 license: LGPL-2
 labels:
   DEPEND: media-libs/mesa[egl?,gles2?] virtual/opengl x11-libs/libX11 virtual/glu
@@ -29,7 +30,7 @@ labels:
   IUSE: egl gles2
   RDEPEND: media-libs/mesa[egl?,gles2?] virtual/opengl x11-libs/libX11
   emerge.packages: x11-apps/mesa-progs
-  kit: core-gl-kit
+  kit: xorg-kit
   original.package.name: x11-apps/mesa-progs
   original.package.slot: "0"
   original.package.version: 8.5.0
