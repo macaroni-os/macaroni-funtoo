@@ -1,5 +1,5 @@
 name: xhost
-version: 1.0.8
+version: 1.0.8+1
 category: x11-apps
 use_flags:
 - -ppc-aix
@@ -23,7 +23,8 @@ annotations:
       - ^/var/db/pkg/
 description: Controls host and/or user access to a running X server
 uri:
-- https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/app/xhost
+- https://www.x.org/wiki/
+- https://gitlab.freedesktop.org/xorg/app/xhost
 license: MIT
 labels:
   DEPEND: x11-libs/libX11 x11-libs/libXmu x11-libs/libXau >=app-portage/elt-patches-20170815
@@ -34,7 +35,7 @@ labels:
   IUSE: ipv6
   RDEPEND: x11-libs/libX11 x11-libs/libXmu x11-libs/libXau
   emerge.packages: x11-apps/xhost
-  kit: core-gl-kit
+  kit: xorg-kit
   original.package.name: x11-apps/xhost
   original.package.slot: "0"
   original.package.version: 1.0.8
