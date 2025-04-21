@@ -1,8 +1,8 @@
 prelude:
 # Temporary fix related to macaroni-os/mark-issues#343
 - >-
-  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
-  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
   emerge x11-misc/util-macros -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
