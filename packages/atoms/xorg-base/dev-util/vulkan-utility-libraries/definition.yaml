@@ -1,0 +1,23 @@
+name: vulkan-utility-libraries
+version: 1.3.290
+category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Share code across various Vulkan repositories
+uri:
+- https://github.com/KhronosGroup/Vulkan-Utility-Libraries
+license: Apache-2.0
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.8[xml(+)] dev-lang/python:3.9[xml(+)] dev-lang/python:3.7[xml(+)]
+    dev-lang/python:3.10[xml(+)] ) dev-util/ninja >=dev-util/cmake-3.9.6'
+  DEPEND: ~dev-util/vulkan-headers-1.3.290
+  emerge.packages: dev-util/vulkan-utility-libraries
+  kit: core-gl-kit
+  original.package.name: dev-util/vulkan-utility-libraries
+  original.package.slot: "0"
+  original.package.version: 1.3.290
