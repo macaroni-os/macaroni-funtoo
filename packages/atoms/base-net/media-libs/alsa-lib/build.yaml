@@ -1,4 +1,8 @@
 prelude:
+# Temporary fix until next race
+- >-
+  cp alsa-lib-1.2.11.ebuild /var/git/meta-repo/kits/media-kit/media-libs/alsa-lib/ &&
+  cp -rf files /var/git/meta-repo/kits/media-kit/media-libs/alsa-lib/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
