@@ -1,5 +1,5 @@
 name: openvpn
-version: 2.6.12
+version: 2.6.14
 category: net-vpn
 use_flags:
 - -kernel_linux
@@ -7,7 +7,6 @@ use_flags:
 - -openssl
 - -pkcs11
 - -selinux
-- -systemd
 - iproute2
 - lz4
 - lzo
@@ -16,6 +15,9 @@ requires:
 - name: lz4
   version: '>=0'
   category: app-arch
+- name: libnl
+  version: '>=0'
+  category: dev-libs-3
 - name: lzo
   version: '>=0'
   category: dev-libs-2
@@ -60,4 +62,4 @@ labels:
   kit: net-kit
   original.package.name: net-vpn/openvpn
   original.package.slot: "0"
-  original.package.version: 2.6.12
+  original.package.version: 2.6.14
