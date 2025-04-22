@@ -1,12 +1,8 @@
 name: tor
-version: 0.4.8.12
+version: 0.4.8.16
 category: net-vpn
 use_flags:
-- -libressl
-- -scrypt
 - -seccomp
-- -selinux
-- -systemd
 - caps
 - lzma
 - zstd
@@ -14,9 +10,6 @@ requires:
 - name: zstd
   version: '>=0'
   category: app-arch
-- name: asciidoc
-  version: '>=0'
-  category: app-text
 - name: libevent
   version: '>=0'
   category: dev-libs
@@ -32,21 +25,18 @@ annotations:
       - ^/var/db/pkg/
 description: Anonymizing overlay network for TCP
 uri:
-- http://www.torproject.org/
+- https://torproject.org
 license: BSD GPL-2
 labels:
-  BDEPEND: virtual/pkgconfig
-  DEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap
-    ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
-    ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp
-    ) zstd? ( app-arch/zstd ) sys-apps/shadow
-  IUSE: caps libressl lzma scrypt seccomp selinux tor-hardening test zstd
-  RDEPEND: app-text/asciidoc dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap
-    ) !libressl? ( dev-libs/openssl:0=[-bindist] ) libressl? ( dev-libs/libressl:0=
-    ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( sys-libs/libseccomp
-    ) zstd? ( app-arch/zstd ) selinux? ( sec-policy/selinux-tor )
+  DEPEND: dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) dev-libs/openssl
+    lzma? ( app-arch/xz-utils ) seccomp? ( sys-libs/libseccomp ) zstd? ( app-arch/zstd
+    ) app-text/asciidoc sys-apps/shadow
+  IUSE: caps lzma seccomp selinux tor-hardening zstd
+  RDEPEND: dev-libs/libevent[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) dev-libs/openssl
+    lzma? ( app-arch/xz-utils ) seccomp? ( sys-libs/libseccomp ) zstd? ( app-arch/zstd
+    )
   emerge.packages: net-vpn/tor
   kit: net-kit
   original.package.name: net-vpn/tor
   original.package.slot: "0"
-  original.package.version: 0.4.8.12
+  original.package.version: 0.4.8.16
