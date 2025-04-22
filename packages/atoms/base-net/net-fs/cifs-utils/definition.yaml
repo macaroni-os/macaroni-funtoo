@@ -1,5 +1,5 @@
 name: cifs-utils
-version: "6.11"
+version: 6.11+1
 category: net-fs
 use_flags:
 - ads
@@ -36,9 +36,8 @@ uri:
 - https://wiki.samba.org/index.php/LinuxCIFS_utils
 license: GPL-3
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: '!net-fs/mount-cifs !<net-fs/samba-3.6_rc1 sys-apps/keyutils ads? ( >=sys-libs/talloc-2.3.1
     virtual/krb5 ) caps? ( sys-libs/libcap-ng ) pam? ( virtual/pam >=sys-apps/keyutils-1.6.1
     ) dev-python/docutils'
