@@ -1,5 +1,5 @@
 name: dmraid
-version: 1.0.0
+version: 1.0.0+1
 category: sys-fs
 use_flags:
 - -static
@@ -20,12 +20,12 @@ uri:
 license: GPL-2
 labels:
   DEPEND: '>=sys-fs/lvm2-2.02.45 virtual/pkgconfig static? ( sys-fs/lvm2[static-libs]
-    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+    ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4'
   IUSE: intel_led led mini static kernel_linux
   RDEPEND: '>=sys-fs/lvm2-2.02.45'
   emerge.packages: sys-fs/dmraid
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: sys-fs/dmraid
   original.package.slot: "0"
   original.package.version: 1.0.0_rc16-r4
