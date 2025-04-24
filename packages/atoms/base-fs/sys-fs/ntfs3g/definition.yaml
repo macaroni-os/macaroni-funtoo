@@ -1,5 +1,5 @@
 name: ntfs3g
-version: 2022.10.3
+version: 2022.10.3+1
 category: sys-fs
 use_flags:
 - ntfsdecrypt
@@ -25,9 +25,8 @@ uri:
 - https://github.com/tuxera/ntfs-3g
 license: GPL-2
 labels:
-  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: sys-apps/util-linux:0= ntfsdecrypt? ( >=dev-libs/libgcrypt-1.2.2:0 >=net-libs/gnutls-1.4.4
     ) sys-apps/attr
   IUSE: acl debug +fuse +mount-ntfs ntfsdecrypt +ntfsprogs static-libs suid xattr
