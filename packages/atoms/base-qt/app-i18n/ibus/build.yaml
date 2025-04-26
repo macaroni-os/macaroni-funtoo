@@ -1,12 +1,4 @@
 prelude:
-# TODO: Move this patch to funtoo-kits level.
-#       Waiting next build pipeline before upgrade ibus (under i18n-kit)
-- >-
-  rm -v /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus/*.ebuild &&
-  cp -v patches/*.ebuild /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus/ &&
-  cd /var/git/meta-repo/kits/i18n-kit/app-i18n/ibus &&
-  ebuild ibus-1.5.28-r1.ebuild digest &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -18,15 +10,17 @@ prelude:
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
   {{- end }}
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }} && \
   {{- else }}
-  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }}
+  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }} && \
   {{- end }}
-- export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" && export LUET_PORTAGE_IGNORE_TAR_WARNING=1
-  && export LUET_PORTAGE_PKGMETA=1 && export LUET_PORTAGE_PKGFILES=1 && eval 'rm -rf
-  /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && luet-portage --dir /pkgdir/{{
-  .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && eval 'rm -v
-  /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
+  export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" && \
+  export LUET_PORTAGE_IGNORE_TAR_WARNING=1 && \
+  export LUET_PORTAGE_PKGMETA=1 && \
+  export LUET_PORTAGE_PKGFILES=1 && \
+  eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
+  luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
+  eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
