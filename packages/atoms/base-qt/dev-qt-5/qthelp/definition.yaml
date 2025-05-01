@@ -1,12 +1,9 @@
 name: qthelp
-version: 5.15.2+4
+version: 5.15.16
 category: dev-qt-5
 use_flags:
 - -test
 requires:
-- name: qtgui
-  version: '>=0'
-  category: dev-qt-5
 - name: qtnetwork
   version: '>=0'
   category: dev-qt-5
@@ -25,18 +22,17 @@ annotations:
       - ^/var/db/pkg/
 description: Qt5 module for integrating online documentation into applications
 uri:
-- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+- https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
-  DEPEND: =dev-qt/qtcore-5.15.2*:5= =dev-qt/qtgui-5.15.2* =dev-qt/qtnetwork-5.15.2*
-    =dev-qt/qtsql-5.15.2*[sqlite] =dev-qt/qtwidgets-5.15.2* test? ( =dev-qt/qttest-5.15.2*
-    )
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5[sqlite]
+    dev-qt/qtwidgets:5 test? ( =dev-qt/qttest-5.15.16* )
   IUSE: debug test
-  RDEPEND: =dev-qt/qtcore-5.15.2*:5= =dev-qt/qtgui-5.15.2* =dev-qt/qtnetwork-5.15.2*
-    =dev-qt/qtsql-5.15.2*[sqlite] =dev-qt/qtwidgets-5.15.2*
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5[sqlite]
+    dev-qt/qtwidgets:5
   emerge.packages: dev-qt/qthelp:5
   kit: qt-kit
   original.package.name: dev-qt/qthelp
   original.package.slot: "5"
-  original.package.version: 5.15.2_p20240527
+  original.package.version: 5.15.16
