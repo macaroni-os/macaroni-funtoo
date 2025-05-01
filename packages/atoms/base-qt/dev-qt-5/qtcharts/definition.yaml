@@ -1,14 +1,11 @@
 name: qtcharts
-version: 5.15.2+4
+version: 5.15.16
 category: dev-qt-5
 use_flags:
 - -test
 - qml
 requires:
 - name: qtdeclarative
-  version: '>=0'
-  category: dev-qt-5
-- name: qtgui
   version: '>=0'
   category: dev-qt-5
 annotations:
@@ -20,17 +17,17 @@ annotations:
       - ^/var/db/pkg/
 description: Chart component library for the Qt5 framework
 uri:
-- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+- https://www.qt.io/
 license: GPL-3
 labels:
   BDEPEND: dev-lang/perl virtual/pkgconfig
-  DEPEND: =dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2* =dev-qt/qtwidgets-5.15.2* qml?
-    ( =dev-qt/qtdeclarative-5.15.2* ) test? ( =dev-qt/qttest-5.15.2* )
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5[vulkan=] dev-qt/qtwidgets:5 qml? ( dev-qt/qtdeclarative:5
+    ) test? ( =dev-qt/qttest-5.15.16* )
   IUSE: qml debug test
-  RDEPEND: =dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2* =dev-qt/qtwidgets-5.15.2*
-    qml? ( =dev-qt/qtdeclarative-5.15.2* )
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5[vulkan=] dev-qt/qtwidgets:5 qml? ( dev-qt/qtdeclarative:5
+    )
   emerge.packages: dev-qt/qtcharts:5
   kit: qt-kit
   original.package.name: dev-qt/qtcharts
   original.package.slot: "5"
-  original.package.version: 5.15.2_p20240508
+  original.package.version: 5.15.16
