@@ -1,5 +1,5 @@
 name: qtdeclarative
-version: 5.15.2+6
+version: 5.15.16
 category: dev-qt-5
 use_flags:
 - -test
@@ -7,9 +7,6 @@ use_flags:
 - widgets
 - vulkan
 requires:
-- name: qtcore
-  version: '>=0'
-  category: dev-qt-5
 - name: qtnetwork
   version: '>=0'
   category: dev-qt-5
@@ -22,9 +19,6 @@ requires:
 - name: qtwidgets
   version: '>=0'
   category: dev-qt-5
-- name: libglvnd
-  version: '>=0'
-  category: media-libs
 annotations:
   subsets:
     rules:
@@ -34,21 +28,20 @@ annotations:
       - ^/var/db/pkg/
 description: The QML and Quick modules for the Qt5 framework
 uri:
-- https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+- https://www.qt.io/
 license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) dev-lang/perl virtual/pkgconfig'
-  DEPEND: =dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2*:5=[gles2-only=,vulkan=] =dev-qt/qtnetwork-5.15.2*
-    =dev-qt/qttest-5.15.2* media-libs/libglvnd localstorage? ( =dev-qt/qtsql-5.15.2*
-    ) widgets? ( =dev-qt/qtwidgets-5.15.2*[gles2-only=] ) test? ( =dev-qt/qttest-5.15.2*
-    )
+  DEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5[gles2-only=,vulkan=] dev-qt/qtnetwork:5 dev-qt/qttest:5
+    media-libs/libglvnd localstorage? ( dev-qt/qtsql:5 ) widgets? ( dev-qt/qtwidgets:5[gles2-only=]
+    ) test? ( =dev-qt/qttest-5.15.16* )
   IUSE: gles2-only +jit localstorage vulkan +widgets debug test
-  RDEPEND: =dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2*:5=[gles2-only=,vulkan=] =dev-qt/qtnetwork-5.15.2*
-    =dev-qt/qttest-5.15.2* media-libs/libglvnd localstorage? ( =dev-qt/qtsql-5.15.2*
-    ) widgets? ( =dev-qt/qtwidgets-5.15.2*[gles2-only=] )
+  RDEPEND: dev-qt/qtcore:5 dev-qt/qtgui:5[gles2-only=,vulkan=] dev-qt/qtnetwork:5
+    dev-qt/qttest:5 media-libs/libglvnd localstorage? ( dev-qt/qtsql:5 ) widgets?
+    ( dev-qt/qtwidgets:5[gles2-only=] )
   emerge.packages: dev-qt/qtdeclarative:5
   kit: qt-kit
   original.package.name: dev-qt/qtdeclarative
   original.package.slot: "5"
-  original.package.version: 5.15.2_p20240527
+  original.package.version: 5.15.16
