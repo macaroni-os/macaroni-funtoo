@@ -1,5 +1,5 @@
 name: lilv
-version: 0.24.6
+version: 0.24.6+1
 category: media-libs
 use_flags:
 - -doc
@@ -24,8 +24,8 @@ license: ISC
 labels:
   DEPEND: '>=dev-libs/serd-0.28.0-r1[-mgorny(-)] >=dev-libs/sord-0.16.0-r1[-mgorny(-)]
     media-libs/libsndfile >=media-libs/lv2-1.14.0-r1[-mgorny(-)] >=media-libs/sratom-0.6.0-r1[-mgorny(-)]
-    || ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-2.7.5-r2:2.7[threads(+)]
-    dev-lang/python:3.8[threads(+)] dev-lang/python:3.9[threads(+)] dev-lang/python:3.7[threads(+)]
+    || ( >=dev-lang/python-2.7.5-r2:2.7[threads(+)] dev-lang/python:3.8[threads(+)]
+    dev-lang/python:3.9[threads(+)] dev-lang/python:3.7[threads(+)] dev-lang/python:3.10[threads(+)]
     ) doc? ( app-doc/doxygen ) virtual/pkgconfig[-mgorny(-)]'
   IUSE: doc +dyn-manifest static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
     abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
