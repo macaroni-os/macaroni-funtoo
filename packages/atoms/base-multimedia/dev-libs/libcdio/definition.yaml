@@ -1,5 +1,5 @@
 name: libcdio
-version: 2.1.0
+version: 2.1.0+1
 category: dev-libs
 use_flags:
 - -minimal
@@ -25,8 +25,8 @@ uri:
 license: GPL-3
 labels:
   BDEPEND: sys-apps/sed sys-devel/gettext virtual/pkgconfig test? ( dev-lang/perl
-    ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4
   DEPEND: '!minimal? ( >=sys-libs/ncurses-5.7-r7:0= cddb? ( >=media-libs/libcddb-1.3.2
     ) ) >=virtual/libiconv-0-r1[-mgorny(-)]'
   IUSE: cddb +cxx minimal static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
@@ -34,7 +34,7 @@ labels:
   RDEPEND: '!minimal? ( >=sys-libs/ncurses-5.7-r7:0= cddb? ( >=media-libs/libcddb-1.3.2
     ) ) >=virtual/libiconv-0-r1[-mgorny(-)]'
   emerge.packages: dev-libs/libcdio
-  kit: dev-kit
+  kit: media-kit
   original.package.name: dev-libs/libcdio
   original.package.slot: "0"
   original.package.version: 2.1.0-r1
