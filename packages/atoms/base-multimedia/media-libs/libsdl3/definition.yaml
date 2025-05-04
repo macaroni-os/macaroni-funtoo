@@ -1,0 +1,108 @@
+name: libsdl3
+version: 3.2.10
+category: media-libs
+use_flags:
+- -doc
+- -fcitx
+- -gles1
+- -kms
+- -pipewire
+- -xscreensaver
+- X
+- alsa
+- dbus
+- gles2
+- ibus
+- jack
+- opengl
+- pulseaudio
+- sndio
+- udev
+- vulkan
+- wayland
+requires:
+- name: ibus
+  version: '>=0'
+  category: app-i18n
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: mesa
+  version: '>=0'
+  category: media-libs
+- name: nas
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: sndio
+  version: '>=0'
+  category: media-sound
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: glu
+  version: '>=0'
+  category: virtual
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: opengl
+  version: '>=0'
+  category: virtual
+- name: libXcursor
+  version: '>=0'
+  category: x11-libs
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple Direct Media Layer
+uri:
+- https://www.libsdl.org/
+license: ZLIB
+labels:
+  BDEPEND: virtual/pkgconfig doc? ( app-doc/doxygen media-gfx/graphviz ) wayland?
+    ( dev-util/wayland-scanner ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) fcitx? ( app-i18n/fcitx
+    ) gles1? ( media-libs/mesa[gles1] ) gles2? ( media-libs/mesa[gles2] ) ibus? (
+    app-i18n/ibus ) jack? ( virtual/jack ) kms? ( x11-libs/libdrm media-libs/mesa[gbm(+)]
+    ) media-libs/nas x11-libs/libXt opengl? ( virtual/opengl virtual/glu ) pipewire?
+    ( media-video/pipewire ) pulseaudio? ( media-sound/pulseaudio ) sndio? ( media-sound/sndio
+    ) udev? ( virtual/libudev ) wayland? ( dev-libs/wayland media-libs/mesa[egl(+),gles2,wayland]
+    x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext
+    x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr xscreensaver? ( x11-libs/libXScrnSaver
+    ) ) ibus? ( dev-libs/glib:2 ) vulkan? ( dev-util/vulkan-headers ) X? ( x11-base/xorg-proto
+    )
+  IUSE: alsa aqua cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse cpu_flags_x86_sse2
+    custom-cflags dbus doc examples fcitx gles1 gles2 haptic ibus jack +joystick kms
+    opengl oss pipewire pulseaudio sndio +sound static-libs +threads udev +video video_cards_vc4
+    vulkan wayland X xscreensaver
+  RDEPEND: alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) fcitx? ( app-i18n/fcitx
+    ) gles1? ( media-libs/mesa[gles1] ) gles2? ( media-libs/mesa[gles2] ) ibus? (
+    app-i18n/ibus ) jack? ( virtual/jack ) kms? ( x11-libs/libdrm media-libs/mesa[gbm(+)]
+    ) media-libs/nas x11-libs/libXt opengl? ( virtual/opengl virtual/glu ) pipewire?
+    ( media-video/pipewire ) pulseaudio? ( media-sound/pulseaudio ) sndio? ( media-sound/sndio
+    ) udev? ( virtual/libudev ) wayland? ( dev-libs/wayland media-libs/mesa[egl(+),gles2,wayland]
+    x11-libs/libxkbcommon ) X? ( x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext
+    x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr xscreensaver? ( x11-libs/libXScrnSaver
+    ) ) vulkan? ( media-libs/vulkan-loader )
+  emerge.packages: media-libs/libsdl3
+  kit: media-kit
+  original.package.name: media-libs/libsdl3
+  original.package.slot: "0"
+  original.package.version: 3.2.10
