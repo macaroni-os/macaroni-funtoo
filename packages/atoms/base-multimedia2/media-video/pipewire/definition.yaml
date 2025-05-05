@@ -1,5 +1,5 @@
 name: pipewire
-version: 1.2.2
+version: 1.4.2
 category: media-video
 use_flags:
 - -doc
@@ -56,9 +56,6 @@ requires:
 - name: libusb
   version: '>=0'
   category: virtual-1
-- name: libXfixes
-  version: '>=0'
-  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -101,7 +98,7 @@ labels:
     ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
     ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi )'
   emerge.packages: media-video/pipewire
-  kit: gnome-kit
+  kit: media-kit
   original.package.name: media-video/pipewire
   original.package.slot: "0"
-  original.package.version: 1.2.2
+  original.package.version: 1.4.2
