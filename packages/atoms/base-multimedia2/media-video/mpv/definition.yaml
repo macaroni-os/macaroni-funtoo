@@ -1,25 +1,22 @@
 name: mpv
-version: 0.35.1
+version: 0.35.1+1
 category: media-video
 use_flags:
 - -cuda
-- -doc
 - -dvb
 - -libcaca
 - -luajit
-- -python_targets_python3_10
-- -python_targets_python3_7
-- -python_targets_python3_8
-- -raspberry-pi
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
 - -rubberband
-- -selinux
-- -test
 - -zimg
 - X
 - alsa
 - archive
 - bluray
 - cdda
+- cli
 - drm
 - dvd
 - egl
@@ -35,7 +32,7 @@ use_flags:
 - opengl
 - pipewire
 - pulseaudio
-- python_targets_python3_9
+- python_single_target_python3_9
 - sdl
 - tools
 - uchardet
@@ -58,9 +55,6 @@ requires:
 - name: mujs
   version: '>=0'
   category: dev-lang
-- name: wayland-protocols
-  version: '>=0'
-  category: dev-libs
 - name: libass
   version: '>=0'
   category: media-libs
@@ -98,7 +92,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Media player based on MPlayer and mplayer2
+description: Command line media player
 uri:
 - https://mpv.io/
 - https://github.com/mpv-player/mpv
