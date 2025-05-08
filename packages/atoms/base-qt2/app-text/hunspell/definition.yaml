@@ -1,5 +1,5 @@
 name: hunspell
-version: 1.7.0
+version: 1.7.0+1
 category: app-text
 use_flags:
 - ncurses
@@ -20,9 +20,8 @@ uri:
 - https://github.com/hunspell
 license: MPL-1.1 GPL-2 LGPL-2.1
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: ncurses? ( sys-libs/ncurses:0= ) readline? ( sys-libs/readline:= ) sys-devel/gettext
   IUSE: ncurses nls readline static-libs l10n_af l10n_bg l10n_ca l10n_cs l10n_cy l10n_da
     l10n_de l10n_de-1901 l10n_el l10n_en l10n_eo l10n_es l10n_et l10n_fo l10n_fr l10n_ga
