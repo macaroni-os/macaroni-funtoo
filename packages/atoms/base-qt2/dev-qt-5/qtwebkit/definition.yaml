@@ -1,5 +1,5 @@
 name: qtwebkit
-version: 5.212.0_pre20200309-r2+2
+version: 5.212.0_pre20200309-r2+3
 category: dev-qt-5
 use_flags:
 - -multimedia
@@ -22,6 +22,9 @@ requires:
 - name: libxslt
   version: '>=0'
   category: dev-libs
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
 - name: qtopengl
   version: '>=0'
   category: dev-qt-5
@@ -61,7 +64,7 @@ uri:
 - https://www.qt.io/
 license: BSD LGPL-2+
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) || ( dev-lang/ruby:2.7 ) virtual/rubygems dev-lang/perl dev-util/gperf >=sys-devel/bison-2.4.3
     sys-devel/flex virtual/pkgconfig dev-util/ninja dev-util/cmake'
   DEPEND: dev-db/sqlite:3 dev-libs/icu:= dev-libs/libxml2 dev-libs/libxslt >=dev-qt/qtcore-5.12.3:5
