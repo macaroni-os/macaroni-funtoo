@@ -1,0 +1,38 @@
+name: assimp
+version: 5.4.3
+category: media-libs
+use_flags:
+- samples
+requires:
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: freeglut
+  version: '>=0'
+  category: media-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Importer library to import assets from 3D files
+uri:
+- https://github.com/assimp/assimp
+license: BSD
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/boost:= sys-libs/zlib[minizip] samples? ( media-libs/freeglut virtual/opengl
+    x11-libs/libX11 )
+  IUSE: samples
+  RDEPEND: dev-libs/boost:= sys-libs/zlib[minizip] samples? ( media-libs/freeglut
+    virtual/opengl x11-libs/libX11 )
+  emerge.packages: media-libs/assimp
+  kit: media-kit
+  original.package.name: media-libs/assimp
+  original.package.slot: "0"
+  original.package.version: 5.4.3
