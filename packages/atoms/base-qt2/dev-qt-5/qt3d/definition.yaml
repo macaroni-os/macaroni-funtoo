@@ -1,0 +1,43 @@
+name: qt3d
+version: 5.15.16
+category: dev-qt-5
+use_flags:
+- -test
+- gamepad
+- qml
+- vulkan
+requires:
+- name: qtconcurrent
+  version: '>=0'
+  category: dev-qt-5
+- name: qtgamepad
+  version: '>=0'
+  category: dev-qt-5
+- name: assimp
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 3D rendering module for the Qt5 framework
+uri:
+- https://www.qt.io/
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
+labels:
+  BDEPEND: dev-lang/perl virtual/pkgconfig
+  DEPEND: dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5[vulkan=] dev-qt/qtnetwork:5
+    media-libs/assimp gamepad? ( dev-qt/qtgamepad:5 ) qml? ( dev-qt/qtdeclarative:5[gles2-only=]
+    ) vulkan? ( dev-util/vulkan-headers ) test? ( =dev-qt/qttest-5.15.16* )
+  IUSE: gamepad gles2-only qml vulkan debug test
+  RDEPEND: dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5[vulkan=] dev-qt/qtnetwork:5
+    media-libs/assimp gamepad? ( dev-qt/qtgamepad:5 ) qml? ( dev-qt/qtdeclarative:5[gles2-only=]
+    )
+  emerge.packages: dev-qt/qt3d:5
+  kit: qt-kit
+  original.package.name: dev-qt/qt3d
+  original.package.slot: "5"
+  original.package.version: 5.15.16
