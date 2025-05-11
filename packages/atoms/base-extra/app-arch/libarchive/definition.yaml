@@ -1,5 +1,5 @@
 name: libarchive
-version: 3.7.7
+version: 3.7.9
 category: app-arch
 use_flags:
 - -blake2
@@ -8,7 +8,6 @@ use_flags:
 - -lz4
 - -lzo
 - -nettle
-- -zstd
 - acl
 - bzip2
 - e2fsprogs
@@ -17,11 +16,12 @@ use_flags:
 - lzma
 - xattr
 - zlib
+- zstd
 requires:
 - name: bzip2
   version: '>=0'
   category: app-arch
-- name: xz-utils
+- name: zstd
   version: '>=0'
   category: app-arch
 - name: libxml2
@@ -34,9 +34,6 @@ requires:
   version: '>=0'
   category: sys-apps
 - name: acl
-  version: '>=0'
-  category: virtual
-- name: libiconv
   version: '>=0'
   category: virtual
 annotations:
@@ -71,4 +68,4 @@ labels:
   kit: core-kit
   original.package.name: app-arch/libarchive
   original.package.slot: "0"
-  original.package.version: 3.7.7
+  original.package.version: 3.7.9
