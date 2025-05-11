@@ -1,0 +1,112 @@
+name: qtwebengine
+version: 6.8.3
+category: dev-qt-6
+use_flags:
+- -kerberos
+- designer
+- geolocation
+- pipewire
+- pulseaudio
+- vaapi
+- vulkan
+requires:
+- name: snappy
+  version: '>=0'
+  category: app-arch
+- name: libevent
+  version: '>=0'
+  category: dev-libs
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: nss
+  version: '>=0'
+  category: dev-libs
+- name: qtpositioning
+  version: '>=0'
+  category: dev-qt-6
+- name: qttools
+  version: '>=0'
+  category: dev-qt-6
+- name: qtwebchannel
+  version: '>=0'
+  category: dev-qt-6
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: openjpeg
+  version: '>=0'
+  category: media-libs-2
+- name: opus
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: pipewire
+  version: '>=0'
+  category: media-video
+- name: pciutils
+  version: '>=0'
+  category: sys-apps
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXdamage
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libxkbfile
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for rendering dynamic web content in Qt C++ and QML applications
+uri:
+- https://invent.kde.org/qt/qt/
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
+labels:
+  BDEPEND: '|| ( ( dev-lang/python:3.8[xml(+)] dev-python/html5lib[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9[xml(+)] dev-python/html5lib[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7[xml(+)] dev-python/html5lib[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ( dev-lang/python:3.10[xml(+)] dev-python/html5lib[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) dev-util/gperf net-libs/nodejs sys-devel/bison sys-devel/flex dev-util/ninja
+    dev-util/cmake dev-lang/perl virtual/pkgconfig'
+  DEPEND: app-arch/snappy:= dev-libs/expat dev-libs/icu:= dev-libs/libevent:= dev-libs/libxml2[icu]
+    dev-libs/libxslt dev-libs/nspr dev-libs/nss dev-qt/qtbase:6[gui,vulkan?] dev-qt/qtdeclarative:6
+    dev-qt/qtwebchannel:6[qml] media-libs/fontconfig media-libs/freetype media-libs/harfbuzz:=
+    media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libwebp:=
+    media-libs/mesa[gbm(+)] media-libs/openjpeg:2= media-libs/opus media-libs/tiff:=
+    sys-apps/dbus sys-apps/pciutils sys-devel/gcc:* sys-libs/zlib:=[minizip] virtual/libudev
+    x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes
+    x11-libs/libXrandr x11-libs/libXtst x11-libs/libdrm x11-libs/libxcb:= x11-libs/libxkbcommon
+    x11-libs/libxkbfile media-libs/alsa-lib designer? ( dev-qt/qttools:6[designer]
+    ) geolocation? ( dev-qt/qtpositioning:6 ) kerberos? ( virtual/krb5 ) pipewire?
+    ( media-video/pipewire ) pulseaudio? ( media-sound/pulseaudio ) vaapi? ( x11-libs/libva:=[X]
+    ) media-libs/libglvnd x11-base/xorg-proto x11-libs/libXcursor x11-libs/libXi x11-libs/libxshmfence
+    vaapi? ( vulkan? ( dev-util/vulkan-headers ) )
+  IUSE: designer geolocation kerberos pipewire pulseaudio vaapi vulkan debug test
+  RDEPEND: app-arch/snappy:= dev-libs/expat dev-libs/icu:= dev-libs/libevent:= dev-libs/libxml2[icu]
+    dev-libs/libxslt dev-libs/nspr dev-libs/nss dev-qt/qtbase:6[gui,vulkan?] dev-qt/qtdeclarative:6
+    dev-qt/qtwebchannel:6[qml] media-libs/fontconfig media-libs/freetype media-libs/harfbuzz:=
+    media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libwebp:=
+    media-libs/mesa[gbm(+)] media-libs/openjpeg:2= media-libs/opus media-libs/tiff:=
+    sys-apps/dbus sys-apps/pciutils sys-devel/gcc:* sys-libs/zlib:=[minizip] virtual/libudev
+    x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes
+    x11-libs/libXrandr x11-libs/libXtst x11-libs/libdrm x11-libs/libxcb:= x11-libs/libxkbcommon
+    x11-libs/libxkbfile media-libs/alsa-lib designer? ( dev-qt/qttools:6[designer]
+    ) geolocation? ( dev-qt/qtpositioning:6 ) kerberos? ( virtual/krb5 ) pipewire?
+    ( media-video/pipewire ) pulseaudio? ( media-sound/pulseaudio ) vaapi? ( x11-libs/libva:=[X]
+    )
+  emerge.packages: dev-qt/qtwebengine:6
+  kit: qt-kit
+  original.package.name: dev-qt/qtwebengine
+  original.package.slot: "6"
+  original.package.version: 6.8.3
