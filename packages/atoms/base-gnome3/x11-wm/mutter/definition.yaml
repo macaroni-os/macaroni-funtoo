@@ -1,5 +1,5 @@
 name: mutter
-version: 3.36.7+1
+version: 3.36.7+2
 category: x11-wm
 use_flags:
 - -test
@@ -37,10 +37,10 @@ requires:
 - name: pipewire
   version: '>=0'
   category: media-video
-- name: xorg-server
-  version: '>=0'
-  category: x11-base
 - name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libdrm
   version: '>=0'
   category: x11-libs
 - name: startup-notification
@@ -73,10 +73,10 @@ labels:
     ( >=dev-libs/libwacom-0.13 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
     ) udev? ( >=virtual/libgudev-232:= ) wayland? ( >=dev-libs/libinput-1.4 >=dev-libs/wayland-1.6.90
     >=dev-libs/wayland-protocols-1.19 >=media-libs/mesa-10.3[egl,gbm,wayland] || (
-    sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= x11-base/xorg-server[wayland]
-    x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0 ) profiler?
-    ( >=dev-util/sysprof-3.34.0 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig x11-base/xorg-proto
-    test? ( app-text/docbook-xml-dtd:4.5 ) wayland? ( >=sys-kernel/linux-headers-4.4
+    sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= || ( x11-base/xorg-server[wayland]
+    x11-base/xwayland ) x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0
+    ) profiler? ( >=dev-util/sysprof-3.34.0 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig
+    x11-base/xorg-proto test? ( app-text/docbook-xml-dtd:4.5 ) wayland? ( >=sys-kernel/linux-headers-4.4
     ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
   IUSE: elogind +gles2 input_devices_wacom +introspection -profiler remote-desktop
     -test udev wayland test
@@ -93,9 +93,9 @@ labels:
     ( >=dev-libs/libwacom-0.13 ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
     ) udev? ( >=virtual/libgudev-232:= ) wayland? ( >=dev-libs/libinput-1.4 >=dev-libs/wayland-1.6.90
     >=dev-libs/wayland-protocols-1.19 >=media-libs/mesa-10.3[egl,gbm,wayland] || (
-    sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= x11-base/xorg-server[wayland]
-    x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0 ) profiler?
-    ( >=dev-util/sysprof-3.34.0 )'
+    sys-auth/elogind sys-apps/systemd ) >=virtual/libudev-232:= || ( x11-base/xorg-server[wayland]
+    x11-base/xwayland ) x11-libs/libdrm:= ) remote-desktop? ( >=media-video/pipewire-0.3.0
+    ) profiler? ( >=dev-util/sysprof-3.34.0 )'
   emerge.packages: x11-wm/mutter
   kit: gnome-kit
   original.package.name: x11-wm/mutter
