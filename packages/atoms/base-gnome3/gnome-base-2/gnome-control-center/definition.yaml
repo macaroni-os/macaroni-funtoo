@@ -1,5 +1,5 @@
 name: gnome-control-center
-version: 3.36.4
+version: 3.36.4+1
 category: gnome-base-2
 use_flags:
 - -libinput
@@ -48,6 +48,9 @@ requires:
 - name: gnome-online-accounts
   version: '>=0'
   category: net-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
 - name: cups-pk-helper
   version: '>=0'
   category: net-print
@@ -90,7 +93,7 @@ labels:
     media-libs/fontconfig >=sys-apps/accountsservice-0.6.39 >=media-libs/gsound-1.0.2
     >=media-libs/libcanberra-0.13[gtk3] >=media-sound/pulseaudio-2[glib] >=sys-auth/polkit-0.97
     >=sys-power/upower-0.99:= >=sys-fs/udisks-2.8.4:2 virtual/libgudev x11-apps/xmodmap
-    x11-libs/cairo x11-libs/libX11 x11-libs/libXxf86misc >=x11-libs/libXi-1.2 >=media-libs/clutter-1.11.3[gtk]
+    x11-libs/cairo x11-libs/libX11 >=x11-libs/libXi-1.2 >=media-libs/clutter-1.11.3[gtk]
     media-libs/clutter-gtk[gtk] >=net-wireless/gnome-bluetooth-3.31.1:= net-libs/libsoup:2.4
     >=x11-misc/colord-0.1.34:0= >=x11-libs/colord-gtk-0.1.24 >=net-fs/samba-4.0.0[client]
     >=media-libs/grilo-0.3.0:0.3= >=net-libs/gnome-online-accounts-3.27.92:= ibus?
@@ -107,7 +110,7 @@ labels:
     media-libs/fontconfig >=sys-apps/accountsservice-0.6.39 >=media-libs/gsound-1.0.2
     >=media-libs/libcanberra-0.13[gtk3] >=media-sound/pulseaudio-2[glib] >=sys-auth/polkit-0.97
     >=sys-power/upower-0.99:= >=sys-fs/udisks-2.8.4:2 virtual/libgudev x11-apps/xmodmap
-    x11-libs/cairo x11-libs/libX11 x11-libs/libXxf86misc >=x11-libs/libXi-1.2 >=media-libs/clutter-1.11.3[gtk]
+    x11-libs/cairo x11-libs/libX11 >=x11-libs/libXi-1.2 >=media-libs/clutter-1.11.3[gtk]
     media-libs/clutter-gtk[gtk] >=net-wireless/gnome-bluetooth-3.31.1:= net-libs/libsoup:2.4
     >=x11-misc/colord-0.1.34:0= >=x11-libs/colord-gtk-0.1.24 >=net-fs/samba-4.0.0[client]
     >=media-libs/grilo-0.3.0:0.3= >=net-libs/gnome-online-accounts-3.27.92:= ibus?
