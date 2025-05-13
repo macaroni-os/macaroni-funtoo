@@ -3,7 +3,7 @@ env:
 - LUET_YES=true
 - LUET_NOLOCK=true
 - HTTP_TIMEOUT=0
-- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles"'
+- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles https://distfiles.macaronios.org/mark-distfiles"'
 copy:
   - package:
       category: seed
@@ -72,6 +72,7 @@ steps:
   toolchain/base-gnome
   toolchain/base-gnome2
   toolchain/portage-tools
+  toolchain/qt6
   &&
   luet cleanup &&
   /usr/bin/gcc-config 1 &&
