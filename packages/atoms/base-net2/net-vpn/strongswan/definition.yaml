@@ -1,5 +1,5 @@
 name: strongswan
-version: 5.9.14
+version: 6.0.1
 category: net-vpn
 use_flags:
 - -gcrypt
@@ -39,9 +39,6 @@ requires:
 - name: gmp
   version: '>=0'
   category: dev-libs
-- name: curl
-  version: '>=0'
-  category: net-misc
 - name: networkmanager
   version: '>=0'
   category: net-misc
@@ -68,9 +65,9 @@ license: GPL-2 RSA DES
 labels:
   DEPEND: dev-libs/glib:2 gmp? ( >=dev-libs/gmp-4.1.5:= ) gcrypt? ( dev-libs/libgcrypt:=
     ) caps? ( sys-libs/libcap ) curl? ( net-misc/curl ) ldap? ( net-nds/openldap:=
-    ) openssl? ( >=dev-libs/openssl-0.9.8:=[-bindist(-)] ) mysql? ( dev-db/mysql-connector-c:=
-    ) sqlite? ( >=dev-db/sqlite-3.3.1:3 ) networkmanager? ( net-misc/networkmanager
-    ) pam? ( sys-libs/pam ) strongswan_plugins_unbound? ( net-dns/unbound:= net-libs/ldns:=
+    ) openssl? ( dev-libs/openssl ) mysql? ( dev-db/mysql-connector-c:= ) sqlite?
+    ( >=dev-db/sqlite-3.3.1:3 ) networkmanager? ( net-misc/networkmanager ) pam? (
+    sys-libs/pam ) strongswan_plugins_unbound? ( net-dns/unbound:= net-libs/ldns:=
     ) virtual/linux-sources sys-kernel/linux-headers sys-apps/shadow
   IUSE: +caps curl +constraints debug dhcp eap farp gcrypt +gmp ldap mysql networkmanager
     +non-root +openssl selinux sqlite pam pkcs11 +strongswan_plugins_gcm +strongswan_plugins_led
@@ -81,16 +78,16 @@ labels:
     strongswan_plugins_forecast strongswan_plugins_ha strongswan_plugins_ipseckey
     strongswan_plugins_newhope strongswan_plugins_ntru strongswan_plugins_padlock
     strongswan_plugins_rdrand strongswan_plugins_save-keys strongswan_plugins_unbound
-    strongswan_plugins_whitelist strongswan_plugins_xauth-noauth kernel_linux
+    strongswan_plugins_whitelist strongswan_plugins_xauth-noauth
   RDEPEND: dev-libs/glib:2 gmp? ( >=dev-libs/gmp-4.1.5:= ) gcrypt? ( dev-libs/libgcrypt:=
     ) caps? ( sys-libs/libcap ) curl? ( net-misc/curl ) ldap? ( net-nds/openldap:=
-    ) openssl? ( >=dev-libs/openssl-0.9.8:=[-bindist(-)] ) mysql? ( dev-db/mysql-connector-c:=
-    ) sqlite? ( >=dev-db/sqlite-3.3.1:3 ) networkmanager? ( net-misc/networkmanager
-    ) pam? ( sys-libs/pam ) strongswan_plugins_unbound? ( net-dns/unbound:= net-libs/ldns:=
+    ) openssl? ( dev-libs/openssl ) mysql? ( dev-db/mysql-connector-c:= ) sqlite?
+    ( >=dev-db/sqlite-3.3.1:3 ) networkmanager? ( net-misc/networkmanager ) pam? (
+    sys-libs/pam ) strongswan_plugins_unbound? ( net-dns/unbound:= net-libs/ldns:=
     ) virtual/logger sys-apps/iproute2 !net-vpn/libreswan selinux? ( sec-policy/selinux-ipsec
     )
   emerge.packages: net-vpn/strongswan
   kit: net-kit
   original.package.name: net-vpn/strongswan
   original.package.slot: "0"
-  original.package.version: 5.9.14
+  original.package.version: 6.0.1-r1
