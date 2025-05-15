@@ -3,13 +3,16 @@ version: 1.25.1
 category: dev-libs
 use_flags:
 - -doc
-- -gnutls
 - -libressl
-- -nss
+- gnutls
+- nss
 requires:
-- name: openssl
+- name: nss
   version: '>=0'
   category: dev-libs
+- name: gnutls
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
@@ -29,7 +32,7 @@ labels:
   RDEPEND: '!libressl? ( >=dev-libs/openssl-0.9.7:0=[bindist=] ) libressl? ( dev-libs/libressl
     ) gnutls? ( >=net-libs/gnutls-1.4.4 ) nss? ( dev-libs/nss )'
   emerge.packages: dev-libs/pkcs11-helper
-  kit: dev-kit
+  kit: security-kit
   original.package.name: dev-libs/pkcs11-helper
   original.package.slot: "0"
   original.package.version: 1.25.1
