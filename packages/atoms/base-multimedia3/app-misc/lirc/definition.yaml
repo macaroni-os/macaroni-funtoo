@@ -1,5 +1,5 @@
 name: lirc
-version: 0.10.1
+version: 0.10.1+1
 category: app-misc
 use_flags:
 - -doc
@@ -49,26 +49,26 @@ uri:
 license: GPL-2+
 labels:
   BDEPEND: virtual/pkgconfig
-  DEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+  DEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) audio? ( >media-libs/portaudio-18 media-libs/alsa-lib ) dev-python/pyyaml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) audio? ( >media-libs/portaudio-18 media-libs/alsa-lib ) dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     ftdi? ( dev-embedded/libftdi:0 ) systemd? ( sys-apps/systemd ) usb? ( virtual/libusb:0
-    ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) dev-libs/libxslt dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) dev-libs/libxslt dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     doc? ( app-doc/doxygen ) sys-apps/kmod sys-kernel/linux-headers
   IUSE: audio +devinput doc ftdi gtk inputlirc static-libs systemd +uinput usb X kernel_linux
-    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
-    python_single_target_python3_10 python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10
-  RDEPEND: python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) audio? ( >media-libs/portaudio-18 media-libs/alsa-lib ) dev-python/pyyaml[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    ) audio? ( >media-libs/portaudio-18 media-libs/alsa-lib ) dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     ftdi? ( dev-embedded/libftdi:0 ) systemd? ( sys-apps/systemd ) usb? ( virtual/libusb:0
     ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) gtk? ( x11-libs/vte[introspection]
-    dev-python/pygobject[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
+    dev-python/pygobject[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_pypy3(-),-python_single_target_python3_6(-),-python_single_target_python2_7(-)]
     ) inputlirc? ( app-misc/inputlircd )
   emerge.packages: app-misc/lirc
   kit: core-hw-kit
