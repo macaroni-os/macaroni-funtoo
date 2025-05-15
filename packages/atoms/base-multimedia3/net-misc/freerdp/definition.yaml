@@ -1,17 +1,19 @@
 name: freerdp
-version: 3.5.1
+version: 3.5.1+1
 category: net-misc
 use_flags:
 - -doc
-- -systemd
 - X
 - alsa
 - cups
 - ffmpeg
+- fuse
 - gstreamer
 - jpeg
+- kerberos
 - openh264
 - pulseaudio
+- sdl
 - server
 - smartcard
 - usb
@@ -22,9 +24,9 @@ requires:
 - name: dbus-glib
   version: '>=0'
   category: dev-libs
-- name: pulseaudio
+- name: pkcs11-helper
   version: '>=0'
-  category: media-sound
+  category: dev-libs
 - name: ffmpeg
   version: '>=0'
   category: media-video
@@ -37,25 +39,16 @@ requires:
 - name: util-linux
   version: '>=0'
   category: sys-apps
-- name: libudev
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+- name: krb5
   version: '>=0'
   category: virtual
-- name: libusb
-  version: '>=0'
-  category: virtual-1
-- name: libXcursor
-  version: '>=0'
-  category: x11-libs
 - name: libXdamage
   version: '>=0'
   category: x11-libs
 - name: libXinerama
-  version: '>=0'
-  category: x11-libs
-- name: libXrandr
-  version: '>=0'
-  category: x11-libs
-- name: libxkbcommon
   version: '>=0'
   category: x11-libs
 - name: libxkbfile
