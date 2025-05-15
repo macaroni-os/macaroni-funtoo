@@ -1,18 +1,15 @@
 name: pkcs11-helper
-version: 1.25.1+1
+version: 1.25.1+2
 category: dev-libs
 use_flags:
 - -doc
+- -gnutls
 - -libressl
-- gnutls
-- nss
+- -nss
 requires:
-- name: nss
+- name: openssl
   version: '>=0'
   category: dev-libs
-- name: gnutls
-  version: '>=0'
-  category: net-libs
 annotations:
   subsets:
     rules:
