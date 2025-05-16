@@ -1,12 +1,15 @@
 name: sdl2-ttf
-version: 2.22.0
+version: 2.24.0
 category: media-libs
 use_flags:
-- -harfbuzz
+- harfbuzz
 requires:
 - name: freetype
   version: '>=0'
   category: media-libs-2
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
 - name: libsdl2
   version: '>=0'
   category: media-libs
@@ -23,13 +26,13 @@ uri:
 license: ZLIB
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
-  DEPEND: '>=media-libs/libsdl2-2.0.12 >=media-libs/freetype-2.10.4[harfbuzz?] virtual/opengl
-    harfbuzz? ( >=media-libs/harfbuzz-2.8.0 )'
+  DEPEND: media-libs/libsdl2 media-libs/freetype[harfbuzz?] virtual/opengl harfbuzz?
+    ( media-libs/harfbuzz )
   IUSE: +harfbuzz static-libs X
-  RDEPEND: '>=media-libs/libsdl2-2.0.12 >=media-libs/freetype-2.10.4[harfbuzz?] virtual/opengl
-    harfbuzz? ( >=media-libs/harfbuzz-2.8.0 )'
+  RDEPEND: media-libs/libsdl2 media-libs/freetype[harfbuzz?] virtual/opengl harfbuzz?
+    ( media-libs/harfbuzz )
   emerge.packages: media-libs/sdl2-ttf
   kit: media-kit
   original.package.name: media-libs/sdl2-ttf
   original.package.slot: "0"
-  original.package.version: 2.22.0
+  original.package.version: 2.24.0-r1
