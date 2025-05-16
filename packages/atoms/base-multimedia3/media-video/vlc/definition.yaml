@@ -1,5 +1,5 @@
 name: vlc
-version: 3.0.21+1
+version: 3.0.21+2
 category: media-video
 use_flags:
 - -aom
@@ -17,8 +17,10 @@ use_flags:
 - -libtar
 - -libtiger
 - -linsys
+- -live
 - -lua
 - -projectm
+- -rdp
 - -samba
 - -sdl-image
 - -shout
@@ -53,7 +55,6 @@ use_flags:
 - libnotify
 - libsamplerate
 - lirc
-- live
 - mad
 - matroska
 - modplug
@@ -69,7 +70,6 @@ use_flags:
 - prefix
 - pulseaudio
 - qt5
-- rdp
 - sftp
 - skins
 - speex
@@ -154,15 +154,18 @@ requires:
 - name: libsamplerate
   version: '>=0'
   category: media-libs
-- name: live
-  version: '>=0'
-  category: media-plugins
 - name: mpg123
   version: '>=0'
   category: media-sound
 - name: musepack-tools
   version: '>=0'
   category: media-sound
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
 - name: libidn
   version: '>=0'
   category: net-dns
@@ -184,9 +187,6 @@ requires:
 - name: srt
   version: '>=0'
   category: net-libs
-- name: freerdp
-  version: '>=0'
-  category: net-misc
 - name: dbus
   version: '>=0'
   category: sys-apps
