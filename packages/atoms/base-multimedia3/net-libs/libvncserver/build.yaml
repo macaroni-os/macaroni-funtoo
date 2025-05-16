@@ -1,6 +1,4 @@
 prelude:
-- >-
-  rm /var/git/meta-repo/kits/net-kit/net-libs/libvncserver/libvncserver-0.9.15.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -28,6 +26,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: libupnp
+- name: portaudio
   version: '>=0'
-  category: net-libs-1.8
+  category: media-libs
