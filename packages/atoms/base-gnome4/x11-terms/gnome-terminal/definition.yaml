@@ -1,5 +1,5 @@
 name: gnome-terminal
-version: 3.36.2
+version: 3.36.2+1
 category: x11-terms
 use_flags:
 - gnome-shell
@@ -35,9 +35,8 @@ uri:
 - https://wiki.gnome.org/Apps/Terminal/
 license: GPL-3+
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 app-arch/xz-utils'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 app-arch/xz-utils'
   DEPEND: '>=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3[X] >=x11-libs/vte-0.60.0
     >=dev-libs/libpcre2-10 >=gnome-base/dconf-0.14 >=gnome-base/gsettings-desktop-schemas-0.1.0
     sys-apps/util-linux gnome-shell? ( gnome-base/gnome-shell ) nautilus? ( >=gnome-base/nautilus-3
