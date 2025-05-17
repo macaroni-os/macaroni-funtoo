@@ -1,5 +1,5 @@
 name: sound-juicer
-version: 3.24.0
+version: 3.24.0+1
 category: media-sound
 use_flags:
 - -test
@@ -20,6 +20,9 @@ requires:
 - name: gst-plugins-cdparanoia
   version: '>=0'
   category: media-plugins-1.0
+- name: dbus
+  version: '>=0'
+  category: sys-apps
 annotations:
   subsets:
     rules:
@@ -47,7 +50,7 @@ labels:
     ) gnome-base/gvfs[cdda,udev] || ( media-plugins/gst-plugins-cdparanoia:1.0 media-plugins/gst-plugins-cdio:1.0
     ) media-plugins/gst-plugins-meta:1.0
   emerge.packages: media-sound/sound-juicer
-  kit: gnome-kit
+  kit: media-kit
   original.package.name: media-sound/sound-juicer
   original.package.slot: "0"
   original.package.version: 3.24.0
