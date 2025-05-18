@@ -1,4 +1,10 @@
 prelude:
+- >-
+  anise i kernel-6.1/macaroni-full --finalizer-env "BUILD_ISO=1" &&
+  anise cleanup &&
+  export kver=$(anise s kernel-6.1/macaroni-full -o json | jq .stones[0].labels.\"package.version\" -r) &&
+  cd /lib/modules/${kver}-macaroni && ln -s /usr/src/linux-${kver}-macaroni build &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
