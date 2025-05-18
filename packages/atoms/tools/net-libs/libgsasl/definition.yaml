@@ -1,5 +1,5 @@
 name: libgsasl
-version: 1.8.0
+version: 1.8.0+1
 category: net-libs
 use_flags:
 - gcrypt
@@ -37,13 +37,12 @@ license: GPL-3 LGPL-3
 labels:
   DEPEND: gcrypt? ( dev-libs/libgcrypt:0 ) idn? ( net-dns/libidn ) kerberos? ( virtual/krb5
     ) nls? ( >=sys-devel/gettext-0.18.1 ) ntlm? ( net-libs/libntlm ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   IUSE: idn gcrypt kerberos nls ntlm static-libs
   RDEPEND: gcrypt? ( dev-libs/libgcrypt:0 ) idn? ( net-dns/libidn ) kerberos? ( virtual/krb5
     ) nls? ( >=sys-devel/gettext-0.18.1 ) ntlm? ( net-libs/libntlm ) !net-misc/gsasl
   emerge.packages: net-libs/libgsasl
-  kit: net-kit
+  kit: security-kit
   original.package.name: net-libs/libgsasl
   original.package.slot: "0"
   original.package.version: 1.8.0-r1
