@@ -1,9 +1,10 @@
 name: stunnel
-version: "5.72"
+version: "5.74"
 category: net-misc
 use_flags:
 - -selinux
 - -stunnel3
+- -test
 - ssl
 - tcpd
 requires:
@@ -13,6 +14,9 @@ requires:
 - name: tcp-wrappers
   version: '>=0'
   category: sys-apps
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -41,4 +45,4 @@ labels:
   kit: net-kit
   original.package.name: net-misc/stunnel
   original.package.slot: "0"
-  original.package.version: "5.72"
+  original.package.version: "5.74"
