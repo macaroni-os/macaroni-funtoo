@@ -1,14 +1,12 @@
 name: smartmontools
-version: "7.4"
+version: "7.5"
 category: sys-apps
 use_flags:
-- -kernel_FreeBSD
 - -selinux
 - -static
-- -systemd
 - caps
 - daemon
-- update_drivedb
+- update-drivedb
 requires:
 - name: gnupg
   version: '>=0'
@@ -40,7 +38,7 @@ labels:
     ) update-drivedb? ( app-crypt/gnupg || ( net-misc/curl net-misc/wget www-client/lynx
     dev-vcs/subversion ) )
   emerge.packages: sys-apps/smartmontools
-  kit: core-kit
+  kit: core-hw-kit
   original.package.name: sys-apps/smartmontools
   original.package.slot: "0"
-  original.package.version: "7.4"
+  original.package.version: "7.5"
