@@ -6,7 +6,8 @@ prelude:
   mkdir -p /etc/portage/patches/mail-client/geary/ &&
   cp -vf geary_*.patch /etc/portage/patches/mail-client/geary/ &&
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
-  USE="gtk python -lua glade vala" emerge libpeas --nodeps
+  USE="gtk python -lua glade vala" emerge libpeas --nodeps -j &&
+  emerge net-mail/ytnef -j
 
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
