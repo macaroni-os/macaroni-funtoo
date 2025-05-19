@@ -1,5 +1,5 @@
 name: gitg
-version: 3.32.1
+version: 3.32.1+1
 category: dev-vcs
 use_flags:
 - -glade
@@ -57,24 +57,24 @@ labels:
     dev-libs/libgit2:=[threads] >=dev-libs/libgit2-glib-0.27[ssh] <dev-libs/libgit2-glib-1
     >=dev-libs/libpeas-1.5.0[gtk] >=dev-libs/libxml2-2.9.0:2 >=gnome-base/gsettings-desktop-schemas-0.1.1
     net-libs/libsoup:2.4 >=x11-libs/gtk+-3.20.0:3 >=x11-libs/gtksourceview-3.10:3.0
-    x11-themes/adwaita-icon-theme glade? ( >=dev-util/glade-3.2:3.10 ) python? ( python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
-    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) || ( dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44
-    dev-lang/vala:0.42 dev-lang/vala:0.40 ) >=dev-libs/libgit2-glib-0.24.4[vala] >=sys-devel/gettext-0.19.7
-    virtual/pkgconfig
-  IUSE: glade +python python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-    python_targets_python3_10
+    x11-themes/adwaita-icon-theme glade? ( >=dev-util/glade-3.2:3.10 ) python? ( python_targets_python3_10?
+    ( dev-lang/python:3.10 ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) || ( dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 dev-lang/vala:0.48
+    dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40 )
+    >=dev-libs/libgit2-glib-0.24.4[vala] >=sys-devel/gettext-0.19.7 virtual/pkgconfig
+  IUSE: glade +python python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
+    python_targets_python3_8
   RDEPEND: app-crypt/libsecret[vala] >=app-text/gtkspell-3.0.3:3[vala] >=dev-libs/glib-2.38:2[dbus]
     >=dev-libs/gobject-introspection-0.10.1:= dev-libs/libdazzle dev-libs/libgee:0.8[introspection]
     dev-libs/libgit2:=[threads] >=dev-libs/libgit2-glib-0.27[ssh] <dev-libs/libgit2-glib-1
     >=dev-libs/libpeas-1.5.0[gtk] >=dev-libs/libxml2-2.9.0:2 >=gnome-base/gsettings-desktop-schemas-0.1.1
     net-libs/libsoup:2.4 >=x11-libs/gtk+-3.20.0:3 >=x11-libs/gtksourceview-3.10:3.0
-    x11-themes/adwaita-icon-theme glade? ( >=dev-util/glade-3.2:3.10 ) python? ( python_targets_python3_7?
-    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
-    ( dev-lang/python:3.8 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    dev-python/pygobject:3[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+    x11-themes/adwaita-icon-theme glade? ( >=dev-util/glade-3.2:3.10 ) python? ( python_targets_python3_10?
+    ( dev-lang/python:3.10 ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     )
   emerge.packages: dev-vcs/gitg
   kit: gnome-kit
