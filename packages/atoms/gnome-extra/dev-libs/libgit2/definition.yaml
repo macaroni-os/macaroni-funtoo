@@ -1,5 +1,5 @@
 name: libgit2
-version: 1.0.0
+version: 1.0.0+1
 category: dev-libs
 use_flags:
 - -libressl
@@ -33,7 +33,7 @@ labels:
   BDEPEND: dev-util/ninja dev-util/cmake
   DEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) sys-libs/zlib
     net-libs/http-parser:= gssapi? ( virtual/krb5 ) ssh? ( net-libs/libssh2 ) || (
-    dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) virtual/pkgconfig'
   IUSE: examples gssapi libressl +ssh test +threads trace
   RDEPEND: '!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= )
