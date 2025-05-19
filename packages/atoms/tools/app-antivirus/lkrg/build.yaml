@@ -1,9 +1,13 @@
 prelude:
 - >-
-  anise i kernel-6.1/macaroni-full --finalizer-env "BUILD_ISO=1" &&
+  anise i kernel-6.1/macaroni-full kernel-6.1/macaroni-sources --finalizer-env "BUILD_ISO=1" &&
   anise cleanup &&
   export kver=$(anise s kernel-6.1/macaroni-full -o json | jq .stones[0].labels.\"package.version\" -r) &&
   cd /lib/modules/${kver}-macaroni && ln -s /usr/src/linux-${kver}-macaroni build &&
+  cd -
+  cd /usr/src &&
+  rm linux &&
+  ln -s /usr/src/linux-${kver}-macaroni linux &&
   cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
