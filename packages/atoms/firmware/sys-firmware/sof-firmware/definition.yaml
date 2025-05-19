@@ -1,6 +1,15 @@
 name: sof-firmware
-version: 1.6.1
+version: 2025.01.1
 category: sys-firmware
+use_flags:
+- tools
+requires:
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
 annotations:
   subsets:
     rules:
@@ -10,11 +19,15 @@ annotations:
       - ^/var/db/pkg/
 description: Sound Open Firmware (SOF) binary files
 uri:
-- https://www.sofproject.org https://github.com/thesofproject/sof https://github.com/thesofproject/sof-bin
+- https://www.sofproject.org
+- https://github.com/thesofproject/sof
+- https://github.com/thesofproject/sof-bin
 license: BSD
 labels:
+  IUSE: tools
+  RDEPEND: tools? ( media-libs/alsa-lib sys-libs/glibc )
   emerge.packages: sys-firmware/sof-firmware
   kit: core-hw-kit
   original.package.name: sys-firmware/sof-firmware
   original.package.slot: "0"
-  original.package.version: 1.6.1-r1
+  original.package.version: 2025.01.1
