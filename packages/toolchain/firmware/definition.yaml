@@ -3,6 +3,9 @@ name: firmware
 version: "1"
 description: "Virtual package to install portage meta data of the firmware packages"
 requires:
+  - name: Crypt-PasswdMD5
+    category: dev-perl
+    version: '>=0'
   - name: b43-fwcutter
     category: net-wireless
     version: '>=0'
@@ -11,6 +14,9 @@ requires:
     version: '>=0'
   - name: iucode_tool
     category: sys-apps
+    version: '>=0'
+  - name: syslinux
+    category: sys-boot
     version: '>=0'
   - name: b43-firmware
     category: sys-firmware-b43
@@ -39,7 +45,7 @@ requires:
   - name: midisport-firmware
     category: sys-firmware
     version: '>=0'
-  - name: seabios-bin
+  - name: seabios
     category: sys-firmware
     version: '>=0'
   - name: sgabios
