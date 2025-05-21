@@ -1,0 +1,36 @@
+name: xcb
+version: "2.4"
+category: x11-misc
+use_flags:
+- motif
+requires:
+- name: libXaw
+  version: '>=0'
+  category: x11-libs
+- name: libXext
+  version: '>=0'
+  category: x11-libs
+- name: libXt
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Marc Lehmann's improved X Cut Buffers
+uri:
+- http://oldhome.schmorp.de/marc/xcb.html
+license: BSD
+labels:
+  DEPEND: x11-libs/libX11 x11-libs/libXaw x11-libs/libXext x11-libs/libXt x11-base/xorg-proto
+    motif? ( >=x11-libs/motif-2.3:0 )
+  IUSE: motif
+  RDEPEND: x11-libs/libX11 x11-libs/libXaw x11-libs/libXext x11-libs/libXt
+  emerge.packages: x11-misc/xcb
+  kit: desktop-kit
+  original.package.name: x11-misc/xcb
+  original.package.slot: "0"
+  original.package.version: 2.4-r1
