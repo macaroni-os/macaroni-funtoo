@@ -1,5 +1,5 @@
 name: wireshark
-version: 4.0.10
+version: 4.0.10+1
 category: net-analyzer
 use_flags:
 - -bcg729
@@ -55,13 +55,7 @@ requires:
 - name: qtconcurrent
   version: '>=0'
   category: dev-qt-5
-- name: qtcore
-  version: '>=0'
-  category: dev-qt-5
 - name: qtmultimedia
-  version: '>=0'
-  category: dev-qt-5
-- name: qtprintsupport
   version: '>=0'
   category: dev-qt-5
 - name: opus
@@ -121,7 +115,7 @@ labels:
     ) sbc? ( media-libs/sbc ) sdjournal? ( sys-apps/systemd ) smi? ( net-libs/libsmi
     ) snappy? ( app-arch/snappy ) spandsp? ( media-libs/spandsp ) sshdump? ( >=net-libs/libssh-0.6
     ) ssl? ( net-libs/gnutls:= ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) ||
-    ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) filecaps? ( sys-libs/libcap ) sys-apps/shadow'
   IUSE: prefix-guest androiddump -bcg729 brotli +capinfos +captype ciscodump +dftest
     -doc dpauxmon +dumpcap +editcap http2 -ilbc kerberos libxml2 lto lua lz4 maxminddb
