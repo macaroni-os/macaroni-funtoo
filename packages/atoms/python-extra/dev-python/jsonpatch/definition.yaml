@@ -1,12 +1,10 @@
 name: jsonpatch
-version: "1.33"
+version: 1.33+1
 category: dev-python
 use_flags:
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -test
 - python_targets_python3_9
 requires:
 - name: jsonpointer
@@ -19,9 +17,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
+description: Apply JSON-Patches (RFC 6902)
 uri:
 - https://github.com/stefankoegl/python-json-patch
+- https://pypi.org/project/jsonpatch/
 license: BSD
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
