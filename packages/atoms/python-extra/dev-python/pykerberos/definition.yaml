@@ -1,8 +1,7 @@
 name: pykerberos
-version: 1.2.4
+version: 1.2.4+1
 category: dev-python
 use_flags:
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
@@ -21,9 +20,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A high-level Python wrapper for Kerberos/GSSAPI operations
+description: High-level interface to Kerberos
 uri:
-- http://trac.calendarserver.org/wiki/PyKerberos
+- https://github.com/02strich/pykerberos
+- https://pypi.org/project/pykerberos/
 license: Apache-2.0
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
@@ -40,7 +40,7 @@ labels:
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: dev-python/pykerberos
-  kit: python-modules-kit
+  kit: geaaru-kit
   original.package.name: dev-python/pykerberos
   original.package.slot: "0"
   original.package.version: 1.2.4
