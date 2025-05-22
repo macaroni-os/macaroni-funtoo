@@ -1,22 +1,21 @@
 name: virtualenv
-version: 20.26.3
+version: 20.30.0
 category: dev-python
 use_flags:
-- -doc
-- -python_targets_pypy3
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -test
 - python_targets_python3_9
 requires:
-- name: python
+- name: distlib
   version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
+  category: dev-python
+- name: filelock
   version: '>=0'
-  category: dev-lang-2
+  category: dev-python
+- name: platformdirs
+  version: '>=0'
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -26,7 +25,7 @@ annotations:
       - ^/var/db/pkg/
 description: Virtual Python Environment builder
 uri:
-- https://virtualenv.pypa.io/en/stable/ https://pypi.org/project/virtualenv/ https://github.com/pypa/virtualenv/
+- https://pypi.org/project/virtualenv/
 license: MIT
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
@@ -47,4 +46,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/virtualenv
   original.package.slot: "0"
-  original.package.version: 20.26.3
+  original.package.version: 20.30.0
