@@ -1,33 +1,24 @@
 name: pillow
-version: 10.4.0
+version: 11.1.0
 category: dev-python
 use_flags:
-- -doc
-- -python_targets_python2_7
+- -imagequant
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -test
-- -imagequant
 - jpeg
 - jpeg2k
 - lcms
-- prefix
 - python_targets_python3_9
 - tiff
 - truetype
 - webp
+- xcb
 - zlib
 requires:
 - name: olefile
   version: '>=0'
   category: dev-python
-- name: libraqm
-  version: '>=0'
-  category: media-libs
-- name: openjpeg
-  version: '>=0'
-  category: media-libs-2
 annotations:
   subsets:
     rules:
@@ -58,4 +49,4 @@ labels:
   kit: python-modules-kit
   original.package.name: dev-python/pillow
   original.package.slot: "0"
-  original.package.version: 10.4.0
+  original.package.version: 11.1.0
