@@ -1,9 +1,7 @@
 name: httplib2
-version: 0.22.0
+version: 0.22.0+1
 category: dev-python
 use_flags:
-- -python_targets_pypy3
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
@@ -12,12 +10,9 @@ requires:
 - name: ca-certificates
   version: '>=0'
   category: app-misc
-- name: python
+- name: pyparsing
   version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -25,9 +20,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A comprehensive HTTP client library
+description: A comprehensive HTTP client library.
 uri:
-- https://pypi.org/project/httplib2/ https://github.com/jcgregorio/httplib2
+- https://github.com/httplib2/httplib2
+- https://pypi.org/project/httplib2/
 license: MIT
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
