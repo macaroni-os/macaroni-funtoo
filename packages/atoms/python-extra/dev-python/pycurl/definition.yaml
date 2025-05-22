@@ -1,12 +1,10 @@
 name: pycurl
-version: 7.45.3
+version: 7.45.4
 category: dev-python
 use_flags:
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -test
 - curl_ssl_gnutls
 - python_targets_python3_9
 - ssl
@@ -30,10 +28,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: python binding for curl/libcurl
+description: PycURL -- A Python Interface To The cURL library
 uri:
-- https://github.com/pycurl/pycurl https://pypi.org/project/pycurl/ http://pycurl.io/
-license: LGPL-2.1
+- http://pycurl.io/
+- https://pypi.org/project/pycurl/
+license: MIT
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
@@ -52,4 +51,4 @@ labels:
   kit: geaaru-kit
   original.package.name: dev-python/pycurl
   original.package.slot: "0"
-  original.package.version: 7.45.3
+  original.package.version: 7.45.4
