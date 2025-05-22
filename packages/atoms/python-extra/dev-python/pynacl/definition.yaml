@@ -1,21 +1,19 @@
 name: pynacl
-version: 1.5.0
+version: 1.5.0+1
 category: dev-python
 use_flags:
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -test
 - python_targets_python3_9
 requires:
-- name: libsodium
+- name: python
   version: '>=0'
-  category: dev-libs
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: cffi
-  version: '>=0'
-  category: dev-python
-- name: six
   version: '>=0'
   category: dev-python
 annotations:
@@ -27,8 +25,8 @@ annotations:
       - ^/var/db/pkg/
 description: Python binding to the Networking and Cryptography (NaCl) library
 uri:
-- https://github.com/pyca/pynacl/ https://pypi.org/project/PyNaCl/
-license: Apache-2.0
+- https://github.com/pyca/pynacl/
+- https://pypi.org/project/PyNaCl/
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
