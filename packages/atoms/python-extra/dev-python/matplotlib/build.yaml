@@ -6,6 +6,7 @@ prelude:
   ebuild matplotlib-3.6.3.ebuild digest &&
   eval 'eselect lapack set 1 || true' &&
   eval 'eselect blas set 1 || true' &&
+  eval 'eselect cblas set 1 || true' &&
   cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
