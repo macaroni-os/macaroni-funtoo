@@ -1,5 +1,5 @@
 name: virtualbox-bin
-version: 7.1.0.164728+1
+version: 7.1.8.168469
 category: app-emulation
 use_flags:
 - -headless
@@ -9,6 +9,9 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
+- name: mit-krb5
+  version: '>=0'
+  category: app-crypt
 - name: python
   version: '>=0'
   category: dev-lang-3.9
@@ -66,7 +69,7 @@ labels:
     x11-misc/shared-mime-info virtual/pkgconfig
   IUSE: +additions doc headless python vboxwebsrv rdesktop-vrdp sdk python_targets_python3_10
     python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python2_7
-  RDEPEND: '!app-emulation/virtualbox-additions ~app-emulation/virtualbox-modules-7.1.0
+  RDEPEND: '!app-emulation/virtualbox-additions ~app-emulation/virtualbox-modules-7.1.8
     !headless? ( app-crypt/mit-krb5 dev-libs/glib media-libs/fontconfig media-libs/freetype
     media-libs/libpng media-libs/libsdl[X] x11-libs/libXcursor x11-libs/libXext x11-libs/libXfixes
     x11-libs/libXft x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender
@@ -76,7 +79,7 @@ labels:
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python2_7?
     ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python2_7(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python2_7(-)]'
   emerge.packages: app-emulation/virtualbox-bin
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: app-emulation/virtualbox-bin
   original.package.slot: "0"
-  original.package.version: 7.1.0.164728
+  original.package.version: 7.1.8.168469
