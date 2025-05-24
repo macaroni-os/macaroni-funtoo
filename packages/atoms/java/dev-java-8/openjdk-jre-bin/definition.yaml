@@ -1,11 +1,11 @@
 name: openjdk-jre-bin
-version: "8.422"
+version: "8.442"
 category: dev-java-8
 use_flags:
 - -cups
+- -headless-awt
 - -selinux
 - alsa
-- headless-awt
 requires:
 - name: eselect-java
   version: '>=0'
@@ -25,6 +25,12 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
+- name: libXrender
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -48,4 +54,4 @@ labels:
   kit: java-kit
   original.package.name: dev-java/openjdk-jre-bin
   original.package.slot: "8"
-  original.package.version: 8.422_p05
+  original.package.version: 8.442_p06
