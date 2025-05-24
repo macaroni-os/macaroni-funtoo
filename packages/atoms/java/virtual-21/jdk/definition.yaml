@@ -1,0 +1,27 @@
+name: jdk
+version: "21"
+category: virtual-21
+requires:
+- name: openjdk-bin
+  version: '>=0'
+  category: dev-java-21
+- name: openjdk-bin
+  version: '>=0'
+  category: dev-java-21
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Development Kit (JDK)
+labels:
+  IUSE: headless-awt
+  RDEPEND: '|| ( dev-java/oracle-jdk-bin:21[gentoo-vm(+),headless-awt=] dev-java/openjdk-bin:21[gentoo-vm(+),headless-awt=]
+    dev-java/openjdk:21[gentoo-vm(+),headless-awt=] )'
+  emerge.packages: virtual/jdk:21
+  kit: java-kit
+  original.package.name: virtual/jdk
+  original.package.slot: "21"
+  original.package.version: "21"
