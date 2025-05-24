@@ -1,12 +1,12 @@
 name: openjdk-bin
-version: 17.0.11
+version: 17.0.14
 category: dev-java-17
 use_flags:
 - -arm
 - -cups
+- -headless-awt
 - -selinux
 - alsa
-- headless-awt
 requires:
 - name: eselect-java
   version: '>=0'
@@ -26,6 +26,12 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
+- name: libXrender
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -50,4 +56,4 @@ labels:
   kit: java-kit
   original.package.name: dev-java/openjdk-bin
   original.package.slot: "17"
-  original.package.version: 17.0.11_p9
+  original.package.version: 17.0.14_p7
