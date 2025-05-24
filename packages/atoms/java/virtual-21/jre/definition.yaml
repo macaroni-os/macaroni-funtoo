@@ -1,0 +1,26 @@
+name: jre
+version: "21"
+category: virtual-21
+requires:
+- name: jdk
+  version: '>=0'
+  category: virtual-21
+- name: openjdk-jre-bin
+  version: '>=0'
+  category: dev-java-21
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for Java Runtime Environment (JRE)
+labels:
+  RDEPEND: '|| ( virtual/jdk:21 dev-java/oracle-jre-bin:21[gentoo-vm(+)] dev-java/openjdk-jre-bin:21[gentoo-vm(+)]
+    dev-java/openjdk-jre:21[gentoo-vm(+)] )'
+  emerge.packages: virtual/jre:21
+  kit: java-kit
+  original.package.name: virtual/jre
+  original.package.slot: "21"
+  original.package.version: "21"
