@@ -1,5 +1,5 @@
 name: gnuplot
-version: 5.2.6+1
+version: 5.2.6+2
 category: sci-visualization
 use_flags:
 - -doc
@@ -16,6 +16,9 @@ use_flags:
 - readline
 - svga
 requires:
+- name: qtcore
+  version: '>=0'
+  category: dev-qt-5
 - name: qtnetwork
   version: '>=0'
   category: dev-qt-5
@@ -66,8 +69,7 @@ labels:
     ) wxwidgets? ( x11-libs/wxGTK:3.0[X] x11-libs/cairo x11-libs/pango x11-libs/gtk+:2
     ) X? ( x11-libs/libXaw ) virtual/pkgconfig doc? ( virtual/latex-base dev-texlive/texlive-latexextra
     app-text/ghostscript-gpl ) qt5? ( dev-qt/linguist-tools:5 ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   IUSE: aqua bitmap cairo compat doc examples +gd ggi latex libcaca libcerf lua qt5
     readline regis svga wxwidgets X
   RDEPEND: cairo? ( x11-libs/cairo x11-libs/pango ) gd? ( >=media-libs/gd-2.0.35-r3:2=[png]
