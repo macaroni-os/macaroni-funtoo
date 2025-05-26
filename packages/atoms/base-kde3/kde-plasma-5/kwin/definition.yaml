@@ -1,5 +1,5 @@
 name: kwin
-version: 5.27.9
+version: 5.27.9+1
 category: kde-plasma-5
 use_flags:
 - -gles2-only
@@ -10,6 +10,7 @@ use_flags:
 - multimedia
 - prefix
 - screencast
+- wayland
 - qml
 requires:
 - name: qtmultimedia
@@ -24,7 +25,7 @@ requires:
 - name: knewstuff
   version: '>=0'
   category: kde-frameworks-5
-- name: ktextwidgets
+- name: krunner
   version: '>=0'
   category: kde-frameworks-5
 - name: breeze
@@ -42,9 +43,15 @@ requires:
 - name: pipewire
   version: '>=0'
   category: media-video
+- name: hwdata
+  version: '>=0'
+  category: sys-apps
 - name: libcap
   version: '>=0'
   category: sys-libs
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
 - name: libdrm
   version: '>=0'
   category: x11-libs
@@ -92,7 +99,8 @@ labels:
     >=dev-qt/designer-5.15.2:5 >=dev-qt/qtconcurrent-5.15.2:5 x11-base/xorg-proto
     x11-libs/xcb-util-image dev-util/desktop-file-utils x11-misc/shared-mime-info
     test? ( >=dev-qt/qttest-5.15.2:5 ) >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils'
-  IUSE: accessibility caps gles2-only multimedia screencast test debug +handbook test
+  IUSE: accessibility caps gles2-only multimedia screencast wayland test debug +handbook
+    test
   RDEPEND: '>=dev-libs/libinput-1.19 >=dev-libs/wayland-1.21.0 >=dev-qt/qtconcurrent-5.15.2:5
     >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5[egl,gles2-only=,libinput]
     >=dev-qt/qtnetwork-5.15.2:5 >=dev-qt/qtwayland-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5
@@ -114,9 +122,10 @@ labels:
     ) caps? ( sys-libs/libcap ) gles2-only? ( media-libs/mesa[gles2] ) screencast?
     ( >=media-video/pipewire-0.3:= ) !kde-plasma/kwayland-server >=dev-qt/qtquickcontrols-5.15.2:5
     >=dev-qt/qtquickcontrols2-5.15.2:5 >=dev-qt/qtvirtualkeyboard-5.15.2:5 >=kde-frameworks/kirigami-5.98.0:5
-    >=kde-frameworks/kitemmodels-5.98.0:5[qml] sys-apps/hwdata x11-base/xorg-server
-    multimedia? ( >=dev-qt/qtmultimedia-5.15.2:5[gstreamer,qml] ) >=kde-frameworks/kf-env-4
-    || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
+    >=kde-frameworks/kitemmodels-5.98.0:5[qml] sys-apps/hwdata wayland? ( || ( x11-base/xorg-server[wayland]
+    x11-base/xwayland ) ) x11-base/xorg-server multimedia? ( >=dev-qt/qtmultimedia-5.15.2:5[gstreamer,qml]
+    ) >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
+    ) >=dev-qt/qtcore-5.15.2:5'
   emerge.packages: kde-plasma/kwin:5
   kit: kde-kit
   original.package.name: kde-plasma/kwin
