@@ -84,6 +84,15 @@ global_annotations:
 
 artefacts:
 
+- tree: packages/atoms/lxqt
+  uses:
+    disabled:
+      - doc
+      - examples
+      - debug
+  packages:
+    - x11-libs/libfm
+    - x11-libs/libfm-extra
 
 - tree: packages/atoms/lxqt
   packages:
@@ -117,6 +126,23 @@ artefacts:
 
 - tree: packages/atoms/lxqt
   mutations:
+    uses:
+      - minimal
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race16
+  uses:
+    disabled:
+      - sddm
+      - lightdm
+  packages:
+    - lxqt-base/lxqt-meta
+
+- tree: packages/atoms/lxqt
+  mutations:
+    uses:
+      - minimal
     buildtime_deps:
       packages:
         - category: seed
@@ -127,7 +153,6 @@ artefacts:
       - lightdm
   packages:
     - dev-cpp/muParser
-    - lxqt-base/lxqt-meta
 
 - tree: packages/atoms/lxqt
   replacements:
