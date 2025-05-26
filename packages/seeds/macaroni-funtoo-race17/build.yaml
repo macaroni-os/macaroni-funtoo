@@ -3,7 +3,7 @@ env:
 - LUET_YES=true
 - LUET_NOLOCK=true
 - HTTP_TIMEOUT=0
-- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles"'
+- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles https://distfiles.macaronios.org/mark-distfiles"'
 copy:
   - package:
       category: seed
@@ -11,7 +11,6 @@ copy:
       version: ">=0"
     source: "/macaroni-funtoo"
     destination: "/"
-# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -23,9 +22,9 @@ steps:
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force
+- anise install virtual-entities/base --force
 - >-
-  luet install --force
+  anise install --force
   system/luet-devkit
   utils/jq
   utils/yq
@@ -33,7 +32,7 @@ steps:
   dev-util/pkgs-checker-minimal
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
-  luet cleanup
+  anise cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
@@ -41,9 +40,9 @@ steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
   cat /etc/luet/luet.yaml &&
-  luet miner ri virtual/base virtual/sh &&
-  luet repo update && luet upgrade &&
-  luet i
+  anise miner ri virtual/base virtual/sh &&
+  anise repo update && anise upgrade &&
+  anise i
   toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
@@ -72,6 +71,7 @@ steps:
   toolchain/base-gnome
   toolchain/base-gnome2
   toolchain/portage-tools
+  toolchain/qt6
   toolchain/base-gnome3
   toolchain/release
   toolchain/base-net2
@@ -91,14 +91,14 @@ steps:
   toolchain/base-multimedia4
   toolchain/lxqt
   &&
-  luet cleanup &&
+  anise cleanup &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   mkdir -p /var/lib/portage &&
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
-  luet miner ri libxml2 &&
+  anise miner ri libxml2 &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
@@ -110,6 +110,9 @@ steps:
   eselect postgresql set 13 &&
   cd / && rm -rf /luetbuild &&
   eval 'mkdir -p /run || true' &&
+  cd /var/git/meta-repo/kits/ &&
+  for i in $(ls -1 . ) ; do egencache --jobs=9 --update --repo $i ; done ;
+  cd - &&
   mkdir /layer
 
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
