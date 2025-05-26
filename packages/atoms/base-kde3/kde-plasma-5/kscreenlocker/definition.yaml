@@ -1,5 +1,5 @@
 name: kscreenlocker
-version: 5.27.9
+version: 5.27.9+1
 category: kde-plasma-5
 use_flags:
 - -test
@@ -17,9 +17,6 @@ requires:
   version: '>=0'
   category: kde-frameworks-5
 - name: plasma
-  version: '>=0'
-  category: kde-frameworks-5
-- name: solid
   version: '>=0'
   category: kde-frameworks-5
 - name: pam
@@ -51,8 +48,9 @@ labels:
     >=kde-frameworks/knotifications-5.98.0:5 >=kde-frameworks/kpackage-5.98.0:5 >=kde-frameworks/kwayland-5.98.0:5
     >=kde-frameworks/kwindowsystem-5.98.0:5 >=kde-frameworks/kxmlgui-5.98.0:5 >=kde-frameworks/solid-5.98.0:5
     x11-libs/libX11 x11-libs/libXi x11-libs/libxcb x11-libs/xcb-util-keysyms pam?
-    ( sys-libs/pam ) x11-base/xorg-proto dev-util/desktop-file-utils x11-misc/shared-mime-info
-    test? ( >=dev-qt/qttest-5.15.2:5 ) >=dev-qt/qtcore-5.15.2:5 dev-util/desktop-file-utils
+    ( sys-libs/pam ) >=kde-plasma/libkscreen-5.27.9:5 x11-base/xorg-proto dev-util/desktop-file-utils
+    x11-misc/shared-mime-info test? ( >=dev-qt/qttest-5.15.2:5 ) >=dev-qt/qtcore-5.15.2:5
+    dev-util/desktop-file-utils
   IUSE: +pam test debug test
   RDEPEND: dev-libs/wayland >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtdeclarative-5.15.2:5
     >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtnetwork-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5
