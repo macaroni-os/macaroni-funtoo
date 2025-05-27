@@ -1,4 +1,7 @@
 prelude:
+# Build poppler with [qt5] use flags but the package will be splitted.
+- >-
+  USE="-curl cxx -introspection -jpeg -jpeg2k lcms qt5 cairo utils" emerge app-text/poppler -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
