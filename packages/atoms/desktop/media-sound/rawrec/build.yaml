@@ -1,10 +1,7 @@
 prelude:
 # Temporary
 - >-
-  luet repo update &&
-  luet upgrade &&
-  luet cleanup &&
-  sed -i '/fperms/d' /var/git/extra-kits/geaaru-kit/media-sound/rawrec/rawrec-0.9.991.ebuild
+  sed -i '/fperms/d' /var/git/meta-repo/kits/media-kit/media-sound/rawrec/rawrec-0.9.991-r1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
