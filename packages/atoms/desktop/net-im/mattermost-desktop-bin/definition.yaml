@@ -1,5 +1,5 @@
 name: mattermost-desktop-bin
-version: 5.9.0+1
+version: 5.12.0
 category: net-im
 requires:
 - name: at-spi2-core
@@ -11,6 +11,9 @@ requires:
 - name: alsa-lib
   version: '>=0'
   category: media-libs
+- name: cups
+  version: '>=0'
+  category: net-print
 - name: glibc
   version: '>=0'
   category: sys-libs-2.2
@@ -42,7 +45,7 @@ labels:
     x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes
     x11-libs/libXrandr x11-libs/libdrm x11-libs/libxcb x11-libs/libxkbcommon x11-libs/pango
   emerge.packages: net-im/mattermost-desktop-bin
-  kit: geaaru-kit
+  kit: desktop-kit
   original.package.name: net-im/mattermost-desktop-bin
   original.package.slot: "0"
-  original.package.version: 5.9.0
+  original.package.version: 5.12.0
