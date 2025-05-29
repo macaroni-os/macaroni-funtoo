@@ -1,5 +1,5 @@
 name: slack-bin
-version: 4.39.95
+version: 4.43.51
 category: net-im
 use_flags:
 - -ayatana
@@ -20,6 +20,12 @@ requires:
 - name: curl
   version: '>=0'
   category: net-misc
+- name: cups
+  version: '>=0'
+  category: net-print
+- name: dbus
+  version: '>=0'
+  category: sys-apps
 - name: cairo
   version: '>=0'
   category: x11-libs
@@ -63,7 +69,7 @@ labels:
     x11-libs/libXtst:0[-mgorny(-)] x11-libs/pango:0[-mgorny(-)] ayatana? ( dev-libs/libappindicator:3[-mgorny(-)]
     ) gnome-keyring? ( app-crypt/libsecret )
   emerge.packages: net-im/slack-bin
-  kit: net-kit
+  kit: desktop-kit
   original.package.name: net-im/slack-bin
   original.package.slot: "0"
-  original.package.version: 4.39.95
+  original.package.version: 4.43.51
