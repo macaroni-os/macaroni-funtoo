@@ -1,5 +1,5 @@
 name: hexchat
-version: 2.16.1
+version: 2.16.1+1
 category: net-irc
 use_flags:
 - -libcanberra
@@ -52,33 +52,33 @@ labels:
     ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1?
     ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lua/lua:5.2 ) lua_single_target_lua5-3?
     ( dev-lua/lua:5.3 ) lua_single_target_lua5-4? ( dev-lua/lua:5.4 ) ) perl? ( dev-lang/perl:=
-    ) plugin-sysinfo? ( sys-apps/pciutils ) python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ) plugin-sysinfo? ( sys-apps/pciutils ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    virtual/python-cffi ) ssl? ( dev-libs/openssl:0= ) theme-manager? ( || ( ( dev-lang/mono[minimal]
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) virtual/python-cffi ) ssl? ( dev-libs/openssl:0= ) theme-manager? ( || ( ( dev-lang/mono[minimal]
     dev-dotnet/libgdiplus ) dev-lang/mono[-minimal] ) ) dev-util/desktop-file-utils
     x11-misc/shared-mime-info
   IUSE: dbus debug +gtk libcanberra lua perl plugin-checksum plugin-fishlim plugin-sysinfo
     python ssl theme-manager lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2
-    lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_7
-    python_single_target_python3_9 python_single_target_python3_8 python_single_target_python3_10
-    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python3_10
+    lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_10
+    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
   RDEPEND: dev-libs/glib:2 dbus? ( dev-libs/dbus-glib ) gtk? ( x11-libs/gdk-pixbuf:2
     x11-libs/gtk+:2 x11-libs/libX11 x11-libs/pango ) libcanberra? ( media-libs/libcanberra
     ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1?
     ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lua/lua:5.2 ) lua_single_target_lua5-3?
     ( dev-lua/lua:5.3 ) lua_single_target_lua5-4? ( dev-lua/lua:5.4 ) ) perl? ( dev-lang/perl:=
-    ) plugin-sysinfo? ( sys-apps/pciutils ) python? ( python_single_target_python3_7?
-    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
-    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ) plugin-sysinfo? ( sys-apps/pciutils ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    virtual/python-cffi ) ssl? ( dev-libs/openssl:0= ) theme-manager? ( || ( ( dev-lang/mono[minimal]
+    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) virtual/python-cffi ) ssl? ( dev-libs/openssl:0= ) theme-manager? ( || ( ( dev-lang/mono[minimal]
     dev-dotnet/libgdiplus ) dev-lang/mono[-minimal] ) )
   emerge.packages: net-irc/hexchat
-  kit: net-kit
+  kit: desktop-kit
   original.package.name: net-irc/hexchat
   original.package.slot: "0"
   original.package.version: 2.16.1
