@@ -1,5 +1,5 @@
 name: sox
-version: 14.4.2
+version: 14.4.2+1
 category: media-sound
 use_flags:
 - alsa
@@ -70,8 +70,8 @@ labels:
     ) opus? ( media-libs/opus media-libs/opusfile ) png? ( media-libs/libpng:0= sys-libs/zlib
     ) pulseaudio? ( media-sound/pulseaudio ) sndfile? ( >=media-libs/libsndfile-1.0.11
     ) twolame? ( media-sound/twolame ) wavpack? ( media-sound/wavpack ) virtual/pkgconfig
-    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4
   IUSE: alsa amr ao debug encode flac id3tag ladspa mad ogg openmp oss opus png pulseaudio
     sndfile static-libs twolame wavpack
   RDEPEND: dev-libs/libltdl:0= >=media-sound/gsm-1.0.12-r1 alsa? ( media-libs/alsa-lib
