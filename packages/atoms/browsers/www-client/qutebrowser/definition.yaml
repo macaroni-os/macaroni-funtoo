@@ -1,5 +1,5 @@
 name: qutebrowser
-version: 3.2.1+1
+version: 3.5.0
 category: www-client
 use_flags:
 - -python_targets_python3_10
@@ -8,6 +8,9 @@ use_flags:
 - -test
 - python_targets_python3_9
 requires:
+- name: PyQt5
+  version: '>=0'
+  category: dev-python
 - name: PyQtWebEngine
   version: '>=0'
   category: dev-python
@@ -44,7 +47,8 @@ annotations:
       - ^/var/db/pkg/
 description: A keyboard-driven, vim-like browser based on PyQt5 and QtWebEngine
 uri:
-- https://www.qutebrowser.org/ https://github.com/qutebrowser/qutebrowser
+- https://www.qutebrowser.org/
+- https://github.com/qutebrowser/qutebrowser
 license: GPL-3
 labels:
   BDEPEND: app-text/asciidoc test? ( dev-python/attrs[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
@@ -83,4 +87,4 @@ labels:
   kit: browser-kit
   original.package.name: www-client/qutebrowser
   original.package.slot: "0"
-  original.package.version: 3.2.1
+  original.package.version: 3.5.0
