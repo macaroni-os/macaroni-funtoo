@@ -1,5 +1,5 @@
 name: transcode
-version: 1.1.7+1
+version: 1.1.7+2
 category: media-video
 use_flags:
 - -xml
@@ -51,15 +51,9 @@ requires:
 - name: libv4l
   version: '>=0'
   category: media-libs
-- name: x264
-  version: '>=0'
-  category: media-libs
 - name: xvid
   version: '>=0'
   category: media-libs
-- name: lame
-  version: '>=0'
-  category: media-sound
 - name: mjpegtools
   version: '>=0'
   category: media-video-1
@@ -79,12 +73,12 @@ annotations:
 description: A suite of utilities for transcoding video and audio codecs in different
   containers
 uri:
-- http://www.transcoding.org/ https://bitbucket.org/france/transcode-tcforge
+- http://www.transcoding.org/
+- https://bitbucket.org/france/transcode-tcforge
 license: GPL-2
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: '>=virtual/ffmpeg-0.10 a52? ( media-libs/a52dec ) aac? ( media-libs/faac
     ) alsa? ( media-libs/alsa-lib ) dv? ( media-libs/libdv ) dvd? ( media-libs/libdvdread
     ) iconv? ( virtual/libiconv ) imagemagick? ( media-gfx/imagemagick:= ) jpeg? (
