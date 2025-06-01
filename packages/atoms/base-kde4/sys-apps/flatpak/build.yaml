@@ -1,4 +1,9 @@
 prelude:
+# Temporary until next race
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
+  emerge bubblewrap --nodeps -j ${JOBS}
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
