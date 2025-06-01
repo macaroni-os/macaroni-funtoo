@@ -1,8 +1,4 @@
 prelude:
-# Temporary fix until macaroni-os/mark-issues#396 is done
-- >-
-  cp gnome-photos-3.34.2.ebuild /var/git/meta-repo/kits/gnome-kit/media-gfx/gnome-photos/
-
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
