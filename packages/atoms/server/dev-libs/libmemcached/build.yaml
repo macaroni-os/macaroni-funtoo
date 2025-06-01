@@ -1,9 +1,4 @@
 prelude:
-# Temporary
-- >-
-  mkdir /etc/portage/patches/dev-libs/libmemcached -p &&
-  cp libmemcached-1.0.18-autotools.patch /etc/portage/patches/dev-libs/libmemcached/ &&
-  cp libmemcached-1.0.18-r3.ebuild /var/git/meta-repo/kits/dev-kit/dev-libs/libmemcached/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
