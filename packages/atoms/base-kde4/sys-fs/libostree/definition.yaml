@@ -1,18 +1,20 @@
 name: libostree
-version: "2025.2"
+version: 2025.2+1
 category: sys-fs
 use_flags:
 - -doc
+- -gnutls
 - -man
+- -soup
 - avahi
 - curl
-- gnutls
 - gpg
 - introspection
 - libmount
 - openssl
 - sodium
-- soup
+- http
+- http2
 requires:
 - name: libarchive
   version: '>=0'
@@ -35,12 +37,6 @@ requires:
 - name: avahi
   version: '>=0'
   category: net-dns
-- name: gnutls
-  version: '>=0'
-  category: net-libs
-- name: libsoup
-  version: '>=0'
-  category: net-libs-2.4
 - name: curl
   version: '>=0'
   category: net-misc
@@ -50,6 +46,10 @@ requires:
 - name: fuse
   version: '>=0'
   category: sys-fs-3
+provides:
+- name: ostree
+  version: "2025.2"
+  category: dev-util
 annotations:
   subsets:
     rules:
