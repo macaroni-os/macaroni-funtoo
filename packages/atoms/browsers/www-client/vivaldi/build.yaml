@@ -1,4 +1,7 @@
 prelude:
+- >-
+  eval 'mkdir -p /etc/portage/package.license' &&
+  echo "www-client/vivaldi Vivaldi" > /etc/portage/package.license/99-browser-vivaldi.license
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
