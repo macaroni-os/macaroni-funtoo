@@ -1,22 +1,23 @@
 name: libostree
-version: "2024.7"
+version: "2025.2"
 category: sys-fs
 use_flags:
 - -doc
-- -gnutls
 - -man
-- -soup
 - avahi
 - curl
+- gnutls
 - gpg
 - introspection
 - libmount
 - openssl
 - sodium
-- http
-- http2
+- soup
 requires:
 - name: libarchive
+  version: '>=0'
+  category: app-arch
+- name: xz-utils
   version: '>=0'
   category: app-arch
 - name: gpgme
@@ -34,6 +35,12 @@ requires:
 - name: avahi
   version: '>=0'
   category: net-dns
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
 - name: curl
   version: '>=0'
   category: net-misc
@@ -43,10 +50,6 @@ requires:
 - name: fuse
   version: '>=0'
   category: sys-fs-3
-provides:
-- name: ostree
-  version: "2023.6"
-  category: dev-util
 annotations:
   subsets:
     rules:
@@ -77,7 +80,7 @@ labels:
     ) openssl? ( >=dev-libs/openssl-1.0.1 ) sodium? ( >=dev-libs/libsodium-1.0.14
     ) soup? ( >=net-libs/libsoup-2.40 ) libmount? ( >=sys-apps/util-linux-2.23 )'
   emerge.packages: sys-fs/libostree
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: sys-fs/libostree
   original.package.slot: "0"
-  original.package.version: "2024.7"
+  original.package.version: "2025.2"
