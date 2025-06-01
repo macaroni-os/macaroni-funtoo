@@ -1,5 +1,5 @@
 name: bubblewrap
-version: 0.3.1+1
+version: 0.11.0
 category: sys-apps
 use_flags:
 - -selinux
@@ -22,14 +22,13 @@ uri:
 - https://github.com/projectatomic/bubblewrap
 license: LGPL-2+
 labels:
-  DEPEND: sys-libs/libseccomp sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.1.9
-    ) app-text/docbook-xml-dtd:4.3 app-text/docbook-xsl-stylesheets dev-libs/libxslt
-    virtual/pkgconfig
-  IUSE: selinux +suid kernel_linux
-  RDEPEND: sys-libs/libseccomp sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.1.9
-    )
+  BDEPEND: app-text/docbook-xml-dtd:4.3 app-text/docbook-xsl-stylesheets dev-libs/libxslt
+    virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: sys-libs/libseccomp sys-libs/libcap selinux? ( sys-libs/libselinux )
+  IUSE: selinux suid
+  RDEPEND: sys-libs/libseccomp sys-libs/libcap selinux? ( sys-libs/libselinux )
   emerge.packages: sys-apps/bubblewrap
   kit: security-kit
   original.package.name: sys-apps/bubblewrap
   original.package.slot: "0"
-  original.package.version: 0.3.1-r1
+  original.package.version: 0.11.0
