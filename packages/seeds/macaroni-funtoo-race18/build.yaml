@@ -33,7 +33,7 @@ steps:
   dev-util/pkgs-checker-minimal
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
-  luet cleanup
+  anise cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
@@ -42,8 +42,8 @@ steps:
 - >-
   cat /etc/luet/luet.yaml &&
   anise miner ri virtual/base virtual/sh &&
-  anise repo update && luet upgrade &&
-  anise i
+  anise repo update && anise upgrade &&
+  anise i --force
   toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
