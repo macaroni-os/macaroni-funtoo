@@ -1,5 +1,5 @@
 name: rtkit
-version: "0.11"
+version: 0.11+1
 category: sys-auth
 requires:
 - name: dbus
@@ -24,8 +24,8 @@ uri:
 license: GPL-3 BSD
 labels:
   DEPEND: sys-apps/dbus sys-auth/polkit sys-libs/libcap virtual/pkgconfig sys-apps/shadow
-    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4
   IUSE: kernel_linux
   RDEPEND: sys-apps/dbus sys-auth/polkit sys-libs/libcap
   emerge.packages: sys-auth/rtkit
