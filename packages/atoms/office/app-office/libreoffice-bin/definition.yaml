@@ -1,10 +1,8 @@
 name: libreoffice-bin
-version: 7.6.7.2
+version: 25.2.4.1
 category: app-office
 use_flags:
 - -java
-- gnome
-- gstreamer
 - gtk
 - kde
 requires:
@@ -14,81 +12,24 @@ requires:
 - name: zip
   version: '>=0'
   category: app-arch
-- name: gpgme
-  version: '>=0'
-  category: app-crypt-1
 - name: mit-krb5
   version: '>=0'
   category: app-crypt
-- name: libabw
-  version: '>=0'
-  category: app-text
-- name: libebook
-  version: '>=0'
-  category: app-text
-- name: libepubgen
-  version: '>=0'
-  category: app-text
 - name: libexttextcat
-  version: '>=0'
-  category: app-text
-- name: libmspub
   version: '>=0'
   category: app-text
 - name: libmwaw
   version: '>=0'
   category: app-text
-- name: libnumbertext
-  version: '>=0'
-  category: app-text
-- name: libodfgen
-  version: '>=0'
-  category: app-text
-- name: libqxp
-  version: '>=0'
-  category: app-text
-- name: libstaroffice
-  version: '>=0'
-  category: app-text
-- name: libwpg
-  version: '>=0'
-  category: app-text-0.3
-- name: libwps
-  version: '>=0'
-  category: app-text
-- name: mythes
-  version: '>=0'
-  category: app-text
-- name: clucene
-  version: '>=0'
-  category: dev-cpp-1
-- name: libcmis
-  version: '>=0'
-  category: dev-cpp-0.5
-- name: mariadb-connector-c
-  version: '>=0'
-  category: dev-db
-- name: perl
-  version: '>=0'
-  category: dev-lang
-- name: hyphen
+- name: atk
   version: '>=0'
   category: dev-libs
-- name: libassuan
+- name: nss
   version: '>=0'
   category: dev-libs
-- name: redland
+- name: qtcore
   version: '>=0'
-  category: dev-libs
-- name: xmlsec
-  version: '>=0'
-  category: dev-libs
-- name: dconf
-  version: '>=0'
-  category: gnome-base
-- name: evolution-data-server
-  version: '>=0'
-  category: gnome-extra
+  category: dev-qt-5
 - name: kconfig
   version: '>=0'
   category: kde-frameworks-5
@@ -107,51 +48,30 @@ requires:
 - name: liberation-fonts
   version: '>=0'
   category: media-fonts
-- name: fontforge
-  version: '>=0'
-  category: media-gfx
 - name: gst-plugins-base
   version: '>=0'
   category: media-libs-1.0
-- name: libcdr
-  version: '>=0'
-  category: media-libs
-- name: libfreehand
-  version: '>=0'
-  category: media-libs
-- name: libpagemaker
-  version: '>=0'
-  category: media-libs
-- name: libvisio
-  version: '>=0'
-  category: media-libs
-- name: libzmf
-  version: '>=0'
-  category: media-libs
 - name: avahi
   version: '>=0'
   category: net-dns
-- name: neon
+- name: cups
   version: '>=0'
-  category: net-libs
-- name: lpsolve
+  category: net-print
+- name: dbus
   version: '>=0'
-  category: sci-mathematics
+  category: sys-apps
 - name: gcc
   version: '>=0'
   category: sys-devel-12.3.0
+- name: e2fsprogs-libs
+  version: '>=0'
+  category: sys-libs
 - name: glibc
   version: '>=0'
   category: sys-libs-2.2
-- name: glu
+- name: gdk-pixbuf
   version: '>=0'
-  category: virtual
-- name: jpeg-compat
-  version: '>=0'
-  category: virtual-62
-- name: opengl
-  version: '>=0'
-  category: virtual
+  category: x11-libs-2
 annotations:
   subsets:
     rules:
@@ -181,4 +101,4 @@ labels:
   kit: desktop-kit
   original.package.name: app-office/libreoffice-bin
   original.package.slot: "0"
-  original.package.version: 7.6.7.2
+  original.package.version: 25.2.4.1
