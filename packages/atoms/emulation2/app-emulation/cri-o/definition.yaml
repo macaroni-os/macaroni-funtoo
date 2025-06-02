@@ -1,5 +1,5 @@
 name: cri-o
-version: 1.14.4
+version: 1.14.4+1
 category: app-emulation
 use_flags:
 - -selinux
@@ -8,12 +8,18 @@ use_flags:
 - device-mapper
 - ostree
 requires:
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
 - name: runc
   version: '>=0'
   category: app-emulation
-- name: ostree
+- name: glib
   version: '>=0'
-  category: dev-util
+  category: dev-libs-2
+- name: libassuan
+  version: '>=0'
+  category: dev-libs
 - name: conntrack-tools
   version: '>=0'
   category: net-firewall
