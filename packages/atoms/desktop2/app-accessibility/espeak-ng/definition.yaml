@@ -1,5 +1,5 @@
 name: espeak-ng
-version: 1.51+1
+version: 1.52.0
 category: app-accessibility
 use_flags:
 - mbrola
@@ -23,9 +23,8 @@ uri:
 - https://github.com/espeak-ng/espeak-ng
 license: GPL-3+ unicode
 labels:
-  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: '!app-accessibility/espeak mbrola? ( app-accessibility/mbrola ) sound? (
     media-libs/pcaudiolib )'
   IUSE: +async +klatt l10n_ru l10n_zh mbrola +sound
@@ -35,4 +34,4 @@ labels:
   kit: media-kit
   original.package.name: app-accessibility/espeak-ng
   original.package.slot: "0"
-  original.package.version: 1.51-r1
+  original.package.version: 1.52.0
