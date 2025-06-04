@@ -1,5 +1,5 @@
 name: hdf5
-version: 1.10.5+2
+version: 1.10.5+3
 category: sci-libs
 use_flags:
 - -fortran
@@ -18,9 +18,8 @@ uri:
 - http://www.hdfgroup.org/HDF5/
 license: NCSA-HDF
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: mpi? ( virtual/mpi[romio] ) szip? ( virtual/szip ) zlib? ( sys-libs/zlib:0=
     ) sys-devel/libtool:2 >=sys-devel/autoconf-2.69 fortran? ( virtual/fortran )
   IUSE: cxx debug examples fortran +hl mpi static-libs szip threads zlib
