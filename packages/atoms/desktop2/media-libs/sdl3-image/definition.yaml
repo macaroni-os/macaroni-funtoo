@@ -1,0 +1,38 @@
+name: sdl3-image
+version: 3.2.4
+category: media-libs
+use_flags:
+- jpeg
+- png
+- tiff
+- webp
+requires:
+- name: libsdl3
+  version: '>=0'
+  category: media-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Image decoding for many popular formats for SDL.
+uri:
+- https://www.libsdl.org/projects/SDL_image/
+license: ZLIB
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/libsdl3 sys-libs/zlib png? ( media-libs/libpng ) jpeg? ( virtual/jpeg
+    ) tiff? ( media-libs/tiff ) webp? ( media-libs/libwebp )
+  IUSE: gif jpeg png static-libs tiff webp
+  RDEPEND: media-libs/libsdl3 sys-libs/zlib png? ( media-libs/libpng ) jpeg? ( virtual/jpeg
+    ) tiff? ( media-libs/tiff ) webp? ( media-libs/libwebp )
+  emerge.packages: media-libs/sdl3-image
+  kit: media-kit
+  original.package.name: media-libs/sdl3-image
+  original.package.slot: "0"
+  original.package.version: 3.2.4
