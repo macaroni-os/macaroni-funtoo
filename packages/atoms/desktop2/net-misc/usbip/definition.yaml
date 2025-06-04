@@ -1,8 +1,7 @@
 name: usbip
-version: 2.0+1
+version: 2.0+2
 category: net-misc
 use_flags:
-- -build
 - tcpd
 requires:
 - name: glib
@@ -14,12 +13,6 @@ requires:
 - name: tcp-wrappers
   version: '>=0'
   category: sys-apps
-- name: linux-headers
-  version: '>=0'
-  category: sys-kernel
-- name: libudev
-  version: '>=0'
-  category: virtual
 annotations:
   subsets:
     rules:
@@ -32,16 +25,14 @@ uri:
 - https://www.kernel.org/
 license: GPL-2
 labels:
-  DEPEND: '>=dev-libs/glib-2.6 sys-apps/hwids >=sys-kernel/linux-headers-3.17 virtual/libudev
-    tcpd? ( sys-apps/tcp-wrappers ) virtual/pkgconfig >=app-portage/elt-patches-20170815
-    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-    !build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31 )'
-  IUSE: static-libs tcpd symlink build
-  RDEPEND: '>=dev-libs/glib-2.6 sys-apps/hwids >=sys-kernel/linux-headers-3.17 virtual/libudev
-    tcpd? ( sys-apps/tcp-wrappers ) !build? ( dev-lang/perl sys-devel/bc sys-devel/bison
-    sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf )'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  DEPEND: dev-libs/glib sys-apps/hwids tcpd? ( sys-apps/tcp-wrappers ) sys-kernel/linux-headers
+    virtual/pkgconfig
+  IUSE: static-libs tcpd
+  RDEPEND: dev-libs/glib sys-apps/hwids tcpd? ( sys-apps/tcp-wrappers )
   emerge.packages: net-misc/usbip
-  kit: net-kit
+  kit: geaaru-kit
   original.package.name: net-misc/usbip
   original.package.slot: "0"
   original.package.version: 2.0_p61106
