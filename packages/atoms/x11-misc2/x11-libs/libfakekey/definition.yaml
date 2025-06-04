@@ -1,5 +1,5 @@
 name: libfakekey
-version: "0.1"
+version: 0.1+1
 category: x11-libs
 use_flags:
 - -doc
@@ -20,12 +20,11 @@ uri:
 license: GPL-2
 labels:
   DEPEND: x11-libs/libXtst doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   IUSE: debug doc
   RDEPEND: x11-libs/libXtst
   emerge.packages: x11-libs/libfakekey
-  kit: desktop-kit
+  kit: xorg-kit
   original.package.name: x11-libs/libfakekey
   original.package.slot: "0"
   original.package.version: 0.1-r3
