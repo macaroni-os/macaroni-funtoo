@@ -1,5 +1,5 @@
 name: nut
-version: 2.8.0+2
+version: 2.8.0+3
 category: sys-power
 use_flags:
 - -man
@@ -63,18 +63,17 @@ license: GPL-2
 labels:
   BDEPEND: virtual/pkgconfig man? ( app-text/asciidoc ) test? ( dev-util/cppunit )
     virtual/pkgconfig virtual/pkgconfig
-  DEPEND: acct-group/nut acct-user/nut dev-libs/libltdl virtual/udev cgi? ( >=media-libs/gd-2[png]
-    ) i2c? ( sys-apps/i2c-tools ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus
-    ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers
-    ) usb? ( virtual/libusb:1 ) xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi
-    )
+  DEPEND: dev-libs/libltdl virtual/udev cgi? ( >=media-libs/gd-2[png] ) i2c? ( sys-apps/i2c-tools
+    ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus ) snmp? ( net-analyzer/net-snmp:=
+    ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers ) usb? ( virtual/libusb:1
+    ) xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi ) sys-apps/shadow
   IUSE: cgi doc ipmi serial i2c +man snmp +usb modbus selinux split-usr ssl tcpd test
     xml zeroconf kernel_linux
-  RDEPEND: acct-group/nut acct-user/nut dev-libs/libltdl virtual/udev cgi? ( >=media-libs/gd-2[png]
-    ) i2c? ( sys-apps/i2c-tools ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus
-    ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers
-    ) usb? ( virtual/libusb:1 ) xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi
-    ) selinux? ( sec-policy/selinux-nut ) virtual/tmpfiles
+  RDEPEND: dev-libs/libltdl virtual/udev cgi? ( >=media-libs/gd-2[png] ) i2c? ( sys-apps/i2c-tools
+    ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus ) snmp? ( net-analyzer/net-snmp:=
+    ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers ) usb? ( virtual/libusb:1
+    ) xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi ) selinux? ( sec-policy/selinux-nut
+    ) virtual/tmpfiles
   emerge.packages: sys-power/nut
   kit: geaaru-kit
   original.package.name: sys-power/nut
