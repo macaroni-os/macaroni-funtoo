@@ -125,7 +125,6 @@ artefacts:
   packages:
     - kde-plasma/kde-gtk-config
     - kde-plasma/kwallet-pam:5
-    - kde-plasma/plasma-desktop:5
     - kde-apps/kaccounts-integration:5
     - kde-apps/kaccounts-providers:5
     - kde-apps/libkcompactdisc:5
@@ -141,6 +140,17 @@ artefacts:
     - kde-apps/thumbnailers:5
     - kde-apps/svgpart:5
     - kde-apps/print-manager:5
+
+- tree: packages/atoms/base-kde5
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - libressl
+      - scim
+  packages:
+    - kde-plasma/plasma-desktop:5
 
 - tree: packages/atoms/base-kde5
   mutations:
