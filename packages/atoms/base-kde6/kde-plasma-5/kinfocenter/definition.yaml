@@ -1,5 +1,5 @@
 name: kinfocenter
-version: 5.27.9
+version: 5.27.9+1
 category: kde-plasma-5
 use_flags:
 - -gles2-only
@@ -9,6 +9,12 @@ use_flags:
 - pci
 - wayland
 requires:
+- name: wayland-utils
+  version: '>=0'
+  category: app-misc
+- name: vulkan-tools
+  version: '>=0'
+  category: dev-util
 - name: kwayland
   version: '>=0'
   category: kde-frameworks-5
@@ -21,12 +27,18 @@ requires:
 - name: systemsettings
   version: '>=0'
   category: kde-plasma-5
+- name: fwupd
+  version: '>=0'
+  category: sys-apps
 - name: pciutils
   version: '>=0'
   category: sys-apps
 - name: libraw1394
   version: '>=0'
   category: sys-libs
+- name: mesa-progs
+  version: '>=0'
+  category: x11-apps
 annotations:
   subsets:
     rules:
@@ -62,8 +74,9 @@ labels:
     ( media-libs/mesa[X(+)] !gles2-only? ( media-libs/glu ) ) pci? ( sys-apps/pciutils
     ) wayland? ( >=kde-frameworks/kwayland-5.98.0:5 media-libs/mesa[egl] ) >=dev-qt/qtquickcontrols2-5.15.2:5
     >=kde-frameworks/kirigami-5.98.0:5 >=kde-plasma/kde-cli-tools-5.27.9:5 >=kde-plasma/systemsettings-5.27.9:5
-    >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5 kde-frameworks/oxygen-icons:*
-    ) >=dev-qt/qtcore-5.15.2:5'
+    app-misc/wayland-utils app-text/aha dev-util/clinfo dev-util/vulkan-tools x11-apps/mesa-progs[egl]
+    sys-apps/fwupd >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.98.0:5
+    kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.15.2:5'
   emerge.packages: kde-plasma/kinfocenter:5
   kit: kde-kit
   original.package.name: kde-plasma/kinfocenter
