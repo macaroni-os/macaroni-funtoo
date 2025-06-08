@@ -1,9 +1,10 @@
 name: openimageio
-version: 2.5.14.0
+version: 3.0.4.0
 category: media-libs
 use_flags:
 - -doc
 - -field3d
+- -ptex
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
@@ -15,7 +16,6 @@ use_flags:
 - opencv
 - opengl
 - openvdb
-- -ptex
 - python
 - python_single_target_python3_9
 - qt5
@@ -25,9 +25,6 @@ requires:
 - name: robin-map
   version: '>=0'
   category: dev-cpp
-- name: boost
-  version: '>=0'
-  category: dev-libs
 - name: libfmt
   version: '>=0'
   category: dev-libs
@@ -73,7 +70,8 @@ annotations:
       - ^/var/db/pkg/
 description: A library for reading and writing images
 uri:
-- https://sites.google.com/site/openimageio/ https://github.com/OpenImageIO
+- https://sites.google.com/site/openimageio/
+- https://github.com/OpenImageIO
 license: BSD
 labels:
   BDEPEND: doc? ( app-doc/doxygen dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra
@@ -132,4 +130,4 @@ labels:
   kit: media-kit
   original.package.name: media-libs/openimageio
   original.package.slot: "0"
-  original.package.version: 2.5.14.0
+  original.package.version: 3.0.4.0
