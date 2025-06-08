@@ -3,7 +3,7 @@ env:
 - LUET_YES=true
 - LUET_NOLOCK=true
 - HTTP_TIMEOUT=0
-- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles"'
+- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles https://distfiles.macaronios.org/mark-distfiles"'
 copy:
   - package:
       category: seed
@@ -11,7 +11,6 @@ copy:
       version: ">=0"
     source: "/macaroni-funtoo"
     destination: "/"
-# Set this to prelude when this is fixed: https://github.com/mudler/anise/issues/254
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -25,9 +24,6 @@ steps:
   chmod a+rwx /tmp
 - anise install virtual-entities/base --force
 - >-
-  anise i repository/mottainai-dev &&
-  anise repo disable mottainai-stable &&
-  anise repo update &&
   anise install --force
   system/luet-devkit
   utils/jq
@@ -45,7 +41,7 @@ steps:
 - >-
   cat /etc/luet/luet.yaml &&
   anise miner ri virtual/base virtual/sh &&
-  anise upgrade &&
+  anise repo update && anise upgrade &&
   anise i --force
   toolchain/base-extra
   toolchain/base-python
@@ -75,6 +71,7 @@ steps:
   toolchain/base-gnome
   toolchain/base-gnome2
   toolchain/portage-tools
+  toolchain/qt6
   toolchain/base-gnome3
   toolchain/release
   toolchain/base-net2
@@ -127,6 +124,10 @@ steps:
   eselect postgresql set 13 &&
   cd / && rm -rf /luetbuild &&
   eval 'mkdir -p /run || true' &&
+  cd /var/git/meta-repo/kits/ &&
+  for i in $(ls -1 . ) ; do egencache --jobs=9 --update --repo $i ; done ;
+  cd - &&
+  chown portage:portage -R /var/git/meta-repo &&
   mkdir /layer
 
 # build-docbook-catalog is needed to use xsltproc and build gdbus-codegen, glib-utils, etc.
