@@ -4,6 +4,11 @@ prelude:
   cd /var/git/meta-repo/kits/kde-kit/kde-misc/latte-dock/ &&
   ebuild latte-dock-0.10.8.ebuild digest &&
   cd -
+# temporary until rebuild of plasma
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  USE="X wayland" emerge kde-frameworks/plasma:5 -j --nodeps
+  
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
