@@ -1,0 +1,29 @@
+name: clinfo
+version: 3.0.23.01.25
+category: dev-util
+requires:
+- name: opencl-headers
+  version: '>=0'
+  category: dev-util
+- name: opencl-icd-loader
+  version: '>=0'
+  category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A tool to display info about the system's OpenCL capabilities
+uri:
+- https://github.com/Oblomov/clinfo
+license: CC0-1.0
+labels:
+  DEPEND: dev-util/opencl-headers dev-util/opencl-icd-loader
+  RDEPEND: dev-util/opencl-headers dev-util/opencl-icd-loader
+  emerge.packages: dev-util/clinfo
+  kit: dev-kit
+  original.package.name: dev-util/clinfo
+  original.package.slot: "0"
+  original.package.version: 3.0.23.01.25
