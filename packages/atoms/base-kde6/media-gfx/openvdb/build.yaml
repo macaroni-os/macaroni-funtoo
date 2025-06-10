@@ -2,7 +2,12 @@ prelude:
 - >-
   eval 'eselect blas set 1 || true' &&
   eval 'eselect cblas set 1 || true' &&
-  eval 'eselect lapack set 1 || true'
+  eval 'eselect lapack set 1 || true' &&
+  cd /var/git/meta-repo/kits/media-kit/media-gfx/openvdb/ &&
+  rm *.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/media-kit/d64b2a7aea4289d3680b95774a1facab6328286a/media-gfx/openvdb/openvdb-11.0.0.ebuild &&
+  ebuild openvdb-11.0.0.ebuild digest &&
+  cd -
 
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
