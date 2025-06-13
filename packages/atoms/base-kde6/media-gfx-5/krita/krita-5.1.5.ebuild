@@ -90,6 +90,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-sip-6.8.patch" # bug 919139
 	"${FILESDIR}/${P}-libjxl-0.9.patch" # bug 922524
 	"${FILESDIR}/${P}-lto.patch" # bug 922520
+	"${FILESDIR}"/krita-exiv-0.28.0.patch
 )
 
 pkg_setup() {
