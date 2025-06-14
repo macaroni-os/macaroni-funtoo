@@ -1,9 +1,3 @@
-commit e7bf1f0d299c4f7c6529438059d14e7a99907066
-Author: Antonio Rojas <arojas@archlinux.org>
-Date:   Sun Jun 4 18:04:59 2023 +0200
-
-    Fix build with exiv2 0.28
-
 diff --git a/plugins/impex/jpeg/kis_jpeg_converter.cc b/plugins/impex/jpeg/kis_jpeg_converter.cc
 index 3364ae6eda..476151e123 100644
 --- a/plugins/impex/jpeg/kis_jpeg_converter.cc
@@ -32,13 +26,14 @@ index 3364ae6eda..476151e123 100644
                      // Decode the IPTC data
                      QByteArray byteArray((const char*)(record + sizeHdr), sizeIptc);
 diff --git a/plugins/impex/tiff/kis_tiff_export.cc b/plugins/impex/tiff/kis_tiff_export.cc
-index 8c8f71d7c0..69cbda6303 100644
+index 8c8f71d7c0..c5c2d8cdd7 100644
 --- a/plugins/impex/tiff/kis_tiff_export.cc
 +++ b/plugins/impex/tiff/kis_tiff_export.cc
-@@ -206,7 +206,11 @@ KisImportExportErrorCode KisTIFFExport::convert(KisDocument *document, QIODevice
+@@ -206,7 +206,12 @@ KisImportExportErrorCode KisTIFFExport::convert(KisDocument *document, QIODevice
          try {
              KisExiv2IODevice::ptr_type basicIoDevice(new KisExiv2IODevice(filename()));
  
++
 +#if EXIV2_TEST_VERSION(0,28,0)
 +            const std::unique_ptr<Exiv2::Image> img = Exiv2::ImageFactory::open(std::move(basicIoDevice));
 +#else
@@ -47,7 +42,7 @@ index 8c8f71d7c0..69cbda6303 100644
  
              img->readMetadata();
  
-@@ -241,9 +245,14 @@ KisImportExportErrorCode KisTIFFExport::convert(KisDocument *document, QIODevice
+@@ -241,9 +246,14 @@ KisImportExportErrorCode KisTIFFExport::convert(KisDocument *document, QIODevice
              }
              // Write metadata
              img->writeMetadata();
@@ -93,7 +88,7 @@ index e6d408e923..5be62bbbf5 100644
      }
  
 diff --git a/plugins/metadata/common/KisExiv2IODevice.cpp b/plugins/metadata/common/KisExiv2IODevice.cpp
-index c62e2d15ae..bf5cdc2bd6 100644
+index c62e2d15ae..ed08543739 100644
 --- a/plugins/metadata/common/KisExiv2IODevice.cpp
 +++ b/plugins/metadata/common/KisExiv2IODevice.cpp
 @@ -39,7 +39,11 @@ int KisExiv2IODevice::close()
@@ -149,6 +144,15 @@ index c62e2d15ae..bf5cdc2bd6 100644
  {
      const qint64 bytesRead = m_file.read(reinterpret_cast<char *>(buf), rcount);
      if (bytesRead > 0) {
+@@ -154,7 +175,7 @@ void KisExiv2IODevice::transfer(Exiv2::BasicIo &src)
+     }
+ }
+ 
+-#if defined(_MSC_VER)
++#if defined(_MSC_VER) || EXIV2_TEST_VERSION(0,28,0)
+ int KisExiv2IODevice::seek(int64_t offset, Exiv2::BasicIo::Position position)
+ #else
+ int KisExiv2IODevice::seek(long offset, Exiv2::BasicIo::Position position)
 @@ -202,7 +223,18 @@ int KisExiv2IODevice::munmap()
      return 0;
  }
@@ -181,10 +185,10 @@ index c62e2d15ae..bf5cdc2bd6 100644
      return filePathQString().toStdString();
  }
 diff --git a/plugins/metadata/common/KisExiv2IODevice.h b/plugins/metadata/common/KisExiv2IODevice.h
-index d90831e832..27f5f8d5fc 100644
+index d90831e832..a72ae01f59 100644
 --- a/plugins/metadata/common/KisExiv2IODevice.h
 +++ b/plugins/metadata/common/KisExiv2IODevice.h
-@@ -18,18 +18,30 @@
+@@ -18,34 +18,57 @@
  class KRITAEXIFCOMMON_EXPORT KisExiv2IODevice : public Exiv2::BasicIo
  {
  public:
@@ -214,8 +218,11 @@ index d90831e832..27f5f8d5fc 100644
 +#endif
      int getb() override;
      void transfer(BasicIo &src) override;
- #if defined(_MSC_VER)
-@@ -39,13 +51,24 @@ public:
+-#if defined(_MSC_VER)
++#if defined(_MSC_VER) || EXIV2_TEST_VERSION(0,28,0)
+     int seek(int64_t offset, Position pos) override;
+ #else
+     int seek(long offset, Position pos) override;
  #endif
  
      Exiv2::byte *mmap(bool isWriteable = false) override;
@@ -241,42 +248,55 @@ index d90831e832..27f5f8d5fc 100644
  private:
      bool open(QFile::OpenMode mode);
 diff --git a/plugins/metadata/common/kis_exiv2_common.h b/plugins/metadata/common/kis_exiv2_common.h
-index 15437208d2..97b7ec512b 100644
+index 3ab34bb63b..09e5ef7027 100644
 --- a/plugins/metadata/common/kis_exiv2_common.h
 +++ b/plugins/metadata/common/kis_exiv2_common.h
-@@ -20,7 +20,11 @@
+@@ -19,9 +19,13 @@
  
  // Convert an exiv value to a KisMetaData value
  inline KisMetaData::Value
 +#if EXIV2_TEST_VERSION(0,28,0)
 +exivValueToKMDValue(const Exiv2::Value::UniquePtr &value, bool forceSeq, KisMetaData::Value::ValueType arrayType = KisMetaData::Value::UnorderedArray)
 +#else
- exivValueToKMDValue(const Exiv2::Value::AutoPtr &value, bool forceSeq, KisMetaData::Value::ValueType arrayType = KisMetaData::Value::UnorderedArray)
+ exivValueToKMDValue(const Exiv2::Value::AutoPtr value,
+                     bool forceSeq,
+                     KisMetaData::Value::ValueType arrayType = KisMetaData::Value::UnorderedArray)
 +#endif
  {
      switch (value->typeId()) {
      case Exiv2::signedByte:
-@@ -41,11 +45,19 @@ exivValueToKMDValue(const Exiv2::Value::AutoPtr &value, bool forceSeq, KisMetaDa
+@@ -33,7 +37,7 @@ exivValueToKMDValue(const Exiv2::Value::AutoPtr value,
+     case Exiv2::undefined: {
+         dbgMetaData << "Undefined value :" << value->typeId() << " value =" << value->toString().c_str();
+         QByteArray array(value->count(), 0);
+-        value->copy((Exiv2::byte *)array.data(), Exiv2::invalidByteOrder);
++        value->copy(reinterpret_cast<Exiv2::byte *>(array.data()), Exiv2::invalidByteOrder);
+         return KisMetaData::Value(QString(array.toBase64()));
+     }
+     case Exiv2::unsignedByte:
+@@ -42,11 +46,19 @@ exivValueToKMDValue(const Exiv2::Value::AutoPtr value,
      case Exiv2::signedShort:
      case Exiv2::signedLong: {
          if (value->count() == 1 && !forceSeq) {
+-            return KisMetaData::Value((int)value->toLong());
 +#if EXIV2_TEST_VERSION(0,28,0)
 +            return {static_cast<int>(value->toUint32())};
 +#else
-             return {static_cast<int>(value->toLong())};
++            return {static_cast<int>(value->toLong())};
 +#endif
          } else {
              QList<KisMetaData::Value> array;
              for (int i = 0; i < value->count(); i++)
+-                array.push_back(KisMetaData::Value((int)value->toLong(i)));
 +#if EXIV2_TEST_VERSION(0,28,0)
 +                array.push_back({static_cast<int>(value->toUint32(i))});
 +#else
-                 array.push_back({static_cast<int>(value->toLong(i))});
++                array.push_back({static_cast<int>(value->toLong(i))});
 +#endif
-             return {array, arrayType};
+             return KisMetaData::Value(array, arrayType);
          }
      }
-@@ -62,7 +74,11 @@ exivValueToKMDValue(const Exiv2::Value::AutoPtr &value, bool forceSeq, KisMetaDa
+@@ -63,7 +75,11 @@ exivValueToKMDValue(const Exiv2::Value::AutoPtr value,
              return {KisMetaData::Rational(value->toRational().first, value->toRational().second)};
          } else {
              QList<KisMetaData::Value> array;
@@ -287,9 +307,9 @@ index 15437208d2..97b7ec512b 100644
 +#endif
                  array.push_back(KisMetaData::Rational(value->toRational(i).first, value->toRational(i).second));
              }
-             return {array, arrayType};
-@@ -76,7 +92,11 @@ exivValueToKMDValue(const Exiv2::Value::AutoPtr &value, bool forceSeq, KisMetaDa
-             return {KisMetaData::Rational(value->toRational().first, value->toRational().second)};
+             return KisMetaData::Value(array, arrayType);
+@@ -77,7 +93,11 @@ exivValueToKMDValue(const Exiv2::Value::AutoPtr value,
+             return KisMetaData::Value(KisMetaData::Rational(value->toRational().first, value->toRational().second));
          } else {
              QList<KisMetaData::Value> array;
 +#if EXIV2_TEST_VERSION(0,28,0)
@@ -299,9 +319,20 @@ index 15437208d2..97b7ec512b 100644
 +#endif
                  array.push_back(KisMetaData::Rational(value->toRational(i).first, value->toRational(i).second));
              }
-             return {array, arrayType};
+             return KisMetaData::Value(array, arrayType);
+@@ -106,8 +126,8 @@ inline Exiv2::Value *variantToExivValue(const QVariant &variant, Exiv2::TypeId t
+ {
+     switch (type) {
+     case Exiv2::undefined: {
+-        QByteArray arr = QByteArray::fromBase64(variant.toString().toLatin1());
+-        return new Exiv2::DataValue((Exiv2::byte *)arr.data(), arr.size());
++        const QByteArray arr = QByteArray::fromBase64(variant.toString().toLatin1());
++        return new Exiv2::DataValue(reinterpret_cast<const Exiv2::byte *>(arr.data()), arr.size());
+     }
+     case Exiv2::unsignedByte:
+         return new Exiv2::ValueType<uint16_t>((uint16_t)variant.toUInt());
 diff --git a/plugins/metadata/exif/kis_exif_io.cpp b/plugins/metadata/exif/kis_exif_io.cpp
-index a3ee6927fc..a3b903afcb 100644
+index 44697121d9..6afdf75bf2 100644
 --- a/plugins/metadata/exif/kis_exif_io.cpp
 +++ b/plugins/metadata/exif/kis_exif_io.cpp
 @@ -31,7 +31,11 @@
@@ -488,7 +519,7 @@ index a3ee6927fc..a3b903afcb 100644
      QMap<QString, KisMetaData::Value> flashStructure;
      bool fired = (v & 0x01); // bit 1 is whether flash was fired or not
      flashStructure["Fired"] = QVariant(fired);
-@@ -465,7 +532,11 @@ bool KisExifIO::saveTo(const KisMetaData::Store *store, QIODevice *ioDevice, Hea
+@@ -465,7 +532,11 @@ bool KisExifIO::saveTo(KisMetaData::Store *store, QIODevice *ioDevice, HeaderTyp
                                  << exivKey; // << " of KMD value" << entry.value();
                  }
              }
@@ -501,10 +532,10 @@ index a3ee6927fc..a3b903afcb 100644
          }
      }
 diff --git a/plugins/metadata/iptc/kis_iptc_io.cpp b/plugins/metadata/iptc/kis_iptc_io.cpp
-index 9e85624644..88d80b38b8 100644
+index 05f66eef29..06f91ed87a 100644
 --- a/plugins/metadata/iptc/kis_iptc_io.cpp
 +++ b/plugins/metadata/iptc/kis_iptc_io.cpp
-@@ -109,7 +109,11 @@ bool KisIptcIO::saveTo(const KisMetaData::Store *store, QIODevice *ioDevice, Hea
+@@ -110,7 +110,11 @@ bool KisIptcIO::saveTo(KisMetaData::Store *store, QIODevice *ioDevice, HeaderTyp
                  if (v && v->typeId() != Exiv2::invalidTypeId) {
                      iptcData.add(iptcKey, v);
                  }
@@ -516,7 +547,7 @@ index 9e85624644..88d80b38b8 100644
                  dbgMetaData << "exiv error " << e.what();
              }
          }
-@@ -127,7 +131,11 @@ bool KisIptcIO::saveTo(const KisMetaData::Store *store, QIODevice *ioDevice, Hea
+@@ -128,7 +132,11 @@ bool KisIptcIO::saveTo(KisMetaData::Store *store, QIODevice *ioDevice, HeaderTyp
          header.append(photoshopBimId_);
          header.append(photoshopIptc_);
          header.append(QByteArray(2, 0));
@@ -528,7 +559,7 @@ index 9e85624644..88d80b38b8 100644
          QByteArray sizeArray(4, 0);
          sizeArray[0] = (char)((size & 0xff000000) >> 24);
          sizeArray[1] = (char)((size & 0x00ff0000) >> 16);
-@@ -137,7 +145,11 @@ bool KisIptcIO::saveTo(const KisMetaData::Store *store, QIODevice *ioDevice, Hea
+@@ -138,7 +146,11 @@ bool KisIptcIO::saveTo(KisMetaData::Store *store, QIODevice *ioDevice, HeaderTyp
          ioDevice->write(header);
      }
  
@@ -541,10 +572,10 @@ index 9e85624644..88d80b38b8 100644
      return true;
  }
 diff --git a/plugins/metadata/xmp/kis_xmp_io.cpp b/plugins/metadata/xmp/kis_xmp_io.cpp
-index a100317545..927abe8ddd 100644
+index 14990de938..0814776920 100644
 --- a/plugins/metadata/xmp/kis_xmp_io.cpp
 +++ b/plugins/metadata/xmp/kis_xmp_io.cpp
-@@ -249,8 +249,11 @@ bool KisXMPIO::loadFrom(KisMetaData::Store *store, QIODevice *ioDevice) const
+@@ -248,7 +248,11 @@ bool KisXMPIO::loadFrom(KisMetaData::Store *store, QIODevice *ioDevice) const
                      Q_ASSERT(schema);
                  }
              }
@@ -552,12 +583,11 @@ index a100317545..927abe8ddd 100644
 +            const Exiv2::Value::UniquePtr value = it->getValue();
 +#else
              const Exiv2::Value::AutoPtr value = it->getValue();
--
 +#endif
+ 
              QString structName;
              int arrayIndex = -1;
-             QString tagName;
-@@ -279,7 +282,11 @@ bool KisXMPIO::loadFrom(KisMetaData::Store *store, QIODevice *ioDevice) const
+@@ -278,7 +282,11 @@ bool KisXMPIO::loadFrom(KisMetaData::Store *store, QIODevice *ioDevice) const
                  const Exiv2::XmpArrayValue *xav = dynamic_cast<const Exiv2::XmpArrayValue *>(value.get());
                  Q_ASSERT(xav);
                  QList<KisMetaData::Value> array;
