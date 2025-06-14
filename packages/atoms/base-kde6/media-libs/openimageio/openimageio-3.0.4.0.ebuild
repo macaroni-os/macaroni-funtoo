@@ -8,7 +8,7 @@ inherit cmake font python-single-r1 flag-o-matic
 
 DESCRIPTION="A library for reading and writing images"
 HOMEPAGE="https://sites.google.com/site/openimageio/ https://github.com/OpenImageIO"
-SRC_URI="https://api.github.com/repos/AcademySoftwareFoundation/OpenImageIO/tarball/v2.5.14.0 -> openimageio-2.5.14.0.tar.gz"
+SRC_URI="https://api.github.com/repos/AcademySoftwareFoundation/OpenImageIO/tarball/v3.0.4.0 -> openimageio-3.0.4.0.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/2.2"
@@ -98,6 +98,8 @@ src_unpack() {
 }
 
 src_prepare() {
+	# Fix GL symbols
+	sed -i -e 's|#include <vector>|#include <vector>\n#include <GL/gl.h>|g' src/iv/ivgl.h || die
 	if has_version dev-libs/imath:3 ; then
 		for file in $(grep -rl '<Imath/' "${S}") ; do
 			sed -i -e 's#<Imath/#<Imath-3/#g' "$file"
@@ -173,3 +175,4 @@ src_install() {
 		doins "${dir}"/*.ttf
 	done
 }
+# vim: filetype=ebuild

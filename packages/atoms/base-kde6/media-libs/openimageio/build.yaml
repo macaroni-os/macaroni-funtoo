@@ -1,4 +1,8 @@
 prelude:
+# Temporary fix until next race
+- >-
+  cp openimageio-3.0.4.0.ebuild
+  /var/git/meta-repo/kits/media-kit/media-libs/openimageio/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
