@@ -87,6 +87,18 @@ global_annotations:
 
 artefacts:
 
+- tree: packages/atoms/xorg-base
+  mutations:
+    uses:
+      - egl
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - static-libs
+    - doc
+  packages:
+  - x11-apps/mesa-progs:0
 
 - tree: packages/atoms/xorg-base
   uses:
@@ -112,7 +124,6 @@ artefacts:
   - x11-apps/appres
   - x11-apps/bitmap
   - x11-apps/luit:0
-  - x11-apps/mesa-progs:0
   - x11-apps/setxkbmap:0
   - x11-apps/smproxy:0
   - x11-apps/x11perf:0
