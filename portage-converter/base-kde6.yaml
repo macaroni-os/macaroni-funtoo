@@ -370,6 +370,19 @@ artefacts:
   packages:
     - kde-apps/messagelib:5
 
+- tree: packages/atoms/base-kde6
+  packages:
+    - dev-util/opencl-icd-loader
+    - dev-util/clinfo
+
+- tree: packages/atoms/base-kde6
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race20
+  packages:
+    - app-text/aha
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
