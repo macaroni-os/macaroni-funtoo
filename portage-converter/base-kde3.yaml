@@ -157,7 +157,6 @@ artefacts:
     - kde-frameworks/krunner:5
     - kde-frameworks/ktexteditor:5
     - kde-frameworks/kunitconversion:5
-    - kde-frameworks/plasma:5
     - kde-frameworks/prison:5
     - kde-frameworks/frameworkintegration:5
     - kde-plasma/kdecoration:5
@@ -171,6 +170,20 @@ artefacts:
 
     - dev-libs/appstream
 
+- tree: packages/atoms/base-kde3
+  mutations:
+    uses:
+      - X
+  uses:
+    disabled:
+      - debug
+      - doc
+      - qalculate
+      - gps
+      - static-libs
+      - test
+  packages:
+    - kde-frameworks/plasma:5
 
 - tree: packages/atoms/base-kde3
   mutations:
