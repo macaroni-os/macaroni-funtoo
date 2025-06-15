@@ -1,0 +1,11 @@
+install:
+- >-
+  gpu-configurator nvidia kernel --proprietary=false {{ ( index .Values.labels "original.package.version" ) }}
+  {{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} || true
+uninstall:
+- >-
+  gpu-configurator nvidia kernel --purge --proprietary=false {{ ( index .Values.labels "original.package.version" ) }}
+  {{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} || true
+shell:
+  - /bin/bash
+  - -c
