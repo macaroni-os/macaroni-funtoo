@@ -24,7 +24,7 @@ dirs:
 }
 
 main () {
-  setup_luet_config
+  setup_anise_config
 }
 
 main $@
