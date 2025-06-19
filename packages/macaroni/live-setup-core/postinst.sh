@@ -8,7 +8,7 @@ rootfs=$1
 hostname=$2
 
 sed -i -e "s|^hostname=.*|hostname=\"${hostname}\"|g" /etc/conf.d/hostname
-sed -i -e "s|macaroni-funtoo|${hostname}|g" /etc/hosts
+sed -i -e "s|macaroni-phoenix|${hostname}|g" /etc/hosts
 
 # Temporary until the ISO build process cleanup this
 rm -rf /luetdb || true
