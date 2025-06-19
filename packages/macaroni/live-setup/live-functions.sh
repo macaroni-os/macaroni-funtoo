@@ -285,8 +285,8 @@ prepare() {
 
   entities merge -s /var/lib/macaroni/entities-macaroni-groups -a
 
-  echo "macaroni-funtoo" > /etc/hostname
-  sed -i -e 's|^hostname=.*|hostname="macaroni-funtoo"|' /etc/conf.d/hostname
+  echo "macaroni-phoenix" > /etc/hostname
+  sed -i -e 's|^hostname=.*|hostname="macaroni-phoenix"|' /etc/conf.d/hostname
 
   entities list users --user-has-shadow
   entities list groups --group-has-shadow
@@ -327,8 +327,8 @@ prepare() {
   done
 
   echo "
-127.0.0.1   macaroni-funtoo localhost
-::1         macaroni-funtoo localhost
+127.0.0.1   macaroni-phoenix localhost
+::1         macaroni-phoenix localhost
 " > /etc/hosts
 
   # Temporary. Maybe it's better set UTC here.
