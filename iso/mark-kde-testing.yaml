@@ -2,14 +2,14 @@ packages:
 
   keep_luet_db: "true"
   rootfs:
-  - system/entities
-  - system/luet-geaaru-thin
-  - utils/yq
-  - utils/jq
-
-  - app-admin/whip
+  - app-admin/anise
   - app-admin/macaronictl-thin
-  - whip-profiles/macaroni
+  - app-admin/whip
+  - app-admin/entities
+  - app-misc/yq-go
+  - app-misc/yq
+  - app-misc/jq
+
   - macaroni/live-setup-kde
   - macaroni-release/phoenix
   - system/macaroni-funtoo-calamares
@@ -29,13 +29,13 @@ packages:
   - sys-block/zram-init
 
   # kernel stuff
-  - kernel-6.1/macaroni-full
-  - kernel-6.1/macaroni-modules
-  - kernel-6.1/macaroni-initramfs
-  - kernel-6.1/zfs-kmod
-  - kernel-6.1/virtualbox-guest-additions
-  - kernel-6.1/nvidia-560-kernel-modules
-  - kernel-6.1/lkrg
+  - kernel-6.12/macaroni-full
+  - kernel-6.12/macaroni-modules
+  - kernel-6.12/macaroni-initramfs
+  - kernel-6.12/zfs-kmod
+  - kernel-6.12/virtualbox-guest-additions
+  - kernel-6.12/nvidia-565-kernel-modules
+  - kernel-6.12/lkrg
 
   - vim
   - vim-core
@@ -225,9 +225,12 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/mottainai-testing
-  - repository/macaroni-phoenix-testing
-  - repository/macaroni-commons-testing
+  #- repository/macaroni-funtoo-testing
+  #- repository/macaroni-commons-testing
+  - repository/mark-dev
+  - repository/macaroni-funtoo-dev
+  - repository/macaroni-commons-dev
+  #- repository/macaroni-security
 
 initramfs:
   kernel_file: "bzImage"
