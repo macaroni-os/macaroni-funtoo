@@ -9,7 +9,7 @@ ENV USER=root
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
   "--purge-repos", \
-  "repository/mottainai-dev", \
+  "repository/mark-dev", \
   "repository/macaroni-commons-dev", \
   "repository/macaroni-phoenix-dev"]
 
@@ -17,8 +17,8 @@ RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
   "--purge-repos", \
   "--skip-config-protect", \
-  "system/entities", \
-  "system/luet-geaaru-testing", \
+  "app-admin/entities", \
+  "app-admin/anise", \
   "sys-apps/shadow", \
   "sys-apps/sed", \
   "app-shells/bash", \
