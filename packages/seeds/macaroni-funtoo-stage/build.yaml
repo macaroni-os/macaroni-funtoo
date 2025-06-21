@@ -11,7 +11,7 @@ prelude:
   luet install --force --config ./luet.yaml --sync-repos --skip-config-protect
   repository/macaroni-funtoo-dev
   repository/macaroni-commons-dev
-  repository/mottainai-stable &&
+  repository/mark-dev &&
   luet repo update --force --config ./luet.yaml --skip-config-protect &&
   luet install --force --config ./luet.yaml --skip-finalizers --skip-config-protect
   system/luet-geaaru
@@ -19,9 +19,8 @@ prelude:
   toolchain/meta-repo
   toolchain/meta-geaaru-kit
   virtual/base
-  system/entities
+  app-admin/entities
   app-admin/whip
-  whip-profiles/macaroni
   macaroni/whip-catalog
   macaroni/entities-catalog
   utils/yq &&
