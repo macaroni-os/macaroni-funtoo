@@ -13,9 +13,11 @@ prelude:
   mv kits-versions / &&
   curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh &&
   anise subsets enable portage devel &&
+  anise repo list &&
+  anise i --sync-repos repository/mark-dev &&
   anise install --sync-repos
-  dev-util/pkgs-checker-minimal utils/yq utils/jq system/luet-devkit
-  mark-devkit anise-portage-converter system/entities --sync-repos &&
+  dev-util/pkgs-checker app-misc/yq-go app-misc/jq system/luet-devkit
+  mark-devkit anise-portage-converter app-admin/entities --sync-repos &&
   anise upgrade &&
   anise cleanup &&
   ego sync &&
