@@ -32,7 +32,7 @@ prelude:
   ls -l /macaroni-funtoo/etc/ &&
   ls -l /macaroni-funtoo/etc/anise &&
   rm /macaroni-funtoo/etc/luet &&
-  /macaroni-funtoo/usr/bin/yq4 e '.system.root = "/"' ./luet.yaml -i &&
+  /macaroni-funtoo/usr/bin/yq4 e '.system.rootfs = "/"' ./luet.yaml -i &&
   /macaroni-funtoo/usr/bin/yq4 e 'del(.repositories)' ./luet.yaml -i &&
   cp ./luet.yaml /macaroni-funtoo/etc/anise/ &&
   cd /macaroni-funtoo/bin &&
