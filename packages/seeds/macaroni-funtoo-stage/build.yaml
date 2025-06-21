@@ -21,12 +21,12 @@ prelude:
   virtual/base
   app-admin/entities
   app-admin/whip
+  app-admin/yq-go
   macaroni/whip-catalog
-  macaroni/entities-catalog
-  utils/yq &&
+  macaroni/entities-catalog &&
   luet cleanup --config ./luet.yaml &&
   mkdir -p /macaroni-funtoo/etc/luet &&
-  /macaroni-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
+  /macaroni-funtoo/usr/bin/yq4 e '.system.root = "/"' ./luet.yaml -i &&
   cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
   cd /macaroni-funtoo/bin &&
   ln -s bash sh &&
