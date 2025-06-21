@@ -12,6 +12,8 @@ copy:
     source: "/macaroni-funtoo"
     destination: "/"
 # Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
+
+# NOTE: I dunno why luet link is not available. Probably a docker issue.
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -26,7 +28,7 @@ steps:
   ls -l /etc/ &&
   ls -l /etc/anise &&
   cd /etc/ &&
-  rm luet && ln -s anise/ luet &&
+  ln -s anise/ luet &&
   anise repo update
 - anise install virtual-entities/base --force
 - >-
