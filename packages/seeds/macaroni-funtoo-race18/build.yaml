@@ -12,6 +12,8 @@ copy:
     source: "/macaroni-funtoo"
     destination: "/"
 # Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
+
+# NOTE: I dunno why luet link is not available. Probably a docker issue.
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -22,15 +24,22 @@ steps:
   if [ ! -d /var ] ; then mkdir /var ; fi &&
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
-  chmod a+rwx /tmp
+  chmod a+rwx /tmp &&
+  ls -l /etc/ &&
+  ls -l /etc/anise &&
+  cd /etc/ &&
+  ln -s anise/ luet &&
+  ls -l /etc/ &&
+  cat /etc/luet/luet.yaml &&
+  anise repo update
 - anise install virtual-entities/base --force
 - >-
   anise install --force
   system/luet-devkit
-  utils/jq
-  utils/yq
+  app-misc/yq-go
+  app-misc/jq
   app-admin/macaronictl
-  dev-util/pkgs-checker-minimal
+  dev-util/pkgs-checker
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
   anise cleanup
@@ -40,7 +49,6 @@ steps:
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  cat /etc/luet/luet.yaml &&
   anise miner ri virtual/base virtual/sh &&
   anise repo update && anise upgrade &&
   anise i --force
