@@ -18,6 +18,9 @@ requires:
 - name: libpwquality
   version: '>=0'
   category: dev-libs
+- name: libwacom
+  version: '>=0'
+  category: dev-libs
 - name: gnome-settings-daemon
   version: '>=0'
   category: gnome-base
@@ -33,6 +36,9 @@ requires:
 - name: nm-applet
   version: '>=0'
   category: gnome-extra
+- name: sedgwick-ave-display
+  version: '>=0'
+  category: media-fonts
 - name: grilo
   version: '>=0'
   category: media-libs-0.3
@@ -122,7 +128,7 @@ labels:
     ) >=x11-drivers/xf86-input-wacom-0.33.0 ) !<gnome-base/gdm-2.91.94 !<gnome-extra/gnome-color-manager-3.1.2
     !gnome-extra/gnome-media[pulseaudio] !<gnome-extra/gnome-media-2.32.0-r300 !<net-wireless/gnome-bluetooth-3.3.2
     net-print/cups-pk-helper elogind? ( sys-auth/elogind ) systemd? ( >=sys-apps/systemd-186:0=
-    ) !systemd? ( app-admin/openrc-settingsd )'
+    ) !systemd? ( app-admin/openrc-settingsd ) media-fonts/sedgwick-ave-display'
   emerge.packages: gnome-base/gnome-control-center:2
   kit: gnome-kit
   original.package.name: gnome-base/gnome-control-center
