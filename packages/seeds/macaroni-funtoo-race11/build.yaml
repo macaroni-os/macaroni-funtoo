@@ -22,15 +22,16 @@ steps:
   if [ ! -d /var ] ; then mkdir /var ; fi &&
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
-  chmod a+rwx /tmp
+  chmod a+rwx /tmp &&
+  luet repo update
 - luet install virtual-entities/base --force
 - >-
   luet install --force
   system/luet-devkit
-  utils/jq
-  utils/yq
+  app-misc/yq-go
+  app-misc/jq
   app-admin/macaronictl
-  dev-util/pkgs-checker-minimal
+  dev-util/pkgs-checker
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
   luet cleanup
