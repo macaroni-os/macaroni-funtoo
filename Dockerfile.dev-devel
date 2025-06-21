@@ -1,22 +1,23 @@
 FROM alpine
-RUN mkdir /funtoo-minimal/etc/ -p
-RUN cd /funtoo-minimal/etc/ && ln -s anise luet
+RUN mkdir /funtoo-minimal/etc/ /funtoo-minimal/etc/anise -p && \
+  cd /funtoo-minimal/etc/ && ln -s anise luet
+ADD conf/luet.yaml.docker.devel /funtoo-minimal/etc/anise/anise.yaml
+RUN ls -l /funtoo-minimal/etc/
 FROM macaronios/luet:latest-amd64
-ADD conf/luet.yaml.docker.devel /etc/anise/anise.yaml
 
 COPY --from=0 /funtoo-minimal/ /
 ENV USER=root
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
-  "--purge-repos", \
+  "--purge-repos", "--config", "/etc/anise/anise.yaml", \
   "repository/mark-dev", \
   "repository/macaroni-commons-dev", \
   "repository/macaroni-phoenix-dev"]
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
-  "--purge-repos", \
+  "--purge-repos", "--config", "/etc/anise/anise.yaml", \
   "--skip-config-protect", \
   "app-admin/entities", \
   "app-admin/anise", \
@@ -36,8 +37,8 @@ RUN [ \
 SHELL ["/bin/bash", "-c"]
 
 RUN macaronictl env-update && \
-  luet rm -y --nodeps virtual-entities/base && \
-  luet cleanup --purge-repos
+  anise rm -y --nodeps virtual-entities/base && \
+  anise cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
