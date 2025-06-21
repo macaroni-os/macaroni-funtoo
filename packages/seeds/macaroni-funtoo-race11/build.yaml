@@ -29,6 +29,8 @@ steps:
   ls -l /etc/anise &&
   cd /etc/ &&
   ln -s anise/ luet &&
+  ls -l /etc/ &&
+  cat /etc/luet/luet.yaml &&
   anise repo update
 - anise install virtual-entities/base --force
 - >-
@@ -47,7 +49,6 @@ steps:
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  cat /etc/luet/luet.yaml &&
   luet miner ri virtual/base virtual/sh &&
   luet repo update && luet upgrade &&
   luet i toolchain/base-extra
