@@ -1,7 +1,8 @@
 FROM alpine
 RUN mkdir /funtoo-minimal/etc/ -p
+RUN cd /funtoo-minimal/etc/ && ln -s anise luet
 FROM macaronios/luet:latest-amd64
-ADD conf/luet.yaml.docker.devel /etc/luet/luet.yaml
+ADD conf/luet.yaml.docker.devel /etc/anise/anise.yaml
 
 COPY --from=0 /funtoo-minimal/ /
 ENV USER=root
