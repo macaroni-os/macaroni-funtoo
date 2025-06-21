@@ -12,9 +12,13 @@ prelude:
   repository/macaroni-funtoo-dev
   repository/macaroni-commons-dev
   repository/mark-dev &&
+  cd /macaroni-funtoo/etc &&
+  mv luet anise &&
+  ln -s anise/ luet &&
+  cd - &&
   luet repo update --force --config ./luet.yaml --skip-config-protect &&
   luet install --force --config ./luet.yaml --skip-finalizers --skip-config-protect
-  system/luet-geaaru
+  app-admin/anise
   toolchain/base
   toolchain/meta-repo
   toolchain/meta-geaaru-kit
@@ -22,12 +26,15 @@ prelude:
   app-admin/entities
   app-admin/whip
   app-misc/yq-go
-  macaroni/whip-catalog
+  sys-apps/whip-catalog
   macaroni/entities-catalog &&
   luet cleanup --config ./luet.yaml &&
-  mkdir -p /macaroni-funtoo/etc/luet &&
+  ls -l /macaroni-funtoo/etc/ &&
+  ls -l /macaroni-funtoo/etc/anise &&
+  rm /macaroni-funtoo/etc/luet &&
   /macaroni-funtoo/usr/bin/yq4 e '.system.root = "/"' ./luet.yaml -i &&
-  cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
+  /macaroni-funtoo/usr/bin/yq4 e 'del(.repositories)' ./luet.yaml -i &&
+  cp ./luet.yaml /macaroni-funtoo/etc/anise/ &&
   cd /macaroni-funtoo/bin &&
   ln -s bash sh &&
   cd - &&
