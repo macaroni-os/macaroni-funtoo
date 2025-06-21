@@ -23,10 +23,14 @@ steps:
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
   chmod a+rwx /tmp &&
-  luet repo update
-- luet install virtual-entities/base --force
+  ls -l /etc/ &&
+  ls -l /etc/anise &&
+  cd /etc/ &&
+  rm luet && ln -s anise/ luet &&
+  anise repo update
+- anise install virtual-entities/base --force
 - >-
-  luet install --force
+  anise install --force
   system/luet-devkit
   app-misc/yq-go
   app-misc/jq
