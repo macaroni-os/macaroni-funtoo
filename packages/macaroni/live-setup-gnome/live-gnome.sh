@@ -59,6 +59,7 @@ GNOME_SHELL_EXTS=(
   "dash-to-dock"
   "desktop-icons"
   "dynamic-panel-transparency"
+  "compiz-windows-effect"
 )
 
 source ${EROOT}/var/lib/macaroni/live-core.sh
