@@ -1,0 +1,33 @@
+name: gnome-shell-extension-compiz-windows-effect
+version: "21"
+category: gnome-extra
+requires:
+- name: eselect-gnome-shell-extensions
+  version: '>=0'
+  category: app-eselect
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: nautilus
+  version: '>=0'
+  category: gnome-base
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A GNOME Shell extension for providing desktop icons
+uri:
+- https://gitlab.gnome.org/World/ShellExtensions/desktop-icons
+license: GPL-3
+labels:
+  DEPEND: dev-libs/glib:2
+  RDEPEND: dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.30.0
+    >=gnome-base/nautilus-3.30.4
+  emerge.packages: gnome-extra/gnome-shell-extension-compiz-windows-effect
+  kit: geaaru-kit
+  original.package.name: gnome-extra/gnome-shell-extension-compiz-windows-effect
+  original.package.slot: "0"
+  original.package.version: "21"
