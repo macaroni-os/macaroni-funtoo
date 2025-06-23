@@ -336,6 +336,13 @@ artefacts:
     - media-libs/opencolorio
 
 - tree: packages/atoms/base-kde6
+  mutations:
+    runtime_deps:
+      packages:
+      - category: dev-libs
+        name: inih
+      - category: sys-libs
+        name: minizip-ng
   uses:
     disabled:
       - debug
