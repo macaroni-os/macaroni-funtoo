@@ -245,6 +245,12 @@ artefacts:
 
 - tree: packages/atoms/desktop
   mutations:
+    runtime_deps:
+      packages:
+        - category: dev-cpp
+          name: cairomm
+        - category: x11-libs-4
+          name: gtksourceview
     uses:
      # Quiet emerge for the app-office/dia[python] package
       - -python
