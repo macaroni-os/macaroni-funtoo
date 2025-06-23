@@ -300,6 +300,24 @@ artefacts:
       - static-libs
       - test
       - examples
+  packages:
+    - gnome-extra/gnome-shell-extension-compiz-windows-effect
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
+
+- tree: packages/atoms/base-gnome3
+  uses:
+    disabled:
+      - static-libs
+      - test
+      - examples
       - gtk-doc
       - stemmer
   packages:
