@@ -12,6 +12,7 @@ ENV USER=root
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
   "--purge-repos", "--config", "/etc/anise/anise.yaml", \
+  "--cleanup", \
   "repository/mark-dev", \
   "repository/macaroni-commons-dev", \
   "repository/macaroni-phoenix-dev"]
@@ -19,7 +20,7 @@ RUN [ \
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
   "--purge-repos", "--config", "/etc/anise/anise.yaml", \
-  "--skip-config-protect", \
+  "--skip-config-protect", "--cleanup", \
   "app-admin/entities", \
   "app-admin/anise", \
   "sys-apps/shadow", \
