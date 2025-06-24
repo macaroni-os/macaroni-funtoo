@@ -42,8 +42,7 @@ SHELL ["/bin/bash", "-c"]
 RUN macaronictl env-update && \
   anise rm -y --nodeps virtual-entities/base && \
   anise cleanup --purge-repos && \
-  mkdir /tmp && \
-  chmod a+xrw /tmp/
+  chmod a+rwx /tmp/
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
