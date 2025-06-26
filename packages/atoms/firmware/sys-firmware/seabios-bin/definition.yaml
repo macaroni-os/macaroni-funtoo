@@ -1,6 +1,14 @@
 name: seabios-bin
 version: 1.16.0+1
 category: sys-firmware
+conflicts:
+- name: seabios
+  version: '>=0'
+  category: sys-firmware
+provides:
+- name: seabios
+  version: 1.16.0
+  category: virtual
 annotations:
   subsets:
     rules:
