@@ -2,17 +2,17 @@ packages:
 
   keep_luet_db: "true"
   rootfs:
-  - system/entities
-  - system/luet-geaaru-thin
-  - utils/yq
-  - utils/jq
-
-  - app-admin/whip
-  - whip-profiles/macaroni
+  - app-admin/anise
   - app-admin/macaronictl-thin
+  - app-admin/whip
+  - app-admin/entities
+  #- system/luet-geaaru-testing
+  - app-misc/yq-go
+  - app-misc/yq
+  - app-misc/jq
+
   - macaroni/live-setup-gnome
   - macaroni-release/phoenix
-  - macaroni/whip-catalog
   - macaroni/skel-phoenix
   - macaroni/pageant
 
@@ -33,13 +33,13 @@ packages:
   - diffutils
 
   # kernel stuff
-  - kernel-6.1/macaroni-full
-  - kernel-6.1/macaroni-modules
-  - kernel-6.1/macaroni-initramfs
-  - kernel-6.1/zfs-kmod
-  - kernel-6.1/virtualbox-guest-additions
-  - kernel-6.1/nvidia-560-kernel-modules
-  - kernel-6.1/lkrg
+  - kernel-6.12/macaroni-full
+  - kernel-6.12/macaroni-modules
+  - kernel-6.12/macaroni-initramfs
+  - kernel-6.12/zfs-kmod
+  - kernel-6.12/virtualbox-guest-additions
+  - kernel-6.12/nvidia-565-kernel-modules
+  - kernel-6.12/lkrg
   - sys-kernel/linux-firmware
   - sys-kernel/dracut
   - sys-fs/mdadm
@@ -83,7 +83,7 @@ packages:
   # Add plymouth
   - sys-boot/plymouth
   - sys-boot/plymouth-openrc-plugin
-  - x11-themes/plymouth-funtoo
+  - x11-themes/plymouth-macaroni
 
   - x11-apps/setxkbmap
   - x11-apps/xrandr
@@ -105,7 +105,7 @@ packages:
   - x11-drivers/xf86-input-keyboard
   - x11-drivers/xf86-input-evdev
   - xwayland
-  - x11-drivers-560/nvidia-drivers
+  - x11-drivers-565/nvidia-drivers
 
   - net-misc/wget
 
@@ -156,12 +156,6 @@ packages:
   - sys-devel/llvm-common
   - llvm
 
-# equery belongs libstd-008055cc7d873802.so (fix ldconfig)
-# * Searching for libstd-008055cc7d873802.so ... 
-#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/libstd-008055cc7d873802.so)
-#dev-lang/rust-bin-1.55.0 (/opt/rust-bin-1.55.0/lib/rustlib/x86_64-unknown-linux-gnu/lib/libstd-008055cc7d873802.so)
-  # rust-bin 
-
   # Live additional packages
   - media-gfx-2/gimp
   - media-gfx/inkscape
@@ -208,8 +202,6 @@ packages:
   - pinentry-gnome
   - flatpak
 
-  # Temporary until next release
-  - sys-apps/gentoo-functions
   uefi:
   - live/systemd-boot
   - system/macaroni-live-boot
@@ -220,11 +212,10 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-    #- repository/geaaru
-  - repository/mottainai-stable
+  - repository/mark
   - repository/macaroni-phoenix
   - repository/macaroni-commons
-  - repository/macaroni-security
+  #- repository/macaroni-security
 
 initramfs:
   kernel_file: "bzImage"

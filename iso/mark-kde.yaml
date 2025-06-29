@@ -2,21 +2,22 @@ packages:
 
   keep_luet_db: "true"
   rootfs:
-  - system/entities
-  - system/luet-geaaru-thin
-  - utils/yq
-  - utils/jq
-
-  - app-admin/whip
+  - app-admin/anise
   - app-admin/macaronictl-thin
-  - whip-profiles/macaroni
+  - app-admin/whip
+  - app-admin/entities
+  #- system/luet-geaaru-testing
+  - app-misc/yq-go
+  - app-misc/yq
+  - app-misc/jq
+
   - macaroni/live-setup-kde
   - macaroni-release/phoenix
-  - system/macaroni-funtoo-calamares
   - macaroni/whip-catalog
   - macaroni/skel-phoenix
   - macaroni/skel-phoenix-kde
   - macaroni/pageant
+  - system/macaroni-funtoo-calamares
 
   - virtual/sh
   - virtual/base
@@ -26,16 +27,17 @@ packages:
   - virtual-entities/base
 
   - sys-apps/lsb-release
+
   - zram-init
 
   # kernel stuff
-  - kernel-6.1/macaroni-full
-  - kernel-6.1/macaroni-modules
-  - kernel-6.1/macaroni-initramfs
-  - kernel-6.1/zfs-kmod
-  - kernel-6.1/virtualbox-guest-additions
-  - kernel-6.1/nvidia-560-kernel-modules
-  - kernel-6.1/lkrg
+  - kernel-6.12/macaroni-full
+  - kernel-6.12/macaroni-modules
+  - kernel-6.12/macaroni-initramfs
+  - kernel-6.12/zfs-kmod
+  - kernel-6.12/virtualbox-guest-additions
+  - kernel-6.12/nvidia-565-kernel-modules
+  - kernel-6.12/lkrg
 
   - vim
   - vim-core
@@ -78,7 +80,7 @@ packages:
   # Add plymouth
   - sys-boot/plymouth
   - sys-boot/plymouth-openrc-plugin
-  - x11-themes/plymouth-funtoo
+  - x11-themes/plymouth-macaroni
 
   - x11-apps/setxkbmap
   - x11-apps/xrandr
@@ -220,10 +222,10 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/mottainai-stable
+  - repository/mark
   - repository/macaroni-phoenix
   - repository/macaroni-commons
-  - repository/macaroni-security
+  #- repository/macaroni-security
 
 initramfs:
   kernel_file: "bzImage"
