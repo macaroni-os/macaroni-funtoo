@@ -11,9 +11,8 @@ ENV USER=root
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
-  "--purge-repos", "--config", "/etc/anise/anise.yaml", \
-  "--cleanup", \
-  "repository/mark-dev", \
+  "--cleanup", "--purge-repos", "--config", "/etc/anise/anise.yaml", \
+  "repository/mark-testing", \
   "repository/macaroni-commons-testing", \
   "repository/macaroni-phoenix-testing"]
 
