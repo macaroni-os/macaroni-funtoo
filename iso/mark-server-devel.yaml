@@ -2,18 +2,20 @@ packages:
 
   keep_luet_db: "true"
   rootfs:
-  - system/entities
-  - system/luet-geaaru-thin
-  - utils/yq
-  - utils/jq
-
-  - macaroni-release/phoenix
-  - macaroni/live-setup-server
-  - app-admin/whip
-  - whip-profiles/macaroni
+  - app-admin/anise
   - app-admin/macaronictl-thin
-  - macaroni/whip-catalog
+  - app-admin/whip
+  - app-admin/entities
+  - system/entities
+  - app-misc/yq-go
+  - app-misc/yq
+  - app-misc/jq
+
+  - macaroni/live-setup-server
   - macaroni/skel-phoenix
+  - macaroni-release/phoenix
+
+  - sys-apps/lsb-release
 
   - virtual/sh
   - virtual/base
@@ -31,17 +33,16 @@ packages:
   - media-libs/libcanberra
 
   - sys-apps/diffutils
-  - sys-apps/lsb-release
 
   # Extra kernel modules
-  - kernel-5.10/macaroni-full
-  - kernel-5.10/macaroni-modules
-  - kernel-5.10/macaroni-initramfs
-  - kernel-5.10/zfs-kmod
-  - kernel-5.10/rtw89
-  - kernel-5.10/virtualbox-guest-additions
-  - kernel-5.10/virtualbox-modules
-  - kernel-5.10/nvidia-560-kernel-modules
+  - kernel-6.1/macaroni-full
+  - kernel-6.1/macaroni-modules
+  - kernel-6.1/macaroni-initramfs
+  - kernel-6.1/zfs-kmod
+  - kernel-6.1/rtw89
+  - kernel-6.1/virtualbox-guest-additions
+  - kernel-6.1/virtualbox-modules
+  - kernel-6.1/nvidia-565-kernel-open-modules
   - sys-kernel/linux-firmware
   - sys-kernel/dracut
   - sys-fs/mdadm
@@ -78,7 +79,7 @@ packages:
   # Add plymouth
   - sys-boot/plymouth
   - sys-boot/plymouth-openrc-plugin
-  - x11-themes/plymouth-funtoo
+  - x11-themes/plymouth-macaroni
 
   - x11-apps/setxkbmap
   - x11-apps/xrandr
@@ -144,10 +145,20 @@ packages:
   - x11-apps/mkfontscale
 
   - net-misc/openssh
-  - app-emulation/lxd
+  - app-emulation/incus
   - net-misc/bridge-utils
 
   - sys-apps/man-pages
+
+  - app-admin/ego
+  - app-portage/gentoolkit
+  - app-portage/elt-patches
+  - app-portage/portage-utils
+  - sys-apps/portage
+  - make
+  - m4
+  - gcc-config
+  - sys-devel-latest/autoconf
 
   uefi:
   - live/systemd-boot
@@ -159,17 +170,17 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/mottainai-stable
+  - repository/mark
   - repository/macaroni-phoenix
   - repository/macaroni-commons
-  - repository/macaroni-security
+  #- repository/macaroni-security
 
 initramfs:
   kernel_file: "bzImage"
   rootfs_file: "Initrd"
 
 overlay: "true"
-image_prefix: "Macaroni-Phoenix-Server-Devel-0."
+image_prefix: "Macaroni-Phoenix-Server-Mark-0."
 image_date: "true"
 
 overlay_hooks:
