@@ -32,6 +32,9 @@ use_flags:
 - vala
 - wifi
 requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
 - name: newt
   version: '>=0'
   category: dev-libs
@@ -71,6 +74,9 @@ requires:
 - name: resolvconf
   version: '>=0'
   category: virtual
+- name: jansson
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -89,10 +95,11 @@ labels:
     ) ( dev-lang/python:3.9 dev-python/pygobject:3[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/pygobject:3[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ( dev-lang/python:3.10 dev-python/pygobject:3[python_targets_python3_10(-),python_single_target_python3_10(+)]
-    ) ) dev-lang/perl dev-libs/libxslt ) vala? ( || ( dev-lang/vala:0.50[vapigen(+)]
-    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
-    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
-    ) ) test? ( >=dev-libs/jansson-2.7 || ( ( dev-lang/python:3.8 dev-python/dbus-python[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ) dev-lang/perl dev-libs/libxslt ) vala? ( || ( dev-lang/vala:0.54[vapigen(+)]
+    dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
+    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
+    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) test? ( >=dev-libs/jansson-2.7
+    || ( ( dev-lang/python:3.8 dev-python/dbus-python[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/pygobject:3[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/dbus-python[python_targets_python3_9(-),python_single_target_python3_9(+)]
     dev-python/pygobject:3[python_targets_python3_9(-),python_single_target_python3_9(+)]
