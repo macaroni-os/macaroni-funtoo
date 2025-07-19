@@ -1,10 +1,4 @@
 prelude:
-# Temporary until next race
-- >-
-  cd /var/git/meta-repo/kits/gnome-kit/x11-libs/gtk+/ &&
-  rm gtk+-3.24.23-r2.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/gnome-kit/83360a67ed51568047fe34158a91d28e0f309f2b/x11-libs/gtk%2B/gtk%2B-3.24.23-r2.ebuild &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
