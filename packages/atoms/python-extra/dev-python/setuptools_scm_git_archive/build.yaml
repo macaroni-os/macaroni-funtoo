@@ -1,7 +1,4 @@
 prelude:
-- >-
-  sed -i -e 's|^EAPI.*|EAPI=7\nDISTUTILS_USE_PEP517="setuptools"|g'
-  /var/git/meta-repo/kits/python-modules-kit/dev-python/setuptools_scm_git_archive/setuptools_scm_git_archive-1.4.1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
