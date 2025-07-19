@@ -1,9 +1,4 @@
 prelude:
-# Temporary fix until macaroni-os/mark-issues#402
-- >-
-  sed -i -e 's|^EAPI.*|EAPI=7\nDISTUTILS_USE_PEP517="standalone"|g'
-  /var/git/meta-repo/kits/python-modules-kit/dev-python/jeepney/jeepney-0.9.0.ebuild
-
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
