@@ -2,12 +2,6 @@ prelude:
 # TODO: Investigate on this
 - >-
   emerge -j dev-scheme/guile
-# Temporary until next race
-- >-
-  cd /var/git/meta-repo/kits/desktop-kit/app-office/gnucash &&
-  rm gnucash-5.11.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/desktop-kit/8ef077dd13f57817955a1ede36d5f4e11c1774ad/app-office/gnucash/gnucash-5.11.ebuild &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
