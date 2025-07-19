@@ -1,10 +1,4 @@
 prelude:
-# Temporary until next race
-- >-
-  cd /var/git/meta-repo/kits/dev-kit/dev-cpp/clucene &&
-  rm clucene-2.3.3.4-r6.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/dev-kit/137c61e977002e5ce6128f52fd033ee141be0ccf/dev-cpp/clucene/clucene-2.3.3.4-r6.ebuild &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
