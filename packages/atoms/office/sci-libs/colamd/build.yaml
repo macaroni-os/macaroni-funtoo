@@ -1,8 +1,4 @@
 prelude:
-# Temporary until macaroni-os/mark-issues#436 is fixed
-- >-
-  sed -i -e "s|src_install.*|src_install() {\n\tcmake_src_install|g"
-  /var/git/meta-repo/kits/science-kit/sci-libs/colamd/colamd-3.3.3.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
