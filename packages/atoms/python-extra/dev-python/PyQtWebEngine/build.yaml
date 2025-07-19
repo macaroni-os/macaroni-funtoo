@@ -1,8 +1,4 @@
 prelude:
-# Temporary until macaroni-os/mark-issues#403 will be fixed
-- >-
-  sed -i -e 's|dev-python/PyQt5:5|dev-python/PyQt5|g'
-  /var/git/meta-repo/kits/qt-kit/dev-python/PyQtWebEngine/PyQtWebEngine-5.15.7-r1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
