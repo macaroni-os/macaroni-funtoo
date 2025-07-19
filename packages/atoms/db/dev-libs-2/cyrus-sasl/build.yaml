@@ -1,8 +1,4 @@
 prelude:
-# temporary fix
-- >-
-  sed -i -e 's|>=sys-libs\/db-.*|sys-libs/db:18.1 )|g'
-  /var/git/meta-repo/kits/security-kit/dev-libs/cyrus-sasl/cyrus-sasl-2.1.28-r4.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
