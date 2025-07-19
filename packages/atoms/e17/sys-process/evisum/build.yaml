@@ -1,7 +1,4 @@
 prelude:
-- >-
-  sed -i  -e 's|README ||g'
-  /var/git/meta-repo/kits/desktop-kit/sys-process/evisum/evisum-0.6.4.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
