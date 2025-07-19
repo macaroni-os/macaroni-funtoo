@@ -1,11 +1,4 @@
 prelude:
-# Temporary fix until next race
-- >-
-  cd /var/git/meta-repo/kits/gnome-kit/media-libs/gexiv2 &&
-  rm Manifest &&
-  wget https://raw.githubusercontent.com/macaroni-os/gnome-kit/refs/heads/mark-unstable/media-libs/gexiv2/gexiv2-0.14.3.ebuild &&
-  ebuild gexiv2-0.14.3.ebuild digest &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
