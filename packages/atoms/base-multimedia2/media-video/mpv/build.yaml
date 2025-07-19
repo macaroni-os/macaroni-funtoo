@@ -1,11 +1,6 @@
 env:
 - 'LUA_SINGLE_TARGET=lua5-1'
 prelude:
-# Temporary fix until next race
-- >-
-  cd /var/git/meta-repo/kits/media-kit/media-video/mpv &&
-  rm mpv-0.35.1.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/media-kit/refs/heads/mark-unstable/media-video/mpv/mpv-0.35.1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
