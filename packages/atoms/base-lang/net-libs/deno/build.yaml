@@ -1,7 +1,4 @@
 prelude:
-# Temporary fix
-- >-
-  sed -i -e '/dodoc/d' /var/git/meta-repo/kits/lang-kit/net-libs/deno/deno-2.2.11.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
