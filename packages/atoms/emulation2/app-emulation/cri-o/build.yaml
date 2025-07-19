@@ -2,8 +2,6 @@ prelude:
 # Drop geaaru-kit version
 - >-
   rm -rf /var/git/extra-kits/geaaru-kit/app-emulation/cri-o/ &&
-  sed -i -e 's|dev-util/ostree|sys-fs/libostree|g'
-  /var/git/meta-repo/kits/core-server-kit/app-emulation/cri-o/cri-o-1.14.4.ebuild &&
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   USE="avahi -soup introspection openssl sodium" emerge libostree --nodeps
 
