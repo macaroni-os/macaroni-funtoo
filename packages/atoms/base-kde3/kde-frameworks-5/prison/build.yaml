@@ -1,10 +1,4 @@
 prelude:
-# Temporary fix until next race (see macaroni-os/mark-issues#416)
-- >-
-  cd /var/git/meta-repo/kits/kde-kit/kde-frameworks/prison &&
-  rm *.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/kde-kit/5806a33f0991e090cdb8baf57182dcbf8ccbf483/kde-frameworks/prison/prison-5.111.0.ebuild &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
