@@ -1,11 +1,4 @@
 prelude:
-# Temporary until next race
-- >-
-  anise repo update && anise upgrade -y && anise cleanup &&
-  cd /var/git/meta-repo/kits/dev-kit/app-editors/vscodium-bin/ &&
-  rm vscodium-bin-1.100.23258.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/dev-kit/f853cd94f718acaa863a123e2a98a7b991d884bd/app-editors/vscodium-bin/vscodium-bin-1.100.23258.ebuild &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
