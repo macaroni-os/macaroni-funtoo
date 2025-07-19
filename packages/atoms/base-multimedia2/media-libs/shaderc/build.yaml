@@ -1,12 +1,4 @@
 prelude:
-# Temporary fix
-- >-
-  cd /var/git/meta-repo/kits/media-kit/media-libs/shaderc/ &&
-  rm -vf * &&
-  wget https://raw.githubusercontent.com/macaroni-os/media-kit/524ee863fc27fe66f7bd1157962e56ce52ff4c27/media-libs/shaderc/Manifest &&
-  wget https://raw.githubusercontent.com/macaroni-os/media-kit/524ee863fc27fe66f7bd1157962e56ce52ff4c27/media-libs/shaderc/shaderc-2024.3.ebuild &&
-  cd -
-
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
