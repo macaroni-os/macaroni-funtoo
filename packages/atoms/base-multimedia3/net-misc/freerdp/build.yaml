@@ -1,10 +1,4 @@
 prelude:
-# Temporary fix until net race
-- >-
-  cd /var/git/meta-repo/kits/net-kit/net-misc/freerdp &&
-  rm *.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/net-kit/refs/heads/mark-unstable/net-misc/freerdp/freerdp-3.5.1-r1.ebuild &&
-  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
