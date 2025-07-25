@@ -1,31 +1,32 @@
 FROM alpine
-RUN mkdir /funtoo-minimal/etc/ -p
+RUN mkdir /terragon-minimal/etc/ /terragon-minimal/etc/anise -p && \
+  cd /phoenix-minimal/etc/ && ln -s anise luet
+ADD conf/luet.yaml.docker /terragon-minimal/etc/anise/anise.yaml
 FROM macaronios/luet:latest-amd64
-ADD conf/luet.yaml.docker /etc/luet/luet.yaml
 #COPY luet /usr/bin/luet
 #ADD https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml /etc/luet/repos.conf.d/
 
-COPY --from=0 /funtoo-minimal/ /
+COPY --from=0 /terragon-minimal/ /
 ENV USER=root
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
-  "--cleanup", "--purge-repos", \
+  "--cleanup", "--purge-repos", "--config", "/etc/anise/anise.yaml", \
   "repository/mark", \
   "repository/macaroni-commons", \
   "repository/macaroni-terragon"]
 
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
-  "--cleanup", "--purge-repos", \
-  "--skip-config-protect", \
+  "--purge-repos", "--config", "/etc/anise/anise.yaml", \
+  "--skip-config-protect", "--cleanup", \
   "app-admin/entities", \
-  "system/luet-geaaru-thin", \
+  "app-admin/anise", \
   "sys-apps/shadow", \
   "sys-apps/sed", \
   "app-shells/bash", \
-  "sys-libs-2.2/glibc", \
-  "sys-devel-11.3.0/gcc", \
+  "glibc", \
+  "gcc", \
   "sys-apps/coreutils", \
   "sys-apps/iproute2", \
   "virtual/base", \
@@ -36,8 +37,8 @@ RUN [ \
 SHELL ["/bin/bash", "-c"]
 
 RUN macaronictl env-update && \
-  luet rm -y --nodeps virtual-entities/base && \
-  luet cleanup --purge-repos
+  anise rm -y --nodeps virtual-entities/base && \
+  anise cleanup --purge-repos
 
 ENV TMPDIR=/tmp
 ENTRYPOINT ["/bin/bash"]
