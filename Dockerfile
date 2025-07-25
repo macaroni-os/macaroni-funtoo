@@ -11,7 +11,7 @@ ENV USER=root
 RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
   "--cleanup", "--purge-repos", \
-  "repository/mottainai-stable", \
+  "repository/mark", \
   "repository/macaroni-commons", \
   "repository/macaroni-terragon"]
 
@@ -19,7 +19,7 @@ RUN [ \
   "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
   "--cleanup", "--purge-repos", \
   "--skip-config-protect", \
-  "system/entities", \
+  "app-admin/entities", \
   "system/luet-geaaru-thin", \
   "sys-apps/shadow", \
   "sys-apps/sed", \
