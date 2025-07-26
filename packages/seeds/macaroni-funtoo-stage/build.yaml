@@ -11,9 +11,10 @@ prelude:
   luet install --force --config ./luet.yaml --sync-repos
   repository/macaroni-terragon-dev
   repository/macaroni-commons
-  repository/mottainai-stable &&
+  repository/mark &&
   luet repo update --force --config ./luet.yaml &&
   luet install --force --config ./luet.yaml --skip-finalizers
+  app-admin/anise
   system/luet-geaaru
   toolchain/base
   toolchain/meta-repo
@@ -21,13 +22,12 @@ prelude:
   virtual/base
   system/entities
   app-admin/whip
-  whip-profiles/macaroni
-  macaroni/whip-catalog
+  sys-apps/whip-catalog
   macaroni/entities-catalog
-  utils/yq &&
+  app-misc/yq-go &&
   luet cleanup --config ./luet.yaml &&
   mkdir -p /macaroni-funtoo/etc/luet &&
-  /macaroni-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
+  /macaroni-funtoo/usr/bin/yq4 e '.system.rootfs = "/"' ./luet.yaml -i &&
   cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
   cd /macaroni-funtoo/bin &&
   ln -s bash sh &&
