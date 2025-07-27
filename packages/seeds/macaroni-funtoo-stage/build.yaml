@@ -23,9 +23,11 @@ prelude:
   system/entities
   app-admin/whip
   sys-apps/whip-catalog
-  app-misc/jq
+  app-misc/jq-bin
   macaroni/entities-catalog
-  app-misc/yq-go &&
+  app-misc/yq4-bin
+  app-misc/yq3-bin
+  dev-util/pkgs-checker &&
   luet cleanup --config ./luet.yaml &&
   mkdir -p /macaroni-funtoo/etc/luet &&
   /macaroni-funtoo/usr/bin/yq4 e '.system.rootfs = "/"' ./luet.yaml -i &&
