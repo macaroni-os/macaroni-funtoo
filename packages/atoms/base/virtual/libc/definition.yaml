@@ -1,5 +1,5 @@
 name: libc
-version: 1+2
+version: "2"
 category: virtual
 use_flags:
 - -elibc_Cygwin
@@ -19,13 +19,10 @@ description: Virtual for the C library
 uri:
 - ""
 labels:
-  RDEPEND: '!prefix-guest? ( elibc_glibc? ( sys-libs/glibc:2.2 ) elibc_musl? ( sys-libs/musl
-    ) elibc_uclibc? ( || ( sys-libs/uclibc-ng sys-libs/uclibc ) ) elibc_FreeBSD? (
-    sys-freebsd/freebsd-lib ) ) prefix-guest? ( elibc_Cygwin? ( sys-libs/cygwin-crypt
-    ) !sys-libs/glibc !sys-libs/musl !sys-libs/uclibc-ng !sys-libs/uclibc !sys-freebsd/freebsd-lib
-    )'
+  RDEPEND: elibc_glibc? ( sys-libs/glibc ) elibc_musl? ( sys-libs/musl ) elibc_uclibc?
+    ( sys-libs/uclibc-ng )
   emerge.packages: virtual/libc
   kit: core-kit
   original.package.name: virtual/libc
   original.package.slot: "0"
-  original.package.version: "1"
+  original.package.version: "2"
