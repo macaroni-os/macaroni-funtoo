@@ -1,5 +1,5 @@
 name: debianutils
-version: 4.8.6.1+2
+version: "5.22"
 category: sys-apps
 annotations:
   subsets:
@@ -13,9 +13,11 @@ uri:
 - https://packages.qa.debian.org/d/debianutils.html
 license: BSD GPL-2 SMAIL
 labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   IUSE: +installkernel static
   emerge.packages: sys-apps/debianutils
   kit: core-kit
   original.package.name: sys-apps/debianutils
   original.package.slot: "0"
-  original.package.version: 4.8.6.1
+  original.package.version: "5.22"
