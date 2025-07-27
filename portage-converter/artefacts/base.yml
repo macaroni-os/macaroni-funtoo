@@ -2126,6 +2126,9 @@ artefacts:
 #  packages:
 #  - app-crypt/rhash
 - tree: packages/atoms/base
+  mutations:
+    uses:
+      - weak-ssl-ciphers
   uses:
     disabled:
     - bindist
@@ -2143,6 +2146,7 @@ artefacts:
     - asm
     - cpu_flags_x86_sse2
     - tls-compression
+    - weak-ssl-ciphers
   packages:
   - dev-libs/openssl
 - tree: packages/atoms/base
