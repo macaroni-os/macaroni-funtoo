@@ -1,10 +1,10 @@
 name: openssl
-version: 1.1.1q+2
+version: 1.1.1w
 category: dev-libs
 use_flags:
 - -sctp
-- -test
 - tls-compression
+- weak-ssl-ciphers
 requires:
 - name: zlib
   version: '>=0'
@@ -16,23 +16,20 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: full-strength general purpose cryptography library (including SSL and
-  TLS)
+description: TLS/SSL and crypto library
 uri:
-- https://www.openssl.org/
-license: openssl
+- https://github.com/openssl/openssl
+license: Apache-2.0
 labels:
-  BDEPEND: '>=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 ) test? ( sys-apps/diffutils
-    sys-devel/bc sys-process/procps )'
-  DEPEND: '!app-misc/c_rehash tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,-mgorny(-)]
+  BDEPEND: '>=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 )'
+  DEPEND: '!app-misc/c_rehash tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)]
     )'
-  IUSE: +asm -bindist libc_musl rfc3779 sctp cpu_flags_x86_sse2 -sslv3 static-libs
-    test +tls-compression tls-heartbeat vanilla abi_x86_32 abi_x86_64 abi_x86_x32
-    abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: '!app-misc/c_rehash tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,-mgorny(-)]
-    ) !<net-misc/openssh-8.0_p1-r3'
+  IUSE: +asm -bindist libc_musl rfc3779 sctp cpu_flags_x86_sse2 weak-ssl-ciphers static-libs
+    +tls-compression tls-heartbeat vanilla
+  RDEPEND: '!app-misc/c_rehash tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)]
+    )'
   emerge.packages: dev-libs/openssl
-  kit: core-kit
+  kit: security-kit
   original.package.name: dev-libs/openssl
   original.package.slot: "0"
-  original.package.version: 1.1.1q
+  original.package.version: 1.1.1w
