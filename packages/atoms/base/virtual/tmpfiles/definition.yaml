@@ -1,5 +1,5 @@
 name: tmpfiles
-version: 2+1
+version: "3"
 category: virtual
 annotations:
   subsets:
@@ -10,9 +10,10 @@ annotations:
       - ^/var/db/pkg/
 description: Virtual to select between different tmpfiles.d handlers
 labels:
-  RDEPEND: '|| ( sys-apps/systemd-tmpfiles sys-apps/opentmpfiles )'
+  IUSE: systemd
+  RDEPEND: '!systemd? ( sys-apps/systemd-tmpfiles ) systemd? ( sys-apps/systemd )'
   emerge.packages: virtual/tmpfiles
   kit: core-kit
   original.package.name: virtual/tmpfiles
   original.package.slot: "0"
-  original.package.version: "2"
+  original.package.version: "3"
