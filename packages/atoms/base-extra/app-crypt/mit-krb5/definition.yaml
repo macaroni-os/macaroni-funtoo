@@ -1,5 +1,5 @@
 name: mit-krb5
-version: 1.21+4
+version: "1.21"
 category: app-crypt
 use_flags:
 - -amd64
@@ -40,11 +40,10 @@ uri:
 license: openafs-krb5-a BSD MIT OPENLDAP BSD-2 HPND BSD-4 ISC RSA CC-BY-SA-3.0 ||
   ( BSD-2 GPL-2+ )
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.9 ) virtual/yacc cpu_flags_x86_aes?
+  BDEPEND: '|| ( dev-lang/python:3.9 dev-lang/python:3.10 ) virtual/yacc cpu_flags_x86_aes?
     ( amd64? ( dev-lang/yasm ) x86? ( dev-lang/yasm ) ) doc? ( virtual/latex-base
-    ) test? ( dev-util/cmocka ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+    ) test? ( dev-util/cmocka ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: '!!app-crypt/heimdal >=sys-fs/e2fsprogs-1.46.4-r51 || ( >=dev-libs/libverto-0.2.5[libev]
     >=dev-libs/libverto-0.2.5[libevent] ) keyutils? ( >=sys-apps/keyutils-1.5.8:=
     ) lmdb? ( dev-db/lmdb:= ) nls? ( sys-devel/gettext ) openldap? ( >=net-nds/openldap-2.4.38-r1:=
