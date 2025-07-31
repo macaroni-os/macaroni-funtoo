@@ -30,10 +30,19 @@ funtoo-stage:
 extra-pkgs:
   kits:
 
+    browser-kit:
+      specs:
+
+    core-gl-kit:
+      specs:
+        - java-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - boot-extra.yml
+
     core-hw-kit:
       specs:
-        - base-extra.yml
-        - tools-extra.yaml
+        - tools-extra.yml
 
     core-kit:
       specs:
@@ -41,159 +50,174 @@ extra-pkgs:
         - base-python.yml
         - base-tools.yml
         - base-tools2.yml
-        - dev-extra.yaml
-        - lang-extra.yaml
-        - net-extra.yaml
-        - server-extra.yaml
-        - java-extra.yaml
-        - xorg-extra.yaml
-        - tools-extra.yaml
-        - boot-extra.yaml
-        - db-extra.yaml
-        - python-extra.yaml
+        - net-extra.yml
+        - dev-extra.yml
+        - server-extra.yml
+        - server-extra.yml
+        - db-extra.yml
+        - java-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - boot-extra.yml
+        - python-extra.yml
 
-    browser-kit:
+    core-server-kit:
       specs:
+        - base-tools.yml
+        - base-tools2.yml
+        - net-extra.yml
+        - server-extra.yml
+        - db-extra.yml
+        - telemetry-extra.yml
+        - tools-extra.yml
+        - python-extra.yml
 
     dev-kit:
       specs:
         - base-extra.yml
+        - base-python.yml
         - base-tools.yml
         - base-tools2.yml
-        - dev-extra.yaml
-        - lang-extra.yaml
-        - net-extra.yaml
-        - server-extra.yaml
-        - xorg-extra.yaml
-        - tools-extra.yaml
-        - db-extra.yaml
-
-    core-gl-kit:
-      specs:
-        - java-extra.yaml
-        - xorg-extra.yaml
-        - boot-extra.yaml
-
-    core-server-kit:
-      specs:
-        - base-tools2.yml
-        - lang-extra.yaml
-        - net-extra.yaml
-        - server-extra.yaml
-        - tools-extra.yaml
-        - db-extra.yaml
-        - telemetry-extra.yaml
-        - python-extra.yaml
+        - net-extra.yml
+        - lang-extra.yml
+        - server-extra.yml
+        - db-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
 
     lang-kit:
       specs:
         - base-python.yml
         - base-tools.yml
-        - server-extra.yaml
-        - tools-extra.yaml
+        - lang-extra.yml
+        - server-extra.yml
+        - tools-extra.yml
 
     lisp-scheme-kit:
       specs:
-        - base-tools2.yml
 
     media-kit:
       specs:
-        - java-extra.yaml
-        - xorg-extra.yaml
-        - tools-extra.yaml
-        - boot-extra.yaml
-
-    text-kit:
-      specs:
-        - base-tools.yml
-        - base-tools2.yml
-        - dev-extra.yaml
-        - net-extra.yaml
-        - server-extra.yaml
-        - xorg-extra.yaml
-        - boot-extra.yaml
+        - java-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - boot-extra.yml
 
     net-kit:
       specs:
         - base-tools.yml
-        - base-tools2.yml
-        - dev-extra.yaml
-        - lang-extra.yaml
-        - net-extra.yaml
-        - server-extra.yaml
-        - xorg-extra.yaml
-        - tools-extra.yaml
-        - boot-extra.yaml
-        - db-extra.yaml
-        - telemetry-extra.yaml
-        - python-extra.yaml
+        - net-extra.yml
+        - lang-extra.yml
+        - dev-extra.yml
+        - server-extra.yml
+        - db-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - boot-extra.yml
+        - python-extra.yml
 
     perl-kit:
       specs:
         - base-extra.yml
         - base-tools.yml
-        - net-extra.yaml
-        - xorg-extra.yaml
-        - tools-extra.yaml
-        - db-extra.yaml
+        - net-extra.yml
+        - db-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
 
     python-modules-kit:
       specs:
         - base-extra.yml
         - base-python.yml
-        - dev-extra.yaml
-        - server-extra.yaml
-        - xorg-extra.yaml
-        - tools-extra.yaml
-        - db-extra.yaml
-        - python-extra.yaml
+        - dev-extra.yml
+        - server-extra.yml
+        - db-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - python-extra.yml
+
+    text-kit:
+      specs:
+        - base-tools.yml
+        - net-extra.yml
+        - dev-extra.yml
+        - server-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - boot-extra.yml
 
     security-kit:
       specs:
         - base-extra.yml
-        - net-extra.yaml
-        - server-extra.yaml
+        - base-tools.yml
+        - base-tools2.yml
+        - net-extra.yml
+        - server-extra.yml
+        - tools-extra.yml
 
     science-kit:
       specs:
-        - python-extra.yaml
+        - python-extra.yml
 
     editors-kit:
       specs:
         - base-tools.yml
-        - dev-extra.yaml
+        - dev-extra.yml
 
     geaaru-kit:
       specs:
-        - server-extra.yaml
-        - tools-extra.yaml
-        - telemetry-extra.yaml
-        - python-extra.yaml
+        - dev-extra.yml
+        - server-extra.yml
+        - telemetry-extra.yml
+        - java-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - boot-extra.yml
+        - python-extra.yml
 
     gnome-kit:
       specs:
-        - base-tools.yml
         - base-tools2.yml
-        - server-extra.yaml
-        - java-extra.yaml
-        - xorg-extra.yaml
-        - boot-extra.yaml
+        - server-extra.yml
+        - java-extra.yml
+        - xorg-extra.yml
+        - boot-extra.yml
 
     desktop-kit:
       specs:
-        - base-tools.yml
-        - xorg-extra.yaml
+        - xorg-extra.yml
 
     java-kit:
       specs:
 
     llvm-kit:
       specs:
-        - lang-extra.yaml
+        - base-tools.yml
+        - lang-extra.yml
 
     ruby-kit:
       specs:
-        - lang-extra.yaml
+        - lang-extra.yml
+
+    kernel-kit:
+      specs:
+        - base-tools.yml
+
+    portage-kit:
+      specs:
+        - base-tools.yml
+        - lang-extra.yml
+        - dev-extra.yml
+
+    xorg-kit:
+      specs:
+        - base-tools.yml
+        - base-tools2.yml
+        - server-extra.yml
+        - java-extra.yml
+        - xorg-extra.yml
+        - tools-extra.yml
+        - boot-extra.yml
 
 seeds:
   - name: macaroni-funtoo-base
