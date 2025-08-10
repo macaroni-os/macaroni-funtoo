@@ -1,6 +1,6 @@
 FROM alpine
 RUN mkdir /terragon-minimal/etc/ /terragon-minimal/etc/anise -p && \
-  cd /phoenix-minimal/etc/ && ln -s anise luet
+  cd /terragon-minimal/etc/ && ln -s anise luet
 ADD conf/luet.yaml.docker /terragon-minimal/etc/anise/anise.yaml
 FROM macaronios/luet:latest-amd64
 
