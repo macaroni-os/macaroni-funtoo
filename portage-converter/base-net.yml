@@ -1010,6 +1010,14 @@ artefacts:
 - tree: packages/atoms/base-net
   uses:
     disabled:
+      - static-libs
+      - test
+  packages:
+    - net-libs/libnftnl
+
+- tree: packages/atoms/base-net
+  uses:
+    disabled:
       - xtables
       - debug
       - doc
