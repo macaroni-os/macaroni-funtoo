@@ -336,10 +336,6 @@ artefacts:
         -e haproxy || true
 
 - tree: packages/atoms/base-net2
-  packages:
-    - dev-libs/userspace-rcu
-
-- tree: packages/atoms/base-net2
   mutations:
     runtime_deps:
       packages:
@@ -365,11 +361,6 @@ artefacts:
     - net-dns/bind-tools
 
 - tree: packages/atoms/base-net2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: net-dns
-          name: bind-tools
   uses:
     disabled:
       - dnsrps
