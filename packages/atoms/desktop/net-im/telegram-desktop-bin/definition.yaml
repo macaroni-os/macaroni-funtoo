@@ -1,5 +1,5 @@
 name: telegram-desktop-bin
-version: 5.14.3
+version: 6.0.2
 category: net-im
 requires:
 - name: gobject-introspection
@@ -27,10 +27,11 @@ uri:
 license: GPL-3-with-openssl-exception
 labels:
   DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info
-  RDEPEND: dev-libs/glib:2 dev-libs/gobject-introspection >=media-libs/fontconfig-2.13
-    >=sys-apps/dbus-1.4.20 x11-libs/libX11 >=x11-libs/libxcb-1.10[xkb]
+  IUSE: amd64
+  RDEPEND: dev-libs/glib dev-libs/gobject-introspection media-libs/fontconfig sys-apps/dbus
+    x11-libs/libX11 x11-libs/libxcb[xkb]
   emerge.packages: net-im/telegram-desktop-bin
   kit: desktop-kit
   original.package.name: net-im/telegram-desktop-bin
   original.package.slot: "0"
-  original.package.version: 5.14.3
+  original.package.version: 6.0.2
