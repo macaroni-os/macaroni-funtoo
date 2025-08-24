@@ -463,6 +463,27 @@ artefacts:
         whip hook gtk.glib_update_schemas &&
         whip hook gtk.gtk_update_icons
 
+# Keep release 4.4 of blender
+- tree: packages/atoms/desktop
+  custom_path: media-gfx/blender/4.4
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+  - media-gfx/blender-bin,blender4.4
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db &&
+        whip hook gtk.glib_update_schemas &&
+        whip hook gtk.gtk_update_icons
+
 - tree: packages/atoms/desktop
   uses:
     disabled:
