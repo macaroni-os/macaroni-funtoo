@@ -1,0 +1,10 @@
+shell:
+- /bin/bash
+- -c
+install:
+- gpu-configurator nvidia configure --with-video-group {{ ( index .Values.labels "original.package.version"
+  ) }} --if-not-set || true
+- eval 'macaronictl env-update || true'
+uninstall:
+- gpu-configurator nvidia configure --with-video-group {{ ( index .Values.labels "original.package.version"
+  ) }} --if-not-set --purge || true
