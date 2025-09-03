@@ -1,5 +1,5 @@
 name: libmediaart
-version: 1.9.6+1
+version: 1.9.7
 category: media-libs-2.0
 use_flags:
 - -qt5
@@ -23,20 +23,19 @@ uri:
 - https://github.com/GNOME/libmediaart
 license: LGPL-2.1+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 !qt5? ( >=x11-libs/gdk-pixbuf-2.39.2:2 ) introspection?
-    ( >=dev-libs/gobject-introspection-1.62.0:= ) qt5? ( dev-qt/qtgui:5 ) dev-libs/gobject-introspection-common
-    >=dev-util/gtk-doc-am-1.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.54[vapigen(+)]
-    dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
-    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
-    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) >=app-portage/elt-patches-20170815
-    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info test?
-    ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
-  IUSE: +introspection -qt5 vala test
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 !qt5? ( >=x11-libs/gdk-pixbuf-2.39.2:2 ) introspection?
-    ( >=dev-libs/gobject-introspection-1.62.0:= ) qt5? ( dev-qt/qtgui:5 )'
+  BDEPEND: dev-libs/gobject-introspection-common virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc
+    ) vala? ( || ( dev-lang/vala:0.54[vapigen(+)] dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)]
+    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
+    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
+    ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 !qt5? ( x11-libs/gdk-pixbuf:2 ) introspection? ( dev-libs/gobject-introspection:=
+    ) qt5? ( dev-qt/qtgui:5 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: gtk-doc +introspection -qt5 vala
+  RDEPEND: dev-libs/glib:2 !qt5? ( x11-libs/gdk-pixbuf:2 ) introspection? ( dev-libs/gobject-introspection:=
+    ) qt5? ( dev-qt/qtgui:5 )
   emerge.packages: media-libs/libmediaart:2.0
   kit: media-kit
   original.package.name: media-libs/libmediaart
   original.package.slot: "2.0"
-  original.package.version: 1.9.6-r1
+  original.package.version: 1.9.7
