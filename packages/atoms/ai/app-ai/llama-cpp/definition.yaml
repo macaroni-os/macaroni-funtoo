@@ -1,0 +1,54 @@
+name: llama-cpp
+version: 0.0.6327
+category: app-ai
+use_flags:
+- blas
+- cuda
+- vulkan
+requires:
+- name: vulkan-tools
+  version: '>=0'
+  category: dev-util
+- name: shaderc
+  version: '>=0'
+  category: media-libs
+- name: vulkan-layers
+  version: '>=0'
+  category: media-libs
+- name: gsl
+  version: '>=0'
+  category: sci-libs
+- name: blas
+  version: '>=0'
+  category: virtual
+- name: lapack
+  version: '>=0'
+  category: virtual
+- name: nvidia-drivers
+  version: '>=0'
+  category: x11-drivers-580
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: LLM inference in C/C++
+uri:
+- https://github.com/ggml-org/llama.cpp
+license: MIT
+labels:
+  BDEPEND: vulkan? ( dev-util/vulkan-headers ) dev-util/ninja dev-util/cmake
+  DEPEND: cuda? ( x11-drivers/nvidia-drivers ) vulkan? ( dev-util/vulkan-tools media-libs/vulkan-layers
+    media-libs/vulkan-loader media-libs/shaderc sci-libs/gsl ) blas? ( virtual/blas
+    virtual/lapack )
+  IUSE: static blas cuda vulkan
+  RDEPEND: cuda? ( x11-drivers/nvidia-drivers ) vulkan? ( dev-util/vulkan-tools media-libs/vulkan-layers
+    media-libs/vulkan-loader media-libs/shaderc sci-libs/gsl ) blas? ( virtual/blas
+    virtual/lapack )
+  emerge.packages: app-ai/llama-cpp
+  kit: ai-kit
+  original.package.name: app-ai/llama-cpp
+  original.package.slot: "0"
+  original.package.version: 0.0.6327
