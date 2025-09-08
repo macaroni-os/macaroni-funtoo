@@ -2,9 +2,13 @@ shell:
 - /bin/bash
 - -c
 install:
-- gpu-configurator nvidia configure --with-video-group {{ ( index .Values.labels "original.package.version"
-  ) }} --if-not-set || true
+- '{{- $nvidia_version := ( index .Values.labels "original.package.version"  ) }}
+  {{- $valid_version := ( index ( slice ( splitList "-" $nvidia_version ) 0 1 ) 0
+  ) }} gpu-configurator nvidia configure --with-video-group {{ $valid_version }} --if-not-set
+  || true'
 - eval 'macaronictl env-update || true'
 uninstall:
-- gpu-configurator nvidia configure --with-video-group {{ ( index .Values.labels "original.package.version"
-  ) }} --if-not-set --purge || true
+- '{{- $nvidia_version := ( index .Values.labels "original.package.version"  ) }}
+  {{- $valid_version := ( index ( slice ( splitList "-" $nvidia_version ) 0 1 ) 0
+  ) }} gpu-configurator nvidia configure --with-video-group {{ $valid_version }} --if-not-set
+  --purge || true'
