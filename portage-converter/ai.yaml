@@ -88,6 +88,12 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/ai
+  uses:
+    disabled:
+      # blas doesn't work yet
+      - blas
+      # cuda needs a tuning
+      - cuda
   packages:
     - app-ai/ollama
     - app-ai/llama-cpp
