@@ -1,6 +1,7 @@
 prelude:
 # Setup blas/cblas/lapack
 - >-
+  anise repo update && anise upgrade -y &&
   anise i blas cblas lapack gsl -y &&
   anise cleanup &&
   eval 'eselect blas set 1 || true' &&
