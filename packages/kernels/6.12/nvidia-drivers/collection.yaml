@@ -34,7 +34,7 @@ packages:
 #    original.package.slot: "560"
 
 - name: nvidia-565-kernel-modules
-  version: "565.77+1"
+  version: "565.77+2"
   category: kernel-6.12
   requires:
     - category: app-admin
@@ -46,12 +46,12 @@ packages:
     emerge.packages: x11-drivers/nvidia-kernel-modules
     kernel.suffix: macaroni
     kernel.type: vanilla
-    kernel.version: 6.12.33
+    kernel.version: 6.12.45
     original.package.version: "565.77"
     original.package.slot: "565"
 
 - name: nvidia-570-kernel-modules
-  version: "570.144+1"
+  version: "570.172.08"
   category: kernel-6.12
   requires:
     - category: app-admin
@@ -63,12 +63,12 @@ packages:
     emerge.packages: x11-drivers/nvidia-kernel-modules
     kernel.suffix: macaroni
     kernel.type: vanilla
-    kernel.version: 6.12.33
-    original.package.version: "570.144"
+    kernel.version: 6.12.45
+    original.package.version: "570.172.08"
     original.package.slot: "570"
 
 - name: nvidia-575-kernel-modules
-  version: "575.51.02+1"
+  version: "575.64.03"
   category: kernel-6.12
   requires:
     - category: app-admin
@@ -80,6 +80,23 @@ packages:
     emerge.packages: x11-drivers/nvidia-kernel-modules
     kernel.suffix: macaroni
     kernel.type: vanilla
-    kernel.version: 6.12.33
-    original.package.version: 575.51.02
+    kernel.version: 6.12.45
+    original.package.version: "575.64.03"
     original.package.slot: "575"
+
+- name: nvidia-580-kernel-modules
+  version: "580.82.07"
+  category: kernel-6.12
+  requires:
+    - category: app-admin
+      name: gpu-configurator
+      version: '>=0'
+  annotations:
+    kernel_module: true
+  labels:
+    emerge.packages: x11-drivers/nvidia-kernel-modules
+    kernel.suffix: macaroni
+    kernel.type: vanilla
+    kernel.version: 6.12.45
+    original.package.version: "580.82.07"
+    original.package.slot: "580"
