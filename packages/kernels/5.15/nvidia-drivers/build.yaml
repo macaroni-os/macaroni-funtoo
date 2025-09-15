@@ -9,11 +9,6 @@ steps:
 # cp nvidia-drivers-gpl-pfn_valid.patch /etc/portage/patches/x11-drivers/nvidia-kernel-modules/ &&
 # Temporary patch until added to Funtoo tree
 - >-
-  eval 'mkdir -p /etc/portage/patches/x11-drivers/nvidia-kernel-modules/ || true' &&
-  sed -i -e 's|versionator||g'  /var/git/meta-repo/kits/core-kit/eclass/nvidia-driver.eclass
-- >-
-  rm /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers/*.ebuild -vf &&
-  rm /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-kernel-modules/*.ebuild -vf &&
   anise repo update && anise upgrade -y &&
   anise i -y x11-drivers-{{ ( index .Values.labels "original.package.slot" ) }}/nvidia-drivers &&
   anise cleanup &&
