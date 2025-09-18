@@ -72,7 +72,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -614,6 +614,16 @@ artefacts:
           category: dev-python
   packages:
     - dev-python/pdm-pep517
+
+- tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+      packages:
+        - name: tomli
+          category: dev-python
+        - name: tomli-w
+          category: dev-python
+  packages:
     - dev-python/pdm-backend
 
 include_layers:
