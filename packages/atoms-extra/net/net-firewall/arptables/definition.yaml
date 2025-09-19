@@ -1,0 +1,22 @@
+name: arptables
+version: 0.0.5
+category: net-firewall
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Set up, maintain, and inspect the tables of ARP rules in the Linux kernel
+uri:
+- https://ebtables.netfilter.org
+license: GPL-2+
+labels:
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  emerge.packages: net-firewall/arptables
+  kit: net-kit
+  original.package.name: net-firewall/arptables
+  original.package.slot: "0"
+  original.package.version: 0.0.5
