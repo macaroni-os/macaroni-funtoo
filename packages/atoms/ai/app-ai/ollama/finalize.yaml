@@ -1,0 +1,10 @@
+shell:
+- /bin/bash
+- -c
+install:
+- |
+  echo '
+  LDPATH="/usr/lib/ollama"
+  ' > /etc/env.d/99ollama
+uninstall:
+- rm /etc/env.d/99ollama
