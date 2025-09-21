@@ -16,7 +16,7 @@ main () {
   yq w -i ${REPO_DIR}/packages/seeds/macaroni-kernel-${BRANCH}/definition.yaml 'version' ${RELEASE}
 
   modules=(
-    nvidia-drivers
+    #nvidia-drivers
     rtw89
     virtualbox-guest-additions
     virtualbox-modules
@@ -25,7 +25,7 @@ main () {
   )
 
   common_modules=(
-    nvidia-drivers
+    #nvidia-drivers
     zfs-common
     virtualbox-modules
   )
