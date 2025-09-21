@@ -95,8 +95,31 @@ artefacts:
       # cuda needs a tuning
       - cuda
   packages:
-    - app-ai/ollama
     - app-ai/llama-cpp
+
+- tree: packages/atoms/ai
+  uses:
+    disabled:
+      # blas doesn't work yet
+      - blas
+      # cuda needs a tuning
+      - cuda
+  packages:
+    - app-ai/ollama
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/ -e ollama || true
+      - |
+        echo '
+        LDPATH="/usr/lib/ollama"
+        ' > /etc/env.d/99ollama
+    uninstall:
+      - rm /etc/env.d/99ollama
+
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
