@@ -9,7 +9,7 @@ Anise Macaroni Repository Tree used to create Phoenix, Eagle and Terragon packag
 Macaroni Phoenix, Eagle and Terragon using MARK as build toolchain and generate binary packages.
 
 Branches behavior:
-* `phoenix`: branch for Phoenix Next release (originally based on MARK *next* and now on *mark-iii*).
+* `phoenix`: branch for Phoenix release (MARK III based).
 
 * `terragon`: Container oriented and with openRC (MARK XL based)
 
