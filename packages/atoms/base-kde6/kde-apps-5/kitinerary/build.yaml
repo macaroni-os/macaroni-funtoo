@@ -1,4 +1,8 @@
 prelude:
+# On phoenix poppler is splitted.
+- >-
+  sed -e 's|app-text/poppler:=\[qt5\]|app-text/poppler|g' -i
+  /var/git/meta-repo/kits/kde-kit/kde-apps/kitinerary/kitinerary-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
