@@ -1,7 +1,6 @@
 prelude:
-- >-
-  sed -i -e 's|app-crypt/gpgme-1.11.1\[cxx,qt5\]|app-crypt/gpgme-1.11.1|g'
-  /var/git/meta-repo/kits/kde-kit/kde-apps/kaddressbook/kaddressbook-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
+- sed -i -e 's|app-crypt/gpgme-1.11.1\[cxx,qt5\]|app-crypt/gpgme-1.11.1|g' /var/git/meta-repo/kits/kde-kit/kde-apps/kaddressbook/kaddressbook-{{
+  ( index .Values.labels "original.package.version" ) }}.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -29,6 +28,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: kontactinterface
+- name: akonadi-import-wizard
   version: '>=0'
   category: kde-apps-5
