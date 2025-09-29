@@ -1,0 +1,42 @@
+name: gogs
+version: 0.13.3
+category: www-apps
+use_flags:
+- -mysql
+- -postgres
+- pam
+- sqlite
+- ssh
+requires:
+- name: git
+  version: '>=0'
+  category: dev-vcs
+- name: openssh
+  version: '>=0'
+  category: net-misc
+- name: pam
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Gogs is a painless self-hosted Git service
+uri:
+- https://gogs.io
+license: MIT
+labels:
+  BDEPEND: dev-lang/go >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
+  DEPEND: pam? ( sys-libs/pam )
+  IUSE: pam cert mysql postgres +sqlite ssh systemd
+  RDEPEND: pam? ( sys-libs/pam ) dev-vcs/git ssh? ( net-misc/openssh ) mysql? ( ||
+    ( dev-db/mariadb dev-db/mysql-community ) ) postgres? ( dev-db/postgresql ) sqlite?
+    ( dev-db/sqlite )
+  emerge.packages: www-apps/gogs
+  kit: net-kit
+  original.package.name: www-apps/gogs
+  original.package.slot: "0"
+  original.package.version: 0.13.3
