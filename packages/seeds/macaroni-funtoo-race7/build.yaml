@@ -25,7 +25,7 @@ steps:
   chmod a+rwx /tmp
 - anise install virtual-entities/base --force
 - >-
-  anise --sync-repos install --force
+  anise install --force --sync-repos
   system/luet-devkit
   utils/jq
   utils/yq
@@ -40,7 +40,6 @@ steps:
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  cat /etc/luet/luet.yaml &&
   anise miner ri virtual/base virtual/sh &&
   anise repo update && anise upgrade &&
   anise i
