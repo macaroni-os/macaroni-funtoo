@@ -2,11 +2,14 @@ layer:
   name: macaroni-funtoo-race6
   category: seed
 packages:
+  - app-admin/anise:0
   - app-admin/apache-tools:0
   - app-admin/ego:0
+  - app-admin/entities:0
   - app-admin/eselect:0
   - app-admin/logrotate:0
   - app-admin/perl-cleaner:0
+  - app-admin/whip:0
   - app-arch/bzip2:0
   - app-arch/cpio:0
   - app-arch/gzip:0
@@ -32,11 +35,15 @@ packages:
   - app-eselect/eselect-ruby:0
   - app-eselect/eselect-rust:0
   - app-eselect/eselect-vi:0
+  - app-i18n/uchardet:0
   - app-misc/ca-certificates:0
   - app-misc/editor-wrapper:0
+  - app-misc/jq-bin:0
   - app-misc/mime-types:0
   - app-misc/pax-utils:0
   - app-misc/screen:0
+  - app-misc/yq3-bin:0
+  - app-misc/yq4-bin:0
   - app-portage/elt-patches:0
   - app-portage/gentoolkit:0
   - app-portage/portage-utils:0
@@ -51,6 +58,7 @@ packages:
   - app-text/docbook-xml-dtd:4.3
   - app-text/docbook-xml-dtd:4.4
   - app-text/docbook-xml-dtd:4.5
+  - app-text/docbook-xsl-ns-stylesheets:0
   - app-text/docbook-xsl-stylesheets:0
   - app-text/docbook2X:0
   - app-text/manpager:0
@@ -62,14 +70,12 @@ packages:
   - dev-cpp/tbb:0
   - dev-db/sqlite:3
   - dev-lang/erlang:0
-  - dev-lang/go-bootstrap:0
   - dev-lang/go:0
   - dev-lang/lua:0
   - dev-lang/perl:0
   - dev-lang/python-exec:2
-  - dev-lang/python:3.7
   - dev-lang/python:3.9
-  - dev-lang/ruby:2.7
+  - dev-lang/ruby:3.1
   - dev-lang/rust-bin:stable
   - dev-lang/swig:0
   - dev-lang/tcl:0
@@ -86,7 +92,6 @@ packages:
   - dev-libs/glib:2
   - dev-libs/gmp:0
   - dev-libs/icu:0
-  - dev-libs/iniparser:4
   - dev-libs/jansson:0
   - dev-libs/jsoncpp:0
   - dev-libs/libaio:0
@@ -163,7 +168,9 @@ packages:
   - dev-python/PySocks:0
   - dev-python/alabaster:0
   - dev-python/appi:0
+  - dev-python/boolean-py:0
   - dev-python/calver:0
+  - dev-python/cerberus:0
   - dev-python/certifi:0
   - dev-python/cffi:0
   - dev-python/chardet:0
@@ -183,11 +190,14 @@ packages:
   - dev-python/ipaddress:0
   - dev-python/jinja:0
   - dev-python/libxml2-python:0
+  - dev-python/license-expression:0
   - dev-python/markupsafe:0
+  - dev-python/meson-python:0
   - dev-python/mwparserfromhell:0
   - dev-python/namespace-sphinxcontrib:0
   - dev-python/packaging:0
   - dev-python/pathspec:0
+  - dev-python/pdm-pep517:0
   - dev-python/pip:0
   - dev-python/pluggy:0
   - dev-python/ply:0
@@ -196,6 +206,7 @@ packages:
   - dev-python/pygments:0
   - dev-python/pyopenssl:0
   - dev-python/pyparsing:0
+  - dev-python/pyproject-metadata:0
   - dev-python/pytz:0
   - dev-python/requests:0
   - dev-python/semantic_version:0
@@ -214,6 +225,7 @@ packages:
   - dev-python/sphinxcontrib-qthelp:0
   - dev-python/sphinxcontrib-serializinghtml:0
   - dev-python/toml:0
+  - dev-python/tomli-w:0
   - dev-python/tomli:0
   - dev-python/trove-classifiers:0
   - dev-python/typing-extensions:0
@@ -251,7 +263,9 @@ packages:
   - dev-util/itstool:0
   - dev-util/meson:0
   - dev-util/ninja:0
+  - dev-util/patchelf:0
   - dev-util/pkgconf:0
+  - dev-util/pkgs-checker:0
   - dev-util/ragel:0
   - dev-util/re2c:0
   - dev-vcs/git:0
@@ -371,6 +385,7 @@ packages:
   - sys-apps/usbutils:0
   - sys-apps/util-linux:0
   - sys-apps/which:0
+  - sys-apps/whip-catalog:0
   - sys-auth/pambase:0
   - sys-block/thin-provisioning-tools:0
   - sys-devel/autoconf-archive:0
@@ -384,15 +399,16 @@ packages:
   - sys-devel/binutils:2.40
   - sys-devel/bison:0
   - sys-devel/clang-common:0
-  - sys-devel/clang:11
+  - sys-devel/clang-runtime:16
+  - sys-devel/clang:16
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
-  - sys-devel/gcc:11.3.0
+  - sys-devel/gcc:12.3.0
   - sys-devel/gettext:0
   - sys-devel/gnuconfig:0
   - sys-devel/libtool:2
   - sys-devel/llvm-common:0
-  - sys-devel/llvm:11
+  - sys-devel/llvm:16
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
@@ -405,8 +421,8 @@ packages:
   - sys-fs/xfsprogs:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
-  - sys-libs/compiler-rt-sanitizers:11.0.0
-  - sys-libs/compiler-rt:11.0.0
+  - sys-libs/compiler-rt-sanitizers:16
+  - sys-libs/compiler-rt:16
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
   - sys-libs/e2fsprogs-libs:0
@@ -416,6 +432,7 @@ packages:
   - sys-libs/libcap:0
   - sys-libs/libcxx:0
   - sys-libs/libcxxabi:0
+  - sys-libs/libomp:0
   - sys-libs/libseccomp:0
   - sys-libs/libunwind:0
   - sys-libs/libxcrypt:0
