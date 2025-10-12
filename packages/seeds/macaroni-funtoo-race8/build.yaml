@@ -11,7 +11,7 @@ copy:
       version: ">=0"
     source: "/macaroni-funtoo"
     destination: "/"
-# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
+# Set this to prelude when this is fixed: https://github.com/mudler/anise/issues/254
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -23,27 +23,26 @@ steps:
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force
+- anise install virtual-entities/base --force
 - >-
-  luet install --force
-  system/luet-devkit
+  anise install --force --sync-repos
+  system/anise-devkit
   utils/jq
   utils/yq
   app-admin/macaronictl
   dev-util/pkgs-checker
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
-  luet cleanup
+  anise cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  cat /etc/luet/luet.yaml &&
-  luet miner ri virtual/base virtual/sh &&
-  luet repo update && luet upgrade &&
-  luet i
+  anise miner ri virtual/base virtual/sh &&
+  anise repo update && anise upgrade &&
+  anise i
   toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
@@ -52,7 +51,7 @@ steps:
   toolchain/extra-lang
   toolchain/extra-dev
   toolchain/extra-server
-  && luet cleanup &&
+  && anise cleanup &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   eselect rust cleanup &&
