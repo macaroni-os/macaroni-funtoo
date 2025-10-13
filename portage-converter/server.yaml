@@ -343,6 +343,16 @@ artefacts:
     - app-backup/borgbackup
     - dev-python/llfuse
 
+- tree: packages/atoms/server
+  uses:
+    disabled:
+      - mysql
+      - postgres
+      - systemd
+  packages:
+    - www-apps/forgejo
+    - www-apps/gogs
+
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
 
