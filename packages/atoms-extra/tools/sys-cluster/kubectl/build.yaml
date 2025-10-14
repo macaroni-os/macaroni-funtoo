@@ -1,4 +1,8 @@
 prelude:
+# Temporary patch
+- >-
+  sed -s "s|^EAPI=7|EAPI=7\nEGO_OVERRIDE_GOMOD=0|g" -i
+  /var/git/meta-repo/kits/core-server-kit/sys-cluster/kubectl/kubectl-1.33.1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
