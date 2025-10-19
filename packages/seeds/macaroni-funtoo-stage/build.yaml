@@ -24,7 +24,7 @@ prelude:
   app-admin/whip
   sys-apps/whip-catalog
   utils/yq &&
-  anise cleanup --config ./luet.yaml &&
+  luet cleanup --config ./luet.yaml &&
   mkdir -p /macaroni-funtoo/etc/luet &&
   /macaroni-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
   cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
