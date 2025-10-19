@@ -1,5 +1,5 @@
 name: xfsprogs
-version: 5.0.0+1
+version: 6.14.0
 category: sys-fs
 use_flags:
 - -libedit
@@ -25,14 +25,15 @@ uri:
 - https://xfs.wiki.kernel.org/
 license: LGPL-2.1
 labels:
-  DEPEND: '>=sys-apps/util-linux-2.17.2 icu? ( dev-libs/icu:= ) readline? ( sys-libs/readline:0=
-    ) !readline? ( libedit? ( dev-libs/libedit ) ) !<sys-fs/xfsdump-3 nls? ( sys-devel/gettext
-    ) virtual/pkgconfig'
-  IUSE: icu libedit nls readline static-libs
-  RDEPEND: '>=sys-apps/util-linux-2.17.2 icu? ( dev-libs/icu:= ) readline? ( sys-libs/readline:0=
-    ) !readline? ( libedit? ( dev-libs/libedit ) ) !<sys-fs/xfsdump-3'
+  BDEPEND: virtual/pkgconfig
+  DEPEND: '>=sys-apps/util-linux-2.17.2 icu? ( dev-libs/icu:= ) libedit? ( dev-libs/libedit
+    ) dev-libs/inih dev-libs/userspace-rcu !<sys-fs/xfsdump-3 nls? ( sys-devel/gettext
+    )'
+  IUSE: icu libedit nls static-libs +split-usr
+  RDEPEND: '>=sys-apps/util-linux-2.17.2 icu? ( dev-libs/icu:= ) libedit? ( dev-libs/libedit
+    ) dev-libs/inih dev-libs/userspace-rcu !<sys-fs/xfsdump-3'
   emerge.packages: sys-fs/xfsprogs
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: sys-fs/xfsprogs
   original.package.slot: "0"
-  original.package.version: 5.0.0
+  original.package.version: 6.14.0
