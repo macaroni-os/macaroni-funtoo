@@ -13,6 +13,8 @@ kits=(
   "java"
   "xorg"
   "tools"
+  "boot"
+  "python"
 )
 
 for i in ${kits[@]} ; do
