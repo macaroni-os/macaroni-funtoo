@@ -1,5 +1,5 @@
 name: acl
-version: 2.2.53+1
+version: 2.3.2
 category: sys-apps
 use_flags:
 - nls
@@ -19,12 +19,12 @@ uri:
 - https://savannah.nongnu.org/projects/acl
 license: LGPL-2.1
 labels:
-  DEPEND: '>=sys-apps/attr-2.4.47-r1[-mgorny(-)] nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815'
-  IUSE: nls static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
+  BDEPEND: '>=app-portage/elt-patches-20170815'
+  DEPEND: nls? ( sys-devel/gettext )
+  IUSE: nls static-libs +split-usr
   RDEPEND: '>=sys-apps/attr-2.4.47-r1[-mgorny(-)]'
   emerge.packages: sys-apps/acl
   kit: core-kit
   original.package.name: sys-apps/acl
   original.package.slot: "0"
-  original.package.version: 2.2.53
+  original.package.version: 2.3.2
