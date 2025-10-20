@@ -1,13 +1,18 @@
 name: xfsprogs
-version: 6.14.0
+version: 6.14.0+1
 category: sys-fs
 use_flags:
 - -libedit
 - icu
 - nls
-- readline
 requires:
 - name: icu
+  version: '>=0'
+  category: dev-libs
+- name: inih
+  version: '>=0'
+  category: dev-libs
+- name: userspace-rcu
   version: '>=0'
   category: dev-libs
 - name: util-linux
