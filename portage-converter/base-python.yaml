@@ -60,6 +60,50 @@ global_annotations:
       portage:
         - "^/var/db/pkg/"
 artefacts:
+
+- tree: packages/atoms/base-python
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race1
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - app-eselect/eselect-rust
+    - virtual/libffi
+
+- tree: packages/atoms/base-python
+  uses:
+    disabled:
+    - clippy
+    - doc
+    - nios2
+    - rls
+    - rustfmt
+    - sh
+    - wasm
+    enabled:
+    - cpu_flags_x86_sse2
+  packages:
+  - dev-lang/rust-bin:stable
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    uninstall:
+      - >-
+        eval 'rm -vf /etc/env.d/50rust-bin-{{ ( index .Values.labels "original.package.version" ) }} || true' &&
+        source /etc/profile &&
+        eval 'macaronictl env-update || true'
+    install:
+      - >-
+        source /etc/profile &&
+        eval 'macaronictl env-update || true'
+
+
 - tree: packages/atoms/base-python
   uses:
     disabled:
@@ -404,34 +448,6 @@ artefacts:
   - dev-python/pyopenssl
 
 - tree: packages/atoms/base-python
-  uses:
-    disabled:
-    - clippy
-    - doc
-    - nios2
-    - rls
-    - rustfmt
-    - sh
-    - wasm
-    enabled:
-    - cpu_flags_x86_sse2
-  packages:
-  - dev-lang/rust-bin:stable
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    uninstall:
-      - >-
-        eval 'rm -vf /etc/env.d/50rust-bin-{{ ( index .Values.labels "original.package.version" ) }} || true' &&
-        source /etc/profile &&
-        eval 'macaronictl env-update || true'
-    install:
-      - >-
-        source /etc/profile &&
-        eval 'macaronictl env-update || true'
-
-- tree: packages/atoms/base-python
   mutations:
     buildtime_deps:
       packages:
@@ -443,20 +459,6 @@ artefacts:
     - sh
   packages:
     - virtual/rust
-
-- tree: packages/atoms/base-python
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race1
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - app-eselect/eselect-rust
-    - virtual/libffi
 
 - tree: packages/atoms/base-python
   mutations:
@@ -557,8 +559,6 @@ artefacts:
   mutations:
     buildtime_deps:
       packages:
-        - name: pathspec
-          category: dev-python
         - name: tomli
           category: dev-python
         - name: pyparsing
