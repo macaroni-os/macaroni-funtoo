@@ -1,0 +1,24 @@
+name: ollama
+version: 0.12.0
+category: app-ai
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Get up and running with OpenAI gpt-oss, DeepSeek-R1, Gemma 3 and other
+  models.
+uri:
+- https://ollama.com
+license: MIT
+labels:
+  BDEPEND: '>=dev-lang/go-1.24 >=dev-lang/go-1.12 app-arch/unzip dev-util/ninja dev-util/cmake'
+  DEPEND: sys-apps/shadow
+  IUSE: systemd
+  emerge.packages: app-ai/ollama
+  kit: ai-kit
+  original.package.name: app-ai/ollama
+  original.package.slot: "0"
+  original.package.version: 0.12.0
