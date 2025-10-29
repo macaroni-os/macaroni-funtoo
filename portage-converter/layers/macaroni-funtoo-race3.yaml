@@ -2,9 +2,12 @@ layer:
   name: macaroni-funtoo-race3
   category: seed
 packages:
+  - app-admin/anise:0
   - app-admin/ego:0
+  - app-admin/entities:0
   - app-admin/eselect:0
   - app-admin/perl-cleaner:0
+  - app-admin/whip:0
   - app-arch/bzip2:0
   - app-arch/cpio:0
   - app-arch/gzip:0
@@ -26,12 +29,15 @@ packages:
   - app-eselect/eselect-vi:0
   - app-misc/ca-certificates:0
   - app-misc/editor-wrapper:0
+  - app-misc/jq-bin:0
   - app-misc/mime-types:0
   - app-misc/pax-utils:0
+  - app-misc/yq3-bin:0
   - app-portage/elt-patches:0
   - app-portage/gentoolkit:0
   - app-portage/portage-utils:0
   - app-shells/bash:0
+  - app-text/asciidoc:0
   - app-text/build-docbook-catalog:0
   - app-text/docbook-dsssl-stylesheets:0
   - app-text/docbook-sgml-dtd:3.0
@@ -41,6 +47,7 @@ packages:
   - app-text/docbook-xml-dtd:4.3
   - app-text/docbook-xml-dtd:4.4
   - app-text/docbook-xml-dtd:4.5
+  - app-text/docbook-xsl-ns-stylesheets:0
   - app-text/docbook-xsl-stylesheets:0
   - app-text/manpager:0
   - app-text/opensp:0
@@ -54,16 +61,18 @@ packages:
   - dev-lang/python:3.9
   - dev-lang/rust-bin:stable
   - dev-lang/swig:0
+  - dev-lang/yasm:0
   - dev-libs/boost:0
   - dev-libs/elfutils:0
   - dev-libs/expat:0
   - dev-libs/glib:2
   - dev-libs/gmp:0
   - dev-libs/icu:0
-  - dev-libs/iniparser:4
+  - dev-libs/inih:0
   - dev-libs/jsoncpp:0
   - dev-libs/libaio:0
   - dev-libs/libassuan:0
+  - dev-libs/libatomic_ops:0
   - dev-libs/libffi:0
   - dev-libs/libgcrypt:0
   - dev-libs/libgpg-error:0
@@ -87,6 +96,7 @@ packages:
   - dev-libs/nss:0
   - dev-libs/openssl:0
   - dev-libs/popt:0
+  - dev-libs/userspace-rcu:0
   - dev-perl/Authen-SASL:0
   - dev-perl/Digest-HMAC:0
   - dev-perl/Error:0
@@ -123,6 +133,7 @@ packages:
   - dev-python/editables:0
   - dev-python/flit_core:0
   - dev-python/gpep517:0
+  - dev-python/hatch-vcs:0
   - dev-python/hatchling:0
   - dev-python/idna:0
   - dev-python/imagesize:0
@@ -131,6 +142,7 @@ packages:
   - dev-python/ipaddress:0
   - dev-python/jinja:0
   - dev-python/libxml2-python:0
+  - dev-python/libxslt-python:0
   - dev-python/markupsafe:0
   - dev-python/mwparserfromhell:0
   - dev-python/namespace-sphinxcontrib:0
@@ -176,9 +188,11 @@ packages:
   - dev-util/gtk-doc-am:0
   - dev-util/intltool:0
   - dev-util/itstool:0
+  - dev-util/maturin:0
   - dev-util/meson:0
   - dev-util/ninja:0
   - dev-util/pkgconf:0
+  - dev-util/pkgs-checker:0
   - dev-util/re2c:0
   - dev-vcs/git:0
   - gnome-extra/yelp-xsl:0
@@ -217,6 +231,7 @@ packages:
   - sys-apps/groff:0
   - sys-apps/help2man:0
   - sys-apps/hwids:0
+  - sys-apps/hwloc:0
   - sys-apps/install-xattr:0
   - sys-apps/kbd:0
   - sys-apps/kmod:0
@@ -235,6 +250,7 @@ packages:
   - sys-apps/usbutils:0
   - sys-apps/util-linux:0
   - sys-apps/which:0
+  - sys-apps/whip-catalog:0
   - sys-auth/pambase:0
   - sys-block/thin-provisioning-tools:0
   - sys-devel/autoconf-archive:0
@@ -246,23 +262,31 @@ packages:
   - sys-devel/bc:0
   - sys-devel/binutils:2.40
   - sys-devel/bison:0
+  - sys-devel/clang-common:0
+  - sys-devel/clang-runtime:16
+  - sys-devel/clang:16
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
-  - sys-devel/gcc:11.3.0
+  - sys-devel/gcc:12.3.0
   - sys-devel/gettext:0
   - sys-devel/gnuconfig:0
   - sys-devel/libtool:2
+  - sys-devel/llvm-common:0
+  - sys-devel/llvm:16
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
   - sys-fs/btrfs-progs:0
   - sys-fs/dosfstools:0
   - sys-fs/e2fsprogs:0
+  - sys-fs/lvm2:0
   - sys-fs/mdadm:0
   - sys-fs/udev-init-scripts:0
   - sys-fs/xfsprogs:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
+  - sys-libs/compiler-rt-sanitizers:16
+  - sys-libs/compiler-rt:16
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
   - sys-libs/e2fsprogs-libs:0
@@ -270,7 +294,11 @@ packages:
   - sys-libs/glibc:2.2
   - sys-libs/libcap-ng:0
   - sys-libs/libcap:0
+  - sys-libs/libcxx:0
+  - sys-libs/libcxxabi:0
+  - sys-libs/libomp:0
   - sys-libs/libseccomp:0
+  - sys-libs/libunwind:0
   - sys-libs/libxcrypt:0
   - sys-libs/ncurses:0
   - sys-libs/pam:0
@@ -334,4 +362,5 @@ packages:
   - virtual/tmpfiles:0
   - virtual/udev:0
   - virtual/yacc:0
+  - x11-libs/libpciaccess:0
   - x11-misc/shared-mime-info:0
