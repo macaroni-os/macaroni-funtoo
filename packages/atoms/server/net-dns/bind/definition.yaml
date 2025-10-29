@@ -1,5 +1,5 @@
 name: bind
-version: 9.20.7
+version: 9.21.12
 category: net-dns
 use_flags:
 - -dnstap
@@ -36,24 +36,22 @@ uri:
 - https://www.isc.org/software/bind
 license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
 labels:
-  BDEPEND: test? ( || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
-    dev-lang/python:3.10 ) dev-python/dnspython dev-python/pytest dev-perl/Net-DNS-SEC
-    dev-util/cmocka ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-  DEPEND: =net-dns/bind-tools-9.20.7* dev-libs/jemalloc dev-libs/json-c:= dev-libs/libuv:=
-    dev-libs/openssl:=[-bindist(-)] sys-libs/libcap sys-libs/zlib doh? ( net-libs/nghttp2
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: =net-dns/bind-tools-9.21.12* jemalloc? ( dev-libs/jemalloc ) dev-libs/json-c:=
+    dev-libs/libuv:= dev-libs/openssl sys-libs/libcap sys-libs/zlib doh? ( net-libs/nghttp2
     ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5 ) idn? ( net-dns/libidn2
     ) lmdb? ( dev-db/lmdb ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) xml? (
-    dev-libs/libxml2 ) sys-apps/shadow
-  IUSE: dnstap dnsrps doc doh fixed-rrset geoip gssapi idn lmdb selinux test urandom
-    xml
-  RDEPEND: =net-dns/bind-tools-9.20.7* dev-libs/jemalloc dev-libs/json-c:= dev-libs/libuv:=
-    dev-libs/openssl:=[-bindist(-)] sys-libs/libcap sys-libs/zlib doh? ( net-libs/nghttp2
+    dev-libs/libxml2 ) stats? ( dev-libs/json-c dev-libs/libxml2 ) sys-apps/shadow
+  IUSE: +caps dnstap dnsrps doh fixed-rrset geoip gssapi idn +jemalloc lmdb selinux
+    urandom xml stats
+  RDEPEND: =net-dns/bind-tools-9.21.12* jemalloc? ( dev-libs/jemalloc ) dev-libs/json-c:=
+    dev-libs/libuv:= dev-libs/openssl sys-libs/libcap sys-libs/zlib doh? ( net-libs/nghttp2
     ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5 ) idn? ( net-dns/libidn2
     ) lmdb? ( dev-db/lmdb ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) xml? (
-    dev-libs/libxml2 ) selinux? ( sec-policy/selinux-bind ) sys-process/psmisc virtual/tmpfiles
+    dev-libs/libxml2 ) stats? ( dev-libs/json-c dev-libs/libxml2 ) selinux? ( sec-policy/selinux-bind
+    ) sys-process/psmisc virtual/tmpfiles
   emerge.packages: net-dns/bind
   kit: net-kit
   original.package.name: net-dns/bind
   original.package.slot: "0"
-  original.package.version: 9.20.7
+  original.package.version: 9.21.12
