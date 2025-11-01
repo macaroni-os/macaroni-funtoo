@@ -3,7 +3,7 @@ env:
 - LUET_YES=true
 - LUET_NOLOCK=true
 - HTTP_TIMEOUT=0
-- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles https://dev.macaronios.org/distfiles"'
+- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://distfiles.macaronios.org/mark-distfiles https://dl.macaronios.org/repos/distfiles"'
 copy:
   - package:
       category: seed
@@ -22,9 +22,10 @@ steps:
   if [ ! -d /var ] ; then mkdir /var ; fi &&
   chmod a+x /var &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force
+- anise install virtual-entities/base --force
 - >-
-  luet install --force --sync-repos
+  anise repo update &&
+  anise install --force --sync-repos
   system/luet-devkit
   utils/jq
   utils/yq
@@ -32,9 +33,8 @@ steps:
   dev-util/pkgs-checker-minimal
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
-  luet repo update &&
-  luet upgrade &&
-  luet install --force
+  anise upgrade &&
+  anise install --force
   toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
@@ -54,15 +54,14 @@ steps:
   toolchain/java
   toolchain/php-extra
   &&
-  luet cleanup
+  anise cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  cat /etc/luet/luet.yaml &&
-  luet install virtual/base --nodeps &&
+  anise install virtual/base --nodeps &&
   anise miner ri virtual/yacc &&
   anise cleanup &&
   /usr/bin/gcc-config 1 &&
