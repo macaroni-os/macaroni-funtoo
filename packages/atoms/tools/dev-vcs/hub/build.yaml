@@ -1,7 +1,11 @@
 prelude:
+# temporary until next race
 - >-
-  sed -e 's|github-hub-|mislav-hub-|g' -i
-  /var/git/meta-repo/kits/dev-kit/dev-vcs/hub/hub-2.14.2.ebuild
+  cd /var/git/meta-repo/kits/dev-kit/dev-vcs/hub &&
+  rm hub-2.14.2* Manifest &&
+  wget https://raw.githubusercontent.com/macaroni-os/dev-kit/refs/heads/mark-xl/dev-vcs/hub/hub-2.14.2-r1.ebuild &&
+  ebuild hub-2.14.2-r1.ebuild digest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
