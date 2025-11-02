@@ -1,5 +1,5 @@
 name: qemu
-version: 7.1.0+1
+version: 7.1.0+2
 category: app-emulation
 use_flags:
 - -accessibility
@@ -212,19 +212,18 @@ labels:
     ) usbredir? ( >=sys-apps/usbredir-0.6 ) vde? ( net-misc/vde ) virgl? ( media-libs/virglrenderer
     ) virtfs? ( sys-libs/libcap ) xen? ( app-emulation/xen-tools:= ) zstd? ( >=app-arch/zstd-1.4.0
     ) ) qemu_softmmu_targets_i386? ( pin-upstream-blobs? ( ~sys-firmware/edk2-ovmf-bin-202202
-    ~sys-firmware/ipxe-1.21.1[binary,qemu] ~sys-firmware/seabios-bin-1.16.0 ~sys-firmware/sgabios-0.1_pre10[binary]
-    ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202 sys-firmware/ipxe[qemu]
-    >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0 sys-firmware/sgabios
-    ) ) qemu_softmmu_targets_x86_64? ( pin-upstream-blobs? ( ~sys-firmware/edk2-ovmf-bin-202202
-    ~sys-firmware/ipxe-1.21.1[binary,qemu] ~sys-firmware/seabios-bin-1.16.0 ~sys-firmware/sgabios-0.1_pre10[binary]
-    ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202 sys-firmware/ipxe[qemu]
-    >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0 sys-firmware/sgabios
-    ) ) qemu_softmmu_targets_ppc? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
-    ) !pin-upstream-blobs? ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
-    ) ) qemu_softmmu_targets_ppc64? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
-    ) !pin-upstream-blobs? ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
-    ) ) kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 ) static? ( >=dev-libs/glib-2.0[static-libs(+)]
-    sys-libs/zlib[static-libs(+)] python? ( python_targets_python3_10? ( dev-lang/python:3.10[ncurses,readline]
+    ~sys-firmware/seabios-bin-1.16.0 ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202
+    || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) qemu_softmmu_targets_x86_64? ( pin-upstream-blobs? ( ~sys-firmware/edk2-ovmf-bin-202202
+    ~sys-firmware/seabios-bin-1.16.0 ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202
+    || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) qemu_softmmu_targets_ppc? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
+    ) !pin-upstream-blobs? ( || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) qemu_softmmu_targets_ppc64? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
+    ) !pin-upstream-blobs? ( || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) sys-firmware/ipxe[qemu] sys-firmware/sgabios kernel_linux? ( >=sys-kernel/linux-headers-2.6.35
+    ) static? ( >=dev-libs/glib-2.0[static-libs(+)] sys-libs/zlib[static-libs(+)]
+    python? ( python_targets_python3_10? ( dev-lang/python:3.10[ncurses,readline]
     ) python_targets_python3_7? ( dev-lang/python:3.7[ncurses,readline] ) python_targets_python3_9?
     ( dev-lang/python:3.9[ncurses,readline] ) python_targets_python3_8? ( dev-lang/python:3.8[ncurses,readline]
     ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
@@ -313,20 +312,18 @@ labels:
     ) usbredir? ( >=sys-apps/usbredir-0.6 ) vde? ( net-misc/vde ) virgl? ( media-libs/virglrenderer
     ) virtfs? ( sys-libs/libcap ) xen? ( app-emulation/xen-tools:= ) zstd? ( >=app-arch/zstd-1.4.0
     ) ) qemu_softmmu_targets_i386? ( pin-upstream-blobs? ( ~sys-firmware/edk2-ovmf-bin-202202
-    ~sys-firmware/ipxe-1.21.1[binary,qemu] ~sys-firmware/seabios-bin-1.16.0 ~sys-firmware/sgabios-0.1_pre10[binary]
-    ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202 sys-firmware/ipxe[qemu]
-    >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0 sys-firmware/sgabios
-    ) ) qemu_softmmu_targets_x86_64? ( pin-upstream-blobs? ( ~sys-firmware/edk2-ovmf-bin-202202
-    ~sys-firmware/ipxe-1.21.1[binary,qemu] ~sys-firmware/seabios-bin-1.16.0 ~sys-firmware/sgabios-0.1_pre10[binary]
-    ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202 sys-firmware/ipxe[qemu]
-    >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0 sys-firmware/sgabios
-    ) ) qemu_softmmu_targets_ppc? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
-    ) !pin-upstream-blobs? ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
-    ) ) qemu_softmmu_targets_ppc64? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
-    ) !pin-upstream-blobs? ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
-    ) ) selinux? ( sec-policy/selinux-qemu sys-libs/libselinux )'
+    ~sys-firmware/seabios-bin-1.16.0 ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202
+    || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) qemu_softmmu_targets_x86_64? ( pin-upstream-blobs? ( ~sys-firmware/edk2-ovmf-bin-202202
+    ~sys-firmware/seabios-bin-1.16.0 ) !pin-upstream-blobs? ( >=sys-firmware/edk2-ovmf-202202
+    || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) qemu_softmmu_targets_ppc? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
+    ) !pin-upstream-blobs? ( || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) qemu_softmmu_targets_ppc64? ( pin-upstream-blobs? ( ~sys-firmware/seabios-bin-1.16.0
+    ) !pin-upstream-blobs? ( || ( >=sys-firmware/seabios-1.16.0[seavgabios] >=sys-firmware/seabios-bin-1.16.0
+    ) ) ) selinux? ( sec-policy/selinux-qemu sys-libs/libselinux )'
   emerge.packages: app-emulation/qemu
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: app-emulation/qemu
   original.package.slot: "0"
-  original.package.version: 7.1.0
+  original.package.version: 7.1.0-r1
