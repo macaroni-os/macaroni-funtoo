@@ -1,0 +1,29 @@
+name: compiler-rt-sanitizers
+version: 20.1.8
+category: sys-libs-20
+use_flags:
+- clang
+- elibc_glibc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Compiler runtime libraries for clang (sanitizers & xray)
+uri:
+- https://llvm.org/
+license: Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+labels:
+  BDEPEND: dev-util/cmake clang? ( sys-devel/clang ) elibc_glibc? ( net-libs/libtirpc
+    ) || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: sys-devel/llvm
+  IUSE: +clang debug elibc_glibc +libfuzzer +memprof +orc +profile +xray +asan +dfsan
+    +lsan +msan +hwasan +tsan +ubsan +safestack +cfi +scudo +shadowcallstack +gwp-asan
+  emerge.packages: sys-libs/compiler-rt-sanitizers:20
+  kit: llvm-kit
+  original.package.name: sys-libs/compiler-rt-sanitizers
+  original.package.slot: "20"
+  original.package.version: 20.1.8
