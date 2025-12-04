@@ -1,5 +1,5 @@
 name: libcxxabi
-version: 16.0.6+2
+version: 20.1.8
 category: sys-libs
 use_flags:
 - clang
@@ -20,14 +20,14 @@ uri:
 - https://libcxxabi.llvm.org/
 license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
 labels:
-  BDEPEND: clang? ( sys-devel/clang:16 ) dev-util/ninja dev-util/cmake
+  BDEPEND: clang? ( sys-devel/clang:20 ) dev-util/ninja dev-util/cmake
   DEPEND: libunwind? ( || ( sys-libs/libunwind[static-libs?] sys-libs/llvm-libunwind[static-libs?]
-    ) ) sys-devel/llvm:16
-  IUSE: +libunwind clang static-libs
+    ) ) sys-devel/llvm:20
+  IUSE: +libunwind +clang static-libs
   RDEPEND: libunwind? ( || ( sys-libs/libunwind[static-libs?] sys-libs/llvm-libunwind[static-libs?]
     ) )
   emerge.packages: sys-libs/libcxxabi
   kit: llvm-kit
   original.package.name: sys-libs/libcxxabi
   original.package.slot: "0"
-  original.package.version: 16.0.6-r1
+  original.package.version: 20.1.8
