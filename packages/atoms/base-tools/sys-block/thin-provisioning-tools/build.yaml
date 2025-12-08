@@ -1,4 +1,11 @@
 prelude:
+- >-
+  eval 'eselect rust set 1 || true' &&
+  macaronictl etc-update &&
+  macaronictl env-update &&
+  source /etc/profile &&
+  sed -i -e 's|cargo llvm|cargo|g'
+  /var/git/meta-repo/kits/core-server-kit/sys-block/thin-provisioning-tools/thin-provisioning-tools-1.1.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
