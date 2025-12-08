@@ -1,5 +1,5 @@
 name: libomp
-version: 16.0.6+4
+version: 20.1.8
 category: sys-libs
 use_flags:
 - -hwloc
@@ -9,7 +9,7 @@ use_flags:
 requires:
 - name: llvm
   version: '>=0'
-  category: sys-devel-16
+  category: sys-devel-20
 - name: libelf
   version: '>=0'
   category: virtual
@@ -27,13 +27,13 @@ license: Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
 labels:
   BDEPEND: dev-lang/perl offload? ( llvm_targets_AMDGPU? ( sys-devel/clang ) llvm_targets_NVPTX?
     ( sys-devel/clang ) virtual/pkgconfig ) dev-util/ninja dev-util/cmake
-  DEPEND: hwloc? ( sys-apps/hwloc:0= ) offload? ( virtual/libelf dev-libs/libffi ~sys-devel/llvm-16.0.6
+  DEPEND: hwloc? ( sys-apps/hwloc:0= ) offload? ( virtual/libelf dev-libs/libffi ~sys-devel/llvm-20.1.8
     )
   IUSE: cuda debug hwloc offload ompt llvm_targets_AMDGPU llvm_targets_NVPTX abi_x86_64
   RDEPEND: hwloc? ( sys-apps/hwloc:0= ) offload? ( virtual/libelf dev-libs/libffi
-    ~sys-devel/llvm-16.0.6 )
+    ~sys-devel/llvm-20.1.8 )
   emerge.packages: sys-libs/libomp
   kit: llvm-kit
   original.package.name: sys-libs/libomp
   original.package.slot: "0"
-  original.package.version: 16.0.6-r1
+  original.package.version: 20.1.8
