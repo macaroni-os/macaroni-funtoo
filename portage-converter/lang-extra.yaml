@@ -107,6 +107,25 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race5
+  custom_path: dev-lang/go/1.24
+  conditions:
+    - '<dev-lang/go-1.25'
+    - '>=dev-lang/go-1.23.0'
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.24
+
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
   custom_path: dev-lang/go/1.22
   conditions:
     - '<dev-lang/go-1.23'
