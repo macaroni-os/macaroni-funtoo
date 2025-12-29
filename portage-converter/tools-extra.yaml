@@ -779,6 +779,27 @@ artefacts:
   packages:
     - app-misc/asciinema
 
+- tree: packages/atoms-extra/tools
+  mutations:
+    uses:
+      # Macaroni os patch
+      - blas
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - ldap
+      - libressl
+      - libssh2
+  packages:
+    - net-analyzer/nmap
+
+- tree: packages/atoms-extra/tools
+  packages:
+    - app-forensics/gobuster
+
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
 
