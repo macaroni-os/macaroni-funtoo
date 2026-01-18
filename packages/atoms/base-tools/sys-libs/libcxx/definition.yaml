@@ -1,5 +1,5 @@
 name: libcxx
-version: 16.0.6
+version: 20.1.8
 category: sys-libs
 use_flags:
 - clang
@@ -20,14 +20,14 @@ uri:
 - https://libcxx.llvm.org/
 license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
 labels:
-  BDEPEND: clang? ( sys-devel/clang:16 ) dev-util/ninja dev-util/cmake
-  DEPEND: libcxxabi? ( ~sys-libs/libcxxabi-16.0.6[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
-    ) sys-devel/llvm:16
-  IUSE: static-libs clang +libcxxabi +libunwind
-  RDEPEND: libcxxabi? ( ~sys-libs/libcxxabi-16.0.6[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
+  BDEPEND: clang? ( sys-devel/clang:20 ) dev-util/ninja dev-util/cmake
+  DEPEND: libcxxabi? ( ~sys-libs/libcxxabi-20.1.8[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
+    ) sys-devel/llvm:20
+  IUSE: static-libs +clang +libcxxabi +libunwind
+  RDEPEND: libcxxabi? ( ~sys-libs/libcxxabi-20.1.8[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
     )
   emerge.packages: sys-libs/libcxx
   kit: llvm-kit
   original.package.name: sys-libs/libcxx
   original.package.slot: "0"
-  original.package.version: 16.0.6-r1
+  original.package.version: 20.1.8
