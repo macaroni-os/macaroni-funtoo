@@ -1,0 +1,54 @@
+name: clang
+version: 20.1.8
+category: sys-devel-20
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+- static-analyzer
+- xml
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: llvm
+  version: '>=0'
+  category: sys-devel-20
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C language family frontend for LLVM
+uri:
+- https://llvm.org/
+license: Apache-2.0-with-LLVM-exceptions UoI-NCSA MIT
+labels:
+  BDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) dev-util/cmake xml? ( virtual/pkgconfig ) dev-util/ninja dev-util/cmake
+  DEPEND: ~sys-devel/llvm-20.1.8:20[debug=] static-analyzer? ( dev-lang/perl:* ) xml?
+    ( dev-libs/libxml2:2 )
+  IUSE: debug +extra ieee-long-double +pie +static-analyzer xml llvm-libunwind default-compiler-rt
+    default-libcxx default-lld python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) ~sys-devel/llvm-20.1.8:20[debug=] static-analyzer? ( dev-lang/perl:* ) xml?
+    ( dev-libs/libxml2:2 )
+  emerge.packages: sys-devel/clang:20
+  kit: llvm-kit
+  original.package.name: sys-devel/clang
+  original.package.slot: "20"
+  original.package.version: 20.1.8
