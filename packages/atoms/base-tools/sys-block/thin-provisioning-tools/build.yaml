@@ -4,6 +4,11 @@ prelude:
   eselect rust set 1 &&
   macaronictl env-update &&
   source /etc/profile
+# Temporary patch until next race
+- >-
+  sed -i -e 's|^inherit .*|inherit cargo|g'
+  -e 's|$(get_llvm_slot)|20|g'
+  /var/git/meta-repo/kits/core-server-kit/sys-block/thin-provisioning-tools/thin-provisioning-tools-1.1.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
