@@ -572,8 +572,8 @@ artefacts:
     - debug
     - test
   packages:
-    - sys-libs/compiler-rt:16
-    - sys-libs/compiler-rt-sanitizers:16
+    - sys-libs/compiler-rt:20
+    - sys-libs/compiler-rt-sanitizers:20
 
 - tree: packages/atoms/base-tools
   uses:
@@ -620,20 +620,20 @@ artefacts:
     - ncurses
     - xml
   packages:
-  - sys-devel/llvm:16
+  - sys-devel/llvm:20
 
 - tree: packages/atoms/base-tools
   mutations:
     buildtime_deps:
       packages:
-        - category: sys-devel-16
+        - category: sys-devel-20
           name: llvm
   uses:
     disabled:
     - nios2
     - sh
   packages:
-    - sys-devel/clang:16
+    - sys-devel/clang:20
 
 - tree: packages/atoms/base-tools
   mutations:
@@ -646,7 +646,7 @@ artefacts:
     - nios2
     - sh
   packages:
-    - sys-devel/clang-runtime:16
+    - sys-devel/clang-runtime:20
 
 - tree: packages/atoms/base-tools
   mutations:
@@ -1103,8 +1103,8 @@ reposcan_contraints:
     - dev-lang/python:3.9
     - sys-devel/gcc:12.3.0
 
-    - sys-devel/llvm:16
-    - sys-devel/clang:16
+    - sys-devel/llvm:20
+    - sys-devel/clang:20
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
