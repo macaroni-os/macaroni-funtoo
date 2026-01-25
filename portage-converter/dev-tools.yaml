@@ -135,26 +135,6 @@ artefacts:
     - dev-python/pymongo
 
 - tree: packages/atoms/dev-tools
-  # FL-10708
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: pyyaml
-  uses:
-    enabled:
-      - conch
-      - crypt
-      - soap
-      - python_targets_python3_9
-    disabled:
-      - examples
-      - python_targets_python3_7
-      - python_targets_python2_7
-  packages:
-    - sys-apps/metatools
-
-- tree: packages/atoms/dev-tools
   mutations:
     buildtime_deps:
       packages:
@@ -351,6 +331,19 @@ artefacts:
     - dev-python/incremental
     - dev-python/h2
     - dev-python/hatch-vcs
+    - dev-python/xmltodict
+    - dev-python/soupsieve
+    - dev-python/rich
+    - dev-python/pyzmq
+    - dev-python/pyyaml
+    - dev-python/py
+    - dev-python/psutil
+    - dev-python/msgpack
+    - dev-python/lxml
+    - dev-python/httpx
+    - dev-python/dict-toolbox
+    - dev-python/aiofiles
+    - dev-python/beautifulsoup
 
 - tree: packages/atoms/dev-tools
   # Needed until macaroni-os/mark-issues#281 is fixed
@@ -471,6 +464,9 @@ artefacts:
   packages:
     - dev-python/twisted
 
+- tree: packages/atoms/dev-tools
+  packages:
+    - app-arch/brotli
 
 include_layers:
 - layers/macaroni-funtoo-race6.yaml
