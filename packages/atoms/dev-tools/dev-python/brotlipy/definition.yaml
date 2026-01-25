@@ -23,14 +23,15 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
+description: Python bindings for the Brotli compression library
 uri:
-- ""
+- https://github.com/google/brotli
+license: MIT
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     >=dev-python/gpep517-6[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-  DEPEND: app-arch/brotli
   IUSE: python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
     python_targets_python3_8
   RDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
