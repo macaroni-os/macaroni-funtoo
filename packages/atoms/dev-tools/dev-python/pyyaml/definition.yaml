@@ -1,10 +1,7 @@
 name: pyyaml
-version: 6.0.3
+version: 6.0.3+1
 category: dev-python
 use_flags:
-- -libyaml
-- -python_targets_pypy3
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
@@ -16,6 +13,9 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
+- name: libyaml
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -25,7 +25,7 @@ annotations:
       - ^/var/db/pkg/
 description: YAML parser and emitter for Python
 uri:
-- https://pyyaml.org/wiki/PyYAML https://pypi.org/project/PyYAML/ https://github.com/yaml/pyyaml
+- https://pyyaml.org/
 license: MIT
 labels:
   BDEPEND: dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
@@ -34,8 +34,6 @@ labels:
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
     ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     >=dev-python/gpep517-6[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-  DEPEND: libyaml? ( dev-libs/libyaml ) libyaml? ( <dev-python/cython-3[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    )
   IUSE: examples python_targets_python3_10 python_targets_python3_7 python_targets_python3_9
     python_targets_python3_8
   RDEPEND: dev-libs/libyaml:= python_targets_python3_10? ( dev-lang/python:3.10 )
