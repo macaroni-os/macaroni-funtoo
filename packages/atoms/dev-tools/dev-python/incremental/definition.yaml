@@ -7,12 +7,9 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
-- name: python
+- name: click
   version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -20,9 +17,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A small library that versions your Python projects.
+description: Incremental is a small library that versions your Python projects
 uri:
-- https://github.com/twisted/incremental https://pypi.org/project/incremental/
+- https://pypi.org/project/incremental/
 license: MIT
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
