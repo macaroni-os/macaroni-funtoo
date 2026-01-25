@@ -1,5 +1,5 @@
 name: rich
-version: 14.0.0
+version: 14.0.0+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -7,12 +7,12 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
-- name: python
+- name: markdown-it-py
   version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
+  category: dev-python
+- name: pygments
   version: '>=0'
-  category: dev-lang-2
+  category: dev-python
 annotations:
   subsets:
     rules:
@@ -23,7 +23,8 @@ annotations:
 description: Render rich text, tables, progress bars, syntax highlighting, markdown
   and more to the terminal
 uri:
-- https://github.com/Textualize/rich https://pypi.org/project/rich/
+- https://github.com/Textualize/rich
+- https://pypi.org/project/rich/
 license: MIT
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
