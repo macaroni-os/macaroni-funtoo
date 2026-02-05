@@ -5,7 +5,8 @@ env:
 - STAGE_VERSION={{ ( index .Values.labels "package.version" ) }}
 - RELEASE={{ ( index .Values.labels "stage3.release" ) }}
 prelude:
-- apk --no-cache add ca-certificates tar wget xz rsync curl
+- >-
+  apk --no-cache add ca-certificates tar wget xz rsync curl &&
   curl https://raw.githubusercontent.com/macaroni-os/anise/macaroni/contrib/config/get_luet_root.sh | sh
 - >-
   luet install repository/macaroni-distfiles &&
