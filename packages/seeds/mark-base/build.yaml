@@ -31,6 +31,12 @@ prelude:
   anise cleanup --purge-repos &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   unset RELEASE &&
+  emerge git --nodeps &&
+  emerge dev-libs/boost -j &&
+  emerge dev-python/libxml2-python -j &&
+  emerge eudev -j &&
+  emerge dev-libs/icu libcap -j &&
+  emerge sys-apps/systemd-tmpfiles libxml2 -j &&
   emerge -j $JOBS @world -D --with-bdeps y -t -e &&
   emerge -t -j $JOBS -DN @world &&
   emerge -t -j $JOBS -D @world &&
