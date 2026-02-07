@@ -1,5 +1,5 @@
 name: icu
-version: 69.1+4
+version: "78.1"
 category: dev-libs
 use_flags:
 - -doc
@@ -15,13 +15,13 @@ uri:
 - http://www.icu-project.org/
 license: BSD
 labels:
-  BDEPEND: '|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
-    ) virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) >=app-portage/elt-patches-20170815
-    !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15
-    ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4'
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) sys-devel/autoconf-archive virtual/pkgconfig doc? ( app-text/doxygen[dot] )
+    >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4'
   IUSE: debug doc examples static-libs
   emerge.packages: dev-libs/icu
   kit: core-kit
   original.package.name: dev-libs/icu
   original.package.slot: "0"
-  original.package.version: "69.1"
+  original.package.version: "78.1"
