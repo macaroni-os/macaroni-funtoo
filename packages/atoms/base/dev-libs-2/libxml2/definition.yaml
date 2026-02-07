@@ -1,13 +1,13 @@
 name: libxml2
-version: 2.15.1
+version: 2.15.1+1
 category: dev-libs-2
 use_flags:
 - -lzma
-- -python_single_target_python3_10
-- -python_single_target_python3_7
-- -python_single_target_python3_8
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
 - icu
-- python_single_target_python3_9
+- python_targets_python3_9
 - readline
 requires:
 - name: icu
@@ -35,7 +35,6 @@ annotations:
 description: XML C parser and toolkit
 uri:
 - https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
-license: MIT
 labels:
   BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
   DEPEND: virtual/libiconv sys-libs/zlib:= icu? ( dev-libs/icu:= ) lzma? ( app-arch/xz-utils:=
