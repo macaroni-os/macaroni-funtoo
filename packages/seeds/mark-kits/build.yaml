@@ -11,14 +11,13 @@ env:
 prelude:
 - >-
   mv kits-versions / &&
-  curl https://raw.githubusercontent.com/macaroni-os/anise/macaroni/contrib/config/get_luet_root.sh | sh &&
   anise subsets enable portage devel &&
   anise repo list &&
   anise repo disable mottainai-stable macaroni-terragon macaroni-commons &&
   anise i --sync-repos repository/mark-dev repository/macaroni-commons-dev repository/macaroni-phoenix-dev &&
   anise install --sync-repos
   dev-util/pkgs-checker app-misc/yq-go app-misc/jq system/luet-devkit
-  mark-devkit app-admin/anise-portage-converter app-admin/entities --sync-repos &&
+  mark-devkit app-admin/anise-portage-converter app-admin/entities --sync-repos --nodeps &&
   anise upgrade &&
   anise cleanup &&
   ego sync &&
