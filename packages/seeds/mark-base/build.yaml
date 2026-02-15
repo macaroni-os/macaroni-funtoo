@@ -19,6 +19,7 @@ prelude:
 # contains macaroni repos, entities and entities-catalog.
 # I disable the terragon repos to avoid upgrade of the packages
 # to handle with portage.
+# We force upgrade setuptools to last version before rebuild the world.
 - >-
   anise subsets enable devel portage &&
   anise repo list &&
@@ -31,6 +32,7 @@ prelude:
   entities list groups &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   unset RELEASE &&
+  emerge -j $JOBS setuptools &&
   emerge -j $JOBS @world -D --with-bdeps y -t -e &&
   emerge -t -j $JOBS -DN @world &&
   emerge -t -j $JOBS -D @world &&
