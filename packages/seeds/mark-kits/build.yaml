@@ -10,17 +10,23 @@ env:
 - LUET_NOLOCK=true
 prelude:
 - >-
-  mv kits-versions / &&
-  anise subsets enable portage devel &&
+  anise subsets enable portage devel desktop &&
   anise repo list &&
   anise repo disable mark macaroni-terragon macaroni-commons &&
   anise i --sync-repos repository/mark-dev repository/macaroni-commons-dev repository/macaroni-phoenix-dev &&
   anise install --sync-repos
   dev-util/pkgs-checker app-misc/yq-go app-misc/jq system/luet-devkit
-  mark-devkit app-admin/anise-portage-converter app-admin/entities --sync-repos --nodeps &&
-  anise upgrade &&
+  mark-devkit app-admin/anise-portage-converter app-admin/entities --nodeps &&
   anise cleanup &&
+  mv kits-versions / &&
+  rm -rf /var/git/meta-repo/ &&
+  mkdir -p /tmp/ && chmod a+rw /tmp &&
+  sed -e 's|^release.*|release = {{ ( index .Values.labels "mark-release" ) }}|g' /etc/ego.conf  -i &&
   ego sync &&
+  ego profile arch x86-64bit &&
+  ego profile build mark &&
+  ego profile subarch generic_64 &&
+  ego profile flavor core &&
   cd /var/git/meta-repo/kits &&
   chown root:root -R /var/git/meta-repo/kits &&
   rm -rf * &&
