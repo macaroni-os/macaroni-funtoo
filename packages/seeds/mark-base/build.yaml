@@ -24,9 +24,9 @@ prelude:
   anise repo list &&
   rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a &&
+  anise rm dev-python/libxml2-python --nodeps &&
+  anise --sync-repos upgrade &&
   anise cleanup --purge-repos &&
-  anise rm dev-python/libxml2-python &&
-  anise upgrade &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   unset RELEASE &&
   emerge git --nodeps &&
