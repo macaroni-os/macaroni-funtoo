@@ -3,7 +3,7 @@ prelude:
 - >-
   sed -i -e
   's|add_initd_to_runlevel udev|echo add_initd_to_runlevel udev|g'
-  /var/git/meta-repo/kits/core-kit/sys-fs/eudev/eudev-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
+  /var/git/meta-repo/kits/core-server-kit/sys-fs/eudev/eudev-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
