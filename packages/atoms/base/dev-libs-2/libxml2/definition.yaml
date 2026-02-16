@@ -1,5 +1,5 @@
 name: libxml2
-version: 2.11.5+2
+version: 2.15.1
 category: dev-libs-2
 use_flags:
 - -lzma
@@ -34,22 +34,17 @@ uri:
 - https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
 license: MIT
 labels:
-  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 app-arch/xz-utils
-  DEPEND: virtual/libiconv >=sys-libs/zlib-1.2.8-r1:= icu? ( >=dev-libs/icu-51.2-r1:=
-    ) lzma? ( >=app-arch/xz-utils-5.0.5-r1:= ) readline? ( sys-libs/readline:= ) python_single_target_python3_10?
-    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    )
-  IUSE: debug examples +ftp icu +lzma +python readline static-libs test python_single_target_python3_10
-    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
-    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: virtual/libiconv >=sys-libs/zlib-1.2.8-r1:= icu? ( >=dev-libs/icu-51.2-r1:=
-    ) lzma? ( >=app-arch/xz-utils-5.0.5-r1:= ) readline? ( sys-libs/readline:= )
+  BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: virtual/libiconv sys-libs/zlib:= icu? ( dev-libs/icu:= ) lzma? ( app-arch/xz-utils:=
+    ) readline? ( sys-libs/readline:= ) python_targets_python3_10? ( dev-lang/python:3.10
+    ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  IUSE: doc icu python readline static-libs +lzma python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: virtual/libiconv sys-libs/zlib:= icu? ( dev-libs/icu:= ) lzma? ( app-arch/xz-utils:=
+    ) readline? ( sys-libs/readline:= )
   emerge.packages: dev-libs/libxml2:2
   kit: core-kit
   original.package.name: dev-libs/libxml2
   original.package.slot: "2"
-  original.package.version: 2.11.5
+  original.package.version: 2.15.1
