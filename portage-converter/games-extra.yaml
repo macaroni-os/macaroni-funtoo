@@ -211,15 +211,12 @@ reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
-    - dev-lang/python:2.7
-    - dev-lang/python:3.7
-    - dev-lang/ruby:2.6
-    - dev-lang/ruby:2.7
-    - sys-devel/gcc:9.2.0
-    - sys-devel/llvm:11
-    - sys-devel/clang:11
+    - dev-lang/python:3.9
+    - dev-lang/ruby:2.1
+    - sys-devel/gcc:12.3.0
+    - sys-devel/llvm:20
+    - sys-devel/clang:20
     - dev-cpp/gtkmm:3.0
-    - dev-lang/php:7.4
     - dev-lang/php:8.1
 
     # until the tree is fixed
@@ -228,11 +225,6 @@ reposcan_contraints:
     - virtual/jre:1.8
     - virtual/jre:11
 
-    # Temporary
-    - <x11-libs/libX11-9999
-
-    # Using nodejs-14 LTS for now
-    - <net-libs/nodejs-15.0
 
 reposcan_disabled_use_flags:
   # !!internal use only!! used for creating build images and the first half of bootstrapping [make stage1]
