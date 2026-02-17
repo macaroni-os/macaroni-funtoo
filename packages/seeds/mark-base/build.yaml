@@ -24,7 +24,8 @@ prelude:
   anise repo list &&
   rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a &&
-  anise rm dev-python/libxml2-python --nodeps &&
+  anise rm dev-python/libxml2-python jq --nodeps &&
+  anise i jq-bin --nodeps &&
   anise upgrade --sync-repos &&
   anise cleanup --purge-repos &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
@@ -34,6 +35,7 @@ prelude:
   emerge dev-python/libxml2-python -j &&
   emerge eudev -j &&
   emerge dev-libs/icu libcap -j &&
+  emerge dev-libs/boost -j &&
   emerge sys-apps/systemd-tmpfiles libxml2 -j &&
   emerge -j $JOBS @world -D --with-bdeps y -t -e &&
   emerge -t -j $JOBS -DN @world &&
