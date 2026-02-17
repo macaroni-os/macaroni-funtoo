@@ -1,5 +1,5 @@
 name: libbpf
-version: "0.3"
+version: 1.6.3
 category: dev-libs
 requires:
 - name: libelf
@@ -17,11 +17,12 @@ uri:
 - https://github.com/libbpf/libbpf
 license: GPL-2 LGPL-2.1 BSD-2
 labels:
-  DEPEND: virtual/libelf !<=dev-util/bcc-0.7.0 sys-kernel/linux-headers
+  BDEPEND: virtual/pkgconfig
+  DEPEND: virtual/libelf sys-kernel/linux-headers
   IUSE: +static-libs
-  RDEPEND: virtual/libelf !<=dev-util/bcc-0.7.0
+  RDEPEND: virtual/libelf
   emerge.packages: dev-libs/libbpf
   kit: dev-kit
   original.package.name: dev-libs/libbpf
   original.package.slot: "0"
-  original.package.version: "0.3"
+  original.package.version: 1.6.3
