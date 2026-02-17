@@ -24,13 +24,13 @@ prelude:
   anise repo list &&
   rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a &&
-  anise rm dev-python/libxml2-python jq --nodeps &&
-  anise i jq-bin --nodeps &&
-  anise upgrade --sync-repos &&
+  anise rm dev-python/libxml2-python jq whip whip-catalog --nodeps &&
+  anise i jq-bin macaronictl --nodeps &&
+  anise upgrade --sync-repos --deep &&
   anise cleanup --purge-repos &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   unset RELEASE &&
-  emerge git --nodeps &&
+  emerge git -j --nodeps &&
   emerge dev-libs/boost -j &&
   emerge dev-python/libxml2-python -j &&
   emerge eudev -j &&
@@ -41,4 +41,5 @@ prelude:
   emerge -t -j $JOBS -DN @world &&
   emerge -t -j $JOBS -D @world &&
   emerge -t -j $JOBS -uDN @world &&
+  whip h linking.check &&
   rm -rf /var/cache/portage/distfiles/*
