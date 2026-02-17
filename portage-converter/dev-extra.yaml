@@ -110,6 +110,10 @@ artefacts:
     - sys-devel/gdb
 
 - tree: packages/atoms-extra/dev
+  packages:
+    - dev-python/pyyaml
+
+- tree: packages/atoms-extra/dev
   uses:
     disabled:
       - aio
@@ -156,25 +160,6 @@ artefacts:
   packages:
     - dev-python/pymongo
 
-- tree: packages/atoms-extra/dev
-  # FL-10708
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: pyyaml
-  uses:
-    enabled:
-      - conch
-      - crypt
-      - soap
-      - python_targets_python3_9
-    disabled:
-      - examples
-      - python_targets_python3_7
-      - python_targets_python2_7
-  packages:
-    - sys-apps/metatools
 
 - tree: packages/atoms-extra/dev
   mutations:
