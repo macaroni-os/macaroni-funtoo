@@ -1,5 +1,5 @@
 name: bind
-version: 9.21.15+1
+version: 9.21.17
 category: net-dns
 use_flags:
 - -dnstap
@@ -41,14 +41,14 @@ uri:
 license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
 labels:
   BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
-  DEPEND: =net-dns/bind-tools-9.21.15* jemalloc? ( dev-libs/jemalloc ) dev-libs/json-c:=
+  DEPEND: =net-dns/bind-tools-9.21.17* jemalloc? ( dev-libs/jemalloc ) dev-libs/json-c:=
     dev-libs/libuv:= dev-libs/openssl sys-libs/libcap sys-libs/zlib doh? ( net-libs/nghttp2
     ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5 ) idn? ( net-dns/libidn2
     ) lmdb? ( dev-db/lmdb ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) xml? (
     dev-libs/libxml2 ) stats? ( dev-libs/json-c dev-libs/libxml2 ) sys-apps/shadow
-  IUSE: +caps dnstap dnsrps doh fixed-rrset geoip gssapi idn +jemalloc lmdb selinux
-    urandom xml stats
-  RDEPEND: =net-dns/bind-tools-9.21.15* jemalloc? ( dev-libs/jemalloc ) dev-libs/json-c:=
+  IUSE: dnstap dnsrps doh fixed-rrset geoip gssapi idn +jemalloc lmdb selinux urandom
+    xml stats
+  RDEPEND: =net-dns/bind-tools-9.21.17* jemalloc? ( dev-libs/jemalloc ) dev-libs/json-c:=
     dev-libs/libuv:= dev-libs/openssl sys-libs/libcap sys-libs/zlib doh? ( net-libs/nghttp2
     ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5 ) idn? ( net-dns/libidn2
     ) lmdb? ( dev-db/lmdb ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) xml? (
@@ -58,4 +58,4 @@ labels:
   kit: net-kit
   original.package.name: net-dns/bind
   original.package.slot: "0"
-  original.package.version: 9.21.15
+  original.package.version: 9.21.17
