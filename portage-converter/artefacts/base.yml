@@ -1827,13 +1827,6 @@ artefacts:
   - app-crypt/gnupg
 - tree: packages/atoms/base
   mutations:
-  # This helps support upgrade
-  # of old system. ATTENTION: This generate dep
-  # cycles without the replacements on libxml2-python.
-    runtime_deps:
-      packages:
-        - category: dev-python
-          name: libxml2-python
   uses:
     disabled:
     - debug
@@ -1881,7 +1874,7 @@ artefacts:
     - python_single_target_python3_9
     - readline
   packages:
-  - dev-python/libxml2-python
+    - dev-python/libxml2-python:2
   finalizer:
     shell:
       - "/bin/bash"
