@@ -1,35 +1,10 @@
 name: cups-filters
-version: 2.0.1
+version: 2.0.1+1
 category: net-print
-use_flags:
-- -braille
-- -exif
-- -ldap
-- -perl
-- -test
-- dbus
-- foomatic
-- jpeg
-- png
-- postscript
-- tiff
-- zeroconf
 requires:
-- name: ghostscript-gpl
-  version: '>=0'
-  category: app-text
-- name: poppler
-  version: '>=0'
-  category: app-text
-- name: avahi
-  version: '>=0'
-  category: net-dns
-- name: cups
+- name: libppd
   version: '>=0'
   category: net-print
-- name: bc
-  version: '>=0'
-  category: sys-devel
 annotations:
   subsets:
     rules:
@@ -37,15 +12,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Cups filters
+description: OpenPrinting CUPS filters
 uri:
-- https://wiki.linuxfoundation.org/openprinting/cups-filters
-license: MIT GPL-2
+- https://github.com/OpenPrinting/cups-filters
+license: Apache-2.0
 labels:
-  BDEPEND: dev-util/gdbus-codegen >=sys-devel/gettext-0.18.3 virtual/pkgconfig test?
-    ( media-fonts/dejavu ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
   DEPEND: net-print/libcupsfilters net-print/libppd >=net-print/cups-1.7.3 >=sys-devel/gettext-0.18.3
     virtual/pkgconfig
   IUSE: +foomatic
