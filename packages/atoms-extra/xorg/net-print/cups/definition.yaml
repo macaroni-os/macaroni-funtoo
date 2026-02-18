@@ -1,13 +1,11 @@
 name: cups
-version: 2.4.12+1
+version: 2.4.12+2
 category: net-print
 use_flags:
-- -java
 - -kerberos
 - -kernel_linux
 - -lprng-compat
 - -selinux
-- -systemd
 - -usb
 - -xinetd
 - -zeroconf
@@ -20,9 +18,6 @@ requires:
 - name: libpaper
   version: '>=0'
   category: app-text
-- name: python
-  version: '>=0'
-  category: dev-lang-3.9
 - name: gnutls
   version: '>=0'
   category: net-libs
@@ -42,10 +37,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: The Common Unix Printing System
+description: CUPS - Common Unix Printing System
 uri:
-- https://www.cups.org/
-license: GPL-2
+- https://wiki.linuxfoundation.org/openprinting/cups
+license: Apache-2.0
 labels:
   BDEPEND: '>=virtual/pkgconfig-0-r1 >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
     ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
