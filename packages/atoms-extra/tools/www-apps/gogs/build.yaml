@@ -1,4 +1,10 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/net-kit/www-apps/gogs/ &&
+  rm Manifest &&
+  wget https://raw.githubusercontent.com/macaroni-os/net-kit/refs/heads/mark-xl/www-apps/gogs/Manifest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
