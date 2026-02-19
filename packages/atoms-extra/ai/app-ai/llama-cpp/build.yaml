@@ -1,9 +1,4 @@
 prelude:
-- >-
-  eval 'eselect blas set 1 || true' &&
-  eval 'eselect cblas set 1 || true' &&
-  eval 'eselect lapack set 1 || true'
-
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -31,6 +26,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: macaroni-mark-race11
+- name: macaroni-funtoo-race10
   version: '>=0'
   category: seed
