@@ -2,13 +2,17 @@ layer:
   name: mark-base
   category: seed
 packages:
+  - app-admin/anise-portage-converter:0
+  - app-admin/anise:0
   - app-admin/ego:0
+  - app-admin/entities:0
   - app-admin/eselect:0
   - app-admin/perl-cleaner:0
   - app-arch/bzip2:0
   - app-arch/cpio:0
   - app-arch/gzip:0
   - app-arch/libarchive:0
+  - app-arch/rpm:0
   - app-arch/tar:0
   - app-arch/unzip:0
   - app-arch/xz-utils:0
@@ -19,14 +23,20 @@ packages:
   - app-crypt/p11-kit:0
   - app-crypt/pinentry:0
   - app-crypt/rhash:0
+  - app-doc/doxygen:0
   - app-editors/nano:0
+  - app-eselect/eselect-lib-bin-symlink:0
+  - app-eselect/eselect-pinentry:0
   - app-eselect/eselect-python:0
   - app-eselect/eselect-rust:0
   - app-eselect/eselect-vi:0
+  - app-i18n/uchardet:0
   - app-misc/ca-certificates:0
   - app-misc/editor-wrapper:0
+  - app-misc/jq-bin:0
   - app-misc/mime-types:0
   - app-misc/pax-utils:0
+  - app-misc/yq-go:0
   - app-portage/elt-patches:0
   - app-portage/gentoolkit:0
   - app-portage/portage-utils:0
@@ -39,14 +49,20 @@ packages:
   - app-text/docbook-xml-dtd:4.3
   - app-text/docbook-xml-dtd:4.4
   - app-text/docbook-xml-dtd:4.5
+  - app-text/docbook-xsl-ns-stylesheets:0
   - app-text/docbook-xsl-stylesheets:0
+  - app-text/ghostscript-gpl:0
+  - app-text/libpaper:0
   - app-text/manpager:0
   - app-text/opensp:0
   - app-text/po4a:0
+  - app-text/poppler-data:0
   - app-text/sgml-common:0
+  - app-text/xmlto:0
   - app-text/yelp-tools:0
   - dev-cpp/tbb:0
   - dev-db/sqlite:3
+  - dev-lang/nasm:0
   - dev-lang/perl:0
   - dev-lang/python-exec:2
   - dev-lang/python:3.9
@@ -56,11 +72,14 @@ packages:
   - dev-libs/boost:0
   - dev-libs/elfutils:0
   - dev-libs/expat:0
+  - dev-libs/fribidi:0
   - dev-libs/glib:2
   - dev-libs/gmp:0
+  - dev-libs/gobject-introspection-common:0
+  - dev-libs/gobject-introspection:0
   - dev-libs/icu:0
+  - dev-libs/inih:0
   - dev-libs/jsoncpp:0
-  - dev-libs/libaio:0
   - dev-libs/libassuan:0
   - dev-libs/libffi:0
   - dev-libs/libgcrypt:0
@@ -80,10 +99,10 @@ packages:
   - dev-libs/mpfr:0
   - dev-libs/nettle:0
   - dev-libs/npth:0
-  - dev-libs/nspr:0
-  - dev-libs/nss:0
   - dev-libs/openssl:0
   - dev-libs/popt:0
+  - dev-libs/userspace-rcu:0
+  - dev-lua/lua:5.3
   - dev-perl/Authen-SASL:0
   - dev-perl/Digest-HMAC:0
   - dev-perl/Error:0
@@ -102,9 +121,9 @@ packages:
   - dev-perl/Unicode-LineBreak:0
   - dev-perl/XML-Parser:0
   - dev-perl/YAML-Tiny:0
-  - dev-python/Babel:0
-  - dev-python/alabaster:0
+  - dev-python/PySocks:0
   - dev-python/appi:0
+  - dev-python/calver:0
   - dev-python/certifi:0
   - dev-python/cffi:0
   - dev-python/chardet:0
@@ -113,42 +132,39 @@ packages:
   - dev-python/cryptography:0
   - dev-python/cython:0
   - dev-python/docutils:0
+  - dev-python/editables:0
   - dev-python/flit_core:0
   - dev-python/gpep517:0
+  - dev-python/hatch-vcs:0
+  - dev-python/hatchling:0
   - dev-python/idna:0
-  - dev-python/imagesize:0
   - dev-python/importlib_metadata:0
   - dev-python/installer:0
+  - dev-python/ipaddress:0
   - dev-python/jinja:0
-  - dev-python/libxml2-python:0
+  - dev-python/libxml2-python:2
   - dev-python/libxslt-python:0
+  - dev-python/lxml:0
   - dev-python/markupsafe:0
   - dev-python/mwparserfromhell:0
   - dev-python/packaging:0
+  - dev-python/pathspec:0
+  - dev-python/pluggy:0
   - dev-python/ply:0
   - dev-python/pycparser:0
   - dev-python/pyelftools:0
   - dev-python/pygments:0
   - dev-python/pyopenssl:0
   - dev-python/pyparsing:0
-  - dev-python/pytz:0
   - dev-python/requests:0
   - dev-python/semantic_version:0
   - dev-python/setuptools-rust:0
   - dev-python/setuptools:0
   - dev-python/setuptools_scm:0
   - dev-python/six:0
-  - dev-python/snowballstemmer:0
-  - dev-python/sphinx:0
-  - dev-python/sphinx_rtd_theme:0
-  - dev-python/sphinxcontrib-applehelp:0
-  - dev-python/sphinxcontrib-devhelp:0
-  - dev-python/sphinxcontrib-htmlhelp:0
-  - dev-python/sphinxcontrib-jsmath:0
-  - dev-python/sphinxcontrib-qthelp:0
-  - dev-python/sphinxcontrib-serializinghtml:0
   - dev-python/toml:0
   - dev-python/tomli:0
+  - dev-python/trove-classifiers:0
   - dev-python/typing-extensions:0
   - dev-python/urllib3:0
   - dev-python/wheel:0
@@ -162,13 +178,30 @@ packages:
   - dev-util/gtk-doc:0
   - dev-util/intltool:0
   - dev-util/itstool:0
+  - dev-util/mark-devkit:0
+  - dev-util/maturin:0
   - dev-util/meson:0
   - dev-util/ninja:0
   - dev-util/pkgconf:0
+  - dev-util/pkgs-checker:0
   - dev-util/re2c:0
   - dev-vcs/git:0
   - gnome-extra/yelp-xsl:0
+  - media-fonts/urw-fonts:0
+  - media-gfx/graphite2:0
+  - media-gfx/graphviz:0
+  - media-libs/fontconfig:1.0
+  - media-libs/freetype:2
+  - media-libs/gd:2
+  - media-libs/harfbuzz:0
+  - media-libs/jbig2dec:0
+  - media-libs/lcms:2
+  - media-libs/libjpeg-turbo:0
+  - media-libs/libpng:0
+  - media-libs/openjpeg:2
+  - media-libs/tiff:0
   - net-dns/libidn2:0
+  - net-dns/libidn:0
   - net-dns/openresolv:0
   - net-firewall/iptables:0
   - net-libs/gnutls:0
@@ -225,7 +258,6 @@ packages:
   - sys-apps/util-linux:0
   - sys-apps/which:0
   - sys-auth/pambase:0
-  - sys-block/thin-provisioning-tools:0
   - sys-devel/autoconf-archive:0
   - sys-devel/autoconf-wrapper:0
   - sys-devel/autoconf:2.69
@@ -237,7 +269,6 @@ packages:
   - sys-devel/bison:0
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
-  - sys-devel/gcc:11.3.0
   - sys-devel/gcc:12.3.0
   - sys-devel/gettext:0
   - sys-devel/gnuconfig:0
@@ -248,10 +279,7 @@ packages:
   - sys-fs/dosfstools:0
   - sys-fs/e2fsprogs:0
   - sys-fs/eudev:0
-  - sys-fs/lvm2:0
-  - sys-fs/mdadm:0
   - sys-fs/xfsprogs:0
-  - sys-kernel/genkernel:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
   - sys-libs/cracklib:0
@@ -274,6 +302,7 @@ packages:
   - virtual/awk:0
   - virtual/dev-manager:0
   - virtual/editor:0
+  - virtual/jpeg:0
   - virtual/libc:0
   - virtual/libelf:0
   - virtual/libffi:0
@@ -317,8 +346,6 @@ packages:
   - virtual/perl-podlators:0
   - virtual/perl-version:0
   - virtual/pkgconfig:0
-  - virtual/python-enum34:0
-  - virtual/python-ipaddress:0
   - virtual/rust:0
   - virtual/service-manager:0
   - virtual/shadow:0
@@ -326,4 +353,8 @@ packages:
   - virtual/tmpfiles:0
   - virtual/udev:0
   - virtual/yacc:0
+  - www-client/lynx:0
+  - x11-libs/cairo:0
+  - x11-libs/pango:0
+  - x11-libs/pixman:0
   - x11-misc/shared-mime-info:0
