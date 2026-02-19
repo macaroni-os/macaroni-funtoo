@@ -1,4 +1,6 @@
 prelude:
+- >-
+  USE="bzip2 jit pcre32 readline recursion-limit static-libs unicode zlib" emerge dev-libs/libpcre2 -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
