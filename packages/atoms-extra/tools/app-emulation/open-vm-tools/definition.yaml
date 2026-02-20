@@ -1,16 +1,16 @@
 name: open-vm-tools
-version: 12.5.2
+version: 12.5.2+1
 category: app-emulation
 use_flags:
 - -X
 - -doc
 - -gtkmm
+- -multimon
 - -resolutionkms
 - deploypkg
 - dnet
 - fuse
 - icu
-- multimon
 - pam
 - ssl
 - vgauth
@@ -19,6 +19,9 @@ requires:
   version: '>=0'
   category: dev-libs-2
 - name: libdnet
+  version: '>=0'
+  category: dev-libs
+- name: libmspack
   version: '>=0'
   category: dev-libs
 - name: libxml2
