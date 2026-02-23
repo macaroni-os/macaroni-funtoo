@@ -40,18 +40,18 @@ steps:
   dev-util/pkgs-checker
   kernel-6.1/macaroni-sources &&
   eselect kernel set 1 &&
-  anice cleanup
+  anise cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  anice miner ri virtual/base virtual/sh &&
-  anice repo update && anise upgrade &&
-  anice i toolchain/base-extra
+  anise miner ri virtual/base virtual/sh &&
+  anise repo update && anise upgrade &&
+  anise i toolchain/base-extra
   toolchain/base-python &&
-  anice cleanup &&
+  anise cleanup &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   mkdir -p /var/lib/portage &&
