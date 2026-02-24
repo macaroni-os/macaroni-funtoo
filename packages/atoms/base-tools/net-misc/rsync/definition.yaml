@@ -1,11 +1,9 @@
 name: rsync
-version: 3.4.1
+version: 3.4.1+1
 category: net-misc
 use_flags:
 - -kernel_linux
-- -libressl
 - -lz4
-- -static
 - -system-zlib
 - -xxhash
 - -zstd
@@ -50,7 +48,7 @@ labels:
     sys-apps/attr ) ) xxhash? ( dev-libs/xxhash ) zstd? ( app-arch/zstd ) iconv? (
     virtual/libiconv )'
   emerge.packages: net-misc/rsync
-  kit: core-kit
+  kit: net-kit
   original.package.name: net-misc/rsync
   original.package.slot: "0"
   original.package.version: 3.4.1
