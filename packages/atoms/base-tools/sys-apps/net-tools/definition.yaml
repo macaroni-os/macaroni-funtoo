@@ -1,7 +1,8 @@
 name: net-tools
-version: "2.10"
+version: 2.10+1
 category: sys-apps
 use_flags:
+- -nis
 - -selinux
 - hostname
 annotations:
@@ -13,7 +14,7 @@ annotations:
       - ^/var/db/pkg/
 description: Standard Linux networking tools
 uri:
-- http://net-tools.sourceforge.net/
+- https://net-tools.sourceforge.io/
 license: GPL-2
 labels:
   BDEPEND: selinux? ( virtual/pkgconfig ) app-arch/xz-utils
@@ -22,7 +23,7 @@ labels:
   RDEPEND: selinux? ( sys-libs/libselinux ) hostname? ( !sys-apps/coreutils[hostname]
     ) nis? ( !net-nds/yp-tools )
   emerge.packages: sys-apps/net-tools
-  kit: core-kit
+  kit: net-kit
   original.package.name: sys-apps/net-tools
   original.package.slot: "0"
   original.package.version: "2.10"
