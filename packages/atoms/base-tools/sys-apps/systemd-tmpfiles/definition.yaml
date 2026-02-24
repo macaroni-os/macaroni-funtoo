@@ -1,5 +1,5 @@
 name: systemd-tmpfiles
-version: "256"
+version: 256+1
 category: sys-apps
 use_flags:
 - -selinux
@@ -42,7 +42,7 @@ labels:
   RDEPEND: sys-apps/acl:0= sys-apps/util-linux sys-libs/libcap:0= selinux? ( sys-libs/libselinux:0=
     ) sys-libs/libxcrypt !sys-apps/opentmpfiles !sys-apps/systemd
   emerge.packages: sys-apps/systemd-tmpfiles
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: sys-apps/systemd-tmpfiles
   original.package.slot: "0"
   original.package.version: "256"
