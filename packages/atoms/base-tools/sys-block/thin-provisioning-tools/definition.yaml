@@ -1,16 +1,6 @@
 name: thin-provisioning-tools
-version: 1.3.1
+version: 1.3.1+1
 category: sys-block
-use_flags:
-- -static
-- -test
-requires:
-- name: expat
-  version: '>=0'
-  category: dev-libs
-- name: libaio
-  version: '>=0'
-  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -21,13 +11,12 @@ annotations:
 description: A suite of tools for thin provisioning on Linux
 uri:
 - https://github.com/jthornber/thin-provisioning-tools
-license: GPL-3
+license: GPL-3.0
 labels:
   BDEPEND: virtual/pkgconfig virtual/rust app-text/asciidoc sys-devel/clang sys-fs/lvm2
     >=virtual/rust-1.37.0
   DEPEND: sys-fs/lvm2
   IUSE: debug io-uring debug
-  RDEPEND: '!static? ( dev-libs/expat dev-libs/libaio )'
   emerge.packages: sys-block/thin-provisioning-tools
   kit: core-server-kit
   original.package.name: sys-block/thin-provisioning-tools
