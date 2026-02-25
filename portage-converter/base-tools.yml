@@ -747,6 +747,17 @@ artefacts:
   - virtual/perl-libnet
 
 - tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  packages:
+    - app-text/docbook-xsl-ns-stylesheets
+    - dev-libs/libpfm
+
+
+- tree: packages/atoms/base-tools
   uses:
     disabled:
     - debug
@@ -961,6 +972,90 @@ artefacts:
     - sh
   packages:
   - gnome-extra/yelp-xsl
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - cuda
+    - llvm_targets_AArch64
+    - llvm_targets_ARC
+    - llvm_targets_ARM
+    - llvm_targets_AVR
+    - llvm_targets_Hexagon
+    - llvm_targets_Lanai
+    - llvm_targets_MSP430
+    - llvm_targets_Mips
+    - llvm_targets_PowerPC
+    - llvm_targets_RISCV
+    - llvm_targets_Sparc
+    - llvm_targets_SystemZ
+    - llvm_targets_VE
+    - llvm_targets_WebAssembly
+    - llvm_targets_XCore
+  packages:
+    - sys-devel/clang:20
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - debug
+    - doc
+    - gold
+    - llvm_targets_AArch64
+    - llvm_targets_ARC
+    - llvm_targets_AVR
+    - llvm_targets_Hexagon
+    - llvm_targets_Lanai
+    - llvm_targets_MSP430
+    - llvm_targets_PowerPC
+    - llvm_targets_Sparc
+    - llvm_targets_SystemZ
+    - llvm_targets_VE
+    - llvm_targets_WebAssembly
+    - llvm_targets_XCore
+    - nios2
+    - sh
+    - test
+    - xar
+    enabled:
+    - exegesis
+    - libedit
+    - zstd
+    - z3
+    - abi_x86_64
+    - libffi
+    - llvm_targets_Mips
+    - llvm_targets_RISCV
+    - llvm_targets_ARM
+    - llvm_targets_AMDGPU
+    - llvm_targets_BPF
+    - llvm_targets_NVPTX
+    - llvm_targets_X86
+    - ncurses
+    - xml
+  packages:
+  - sys-devel/llvm:20
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - |
+        export EROOT=${EROOT:-/} ; \
+        mkdir -p ${EROOT}etc/ld.so.conf.d || true ; \
+        echo "
+        /usr/lib/llvm/20/lib
+        /usr/lib/llvm/20/lib64
+        " > ${EROOT}etc/ld.so.conf.d/06-llvm20.conf
+      - eval 'macaronictl env-update || true'
+    uninstall:
+      - >-
+        export EROOT=${EROOT:-/} ;
+        rm -f ${EROOT}etc/ld.so.conf.d/06-llvm20.conf
+      - eval 'macaronictl env-update || true'
+
 
 include_layers:
 - layers/macaroni-funtoo-race2.yaml
