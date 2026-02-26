@@ -1,0 +1,33 @@
+name: libcxx
+version: 20.1.8
+category: sys-libs
+use_flags:
+- clang
+- libcxxabi
+requires:
+- name: libcxxabi
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: New implementation of the C++ standard library, targeting C++11
+uri:
+- https://libcxx.llvm.org/
+license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
+labels:
+  BDEPEND: clang? ( sys-devel/clang:20 ) dev-util/ninja dev-util/cmake
+  DEPEND: libcxxabi? ( ~sys-libs/libcxxabi-20.1.8[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
+    ) sys-devel/llvm:20
+  IUSE: static-libs +clang +libcxxabi +libunwind
+  RDEPEND: libcxxabi? ( ~sys-libs/libcxxabi-20.1.8[static-libs?] ) !libcxxabi? ( sys-devel/gcc[cxx]
+    )
+  emerge.packages: sys-libs/libcxx
+  kit: llvm-kit
+  original.package.name: sys-libs/libcxx
+  original.package.slot: "0"
+  original.package.version: 20.1.8
