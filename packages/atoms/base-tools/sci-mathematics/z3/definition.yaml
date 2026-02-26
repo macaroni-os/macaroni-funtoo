@@ -1,14 +1,24 @@
 name: z3
-version: 4.15.4
+version: 4.15.4+1
 category: sci-mathematics
 use_flags:
 - -doc
-- -gmp
 - -java
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- -python_single_target_python3_9
+- gmp
+- python_single_target_python3_9
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: gmp
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
