@@ -1,0 +1,29 @@
+name: libcxxabi
+version: 20.1.8
+category: sys-libs
+use_flags:
+- clang
+- libunwind
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Low level support for a standard C++ library
+uri:
+- https://libcxxabi.llvm.org/
+license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
+labels:
+  BDEPEND: clang? ( sys-devel/clang:20 ) dev-util/ninja dev-util/cmake
+  DEPEND: libunwind? ( || ( sys-libs/libunwind[static-libs?] sys-libs/llvm-libunwind[static-libs?]
+    ) ) sys-devel/llvm:20
+  IUSE: +libunwind +clang static-libs
+  RDEPEND: libunwind? ( || ( sys-libs/libunwind[static-libs?] sys-libs/llvm-libunwind[static-libs?]
+    ) )
+  emerge.packages: sys-libs/libcxxabi
+  kit: llvm-kit
+  original.package.name: sys-libs/libcxxabi
+  original.package.slot: "0"
+  original.package.version: 20.1.8
