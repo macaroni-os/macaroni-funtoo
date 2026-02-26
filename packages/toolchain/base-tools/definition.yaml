@@ -39,10 +39,16 @@ requires:
   - name: docbook-xml-dtd
     category: app-text-4.5
     version: '>=0'
+  - name: asciidoc
+    category: app-text
+    version: '>=0'
   - name: build-docbook-catalog
     category: app-text
     version: '>=0'
   - name: docbook-dsssl-stylesheets
+    category: app-text
+    version: '>=0'
+  - name: docbook-xsl-ns-stylesheets
     category: app-text
     version: '>=0'
   - name: docbook-xsl-stylesheets
@@ -64,6 +70,12 @@ requires:
     category: dev-cpp
     version: '>=0'
   - name: libaio
+    category: dev-libs
+    version: '>=0'
+  - name: libedit
+    category: dev-libs
+    version: '>=0'
+  - name: libpfm
     category: dev-libs
     version: '>=0'
   - name: libpipeline
@@ -174,6 +186,9 @@ requires:
   - name: rsync
     category: net-misc
     version: '>=0'
+  - name: z3
+    category: sci-mathematics
+    version: '>=0'
   - name: busybox
     category: sys-apps
     version: '>=0'
@@ -204,16 +219,55 @@ requires:
   - name: thin-provisioning-tools
     category: sys-block
     version: '>=0'
+  - name: clang
+    category: sys-devel-20
+    version: '>=0'
+  - name: clang-runtime
+    category: sys-devel-20
+    version: '>=0'
+  - name: lld
+    category: sys-devel-20
+    version: '>=0'
+  - name: llvm
+    category: sys-devel-20
+    version: '>=0'
   - name: autoconf-archive
     category: sys-devel
     version: '>=0'
   - name: bc
     category: sys-devel
     version: '>=0'
+  - name: clang-common
+    category: sys-devel
+    version: '>=0'
+  - name: llvm-common
+    category: sys-devel
+    version: '>=0'
   - name: btrfs-progs
     category: sys-fs
     version: '>=0'
+  - name: lvm2
+    category: sys-fs
+    version: '>=0'
+  - name: compiler-rt
+    category: sys-libs-20
+    version: '>=0'
+  - name: compiler-rt-sanitizers
+    category: sys-libs-20
+    version: '>=0'
+  - name: libcxx
+    category: sys-libs
+    version: '>=0'
+  - name: libcxxabi
+    category: sys-libs
+    version: '>=0'
+  - name: libomp
+    category: sys-libs
+    version: '>=0'
   - name: libseccomp
+    category: sys-libs
+    version: '>=0'
+  - name: libunwind
     category: sys-libs
     version: '>=0'
   - name: libxcrypt
