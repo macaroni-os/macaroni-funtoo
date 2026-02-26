@@ -1,0 +1,26 @@
+name: compiler-rt
+version: 20.1.8
+category: sys-libs-20
+use_flags:
+- clang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Compiler runtime library for clang (built-in part)
+uri:
+- https://llvm.org/
+license: Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+labels:
+  BDEPEND: dev-util/cmake clang? ( sys-devel/clang ) || ( dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 dev-lang/python:3.10 ) dev-util/ninja dev-util/cmake
+  DEPEND: sys-devel/llvm
+  IUSE: +clang debug
+  emerge.packages: sys-libs/compiler-rt:20
+  kit: llvm-kit
+  original.package.name: sys-libs/compiler-rt
+  original.package.slot: "20"
+  original.package.version: 20.1.8
