@@ -40,23 +40,23 @@ steps:
   app-misc/jq
   app-admin/macaronictl
   dev-util/pkgs-checker
-  kernel/macaroni-lts-sources &&
+  kernel-6.1/macaroni-sources &&
   eselect kernel set 1 &&
-  luet cleanup
+  anise cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  luet miner ri virtual/base virtual/sh &&
-  luet repo update && luet upgrade &&
-  luet i toolchain/base-extra
+  anise miner ri virtual/base virtual/sh &&
+  anise repo update && anise upgrade &&
+  anise i toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
   toolchain/base-tools2
   &&
-  luet cleanup &&
+  anise cleanup &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   mkdir -p /var/lib/portage &&
