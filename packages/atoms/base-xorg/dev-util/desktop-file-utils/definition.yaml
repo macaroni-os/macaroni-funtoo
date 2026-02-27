@@ -1,5 +1,5 @@
 name: desktop-file-utils
-version: 0.24+1
+version: "0.28"
 category: dev-util
 use_flags:
 - -emacs
@@ -19,11 +19,12 @@ uri:
 - https://freedesktop.org/wiki/Software/desktop-file-utils
 license: GPL-2+
 labels:
-  DEPEND: '>=dev-libs/glib-2.12:2 emacs? ( virtual/emacs ) app-arch/xz-utils virtual/pkgconfig'
+  BDEPEND: app-arch/xz-utils virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2
   IUSE: emacs
-  RDEPEND: '>=dev-libs/glib-2.12:2 emacs? ( virtual/emacs )'
+  RDEPEND: dev-libs/glib:2
   emerge.packages: dev-util/desktop-file-utils
   kit: xorg-kit
   original.package.name: dev-util/desktop-file-utils
   original.package.slot: "0"
-  original.package.version: "0.24"
+  original.package.version: "0.28"
