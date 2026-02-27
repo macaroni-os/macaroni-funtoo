@@ -1,5 +1,5 @@
 name: libXrender
-version: 0.9.10+1
+version: 0.9.12
 category: x11-libs
 use_flags:
 - -ppc-aix
@@ -24,16 +24,15 @@ uri:
 - https://gitlab.freedesktop.org/xorg/lib/libXrender
 license: MIT
 labels:
-  DEPEND: x11-base/xorg-proto >=x11-libs/libX11-1.6.2[-mgorny(-)] >=app-portage/elt-patches-20170815
-    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-    ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
-    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig[-mgorny(-)]
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: x11-libs/libX11 sys-devel/autoconf sys-devel/automake sys-devel/libtool
+    sys-devel/m4 x11-misc/util-macros media-fonts/font-util x11-base/xorg-proto
   IUSE: abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32
     abi_s390_64 static-libs
-  RDEPEND: x11-base/xorg-proto >=x11-libs/libX11-1.6.2[-mgorny(-)]
+  RDEPEND: x11-libs/libX11
   emerge.packages: x11-libs/libXrender
   kit: xorg-kit
   original.package.name: x11-libs/libXrender
   original.package.slot: "0"
-  original.package.version: 0.9.10-r1
+  original.package.version: 0.9.12
