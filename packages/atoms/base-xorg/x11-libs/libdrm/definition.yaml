@@ -1,5 +1,5 @@
 name: libdrm
-version: 2.4.123+1
+version: 2.4.129
 category: x11-libs
 use_flags:
 - -valgrind
@@ -25,14 +25,14 @@ uri:
 license: MIT
 labels:
   BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
-  DEPEND: video_cards_intel? ( >=x11-libs/libpciaccess-0.13.1-r1:= ) valgrind? ( dev-util/valgrind
+  DEPEND: video_cards_intel? ( x11-libs/libpciaccess ) valgrind? ( dev-util/valgrind
     )
-  IUSE: video_cards_amdgpu video_cards_exynos video_cards_freedreno video_cards_intel
-    video_cards_nouveau video_cards_omap video_cards_radeon video_cards_tegra video_cards_vc4
-    video_cards_vivante video_cards_vmware libkms valgrind
-  RDEPEND: video_cards_intel? ( >=x11-libs/libpciaccess-0.13.1-r1:= )
+  IUSE: libkms valgrind video_cards_amdgpu video_cards_radeon video_cards_exynos video_cards_freedreno
+    video_cards_intel video_cards_nouveau video_cards_omap video_cards_radeon video_cards_tegra
+    video_cards_vc4 video_cards_vivante video_cards_vmware
+  RDEPEND: video_cards_intel? ( x11-libs/libpciaccess )
   emerge.packages: x11-libs/libdrm
   kit: xorg-kit
   original.package.name: x11-libs/libdrm
   original.package.slot: "0"
-  original.package.version: 2.4.123
+  original.package.version: 2.4.129
