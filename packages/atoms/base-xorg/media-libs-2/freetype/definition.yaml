@@ -1,5 +1,5 @@
 name: freetype
-version: 2.10.4+2
+version: 2.14.1
 category: media-libs-2
 use_flags:
 - -brotli
@@ -38,18 +38,16 @@ uri:
 license: '|| ( FTL GPL-2+ )'
 labels:
   BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815
-  DEPEND: '>=sys-libs/zlib-1.2.8-r1 brotli? ( app-arch/brotli ) bzip2? ( >=app-arch/bzip2-1.0.6-r4
-    ) harfbuzz? ( >=media-libs/harfbuzz-1.3.0[truetype] ) png? ( >=media-libs/libpng-1.2.51:0=
-    ) utils? ( X? ( >=x11-libs/libX11-1.6.2 >=x11-libs/libXau-1.0.7-r1 >=x11-libs/libXdmcp-1.1.1-r1
-    ) )'
-  IUSE: X +adobe-cff bindist brotli bzip2 +cleartype_hinting debug doc fontforge harfbuzz
-    infinality png static-libs utils
-  RDEPEND: '>=sys-libs/zlib-1.2.8-r1 brotli? ( app-arch/brotli ) bzip2? ( >=app-arch/bzip2-1.0.6-r4
-    ) harfbuzz? ( >=media-libs/harfbuzz-1.3.0[truetype] ) png? ( >=media-libs/libpng-1.2.51:0=
-    ) utils? ( X? ( >=x11-libs/libX11-1.6.2 >=x11-libs/libXau-1.0.7-r1 >=x11-libs/libXdmcp-1.1.1-r1
-    ) )'
+  DEPEND: sys-libs/zlib brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) harfbuzz?
+    ( media-libs/harfbuzz[truetype] ) png? ( media-libs/libpng ) utils? ( X? ( x11-libs/libX11
+    x11-libs/libXau x11-libs/libXdmcp ) )
+  IUSE: X +adobe-cff brotli bzip2 +cleartype_hinting debug fontforge harfbuzz png
+    static-libs utils
+  RDEPEND: sys-libs/zlib brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) harfbuzz?
+    ( media-libs/harfbuzz[truetype] ) png? ( media-libs/libpng ) utils? ( X? ( x11-libs/libX11
+    x11-libs/libXau x11-libs/libXdmcp ) )
   emerge.packages: media-libs/freetype:2
   kit: xorg-kit
   original.package.name: media-libs/freetype
   original.package.slot: "2"
-  original.package.version: 2.10.4-r1
+  original.package.version: 2.14.1
