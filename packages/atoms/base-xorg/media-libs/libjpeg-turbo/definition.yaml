@@ -1,14 +1,9 @@
 name: libjpeg-turbo
-version: 3.1.3
+version: 3.1.3+1
 category: media-libs
 use_flags:
 - -java
-- -x64-cygwin
-- -x64-macos
 - amd64
-- amd64-linux
-- x86
-- x86-linux
 annotations:
   subsets:
     rules:
@@ -16,11 +11,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: MMX, SSE, and SSE2 SIMD accelerated JPEG library
+description: Main libjpeg-turbo repository
 uri:
-- https://libjpeg-turbo.org/
-- https://sourceforge.net/projects/libjpeg-turbo/
-license: BSD IJG ZLIB
+- https://libjpeg-turbo.org
+license: NOASSERTION
 labels:
   BDEPEND: dev-util/cmake amd64? ( || ( dev-lang/nasm dev-lang/yasm ) ) dev-util/ninja
     dev-util/cmake
