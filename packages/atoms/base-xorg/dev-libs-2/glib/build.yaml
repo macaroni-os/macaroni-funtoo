@@ -1,4 +1,8 @@
 prelude:
+# Ensure to rebuild glib after gobject-introspection
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  USE="python_single_target_python3_9" emerge gobject-introspection -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
