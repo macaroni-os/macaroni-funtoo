@@ -1,16 +1,18 @@
 name: yelp-tools
-version: "42.1"
+version: 42.1+1
 category: app-text
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
 requires:
-- name: itstool
+- name: lxml
   version: '>=0'
-  category: dev-util
+  category: dev-python
 - name: yelp-xsl
   version: '>=0'
   category: gnome-extra
-- name: awk
-  version: '>=0'
-  category: virtual
 annotations:
   subsets:
     rules:
