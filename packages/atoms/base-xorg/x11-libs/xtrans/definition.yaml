@@ -1,10 +1,6 @@
 name: xtrans
-version: 1.6.0
+version: 1.6.0+1
 category: x11-libs
-use_flags:
-- -doc
-- -ppc-aix
-- -x86-winnt
 annotations:
   subsets:
     rules:
@@ -14,15 +10,13 @@ annotations:
       - ^/var/db/pkg/
 description: X.Org xtrans library
 uri:
-- https://www.x.org/wiki/
-- https://gitlab.freedesktop.org/xorg/lib/libxtrans
+- https://gitlab.freedesktop.org/xorg/lib/xtrans
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
     ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: sys-devel/autoconf sys-devel/automake sys-devel/libtool sys-devel/m4 x11-misc/util-macros
     media-fonts/font-util x11-base/xorg-proto
-  IUSE: doc
   emerge.packages: x11-libs/xtrans
   kit: xorg-kit
   original.package.name: x11-libs/xtrans
