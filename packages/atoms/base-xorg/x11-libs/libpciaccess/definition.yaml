@@ -1,17 +1,15 @@
 name: libpciaccess
-version: 0.18.1
+version: 0.18.1+1
 category: x11-libs
 use_flags:
-- -ppc-aix
-- -x86-winnt
 - zlib
 requires:
-- name: hwids
+- name: hwdata
   version: '>=0'
   category: sys-apps
-- name: zlib
+- name: libXext
   version: '>=0'
-  category: sys-libs
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -21,7 +19,6 @@ annotations:
       - ^/var/db/pkg/
 description: Library providing generic access to the PCI bus and devices
 uri:
-- https://www.x.org/wiki/
 - https://gitlab.freedesktop.org/xorg/lib/libpciaccess
 license: MIT
 labels:
