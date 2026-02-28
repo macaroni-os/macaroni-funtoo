@@ -1,6 +1,121 @@
 name: xorg-proto
-version: "2024.1"
+version: 2024.1+1
 category: x11-base
+provides:
+- name: applewmproto
+  version: "2024.1"
+  category: x11-proto
+- name: bigreqsproto
+  version: "2024.1"
+  category: x11-proto
+- name: compositeproto
+  version: "2024.1"
+  category: x11-proto
+- name: damageproto
+  version: "2024.1"
+  category: x11-proto
+- name: dmxproto
+  version: "2024.1"
+  category: x11-proto
+- name: dri2proto
+  version: "2024.1"
+  category: x11-proto
+- name: dri3proto
+  version: "2024.1"
+  category: x11-proto
+- name: evieproto
+  version: "2024.1"
+  category: x11-proto
+- name: fixesproto
+  version: "2024.1"
+  category: x11-proto
+- name: fontcacheproto
+  version: "2024.1"
+  category: x11-proto
+- name: fontsproto
+  version: "2024.1"
+  category: x11-proto
+- name: glproto
+  version: "2024.1"
+  category: x11-proto
+- name: inputproto
+  version: "2024.1"
+  category: x11-proto
+- name: kbproto
+  version: "2024.1"
+  category: x11-proto
+- name: lg3dproto
+  version: "2024.1"
+  category: x11-proto
+- name: presentproto
+  version: "2024.1"
+  category: x11-proto
+- name: printproto
+  version: "2024.1"
+  category: x11-proto
+- name: randrproto
+  version: "2024.1"
+  category: x11-proto
+- name: recordproto
+  version: "2024.1"
+  category: x11-proto
+- name: renderproto
+  version: "2024.1"
+  category: x11-proto
+- name: resourceproto
+  version: "2024.1"
+  category: x11-proto
+- name: scrnsaverproto
+  version: "2024.1"
+  category: x11-proto
+- name: trapproto
+  version: "2024.1"
+  category: x11-proto
+- name: videoproto
+  version: "2024.1"
+  category: x11-proto
+- name: windowswmproto
+  version: "2024.1"
+  category: x11-proto
+- name: xcalibrateproto
+  version: "2024.1"
+  category: x11-proto
+- name: xcmiscproto
+  version: "2024.1"
+  category: x11-proto
+- name: xextproto
+  version: "2024.1"
+  category: x11-proto
+- name: xf86bigfontproto
+  version: "2024.1"
+  category: x11-proto
+- name: xf86dgaproto
+  version: "2024.1"
+  category: x11-proto
+- name: xf86driproto
+  version: "2024.1"
+  category: x11-proto
+- name: xf86miscproto
+  version: "2024.1"
+  category: x11-proto
+- name: xf86rushproto
+  version: "2024.1"
+  category: x11-proto
+- name: xf86vidmodeproto
+  version: "2024.1"
+  category: x11-proto
+- name: xineramaproto
+  version: "2024.1"
+  category: x11-proto
+- name: xproto
+  version: "2024.1"
+  category: x11-proto
+- name: xproxymngproto
+  version: "2024.1"
+  category: x11-proto
+- name: xwaylandproto
+  version: "2024.1"
+  category: x11-proto
 annotations:
   subsets:
     rules:
@@ -10,24 +125,10 @@ annotations:
       - ^/var/db/pkg/
 description: X.Org combined protocol headers
 uri:
-- https://cgit.freedesktop.org/xorg/proto/xorgproto/
-license: GPL-2 MIT
+- https://gitlab.freedesktop.org/xorg/proto/xorgproto
+license: MIT
 labels:
   BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
-  RDEPEND: =x11-proto/applewmproto-1.4.2*:0/stub =x11-proto/bigreqsproto-1.1.2*:0/stub
-    =x11-proto/compositeproto-0.4.2*:0/stub =x11-proto/damageproto-1.2.1*:0/stub =x11-proto/dmxproto-2.3.1*:0/stub
-    =x11-proto/dpmsproto-1.2*:0/stub =x11-proto/dri2proto-2.8*:0/stub =x11-proto/dri3proto-1.3*:0/stub
-    =x11-proto/evieproto-1.1.1*:0/stub =x11-proto/fixesproto-6.1*:0/stub =x11-proto/fontcacheproto-0.1.3*:0/stub
-    =x11-proto/fontsproto-2.1.3*:0/stub =x11-proto/glproto-1.4.17*:0/stub =x11-proto/inputproto-2.3.99.2*:0/stub
-    =x11-proto/kbproto-1.0.7*:0/stub =x11-proto/lg3dproto-5.0*:0/stub =x11-proto/presentproto-1.3*:0/stub
-    =x11-proto/printproto-1.0.5*:0/stub =x11-proto/randrproto-1.6.0*:0/stub =x11-proto/recordproto-1.14.2*:0/stub
-    =x11-proto/renderproto-0.11.1*:0/stub =x11-proto/resourceproto-1.2.0*:0/stub =x11-proto/scrnsaverproto-1.2.3*:0/stub
-    =x11-proto/trapproto-3.4.3*:0/stub =x11-proto/videoproto-2.3.3*:0/stub =x11-proto/windowswmproto-1.0.4*:0/stub
-    =x11-proto/xcalibrateproto-0.1.0*:0/stub =x11-proto/xcmiscproto-1.2.2*:0/stub
-    =x11-proto/xextproto-7.3.0*:0/stub =x11-proto/xf86bigfontproto-1.2.0*:0/stub =x11-proto/xf86dgaproto-2.1*:0/stub
-    =x11-proto/xf86driproto-2.1.1*:0/stub =x11-proto/xf86miscproto-0.9.3*:0/stub =x11-proto/xf86rushproto-1.1.2*:0/stub
-    =x11-proto/xf86vidmodeproto-2.3.1*:0/stub =x11-proto/xineramaproto-1.2.1*:0/stub
-    =x11-proto/xproto-7.0.33*:0/stub =x11-proto/xproxymngproto-1.0.3*:0/stub =x11-proto/xwaylandproto-1.0*:0/stub
   emerge.packages: x11-base/xorg-proto
   kit: xorg-kit
   original.package.name: x11-base/xorg-proto
