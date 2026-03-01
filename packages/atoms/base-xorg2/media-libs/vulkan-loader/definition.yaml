@@ -1,5 +1,5 @@
 name: vulkan-loader
-version: 1.3.290+1
+version: 1.4.328.1
 category: media-libs
 use_flags:
 - X
@@ -11,18 +11,18 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Vulkan Installable Client Driver (ICD) Loader
+description: Vulkan Loader
 uri:
-- https://github.com/KhronosGroup/Vulkan-Loader
-license: Apache-2.0
+- https://vulkan.lunarg.com/doc/sdk/latest/linux/LoaderInterfaceArchitecture.html
+license: NOASSERTION
 labels:
-  BDEPEND: '>=dev-util/cmake-3.10.2 dev-util/ninja >=dev-util/cmake-3.9.6'
-  DEPEND: =dev-util/vulkan-headers-1.3.290* || ( dev-lang/python:3.8 dev-lang/python:3.9
-    dev-lang/python:3.7 dev-lang/python:3.10 ) wayland? ( dev-libs/wayland:= ) X?
-    ( x11-libs/libX11:= x11-libs/libXrandr:= )
+  BDEPEND: dev-util/cmake dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) >=dev-util/vulkan-headers-1.4.328 wayland? ( dev-libs/wayland:= ) X? ( x11-libs/libX11:=
+    x11-libs/libXrandr:= )'
   IUSE: layers wayland X
   emerge.packages: media-libs/vulkan-loader
   kit: core-gl-kit
   original.package.name: media-libs/vulkan-loader
   original.package.slot: "0"
-  original.package.version: 1.3.290
+  original.package.version: 1.4.328.1
