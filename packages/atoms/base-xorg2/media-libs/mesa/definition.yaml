@@ -1,11 +1,11 @@
 name: mesa
-version: 25.3.4
+version: 25.3.4+1
 category: media-libs
 use_flags:
 - -lm_sensors
 - -opencl
-- -selinux
 - -valgrind
+- -vulkan
 - -vulkan-overlay
 - X
 - llvm
@@ -40,15 +40,18 @@ use_flags:
 - shader-cache
 - surfaceless
 requires:
-- name: zstd
+- name: libclc
   version: '>=0'
-  category: app-arch
+  category: dev-libs-20
 - name: libglvnd
   version: '>=0'
   category: media-libs
 - name: vulkan-loader
   version: '>=0'
   category: media-libs
+- name: llvm
+  version: '>=0'
+  category: sys-devel-20
 - name: libunwind
   version: '>=0'
   category: sys-libs
@@ -64,12 +67,12 @@ requires:
 - name: libvdpau
   version: '>=0'
   category: x11-libs
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
 - name: libxshmfence
   version: '>=0'
   category: x11-libs
-- name: llvm
-  version: '>=0'
-  category: sys-devel-20
 annotations:
   subsets:
     rules:
