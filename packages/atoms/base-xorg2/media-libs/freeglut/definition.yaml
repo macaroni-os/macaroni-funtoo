@@ -1,5 +1,5 @@
 name: freeglut
-version: 3.6.0+1
+version: 3.8.0
 category: media-libs
 requires:
 - name: glu
@@ -24,21 +24,19 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A free OpenGL utility toolkit, the open-sourced alternative to the GLUT
-  library
+description: Free implementation of the OpenGL Utility Toolkit (GLUT)
 uri:
-- http://freeglut.sourceforge.net/
-license: MIT
+- http://freeglut.sourceforge.net
+license: NOASSERTION
 labels:
   BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
-  DEPEND: '>=virtual/glu-9.0-r1 >=virtual/opengl-7.0-r1 >=x11-libs/libX11-1.6.2 >=x11-libs/libXext-1.3.2
-    >=x11-libs/libXi-1.7.2 >=x11-libs/libXrandr-1.4.2 >=x11-libs/libXxf86vm-1.1.3
-    x11-base/xorg-proto'
-  IUSE: debug static-libs
-  RDEPEND: '>=virtual/glu-9.0-r1 >=virtual/opengl-7.0-r1 >=x11-libs/libX11-1.6.2 >=x11-libs/libXext-1.3.2
-    >=x11-libs/libXi-1.7.2 >=x11-libs/libXrandr-1.4.2 >=x11-libs/libXxf86vm-1.1.3'
+  DEPEND: virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXi
+    x11-libs/libXrandr x11-libs/libXxf86vm x11-base/xorg-proto
+  IUSE: static-libs
+  RDEPEND: virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXi
+    x11-libs/libXrandr x11-libs/libXxf86vm
   emerge.packages: media-libs/freeglut
   kit: core-gl-kit
   original.package.name: media-libs/freeglut
   original.package.slot: "0"
-  original.package.version: 3.6.0
+  original.package.version: 3.8.0
