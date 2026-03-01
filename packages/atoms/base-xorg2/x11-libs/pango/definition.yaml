@@ -1,5 +1,5 @@
 name: pango
-version: 1.48.11+1
+version: 1.57.0
 category: x11-libs
 use_flags:
 - -sysprof
@@ -28,25 +28,19 @@ uri:
 - https://gitlab.gnome.org/GNOME/pango
 license: LGPL-2+
 labels:
-  BDEPEND: dev-util/glib-utils sys-apps/help2man virtual/pkgconfig >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2
-  DEPEND: '>=dev-libs/glib-2.62.2:2[-mgorny(-)] >=dev-libs/fribidi-1.0.6[-mgorny(-)]
-    >=media-libs/harfbuzz-2.2.0:=[glib(+),introspection?,truetype(+),-mgorny(-)] >=media-libs/fontconfig-2.12.92:1.0=[-mgorny(-)]
-    >=x11-libs/cairo-1.12.10:=[X?,-mgorny(-)] >=media-libs/freetype-2.5.0.1:2=[-mgorny(-)]
-    introspection? ( >=dev-libs/gobject-introspection-0.9.5:= ) X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)]
-    >=x11-libs/libXft-2.3.1-r1[-mgorny(-)] >=x11-libs/libXrender-0.9.8[-mgorny(-)]
-    ) sysprof? ( >=dev-util/sysprof-capture-3.40.1:4[-mgorny(-)] ) X? ( x11-base/xorg-proto
-    ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  IUSE: debug doc +introspection sysprof X abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
-    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: '>=dev-libs/glib-2.62.2:2[-mgorny(-)] >=dev-libs/fribidi-1.0.6[-mgorny(-)]
-    >=media-libs/harfbuzz-2.2.0:=[glib(+),introspection?,truetype(+),-mgorny(-)] >=media-libs/fontconfig-2.12.92:1.0=[-mgorny(-)]
-    >=x11-libs/cairo-1.12.10:=[X?,-mgorny(-)] >=media-libs/freetype-2.5.0.1:2=[-mgorny(-)]
-    introspection? ( >=dev-libs/gobject-introspection-0.9.5:= ) X? ( >=x11-libs/libX11-1.6.2[-mgorny(-)]
-    >=x11-libs/libXft-2.3.1-r1[-mgorny(-)] >=x11-libs/libXrender-0.9.8[-mgorny(-)]
-    )'
+  BDEPEND: sys-apps/help2man virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 dev-libs/fribidi media-libs/harfbuzz:=[glib(+),introspection?,truetype(+)]
+    >=media-libs/fontconfig-2.17.1:1.0= x11-libs/cairo:=[X?] media-libs/freetype:2=
+    introspection? ( >=dev-libs/gobject-introspection-1.83.2:= ) X? ( x11-libs/libX11
+    x11-libs/libXft x11-libs/libXrender ) sysprof? ( dev-util/sysprof-capture ) X?
+    ( x11-base/xorg-proto ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug doc +introspection sysprof X
+  RDEPEND: dev-libs/glib:2 dev-libs/fribidi media-libs/harfbuzz:=[glib(+),introspection?,truetype(+)]
+    >=media-libs/fontconfig-2.17.1:1.0= x11-libs/cairo:=[X?] media-libs/freetype:2=
+    introspection? ( >=dev-libs/gobject-introspection-1.83.2:= ) X? ( x11-libs/libX11
+    x11-libs/libXft x11-libs/libXrender )
   emerge.packages: x11-libs/pango
   kit: xorg-kit
   original.package.name: x11-libs/pango
   original.package.slot: "0"
-  original.package.version: 1.48.11
+  original.package.version: 1.57.0
