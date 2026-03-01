@@ -1,5 +1,5 @@
 name: mesa
-version: 25.3.4+1
+version: 25.3.6
 category: media-libs
 use_flags:
 - -lm_sensors
@@ -101,7 +101,7 @@ labels:
     ) llvm? ( video_cards_radeonsi? ( virtual/libelf:0= ) video_cards_r600? ( virtual/libelf:0=
     ) video_cards_radeon? ( virtual/libelf:0= ) dev-libs/libclc ) lm_sensors? ( sys-apps/lm_sensors:=
     ) opencl? ( virtual/opencl dev-libs/libclc virtual/libelf:0= ) vaapi? ( x11-libs/libva:=
-    ) vdpau? ( x11-libs/libvdpau:= ) wayland? ( dev-libs/wayland:= ) x11-libs/libdrm[video_cards_freedreno?,video_cards_intel?,video_cards_nouveau?,video_cards_vc4?,video_cards_vivante?,video_cards_vmware?]
+    ) wayland? ( dev-libs/wayland:= ) x11-libs/libdrm[video_cards_freedreno?,video_cards_intel?,video_cards_nouveau?,video_cards_vc4?,video_cards_vivante?,video_cards_vmware?]
     vulkan-overlay? ( dev-util/glslang:0= ) X? ( x11-libs/libX11:= x11-libs/libxshmfence:=
     x11-libs/libXext:= x11-libs/libXxf86vm:= x11-libs/libxcb:= x11-libs/libXfixes:=
     ) zink? ( media-libs/vulkan-loader:= ) zstd? ( app-arch/zstd:= ) vulkan? ( dev-util/glslang
@@ -114,15 +114,15 @@ labels:
     ( dev-util/valgrind ) wayland? ( dev-libs/wayland-protocols ) X? ( x11-libs/libXrandr
     x11-base/xorg-proto )
   IUSE: cpu_flags_x86_sse2 d3d9 debug +egl +gbm gles1 +gles2 +glvnd +llvm lm_sensors
-    opencl unwind vaapi valgrind vdpau vulkan vulkan-overlay wayland +X xa zink +zstd
-    llvm_targets_AMDGPU video_cards_r300 video_cards_r600 video_cards_radeon video_cards_radeonsi
-    video_cards_freedreno video_cards_intel video_cards_lima video_cards_nouveau video_cards_panfrost
-    video_cards_v3d video_cards_vc4 video_cards_virgl video_cards_vivante video_cards_vmware
+    opencl unwind vaapi valgrind vulkan vulkan-overlay wayland +X xa zink +zstd llvm_targets_AMDGPU
+    video_cards_r300 video_cards_r600 video_cards_radeon video_cards_radeonsi video_cards_freedreno
+    video_cards_intel video_cards_lima video_cards_nouveau video_cards_panfrost video_cards_v3d
+    video_cards_vc4 video_cards_virgl video_cards_vivante video_cards_vmware
   RDEPEND: dev-libs/expat media-libs/libglvnd[X?] sys-libs/zlib unwind? ( sys-libs/libunwind
     ) llvm? ( video_cards_radeonsi? ( virtual/libelf:0= ) video_cards_r600? ( virtual/libelf:0=
     ) video_cards_radeon? ( virtual/libelf:0= ) dev-libs/libclc ) lm_sensors? ( sys-apps/lm_sensors:=
     ) opencl? ( virtual/opencl dev-libs/libclc virtual/libelf:0= ) vaapi? ( x11-libs/libva:=
-    ) vdpau? ( x11-libs/libvdpau:= ) wayland? ( dev-libs/wayland:= ) x11-libs/libdrm[video_cards_freedreno?,video_cards_intel?,video_cards_nouveau?,video_cards_vc4?,video_cards_vivante?,video_cards_vmware?]
+    ) wayland? ( dev-libs/wayland:= ) x11-libs/libdrm[video_cards_freedreno?,video_cards_intel?,video_cards_nouveau?,video_cards_vc4?,video_cards_vivante?,video_cards_vmware?]
     vulkan-overlay? ( dev-util/glslang:0= ) X? ( x11-libs/libX11:= x11-libs/libxshmfence:=
     x11-libs/libXext:= x11-libs/libXxf86vm:= x11-libs/libxcb:= x11-libs/libXfixes:=
     ) zink? ( media-libs/vulkan-loader:= ) zstd? ( app-arch/zstd:= ) vulkan? ( dev-util/glslang
@@ -136,4 +136,4 @@ labels:
   kit: core-gl-kit
   original.package.name: media-libs/mesa
   original.package.slot: "0"
-  original.package.version: 25.3.4
+  original.package.version: 25.3.6
