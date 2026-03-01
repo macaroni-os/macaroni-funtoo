@@ -1,0 +1,31 @@
+name: spirv-llvm-translator
+version: 20.1.6
+category: dev-util-20
+use_flags:
+- -clang
+requires:
+- name: clang
+  version: '>=0'
+  category: sys-devel-20
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Bi-directional translator between SPIR-V and LLVM IR
+uri:
+- https://github.com/KhronosGroup/SPIRV-LLVM-Translator
+license: UoI-NCSA
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: '>=dev-util/spirv-headers-1.4.328.1 sys-devel/clang:20= clang? ( sys-devel/clang:20=
+    )'
+  IUSE: tools clang
+  RDEPEND: sys-devel/clang:20=
+  emerge.packages: dev-util/spirv-llvm-translator:20
+  kit: llvm-kit
+  original.package.name: dev-util/spirv-llvm-translator
+  original.package.slot: "20"
+  original.package.version: 20.1.6
