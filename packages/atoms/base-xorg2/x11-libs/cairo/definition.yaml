@@ -1,29 +1,26 @@
 name: cairo
-version: 1.18.4
+version: 1.18.4+1
 category: x11-libs
 use_flags:
-- -gles2
+- -debug
+- -gtk-doc
+- -lzo
 - X
 - glib
-- opengl
-- xcb
 requires:
 - name: glib
-  version: '>=0'
-  category: dev-libs-2
-- name: lzo
   version: '>=0'
   category: dev-libs-2
 - name: fontconfig
   version: '>=0'
   category: media-libs-1.0
-- name: mesa
+- name: libXext
   version: '>=0'
-  category: media-libs
-- name: binutils-libs
-  version: '>=0'
-  category: sys-libs
+  category: x11-libs
 - name: libXrender
+  version: '>=0'
+  category: x11-libs
+- name: libxcb
   version: '>=0'
   category: x11-libs
 - name: pixman
