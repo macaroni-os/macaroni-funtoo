@@ -5,17 +5,16 @@ use_flags:
 - -lm_sensors
 - -opencl
 - -valgrind
-- -vulkan
 - -vulkan-overlay
 - X
 - llvm
 - unwind
 - vaapi
-- vdpau
 - video_cards_r300
 - video_cards_r600
 - video_cards_radeon
 - video_cards_radeonsi
+- vulkan
 - wayland
 - zink
 - zstd
@@ -43,6 +42,15 @@ requires:
 - name: libclc
   version: '>=0'
   category: dev-libs-20
+- name: glslang
+  version: '>=0'
+  category: dev-util
+- name: spirv-llvm-translator
+  version: '>=0'
+  category: dev-util-20
+- name: spirv-tools
+  version: '>=0'
+  category: dev-util
 - name: libglvnd
   version: '>=0'
   category: media-libs
@@ -62,9 +70,6 @@ requires:
   version: '>=0'
   category: x11-libs
 - name: libva
-  version: '>=0'
-  category: x11-libs
-- name: libvdpau
   version: '>=0'
   category: x11-libs
 - name: libxcb
