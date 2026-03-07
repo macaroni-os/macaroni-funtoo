@@ -1,16 +1,20 @@
 name: qpdf
-version: 8.4.2+2
+version: 12.3.2
 category: app-text
 use_flags:
-- -test
-- perl
+- -doc
+- -gnutls
+- zopfli
 requires:
-- name: perl
+- name: zopfli
   version: '>=0'
-  category: dev-lang
-- name: jpeg
+  category: app-arch
+- name: openssl
   version: '>=0'
-  category: virtual
+  category: dev-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
 annotations:
   subsets:
     rules:
@@ -21,15 +25,18 @@ annotations:
 description: Command-line tool for structural, content-preserving transformation of
   PDF files
 uri:
-- http://qpdf.sourceforge.net/
+- https://qpdf.sourceforge.io/
+- https://github.com/qpdf/qpdf/
 license: '|| ( Apache-2.0 Artistic-2 )'
 labels:
-  DEPEND: sys-libs/zlib virtual/jpeg:0= test? ( sys-apps/diffutils media-libs/tiff
-    app-text/ghostscript-gpl[tiff] )
-  IUSE: doc examples perl static-libs test
-  RDEPEND: sys-libs/zlib virtual/jpeg:0= perl? ( >=dev-lang/perl-5.8 )
+  BDEPEND: dev-lang/perl doc? ( app-arch/unzip ) dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/libjpeg-turbo:= sys-libs/zlib gnutls? ( net-libs/gnutls:= ) !gnutls?
+    ( dev-libs/openssl:= ) zopfli? ( app-arch/zopfli:= )
+  IUSE: doc examples gnutls zopfli
+  RDEPEND: media-libs/libjpeg-turbo:= sys-libs/zlib gnutls? ( net-libs/gnutls:= )
+    !gnutls? ( dev-libs/openssl:= ) zopfli? ( app-arch/zopfli:= )
   emerge.packages: app-text/qpdf
   kit: text-kit
   original.package.name: app-text/qpdf
   original.package.slot: "0"
-  original.package.version: 8.4.2
+  original.package.version: 12.3.2
