@@ -1,16 +1,16 @@
 name: lcms
-version: 2.11+1
+version: "2.17"
 category: media-libs-2
 use_flags:
 - jpeg
 - tiff
 requires:
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
 - name: tiff
   version: '>=0'
   category: media-libs
-- name: jpeg
-  version: '>=0'
-  category: virtual
 annotations:
   subsets:
     rules:
@@ -18,20 +18,17 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A lightweight, speed optimized color management engine
+description: Color management engine supporting ICC profiles
 uri:
-- http://www.littlecms.com/
+- https://www.littlecms.com/
 license: MIT
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815'
-  DEPEND: jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) tiff? ( >=media-libs/tiff-4.0.3-r6:0=[-mgorny(-)]
-    )
-  IUSE: doc jpeg static-libs test +threads tiff abi_x86_32 abi_x86_64 abi_x86_x32
-    abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: jpeg? ( >=virtual/jpeg-0-r2:0[-mgorny(-)] ) tiff? ( >=media-libs/tiff-4.0.3-r6:0=[-mgorny(-)]
-    )
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: jpeg? ( media-libs/libjpeg-turbo:= ) tiff? ( media-libs/tiff:= )
+  IUSE: doc jpeg static-libs tiff
+  RDEPEND: jpeg? ( media-libs/libjpeg-turbo:= ) tiff? ( media-libs/tiff:= )
   emerge.packages: media-libs/lcms:2
   kit: media-kit
   original.package.name: media-libs/lcms
   original.package.slot: "2"
-  original.package.version: "2.11"
+  original.package.version: "2.17"
