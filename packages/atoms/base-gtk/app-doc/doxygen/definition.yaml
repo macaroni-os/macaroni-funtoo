@@ -1,23 +1,29 @@
 name: doxygen
-version: 1.9.6+1
+version: 1.9.6+2
 category: app-doc
 use_flags:
 - -clang
 - -doc
-- -dot
-- -doxysearch
 - -qt5
-- -sqlite
+- dot
+- doxysearch
+- sqlite
 requires:
 - name: ghostscript-gpl
   version: '>=0'
   category: app-text
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
 - name: perl
   version: '>=0'
   category: dev-lang
-- name: libiconv
+- name: xapian
   version: '>=0'
-  category: virtual
+  category: dev-libs
+- name: graphviz
+  version: '>=0'
+  category: media-gfx
 annotations:
   subsets:
     rules:
