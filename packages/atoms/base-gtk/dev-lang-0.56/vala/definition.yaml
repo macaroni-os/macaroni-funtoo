@@ -1,0 +1,36 @@
+name: vala
+version: 0.56.18
+category: dev-lang-0.56
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: vala-common
+  version: '>=0'
+  category: dev-libs
+- name: graphviz
+  version: '>=0'
+  category: media-gfx
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Compiler for the GObject type system
+uri:
+- https://wiki.gnome.org/Projects/Vala
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig virtual/yacc >=app-portage/elt-patches-20170815 || (
+    >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    app-arch/xz-utils
+  DEPEND: dev-libs/glib >=dev-libs/vala-common-0.56.18 media-gfx/graphviz dev-libs/gobject-introspection:=
+    dev-libs/libxslt sys-devel/flex dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: dev-libs/glib >=dev-libs/vala-common-0.56.18 media-gfx/graphviz dev-libs/gobject-introspection:=
+  emerge.packages: dev-lang/vala:0.56
+  kit: gnome-kit
+  original.package.name: dev-lang/vala
+  original.package.slot: "0.56"
+  original.package.version: 0.56.18
