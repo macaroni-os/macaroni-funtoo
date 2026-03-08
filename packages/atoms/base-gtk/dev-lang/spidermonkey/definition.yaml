@@ -1,0 +1,48 @@
+name: spidermonkey
+version: 140.6.0
+category: dev-lang
+use_flags:
+- -icu
+- clang
+requires:
+- name: nspr
+  version: '>=0'
+  category: dev-libs
+- name: readline
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+conflicts:
+- name: spidermonkey
+  version: '>=0'
+  category: dev-lang-78
+provides:
+- name: spidermonkey
+  version: 140.6.0
+  category: dev-lang-78
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Mozilla's JavaScript engine written in C and C++
+uri:
+- https://spidermonkey.dev
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) app-arch/unzip app-arch/zip virtual/rust || ( ( sys-devel/clang:20 sys-devel/llvm:20
+    clang? ( sys-devel/lld ) ) ) dev-util/cbindgen virtual/pkgconfig'
+  DEPEND: icu? ( >=dev-libs/icu-76.1:= ) dev-libs/nspr sys-libs/readline:= sys-libs/zlib
+    !dev-lang/spidermonkey:78 dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +clang cpu_flags_arm_neon debug +jit icu
+  RDEPEND: icu? ( >=dev-libs/icu-76.1:= ) dev-libs/nspr sys-libs/readline:= sys-libs/zlib
+    !dev-lang/spidermonkey:78
+  emerge.packages: dev-lang/spidermonkey
+  kit: browser-kit
+  original.package.name: dev-lang/spidermonkey
+  original.package.slot: "0"
+  original.package.version: 140.6.0
