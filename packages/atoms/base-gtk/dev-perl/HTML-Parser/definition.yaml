@@ -1,0 +1,33 @@
+name: HTML-Parser
+version: 3.720.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: HTML-Tagset
+  version: '>=0'
+  category: dev-perl
+- name: perl-XSLoader
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Parse <HEAD> section of HTML documents
+uri:
+- https://metacpan.org/release/HTML-Parser
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: '>=dev-perl/HTML-Tagset-3.03 virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker
+    test? ( virtual/perl-Test-Simple ) dev-lang/perl:='
+  IUSE: test
+  RDEPEND: '>=dev-perl/HTML-Tagset-3.03 virtual/perl-XSLoader dev-lang/perl:='
+  emerge.packages: dev-perl/HTML-Parser
+  kit: perl-kit
+  original.package.name: dev-perl/HTML-Parser
+  original.package.slot: "0"
+  original.package.version: 3.720.0
