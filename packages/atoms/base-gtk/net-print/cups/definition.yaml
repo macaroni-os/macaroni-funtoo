@@ -1,27 +1,37 @@
 name: cups
-version: 2.4.16
+version: 2.4.16+1
 category: net-print
 use_flags:
-- -acl
 - -kerberos
-- -kernel_linux
-- -openssl
-- -pam
-- -usb
 - -xinetd
-- -zeroconf
 - X
+- acl
 - dbus
+- kernel_linux
+- openssl
+- pam
+- usb
+- zeroconf
+- cups
 requires:
 - name: libpaper
   version: '>=0'
   category: app-text
-- name: gnutls
+- name: openssl
   version: '>=0'
-  category: net-libs
-- name: zlib
+  category: dev-libs
+- name: avahi
   version: '>=0'
-  category: sys-libs
+  category: net-dns
+- name: acl
+  version: '>=0'
+  category: sys-apps
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+- name: pam
+  version: '>=0'
+  category: virtual
 - name: xdg-utils
   version: '>=0'
   category: x11-misc
