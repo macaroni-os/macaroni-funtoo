@@ -1,19 +1,22 @@
 name: xdg-utils
-version: 1.2.1+1
+version: 1.2.1+2
 category: x11-misc
 use_flags:
-- -gnome
 - dbus
+- gnome
 requires:
 - name: File-MimeInfo
+  version: '>=0'
+  category: dev-perl
+- name: Net-DBus
+  version: '>=0'
+  category: dev-perl
+- name: X11-Protocol
   version: '>=0'
   category: dev-perl
 - name: desktop-file-utils
   version: '>=0'
   category: dev-util
-- name: dbus
-  version: '>=0'
-  category: sys-apps
 - name: xprop
   version: '>=0'
   category: x11-apps
