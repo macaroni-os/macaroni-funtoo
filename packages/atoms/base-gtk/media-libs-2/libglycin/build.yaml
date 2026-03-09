@@ -1,11 +1,15 @@
 prelude:
-  # Workaround for dep cycle:
-  # [x11-libs-2/gtk+ x11-libs-2/gdk-pixbuf media-libs-2/libglycin dev-lang-0.56/vala media-gfx/graphviz]
+# Temporory compile gtk4 directly here to avoid to much docker layers.
+# I will review this after the anise-build refactor.
+# Workaround for dep cycle:
+# [x11-libs-2/gtk+ x11-libs-2/gdk-pixbuf media-libs-2/libglycin dev-lang-0.56/vala media-gfx/graphviz]
 - >-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
   USE=" X gdk-pixbuf -gtk " emerge vala -j &&
-  USE="tiff jpeg" emerge media-libs/lcms --nodeps -j
+  USE="tiff jpeg" emerge media-libs/lcms --nodeps -j &&
+  emerge -j gtk
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
