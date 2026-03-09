@@ -4,7 +4,8 @@ prelude:
 - >-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
-  USE=" X gdk-pixbuf -gtk " emerge vala -j
+  USE=" X gdk-pixbuf -gtk " emerge vala -j &&
+  USE="tiff jpeg" emerge media-libs/lcms --nodeps -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
