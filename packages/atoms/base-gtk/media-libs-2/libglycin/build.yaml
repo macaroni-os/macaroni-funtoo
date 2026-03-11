@@ -7,7 +7,7 @@ prelude:
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
   USE=" X gdk-pixbuf -gtk " emerge vala -j &&
-  USE="tiff jpeg" emerge media-libs/lcms --nodeps -j &&
+  USE="tiff jpeg" emerge media-libs/lcms  -j &&
   emerge -j gtk
 
 - |-
@@ -21,9 +21,9 @@ prelude:
   emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
   {{- end }}
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }} && \
+  USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS}  {{ ( index .Values.labels "emerge.packages" ) }} && \
   {{- else }}
-  emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }} && \
+  emerge -j ${JOBS}  {{ ( index .Values.labels "emerge.packages" ) }} && \
   {{- end }}
   export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" && \
   export LUET_PORTAGE_IGNORE_TAR_WARNING=1 && \
@@ -37,6 +37,8 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: at-spi2-atk
+# Temporary workaround to fix docker limit layers
+# to manage with the refactor of anise-build
+- name: macaroni-funtoo-race6
   version: '>=0'
-  category: app-accessibility-2
+  category: seed
