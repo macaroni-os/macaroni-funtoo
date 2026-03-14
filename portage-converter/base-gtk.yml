@@ -359,11 +359,13 @@ artefacts:
 
 - tree: packages/atoms/base-gtk
   packages:
+    - dev-perl/Text-Iconv
     - dev-perl/File-BaseDir
     - dev-perl/File-DesktopEntry
     - dev-perl/File-MimeInfo
     - dev-perl/IPC-System-Simple
     - dev-perl/URI
+    - dev-perl/libwww-perl
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -756,6 +758,68 @@ artefacts:
   packages:
   - dev-libs/libcroco
   - media-libs/libepoxy
+  - x11-misc/xdg-utils
+
+- tree: packages/atoms/base-gtk
+  mutations:
+    uses:
+      - jpeg2k
+      - jpegxl
+      - svg
+      - gtk4
+  packages:
+  - media-libs/libglycin:2
+
+- tree: packages/atoms/base-gtk
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+    uses:
+      - python_targets_python3_9
+      - -python_targets_python3_7
+      - -python_targets_python3_8
+  uses:
+    disabled:
+    - autoipd
+    - bookmarks
+    - doc
+    - howl-compat
+    - mono
+    - nios2
+    - python_single_target_python3_8
+    - python_single_target_python3_7
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - selinux
+    - sh
+    - systemd
+    - test
+    enabled:
+    - dbus
+    - gdbm
+    - gtk
+    - introspection
+    - ipv6
+    - mdnsresponder-compat
+    - nls
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_9
+    #- qt5
+  packages:
+  - net-dns/avahi
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi-autoipd
 
 include_layers:
 - layers/macaroni-funtoo-race6.yaml
