@@ -6,6 +6,7 @@ packages:
   - app-admin/ego:0
   - app-admin/entities:0
   - app-admin/eselect:0
+  - app-admin/macaronictl:0
   - app-admin/perl-cleaner:0
   - app-admin/whip:0
   - app-arch/bzip2:0
@@ -43,6 +44,7 @@ packages:
   - app-shells/bash-completion:0
   - app-shells/bash:0
   - app-shells/gentoo-bashcomp:0
+  - app-text/asciidoc:0
   - app-text/build-docbook-catalog:0
   - app-text/docbook-dsssl-stylesheets:0
   - app-text/docbook-sgml-dtd:3.0
@@ -54,6 +56,7 @@ packages:
   - app-text/docbook-xml-dtd:4.5
   - app-text/docbook-xml-simple-dtd:1.0
   - app-text/docbook-xml-simple-dtd:4.1.2.5
+  - app-text/docbook-xsl-ns-stylesheets:0
   - app-text/docbook-xsl-stylesheets:0
   - app-text/manpager:0
   - app-text/opensp:0
@@ -80,13 +83,13 @@ packages:
   - dev-libs/gobject-introspection:0
   - dev-libs/icu:0
   - dev-libs/inih:0
-  - dev-libs/iniparser:4
   - dev-libs/jsoncpp:0
   - dev-libs/libaio:0
   - dev-libs/libassuan:0
   - dev-libs/libatomic_ops:0
   - dev-libs/libbpf:0
   - dev-libs/libbsd:0
+  - dev-libs/libclc:20
   - dev-libs/libedit:0
   - dev-libs/libev:0
   - dev-libs/libffi:0
@@ -108,6 +111,7 @@ packages:
   - dev-libs/libverto:0
   - dev-libs/libxml2:2
   - dev-libs/libxslt:0
+  - dev-libs/libyaml:0
   - dev-libs/lzo:2
   - dev-libs/mpc:0
   - dev-libs/mpfr:0
@@ -147,6 +151,7 @@ packages:
   - dev-python/PySocks:0
   - dev-python/alabaster:0
   - dev-python/appi:0
+  - dev-python/calver:0
   - dev-python/certifi:0
   - dev-python/cffi:0
   - dev-python/chardet:0
@@ -155,21 +160,27 @@ packages:
   - dev-python/cryptography:0
   - dev-python/cython:0
   - dev-python/docutils:0
+  - dev-python/editables:0
   - dev-python/flit_core:0
   - dev-python/gpep517:0
+  - dev-python/hatch-vcs:0
+  - dev-python/hatchling:0
   - dev-python/idna:0
   - dev-python/imagesize:0
   - dev-python/importlib_metadata:0
   - dev-python/installer:0
   - dev-python/ipaddress:0
   - dev-python/jinja:0
-  - dev-python/libxml2-python:0
+  - dev-python/libxml2-python:2
   - dev-python/libxslt-python:0
+  - dev-python/lxml:0
   - dev-python/mako:0
   - dev-python/markupsafe:0
   - dev-python/mwparserfromhell:0
   - dev-python/namespace-sphinxcontrib:0
   - dev-python/packaging:0
+  - dev-python/pathspec:0
+  - dev-python/pluggy:0
   - dev-python/ply:0
   - dev-python/pycparser:0
   - dev-python/pyelftools:0
@@ -177,6 +188,7 @@ packages:
   - dev-python/pyopenssl:0
   - dev-python/pyparsing:0
   - dev-python/pytz:0
+  - dev-python/pyyaml:0
   - dev-python/requests:0
   - dev-python/semantic_version:0
   - dev-python/setuptools-rust:0
@@ -195,6 +207,7 @@ packages:
   - dev-python/sphinxcontrib-serializinghtml:0
   - dev-python/toml:0
   - dev-python/tomli:0
+  - dev-python/trove-classifiers:0
   - dev-python/typing-extensions:0
   - dev-python/urllib3:0
   - dev-python/wheel:0
@@ -203,17 +216,21 @@ packages:
   - dev-util/cmake:0
   - dev-util/desktop-file-utils:0
   - dev-util/gdbus-codegen:0
-  - dev-util/glib-utils:0
+  - dev-util/glslang:0
   - dev-util/gperf:0
   - dev-util/gtk-doc-am:0
   - dev-util/gtk-doc:0
   - dev-util/intltool:0
   - dev-util/itstool:0
+  - dev-util/maturin:0
   - dev-util/meson:0
   - dev-util/ninja:0
   - dev-util/pkgconf:0
   - dev-util/pkgs-checker:0
   - dev-util/re2c:0
+  - dev-util/spirv-headers:0
+  - dev-util/spirv-llvm-translator:20
+  - dev-util/spirv-tools:0
   - dev-util/vulkan-headers:0
   - dev-util/wayland-scanner:0
   - gnome-extra/yelp-xsl:0
@@ -350,6 +367,7 @@ packages:
   - sys-apps/grep:0
   - sys-apps/groff:0
   - sys-apps/help2man:0
+  - sys-apps/hwdata:0
   - sys-apps/hwids:0
   - sys-apps/install-xattr:0
   - sys-apps/iproute2:0
@@ -387,17 +405,17 @@ packages:
   - sys-devel/binutils:2.40
   - sys-devel/bison:0
   - sys-devel/clang-common:0
-  - sys-devel/clang-runtime:16
-  - sys-devel/clang:16
+  - sys-devel/clang-runtime:20
+  - sys-devel/clang:20
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
   - sys-devel/gcc:12.3.0
   - sys-devel/gettext:0
   - sys-devel/gnuconfig:0
   - sys-devel/libtool:2
-  - sys-devel/lld:16
+  - sys-devel/lld:20
   - sys-devel/llvm-common:0
-  - sys-devel/llvm:16
+  - sys-devel/llvm:20
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
@@ -410,8 +428,8 @@ packages:
   - sys-fs/xfsprogs:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
-  - sys-libs/compiler-rt-sanitizers:16
-  - sys-libs/compiler-rt:16
+  - sys-libs/compiler-rt-sanitizers:20
+  - sys-libs/compiler-rt:20
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
   - sys-libs/e2fsprogs-libs:0
@@ -538,41 +556,9 @@ packages:
   - x11-libs/xtrans:0
   - x11-misc/compose-tables:0
   - x11-misc/shared-mime-info:0
-  - x11-proto/applewmproto:0
-  - x11-proto/bigreqsproto:0
-  - x11-proto/compositeproto:0
-  - x11-proto/damageproto:0
-  - x11-proto/dmxproto:0
-  - x11-proto/dri2proto:0
-  - x11-proto/dri3proto:0
-  - x11-proto/evieproto:0
-  - x11-proto/fixesproto:0
-  - x11-proto/fontcacheproto:0
-  - x11-proto/fontsproto:0
-  - x11-proto/glproto:0
-  - x11-proto/inputproto:0
-  - x11-proto/kbproto:0
-  - x11-proto/lg3dproto:0
-  - x11-proto/presentproto:0
-  - x11-proto/printproto:0
-  - x11-proto/randrproto:0
-  - x11-proto/recordproto:0
-  - x11-proto/renderproto:0
-  - x11-proto/resourceproto:0
-  - x11-proto/scrnsaverproto:0
-  - x11-proto/trapproto:0
-  - x11-proto/videoproto:0
-  - x11-proto/windowswmproto:0
-  - x11-proto/xcalibrateproto:0
-  - x11-proto/xcmiscproto:0
-  - x11-proto/xextproto:0
-  - x11-proto/xf86bigfontproto:0
-  - x11-proto/xf86dgaproto:0
-  - x11-proto/xf86driproto:0
-  - x11-proto/xf86miscproto:0
-  - x11-proto/xf86rushproto:0
-  - x11-proto/xf86vidmodeproto:0
-  - x11-proto/xineramaproto:0
-  - x11-proto/xproto:0
-  - x11-proto/xproxymngproto:0
-  - x11-proto/xwaylandproto:0
+  - x11-misc/util-macros:0
+
+  #- media-libs/lcms:2
+  #- dev-perl/XML-Twig
+  #- sys-apps/dbus
+  #- media-libs/libglycin:2
