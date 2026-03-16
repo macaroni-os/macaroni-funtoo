@@ -1,0 +1,22 @@
+name: libdeflate
+version: "1.24"
+category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Heavily optimized DEFLATE/zlib/gzip (de)compression
+uri:
+- https://github.com/libdeflate/ebiggers
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  IUSE: static-libs test
+  emerge.packages: app-arch/libdeflate
+  kit: core-server-kit
+  original.package.name: app-arch/libdeflate
+  original.package.slot: "0"
+  original.package.version: "1.24"
