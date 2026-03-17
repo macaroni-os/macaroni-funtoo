@@ -1,0 +1,54 @@
+name: libjxl
+version: 0.11.2
+category: media-libs
+use_flags:
+- gdk-pixbuf
+- gif
+- jpeg
+- openexr
+- png
+requires:
+- name: brotli
+  version: '>=0'
+  category: app-arch
+- name: highway
+  version: '>=0'
+  category: dev-cpp
+- name: giflib
+  version: '>=0'
+  category: media-libs
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: openexr
+  version: '>=0'
+  category: media-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: JPEG XL image format reference implementation
+uri:
+- https://github.com/libjxl/libjxl
+license: BSD-3-Clause
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake >=app-portage/elt-patches-20170815 app-arch/xz-utils
+  DEPEND: app-arch/brotli:= dev-cpp/highway media-libs/lcms:2 gdk-pixbuf? ( dev-libs/glib:2
+    x11-libs/gdk-pixbuf:2 ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:=
+    ) openexr? ( media-libs/openexr:= ) png? ( media-libs/libpng:= ) x11-misc/shared-mime-info
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +gdk-pixbuf gif jpeg openexr +png
+  RDEPEND: app-arch/brotli:= dev-cpp/highway media-libs/lcms:2 gdk-pixbuf? ( dev-libs/glib:2
+    x11-libs/gdk-pixbuf:2 ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:=
+    ) openexr? ( media-libs/openexr:= ) png? ( media-libs/libpng:= ) x11-misc/shared-mime-info
+  emerge.packages: media-libs/libjxl
+  kit: media-kit
+  original.package.name: media-libs/libjxl
+  original.package.slot: "0"
+  original.package.version: 0.11.2
