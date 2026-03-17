@@ -1,0 +1,56 @@
+name: libcupsfilters
+version: 2.1.1
+category: net-print
+use_flags:
+- -exif
+- -poppler
+- dbus
+- jpeg
+- png
+- postscript
+- tiff
+requires:
+- name: ghostscript-gpl
+  version: '>=0'
+  category: app-text
+- name: qpdf
+  version: '>=0'
+  category: app-text
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: cups
+  version: '>=0'
+  category: net-print
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: library for developing printing features, split out of cups-filters
+uri:
+- https://github.com/OpenPrinting/libcupsfilters
+license: Apache-2.0
+labels:
+  BDEPEND: '>=sys-devel/gettext-0.18.3 virtual/pkgconfig >=app-portage/elt-patches-20170815'
+  DEPEND: '>=app-text/qpdf-8.3.0:= media-libs/fontconfig media-libs/lcms:2 >=net-print/cups-2
+    !<net-print/cups-filters-2.0.0 exif? ( media-libs/libexif ) dbus? ( sys-apps/dbus
+    ) jpeg? ( media-libs/libjpeg-turbo:= ) postscript? ( app-text/ghostscript-gpl[cups]
+    ) poppler? ( >=app-text/poppler-0.32:=[cxx] ) png? ( media-libs/libpng:= ) tiff?
+    ( media-libs/tiff:= )'
+  IUSE: dbus exif jpeg +poppler +postscript png tiff
+  RDEPEND: '>=app-text/qpdf-8.3.0:= media-libs/fontconfig media-libs/lcms:2 >=net-print/cups-2
+    !<net-print/cups-filters-2.0.0 exif? ( media-libs/libexif ) dbus? ( sys-apps/dbus
+    ) jpeg? ( media-libs/libjpeg-turbo:= ) postscript? ( app-text/ghostscript-gpl[cups]
+    ) poppler? ( >=app-text/poppler-0.32:=[cxx] ) png? ( media-libs/libpng:= ) tiff?
+    ( media-libs/tiff:= )'
+  emerge.packages: net-print/libcupsfilters
+  kit: net-kit
+  original.package.name: net-print/libcupsfilters
+  original.package.slot: "0"
+  original.package.version: 2.1.1
