@@ -1,0 +1,24 @@
+name: libevdev
+version: 1.13.6
+category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Handler library for evdev events
+uri:
+- https://www.freedesktop.org/wiki/Software/libevdev
+- https://gitlab.freedesktop.org/libevdev/libevdev
+license: MIT
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  IUSE: static-libs
+  emerge.packages: dev-libs/libevdev
+  kit: dev-kit
+  original.package.name: dev-libs/libevdev
+  original.package.slot: "0"
+  original.package.version: 1.13.6
