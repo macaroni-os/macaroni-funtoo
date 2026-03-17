@@ -1,0 +1,40 @@
+name: dbus-c++
+version: 0.9.0+3
+category: dev-libs
+use_flags:
+- -ecore
+- -test
+- glib
+- prefix
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Provides a C++ API for D-BUS
+uri:
+- https://sourceforge.net/projects/dbus-cplusplus/
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig test? ( sys-apps/dbus[X] ) >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+  DEPEND: dev-libs/expat sys-apps/dbus ecore? ( dev-libs/efl ) glib? ( dev-libs/glib:2
+    ) dev-util/cppunit
+  IUSE: ecore glib test test
+  RDEPEND: dev-libs/expat sys-apps/dbus ecore? ( dev-libs/efl ) glib? ( dev-libs/glib:2
+    )
+  emerge.packages: dev-libs/dbus-c++
+  kit: dev-kit
+  original.package.name: dev-libs/dbus-c++
+  original.package.slot: "0"
+  original.package.version: 0.9.0-r5
