@@ -1,4 +1,8 @@
 prelude:
+# temporary fix
+- >-
+  sed -i -e 's|-DAVIF_CODEC_LIBGAV1=OFF|-DAVIF_CODEC_LIBGAV1=OFF\n-DAVIF_LIBYUV=OFF|g'
+  /var/git/meta-repo/kits/media-kit/media-libs/libavif/libavif-1.3.0.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
