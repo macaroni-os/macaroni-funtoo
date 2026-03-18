@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
-LUET_BUILD=${LUET_BUILD:-luet-build}
+LUET_BUILD=${LUET_BUILD:-anise-build}
 
 kits=(
   "base"
@@ -13,6 +13,7 @@ kits=(
   "base-xorg2"
   "fonts"
   "base-gtk"
+  "base-media"         # race6
   "base-gtk2"          # race7 (vala)
   "base-editors"       # race7
 
