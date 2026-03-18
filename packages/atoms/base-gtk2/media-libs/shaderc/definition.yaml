@@ -1,0 +1,31 @@
+name: shaderc
+version: "2025.5"
+category: media-libs
+requires:
+- name: glslang
+  version: '>=0'
+  category: dev-util
+- name: spirv-tools
+  version: '>=0'
+  category: dev-util
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A collection of tools, libraries, and tests for Vulkan shader compilation.
+uri:
+- https://github.com/google/shaderc
+license: NOASSERTION
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-util/glslang dev-util/spirv-tools || ( dev-lang/python:3.8 dev-lang/python:3.9
+    dev-lang/python:3.7 dev-lang/python:3.10 ) dev-util/spirv-headers
+  RDEPEND: dev-util/glslang dev-util/spirv-tools
+  emerge.packages: media-libs/shaderc
+  kit: media-kit
+  original.package.name: media-libs/shaderc
+  original.package.slot: "0"
+  original.package.version: "2025.5"
