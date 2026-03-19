@@ -91,249 +91,146 @@ artefacts:
     - dev-libs/libsodium
 
 - tree: packages/atoms/base-xorg
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - cuda
-    - llvm_targets_AArch64
-    - llvm_targets_ARC
-    - llvm_targets_ARM
-    - llvm_targets_AVR
-    - llvm_targets_Hexagon
-    - llvm_targets_Lanai
-    - llvm_targets_MSP430
-    - llvm_targets_Mips
-    - llvm_targets_PowerPC
-    - llvm_targets_RISCV
-    - llvm_targets_Sparc
-    - llvm_targets_SystemZ
-    - llvm_targets_VE
-    - llvm_targets_WebAssembly
-    - llvm_targets_XCore
-  packages:
-    - sys-devel/clang:16
-
-- tree: packages/atoms/base-xorg
-  uses:
-    disabled:
-    - debug
-    - doc
-    - gold
-    - llvm_targets_AArch64
-    - llvm_targets_ARC
-    - llvm_targets_AVR
-    - llvm_targets_Hexagon
-    - llvm_targets_Lanai
-    - llvm_targets_MSP430
-    - llvm_targets_PowerPC
-    - llvm_targets_Sparc
-    - llvm_targets_SystemZ
-    - llvm_targets_VE
-    - llvm_targets_WebAssembly
-    - llvm_targets_XCore
-    - nios2
-    - sh
-    - test
-    - xar
-    enabled:
-    - exegesis
-    - libedit
-    - zstd
-    - z3
-    - abi_x86_64
-    - libffi
-    - llvm_targets_Mips
-    - llvm_targets_RISCV
-    - llvm_targets_ARM
-    - llvm_targets_AMDGPU
-    - llvm_targets_BPF
-    - llvm_targets_NVPTX
-    - llvm_targets_X86
-    - ncurses
-    - xml
-  packages:
-  - sys-devel/llvm:16
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    install:
-      - |
-        export EROOT=${EROOT:-/} ; \
-        mkdir -p ${EROOT}etc/ld.so.conf.d || true ; \
-        echo "
-        /usr/lib/llvm/16/lib
-        /usr/lib/llvm/16/lib64
-        " > ${EROOT}etc/ld.so.conf.d/06-llvm16.conf
-      - eval 'macaronictl env-update || true'
-    uninstall:
-      - >-
-        export EROOT=${EROOT:-/} ;
-        rm -f ${EROOT}etc/ld.so.conf.d/06-llvm16.conf
-
-
-- tree: packages/atoms/base-xorg
   mutations:
     buildtime_deps:
       packages:
         - category: seed
           name: macaroni-funtoo-race4
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - sys-devel/llvm-common
-
-
-- tree: packages/atoms/base-xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - sys-devel/clang-common
-
-- tree: packages/atoms/base-xorg
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - cuda
-    - debug
-    - ompt
-    - test
-    - hwloc
-  packages:
-    - sys-libs/libomp
-
-- tree: packages/atoms/base-xorg
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - sys-libs/compiler-rt:16
-
-- tree: packages/atoms/base-xorg
-  mutations:
-    # Needed to manage upgrade from 1.4-funtoo
     provides:
-      - category: sys-libs-7
-        name: libunwind
-        version: 1.6.2
+      - category: x11-proto
+        name: applewmproto
+        version: "2024.1"
+      - category: x11-proto
+        name: bigreqsproto
+        version: "2024.1"
+      - category: x11-proto
+        name: compositeproto
+        version: "2024.1"
+      - category: x11-proto
+        name: damageproto
+        version: "2024.1"
+      - category: x11-proto
+        name: dmxproto
+        version: "2024.1"
+      - category: x11-proto
+        name: dri2proto
+        version: "2024.1"
+      - category: x11-proto
+        name: dri3proto
+        version: "2024.1"
+      - category: x11-proto
+        name: evieproto
+        version: "2024.1"
+      - category: x11-proto
+        name: fixesproto
+        version: "2024.1"
+      - category: x11-proto
+        name: fontcacheproto
+        version: "2024.1"
+      - category: x11-proto
+        name: fontsproto
+        version: "2024.1"
+      - category: x11-proto
+        name: glproto
+        version: "2024.1"
+      - category: x11-proto
+        name: inputproto
+        version: "2024.1"
+      - category: x11-proto
+        name: kbproto
+        version: "2024.1"
+      - category: x11-proto
+        name: lg3dproto
+        version: "2024.1"
+      - category: x11-proto
+        name: presentproto
+        version: "2024.1"
+      - category: x11-proto
+        name: printproto
+        version: "2024.1"
+      - category: x11-proto
+        name: randrproto
+        version: "2024.1"
+      - category: x11-proto
+        name: recordproto
+        version: "2024.1"
+      - category: x11-proto
+        name: renderproto
+        version: "2024.1"
+      - category: x11-proto
+        name: resourceproto
+        version: "2024.1"
+      - category: x11-proto
+        name: scrnsaverproto
+        version: "2024.1"
+      - category: x11-proto
+        name: trapproto
+        version: "2024.1"
+      - category: x11-proto
+        name: videoproto
+        version: "2024.1"
+      - category: x11-proto
+        name: windowswmproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xcalibrateproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xcmiscproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xextproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xf86bigfontproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xf86dgaproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xf86driproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xf86miscproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xf86rushproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xf86vidmodeproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xineramaproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xproxymngproto
+        version: "2024.1"
+      - category: x11-proto
+        name: xwaylandproto
+        version: "2024.1"
   uses:
     disabled:
     - nios2
     - sh
-    - debug
-    - debug-frame
-    - doc
-    - libatomic
-    - static-libs
   packages:
-    - sys-libs/libunwind
-
-- tree: packages/atoms/base-xorg
-  mutations:
-    buildtime_deps:
-      # Workaround to bug on luet-portage-converter
-      packages:
-        - category: sys-libs
-          name: libunwind
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - sys-libs/libcxxabi
-
-- tree: packages/atoms/base-xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - sys-devel/clang-runtime:16
-    - dev-libs/libpfm
-
-- tree: packages/atoms/base-xorg
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-    - sys-devel/lld:16
-
-- tree: packages/atoms/base-xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
-  uses:
-    disabled:
-    - nios2
-    - sh
-  packages:
-  - x11-proto/applewmproto
-  - x11-proto/bigreqsproto
-  - x11-proto/compositeproto
-  - x11-proto/damageproto
-  - x11-proto/dmxproto
-  - x11-proto/dri2proto
-  - x11-proto/dri3proto
-  - x11-proto/evieproto
-  - x11-proto/fixesproto
-  - x11-proto/fontcacheproto
-  - x11-proto/fontsproto
-  - x11-proto/glproto
-  - x11-proto/inputproto
-  - x11-proto/kbproto
-  - x11-proto/lg3dproto
-  - x11-proto/presentproto
-  - x11-proto/printproto
-  - x11-proto/randrproto
-  - x11-proto/recordproto
-  - x11-proto/renderproto
-  - x11-proto/resourceproto
-  - x11-proto/scrnsaverproto
-  - x11-proto/trapproto
-  - x11-proto/videoproto
-  - x11-proto/windowswmproto
-  - x11-proto/xcalibrateproto
-  - x11-proto/xcmiscproto
-  - x11-proto/xextproto
-  - x11-proto/xf86bigfontproto
-  - x11-proto/xf86dgaproto
-  - x11-proto/xf86driproto
-  - x11-proto/xf86miscproto
-  - x11-proto/xf86rushproto
-  - x11-proto/xf86vidmodeproto
-  - x11-proto/xineramaproto
-  - x11-proto/xproto
-  - x11-proto/xproxymngproto
-  - x11-proto/xwaylandproto
   - x11-base/xorg-proto
 
 - tree: packages/atoms/base-xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
   uses:
     disabled:
     - nios2
     - sh
   packages:
     - dev-libs/gobject-introspection-common
+    - dev-libs/vala-common
 
 - tree: packages/atoms/base-xorg
   mutations:
@@ -524,27 +421,12 @@ artefacts:
   - dev-libs/gobject-introspection
 
 - tree: packages/atoms/base-xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
-  uses:
-    disabled:
-    - emacs
-    - nios2
-    - sh
-  packages:
-  - dev-util/glib-utils
-
-- tree: packages/atoms/base-xorg
   uses:
     disabled:
     - nios2
     - sh
   packages:
   - app-text/yelp-tools
-  - sci-mathematics/z3
 
 - tree: packages/atoms/base-xorg
   uses:

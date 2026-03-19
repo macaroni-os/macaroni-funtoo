@@ -425,6 +425,14 @@ artefacts:
 - tree: packages/atoms/base-tools
   uses:
     disabled:
+    - nios2
+    - sh
+  packages:
+  - sci-mathematics/z3
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
     - forced-sandbox
     - libedit
     - nios2
@@ -756,7 +764,6 @@ artefacts:
     - app-text/docbook-xsl-ns-stylesheets
     - dev-libs/libpfm
 
-
 - tree: packages/atoms/base-tools
   uses:
     disabled:
@@ -974,21 +981,24 @@ artefacts:
   - gnome-extra/yelp-xsl
 
 - tree: packages/atoms/base-tools
+  mutations:
+    uses:
+      - llvm_targets_Mips
+      - llvm_targets_RISCV
+      - llvm_targets_ARM
+      - llvm_targets_AArch64
   uses:
     disabled:
     - nios2
     - sh
     - cuda
-    - llvm_targets_AArch64
     - llvm_targets_ARC
-    - llvm_targets_ARM
     - llvm_targets_AVR
     - llvm_targets_Hexagon
     - llvm_targets_Lanai
     - llvm_targets_MSP430
     - llvm_targets_Mips
     - llvm_targets_PowerPC
-    - llvm_targets_RISCV
     - llvm_targets_Sparc
     - llvm_targets_SystemZ
     - llvm_targets_VE
@@ -998,12 +1008,17 @@ artefacts:
     - sys-devel/clang:20
 
 - tree: packages/atoms/base-tools
+  mutations:
+    uses:
+      - llvm_targets_Mips
+      - llvm_targets_RISCV
+      - llvm_targets_ARM
+      - llvm_targets_AArch64
   uses:
     disabled:
     - debug
     - doc
     - gold
-    - llvm_targets_AArch64
     - llvm_targets_ARC
     - llvm_targets_AVR
     - llvm_targets_Hexagon
@@ -1026,6 +1041,7 @@ artefacts:
     - z3
     - abi_x86_64
     - libffi
+    - llvm_targets_AArch64
     - llvm_targets_Mips
     - llvm_targets_RISCV
     - llvm_targets_ARM
@@ -1055,6 +1071,132 @@ artefacts:
         export EROOT=${EROOT:-/} ;
         rm -f ${EROOT}etc/ld.so.conf.d/06-llvm20.conf
       - eval 'macaronictl env-update || true'
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - clvm
+    - cman
+    - corosync
+    - device-mapper-only
+    - lvm1
+    - lvm2create_initrd
+    - nios2
+    - openais
+    - sanlock
+    - selinux
+    - sh
+    - static-libs
+    - systemd
+    - static
+    enabled:
+    - readline
+    - thin
+    - udev
+  packages:
+  - sys-fs/lvm2
+
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race2
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/llvm-common
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/clang-common
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - cuda
+    - debug
+    - ompt
+    - test
+    - hwloc
+  packages:
+    - sys-libs/libomp
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-libs/compiler-rt:20
+
+- tree: packages/atoms/base-tools
+  mutations:
+    # Needed to manage upgrade from 1.4-funtoo
+    provides:
+      - category: sys-libs-7
+        name: libunwind
+        version: 1.6.2
+  uses:
+    disabled:
+    - nios2
+    - sh
+    - debug
+    - debug-frame
+    - doc
+    - libatomic
+    - static-libs
+  packages:
+    - sys-libs/libunwind
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      # Workaround to bug on luet-portage-converter
+      packages:
+        - category: sys-libs
+          name: libunwind
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-libs/libcxxabi
+
+- tree: packages/atoms/base-tools
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race4
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/clang-runtime:20
+
+- tree: packages/atoms/base-tools
+  uses:
+    disabled:
+    - nios2
+    - sh
+  packages:
+    - sys-devel/lld:20
 
 
 include_layers:
@@ -1112,6 +1254,11 @@ reposcan_contraints:
   packages:
     - dev-lang/python:3.9
     - sys-devel/gcc:12.3.0
+
+    - sys-devel/llvm:20
+    - sys-libs/compiler-rt:20
+    - sys-devel/clang:20
+    - sys-devel/clang-runtime:20
 
 reposcan_disabled_use_flags:
   - build

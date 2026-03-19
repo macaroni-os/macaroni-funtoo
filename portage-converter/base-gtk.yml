@@ -69,6 +69,9 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
+    - name: systemd
+      category: sys-apps
+
 build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
@@ -80,6 +83,26 @@ global_annotations:
         - "^/var/db/pkg/"
 
 artefacts:
+
+- tree: packages/atoms/base-gtk
+  mutations:
+    uses:
+      # workaround to avoid issues from
+      # portage for ghostscript-gpl
+      - cups
+  uses:
+    disabled:
+    - kerberos
+    - debug
+    - java
+    - kerberos
+    - lprng-compat
+    - nios2
+    - selinux
+    - static-libs
+    - xinetd
+  packages:
+    - net-print/cups
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -97,10 +120,9 @@ artefacts:
     - doc
     - test
   packages:
+  - x11-libs/gdk-pixbuf:2
   - media-libs/jasper
   - x11-themes/hicolor-icon-theme
-  - x11-libs/gdk-pixbuf
-  - dev-libs/atk
   - dev-util/gtk-update-icon-cache
 
 - tree: packages/atoms/base-gtk
@@ -167,6 +189,11 @@ artefacts:
         chmod 4750 /usr/libexec/dbus-daemon-launch-helper
 
 - tree: packages/atoms/base-gtk
+  mutations:
+    provides:
+      - category: dev-lang-78
+        name: spidermonkey
+        version: 140.6.0
   uses:
     disabled:
     - cpu_flags_arm_neon
@@ -179,7 +206,7 @@ artefacts:
     - clang
     - jit
   packages:
-  - dev-lang/spidermonkey:78
+  - dev-lang/spidermonkey:0
 
 - tree: packages/atoms/base-gtk
   mutations:
@@ -226,14 +253,6 @@ artefacts:
   packages:
   - app-accessibility/at-spi2-core:2
 
-- tree: packages/atoms/base-gtk
-  uses:
-    disabled:
-    - nios2
-    - sh
-    - test
-  packages:
-  - app-accessibility/at-spi2-atk:2
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -356,6 +375,15 @@ artefacts:
   packages:
   - virtual/perl-File-Path
   - virtual/perl-parent
+  - virtual/perl-Compress-Raw-Bzip2
+  - virtual/perl-Compress-Raw-Zlib
+  - virtual/perl-IO-Compress
+  - virtual/perl-Storable
+  - virtual/perl-Time-HiRes
+  - virtual/perl-Time-Local
+  - virtual/perl-XSLoader
+  - dev-perl/Try-Tiny
+  - dev-libs/libevent
 
 - tree: packages/atoms/base-gtk
   packages:
@@ -426,9 +454,19 @@ artefacts:
     - sh
     - static-libs
   packages:
-    - app-text/qpdf
     - net-libs/glib-networking
     - dev-libs/json-glib
+
+- tree: packages/atoms/base-gtk
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+    - gnutls
+  packages:
+    - app-text/qpdf
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -439,6 +477,18 @@ artefacts:
     - xscreensaver
   packages:
     - dev-lang/tk
+
+- tree: packages/atoms/base-gtk
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race6
+  packages:
+    - app-arch/zopfli
+    - dev-lang/duktape
+    - dev-libs/atk
+    - app-accessibility/at-spi2-atk:2
 
 - tree: packages/atoms/base-gtk
   mutations:
@@ -564,9 +614,11 @@ artefacts:
 
 
 - tree: packages/atoms/base-gtk
+  mutations:
+    uses:
+      - svg
   # Trying to resolve cycles dep.
   # vala -> graphviz -> librsvg -> vala
-  # TODO: Check if we really want vala on libsoup and librsvg.
   replacements:
     buildtime_deps:
       ignore:
@@ -613,10 +665,11 @@ artefacts:
 
 - tree: packages/atoms/base-gtk
   mutations:
+    # workaround for anise-portage-converter issue
     buildtime_deps:
       packages:
-        - category: dev-lang-0.54
-          name: vala
+      - category: dev-lang-0.56
+        name: vala
   uses:
     disabled:
     - doc
@@ -627,6 +680,13 @@ artefacts:
     - dev-libs/libgusb
 
 - tree: packages/atoms/base-gtk
+  uses:
+    disabled:
+      - debug
+  packages:
+    - media-libs/libglycin:2
+
+- tree: packages/atoms/base-gtk
   mutations:
     runtime_deps:
       packages:
@@ -634,12 +694,6 @@ artefacts:
           name: entities-catalog
         - category: macaroni
           name: whip-catalog
-    buildtime_deps:
-      packages:
-        - category: dev-lang-0.54
-          name: vala
-        - category: dev-libs
-          name: libgusb
   uses:
     disabled:
     - argyllcms
@@ -675,6 +729,7 @@ artefacts:
     disabled:
       - introspection
       - qt5
+      - qt6
       - cjk
       - nss
       - jpeg2k
@@ -695,6 +750,7 @@ artefacts:
       - brotli
   packages:
     - net-libs/libsoup:2.4
+    - net-libs/libsoup:3
 
 
 - tree: packages/atoms/base-gtk
@@ -738,7 +794,6 @@ artefacts:
   packages:
   - app-doc/xmltoman
 
-
 - tree: packages/atoms/base-gtk
   uses:
     disabled:
@@ -747,8 +802,22 @@ artefacts:
     - sh
     - static-libs
   packages:
-    - net-libs/rest:0.7
     - x11-themes/gnome-themes-standard
+
+- tree: packages/atoms/base-gtk
+  mutations:
+    provides:
+      - category: net-libs-0.7
+        name: librest
+        version: 0.9.1
+  uses:
+    disabled:
+    - doc
+    - nios2
+    - sh
+    - static-libs
+  packages:
+    - net-libs/rest:1.0
 
 - tree: packages/atoms/base-gtk
   uses:
@@ -820,6 +889,70 @@ artefacts:
         -e avahi &&
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e avahi-autoipd
+
+- tree: packages/atoms/base-gtk
+  uses:
+    disabled:
+      - qt5
+      - test
+      - debug
+      - doc
+      - clang
+  packages:
+    - app-doc/doxygen
+
+- tree: packages/atoms/base-gtk
+  mutations:
+    runtime_deps:
+      packages:
+        - category: macaroni
+          name: entities-catalog
+    uses:
+      - python_targets_python3_9
+      - -python_targets_python3_7
+      - -python_targets_python3_8
+  uses:
+    disabled:
+    - autoipd
+    - bookmarks
+    - doc
+    - howl-compat
+    - mono
+    - nios2
+    - python_single_target_python3_8
+    - python_single_target_python3_7
+    - python_targets_python3_8
+    - python_targets_python3_7
+    - selinux
+    - sh
+    - systemd
+    - test
+    enabled:
+    - dbus
+    - gdbm
+    - gtk
+    - introspection
+    - ipv6
+    - mdnsresponder-compat
+    - nls
+    - python
+    - python_single_target_python3_9
+    - python_targets_python3_9
+    #- qt5
+  packages:
+  - net-dns/avahi
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi &&
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e avahi-autoipd
+
+
 
 include_layers:
 - layers/macaroni-funtoo-race6.yaml

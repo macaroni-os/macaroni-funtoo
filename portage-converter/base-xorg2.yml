@@ -82,6 +82,14 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/base-xorg2
+  uses:
+    disabled:
+      - examples
+  packages:
+    - dev-libs/libyaml
+    - dev-python/pyyaml
+
+- tree: packages/atoms/base-xorg2
   mutations:
     uses:
       - gles
@@ -150,6 +158,8 @@ artefacts:
       packages:
         - category: dev-libs
           name: wayland-protocols
+        - category: dev-python
+          name: pyyaml
   uses:
     disabled:
     - alternate-path
@@ -183,8 +193,6 @@ artefacts:
     - video_cards_gallium-vc4
     - video_cards_gallium-vivante
     - video_cards_i915
-    - video_cards_r100
-    - video_cards_r200
     enabled:
     - sensors
     - unwind
@@ -203,8 +211,11 @@ artefacts:
     - surfaceless
     - vaapi
     - vdpau
+    - vulkan
     - video_cards_amdgpu
     - video_cards_dri3
+    - video_cards_r100
+    - video_cards_r200
     - video_cards_gallium-nouveau
     - video_cards_gallium-r300
     - video_cards_gallium-r600

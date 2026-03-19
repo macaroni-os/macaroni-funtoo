@@ -367,10 +367,25 @@ artefacts:
     - examples
     - jemalloc
   packages:
+    - virtual/ruby-ssl
+
+- tree: packages/atoms/base-lang
+  uses:
+    disabled:
+    - debug
+    - doc
+    - test
+    - static-libs
+    - rubytests
+    - systemtap
+    - xemacs
+    - jit
+    - examples
+    - jemalloc
+  packages:
     - dev-util/colm
     - dev-util/ragel
     - dev-lang/ruby:3.1
-    - virtual/ruby-ssl
     - dev-ruby/rubygems
     - dev-ruby/rake
     - dev-ruby/net-ftp

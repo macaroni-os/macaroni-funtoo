@@ -69,6 +69,9 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
+    - name: systemd
+      category: sys-apps
+
 build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
@@ -82,85 +85,6 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/base-gtk2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race7
-  uses:
-    disabled:
-    - debug
-    - libressl
-    - nios2
-    - sh
-    - static-libs
-    - test
-    enabled:
-    - abi_x86_64
-    - ssl
-    - threads
-  packages:
-  - dev-libs/libevent
-
-- tree: packages/atoms/base-gtk2
-  mutations:
-    runtime_deps:
-      packages:
-        - category: macaroni
-          name: entities-catalog
-    uses:
-      - python_targets_python3_9
-      - -python_targets_python3_7
-      - -python_targets_python3_8
-  uses:
-    disabled:
-    - autoipd
-    - bookmarks
-    - doc
-    - howl-compat
-    - mono
-    - nios2
-    - python_single_target_python3_8
-    - python_single_target_python3_7
-    - python_targets_python3_8
-    - python_targets_python3_7
-    - selinux
-    - sh
-    - systemd
-    - test
-    enabled:
-    - dbus
-    - gdbm
-    - gtk
-    - introspection
-    - ipv6
-    - mdnsresponder-compat
-    - nls
-    - python
-    - python_single_target_python3_9
-    - python_targets_python3_9
-    #- qt5
-  packages:
-  - net-dns/avahi
-  finalizer:
-    shell:
-      - "/bin/bash"
-      - "-c"
-    install:
-      - >-
-        entities merge --specs-dir /usr/share/macaroni/entities/
-        -e avahi &&
-        entities merge --specs-dir /usr/share/macaroni/entities/
-        -e avahi-autoipd
-
-- tree: packages/atoms/base-gtk2
-  replacements:
-    # Break build cycle
-    buildtime_deps:
-      ignore:
-        - category: app-text
-          name: qpdf
-
   uses:
     disabled:
     - ldap
@@ -181,52 +105,8 @@ artefacts:
   - net-print/cups-filters
 
 - tree: packages/atoms/base-gtk2
-  mutations:
-    uses:
-      # Quiet emerge for ghostscript-gpl
-      - cups
-  # Break cycle deps with x11-libs/gtk+[cups] and 
-  replacements:
-    runtime_deps:
-      ignore:
-        - category: net-dns
-          name: avahi
-  uses:
-    disabled:
-    - abi_mips_n32
-    - abi_mips_n64
-    - abi_mips_o32
-    - abi_s390_32
-    - abi_s390_64
-    - abi_x86_32
-    - abi_x86_x32
-    - debug
-    - java
-    - kerberos
-    - lprng-compat
-    - nios2
-    - selinux
-    - static-libs
-    - xinetd
-    - systemd
-    enabled:
-    - sh
-    - X
-    - abi_x86_64
-    - acl
-    - dbus
-    - pam
-    - python
-    - ssl
-    - threads
-    - usb
-    - zeroconf
   packages:
-  - net-print/cups
-
-- tree: packages/atoms/base-gtk2
-  packages:
-    - app-arch/gcab
+    - net-print/libppd
 
 - tree: packages/atoms/base-gtk2
   uses:
@@ -236,16 +116,6 @@ artefacts:
     - gnome-base/dconf
 
 - tree: packages/atoms/base-gtk2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race7
-  packages:
-    - app-arch/zopfli
-    - dev-libs/snowball-stemmer
-
-- tree: packages/atoms/base-gtk2
   uses:
     disabled:
       - buildfont
@@ -253,7 +123,63 @@ artefacts:
   packages:
     - media-fonts/noto-emoji
     - media-fonts/cantarell
-    - x11-misc/xdg-utils
+
+#- tree: packages/atoms/base-gtk2
+#  uses:
+#    disabled:
+#    - aqua
+#    - gtk-doc
+#    - spell
+#    - seccomp
+#    - systemd
+#  packages:
+#  - net-libs/webkit-gtk:4
+#  - net-libs/webkit-gtk:6
+
+- tree: packages/atoms/base-gtk2
+  uses:
+    disabled:
+      - examples
+  packages:
+    - media-libs/libtheora
+
+- tree: packages/atoms/base-gtk2
+  uses:
+    disabled:
+      - examples
+      - static-libs
+      - test
+      - doc
+      - gd
+      - serial
+      - exif
+      - sysprof
+  packages:
+    - dev-libs/gjs
+
+- tree: packages/atoms/base-gtk2
+  uses:
+    disabled:
+      - opencl
+  packages:
+    - media-libs/x264
+
+- tree: packages/atoms/base-gtk2
+  packages:
+    - media-libs/libaom
+   # - media-libs/libdv
+   # - media-libs/faac
+    - media-libs/dav1d
+   # - media-libs/libquicktime
+    - media-video/rav1e
+    - media-libs/libavif
+   # - media-libs/openexr
+    - media-libs/libjxl
+    #- media-libs/svt-av1
+    - media-libs/soxr
+    - media-libs/speexdsp
+    - media-libs/libffado
+    - dev-libs/libmanette
 
 - tree: packages/atoms/base-gtk2
   mutations:
@@ -262,14 +188,72 @@ artefacts:
         - category: seed
           name: macaroni-funtoo-race7
   packages:
-    - virtual/perl-Compress-Raw-Bzip2
-    - virtual/perl-Compress-Raw-Zlib
-    - virtual/perl-IO-Compress
-    - virtual/perl-Storable
-    - virtual/perl-Time-HiRes
-    - virtual/perl-Time-Local
-    - virtual/perl-XSLoader
-    - dev-perl/Try-Tiny
+    - virtual/opencl
+    - dev-util/cppunit
+    - media-libs/libogg
+
+- tree: packages/atoms/base-gtk2
+  packages:
+    - dev-libs/libsigc++:2
+
+- tree: packages/atoms/base-gtk2
+  uses:
+    disabled:
+      - jack
+      # disable mpi on fftw
+      - mpi
+  packages:
+    - app-text/iso-codes
+    - dev-lang/orc
+    - sys-libs/gpm
+    - dev-libs/oniguruma
+    - sys-libs/slang
+    - app-arch/lz4
+    - dev-libs/json-c
+    - app-crypt/tpm2-tss
+    - sys-apps/bubblewrap
+    - sys-apps/tcp-wrappers
+    - sci-libs/fftw
+    - net-libs/libasyncns
+    - net-libs/libcloudproviders
+    - media-libs/graphene
+    - media-libs/gstreamer
+    - media-libs/gst-plugins-base
+    - media-libs/audiofile
+    #- media-libs/gst-plugins-bad
+    - sys-process/numactl
+    - app-text/enchant
+    - app-text/aspell
+    - media-sound/lame
+    - media-libs/shaderc
+
+
+    #- app-misc/lirc
+    #- dev-util/glade
+
+- tree: packages/atoms/base-gtk2
+  # quiet portage
+  mutations:
+    uses:
+      - gtk
+  uses:
+    disabled:
+      - jack
+      - mpi
+  packages:
+    - app-crypt/libsecret
+
+#- tree: packages/atoms/base-gtk2
+#  uses:
+#    disabled:
+#      - aqua
+#      - broadway
+#      - examples
+#      - gtk-doc
+#      - sysprof
+#      - jack
+#  packages:
+#    - x11-libs/gtk:4
 
 
 include_layers:
@@ -288,6 +272,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 
 # Define the list of the files generated by Funtoo reposcan tool.
@@ -360,6 +345,7 @@ reposcan_disabled_use_flags:
   - libressl
   - gtk-doc
   - gles2-only
+  - python_single_target_python2_7
   - python_single_target_python3_6
   - python_single_target_python3_7
   - python_single_target_python3_8
@@ -387,7 +373,14 @@ reposcan_disabled_use_flags:
 
   - debug
 
+  # Move to qt6
+  - qt5
+
   - systemd
+
+  - sysprof
+
+  - jemalloc
 
   # Disable efl/e17
   - ecore

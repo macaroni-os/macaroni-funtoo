@@ -72,7 +72,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -90,7 +90,6 @@ artefacts:
     - doc
     - examples
     - nios2
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -104,7 +103,6 @@ artefacts:
   uses:
     disabled:
     - nios2
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -143,7 +141,6 @@ artefacts:
     disabled:
     - nios2
     - python_targets_pypy3
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -196,16 +193,6 @@ artefacts:
   - dev-python/setuptools-rust
 
 - tree: packages/atoms/base-python
-  mutations:
-    buildtime_deps:
-      # it uses gpep517 that require tomli
-      packages:
-        - category: dev-python
-          name: gpep517
-        - category: dev-python
-          name: installer
-        - category: dev-python
-          name: tomli
   uses:
     disabled:
     - nios2
@@ -218,7 +205,6 @@ artefacts:
   packages:
   - dev-python/appi
   - dev-python/charset_normalizer
-  - dev-python/flit_core
 
 - tree: packages/atoms/base-python
   uses:
@@ -227,7 +213,6 @@ artefacts:
     - python_targets_pypy3
     - python_targets_python3_10
     - python_targets_python3_8
-    - python_targets_python2_7
     - python_targets_python3_7
     - sh
     enabled:
@@ -241,7 +226,6 @@ artefacts:
     - doc
     - nios2
     - python_targets_pypy3
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -259,7 +243,6 @@ artefacts:
     disabled:
     - nios2
     - python_targets_pypy3
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -277,7 +260,6 @@ artefacts:
     - examples
     - nios2
     - python_targets_pypy3
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -293,7 +275,6 @@ artefacts:
     disabled:
     - doc
     - nios2
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -309,7 +290,6 @@ artefacts:
     disabled:
     - doc
     - nios2
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -338,7 +318,6 @@ artefacts:
     disabled:
     - nios2
     - python_targets_pypy3
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -362,8 +341,6 @@ artefacts:
         - category: dev-python
           name: typing-extensions
         - category: dev-python
-          name: wheel
-        - category: dev-python
           name: semantic_version
         - category: dev-python
           name: toml
@@ -375,7 +352,6 @@ artefacts:
     - idna
     - libressl
     - nios2
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
@@ -393,7 +369,6 @@ artefacts:
     - examples
     - nios2
     - python_targets_pypy3
-    - python_targets_python2_7
     - python_targets_python3_10
     - python_targets_python3_8
     - python_targets_python3_7
