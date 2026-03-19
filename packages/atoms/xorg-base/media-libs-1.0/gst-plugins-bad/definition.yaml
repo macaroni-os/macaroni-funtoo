@@ -1,0 +1,101 @@
+name: gst-plugins-bad
+version: 1.26.10
+category: media-libs-1.0
+use_flags:
+- X
+- aac
+- bzip2
+- dts
+- dvd
+- introspection
+- libass
+- modplug
+- mpeg2enc
+- mplex
+- opus
+- orc
+- udev
+- vaapi
+- vnc
+- wayland
+- x265
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: orc
+  version: '>=0'
+  category: dev-lang
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
+- name: wayland-protocols
+  version: '>=0'
+  category: dev-libs
+- name: faad2
+  version: '>=0'
+  category: media-libs
+- name: gstreamer
+  version: '>=0'
+  category: media-libs-1.0
+- name: libass
+  version: '>=0'
+  category: media-libs
+- name: libdca
+  version: '>=0'
+  category: media-libs
+- name: libdvdnav
+  version: '>=0'
+  category: media-libs
+- name: libmodplug
+  version: '>=0'
+  category: media-libs
+- name: opus
+  version: '>=0'
+  category: media-libs
+- name: x265
+  version: '>=0'
+  category: media-libs
+- name: mjpegtools
+  version: '>=0'
+  category: media-video-1
+- name: libva
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Less plugins for GStreamer
+uri:
+- https://gstreamer.freedesktop.org/
+license: LGPL-2+
+labels:
+  BDEPEND: virtual/perl-JSON-PP virtual/pkgconfig sys-apps/sed >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: '>=media-libs/gstreamer-1.26.10:1.0[introspection?] introspection? ( dev-libs/gobject-introspection
+    ) bzip2? ( app-arch/bzip2 ) vnc? ( X? ( x11-libs/libX11 ) ) wayland? ( dev-libs/wayland
+    x11-libs/libdrm dev-libs/wayland-protocols ) orc? ( dev-lang/orc ) vaapi? ( x11-libs/libva
+    udev? ( dev-libs/libgudev ) ) aac? ( media-libs/faad2 ) dts? ( media-libs/libdca
+    orc? ( dev-lang/orc ) ) dvd? ( media-libs/libdvdnav media-libs/libdvdread ) mpeg2enc?
+    ( media-video/mjpegtools ) libass? ( media-libs/libass:= ) opus? ( media-libs/opus:=
+    ) modplug? ( media-libs/libmodplug ) mplex? ( media-video/mjpegtools ) x265? (
+    media-libs/x265 ) dev-util/gtk-doc-am'
+  IUSE: X bzip2 +egl gles2 +introspection +opengl +orc opus udev vaapi vnc wayland
+    aac dts dvb dvd mpeg2enc libass modplug mplex x265
+  RDEPEND: '>=media-libs/gstreamer-1.26.10:1.0[introspection?] introspection? ( dev-libs/gobject-introspection
+    ) bzip2? ( app-arch/bzip2 ) vnc? ( X? ( x11-libs/libX11 ) ) wayland? ( dev-libs/wayland
+    x11-libs/libdrm dev-libs/wayland-protocols ) orc? ( dev-lang/orc ) vaapi? ( x11-libs/libva
+    udev? ( dev-libs/libgudev ) ) aac? ( media-libs/faad2 ) dts? ( media-libs/libdca
+    orc? ( dev-lang/orc ) ) dvd? ( media-libs/libdvdnav media-libs/libdvdread ) mpeg2enc?
+    ( media-video/mjpegtools ) libass? ( media-libs/libass:= ) opus? ( media-libs/opus:=
+    ) modplug? ( media-libs/libmodplug ) mplex? ( media-video/mjpegtools ) x265? (
+    media-libs/x265 )'
+  emerge.packages: media-libs/gst-plugins-bad:1.0
+  kit: media-kit
+  original.package.name: media-libs/gst-plugins-bad
+  original.package.slot: "1.0"
+  original.package.version: 1.26.10
