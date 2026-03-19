@@ -1,5 +1,5 @@
 name: xsetroot
-version: 1.1.2+1
+version: 1.1.3
 category: x11-apps
 use_flags:
 - -ppc-aix
@@ -30,14 +30,13 @@ uri:
 - https://gitlab.freedesktop.org/xorg/app/xsetroot
 license: MIT
 labels:
-  DEPEND: x11-libs/libXmu x11-libs/libX11 x11-misc/xbitmaps x11-libs/libXcursor >=app-portage/elt-patches-20170815
-    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-    ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
-    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig
-  RDEPEND: x11-libs/libXmu x11-libs/libX11 x11-misc/xbitmaps x11-libs/libXcursor
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: x11-libs/libXmu x11-libs/libX11 x11-libs/libXcursor x11-misc/xbitmaps sys-devel/autoconf
+    sys-devel/automake sys-devel/libtool sys-devel/m4 x11-misc/util-macros x11-base/xorg-proto
+  RDEPEND: x11-libs/libXmu x11-libs/libX11 x11-libs/libXcursor x11-misc/xbitmaps
   emerge.packages: x11-apps/xsetroot
   kit: xorg-kit
   original.package.name: x11-apps/xsetroot
   original.package.slot: "0"
-  original.package.version: 1.1.2
+  original.package.version: 1.1.3
