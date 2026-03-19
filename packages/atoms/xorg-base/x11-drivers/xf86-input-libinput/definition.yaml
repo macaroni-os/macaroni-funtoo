@@ -1,5 +1,5 @@
 name: xf86-input-libinput
-version: 1.1.0+3
+version: 1.5.0
 category: x11-drivers
 requires:
 - name: libinput
@@ -28,13 +28,13 @@ description: Driver for xorg-server
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
     ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
-  DEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=dev-libs/libinput-1.5.0:0=
+  DEPEND: x11-base/xorg-server x11-misc/util-macros dev-libs/libinput x11-libs/libXi
+    x11-libs/libXtst x11-base/xorg-proto sys-devel/libtool sys-devel/m4 sys-libs/mtdev
   IUSE: kernel_linux
-  RDEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=dev-libs/libinput-1.5.0:0=
+  RDEPEND: x11-base/xorg-server x11-misc/util-macros dev-libs/libinput x11-libs/libXi
+    x11-libs/libXtst
   emerge.packages: x11-drivers/xf86-input-libinput
   kit: core-gl-kit
   original.package.name: x11-drivers/xf86-input-libinput
   original.package.slot: "0"
-  original.package.version: 1.1.0-r2
+  original.package.version: 1.5.0
