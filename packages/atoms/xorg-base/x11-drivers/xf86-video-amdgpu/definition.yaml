@@ -1,5 +1,5 @@
 name: xf86-video-amdgpu
-version: 23.0.0+3
+version: 25.0.0
 category: x11-drivers
 requires:
 - name: libtool
@@ -23,16 +23,14 @@ annotations:
       - ^/var/db/pkg/
 description: Driver for xorg-server
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
-  DEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm
-  IUSE: kernel_linux
-  RDEPEND: x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm x11-libs/libpciaccess
-    x11-libs/libdrm[video_cards_amdgpu] x11-base/xorg-server[glamor(+),-minimal]
+  BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: media-libs/mesa x11-base/xorg-server udev? ( virtual/libudev:= ) x11-libs/libpciaccess
+    x11-libs/libdrm[video_cards_amdgpu] x11-base/xorg-proto
+  IUSE: udev
+  RDEPEND: media-libs/mesa x11-base/xorg-server udev? ( virtual/libudev:= ) x11-libs/libpciaccess
+    x11-libs/libdrm[video_cards_amdgpu]
   emerge.packages: x11-drivers/xf86-video-amdgpu
   kit: core-gl-kit
   original.package.name: x11-drivers/xf86-video-amdgpu
   original.package.slot: "0"
-  original.package.version: 23.0.0-r1
+  original.package.version: 25.0.0
