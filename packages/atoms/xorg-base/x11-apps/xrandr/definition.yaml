@@ -1,5 +1,5 @@
 name: xrandr
-version: 1.5.1+1
+version: 1.5.3
 category: x11-apps
 requires:
 - name: libXrandr
@@ -18,13 +18,13 @@ uri:
 - https://gitlab.freedesktop.org/xorg/app/xrandr
 license: MIT
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig'
-  DEPEND: '>=x11-libs/libXrandr-1.5 x11-libs/libXrender x11-libs/libX11 x11-misc/util-macros
-    x11-base/xorg-proto'
-  RDEPEND: '>=x11-libs/libXrandr-1.5 x11-libs/libXrender x11-libs/libX11'
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: x11-libs/libXrandr x11-libs/libXrender x11-libs/libX11 sys-devel/autoconf
+    sys-devel/automake sys-devel/libtool sys-devel/m4 x11-misc/util-macros x11-base/xorg-proto
+  RDEPEND: x11-libs/libXrandr x11-libs/libXrender x11-libs/libX11
   emerge.packages: x11-apps/xrandr
   kit: xorg-kit
   original.package.name: x11-apps/xrandr
   original.package.slot: "0"
-  original.package.version: 1.5.1-r1
+  original.package.version: 1.5.3
