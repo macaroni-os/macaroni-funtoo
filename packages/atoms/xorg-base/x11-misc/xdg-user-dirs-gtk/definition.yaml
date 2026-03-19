@@ -1,5 +1,5 @@
 name: xdg-user-dirs-gtk
-version: 0.10+1
+version: "0.14"
 category: x11-misc
 requires:
 - name: glib
@@ -23,11 +23,11 @@ uri:
 - https://www.freedesktop.org/wiki/Software/xdg-user-dirs
 license: GPL-2
 labels:
-  DEPEND: dev-libs/glib >=x11-misc/xdg-user-dirs-0.14 >=x11-libs/gtk+-3.24.12:3 dev-util/intltool
-    virtual/pkgconfig app-arch/xz-utils
-  RDEPEND: dev-libs/glib >=x11-misc/xdg-user-dirs-0.14 >=x11-libs/gtk+-3.24.12:3
+  BDEPEND: sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 x11-libs/gtk+:3 x11-misc/xdg-user-dirs
+  RDEPEND: dev-libs/glib:2 x11-libs/gtk+:3 x11-misc/xdg-user-dirs
   emerge.packages: x11-misc/xdg-user-dirs-gtk
   kit: gnome-kit
   original.package.name: x11-misc/xdg-user-dirs-gtk
   original.package.slot: "0"
-  original.package.version: 0.10-r1
+  original.package.version: "0.14"
