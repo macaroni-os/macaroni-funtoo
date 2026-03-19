@@ -1,5 +1,5 @@
 name: libXfont2
-version: 2.0.4+1
+version: 2.0.7
 category: x11-libs
 use_flags:
 - -doc
@@ -33,20 +33,16 @@ uri:
 - https://gitlab.freedesktop.org/xorg/lib/libXfont2
 license: MIT
 labels:
-  DEPEND: sys-libs/zlib x11-base/xorg-proto x11-libs/libfontenc x11-libs/xtrans bzip2?
-    ( app-arch/bzip2 ) truetype? ( >=media-libs/freetype-2 ) >=app-portage/elt-patches-20170815
-    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-    ppc-aix? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
-    >=media-fonts/font-util-1.2.0 ) x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4
-    >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig
-    doc? ( doc? ( || ( app-text/asciidoc dev-ruby/asciidoctor ) app-text/xmlto app-doc/doxygen
-    app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.3
-    ) )
-  IUSE: bzip2 ipv6 truetype static-libs doc
-  RDEPEND: sys-libs/zlib x11-base/xorg-proto x11-libs/libfontenc x11-libs/xtrans bzip2?
-    ( app-arch/bzip2 ) truetype? ( >=media-libs/freetype-2 )
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: x11-libs/libX11 x11-libs/libXext x11-libs/libfontenc x11-libs/xtrans bzip2?
+    ( app-arch/bzip2 ) truetype? ( media-libs/freetype ) sys-devel/autoconf sys-devel/automake
+    sys-devel/libtool sys-devel/m4 x11-misc/util-macros media-fonts/font-util x11-base/xorg-proto
+  IUSE: bzip2 ipv6 truetype
+  RDEPEND: x11-libs/libX11 x11-libs/libXext x11-libs/libfontenc x11-libs/xtrans bzip2?
+    ( app-arch/bzip2 ) truetype? ( media-libs/freetype )
   emerge.packages: x11-libs/libXfont2
   kit: xorg-kit
   original.package.name: x11-libs/libXfont2
   original.package.slot: "0"
-  original.package.version: 2.0.4
+  original.package.version: 2.0.7
