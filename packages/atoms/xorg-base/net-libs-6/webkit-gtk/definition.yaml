@@ -1,0 +1,112 @@
+name: webkit-gtk
+version: 2.50.4
+category: net-libs-6
+use_flags:
+- -seccomp
+- -spell
+- -systemd
+- X
+- avif
+- gamepad
+- gstreamer
+- introspection
+- jpegxl
+- keyring
+- lcms
+- wayland
+requires:
+- name: at-spi2-core
+  version: '>=0'
+  category: app-accessibility-2
+- name: libsecret
+  version: '>=0'
+  category: app-crypt
+- name: hyphen
+  version: '>=0'
+  category: dev-libs
+- name: libmanette
+  version: '>=0'
+  category: dev-libs
+- name: libtasn1
+  version: '>=0'
+  category: dev-libs
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: libzip
+  version: '>=0'
+  category: dev-libs
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: libavif
+  version: '>=0'
+  category: media-libs
+- name: libjxl
+  version: '>=0'
+  category: media-libs
+- name: libwebp
+  version: '>=0'
+  category: media-libs
+- name: svt-av1
+  version: '>=0'
+  category: media-libs
+- name: woff2
+  version: '>=0'
+  category: media-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-3
+- name: gtk
+  version: '>=0'
+  category: x11-libs-4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open source web browser engine
+uri:
+- https://www.webkitgtk.org
+license: LGPL-2+ BSD
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) || ( dev-lang/ruby:3.2 dev-lang/ruby:3.1 ) virtual/rubygems app-accessibility/at-spi2-core
+    dev-lang/perl dev-util/gdbus-codegen dev-util/gperf dev-util/unifdef sys-devel/bison
+    sys-devel/gettext virtual/pkgconfig wayland? ( dev-util/wayland-scanner ) >=app-portage/elt-patches-20170815
+    app-arch/xz-utils dev-util/ninja dev-util/cmake'
+  DEPEND: app-accessibility/at-spi2-core:2 dev-db/sqlite:3 dev-libs/glib:2 dev-libs/hyphen
+    dev-libs/icu:= dev-libs/libgcrypt:0= dev-libs/libtasn1:= dev-libs/libxml2:2= dev-libs/libxslt
+    media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:=[icu(+)] media-libs/libjpeg-turbo:0=
+    media-libs/libepoxy[egl(+)] media-libs/libglvnd media-libs/libpng:0= media-libs/libwebp:=
+    media-libs/mesa media-libs/woff2 media-libs/svt-av1 net-libs/libsoup:3[introspection?]
+    dev-libs/libzip:= x11-libs/cairo[X?] x11-libs/libdrm avif? ( media-libs/libavif:=
+    ) gamepad? ( dev-libs/libmanette ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0[egl,opengl,opus,X?]
+    media-libs/gst-plugins-bad:1.0 ) introspection? ( dev-libs/gobject-introspection:=
+    ) jpegxl? ( media-libs/libjxl:= ) keyring? ( app-crypt/libsecret ) lcms? ( media-libs/lcms:2
+    ) seccomp? ( sys-apps/bubblewrap sys-libs/libseccomp sys-apps/xdg-dbus-proxy )
+    spell? ( app-text/enchant:2 ) systemd? ( sys-apps/systemd:= ) X? ( x11-libs/libX11
+    ) wayland? ( dev-libs/wayland dev-libs/wayland-protocols ) x11-libs/gtk:4[introspection?,wayland?,X?]
+    x11-libs/gtk:4 dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: avif examples gamepad keyring +gstreamer +introspection pdf jpegxl +jumbo-build
+    lcms seccomp spell systemd wayland X
+  RDEPEND: app-accessibility/at-spi2-core:2 dev-db/sqlite:3 dev-libs/glib:2 dev-libs/hyphen
+    dev-libs/icu:= dev-libs/libgcrypt:0= dev-libs/libtasn1:= dev-libs/libxml2:2= dev-libs/libxslt
+    media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:=[icu(+)] media-libs/libjpeg-turbo:0=
+    media-libs/libepoxy[egl(+)] media-libs/libglvnd media-libs/libpng:0= media-libs/libwebp:=
+    media-libs/mesa media-libs/woff2 media-libs/svt-av1 net-libs/libsoup:3[introspection?]
+    dev-libs/libzip:= x11-libs/cairo[X?] x11-libs/libdrm avif? ( media-libs/libavif:=
+    ) gamepad? ( dev-libs/libmanette ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0[egl,opengl,opus,X?]
+    media-libs/gst-plugins-bad:1.0 ) introspection? ( dev-libs/gobject-introspection:=
+    ) jpegxl? ( media-libs/libjxl:= ) keyring? ( app-crypt/libsecret ) lcms? ( media-libs/lcms:2
+    ) seccomp? ( sys-apps/bubblewrap sys-libs/libseccomp sys-apps/xdg-dbus-proxy )
+    spell? ( app-text/enchant:2 ) systemd? ( sys-apps/systemd:= ) X? ( x11-libs/libX11
+    ) wayland? ( dev-libs/wayland dev-libs/wayland-protocols ) x11-libs/gtk:4[introspection?,wayland?,X?]
+    x11-libs/gtk:4
+  emerge.packages: net-libs/webkit-gtk:6
+  kit: gnome-kit
+  original.package.name: net-libs/webkit-gtk
+  original.package.slot: "6"
+  original.package.version: 2.50.4-r600
