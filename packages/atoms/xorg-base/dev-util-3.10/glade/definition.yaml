@@ -1,0 +1,80 @@
+name: glade
+version: 3.40.0
+category: dev-util-3.10
+use_flags:
+- -gtk-doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- gjs
+- introspection
+- python
+- python_single_target_python3_9
+- webkit
+requires:
+- name: gjs
+  version: '>=0'
+  category: dev-libs
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+- name: webkit-gtk
+  version: '>=0'
+  category: net-libs-4
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A user interface designer for GTK+ and GNOME
+uri:
+- https://glade.gnome.org
+- https://gitlab.gnome.org/GNOME/glade
+license: GPL-2+ FDL-1.1+
+labels:
+  BDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.2 ) dev-libs/libxslt
+    dev-util/itstool sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: app-accessibility/at-spi2-core[introspection?] dev-libs/glib:2 dev-libs/libxml2:2=
+    x11-libs/cairo:= x11-libs/gdk-pixbuf:2[introspection?] x11-libs/gtk+:3[X?,introspection?,wayland?]
+    x11-libs/pango[introspection?] introspection? ( dev-libs/gobject-introspection:=
+    ) gjs? ( dev-libs/gjs ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) x11-libs/gtk+:3[introspection]
+    python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/pygobject:3[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)]
+    ) ) webkit? ( net-libs/webkit-gtk:4 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: X gjs gtk-doc +introspection python wayland webkit python_single_target_python3_10
+    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
+    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: app-accessibility/at-spi2-core[introspection?] dev-libs/glib:2 dev-libs/libxml2:2=
+    x11-libs/cairo:= x11-libs/gdk-pixbuf:2[introspection?] x11-libs/gtk+:3[X?,introspection?,wayland?]
+    x11-libs/pango[introspection?] introspection? ( dev-libs/gobject-introspection:=
+    ) gjs? ( dev-libs/gjs ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) x11-libs/gtk+:3[introspection]
+    python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/pygobject:3[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)]
+    ) ) webkit? ( net-libs/webkit-gtk:4 )
+  emerge.packages: dev-util/glade:3.10
+  kit: gnome-kit
+  original.package.name: dev-util/glade
+  original.package.slot: "3.10"
+  original.package.version: 3.40.0-r1
