@@ -1,14 +1,14 @@
 name: mjpegtools
-version: 2.1.0+1
+version: 2.1.0+2
 category: media-video-1
 use_flags:
+- -sdlgfx
 - cpu_flags_x86_mmx
 - dv
 - gtk
 - png
 - quicktime
 - sdl
-- sdlgfx
 requires:
 - name: libquicktime
   version: '>=0'
@@ -16,6 +16,9 @@ requires:
 - name: libsdl
   version: '>=0'
   category: media-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
