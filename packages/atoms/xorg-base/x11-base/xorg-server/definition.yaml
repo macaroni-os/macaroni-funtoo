@@ -1,13 +1,13 @@
 name: xorg-server
-version: 21.1.21
+version: 21.1.21+1
 category: x11-base
 use_flags:
-- -minimal
 - -selinux
 - -systemd
 - -unwind
 - elogind
 - kdrive
+- minimal
 - udev
 - xephyr
 - xnest
@@ -15,6 +15,12 @@ use_flags:
 - xnest
 - suid
 requires:
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
 - name: dbus
   version: '>=0'
   category: sys-apps
@@ -25,6 +31,12 @@ requires:
   version: '>=0'
   category: x11-apps
 - name: libXv
+  version: '>=0'
+  category: x11-libs
+- name: libdrm
+  version: '>=0'
+  category: x11-libs
+- name: libxshmfence
   version: '>=0'
   category: x11-libs
 - name: xcb-util-image
