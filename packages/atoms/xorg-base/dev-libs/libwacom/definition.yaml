@@ -1,5 +1,5 @@
 name: libwacom
-version: 2.17.0
+version: 2.17.0+1
 category: dev-libs
 use_flags:
 - -doc
@@ -7,9 +7,12 @@ requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
+- name: libevdev
+  version: '>=0'
+  category: dev-libs
 - name: libgudev
   version: '>=0'
-  category: virtual
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -17,7 +20,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Library for identifying Wacom tablets and their model-specific features
+description: libwacom is a tablet description library
 uri:
 - https://github.com/linuxwacom/libwacom
 license: MIT
