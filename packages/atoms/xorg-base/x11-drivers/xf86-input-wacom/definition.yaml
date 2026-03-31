@@ -1,13 +1,13 @@
 name: xf86-input-wacom
-version: 1.2.4
+version: 1.2.4+1
 category: x11-drivers
-use_flags:
-- -ppc-aix
-- -x86-winnt
 requires:
 - name: libwacom
   version: '>=0'
   category: dev-libs
+- name: libudev
+  version: '>=0'
+  category: virtual
 - name: xorg-server
   version: '>=0'
   category: x11-base
@@ -27,10 +27,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Driver for Wacom tablets and drawing devices
+description: X.Org driver for Wacom devices
 uri:
-- http://linuxwacom.sourceforge.net/
-license: GPL-2
+- https://github.com/linuxwacom/xf86-input-wacom
+license: MIT
 labels:
   BDEPEND: virtual/pkgconfig virtual/pkgconfig >=app-portage/elt-patches-20170815
     || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
