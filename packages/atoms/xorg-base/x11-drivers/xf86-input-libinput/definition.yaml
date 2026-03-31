@@ -1,19 +1,16 @@
 name: xf86-input-libinput
-version: 1.5.0
+version: 1.5.0+1
 category: x11-drivers
 requires:
 - name: libinput
   version: '>=0'
   category: dev-libs
-- name: libtool
-  version: '>=0'
-  category: sys-devel-2
-- name: m4
-  version: '>=0'
-  category: sys-devel
 - name: xorg-server
   version: '>=0'
   category: x11-base
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
 - name: util-macros
   version: '>=0'
   category: x11-misc
@@ -30,7 +27,6 @@ labels:
     ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: x11-base/xorg-server x11-misc/util-macros dev-libs/libinput x11-libs/libXi
     x11-libs/libXtst x11-base/xorg-proto sys-devel/libtool sys-devel/m4 sys-libs/mtdev
-  IUSE: kernel_linux
   RDEPEND: x11-base/xorg-server x11-misc/util-macros dev-libs/libinput x11-libs/libXi
     x11-libs/libXtst
   emerge.packages: x11-drivers/xf86-input-libinput
