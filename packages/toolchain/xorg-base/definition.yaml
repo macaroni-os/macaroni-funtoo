@@ -4,10 +4,16 @@ version: "1"
 description: "Virtual package to install portage meta data of the xorg-base packages"
 requires:
   - name: gcr
+    category: app-crypt-4
+    version: '>=0'
+  - name: gcr
     category: app-crypt
     version: '>=0'
   - name: eselect-notify-send
     category: app-eselect
+    version: '>=0'
+  - name: lirc
+    category: app-misc
     version: '>=0'
   - name: wayland-utils
     category: app-misc
@@ -24,19 +30,10 @@ requires:
   - name: robin-hood-hashing
     category: dev-cpp
     version: '>=0'
-  - name: libsigc++
-    category: dev-libs-2
-    version: '>=0'
-  - name: libsigc++
-    category: dev-libs-3
-    version: '>=0'
   - name: dbus-glib
     category: dev-libs
     version: '>=0'
   - name: double-conversion
-    category: dev-libs
-    version: '>=0'
-  - name: libevdev
     category: dev-libs
     version: '>=0'
   - name: libinput
@@ -47,6 +44,9 @@ requires:
     version: '>=0'
   - name: tinyxml
     category: dev-libs
+    version: '>=0'
+  - name: glade
+    category: dev-util-3.10
     version: '>=0'
   - name: volk
     category: dev-util
@@ -78,17 +78,77 @@ requires:
   - name: cogl
     category: media-libs-1.0
     version: '>=0'
+  - name: gst-plugins-bad
+    category: media-libs-1.0
+    version: '>=0'
+  - name: aalib
+    category: media-libs
+    version: '>=0'
+  - name: faac
+    category: media-libs
+    version: '>=0'
+  - name: faad2
+    category: media-libs
+    version: '>=0'
+  - name: libdv
+    category: media-libs
+    version: '>=0'
+  - name: libquicktime
+    category: media-libs
+    version: '>=0'
+  - name: libsdl
+    category: media-libs
+    version: '>=0'
   - name: libuninameslist
+    category: media-libs
+    version: '>=0'
+  - name: portaudio
+    category: media-libs
+    version: '>=0'
+  - name: sbc
+    category: media-libs
+    version: '>=0'
+  - name: svt-av1
     category: media-libs
     version: '>=0'
   - name: vulkan-layers
     category: media-libs
+    version: '>=0'
+  - name: webrtc-audio-processing
+    category: media-libs
+    version: '>=0'
+  - name: x265
+    category: media-libs
+    version: '>=0'
+  - name: jack2
+    category: media-sound-2
+    version: '>=0'
+  - name: pulseaudio
+    category: media-sound
+    version: '>=0'
+  - name: mjpegtools
+    category: media-video-1
+    version: '>=0'
+  - name: webkit-gtk
+    category: net-libs-4
+    version: '>=0'
+  - name: webkit-gtk
+    category: net-libs-6
+    version: '>=0'
+  - name: bluez
+    category: net-wireless
+    version: '>=0'
+  - name: realtime-base
+    category: sys-auth
     version: '>=0'
   - name: libutempter
     category: sys-libs
     version: '>=0'
   - name: mtdev
     category: sys-libs
+    version: '>=0'
+  - name: jack
+    category: virtual
     version: '>=0'
   - name: appres
     category: x11-apps
@@ -198,6 +258,9 @@ requires:
   - name: xsetroot
     category: x11-apps
     version: '>=0'
+  - name: xsm
+    category: x11-apps
+    version: '>=0'
   - name: xvinfo
     category: x11-apps
     version: '>=0'
@@ -261,6 +324,12 @@ requires:
   - name: xf86-video-vmware
     category: x11-drivers
     version: '>=0'
+  - name: vte
+    category: x11-libs-2.91
+    version: '>=0'
+  - name: gtk
+    category: x11-libs-4
+    version: '>=0'
   - name: libXfont2
     category: x11-libs
     version: '>=0'
@@ -316,9 +385,6 @@ requires:
     category: x11-misc
     version: '>=0'
   - name: xkeyboard-config
-    category: x11-misc
-    version: '>=0'
-  - name: xorg-cf-files
     category: x11-misc
     version: '>=0'
   - name: xterm
