@@ -1,5 +1,5 @@
 name: modemmanager
-version: 1.24.0
+version: 1.24.0+1
 category: net-misc
 use_flags:
 - -mbim
@@ -32,11 +32,11 @@ uri:
 - https://www.freedesktop.org/wiki/Software/ModemManager/
 license: GPL-2+
 labels:
-  BDEPEND: dev-util/gdbus-codegen dev-util/glib-utils >=dev-util/gtk-doc-am-1 >=sys-devel/gettext-0.19.8
-    virtual/pkgconfig vala? ( || ( dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46
-    dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36 )
-    ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 >=app-portage/elt-patches-20170815
-    app-arch/xz-utils virtual/pkgconfig
+  BDEPEND: dev-util/gdbus-codegen >=dev-util/gtk-doc-am-1 >=sys-devel/gettext-0.19.8
+    virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52
+    dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42
+    dev-lang/vala:0.40 dev-lang/vala:0.36 ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils virtual/pkgconfig
   DEPEND: sys-apps/dbus >=dev-libs/glib-2.56.0:2 udev? ( >=dev-libs/libgudev-232:=
     ) introspection? ( >=dev-libs/gobject-introspection-0.9.6:= ) mbim? ( >=net-libs/libmbim-1.29.2
     ) policykit? ( sys-auth/polkit[elogind?,introspection?] ) qmi? ( >=net-libs/libqmi-1.33.2:=[qrtr?]
@@ -51,4 +51,4 @@ labels:
   kit: net-kit
   original.package.name: net-misc/modemmanager
   original.package.slot: "0"
-  original.package.version: 1.24.0
+  original.package.version: 1.24.0-r1
