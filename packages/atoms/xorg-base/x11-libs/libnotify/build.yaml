@@ -1,4 +1,9 @@
 prelude:
+# Quiet Portage solver
+- >-
+  mkdir -p /etc/portage/package.mask &&
+  echo "<dev-libs/glib-2.86.0" > /etc/portage/package.mask/00-my.mask
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
