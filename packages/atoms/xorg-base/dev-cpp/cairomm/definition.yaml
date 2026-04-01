@@ -1,13 +1,13 @@
 name: cairomm
-version: 1.14.5
+version: 1.14.5+1
 category: dev-cpp
 use_flags:
-- -doc
+- -gtk-doc
 - X
 requires:
 - name: libsigc++
   version: '>=0'
-  category: dev-libs-2
+  category: dev-libs-3
 - name: cairo
   version: '>=0'
   category: x11-libs
@@ -20,7 +20,8 @@ annotations:
       - ^/var/db/pkg/
 description: C++ bindings for the Cairo vector graphics library
 uri:
-- https://www.cairographics.org/cairomm/
+- https://cairographics.org/cairomm/
+- https://gitlab.freedesktop.org/cairo/cairomm
 license: LGPL-2+
 labels:
   BDEPEND: virtual/pkgconfig gtk-doc? ( || ( dev-lang/python:3.8 dev-lang/python:3.9
