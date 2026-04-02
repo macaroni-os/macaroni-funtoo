@@ -1,4 +1,10 @@
 prelude:
+# temporary fix until next race
+- >-
+  cd /var/git/meta-repo/kits/python-modules-kit/dev-python/cryptography &&
+  rm cryptography-46.0.5-r1.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/python-modules-kit/refs/heads/mark-iii/dev-python/cryptography/cryptography-46.0.5-r1.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
