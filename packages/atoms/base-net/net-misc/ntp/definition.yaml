@@ -1,5 +1,5 @@
 name: ntp
-version: 4.2.8+1
+version: 4.2.8+2
 category: net-misc
 use_flags:
 - -caps
@@ -15,6 +15,9 @@ use_flags:
 - ssl
 requires:
 - name: libevent
+  version: '>=0'
+  category: dev-libs
+- name: openssl
   version: '>=0'
   category: dev-libs
 - name: readline
