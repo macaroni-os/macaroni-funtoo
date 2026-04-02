@@ -1,20 +1,19 @@
 name: libproxy
-version: 0.5.12
+version: 0.5.12+1
 category: net-libs
 use_flags:
-- -kde
-- -mono
-- -spidermonkey
-- -webkit
+- -duktape
+- -gtk-doc
+- -vala
+- introspection
 - gnome
-- networkmanager
 requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
-- name: dbus
+- name: gsettings-desktop-schemas
   version: '>=0'
-  category: sys-apps
+  category: gnome-base
 annotations:
   subsets:
     rules:
@@ -22,10 +21,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Library for automatic proxy configuration management
 uri:
-- https://github.com/libproxy/libproxy
-license: LGPL-2.1+
+- http://libproxy.github.io/libproxy
+license: LGPL-2.1
 labels:
   BDEPEND: virtual/pkgconfig gtk-doc? ( dev-util/gi-docgen ) vala? ( || ( dev-lang/vala:0.56
     dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46
