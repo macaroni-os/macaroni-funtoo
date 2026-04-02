@@ -1,0 +1,31 @@
+name: libqrtr-glib
+version: 1.2.2
+category: net-libs
+use_flags:
+- -gtk-doc
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qualcomm IPC Router protocol helper library
+uri:
+- https://gitlab.freedesktop.org/mobile-broadband/libqrtr-glib
+license: LGPL-2
+labels:
+  BDEPEND: virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: '>=dev-libs/glib-2.56:2 dev-libs/gobject-introspection'
+  IUSE: gtk-doc
+  RDEPEND: '>=dev-libs/glib-2.56:2 dev-libs/gobject-introspection'
+  emerge.packages: net-libs/libqrtr-glib
+  kit: net-kit
+  original.package.name: net-libs/libqrtr-glib
+  original.package.slot: "0"
+  original.package.version: 1.2.2
