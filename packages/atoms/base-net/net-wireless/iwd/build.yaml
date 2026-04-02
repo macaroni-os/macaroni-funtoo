@@ -1,7 +1,4 @@
 prelude:
-# temporary fix
-- >-
-  cp -rf files/ /var/git/meta-repo/kits/core-hw-kit/net-wireless/iwd/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -29,6 +26,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: ell
+- name: macaroni-funtoo-race8
   version: '>=0'
-  category: dev-libs
+  category: seed
