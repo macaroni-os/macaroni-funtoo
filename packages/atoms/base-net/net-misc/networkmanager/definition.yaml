@@ -1,5 +1,5 @@
 name: networkmanager
-version: 1.54.3
+version: 1.54.3+1
 category: net-misc
 use_flags:
 - -audit
@@ -8,14 +8,10 @@ use_flags:
 - -gtk-doc
 - -iwd
 - -libedit
-- -nftables
 - -ofono
 - -ovs
-- -prefix
 - -psl
-- -selinux
 - -teamd
-- -test
 - bluetooth
 - concheck
 - connection-sharing
@@ -24,6 +20,7 @@ use_flags:
 - introspection
 - iptables
 - modemmanager
+- nftables
 - nss
 - policykit
 - ppp
@@ -32,9 +29,6 @@ use_flags:
 - vala
 - wifi
 requires:
-- name: gobject-introspection
-  version: '>=0'
-  category: dev-libs
 - name: newt
   version: '>=0'
   category: dev-libs
@@ -48,6 +42,9 @@ requires:
   version: '>=0'
   category: net-dns
 - name: iptables
+  version: '>=0'
+  category: net-firewall
+- name: nftables
   version: '>=0'
   category: net-firewall
 - name: libndp
@@ -74,9 +71,6 @@ requires:
 - name: resolvconf
   version: '>=0'
   category: virtual
-- name: jansson
-  version: '>=0'
-  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -86,8 +80,8 @@ annotations:
       - ^/var/db/pkg/
 description: A set of co-operative tools that make networking simple and straightforward
 uri:
-- https://wiki.gnome.org/Projects/NetworkManager
-license: GPL-2+ LGPL-2.1+
+  - https://wiki.gnome.org/Projects/NetworkManager
+license: GPL-2+ LGPL-2.1
 labels:
   BDEPEND: dev-util/gdbus-codegen gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.1.2
     ) dev-util/intltool sys-devel/gettext introspection? ( || ( ( dev-lang/python:3.8
