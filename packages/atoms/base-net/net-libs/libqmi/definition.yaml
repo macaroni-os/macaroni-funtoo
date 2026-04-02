@@ -1,17 +1,20 @@
 name: libqmi
-version: 1.38.0
+version: 1.38.0+1
 category: net-libs
 use_flags:
 - -gtk-doc
-- -mbim
-- -qrtr
+- mbim
+- qrtr
 requires:
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
 - name: libgudev
   version: '>=0'
   category: dev-libs
+- name: libmbim
+  version: '>=0'
+  category: net-libs
+- name: libqrtr-glib
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
