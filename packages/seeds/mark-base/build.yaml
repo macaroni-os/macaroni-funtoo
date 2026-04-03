@@ -25,7 +25,7 @@ prelude:
   rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a &&
   anise rm dev-python/libxml2-python jq --nodeps &&
-  anise i jq-bin macaronictl --nodeps &&
+  anise i jq-bin macaronictl whip whip-catalog --nodeps &&
   anise upgrade --sync-repos --deep &&
   anise cleanup --purge-repos &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
