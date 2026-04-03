@@ -4,7 +4,7 @@ requires:
   version: ">=0"
 env:
 - JOBS=10
-- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://distfiles.macaronios.org/mark-distfiles https://dl.macaronios.org/repos/distfiles"'
+- 'GENTOO_MIRRORS="https://distfiles.macaronios.org/mark-distfiles https://dl.macaronios.org/repos/distfiles https://distfiles.macaronios.org"'
 - PYTHON_TARGETS="python3_9"
 - PYTHON_SINGLE_TARGET="python3_9"
 prelude:
@@ -24,7 +24,7 @@ prelude:
   anise repo list &&
   rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a &&
-  anise rm dev-python/libxml2-python jq whip whip-catalog --nodeps &&
+  anise rm dev-python/libxml2-python jq --nodeps &&
   anise i jq-bin macaronictl --nodeps &&
   anise upgrade --sync-repos --deep &&
   anise cleanup --purge-repos &&
