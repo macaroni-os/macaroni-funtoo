@@ -1,5 +1,5 @@
 name: pax-utils
-version: 1.2.4+3
+version: 1.3.10
 category: app-misc
 use_flags:
 - -caps
@@ -26,37 +26,31 @@ uri:
 - https://wiki.gentoo.org/index.php?title=Project:Hardened/PaX_Utilities
 license: GPL-2
 labels:
-  DEPEND: caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_7?
+  BDEPEND: caps? ( virtual/pkgconfig ) man? ( app-text/xmlto ) >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: caps? ( sys-libs/libcap ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
     ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
     ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) python_single_target_python3_7? ( dev-python/pyelftools[python_targets_python3_7(-)]
-    ) python_single_target_python3_9? ( dev-python/pyelftools[python_targets_python3_9(-)]
-    ) python_single_target_python3_8? ( dev-python/pyelftools[python_targets_python3_8(-)]
-    ) python_single_target_python2_7? ( dev-python/pyelftools[python_targets_python2_7(-)]
-    ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)]
-    ) ) seccomp? ( sys-libs/libseccomp ) caps? ( virtual/pkgconfig ) seccomp? ( virtual/pkgconfig
-    ) app-arch/xz-utils
-  IUSE: caps debug python seccomp python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_single_target_python2_7 python_single_target_python3_10
-    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 python_targets_python2_7
-    python_targets_python3_10
-  RDEPEND: caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_7?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_7?
+    ( dev-python/pyelftools[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/pyelftools[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-python/pyelftools[python_targets_python3_8(-)] ) )
+  IUSE: caps man python seccomp python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
+  RDEPEND: caps? ( sys-libs/libcap ) python? ( python_single_target_python3_10? (
+    dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
     ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
     ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
-    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python2_7?
-    ( >=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7]
-    ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) python_single_target_python3_7? ( dev-python/pyelftools[python_targets_python3_7(-)]
-    ) python_single_target_python3_9? ( dev-python/pyelftools[python_targets_python3_9(-)]
-    ) python_single_target_python3_8? ( dev-python/pyelftools[python_targets_python3_8(-)]
-    ) python_single_target_python2_7? ( dev-python/pyelftools[python_targets_python2_7(-)]
-    ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)]
-    ) ) seccomp? ( sys-libs/libseccomp )
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_10?
+    ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_7?
+    ( dev-python/pyelftools[python_targets_python3_7(-)] ) python_single_target_python3_9?
+    ( dev-python/pyelftools[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-python/pyelftools[python_targets_python3_8(-)] ) )
   emerge.packages: app-misc/pax-utils
-  kit: core-kit
+  kit: security-kit
   original.package.name: app-misc/pax-utils
   original.package.slot: "0"
-  original.package.version: 1.2.4
+  original.package.version: 1.3.10
