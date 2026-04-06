@@ -23,7 +23,7 @@ kits=(
   "base-fs"            # race8
 
   "db"                 # race9 (db)
-  "base-qt"            # race9 (qtcore)
+  "base-qt6"            # race9 (qtcore)
   "base-audio"         # race9
   "base-video"         # race9
 
