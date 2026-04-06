@@ -1,0 +1,28 @@
+name: qtnetworkauth
+version: 6.10.1
+category: dev-qt-6
+requires:
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Network authorization library for the Qt framework
+uri:
+- https://invent.kde.org/qt/qt/
+license: GPL-3
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake dev-lang/perl virtual/pkgconfig
+  DEPEND: dev-qt/qtbase:6
+  IUSE: debug test
+  RDEPEND: dev-qt/qtbase:6
+  emerge.packages: dev-qt/qtnetworkauth:6
+  kit: qt-kit
+  original.package.name: dev-qt/qtnetworkauth
+  original.package.slot: "6"
+  original.package.version: 6.10.1
