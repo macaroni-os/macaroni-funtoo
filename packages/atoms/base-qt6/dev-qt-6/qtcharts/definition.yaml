@@ -1,0 +1,30 @@
+name: qtcharts
+version: 6.10.1
+category: dev-qt-6
+use_flags:
+- qml
+requires:
+- name: qtdeclarative
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Module provides a set of easy-to-use chart components
+uri:
+- https://invent.kde.org/qt/qt/
+license: GPL-3
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake dev-lang/perl virtual/pkgconfig
+  DEPEND: dev-qt/qtbase:6[gui] qml? ( dev-qt/qtdeclarative:6 )
+  IUSE: qml debug test
+  RDEPEND: dev-qt/qtbase:6[gui] qml? ( dev-qt/qtdeclarative:6 )
+  emerge.packages: dev-qt/qtcharts:6
+  kit: qt-kit
+  original.package.name: dev-qt/qtcharts
+  original.package.slot: "6"
+  original.package.version: 6.10.1
