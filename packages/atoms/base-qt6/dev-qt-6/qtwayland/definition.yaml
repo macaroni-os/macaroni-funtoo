@@ -1,0 +1,41 @@
+name: qtwayland
+version: 6.10.1
+category: dev-qt-6
+use_flags:
+- qml
+- vulkan
+requires:
+- name: qtdeclarative
+  version: '>=0'
+  category: dev-qt-6
+- name: wayland-scanner
+  version: '>=0'
+  category: dev-util
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Wayland platform plugin for Qt
+uri:
+- https://invent.kde.org/qt/qt/
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3'
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake dev-lang/perl virtual/pkgconfig
+  DEPEND: dev-libs/wayland dev-qt/qtbase:6 dev-qt/qtsvg:6 dev-util/wayland-scanner
+    media-libs/libglvnd x11-libs/libxkbcommon qml? ( dev-qt/qtdeclarative:6 ) vulkan?
+    ( dev-util/vulkan-headers )
+  IUSE: qml vulkan debug test
+  RDEPEND: dev-libs/wayland dev-qt/qtbase:6 dev-qt/qtsvg:6 dev-util/wayland-scanner
+    media-libs/libglvnd x11-libs/libxkbcommon qml? ( dev-qt/qtdeclarative:6 ) vulkan?
+    ( dev-util/vulkan-headers )
+  emerge.packages: dev-qt/qtwayland:6
+  kit: qt-kit
+  original.package.name: dev-qt/qtwayland
+  original.package.slot: "6"
+  original.package.version: 6.10.1
