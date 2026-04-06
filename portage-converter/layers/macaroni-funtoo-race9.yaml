@@ -9,41 +9,53 @@ packages:
   - app-admin/ego:0
   - app-admin/entities:0
   - app-admin/eselect:0
+  - app-admin/gpu-configurator:0
+  - app-admin/macaronictl:0
   - app-admin/openrc-settingsd:0
   - app-admin/perl-cleaner:0
   - app-admin/whip:0
+  - app-arch/brotli:0
   - app-arch/bzip2:0
   - app-arch/cabextract:0
   - app-arch/cpio:0
-  - app-arch/gcab:0
   - app-arch/gzip:0
   - app-arch/libarchive:0
+  - app-arch/libdeflate:0
   - app-arch/lz4:0
   - app-arch/rpm2targz:0
   - app-arch/tar:0
   - app-arch/unzip:0
   - app-arch/xz-utils:0
+  - app-arch/zip:0
   - app-arch/zopfli:0
   - app-arch/zstd:0
   - app-cdr/cdrtools:0
   - app-crypt/argon2:0
   - app-crypt/gcr:0
+  - app-crypt/gcr:4
   - app-crypt/gnupg:0
   - app-crypt/gpgme:1
   - app-crypt/libb2:0
   - app-crypt/libmd:0
+  - app-crypt/libsecret:0
   - app-crypt/mit-krb5:0
   - app-crypt/p11-kit:0
   - app-crypt/pinentry:0
   - app-crypt/rhash:0
+  - app-crypt/tpm2-tss:0
   - app-crypt/trousers:0
   - app-doc/doxygen:0
   - app-doc/xmltoman:0
   - app-editors/nano:0
   - app-editors/vim-core:0
   - app-editors/vim:0
+  - app-eselect/eselect-blas:0
+  - app-eselect/eselect-cblas:0
+  - app-eselect/eselect-cdparanoia:0
   - app-eselect/eselect-ctags:0
   - app-eselect/eselect-fontconfig:0
+  - app-eselect/eselect-lapack:0
+  - app-eselect/eselect-lib-bin-symlink:0
   - app-eselect/eselect-notify-send:0
   - app-eselect/eselect-python:0
   - app-eselect/eselect-ruby:0
@@ -52,6 +64,7 @@ packages:
   - app-misc/ca-certificates:0
   - app-misc/editor-wrapper:0
   - app-misc/jq:0
+  - app-misc/lirc:0
   - app-misc/mime-types:0
   - app-misc/pax-utils:0
   - app-misc/screen:0
@@ -64,6 +77,7 @@ packages:
   - app-shells/bash:0
   - app-shells/gentoo-bashcomp:0
   - app-text/asciidoc:0
+  - app-text/aspell:0
   - app-text/build-docbook-catalog:0
   - app-text/docbook-dsssl-stylesheets:0
   - app-text/docbook-sgml-dtd:3.0
@@ -78,7 +92,10 @@ packages:
   - app-text/docbook-xsl-ns-stylesheets:0
   - app-text/docbook-xsl-stylesheets:0
   - app-text/docbook2X:0
+  - app-text/enchant:2
   - app-text/ghostscript-gpl:0
+  - app-text/hunspell:0
+  - app-text/iso-codes:0
   - app-text/libpaper:0
   - app-text/manpager:0
   - app-text/opensp:0
@@ -92,26 +109,32 @@ packages:
   - app-vim/gentoo-syntax:0
   - dev-cpp/cairomm:0
   - dev-cpp/cairomm:1
+  - dev-cpp/glibmm:2
+  - dev-cpp/highway:0
+  - dev-cpp/libxmlpp:3.0
   - dev-cpp/robin-hood-hashing:0
   - dev-cpp/tbb:0
   - dev-db/sqlite:3
   - dev-dotnet/libgdiplus:0
+  - dev-lang/duktape:0
   - dev-lang/fpc:0
   - dev-lang/go:0
   - dev-lang/lazarus:0
   - dev-lang/lua:0
   - dev-lang/mono:0
   - dev-lang/nasm:0
+  - dev-lang/orc:0
   - dev-lang/perl:0
   - dev-lang/python-exec:2
   - dev-lang/python:3.9
   - dev-lang/ruby:3.1
   - dev-lang/rust-bin:stable
-  - dev-lang/spidermonkey:78
+  - dev-lang/spidermonkey:0
   - dev-lang/swig:0
   - dev-lang/tcl:0
   - dev-lang/tk:0
-  - dev-lang/vala:0.54
+  - dev-lang/vala:0.56
+  - dev-lang/yasm:0
   - dev-libs/appstream-glib:0
   - dev-libs/apr-util:1
   - dev-libs/apr:1
@@ -119,20 +142,24 @@ packages:
   - dev-libs/boehm-gc:0
   - dev-libs/boost:0
   - dev-libs/check:0
+  - dev-libs/dbus-c++:0
   - dev-libs/dbus-glib:0
   - dev-libs/double-conversion:0
   - dev-libs/elfutils:0
   - dev-libs/ell:0
   - dev-libs/expat:0
   - dev-libs/fribidi:0
+  - dev-libs/gjs:0
   - dev-libs/glib:2
   - dev-libs/gmime:3.0
   - dev-libs/gmp:0
   - dev-libs/gobject-introspection-common:0
   - dev-libs/gobject-introspection:0
+  - dev-libs/hidapi:0
+  - dev-libs/hyphen:0
   - dev-libs/icu:0
+  - dev-libs/imath:0
   - dev-libs/inih:0
-  - dev-libs/iniparser:4
   - dev-libs/jansson:0
   - dev-libs/jemalloc:0
   - dev-libs/json-c:0
@@ -146,6 +173,8 @@ packages:
   - dev-libs/libbsd:0
   - dev-libs/libburn:0
   - dev-libs/libbytesize:0
+  - dev-libs/libclc:20
+  - dev-libs/libconfig:0
   - dev-libs/libcroco:0.6
   - dev-libs/libdaemon:0
   - dev-libs/libdnet:0
@@ -164,6 +193,7 @@ packages:
   - dev-libs/libisofs:0
   - dev-libs/libksba:0
   - dev-libs/libltdl:0
+  - dev-libs/libmanette:0
   - dev-libs/libmspack:0
   - dev-libs/libnl:3
   - dev-libs/libpcre2:0
@@ -183,6 +213,7 @@ packages:
   - dev-libs/libxml2:2
   - dev-libs/libxslt:0
   - dev-libs/libyaml:0
+  - dev-libs/libzip:0
   - dev-libs/lzo:2
   - dev-libs/mpc:0
   - dev-libs/mpfr:0
@@ -194,13 +225,13 @@ packages:
   - dev-libs/oniguruma:0
   - dev-libs/openssl:0
   - dev-libs/popt:0
-  - dev-libs/snowball-stemmer:0
   - dev-libs/tinyxml2:0
   - dev-libs/tinyxml:0
   - dev-libs/userspace-rcu:0
   - dev-libs/vala-common:0
   - dev-libs/wayland-protocols:0
   - dev-libs/wayland:0
+  - dev-libs/xapian:0
   - dev-libs/xmlrpc-c:0
   - dev-libs/xxhash:0
   - dev-lua/LuaBitOp:0
@@ -264,6 +295,7 @@ packages:
   - dev-python/PySocks:0
   - dev-python/alabaster:0
   - dev-python/appi:0
+  - dev-python/calver:0
   - dev-python/certifi:0
   - dev-python/cffi:0
   - dev-python/chardet:0
@@ -273,22 +305,29 @@ packages:
   - dev-python/cython:0
   - dev-python/dbus-python:0
   - dev-python/docutils:0
+  - dev-python/editables:0
   - dev-python/flit_core:0
   - dev-python/gpep517:0
+  - dev-python/hatch-vcs:0
+  - dev-python/hatchling:0
   - dev-python/idna:0
   - dev-python/imagesize:0
   - dev-python/importlib_metadata:0
   - dev-python/installer:0
   - dev-python/ipaddress:0
   - dev-python/jinja:0
-  - dev-python/libxml2-python:0
+  - dev-python/libxml2-python:2
   - dev-python/libxslt-python:0
+  - dev-python/lxml:0
   - dev-python/m2crypto:0
   - dev-python/mako:0
   - dev-python/markupsafe:0
   - dev-python/mwparserfromhell:0
   - dev-python/namespace-sphinxcontrib:0
+  - dev-python/numpy:0
   - dev-python/packaging:0
+  - dev-python/pathspec:0
+  - dev-python/pluggy:0
   - dev-python/ply:0
   - dev-python/pycairo:0
   - dev-python/pycparser:0
@@ -298,6 +337,7 @@ packages:
   - dev-python/pyopenssl:0
   - dev-python/pyparsing:0
   - dev-python/pytz:0
+  - dev-python/pyyaml:0
   - dev-python/requests:0
   - dev-python/semantic_version:0
   - dev-python/setuptools-rust:0
@@ -316,6 +356,7 @@ packages:
   - dev-python/sphinxcontrib-serializinghtml:0
   - dev-python/toml:0
   - dev-python/tomli:0
+  - dev-python/trove-classifiers:0
   - dev-python/typing-extensions:0
   - dev-python/urllib3:0
   - dev-python/wheel:0
@@ -348,6 +389,8 @@ packages:
   - dev-ruby/test-unit:2
   - dev-ruby/typeprof:0
   - dev-scheme/guile:12
+  - dev-util/cargo-c:0
+  - dev-util/cbindgen:0
   - dev-util/cmake:0
   - dev-util/colm:0
   - dev-util/cppunit:0
@@ -355,7 +398,7 @@ packages:
   - dev-util/ctags:0
   - dev-util/desktop-file-utils:0
   - dev-util/gdbus-codegen:0
-  - dev-util/glib-utils:0
+  - dev-util/glade:3.10
   - dev-util/glslang:0
   - dev-util/gn:0
   - dev-util/gperf:0
@@ -364,14 +407,17 @@ packages:
   - dev-util/gtk-update-icon-cache:0
   - dev-util/intltool:0
   - dev-util/itstool:0
+  - dev-util/maturin:0
   - dev-util/meson:0
   - dev-util/ninja:0
   - dev-util/pkgconf:0
   - dev-util/pkgs-checker:0
   - dev-util/ragel:0
   - dev-util/re2c:0
+  - dev-util/scons:0
   - dev-util/source-highlight:0
   - dev-util/spirv-headers:0
+  - dev-util/spirv-llvm-translator:20
   - dev-util/spirv-tools:0
   - dev-util/volk:0
   - dev-util/vulkan-headers:0
@@ -469,35 +515,84 @@ packages:
   - media-gfx/fontforge:0
   - media-gfx/graphite2:0
   - media-gfx/graphviz:0
+  - media-libs/aalib:0
   - media-libs/alsa-lib:0
   - media-libs/alsa-topology-conf:0
   - media-libs/alsa-ucm-conf:0
+  - media-libs/audiofile:0
   - media-libs/clutter-gtk:1.0
   - media-libs/clutter:1.0
   - media-libs/cogl:1.0
+  - media-libs/dav1d:0
+  - media-libs/faac:0
+  - media-libs/faad2:0
+  - media-libs/flac:0
   - media-libs/fontconfig:1.0
   - media-libs/freeglut:0
   - media-libs/freetype:2
   - media-libs/gd:2
   - media-libs/giflib:0
   - media-libs/glu:0
+  - media-libs/graphene:0
+  - media-libs/gst-plugins-bad:1.0
+  - media-libs/gst-plugins-base:1.0
+  - media-libs/gstreamer:1.0
   - media-libs/harfbuzz:0
   - media-libs/imlib2:0
   - media-libs/jasper:0
   - media-libs/jbig2dec:0
   - media-libs/lcms:2
+  - media-libs/libaom:0
+  - media-libs/libass:0
+  - media-libs/libavif:0
+  - media-libs/libdca:0
+  - media-libs/libdv:0
+  - media-libs/libdvdcss:1.2
+  - media-libs/libdvdnav:0
+  - media-libs/libdvdread:0
   - media-libs/libepoxy:0
   - media-libs/libexif:0
+  - media-libs/libffado:0
   - media-libs/libglvnd:0
+  - media-libs/libglycin:2
+  - media-libs/libiec61883:0
   - media-libs/libjpeg-turbo:0
+  - media-libs/libjxl:0
+  - media-libs/libmodplug:0
+  - media-libs/libogg:0
   - media-libs/libpng:0
+  - media-libs/libquicktime:0
+  - media-libs/libsamplerate:0
+  - media-libs/libsdl:0
+  - media-libs/libsndfile:0
+  - media-libs/libtheora:0
   - media-libs/libuninameslist:0
+  - media-libs/libvorbis:0
   - media-libs/libwebp:0
   - media-libs/mesa:0
+  - media-libs/nas:0
+  - media-libs/openexr:0
   - media-libs/openjpeg:2
+  - media-libs/opus:0
+  - media-libs/portaudio:0
+  - media-libs/sbc:0
+  - media-libs/shaderc:0
+  - media-libs/soxr:0
+  - media-libs/speexdsp:0
+  - media-libs/svt-av1:0
   - media-libs/tiff:0
   - media-libs/vulkan-layers:0
   - media-libs/vulkan-loader:0
+  - media-libs/webrtc-audio-processing:0
+  - media-libs/woff2:0
+  - media-libs/x264:0
+  - media-libs/x265:0
+  - media-sound/cdparanoia:0
+  - media-sound/jack2:2
+  - media-sound/lame:0
+  - media-sound/pulseaudio:0
+  - media-video/mjpegtools:1
+  - media-video/rav1e:0
   - net-analyzer/arpwatch:0
   - net-analyzer/macchanger:0
   - net-analyzer/net-snmp:0
@@ -517,6 +612,7 @@ packages:
   - net-dns/libidn2:0
   - net-dns/libidn:0
   - net-dns/openresolv:0
+  - net-firewall/arptables:0
   - net-firewall/conntrack-tools:0
   - net-firewall/ebtables:0
   - net-firewall/ipset:0
@@ -532,6 +628,9 @@ packages:
   - net-libs/glib-networking:0
   - net-libs/gnutls:0
   - net-libs/http-parser:0
+  - net-libs/libasyncns:0
+  - net-libs/libcloudproviders:0
+  - net-libs/libmbim:0
   - net-libs/libmnl:0
   - net-libs/libndp:0
   - net-libs/libnet:1.1
@@ -547,13 +646,17 @@ packages:
   - net-libs/libproxy:0
   - net-libs/libpsl:0
   - net-libs/libqmi:0
+  - net-libs/libqrtr-glib:0
   - net-libs/libsoup:2.4
+  - net-libs/libsoup:3
   - net-libs/libtirpc:0
   - net-libs/libtorrent:0
   - net-libs/nghttp2:0
   - net-libs/nodejs:0
-  - net-libs/rest:0.7
+  - net-libs/rest:1.0
   - net-libs/rpcsvc-proto:0
+  - net-libs/webkit-gtk:4
+  - net-libs/webkit-gtk:6
   - net-misc/bridge-utils:0
   - net-misc/curl:0
   - net-misc/dhcp:0
@@ -576,6 +679,8 @@ packages:
   - net-p2p/rtorrent:0
   - net-print/cups-filters:0
   - net-print/cups:0
+  - net-print/libcupsfilters:0
+  - net-print/libppd:0
   - net-vpn/openconnect:0
   - net-vpn/openfortivpn:0
   - net-vpn/openvpn:0
@@ -591,10 +696,15 @@ packages:
   - net-wireless/wireless-tools:0
   - net-wireless/wpa_supplicant:0
   - perl-core/File-Temp:0
+  - sci-libs/blas-reference:0
+  - sci-libs/cblas-reference:0
+  - sci-libs/fftw:3.0
+  - sci-libs/lapack-reference:0
   - sci-mathematics/z3:0
   - sys-apps/acl:0
   - sys-apps/attr:0
   - sys-apps/baselayout:0
+  - sys-apps/bubblewrap:0
   - sys-apps/busybox:0
   - sys-apps/corenetwork:0
   - sys-apps/coreutils:0
@@ -611,6 +721,7 @@ packages:
   - sys-apps/grep:0
   - sys-apps/groff:0
   - sys-apps/help2man:0
+  - sys-apps/hwdata:0
   - sys-apps/hwids:0
   - sys-apps/install-xattr:0
   - sys-apps/iproute2:0
@@ -642,6 +753,7 @@ packages:
   - sys-auth/nss-myhostname:0
   - sys-auth/pambase:0
   - sys-auth/polkit:0
+  - sys-auth/realtime-base:0
   - sys-block/parted:0
   - sys-block/thin-provisioning-tools:0
   - sys-devel/autoconf-archive:0
@@ -656,8 +768,8 @@ packages:
   - sys-devel/binutils:2.40
   - sys-devel/bison:0
   - sys-devel/clang-common:0
-  - sys-devel/clang-runtime:16
-  - sys-devel/clang:16
+  - sys-devel/clang-runtime:20
+  - sys-devel/clang:20
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
   - sys-devel/gcc:12.3.0
@@ -665,9 +777,9 @@ packages:
   - sys-devel/gettext:0
   - sys-devel/gnuconfig:0
   - sys-devel/libtool:2
-  - sys-devel/lld:16
+  - sys-devel/lld:20
   - sys-devel/llvm-common:0
-  - sys-devel/llvm:16
+  - sys-devel/llvm:20
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
@@ -703,8 +815,8 @@ packages:
   - sys-fs/zfs:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
-  - sys-libs/compiler-rt-sanitizers:16
-  - sys-libs/compiler-rt:16
+  - sys-libs/compiler-rt-sanitizers:20
+  - sys-libs/compiler-rt:20
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
   - sys-libs/e2fsprogs-libs:0
@@ -712,12 +824,14 @@ packages:
   - sys-libs/glibc:2.2
   - sys-libs/gpm:0
   - sys-libs/libaal:0
+  - sys-libs/libavc1394:0
   - sys-libs/libblockdev:0
   - sys-libs/libcap-ng:0
   - sys-libs/libcap:0
   - sys-libs/libcxx:0
   - sys-libs/libcxxabi:0
   - sys-libs/libomp:0
+  - sys-libs/libraw1394:0
   - sys-libs/libseccomp:0
   - sys-libs/libunwind:0
   - sys-libs/libutempter:0
@@ -733,19 +847,24 @@ packages:
   - sys-process/audit:0
   - sys-process/cronbase:0
   - sys-process/cronie:0
+  - sys-process/numactl:0
   - sys-process/procps:0
   - sys-process/procs:0
   - sys-process/psmisc:0
   - virtual/acl:0
   - virtual/awk:0
+  - virtual/blas:0
+  - virtual/cblas:0
   - virtual/cron:0
   - virtual/dev-manager:0
   - virtual/editor:0
   - virtual/eject:0
   - virtual/fortran:0
   - virtual/glu:0
+  - virtual/jack:0
   - virtual/jpeg:0
   - virtual/krb5:0
+  - virtual/lapack:0
   - virtual/libc:0
   - virtual/libelf:0
   - virtual/libffi:0
@@ -756,6 +875,7 @@ packages:
   - virtual/libusb:1
   - virtual/man:0
   - virtual/modutils:0
+  - virtual/opencl:0
   - virtual/opengl:0
   - virtual/os-headers:0
   - virtual/package-manager:0
@@ -860,6 +980,7 @@ packages:
   - x11-apps/xrefresh:0
   - x11-apps/xset:0
   - x11-apps/xsetroot:0
+  - x11-apps/xsm:0
   - x11-apps/xvinfo:0
   - x11-apps/xwd:0
   - x11-apps/xwininfo:0
@@ -871,7 +992,6 @@ packages:
   - x11-base/xwayland:0
   - x11-drivers/xf86-input-evdev:0
   - x11-drivers/xf86-input-libinput:0
-  - x11-drivers/xf86-input-mouse:0
   - x11-drivers/xf86-input-synaptics:0
   - x11-drivers/xf86-input-vmmouse:0
   - x11-drivers/xf86-input-wacom:0
@@ -887,6 +1007,7 @@ packages:
   - x11-libs/gdk-pixbuf:2
   - x11-libs/gtk+:2
   - x11-libs/gtk+:3
+  - x11-libs/gtk:4
   - x11-libs/libICE:0
   - x11-libs/libSM:0
   - x11-libs/libX11:0
@@ -929,6 +1050,7 @@ packages:
   - x11-libs/libxshmfence:0
   - x11-libs/pango:0
   - x11-libs/pixman:0
+  - x11-libs/vte:2.91
   - x11-libs/xcb-util-cursor:0
   - x11-libs/xcb-util-image:0
   - x11-libs/xcb-util-keysyms:0
@@ -946,45 +1068,6 @@ packages:
   - x11-misc/xdg-user-dirs:0
   - x11-misc/xdg-utils:0
   - x11-misc/xkeyboard-config:0
-  - x11-misc/xorg-cf-files:0
-  - x11-proto/applewmproto:0
-  - x11-proto/bigreqsproto:0
-  - x11-proto/compositeproto:0
-  - x11-proto/damageproto:0
-  - x11-proto/dmxproto:0
-  - x11-proto/dri2proto:0
-  - x11-proto/dri3proto:0
-  - x11-proto/evieproto:0
-  - x11-proto/fixesproto:0
-  - x11-proto/fontcacheproto:0
-  - x11-proto/fontsproto:0
-  - x11-proto/glproto:0
-  - x11-proto/inputproto:0
-  - x11-proto/kbproto:0
-  - x11-proto/lg3dproto:0
-  - x11-proto/presentproto:0
-  - x11-proto/printproto:0
-  - x11-proto/randrproto:0
-  - x11-proto/recordproto:0
-  - x11-proto/renderproto:0
-  - x11-proto/resourceproto:0
-  - x11-proto/scrnsaverproto:0
-  - x11-proto/trapproto:0
-  - x11-proto/videoproto:0
-  - x11-proto/windowswmproto:0
-  - x11-proto/xcalibrateproto:0
-  - x11-proto/xcmiscproto:0
-  - x11-proto/xextproto:0
-  - x11-proto/xf86bigfontproto:0
-  - x11-proto/xf86dgaproto:0
-  - x11-proto/xf86driproto:0
-  - x11-proto/xf86miscproto:0
-  - x11-proto/xf86rushproto:0
-  - x11-proto/xf86vidmodeproto:0
-  - x11-proto/xineramaproto:0
-  - x11-proto/xproto:0
-  - x11-proto/xproxymngproto:0
-  - x11-proto/xwaylandproto:0
   - x11-terms/xterm:0
   - x11-themes/gnome-themes-standard:0
   - x11-themes/hicolor-icon-theme:0
