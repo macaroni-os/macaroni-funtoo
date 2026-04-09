@@ -1,5 +1,5 @@
 name: mpv
-version: 0.35.1+5
+version: 0.41.0
 category: media-video
 use_flags:
 - -cuda
@@ -102,13 +102,12 @@ labels:
     ) python_single_target_python3_7? ( dev-lang/python:3.7[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) dev-util/meson virtual/pkg-config cli? ( dev-python/docutils ) wayland? ( dev-util/wayland-scanner
+    ) dev-util/meson virtual/pkgconfig cli? ( dev-python/docutils ) wayland? ( dev-util/wayland-scanner
     ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
-  DEPEND: '!!app-shells/mpv-bash-completion >=media-libs/libplacebo-7.349.0:=[vulkan?]
-    >=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?] alsa? ( media-libs/alsa-lib
-    ) archive? ( app-arch/libarchive:= ) bluray? ( media-libs/libbluray:= ) cdda?
-    ( dev-libs/libcdio-paranoia dev-libs/libcdio:= ) drm? ( x11-libs/libdrm ) dvd?
-    ( media-libs/libdvdnav ) egl? ( media-libs/libglvnd media-libs/libplacebo[opengl]
+  DEPEND: '!!app-shells/mpv-bash-completion media-libs/libplacebo:=[vulkan?] >=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?]
+    alsa? ( media-libs/alsa-lib ) archive? ( app-arch/libarchive:= ) bluray? ( media-libs/libbluray:=
+    ) cdda? ( dev-libs/libcdio-paranoia dev-libs/libcdio:= ) drm? ( x11-libs/libdrm
+    ) dvd? ( media-libs/libdvdnav ) egl? ( media-libs/libglvnd media-libs/libplacebo[opengl]
     media-libs/mesa[egl,gbm(-)?,wayland(-)?] ) gamepad? ( media-libs/libsdl2 ) iconv?
     ( virtual/libiconv uchardet? ( app-i18n/uchardet ) ) jack? ( virtual/jack ) javascript?
     ( dev-lang/mujs ) jpeg? ( virtual/jpeg:0 ) lcms? ( media-libs/lcms:2 ) libass?
@@ -127,7 +126,8 @@ labels:
     ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
     ) X? ( x11-base/xorg-proto ) dvb? ( sys-kernel/linux-headers ) cuda? ( media-libs/nv-codec-headers
-    ) vulkan? ( dev-util/vulkan-headers ) wayland? ( dev-libs/wayland-protocols )'
+    ) vulkan? ( dev-util/vulkan-headers ) wayland? ( dev-libs/wayland-protocols )
+    dev-util/desktop-file-utils x11-misc/shared-mime-info'
   IUSE: +alsa aqua archive bluray cdda +cli coreaudio cplugins cuda debug doc +drm
     dvb dvd +egl gamepad gbm +iconv jack javascript jpeg lcms libass libcaca libmpv
     +lua luajit openal +opengl pipewire pulseaudio rubberband sdl sixel sndio selinux
@@ -135,11 +135,10 @@ labels:
     lua_single_target_lua5-1 python_single_target_python3_10 python_single_target_python3_7
     python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
     python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: '!!app-shells/mpv-bash-completion >=media-libs/libplacebo-7.349.0:=[vulkan?]
-    >=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?] alsa? ( media-libs/alsa-lib
-    ) archive? ( app-arch/libarchive:= ) bluray? ( media-libs/libbluray:= ) cdda?
-    ( dev-libs/libcdio-paranoia dev-libs/libcdio:= ) drm? ( x11-libs/libdrm ) dvd?
-    ( media-libs/libdvdnav ) egl? ( media-libs/libglvnd media-libs/libplacebo[opengl]
+  RDEPEND: '!!app-shells/mpv-bash-completion media-libs/libplacebo:=[vulkan?] >=media-video/ffmpeg-4.0:0=[encode,threads,vaapi?,vdpau?]
+    alsa? ( media-libs/alsa-lib ) archive? ( app-arch/libarchive:= ) bluray? ( media-libs/libbluray:=
+    ) cdda? ( dev-libs/libcdio-paranoia dev-libs/libcdio:= ) drm? ( x11-libs/libdrm
+    ) dvd? ( media-libs/libdvdnav ) egl? ( media-libs/libglvnd media-libs/libplacebo[opengl]
     media-libs/mesa[egl,gbm(-)?,wayland(-)?] ) gamepad? ( media-libs/libsdl2 ) iconv?
     ( virtual/libiconv uchardet? ( app-i18n/uchardet ) ) jack? ( virtual/jack ) javascript?
     ( dev-lang/mujs ) jpeg? ( virtual/jpeg:0 ) lcms? ( media-libs/lcms:2 ) libass?
@@ -163,4 +162,4 @@ labels:
   kit: media-kit
   original.package.name: media-video/mpv
   original.package.slot: "0"
-  original.package.version: 0.35.1
+  original.package.version: 0.41.0
