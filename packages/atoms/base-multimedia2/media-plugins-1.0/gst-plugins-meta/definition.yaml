@@ -1,0 +1,80 @@
+name: gst-plugins-meta
+version: 1.26.10
+category: media-plugins-1.0
+use_flags:
+- a52
+- aac
+- cdda
+- dts
+- dvb
+- dvd
+- ffmpeg
+- flac
+- http
+- lame
+- libass
+- modplug
+- mp3
+- mpeg
+- opus
+- pulseaudio
+- taglib
+- v4l
+- vaapi
+- vcd
+- vpx
+- wavpack
+- x264
+requires:
+- name: gst-plugins-bad
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-good
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-ugly
+  version: '>=0'
+  category: media-libs-1.0
+- name: gst-plugins-libav
+  version: '>=0'
+  category: media-plugins-1.0
+- name: gst-plugins-vaapi
+  version: '>=0'
+  category: media-plugins-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Meta ebuild to pull in gst plugins for apps
+uri:
+- https://gstreamer.freedesktop.org/
+license: LGPL-2+
+labels:
+  BDEPEND: virtual/perl-JSON-PP virtual/pkgconfig sys-apps/sed
+  IUSE: aac a52 alsa cdda dts dv dvb dvd ffmpeg flac http lame libass libvisual mp3
+    modplug mpeg ogg opus oss pulseaudio taglib theora v4l vaapi vcd vorbis vpx wavpack
+    X x264
+  RDEPEND: '>=media-libs/gstreamer-1.26.10:1.0 >=media-libs/gst-plugins-base-1.26.10:1.0
+    >=media-libs/gst-plugins-good-1.26.10:1.0 a52? ( >=media-libs/gst-plugins-ugly-1.26.10:1.0[a52dec]
+    ) aac? ( >=media-libs/gst-plugins-bad-1.26.10:1.0[aac] ) cdda? ( || ( >=media-libs/gst-plugins-ugly-1.26.10:1.0[cdio]
+    >=media-libs/gst-plugins-bad-1.26.10:1.0[cdda] ) ) dts? ( >=media-libs/gst-plugins-bad-1.26.10:1.0[dts]
+    ) dvb? ( >=media-libs/gst-plugins-bad-1.26.10:1.0[dvb] ) dvd? ( >=media-libs/gst-plugins-ugly-1.26.10:1.0[a52dec,dvdread,mpeg2dec]
+    >=media-libs/gst-plugins-bad-1.26.10:1.0[dvd] ) ffmpeg? ( >=media-plugins/gst-plugins-libav-1.26.10:1.0
+    ) flac? ( >=media-libs/gst-plugins-good-1.26.10:1.0[flac] ) http? ( >=media-libs/gst-plugins-good-1.26.10:1.0[soup]
+    ) lame? ( >=media-libs/gst-plugins-good-1.26.10:1.0[lame] ) libass? ( >=media-libs/gst-plugins-bad-1.26.10:1.0[libass]
+    ) mp3? ( >=media-libs/gst-plugins-good-1.26.10:1.0[mp3] ) opus? ( >=media-libs/gst-plugins-bad-1.26.10:1.0[opus]
+    ) mpeg? ( >=media-libs/gst-plugins-ugly-1.26.10:1.0[mpeg2dec] ) pulseaudio? (
+    >=media-libs/gst-plugins-good-1.26.10:1.0[pulseaudio] ) modplug? ( >=media-libs/gst-plugins-bad-1.26.10:1.0[modplug]
+    ) taglib? ( >=media-libs/gst-plugins-good-1.26.10:1.0[taglib] ) v4l? ( >=media-libs/gst-plugins-good-1.26.10:1.0[v4l]
+    ) vaapi? ( >=media-plugins/gst-plugins-vaapi-1.26.10:1.0 ) vcd? ( >=media-libs/gst-plugins-ugly-1.26.10:1.0[mpeg2dec]
+    >=media-libs/gst-plugins-bad-1.26.10:1.0[mplex] ) vpx? ( >=media-libs/gst-plugins-good-1.26.10:1.0[vpx]
+    ) wavpack? ( >=media-libs/gst-plugins-good-1.26.10:1.0[wavpack] ) x264? ( >=media-libs/gst-plugins-ugly-1.26.10:1.0[x264]
+    )'
+  emerge.packages: media-plugins/gst-plugins-meta:1.0
+  kit: media-kit
+  original.package.name: media-plugins/gst-plugins-meta
+  original.package.slot: "1.0"
+  original.package.version: 1.26.10
