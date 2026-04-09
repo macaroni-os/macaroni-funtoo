@@ -60,6 +60,7 @@ steps:
   toolchain/base-xorg2
   toolchain/fonts
   toolchain/base-gtk
+  toolchain/base-media
   toolchain/base-gtk2
   toolchain/base-editors
   toolchain/xorg-base
@@ -67,13 +68,13 @@ steps:
   toolchain/base-lang
   toolchain/base-fs
   toolchain/db
-  toolchain/base-qt
+  toolchain/base-qt6
   toolchain/base-audio
   toolchain/base-video
   toolchain/base-multimedia
   toolchain/base-text
   &&
-  luet cleanup &&
+  anise cleanup --purge-repos &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   mkdir -p /var/lib/portage &&
