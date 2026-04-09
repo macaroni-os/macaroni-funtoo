@@ -1,5 +1,5 @@
 name: ffmpeg
-version: 8.0.1
+version: 8.0.1+1
 category: media-video
 use_flags:
 - -bs2b
@@ -9,15 +9,11 @@ use_flags:
 - -doc
 - -gcrypt
 - -gme
-- -gsm
 - -iec61883
 - -ieee1394
 - -kvazaar
-- -libaom
 - -libass
 - -libcaca
-- -libilbc
-- -libressl
 - -libtesseract
 - -mmal
 - -opencl
@@ -25,7 +21,6 @@ use_flags:
 - -rubberband
 - -samba
 - -srt
-- -test
 - -video_cards_nvidia
 - -vidstab
 - -zeromq
@@ -48,7 +43,6 @@ use_flags:
 - fribidi
 - gmp
 - gnutls
-- iconv
 - jack
 - jpeg2k
 - ladspa
@@ -67,7 +61,6 @@ use_flags:
 - openh264
 - openssl
 - opus
-- postproc
 - pulseaudio
 - sdl
 - snappy
@@ -144,9 +137,6 @@ requires:
 - name: lilv
   version: '>=0'
   category: media-libs
-- name: lv2
-  version: '>=0'
-  category: media-libs
 - name: openal
   version: '>=0'
   category: media-libs
@@ -218,10 +208,6 @@ description: Complete solution to record/convert/stream audio and video. Include
   libavcodec.
 uri:
 - https://ffmpeg.org/
-license: '!gpl? ( LGPL-2.1 ) gpl? ( GPL-2 ) amr? ( gpl? ( GPL-3 ) !gpl? ( LGPL-3 )
-  ) gmp? ( gpl? ( GPL-3 ) !gpl? ( LGPL-3 ) ) libaribb24? ( gpl? ( GPL-3 ) !gpl? (
-  LGPL-3 ) ) encode? ( amrenc? ( gpl? ( GPL-3 ) !gpl? ( LGPL-3 ) ) ) samba? ( GPL-3
-  )'
 labels:
   BDEPEND: sys-devel/make virtual/pkgconfig cpu_flags_x86_mmx? ( || ( dev-lang/nasm
     dev-lang/yasm ) ) cuda? ( sys-devel/clang[llvm_targets_NVPTX] ) doc? ( sys-apps/texinfo
