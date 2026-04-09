@@ -1,5 +1,5 @@
 name: ffmpeg
-version: 8.0.1+1
+version: 8.0.1+2
 category: media-video
 use_flags:
 - -bs2b
@@ -15,6 +15,7 @@ use_flags:
 - -libass
 - -libcaca
 - -libtesseract
+- -lv2
 - -mmal
 - -opencl
 - -rav1e
@@ -52,7 +53,6 @@ use_flags:
 - libsoxr
 - libv4l
 - libxml2
-- lv2
 - lzma
 - modplug
 - mp3
@@ -132,9 +132,6 @@ requires:
   version: '>=0'
   category: media-libs
 - name: libwebp
-  version: '>=0'
-  category: media-libs
-- name: lilv
   version: '>=0'
   category: media-libs
 - name: openal
