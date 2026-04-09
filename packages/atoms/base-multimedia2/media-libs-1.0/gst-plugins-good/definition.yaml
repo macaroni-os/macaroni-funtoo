@@ -1,24 +1,46 @@
 name: gst-plugins-good
-version: 1.26.10
+version: 1.26.10+1
 category: media-libs-1.0
 use_flags:
-- -test
-- nls
+- flac
+- lame
+- mp3
 - orc
-- prefix
+- pulseaudio
+- soup
+- taglib
+- udev
+- v4l
+- vpx
+- wavpack
 requires:
 - name: bzip2
   version: '>=0'
   category: app-arch
-- name: glib
+- name: flac
   version: '>=0'
-  category: dev-libs-2
-- name: gst-plugins-base
+  category: media-libs
+- name: libv4l
   version: '>=0'
-  category: media-libs-1.0
-- name: zlib
+  category: media-libs
+- name: libvpx
   version: '>=0'
-  category: sys-libs
+  category: media-libs
+- name: taglib
+  version: '>=0'
+  category: media-libs
+- name: lame
+  version: '>=0'
+  category: media-sound
+- name: mpg123
+  version: '>=0'
+  category: media-sound
+- name: wavpack
+  version: '>=0'
+  category: media-sound
+- name: libsoup
+  version: '>=0'
+  category: net-libs-3
 annotations:
   subsets:
     rules:
@@ -26,10 +48,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Basepack of plugins for GStreamer
+description: Good plugins for GStreamer
 uri:
 - https://gstreamer.freedesktop.org/
-license: LGPL-2.1+
+license: LGPL-2+
 labels:
   BDEPEND: virtual/perl-JSON-PP virtual/pkgconfig sys-apps/sed >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2
