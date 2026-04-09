@@ -1,5 +1,5 @@
 name: pipewire
-version: 1.4.2+2
+version: 1.5.84
 category: media-video
 use_flags:
 - -doc
@@ -68,37 +68,37 @@ uri:
 - http://pipewire.org/
 license: MIT LGPL-2.1+ GPL-2
 labels:
-  BDEPEND: '>=dev-util/meson-0.59 virtual/pkgconfig || ( dev-lang/python:3.8 dev-lang/python:3.9
-    dev-lang/python:3.7 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.8 dev-python/docutils[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: virtual/pkgconfig || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    dev-lang/python:3.10 ) || ( ( dev-lang/python:3.8 dev-python/docutils[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/docutils[python_targets_python3_9(-),python_single_target_python3_9(+)]
     ) ( dev-lang/python:3.7 dev-python/docutils[python_targets_python3_7(-),python_single_target_python3_7(+)]
     ) ( dev-lang/python:3.10 dev-python/docutils[python_targets_python3_10(-),python_single_target_python3_10(+)]
     ) ) doc? ( app-doc/doxygen media-gfx/graphviz ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
-    virtual/pkgconfig'
-  DEPEND: '>=media-libs/alsa-lib-1.2.5 sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
+    virtual/pkgconfig
+  DEPEND: media-libs/alsa-lib sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
     virtual/libintl virtual/libudev bluetooth? ( media-libs/fdk-aac media-libs/libldac
-    media-libs/libfreeaptx media-libs/sbc >=net-wireless/bluez-4.101:= virtual/libusb:1
-    ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra? ( >=media-libs/libsndfile-1.0.20
-    ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0 media-libs/gst-plugins-base:1.0
-    ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
-    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7
-    !media-plugins/alsa-plugins[pulseaudio] ) !pipewire-alsa? ( media-plugins/alsa-plugins[pulseaudio]
+    media-libs/libfreeaptx media-libs/opus media-libs/sbc net-wireless/bluez:= virtual/libusb:1
+    ) echo-cancel? ( media-libs/webrtc-audio-processing ) extra? ( media-libs/libsndfile
+    ) gstreamer? ( dev-libs/glib:2 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    ) jack-client? ( media-sound/jack2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
+    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( media-libs/alsa-lib
     ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
-    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi ) >=sys-kernel/linux-headers-4.19-r1'
-  IUSE: bluetooth doc echo-cancel extra gstreamer jack-client jack-sdk lv2 pipewire-alsa
-    ssl systemd test v4l X zeroconf examples
-  RDEPEND: '>=media-libs/alsa-lib-1.2.5 sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
+    ) X? ( media-libs/libcanberra x11-libs/libX11 x11-libs/libXfixes ) zeroconf? (
+    net-dns/avahi ) sys-kernel/linux-headers
+  IUSE: bluetooth doc echo-cancel extra elogind flatpak gstreamer jack-client jack-sdk
+    lv2 modemmanager pipewire-alsa ssl systemd v4l X zeroconf examples
+  RDEPEND: media-libs/alsa-lib sys-apps/dbus sys-libs/readline:= sys-libs/ncurses:=
     virtual/libintl virtual/libudev bluetooth? ( media-libs/fdk-aac media-libs/libldac
-    media-libs/libfreeaptx media-libs/sbc >=net-wireless/bluez-4.101:= virtual/libusb:1
-    ) echo-cancel? ( media-libs/webrtc-audio-processing:0 ) extra? ( >=media-libs/libsndfile-1.0.20
-    ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0 media-libs/gst-plugins-base:1.0
-    ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
-    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7
-    !media-plugins/alsa-plugins[pulseaudio] ) !pipewire-alsa? ( media-plugins/alsa-plugins[pulseaudio]
+    media-libs/libfreeaptx media-libs/opus media-libs/sbc net-wireless/bluez:= virtual/libusb:1
+    ) echo-cancel? ( media-libs/webrtc-audio-processing ) extra? ( media-libs/libsndfile
+    ) gstreamer? ( dev-libs/glib:2 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    ) jack-client? ( media-sound/jack2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit
+    !media-sound/jack2 ) lv2? ( media-libs/lilv ) pipewire-alsa? ( media-libs/alsa-lib
     ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l
-    ) X? ( media-libs/libcanberra x11-libs/libX11 ) zeroconf? ( net-dns/avahi )'
+    ) X? ( media-libs/libcanberra x11-libs/libX11 x11-libs/libXfixes ) zeroconf? (
+    net-dns/avahi )
   emerge.packages: media-video/pipewire
   kit: media-kit
   original.package.name: media-video/pipewire
   original.package.slot: "0"
-  original.package.version: 1.4.2
+  original.package.version: 1.5.84
