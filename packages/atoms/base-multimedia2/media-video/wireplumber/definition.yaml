@@ -1,5 +1,5 @@
 name: wireplumber
-version: 0.5.3+3
+version: 0.5.14
 category: media-video
 use_flags:
 - -lua_single_target_lua5-1
@@ -29,17 +29,17 @@ uri:
 - https://gitlab.freedesktop.org/pipewire/wireplumber
 license: MIT
 labels:
-  BDEPEND: dev-libs/glib dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext
-    test? ( sys-apps/dbus ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig
+  BDEPEND: dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 virtual/pkgconfig
   DEPEND: lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3?
-    ( dev-lua/lua:5.3 ) >=dev-libs/glib-2.62 >=media-video/pipewire-0.3.68:= virtual/libintl
-    elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd ) sys-apps/shadow
-  IUSE: elogind systemd test lua_single_target_lua5-1 lua_single_target_lua5-3
+    ( dev-lua/lua:5.3 ) dev-libs/glib:2 media-video/pipewire:= virtual/libintl elogind?
+    ( sys-auth/elogind ) systemd? ( sys-apps/systemd ) sys-apps/shadow
+  IUSE: elogind systemd lua_single_target_lua5-1 lua_single_target_lua5-3
   RDEPEND: lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3?
-    ( dev-lua/lua:5.3 ) >=dev-libs/glib-2.62 >=media-video/pipewire-0.3.68:= virtual/libintl
-    elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
+    ( dev-lua/lua:5.3 ) dev-libs/glib:2 media-video/pipewire:= virtual/libintl elogind?
+    ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
   emerge.packages: media-video/wireplumber
-  kit: geaaru-kit
+  kit: media-kit
   original.package.name: media-video/wireplumber
   original.package.slot: "0"
-  original.package.version: 0.5.3
+  original.package.version: 0.5.14
