@@ -1,17 +1,36 @@
 name: gst-plugins-ugly
-version: 1.26.10
+version: 1.26.10+1
 category: media-libs-1.0
 use_flags:
-- -test
-- nls
-- prefix
+- a52dec
+- cdio
+- dvdread
+- mpeg2dec
+- orc
+- sidplay
+- x264
 requires:
-- name: glib
+- name: libcdio
   version: '>=0'
-  category: dev-libs-2
+  category: dev-libs
+- name: a52dec
+  version: '>=0'
+  category: media-libs
 - name: gst-plugins-base
   version: '>=0'
   category: media-libs-1.0
+- name: libdvdread
+  version: '>=0'
+  category: media-libs
+- name: libmpeg2
+  version: '>=0'
+  category: media-libs
+- name: libsidplay
+  version: '>=0'
+  category: media-libs-2
+- name: x264
+  version: '>=0'
+  category: media-libs
 annotations:
   subsets:
     rules:
@@ -19,7 +38,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Basepack of plugins for gstreamer
+description: Ugly plugins for GStreamer
 uri:
 - https://gstreamer.freedesktop.org/
 license: LGPL-2+
