@@ -1,0 +1,48 @@
+name: gst-plugins-vaapi
+version: 1.26.10
+category: media-plugins-1.0
+use_flags:
+- X
+- drm
+- wayland
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Hardware accelerated video decoding through VA-API plugin for GStreamer
+uri:
+- https://gitlab.freedesktop.org/gstreamer/gstreamer-vaapi
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/perl-JSON-PP virtual/pkgconfig sys-apps/sed >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 >=media-libs/gst-plugins-base-1.26.10:1.0[egl?,gles2?,opengl?,wayland?,X?]
+    media-libs/mesa[gles2?,egl(+)?,X?] x11-libs/libva:=[drm?,wayland?,X?] drm? ( virtual/libudev:=
+    x11-libs/libdrm ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 x11-libs/libXrandr
+    x11-libs/libXrender ) dev-util/gtk-doc-am
+  IUSE: +drm +egl gles2 +opengl wayland +X
+  RDEPEND: dev-libs/glib:2 >=media-libs/gst-plugins-base-1.26.10:1.0[egl?,gles2?,opengl?,wayland?,X?]
+    media-libs/mesa[gles2?,egl(+)?,X?] x11-libs/libva:=[drm?,wayland?,X?] drm? ( virtual/libudev:=
+    x11-libs/libdrm ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 x11-libs/libXrandr
+    x11-libs/libXrender )
+  emerge.packages: media-plugins/gst-plugins-vaapi:1.0
+  kit: media-kit
+  original.package.name: media-plugins/gst-plugins-vaapi
+  original.package.slot: "1.0"
+  original.package.version: 1.26.10
