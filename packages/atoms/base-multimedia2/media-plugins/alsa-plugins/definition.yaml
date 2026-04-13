@@ -1,16 +1,19 @@
 name: alsa-plugins
-version: 1.2.7.1+2
+version: 1.2.7.1+3
 category: media-plugins
 use_flags:
+- -ffmpeg
 - -libsamplerate
 - -speex
-- ffmpeg
 - jack
 - pulseaudio
 requires:
-- name: ffmpeg
+- name: alsa-lib
   version: '>=0'
-  category: media-video
+  category: media-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
 annotations:
   subsets:
     rules:
