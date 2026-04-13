@@ -1,4 +1,10 @@
 prelude:
+# Temporary fix until next race
+- >-
+  cd /var/git/meta-repo/kits/core-server-kit/app-shells/fish &&
+  rm fish-4.6.0.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/core-server-kit/refs/heads/mark-unstable/app-shells/fish/fish-4.6.0.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
