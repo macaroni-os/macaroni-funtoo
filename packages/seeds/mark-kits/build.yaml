@@ -13,7 +13,8 @@ prelude:
   anise subsets enable portage devel &&
   anise repo list &&
   anise repo disable mark macaroni-terragon macaroni-commons &&
-  anise rm repository/macaroni-terragon -y &&
+  anise i --sync-repos repository/mark-dev repository/macaroni-commons-dev repository/terragon-dev &&
+  anise rm repository/macaroni-terragon repository/mark repository/macaroni-commons -y &&
   anise install --sync-repos
   dev-util/pkgs-checker app-misc/yq-go app-misc/jq system/luet-devkit
   mark-devkit app-admin/anise-portage-converter app-admin/entities --nodeps &&
