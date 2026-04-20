@@ -1,8 +1,7 @@
 name: tdb
-version: 1.4.13
+version: 1.4.15
 category: sys-libs
 use_flags:
-- -elibc_FreeBSD
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
@@ -15,6 +14,9 @@ requires:
 - name: python-exec
   version: '>=0'
   category: dev-lang-2
+- name: libbsd
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -22,33 +24,32 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Simple database API
+description: LSimple database API
 uri:
 - https://tdb.samba.org/
-license: LGPL-3
+license: GPL-3
 labels:
-  BDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) python_single_target_python3_7? ( dev-lang/python:3.7[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) app-text/docbook-xml-dtd:4.2
-  DEPEND: '!elibc_FreeBSD? ( dev-libs/libbsd ) python? ( python_single_target_python3_10?
-    ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) python_single_target_python3_7? ( dev-lang/python:3.7[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) )'
+  BDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) app-text/docbook-xml-dtd:4.2 >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/libbsd python? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
   IUSE: python python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
     python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
     python_targets_python3_9 python_targets_python3_8
-  RDEPEND: '!elibc_FreeBSD? ( dev-libs/libbsd ) python? ( python_single_target_python3_10?
-    ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10]
-    ) python_single_target_python3_7? ( dev-lang/python:3.7[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) )'
+  RDEPEND: dev-libs/libbsd python? ( python_single_target_python3_10? ( dev-lang/python:3.10
+    >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_7?
+    ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_9?
+    ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8?
+    ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) )
   emerge.packages: sys-libs/tdb
   kit: core-server-kit
   original.package.name: sys-libs/tdb
   original.package.slot: "0"
-  original.package.version: 1.4.13
+  original.package.version: 1.4.15
