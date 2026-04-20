@@ -1,5 +1,5 @@
 name: cmocka
-version: 1.1.5+1
+version: 2.0.2
 category: dev-util
 use_flags:
 - -doc
@@ -10,16 +10,15 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A unit testing framework for C
+description: An elegant unit testing framework for C with support for mock objects
 uri:
 - https://cmocka.org/
 license: Apache-2.0
 labels:
-  BDEPEND: doc? ( app-doc/doxygen[dot] ) dev-util/ninja >=dev-util/cmake-3.9.6
-  IUSE: doc examples static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
-    abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+  BDEPEND: doc? ( app-doc/doxygen[dot] ) dev-util/ninja dev-util/cmake
+  IUSE: doc examples static-libs test
   emerge.packages: dev-util/cmocka
   kit: dev-kit
   original.package.name: dev-util/cmocka
   original.package.slot: "0"
-  original.package.version: 1.1.5
+  original.package.version: 2.0.2
