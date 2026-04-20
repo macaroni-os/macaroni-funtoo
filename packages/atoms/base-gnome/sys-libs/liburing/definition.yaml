@@ -1,10 +1,6 @@
 name: liburing
-version: "2.9"
+version: "2.14"
 category: sys-libs
-requires:
-- name: linux-headers
-  version: '>=0'
-  category: sys-kernel
 annotations:
   subsets:
     rules:
@@ -12,17 +8,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Efficient I/O with io_uring
+description: Library providing helpers for the Linux kernel io_uring support
 uri:
 - https://github.com/axboe/liburing
 license: MIT
 labels:
-  DEPEND: '>=sys-kernel/linux-headers-5.1'
-  IUSE: examples static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64
-    abi_mips_o32 abi_s390_32 abi_s390_64
-  RDEPEND: '>=sys-kernel/linux-headers-5.1'
+  BDEPEND: sys-kernel/linux-headers >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  IUSE: examples static-libs
   emerge.packages: sys-libs/liburing
   kit: core-server-kit
   original.package.name: sys-libs/liburing
   original.package.slot: "0"
-  original.package.version: "2.9"
+  original.package.version: "2.14"
