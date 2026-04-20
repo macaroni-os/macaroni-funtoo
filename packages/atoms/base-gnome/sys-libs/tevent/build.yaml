@@ -1,7 +1,4 @@
 prelude:
-# See mark-issues#364
-- >-
-  rm /var/git/meta-repo/kits/core-server-kit/sys-libs/tevent/tevent-0.16.2.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
