@@ -38,6 +38,7 @@ kits=(
 
   "base-qt2"           # race12 (qtwebkit, qtmultimedia)
   "base-gnome"         # race12 (gnome deps)
+  "qt6"                # race12
 
   "base-gnome2"        # race13
   "portage-tools"      # race13 (eix, layman)
