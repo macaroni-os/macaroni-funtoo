@@ -86,6 +86,7 @@ steps:
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
+  anise repo update &&
   anise miner ri libxml2 &&
   anise cleanup --purge-repos &&
   macaronictl env-update &&
