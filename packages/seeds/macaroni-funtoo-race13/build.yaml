@@ -80,7 +80,6 @@ steps:
   toolchain/qt6
   toolchain/base-gnome
   &&
-  anise cleanup --purge-repos &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   mkdir -p /var/lib/portage &&
@@ -88,6 +87,7 @@ steps:
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   anise miner ri libxml2 &&
+  anise cleanup --purge-repos &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
