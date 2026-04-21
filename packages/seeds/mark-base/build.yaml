@@ -20,12 +20,8 @@ prelude:
 # I disable the terragon repos to avoid upgrade of the packages
 # to handle with portage.
 # We force upgrade setuptools to last version before rebuild the world.
+# anise upgrade --sync-repos &&
 - >-
-  anise subsets enable devel portage &&
-  anise repo list &&
-  anise repo disable macaroni-commons &&
-  anise upgrade --sync-repos &&
-  anise cleanup --purge-repos &&
   rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a &&
   entities list users &&
