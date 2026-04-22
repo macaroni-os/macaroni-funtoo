@@ -1,5 +1,5 @@
 name: accountsservice
-version: 0.6.55+1
+version: 23.13.9
 category: sys-apps
 use_flags:
 - -doc
@@ -29,19 +29,16 @@ uri:
 - https://www.freedesktop.org/wiki/Software/AccountsService/
 license: GPL-3+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 sys-auth/polkit elogind? ( >=sys-auth/elogind-229.4
-    ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) systemd? ( >=sys-apps/systemd-186:0=
-    ) !systemd? ( !elogind? ( sys-auth/consolekit ) ) sys-apps/dbus dev-libs/libxslt
-    dev-util/gdbus-codegen >=dev-util/gtk-doc-am-1.15 >=dev-util/intltool-0.40 sys-devel/gettext
-    virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) virtual/pkgconfig
-    >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
-  IUSE: doc elogind +introspection selinux systemd
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 sys-auth/polkit elogind? ( >=sys-auth/elogind-229.4
-    ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) systemd? ( >=sys-apps/systemd-186:0=
-    ) !systemd? ( !elogind? ( sys-auth/consolekit ) ) sys-apps/dbus selinux? ( sec-policy/selinux-accountsd
-    )'
+  BDEPEND: dev-util/gdbus-codegen dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 virtual/pkgconfig
+  DEPEND: dev-libs/glib:2 sys-auth/polkit elogind? ( sys-auth/elogind ) introspection?
+    ( dev-libs/gobject-introspection:= ) systemd? ( sys-apps/systemd:= ) dev-libs/libxslt
+  IUSE: doc elogind gtk-doc +introspection systemd vala
+  RDEPEND: dev-libs/glib:2 sys-auth/polkit elogind? ( sys-auth/elogind ) introspection?
+    ( dev-libs/gobject-introspection:= ) systemd? ( sys-apps/systemd:= )
   emerge.packages: sys-apps/accountsservice
   kit: gnome-kit
   original.package.name: sys-apps/accountsservice
   original.package.slot: "0"
-  original.package.version: 0.6.55
+  original.package.version: 23.13.9
