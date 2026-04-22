@@ -1,20 +1,14 @@
 name: ldb
-version: 2.9.2
+version: 2.9.2+1
 category: sys-libs
 use_flags:
-- -doc
-- -elibc_FreeBSD
 - -ldap
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- lmdb
 - python
 - python_single_target_python3_9
 requires:
-- name: lmdb
-  version: '>=0'
-  category: dev-db
 - name: popt
   version: '>=0'
   category: dev-libs
@@ -37,7 +31,7 @@ annotations:
 description: LDAP-like embedded database
 uri:
 - https://ldb.samba.org
-license: LGPL-3
+license: GPL-3
 labels:
   BDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
