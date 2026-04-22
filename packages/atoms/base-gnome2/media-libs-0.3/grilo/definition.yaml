@@ -1,14 +1,12 @@
 name: grilo
-version: 0.3.19
+version: 0.3.19+1
 category: media-libs-0.3
 use_flags:
 - -gtk-doc
-- -test
 - gtk
 - introspection
 - network
 - playlist
-- prefix
 - vala
 requires:
 - name: totem-pl-parser
@@ -17,6 +15,9 @@ requires:
 - name: liboauth
   version: '>=0'
   category: net-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-3
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -29,7 +30,7 @@ annotations:
       - ^/var/db/pkg/
 description: A framework for easy media discovery and browsing
 uri:
-- https://wiki.gnome.org/Projects/Grilo
+- https://gitlab.gnome.org/GNOME/grilo
 license: LGPL-2.1+
 labels:
   BDEPEND: sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3
