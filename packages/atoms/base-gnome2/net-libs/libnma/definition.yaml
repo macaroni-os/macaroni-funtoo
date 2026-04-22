@@ -1,18 +1,28 @@
 name: libnma
-version: 1.10.6
+version: 1.10.6+1
 category: net-libs
 use_flags:
 - gcr
+- gtk4
 requires:
 - name: gcr
   version: '>=0'
-  category: app-crypt
+  category: app-crypt-4
 - name: iso-codes
   version: '>=0'
   category: app-text
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
 - name: networkmanager
   version: '>=0'
   category: net-misc
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: gtk
+  version: '>=0'
+  category: x11-libs-4
 annotations:
   subsets:
     rules:
