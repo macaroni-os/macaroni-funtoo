@@ -1,8 +1,7 @@
 name: samba
-version: 4.23.6
+version: 4.23.6+1
 category: net-fs
 use_flags:
-- -addns
 - -ceph
 - -cluster
 - -debug
@@ -15,7 +14,7 @@ use_flags:
 - -python_single_target_python3_8
 - -snapper
 - -spotlight
-- -test
+- -systemd
 - acl
 - client
 - cups
@@ -44,13 +43,13 @@ requires:
 - name: subunit
   version: '>=0'
   category: dev-python
-- name: avahi
-  version: '>=0'
-  category: net-dns
 - name: cifs-utils
   version: '>=0'
   category: net-fs
 - name: libnsl
+  version: '>=0'
+  category: net-libs
+- name: ngtcp2
   version: '>=0'
   category: net-libs
 - name: cups
@@ -74,6 +73,9 @@ requires:
 - name: readline
   version: '>=0'
   category: sys-libs
+- name: libiconv
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -84,7 +86,7 @@ annotations:
 description: Samba Suite Version 4
 uri:
 - https://samba.org/
-license: GPL-3
+license: GPL3
 labels:
   BDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
