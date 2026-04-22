@@ -1,5 +1,5 @@
 name: openssl
-version: 1.1.1w
+version: 3.0.19
 category: dev-libs
 use_flags:
 - -sctp
@@ -25,12 +25,12 @@ labels:
   BDEPEND: '>=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 )'
   DEPEND: '!app-misc/c_rehash tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)]
     )'
-  IUSE: +asm -bindist libc_musl rfc3779 sctp cpu_flags_x86_sse2 weak-ssl-ciphers static-libs
-    +tls-compression tls-heartbeat vanilla
+  IUSE: +asm libc_musl rfc3779 sctp cpu_flags_x86_sse2 static-libs +tls-compression
+    vanilla weak-ssl-ciphers
   RDEPEND: '!app-misc/c_rehash tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)]
     )'
   emerge.packages: dev-libs/openssl
   kit: security-kit
   original.package.name: dev-libs/openssl
   original.package.slot: "0"
-  original.package.version: 1.1.1w
+  original.package.version: 3.0.19
