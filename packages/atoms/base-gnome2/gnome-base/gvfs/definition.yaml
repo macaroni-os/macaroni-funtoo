@@ -1,5 +1,5 @@
 name: gvfs
-version: 1.44.1+2
+version: 1.58.0
 category: gnome-base
 use_flags:
 - -gnome-keyring
@@ -70,38 +70,26 @@ uri:
 - https://wiki.gnome.org/Projects/gvfs
 license: LGPL-2+
 labels:
-  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 >=app-portage/elt-patches-20170815
-    app-arch/xz-utils virtual/pkgconfig'
-  DEPEND: app-crypt/gcr:= >=dev-libs/glib-2.62.2:2 sys-apps/dbus dev-libs/libxml2:2
-    afp? ( >=dev-libs/libgcrypt-1.2.2:0= ) archive? ( app-arch/libarchive:= ) bluray?
-    ( media-libs/libbluray ) fuse? ( >=sys-fs/fuse-2.8.0 ) elogind? ( >=sys-auth/elogind-229:0=
-    ) gnome-keyring? ( app-crypt/libsecret ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.36:=
-    ) google? ( >=dev-libs/libgdata-0.17.3:=[crypt,gnome-online-accounts] >=net-libs/gnome-online-accounts-3.36:=
-    ) gphoto2? ( >=media-libs/libgphoto2-2.5.0:= ) http? ( >=net-libs/libsoup-2.42:2.4
-    ) ios? ( >=app-pda/libimobiledevice-1.2:= >=app-pda/libplist-1:= ) mtp? ( >=media-libs/libmtp-1.1.12
-    ) nfs? ( >=net-fs/libnfs-1.9.7 ) policykit? ( >=sys-auth/polkit-0.114 sys-libs/libcap
-    ) samba? ( >=net-fs/samba-4.5.10[client] ) sftp? ( net-misc/openssh ) systemd?
-    ( >=sys-apps/systemd-206:0= ) udev? ( cdda? ( dev-libs/libcdio-paranoia ) virtual/libgudev:=
-    ) udisks? ( >=sys-fs/udisks-1.97:2 ) zeroconf? ( >=net-dns/avahi-0.6 ) app-text/docbook-xsl-stylesheets
-    dev-libs/libxslt >=sys-devel/gettext-0.19.4 virtual/pkgconfig dev-util/gtk-doc-am
-    test? ( >=dev-python/twisted-core-12.3.0 || ( net-analyzer/netcat net-analyzer/netcat6
-    ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
-  IUSE: afp archive bluray cdda elogind fuse google gnome-keyring gnome-online-accounts
-    gphoto2 +http ios nfs policykit +sftp systemd test +udev +udisks zeroconf samba
-    +mtp
-  RDEPEND: app-crypt/gcr:= >=dev-libs/glib-2.62.2:2 sys-apps/dbus dev-libs/libxml2:2
-    afp? ( >=dev-libs/libgcrypt-1.2.2:0= ) archive? ( app-arch/libarchive:= ) bluray?
-    ( media-libs/libbluray ) fuse? ( >=sys-fs/fuse-2.8.0 ) elogind? ( >=sys-auth/elogind-229:0=
-    ) gnome-keyring? ( app-crypt/libsecret ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.36:=
-    ) google? ( >=dev-libs/libgdata-0.17.3:=[crypt,gnome-online-accounts] >=net-libs/gnome-online-accounts-3.36:=
-    ) gphoto2? ( >=media-libs/libgphoto2-2.5.0:= ) http? ( >=net-libs/libsoup-2.42:2.4
-    ) ios? ( >=app-pda/libimobiledevice-1.2:= >=app-pda/libplist-1:= ) mtp? ( >=media-libs/libmtp-1.1.12
-    ) nfs? ( >=net-fs/libnfs-1.9.7 ) policykit? ( >=sys-auth/polkit-0.114 sys-libs/libcap
-    ) samba? ( >=net-fs/samba-4.5.10[client] ) sftp? ( net-misc/openssh ) systemd?
-    ( >=sys-apps/systemd-206:0= ) udev? ( cdda? ( dev-libs/libcdio-paranoia ) virtual/libgudev:=
-    ) udisks? ( >=sys-fs/udisks-1.97:2 ) zeroconf? ( >=net-dns/avahi-0.6 )
+  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 virtual/pkgconfig'
+  DEPEND: app-text/docbook-xsl-stylesheets dev-libs/libxslt sys-devel/gettext virtual/pkgconfig
+    dev-util/gtk-doc-am dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: afp archive bluray cdda cdr elogind fuse google gnome-keyring gnome-online-accounts
+    gphoto2 onedrive +http ios nfs policykit +sftp systemd +udev +udisks zeroconf
+    samba +mtp
+  RDEPEND: app-crypt/gcr:4= dev-libs/glib:2 sys-apps/dbus dev-libs/libxml2:2 afp?
+    ( dev-libs/libgcrypt:0= ) archive? ( app-arch/libarchive:= ) bluray? ( media-libs/libbluray
+    ) fuse? ( sys-fs/fuse:3= ) gnome-keyring? ( app-crypt/libsecret ) gnome-online-accounts?
+    ( net-libs/gnome-online-accounts:= ) google? ( dev-libs/libgdata:=[crypt,gnome-online-accounts]
+    net-libs/gnome-online-accounts:= ) gphoto2? ( media-libs/libgphoto2:= ) http?
+    ( dev-libs/libxml2:= net-libs/libsoup:3 ) ios? ( app-pda/libimobiledevice:= app-pda/libplist:=
+    ) mtp? ( media-libs/libmtp:= ) nfs? ( net-fs/libnfs ) policykit? ( sys-auth/polkit
+    sys-libs/libcap ) samba? ( net-fs/samba[client] ) sftp? ( net-misc/openssh ) systemd?
+    ( sys-apps/systemd:0= ) elogind? ( sys-auth/elogind:0= ) udev? ( cdda? ( dev-libs/libcdio-paranoia
+    ) virtual/libgudev:= ) onedrive? ( dev-libs/libgdata:=[crypt,gnome-online-accounts]
+    net-libs/msgraph ) udisks? ( sys-fs/udisks:2 ) zeroconf? ( net-dns/avahi ) virtual/tmpfiles
   emerge.packages: gnome-base/gvfs
   kit: gnome-kit
   original.package.name: gnome-base/gvfs
   original.package.slot: "0"
-  original.package.version: 1.44.1
+  original.package.version: 1.58.0
