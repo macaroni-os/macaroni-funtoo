@@ -1,5 +1,5 @@
 name: python
-version: 3.9.22+1
+version: 3.9.25
 category: dev-lang-3.9
 use_flags:
 - -bluetooth
@@ -53,26 +53,24 @@ uri:
 - https://www.python.org/
 license: PSF-2
 labels:
-  BDEPEND: sys-devel/autoconf-archive virtual/awk virtual/pkgconfig !sys-devel/gcc[libffi(-)]
-    >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+  BDEPEND: sys-devel/autoconf-archive virtual/awk virtual/pkgconfig >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
   DEPEND: app-arch/bzip2:= app-arch/xz-utils:= dev-libs/libffi:= sys-apps/util-linux:=
-    >=sys-libs/zlib-1.1.3:= virtual/libintl gdbm? ( sys-libs/gdbm:=[berkdb] ) ncurses?
-    ( >=sys-libs/ncurses-5.2:= ) readline? ( !libedit? ( >=sys-libs/readline-4.1:=
-    ) libedit? ( dev-libs/libedit:= ) ) sqlite? ( >=dev-db/sqlite-3.3.8:3= ) ssl?
-    ( >=dev-libs/openssl-1.1.1:= ) tk? ( >=dev-lang/tcl-8.0:= >=dev-lang/tk-8.0:=
-    dev-tcltk/blt:= dev-tcltk/tix ) xml? ( >=dev-libs/expat-2.1:= ) bluetooth? ( net-wireless/bluez
-    ) test? ( app-arch/xz-utils[extra-filters(+)] )
+    sys-libs/zlib:= virtual/libintl gdbm? ( sys-libs/gdbm:=[berkdb] ) ncurses? ( sys-libs/ncurses:=
+    ) readline? ( !libedit? ( sys-libs/readline:= ) libedit? ( dev-libs/libedit:=
+    ) ) sqlite? ( dev-db/sqlite:3= ) dev-libs/openssl:= tk? ( dev-lang/tcl:= dev-lang/tk:=
+    dev-tcltk/blt:= dev-tcltk/tix ) xml? ( dev-libs/expat:= ) bluetooth? ( net-wireless/bluez
+    )
   IUSE: bluetooth build examples gdbm hardened libedit lto +ncurses pgo +readline
-    +sqlite +ssl test tk wininst +xml
+    +sqlite +ssl tk wininst +xml
   RDEPEND: app-arch/bzip2:= app-arch/xz-utils:= dev-libs/libffi:= sys-apps/util-linux:=
-    >=sys-libs/zlib-1.1.3:= virtual/libintl gdbm? ( sys-libs/gdbm:=[berkdb] ) ncurses?
-    ( >=sys-libs/ncurses-5.2:= ) readline? ( !libedit? ( >=sys-libs/readline-4.1:=
-    ) libedit? ( dev-libs/libedit:= ) ) sqlite? ( >=dev-db/sqlite-3.3.8:3= ) ssl?
-    ( >=dev-libs/openssl-1.1.1:= ) tk? ( >=dev-lang/tcl-8.0:= >=dev-lang/tk-8.0:=
-    dev-tcltk/blt:= dev-tcltk/tix ) xml? ( >=dev-libs/expat-2.1:= ) !build? ( app-misc/mime-types
+    sys-libs/zlib:= virtual/libintl gdbm? ( sys-libs/gdbm:=[berkdb] ) ncurses? ( sys-libs/ncurses:=
+    ) readline? ( !libedit? ( sys-libs/readline:= ) libedit? ( dev-libs/libedit:=
+    ) ) sqlite? ( dev-db/sqlite:3= ) dev-libs/openssl:= tk? ( dev-lang/tcl:= dev-lang/tk:=
+    dev-tcltk/blt:= dev-tcltk/tix ) xml? ( dev-libs/expat:= ) !build? ( app-misc/mime-types
     )
   emerge.packages: dev-lang/python:3.9
   kit: python-kit
   original.package.name: dev-lang/python
   original.package.slot: "3.9"
-  original.package.version: 3.9.22
+  original.package.version: 3.9.25
