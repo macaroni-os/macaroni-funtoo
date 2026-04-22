@@ -1,5 +1,5 @@
 name: sysprof
-version: 3.36.0+1
+version: "49.0"
 category: dev-util
 use_flags:
 - gtk
@@ -22,17 +22,19 @@ uri:
 - http://sysprof.com/
 license: GPL-3+ GPL-2+
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2 virtual/pkgconfig'
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libdazzle-3.34.0 sys-auth/polkit gtk?
-    ( >=x11-libs/gtk+-3.24.12:3 ) dev-libs/libxml2:2 dev-util/itstool >=sys-devel/gettext-0.19.8
-    >=sys-kernel/linux-headers-2.6.32 >=dev-libs/libdazzle-3.34.0 dev-libs/appstream-glib
-    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  IUSE: gtk kernel_linux
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=dev-libs/libdazzle-3.34.0 sys-auth/polkit gtk?
-    ( >=x11-libs/gtk+-3.24.12:3 )'
+  BDEPEND: dev-lbis/appstream-glib dev-util/gdbus-codegen sys-devel/gettext sys-kernel/linux-headers
+    virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils
+  DEPEND: dev-libs/glib:2 gtk? ( x11-libs/gtk:4 x11-libs/libadwaita x11-libs/cairo
+    x11-libs/pango ) systemd? ( sys-apps/systemd ) dev-libs/json-glib dev-libs/libdex
+    x11-libs/libpanel sys-libs/libunwind:= sys-auth/polkit dev-libs/elfutils dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: gtk systemd
+  RDEPEND: dev-libs/glib:2 gtk? ( x11-libs/gtk:4 x11-libs/libadwaita x11-libs/cairo
+    x11-libs/pango ) systemd? ( sys-apps/systemd ) dev-libs/json-glib dev-libs/libdex
+    x11-libs/libpanel sys-libs/libunwind:= sys-auth/polkit dev-libs/elfutils
   emerge.packages: dev-util/sysprof
   kit: gnome-kit
   original.package.name: dev-util/sysprof
   original.package.slot: "0"
-  original.package.version: 3.36.0
+  original.package.version: "49.0"
