@@ -1,5 +1,5 @@
 name: totem-pl-parser
-version: 3.26.5+2
+version: 3.26.6
 category: dev-libs
 use_flags:
 - -test
@@ -28,18 +28,17 @@ uri:
 - https://developer.gnome.org/totem-pl-parser/stable/
 license: LGPL-2+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/libsoup-2.43:2.4 archive? ( >=app-arch/libarchive-3
-    ) crypt? ( dev-libs/libgcrypt:0= ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
-    ) !<media-video/totem-2.21 dev-libs/gobject-introspection-common >=dev-util/intltool-0.35
-    dev-util/glib-utils >=dev-util/gtk-doc-am-1.14 sys-devel/autoconf-archive >=sys-devel/gettext-0.17
-    virtual/pkgconfig test? ( gnome-base/gvfs[http] sys-apps/dbus ) app-arch/xz-utils
-    >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
-  IUSE: archive crypt +introspection test
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/libsoup-2.43:2.4 archive? ( >=app-arch/libarchive-3
-    ) crypt? ( dev-libs/libgcrypt:0= ) introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
-    )'
+  BDEPEND: gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) sys-devel/gettext
+    virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 archive? ( app-arch/libarchive:= ) dev-libs/libxml2:= crypt?
+    ( dev-libs/libgcrypt:= ) uchardet? ( app-i18n/uchardet ) introspection? ( dev-libs/gobject-introspection:=
+    )
+  IUSE: archive crypt gtk-doc +introspection +uchardet
+  RDEPEND: dev-libs/glib:2 archive? ( app-arch/libarchive:= ) dev-libs/libxml2:= crypt?
+    ( dev-libs/libgcrypt:= ) uchardet? ( app-i18n/uchardet ) introspection? ( dev-libs/gobject-introspection:=
+    )
   emerge.packages: dev-libs/totem-pl-parser
   kit: gnome-kit
   original.package.name: dev-libs/totem-pl-parser
   original.package.slot: "0"
-  original.package.version: 3.26.5
+  original.package.version: 3.26.6
