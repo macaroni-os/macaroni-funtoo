@@ -1,0 +1,45 @@
+name: libdex
+version: 1.0.0
+category: dev-libs
+use_flags:
+- -gtk-doc
+- introspection
+- liburing
+- sysprof
+- vala
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: sysprof
+  version: '>=0'
+  category: dev-util
+- name: liburing
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Dex provides Future-based programming for GLib-based applications
+uri:
+- https://gitlab.gnome.org/GNOME/libdex
+license: LGPL-2.1+
+labels:
+  BDEPEND: vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
+    dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40
+    dev-lang/vala:0.36 ) ) virtual/pkgconfig gtk-doc? ( dev-util/gi-docgen ) >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 liburing? ( sys-libs/liburing:= ) introspection? ( dev-libs/gobject-introspection:=
+    ) sysprof? ( dev-util/sysprof )
+  IUSE: +eventfd gtk-doc +introspection +liburing sysprof vala
+  RDEPEND: dev-libs/glib:2 liburing? ( sys-libs/liburing:= ) introspection? ( dev-libs/gobject-introspection:=
+    ) sysprof? ( dev-util/sysprof )
+  emerge.packages: dev-libs/libdex
+  kit: gnome-kit
+  original.package.name: dev-libs/libdex
+  original.package.slot: "0"
+  original.package.version: 1.0.0
