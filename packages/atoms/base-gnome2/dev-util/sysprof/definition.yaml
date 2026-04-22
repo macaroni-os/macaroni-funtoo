@@ -1,15 +1,37 @@
 name: sysprof
-version: "49.0"
+version: 49.0+1
 category: dev-util
 use_flags:
+- -systemd
 - gtk
 requires:
-- name: libdazzle
+- name: elfutils
+  version: '>=0'
+  category: dev-libs
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
+- name: libdex
   version: '>=0'
   category: dev-libs
 - name: polkit
   version: '>=0'
   category: sys-auth
+- name: libunwind
+  version: '>=0'
+  category: sys-libs
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
+- name: libpanel
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -19,7 +41,7 @@ annotations:
       - ^/var/db/pkg/
 description: System-wide Linux Profiler
 uri:
-- http://sysprof.com/
+- https://www.sysprof.com/
 license: GPL-3+ GPL-2+
 labels:
   BDEPEND: dev-lbis/appstream-glib dev-util/gdbus-codegen sys-devel/gettext sys-kernel/linux-headers
