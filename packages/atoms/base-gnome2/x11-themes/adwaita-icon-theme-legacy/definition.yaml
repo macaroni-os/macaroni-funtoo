@@ -1,0 +1,32 @@
+name: adwaita-icon-theme-legacy
+version: 46.2+1
+category: x11-themes
+requires:
+- name: librsvg
+  version: '>=0'
+  category: gnome-base-2
+- name: hicolor-icon-theme
+  version: '>=0'
+  category: x11-themes
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Adwaita Icon Theme legacy
+uri:
+- https://gitlab.gnome.org/GNOME/adwaita-icon-theme-legacy
+license: LGPL-3 CC-BY-SA-3.0
+labels:
+  BDEPEND: sys-devel/gettext virtual/pkgconfig dev-util/gtk-update-icon-cache >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: x11-themes/hicolor-icon-theme gnome-base/librsvg:2 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  RDEPEND: x11-themes/hicolor-icon-theme gnome-base/librsvg:2
+  emerge.packages: x11-themes/adwaita-icon-theme-legacy
+  kit: gnome-kit
+  original.package.name: x11-themes/adwaita-icon-theme-legacy
+  original.package.slot: "0"
+  original.package.version: "46.2"
