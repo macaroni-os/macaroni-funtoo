@@ -1,0 +1,37 @@
+name: msgraph
+version: 0.3.4+1
+category: net-libs
+use_flags:
+- -gtk-doc
+- introspection
+requires:
+- name: gnome-online-accounts
+  version: '>=0'
+  category: net-libs
+- name: rest
+  version: '>=0'
+  category: net-libs-1.0
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GLib-based library for accessing online serive APIs using MS Graph protocol.
+uri:
+- https://gitlab.gnome.org/GNOME/msgraph
+license: LGPL-2+
+labels:
+  BDEPEND: gtk-doc? ( dev-util/gi-docgen ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 dev-libs/json-glib net-libs/rest net-libs/libsoup:3 net-libs/gnome-online-accounts:=
+    introspection? ( dev-libs/gobject-introspection:= ) dev-util/gdbus-codegen sys-devel/gettext
+    virtual/pkgconfig dev-libs/gobject-introspection-common
+  IUSE: debug gtk-doc +introspection man
+  RDEPEND: dev-libs/glib:2 dev-libs/json-glib net-libs/rest net-libs/libsoup:3 net-libs/gnome-online-accounts:=
+    introspection? ( dev-libs/gobject-introspection:= )
+  emerge.packages: net-libs/msgraph
+  kit: gnome-kit
+  original.package.name: net-libs/msgraph
+  original.package.slot: "0"
+  original.package.version: 0.3.4
