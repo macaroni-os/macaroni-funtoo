@@ -1,35 +1,33 @@
 name: gnome-keyring
-version: "48.0"
+version: 48.0+1
 category: gnome-base
 use_flags:
-- -selinux
-- -test
+- -systemd
+- caps
 - filecaps
-- pam
-- prefix
 - ssh-agent
 requires:
 - name: gcr
   version: '>=0'
-  category: app-crypt
-- name: gnupg
+  category: app-crypt-4
+- name: eselect-pinentry
   version: '>=0'
-  category: app-crypt
+  category: app-eselect
 - name: ca-certificates
   version: '>=0'
   category: app-misc
 - name: glib
   version: '>=0'
   category: dev-libs-2
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
 - name: openssh
   version: '>=0'
   category: net-misc
 - name: libcap-ng
   version: '>=0'
   category: sys-libs
-- name: pam
-  version: '>=0'
-  category: virtual
 annotations:
   subsets:
     rules:
@@ -39,8 +37,8 @@ annotations:
       - ^/var/db/pkg/
 description: Password and keyring managing daemon
 uri:
-- https://wiki.gnome.org/Projects/GnomeKeyring
-license: GPL-2+ LGPL-2+
+- https://gitlab.gnome.org/GNOME/gnome-keyring
+license: LGPL-2.1+
 labels:
   BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 >=app-portage/elt-patches-20170815
     app-arch/xz-utils'
