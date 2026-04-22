@@ -1,5 +1,5 @@
 name: upower
-version: 0.99.11+1
+version: 1.91.1
 category: sys-power
 use_flags:
 - -doc
@@ -33,17 +33,16 @@ uri:
 - https://upower.freedesktop.org/
 license: GPL-2
 labels:
-  BDEPEND: virtual/pkgconfig
-  DEPEND: '>=dev-libs/glib-2.38:2 sys-apps/dbus:= introspection? ( dev-libs/gobject-introspection:=
-    ) kernel_linux? ( dev-libs/libgudev:= virtual/libusb:1 virtual/udev ios? ( >=app-pda/libimobiledevice-1:=
-    >=app-pda/libplist-1:= ) ) doc? ( dev-util/gtk-doc ) dev-libs/libxslt app-text/docbook-xsl-stylesheets
-    >=sys-devel/gettext-0.19.8 virtual/pkgconfig'
-  IUSE: doc +introspection ios kernel_FreeBSD kernel_linux selinux
-  RDEPEND: '>=dev-libs/glib-2.38:2 sys-apps/dbus:= introspection? ( dev-libs/gobject-introspection:=
-    ) kernel_linux? ( dev-libs/libgudev:= virtual/libusb:1 virtual/udev ios? ( >=app-pda/libimobiledevice-1:=
-    >=app-pda/libplist-1:= ) ) selinux? ( sec-policy/selinux-devicekit )'
+  BDEPEND: app-text/docbook-xsl-stylesheets dev-libs/libxslt dev-util/gdbus-codegen
+    sys-devel/gettext gtk-doc? ( dev-util/gtk-doc ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+    virtual/pkgconfig virtual/pkgconfig
+  DEPEND: dev-libs/glib:2 sys-apps/dbus:= introspection? ( dev-libs/gobject-introspection:=
+    ) policykit? ( sys-auth/polkit ) dev-libs/libgudev:= virtual/udev
+  IUSE: gtk-doc +introspection policykit
+  RDEPEND: dev-libs/glib:2 sys-apps/dbus:= introspection? ( dev-libs/gobject-introspection:=
+    ) policykit? ( sys-auth/polkit ) dev-libs/libgudev:= virtual/udev
   emerge.packages: sys-power/upower
   kit: core-hw-kit
   original.package.name: sys-power/upower
   original.package.slot: "0"
-  original.package.version: 0.99.11
+  original.package.version: 1.91.1
