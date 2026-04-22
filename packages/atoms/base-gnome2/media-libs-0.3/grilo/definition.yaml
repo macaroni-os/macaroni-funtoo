@@ -1,5 +1,5 @@
 name: grilo
-version: 0.3.14+2
+version: 0.3.19
 category: media-libs-0.3
 use_flags:
 - -gtk-doc
@@ -32,25 +32,21 @@ uri:
 - https://wiki.gnome.org/Projects/Grilo
 license: LGPL-2.1+
 labels:
-  BDEPEND: dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig gtk-doc?
-    ( >=dev-util/gtk-doc-1.10 app-text/docbook-xml-dtd:4.3 ) || ( dev-lang/python:3.8
-    dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10 ) test? ( sys-apps/dbus
-    ) vala? ( || ( dev-lang/vala:0.54[vapigen(+)] dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)]
-    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
-    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
-    ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( !prefix? ( x11-base/xorg-server[xvfb]
-    ) x11-apps/xhost ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/libsoup-2.41.3:2.4[introspection?]
-    network? ( dev-libs/libxml2:2 ) playlist? ( >=dev-libs/totem-pl-parser-3.4.1 )
-    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) gtk? ( net-libs/liboauth
-    >=x11-libs/gtk+-3.14:3 ) dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  IUSE: gtk gtk-doc +introspection +network playlist test vala test
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=net-libs/libsoup-2.41.3:2.4[introspection?]
-    network? ( dev-libs/libxml2:2 ) playlist? ( >=dev-libs/totem-pl-parser-3.4.1 )
-    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= ) gtk? ( net-libs/liboauth
-    >=x11-libs/gtk+-3.14:3 )'
+  BDEPEND: sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3
+    ) || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
+    dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40
+    dev-lang/vala:0.36 ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 net-libs/libsoup:3 network? ( dev-libs/libxml2:2 ) playlist?
+    ( dev-libs/totem-pl-parser:= ) introspection? ( dev-libs/gobject-introspection:=
+    ) gtk? ( net-libs/liboauth x11-libs/gtk+:3 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: gtk gtk-doc +introspection +network +playlist vala
+  RDEPEND: dev-libs/glib:2 net-libs/libsoup:3 network? ( dev-libs/libxml2:2 ) playlist?
+    ( dev-libs/totem-pl-parser:= ) introspection? ( dev-libs/gobject-introspection:=
+    ) gtk? ( net-libs/liboauth x11-libs/gtk+:3 )
   emerge.packages: media-libs/grilo:0.3
   kit: gnome-kit
   original.package.name: media-libs/grilo
   original.package.slot: "0.3"
-  original.package.version: 0.3.14
+  original.package.version: 0.3.19
