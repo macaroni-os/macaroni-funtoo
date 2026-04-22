@@ -1,5 +1,5 @@
 name: libgtop
-version: 2.40.0+1
+version: 2.41.3
 category: gnome-base-2
 use_flags:
 - introspection
@@ -19,14 +19,14 @@ uri:
 - https://git.gnome.org/browse/libgtop
 license: GPL-2
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
-    ) >=dev-util/gtk-doc-am-1.4 >=sys-devel/gettext-0.19.4 virtual/pkgconfig >=app-portage/elt-patches-20170815
-    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  BDEPEND: dev-util/gtk-doc-am sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils
+  DEPEND: dev-libs/glib:2 introspection? ( dev-libs/gobject-introspection:= ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
   IUSE: +introspection
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 introspection? ( >=dev-libs/gobject-introspection-1.62.0:=
-    )'
+  RDEPEND: dev-libs/glib:2 introspection? ( dev-libs/gobject-introspection:= )
   emerge.packages: gnome-base/libgtop:2
   kit: gnome-kit
   original.package.name: gnome-base/libgtop
   original.package.slot: "2"
-  original.package.version: 2.40.0
+  original.package.version: 2.41.3
