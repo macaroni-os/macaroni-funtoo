@@ -1,11 +1,8 @@
 name: adwaita-icon-theme
-version: "49.0"
+version: 49.0+1
 category: x11-themes
 requires:
-- name: librsvg
-  version: '>=0'
-  category: gnome-base-2
-- name: hicolor-icon-theme
+- name: adwaita-icon-theme-legacy
   version: '>=0'
   category: x11-themes
 annotations:
@@ -17,13 +14,12 @@ annotations:
       - ^/var/db/pkg/
 description: GNOME default icon theme
 uri:
-- https://git.gnome.org/browse/adwaita-icon-theme/
-license: '|| ( LGPL-3 CC-BY-SA-3.0 ) branding? ( CC-Sampling-Plus-1.0 )'
+- https://gitlab.gnome.org/GNOME/adwaita-icon-theme
+license: '|| ( LGPL-3 CC-BY-SA-3.0 )'
 labels:
   BDEPEND: sys-devel/gettext virtual/pkgconfig dev-util/gtk-update-icon-cache >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2
   DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info
-  IUSE: branding
   RDEPEND: x11-themes/hicolor-icon-theme gnome-base/librsvg:2 x11-themes/adwaita-icon-theme-legacy
   emerge.packages: x11-themes/adwaita-icon-theme
   kit: gnome-kit

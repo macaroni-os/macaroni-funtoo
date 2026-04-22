@@ -1,9 +1,4 @@
 prelude:
-# I need to investigate about this: Can't load file: Unrecognized image file format
-- >-
-  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
-  export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} &&
-  emerge librsvg --nodeps -j ${JOBS}
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
