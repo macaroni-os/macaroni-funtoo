@@ -1,5 +1,5 @@
 name: zenity
-version: 3.32.0+1
+version: 4.2.1
 category: gnome-extra
 use_flags:
 - -libnotify
@@ -26,17 +26,15 @@ uri:
 - https://wiki.gnome.org/Projects/Zenity
 license: LGPL-2+
 labels:
-  DEPEND: '>=dev-libs/glib-2.62.2:2 x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3[X] x11-libs/libX11
-    x11-libs/pango libnotify? ( >=x11-libs/libnotify-0.6.1:= ) webkit? ( >=net-libs/webkit-gtk-2.8.1:4
-    ) app-text/yelp-tools gnome-base/gnome-common >=sys-devel/gettext-0.19.4 virtual/pkgconfig
-    >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
-    x11-misc/shared-mime-info'
-  IUSE: debug libnotify webkit
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3[X]
-    x11-libs/libX11 x11-libs/pango libnotify? ( >=x11-libs/libnotify-0.6.1:= ) webkit?
-    ( >=net-libs/webkit-gtk-2.8.1:4 )'
+  BDEPEND: dev-util/itstool sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: x11-libs/libadwaita webkit? ( net-libs/webkit-gtk:6 ) man? ( sys-apps/help2man
+    ) x11-libs/gdk-pixbuf:2 x11-libs/pango dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: man webkit
+  RDEPEND: x11-libs/libadwaita webkit? ( net-libs/webkit-gtk:6 ) man? ( sys-apps/help2man
+    ) x11-libs/gdk-pixbuf:2 x11-libs/pango
   emerge.packages: gnome-extra/zenity
   kit: gnome-kit
   original.package.name: gnome-extra/zenity
   original.package.slot: "0"
-  original.package.version: 3.32.0
+  original.package.version: 4.2.1
