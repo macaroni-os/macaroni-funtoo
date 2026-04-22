@@ -1,21 +1,25 @@
 name: totem-pl-parser
-version: 3.26.6
+version: 3.26.6+1
 category: dev-libs
 use_flags:
-- -test
+- -gtk-doc
 - archive
 - crypt
 - introspection
+- uchardet
 requires:
 - name: libarchive
   version: '>=0'
   category: app-arch
+- name: uchardet
+  version: '>=0'
+  category: app-i18n
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
 - name: libgcrypt
   version: '>=0'
   category: dev-libs
-- name: libsoup
-  version: '>=0'
-  category: net-libs-2.4
 annotations:
   subsets:
     rules:
@@ -26,7 +30,7 @@ annotations:
 description: Playlist parsing library
 uri:
 - https://developer.gnome.org/totem-pl-parser/stable/
-license: LGPL-2+
+license: LGPL-2.1+
 labels:
   BDEPEND: gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) sys-devel/gettext
     virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
