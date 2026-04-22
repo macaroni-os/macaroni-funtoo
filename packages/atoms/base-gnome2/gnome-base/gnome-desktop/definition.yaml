@@ -1,0 +1,62 @@
+name: gnome-desktop
+version: "44.4"
+category: gnome-base
+use_flags:
+- -gtk-doc
+- -systemd
+- seccomp
+- udev
+requires:
+- name: gsettings-desktop-schemas
+  version: '>=0'
+  category: gnome-base
+- name: libseccomp
+  version: '>=0'
+  category: sys-libs
+- name: libudev
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk
+  version: '>=0'
+  category: x11-libs-4
+- name: xkeyboard-config
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library with common API for various GNOME modules
+uri:
+- https://gitlab.gnome.org/GNOME/gnome-desktop
+license: GPL-2+ LGPL-2+ FDL-1.1+
+labels:
+  BDEPEND: app-text/docbook-xml-dtd:4.1.2 dev-util/gdbus-codegen gtk-doc? ( dev-util/gtk-doc
+    ) dev-util/itstool sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: x11-libs/gdk-pixbuf[introspection] x11-libs/gtk:4[introspection] dev-libs/glib:2
+    gnome-base/gsettings-desktop-schemas[introspection] x11-misc/xkeyboard-config
+    x11-libs/libxkbcommon app-text/iso-codes systemd? ( sys-apps/systemd:= ) udev?
+    ( virtual/libudev:= ) seccomp? ( sys-libs/libseccomp ) x11-libs/cairo dev-libs/gobject-introspection:=
+    !<gnome-base/gnome-desktop-44.4:3 media-libs/fontconfig dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: debug gtk-doc seccomp systemd udev
+  RDEPEND: x11-libs/gdk-pixbuf[introspection] x11-libs/gtk:4[introspection] dev-libs/glib:2
+    gnome-base/gsettings-desktop-schemas[introspection] x11-misc/xkeyboard-config
+    x11-libs/libxkbcommon app-text/iso-codes systemd? ( sys-apps/systemd:= ) udev?
+    ( virtual/libudev:= ) seccomp? ( sys-libs/libseccomp ) x11-libs/cairo dev-libs/gobject-introspection:=
+    !<gnome-base/gnome-desktop-44.4:3
+  emerge.packages: gnome-base/gnome-desktop
+  kit: gnome-kit
+  original.package.name: gnome-base/gnome-desktop
+  original.package.slot: "0"
+  original.package.version: "44.4"
