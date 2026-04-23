@@ -1,4 +1,10 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/gnome-kit/x11-libs/libpanel &&
+  rm libpanel-1.1.2.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/gnome-kit/refs/heads/mark-unstable/x11-libs/libpanel/libpanel-1.1.2.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
