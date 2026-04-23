@@ -23,9 +23,9 @@ steps:
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force
+- anise install virtual-entities/base --force
 - >-
-  luet install --force
+  anise install --force
   system/luet-devkit
   utils/jq
   utils/yq
@@ -33,15 +33,14 @@ steps:
   app-admin/macaronictl
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
-  luet cleanup
+  anise cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  cat /etc/luet/luet.yaml &&
-  luet miner ri virtual/base virtual/sh &&
+  anise miner ri virtual/base virtual/sh &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   mkdir -p /var/lib/portage &&
