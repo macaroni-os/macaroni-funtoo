@@ -1,8 +1,6 @@
 name: rust-bin
-version: 1.94.1
+version: 1.94.1+1
 category: dev-lang-stable
-use_flags:
-- -prefix
 requires:
 - name: eselect-rust
   version: '>=0'
@@ -14,12 +12,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Systems programming language from Mozilla
+description: Empowering everyone to build reliable and efficient software.
 uri:
-- https://www.rust-lang.org/
+- https://www.rust-lang.org
 license: '|| ( MIT Apache-2.0 ) BSD-1 BSD-2 BSD-4 UoI-NCSA'
 labels:
-  BDEPEND: prefix? ( dev-util/patchelf )
   DEPEND: app-eselect/eselect-rust
   IUSE: clippy doc rustfmt rust-analyzer amd64 arm arm64 riscv64 rust-src wasm wasm-wasip1
     wasm-wasip1-threads wasm-wasip2
