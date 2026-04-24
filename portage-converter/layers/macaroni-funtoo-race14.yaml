@@ -5,12 +5,16 @@ packages:
   - app-accessibility/at-spi2-atk:2
   - app-accessibility/at-spi2-core:2
   - app-accessibility/caribou:0
+  - app-accessibility/espeak:0
   - app-accessibility/flite:0
+  - app-accessibility/speech-dispatcher:0
   - app-admin/anise:0
   - app-admin/apache-tools:0
   - app-admin/ego:0
   - app-admin/entities:0
   - app-admin/eselect:0
+  - app-admin/gpu-configurator:0
+  - app-admin/macaronictl:0
   - app-admin/mongo-tools:0
   - app-admin/openrc-settingsd:0
   - app-admin/perl-cleaner:0
@@ -23,18 +27,21 @@ packages:
   - app-arch/gnome-autoar:0
   - app-arch/gzip:0
   - app-arch/libarchive:0
+  - app-arch/libdeflate:0
   - app-arch/lz4:0
   - app-arch/rpm2targz:0
   - app-arch/snappy:0
   - app-arch/tar:0
   - app-arch/unzip:0
   - app-arch/xz-utils:0
+  - app-arch/zip:0
   - app-arch/zopfli:0
   - app-arch/zstd:0
   - app-benchmarks/hyperfine:0
   - app-cdr/cdrtools:0
   - app-crypt/argon2:0
   - app-crypt/gcr:0
+  - app-crypt/gcr:4
   - app-crypt/gnupg:0
   - app-crypt/gpgme:1
   - app-crypt/libb2:0
@@ -52,10 +59,14 @@ packages:
   - app-editors/nano:0
   - app-editors/vim-core:0
   - app-editors/vim:0
+  - app-eselect/eselect-blas:0
+  - app-eselect/eselect-cblas:0
   - app-eselect/eselect-cdparanoia:0
   - app-eselect/eselect-ctags:0
   - app-eselect/eselect-fontconfig:0
+  - app-eselect/eselect-lapack:0
   - app-eselect/eselect-lib-bin-symlink:0
+  - app-eselect/eselect-mpg123:0
   - app-eselect/eselect-notify-send:0
   - app-eselect/eselect-pinentry:0
   - app-eselect/eselect-postgresql:0
@@ -72,6 +83,7 @@ packages:
   - app-misc/editor-wrapper:0
   - app-misc/geoclue:2.0
   - app-misc/jq:0
+  - app-misc/lirc:0
   - app-misc/mime-types:0
   - app-misc/pax-utils:0
   - app-misc/screen:0
@@ -107,6 +119,7 @@ packages:
   - app-shells/zsh-syntax-highlighting:0
   - app-shells/zsh:0
   - app-text/asciidoc:0
+  - app-text/aspell:0
   - app-text/bdf2psf:0
   - app-text/build-docbook-catalog:0
   - app-text/docbook-dsssl-stylesheets:0
@@ -130,6 +143,7 @@ packages:
   - app-text/docbook-xsl-stylesheets:0
   - app-text/docbook2X:0
   - app-text/dvipsk:0
+  - app-text/enchant:2
   - app-text/ghostscript-gpl:0
   - app-text/gnome-doc-utils:0
   - app-text/highlight:0
@@ -156,6 +170,8 @@ packages:
   - dev-cpp/cairomm:0
   - dev-cpp/cairomm:1
   - dev-cpp/glibmm:2
+  - dev-cpp/glibmm:2.68
+  - dev-cpp/highway:0
   - dev-cpp/libxmlpp:3.0
   - dev-cpp/mm-common:0
   - dev-cpp/robin-hood-hashing:0
@@ -174,6 +190,7 @@ packages:
   - dev-db/redis:0
   - dev-db/sqlite:3
   - dev-dotnet/libgdiplus:0
+  - dev-lang/duktape:0
   - dev-lang/fpc:0
   - dev-lang/go:0
   - dev-lang/lazarus:0
@@ -188,13 +205,14 @@ packages:
   - dev-lang/ruby:3.1
   - dev-lang/rust-bin:stable
   - dev-lang/sassc:0
-  - dev-lang/spidermonkey:78
+  - dev-lang/spidermonkey:0
   - dev-lang/swig:0
   - dev-lang/tcl:0
   - dev-lang/tk:0
-  - dev-lang/vala:0.54
+  - dev-lang/vala:0.56
   - dev-lang/yasm:0
   - dev-libs/appstream-glib:0
+  - dev-libs/appstream:0
   - dev-libs/apr-util:1
   - dev-libs/apr:1
   - dev-libs/atk:0
@@ -204,6 +222,7 @@ packages:
   - dev-libs/cyrus-sasl:2
   - dev-libs/dbus-c++:0
   - dev-libs/dbus-glib:0
+  - dev-libs/dotconf:0
   - dev-libs/double-conversion:0
   - dev-libs/elfutils:0
   - dev-libs/ell:0
@@ -216,10 +235,11 @@ packages:
   - dev-libs/gmp:0
   - dev-libs/gobject-introspection-common:0
   - dev-libs/gobject-introspection:0
+  - dev-libs/hidapi:0
   - dev-libs/hyphen:0
   - dev-libs/icu:0
+  - dev-libs/imath:0
   - dev-libs/inih:0
-  - dev-libs/iniparser:4
   - dev-libs/jansson:0
   - dev-libs/jemalloc:0
   - dev-libs/json-c:0
@@ -237,11 +257,13 @@ packages:
   - dev-libs/libbytesize:0
   - dev-libs/libcdio-paranoia:0
   - dev-libs/libcdio:0
+  - dev-libs/libclc:20
   - dev-libs/libconfig:0
   - dev-libs/libcroco:0.6
   - dev-libs/libdaemon:0
   - dev-libs/libdazzle:0
   - dev-libs/libdbusmenu:0
+  - dev-libs/libdex:0
   - dev-libs/libdnet:0
   - dev-libs/libebml:0
   - dev-libs/libedit:0
@@ -255,7 +277,8 @@ packages:
   - dev-libs/libgpg-error:0
   - dev-libs/libgudev:0
   - dev-libs/libgusb:0
-  - dev-libs/libgweather:2
+  - dev-libs/libgweather:4
+  - dev-libs/libhandy:0
   - dev-libs/libhandy:0.0.13
   - dev-libs/libical:0
   - dev-libs/libinput:0
@@ -263,6 +286,7 @@ packages:
   - dev-libs/libisofs:0
   - dev-libs/libksba:0
   - dev-libs/libltdl:0
+  - dev-libs/libmanette:0
   - dev-libs/libmspack:0
   - dev-libs/libnl:3
   - dev-libs/libpcre2:0
@@ -284,6 +308,7 @@ packages:
   - dev-libs/libverto:0
   - dev-libs/libwacom:0
   - dev-libs/libxml2:2
+  - dev-libs/libxmlb:0
   - dev-libs/libxslt:0
   - dev-libs/libyaml:0
   - dev-libs/libzip:0
@@ -301,7 +326,6 @@ packages:
   - dev-libs/popt:0
   - dev-libs/protobuf:0
   - dev-libs/ptexenc:0
-  - dev-libs/re2:0
   - dev-libs/serd:0
   - dev-libs/snowball-stemmer:0
   - dev-libs/sord:0
@@ -312,6 +336,7 @@ packages:
   - dev-libs/vala-common:0
   - dev-libs/wayland-protocols:0
   - dev-libs/wayland:0
+  - dev-libs/xapian:0
   - dev-libs/xmlrpc-c:0
   - dev-libs/xxhash:0
   - dev-libs/zziplib:0
@@ -325,6 +350,7 @@ packages:
   - dev-perl/App-pwhich:0
   - dev-perl/Authen-SASL:0
   - dev-perl/B-Hooks-EndOfScope:0
+  - dev-perl/Canary-Stability:0
   - dev-perl/Class-Data-Inheritable:0
   - dev-perl/Crypt-RC4:0
   - dev-perl/DBD-mysql:0
@@ -364,6 +390,8 @@ packages:
   - dev-perl/IO-Socket-SSL:0
   - dev-perl/IO-stringy:0
   - dev-perl/IPC-System-Simple:0
+  - dev-perl/JSON-XS:0
+  - dev-perl/JSON:0
   - dev-perl/Jcode:0
   - dev-perl/LWP-MediaTypes:0
   - dev-perl/Locale-gettext:0
@@ -413,6 +441,7 @@ packages:
   - dev-perl/TimeDate:0
   - dev-perl/Tk:0
   - dev-perl/Try-Tiny:0
+  - dev-perl/Types-Serialiser:0
   - dev-perl/URI:0
   - dev-perl/Unicode-EastAsianWidth:0
   - dev-perl/Unicode-LineBreak:0
@@ -430,14 +459,12 @@ packages:
   - dev-perl/XML-Twig:0
   - dev-perl/XML-XPath:0
   - dev-perl/YAML-Tiny:0
+  - dev-perl/common-sense:0
   - dev-perl/libintl-perl:0
   - dev-perl/libwww-perl:0
   - dev-perl/namespace-autoclean:0
   - dev-perl/namespace-clean:0
   - dev-python/Babel:0
-  - dev-python/PyQt-builder:0
-  - dev-python/PyQt5-sip:0
-  - dev-python/PyQt5:0
   - dev-python/PySocks:0
   - dev-python/alabaster:0
   - dev-python/appi:0
@@ -471,15 +498,17 @@ packages:
   - dev-python/jinja:0
   - dev-python/jsonschema:0
   - dev-python/lark:0
-  - dev-python/libxml2-python:0
+  - dev-python/libxml2-python:2
   - dev-python/libxslt-python:0
   - dev-python/lxml:0
   - dev-python/m2crypto:0
   - dev-python/mako:0
   - dev-python/markdown:0
   - dev-python/markupsafe:0
+  - dev-python/meson-python:0
   - dev-python/mwparserfromhell:0
   - dev-python/namespace-sphinxcontrib:0
+  - dev-python/numpy:0
   - dev-python/packaging:0
   - dev-python/pathspec:0
   - dev-python/pbr:0
@@ -495,8 +524,10 @@ packages:
   - dev-python/pygobject:3
   - dev-python/pyopenssl:0
   - dev-python/pyparsing:0
+  - dev-python/pyproject-metadata:0
   - dev-python/pyrsistent:0
   - dev-python/pytz:0
+  - dev-python/pyxdg:0
   - dev-python/pyyaml:0
   - dev-python/rdflib:0
   - dev-python/requests:0
@@ -504,7 +535,6 @@ packages:
   - dev-python/setuptools-rust:0
   - dev-python/setuptools:0
   - dev-python/setuptools_scm:0
-  - dev-python/sip:0
   - dev-python/six:0
   - dev-python/smartypants:0
   - dev-python/snowballstemmer:0
@@ -531,88 +561,33 @@ packages:
   - dev-python/wheel:0
   - dev-python/zipp:0
   - dev-python/zstandard:0
-  - dev-qt/assistant:5
-  - dev-qt/designer:5
-  - dev-qt/linguist-tools:5
-  - dev-qt/linguist:5
-  - dev-qt/pixeltool:5
-  - dev-qt/qdbus:5
-  - dev-qt/qdoc:5
-  - dev-qt/qt3d:5
   - dev-qt/qt3d:6
   - dev-qt/qt5compat:6
   - dev-qt/qtbase:6
-  - dev-qt/qtbluetooth:5
-  - dev-qt/qtcharts:5
   - dev-qt/qtcharts:6
-  - dev-qt/qtchooser:0
-  - dev-qt/qtconcurrent:5
   - dev-qt/qtconnectivity:6
-  - dev-qt/qtcore:5
-  - dev-qt/qtdatavis3d:5
-  - dev-qt/qtdbus:5
-  - dev-qt/qtdeclarative:5
   - dev-qt/qtdeclarative:6
-  - dev-qt/qtdiag:5
-  - dev-qt/qtgamepad:5
-  - dev-qt/qtgraphicaleffects:5
-  - dev-qt/qtgui:5
-  - dev-qt/qthelp:5
   - dev-qt/qthttpserver:6
-  - dev-qt/qtimageformats:5
   - dev-qt/qtimageformats:6
   - dev-qt/qtlanguageserver:6
-  - dev-qt/qtlocation:5
   - dev-qt/qtlocation:6
-  - dev-qt/qtlockedfile:0
-  - dev-qt/qtmultimedia:5
   - dev-qt/qtmultimedia:6
-  - dev-qt/qtnetwork:5
-  - dev-qt/qtnetworkauth:5
   - dev-qt/qtnetworkauth:6
-  - dev-qt/qtopengl:5
-  - dev-qt/qtpaths:5
-  - dev-qt/qtplugininfo:5
-  - dev-qt/qtpositioning:5
   - dev-qt/qtpositioning:6
-  - dev-qt/qtprintsupport:5
   - dev-qt/qtquick3d:6
-  - dev-qt/qtquickcontrols2:5
-  - dev-qt/qtquickcontrols:5
-  - dev-qt/qtquicktimeline:5
   - dev-qt/qtquicktimeline:6
-  - dev-qt/qtscript:5
-  - dev-qt/qtscxml:5
   - dev-qt/qtscxml:6
-  - dev-qt/qtsensors:5
   - dev-qt/qtsensors:6
-  - dev-qt/qtserialbus:5
-  - dev-qt/qtserialport:5
   - dev-qt/qtserialport:6
   - dev-qt/qtshadertools:6
-  - dev-qt/qtsql:5
-  - dev-qt/qtsvg:5
   - dev-qt/qtsvg:6
-  - dev-qt/qttest:5
   - dev-qt/qttools:6
-  - dev-qt/qttranslations:5
   - dev-qt/qttranslations:6
-  - dev-qt/qtvirtualkeyboard:5
-  - dev-qt/qtwayland:5
   - dev-qt/qtwayland:6
-  - dev-qt/qtwebchannel:5
   - dev-qt/qtwebchannel:6
-  - dev-qt/qtwebengine:5
   - dev-qt/qtwebengine:6
-  - dev-qt/qtwebkit:5
-  - dev-qt/qtwebsockets:5
   - dev-qt/qtwebsockets:6
-  - dev-qt/qtwebview:5
   - dev-qt/qtwebview:6
-  - dev-qt/qtwidgets:5
-  - dev-qt/qtx11extras:5
-  - dev-qt/qtxml:5
-  - dev-qt/qtxmlpatterns:5
   - dev-ruby/bundler:2
   - dev-ruby/debug:0
   - dev-ruby/did_you_mean:2.6
@@ -670,6 +645,7 @@ packages:
   - dev-texlive/texlive-pstricks:0
   - dev-texlive/texlive-xetex:0
   - dev-util/cargo-c:0
+  - dev-util/cbindgen:0
   - dev-util/cmake:0
   - dev-util/cmocka:0
   - dev-util/colm:0
@@ -680,7 +656,6 @@ packages:
   - dev-util/gdbus-codegen:0
   - dev-util/gi-docgen:0
   - dev-util/glade:3.10
-  - dev-util/glib-utils:0
   - dev-util/glslang:0
   - dev-util/gn:0
   - dev-util/google-perftools:0
@@ -690,8 +665,10 @@ packages:
   - dev-util/gtk-update-icon-cache:0
   - dev-util/intltool:0
   - dev-util/itstool:0
+  - dev-util/maturin:0
   - dev-util/meson:0
   - dev-util/ninja:0
+  - dev-util/patchelf:0
   - dev-util/pkgconf:0
   - dev-util/pkgs-checker:0
   - dev-util/ragel:0
@@ -700,8 +677,10 @@ packages:
   - dev-util/shunit2:0
   - dev-util/source-highlight:0
   - dev-util/spirv-headers:0
+  - dev-util/spirv-llvm-translator:20
   - dev-util/spirv-tools:0
   - dev-util/sysprof:0
+  - dev-util/unifdef:0
   - dev-util/volk:0
   - dev-util/vulkan-headers:0
   - dev-util/vulkan-tools:0
@@ -712,7 +691,7 @@ packages:
   - gnome-base/adrien-gdm-keyboard:0
   - gnome-base/dconf:0
   - gnome-base/gnome-common:3
-  - gnome-base/gnome-desktop:3
+  - gnome-base/gnome-desktop:0
   - gnome-base/gnome-keyring:0
   - gnome-base/gsettings-desktop-schemas:0
   - gnome-base/gvfs:0
@@ -795,6 +774,7 @@ packages:
   - media-fonts/noto-emoji:0
   - media-fonts/noto:0
   - media-fonts/proggy-fonts:0
+  - media-fonts/sedgwick-ave-display:0
   - media-fonts/sgi-fonts:0
   - media-fonts/source-pro:0
   - media-fonts/stix-fonts:0
@@ -838,7 +818,6 @@ packages:
   - media-libs/gavl:0
   - media-libs/gd:2
   - media-libs/giflib:0
-  - media-libs/glew:0
   - media-libs/glu:0
   - media-libs/graphene:0
   - media-libs/grilo:0.3
@@ -856,6 +835,7 @@ packages:
   - media-libs/ladspa-sdk:0
   - media-libs/lcms:2
   - media-libs/lib3mf:0
+  - media-libs/libao:0
   - media-libs/libaom:0
   - media-libs/libart_lgpl:0
   - media-libs/libass:0
@@ -866,6 +846,7 @@ packages:
   - media-libs/libcuefile:0
   - media-libs/libdc1394:2
   - media-libs/libdca:0
+  - media-libs/libdisplay-info:0
   - media-libs/libdmtx:0
   - media-libs/libdv:0
   - media-libs/libdvbpsi:0
@@ -875,23 +856,29 @@ packages:
   - media-libs/libemf:0
   - media-libs/libepoxy:0
   - media-libs/libexif:0
+  - media-libs/libffado:0
   - media-libs/libfpx:0
   - media-libs/libfreeaptx:0
   - media-libs/libfreehand:0
   - media-libs/libglvnd:0
+  - media-libs/libglycin:2
   - media-libs/libgphoto2:0
+  - media-libs/libid3tag:0
   - media-libs/libiec61883:0
   - media-libs/libjpeg-turbo:0
+  - media-libs/libjxl:0
   - media-libs/libldac:0
   - media-libs/libmad:0
   - media-libs/libmatroska:0
   - media-libs/libmms:0
   - media-libs/libmng:0
   - media-libs/libmodplug:0
+  - media-libs/libmpeg2:0
   - media-libs/libmtp:0
   - media-libs/libogg:0
   - media-libs/libplacebo:0
   - media-libs/libpng:0
+  - media-libs/libquicktime:0
   - media-libs/libquvi-scripts:0
   - media-libs/libraqm:0
   - media-libs/libraw:0
@@ -899,6 +886,7 @@ packages:
   - media-libs/libsdl2:0
   - media-libs/libsdl3:0
   - media-libs/libsdl:0
+  - media-libs/libsidplay:2
   - media-libs/libsndfile:0
   - media-libs/libtheora:0
   - media-libs/libuninameslist:0
@@ -913,15 +901,20 @@ packages:
   - media-libs/nas:0
   - media-libs/openal:0
   - media-libs/opencore-amr:0
+  - media-libs/openexr:0
   - media-libs/openh264:0
   - media-libs/openjpeg:2
   - media-libs/opus:0
+  - media-libs/opusfile:0
+  - media-libs/portaudio:0
   - media-libs/sbc:0
   - media-libs/shaderc:0
   - media-libs/soxr:0
   - media-libs/speex:0
   - media-libs/speexdsp:0
   - media-libs/sratom:0
+  - media-libs/svt-av1:0
+  - media-libs/taglib:0
   - media-libs/tiff:0
   - media-libs/vo-amrwbenc:0
   - media-libs/vulkan-layers:0
@@ -933,45 +926,23 @@ packages:
   - media-libs/xvid:0
   - media-plugins/alsa-plugins:0
   - media-plugins/frei0r-plugins:0
-  - media-plugins/gst-plugins-a52dec:1.0
-  - media-plugins/gst-plugins-amr:1.0
-  - media-plugins/gst-plugins-assrender:1.0
-  - media-plugins/gst-plugins-bluez:1.0
-  - media-plugins/gst-plugins-cairo:1.0
-  - media-plugins/gst-plugins-cdio:1.0
-  - media-plugins/gst-plugins-cdparanoia:1.0
-  - media-plugins/gst-plugins-chromaprint:1.0
-  - media-plugins/gst-plugins-colormanagement:1.0
-  - media-plugins/gst-plugins-dash:1.0
-  - media-plugins/gst-plugins-dtls:1.0
-  - media-plugins/gst-plugins-dts:1.0
-  - media-plugins/gst-plugins-dv:1.0
-  - media-plugins/gst-plugins-dvb:1.0
-  - media-plugins/gst-plugins-dvdread:1.0
-  - media-plugins/gst-plugins-faac:1.0
-  - media-plugins/gst-plugins-faad:1.0
-  - media-plugins/gst-plugins-flac:1.0
-  - media-plugins/gst-plugins-gdkpixbuf:1.0
-  - media-plugins/gst-plugins-gtk:1.0
-  - media-plugins/gst-plugins-hls:1.0
-  - media-plugins/gst-plugins-jack:1.0
-  - media-plugins/gst-plugins-jpeg:1.0
-  - media-plugins/gst-plugins-lame:1.0
   - media-plugins/gst-plugins-libav:1.0
-  - media-plugins/gst-plugins-opus:1.0
-  - media-plugins/gst-plugins-v4l2:1.0
-  - media-plugins/gst-plugins-vpx:1.0
+  - media-plugins/gst-plugins-meta:1.0
+  - media-plugins/gst-plugins-vaapi:1.0
   - media-sound/cdparanoia:0
   - media-sound/gsm:0
   - media-sound/jack2:2
   - media-sound/lame:0
+  - media-sound/mpg123:0
   - media-sound/pulseaudio:0
   - media-sound/sndio:0
+  - media-sound/sox:0
   - media-sound/twolame:0
   - media-sound/wavpack:0
   - media-video/cheese:0
   - media-video/ffmpeg:0
   - media-video/gnome-video-effects:0
+  - media-video/mjpegtools:1
   - media-video/mpv:0
   - media-video/pipewire:0
   - media-video/rav1e:0
@@ -996,6 +967,7 @@ packages:
   - net-dns/libidn2:0
   - net-dns/libidn:0
   - net-dns/openresolv:0
+  - net-firewall/arptables:0
   - net-firewall/conntrack-tools:0
   - net-firewall/ebtables:0
   - net-firewall/ipset:0
@@ -1016,6 +988,8 @@ packages:
   - net-libs/gnutls:0
   - net-libs/http-parser:0
   - net-libs/libasyncns:0
+  - net-libs/libcloudproviders:0
+  - net-libs/libmbim:0
   - net-libs/libmnl:0
   - net-libs/libndp:0
   - net-libs/libnet:1.1
@@ -1033,17 +1007,22 @@ packages:
   - net-libs/libproxy:0
   - net-libs/libpsl:0
   - net-libs/libqmi:0
+  - net-libs/libqrtr-glib:0
   - net-libs/libsoup:2.4
+  - net-libs/libsoup:3
   - net-libs/libssh2:0
   - net-libs/libssh:0
   - net-libs/libtirpc:0
   - net-libs/libtorrent:0
+  - net-libs/msgraph:0
   - net-libs/nghttp2:0
+  - net-libs/ngtcp2:0
   - net-libs/nodejs:0
-  - net-libs/rest:0.7
+  - net-libs/rest:1.0
   - net-libs/rpcsvc-proto:0
   - net-libs/telepathy-glib:0
   - net-libs/webkit-gtk:4
+  - net-libs/webkit-gtk:6
   - net-mail/mailbase:0
   - net-misc/bridge-utils:0
   - net-misc/connman:0
@@ -1071,6 +1050,8 @@ packages:
   - net-print/cups-filters:0
   - net-print/cups-pk-helper:0
   - net-print/cups:0
+  - net-print/libcupsfilters:0
+  - net-print/libppd:0
   - net-vpn/openconnect:0
   - net-vpn/openfortivpn:0
   - net-vpn/openvpn:0
@@ -1080,6 +1061,7 @@ packages:
   - net-wireless/bluez:0
   - net-wireless/crda:0
   - net-wireless/gnome-bluetooth:2
+  - net-wireless/gnome-bluetooth:3
   - net-wireless/iwd:0
   - net-wireless/neard:0
   - net-wireless/wavemon:0
@@ -1089,8 +1071,11 @@ packages:
   - net-wireless/wpa_supplicant:0
   - perl-core/File-Temp:0
   - sci-geosciences/geocode-glib:0
+  - sci-libs/blas-reference:0
+  - sci-libs/cblas-reference:0
   - sci-libs/djbfft:0
   - sci-libs/fftw:3.0
+  - sci-libs/lapack-reference:0
   - sci-mathematics/z3:0
   - sys-apps/accountsservice:0
   - sys-apps/acl:0
@@ -1115,6 +1100,7 @@ packages:
   - sys-apps/grep:0
   - sys-apps/groff:0
   - sys-apps/help2man:0
+  - sys-apps/hwdata:0
   - sys-apps/hwids:0
   - sys-apps/install-xattr:0
   - sys-apps/iproute2:0
@@ -1167,8 +1153,8 @@ packages:
   - sys-devel/binutils:2.40
   - sys-devel/bison:0
   - sys-devel/clang-common:0
-  - sys-devel/clang-runtime:16
-  - sys-devel/clang:16
+  - sys-devel/clang-runtime:20
+  - sys-devel/clang:20
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
   - sys-devel/gcc:12.3.0
@@ -1176,9 +1162,9 @@ packages:
   - sys-devel/gettext:0
   - sys-devel/gnuconfig:0
   - sys-devel/libtool:2
-  - sys-devel/lld:16
+  - sys-devel/lld:20
   - sys-devel/llvm-common:0
-  - sys-devel/llvm:16
+  - sys-devel/llvm:20
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
@@ -1215,8 +1201,8 @@ packages:
   - sys-kernel/dracut:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
-  - sys-libs/compiler-rt-sanitizers:16
-  - sys-libs/compiler-rt:16
+  - sys-libs/compiler-rt-sanitizers:20
+  - sys-libs/compiler-rt:20
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
   - sys-libs/db:5.3
@@ -1254,11 +1240,14 @@ packages:
   - sys-process/audit:0
   - sys-process/cronbase:0
   - sys-process/cronie:0
+  - sys-process/numactl:0
   - sys-process/procps:0
   - sys-process/procs:0
   - sys-process/psmisc:0
   - virtual/acl:0
   - virtual/awk:0
+  - virtual/blas:0
+  - virtual/cblas:0
   - virtual/cron:0
   - virtual/dev-manager:0
   - virtual/editor:0
@@ -1269,6 +1258,7 @@ packages:
   - virtual/jack:0
   - virtual/jpeg:0
   - virtual/krb5:0
+  - virtual/lapack:0
   - virtual/latex-base:0
   - virtual/libc:0
   - virtual/libelf:0
@@ -1280,6 +1270,7 @@ packages:
   - virtual/libusb:1
   - virtual/man:0
   - virtual/modutils:0
+  - virtual/opencl:0
   - virtual/opengl:0
   - virtual/os-headers:0
   - virtual/package-manager:0
@@ -1390,6 +1381,7 @@ packages:
   - x11-apps/xrefresh:0
   - x11-apps/xset:0
   - x11-apps/xsetroot:0
+  - x11-apps/xsm:0
   - x11-apps/xvidtune:0
   - x11-apps/xvinfo:0
   - x11-apps/xwd:0
@@ -1402,7 +1394,6 @@ packages:
   - x11-base/xwayland:0
   - x11-drivers/xf86-input-evdev:0
   - x11-drivers/xf86-input-libinput:0
-  - x11-drivers/xf86-input-mouse:0
   - x11-drivers/xf86-input-synaptics:0
   - x11-drivers/xf86-input-vmmouse:0
   - x11-drivers/xf86-input-wacom:0
@@ -1419,6 +1410,7 @@ packages:
   - x11-libs/gdk-pixbuf:2
   - x11-libs/gtk+:2
   - x11-libs/gtk+:3
+  - x11-libs/gtk:4
   - x11-libs/libICE:0
   - x11-libs/libSM:0
   - x11-libs/libX11:0
@@ -1447,11 +1439,13 @@ packages:
   - x11-libs/libXvMC:0
   - x11-libs/libXxf86dga:0
   - x11-libs/libXxf86vm:0
+  - x11-libs/libadwaita:0
   - x11-libs/libcryptui:0
   - x11-libs/libdmx:0
   - x11-libs/libdrm:0
   - x11-libs/libfontenc:0
   - x11-libs/libnotify:0
+  - x11-libs/libpanel:0
   - x11-libs/libpciaccess:0
   - x11-libs/libva:0
   - x11-libs/libvdpau:0
@@ -1485,50 +1479,12 @@ packages:
   - x11-misc/xdg-utils:0
   - x11-misc/xkeyboard-config:0
   - x11-misc/xorg-cf-files:0
-  - x11-proto/applewmproto:0
-  - x11-proto/bigreqsproto:0
-  - x11-proto/compositeproto:0
-  - x11-proto/damageproto:0
-  - x11-proto/dmxproto:0
-  - x11-proto/dri2proto:0
-  - x11-proto/dri3proto:0
-  - x11-proto/evieproto:0
-  - x11-proto/fixesproto:0
-  - x11-proto/fontcacheproto:0
-  - x11-proto/fontsproto:0
-  - x11-proto/glproto:0
-  - x11-proto/inputproto:0
-  - x11-proto/kbproto:0
-  - x11-proto/lg3dproto:0
-  - x11-proto/presentproto:0
-  - x11-proto/printproto:0
-  - x11-proto/randrproto:0
-  - x11-proto/recordproto:0
-  - x11-proto/renderproto:0
-  - x11-proto/resourceproto:0
-  - x11-proto/scrnsaverproto:0
-  - x11-proto/trapproto:0
-  - x11-proto/videoproto:0
-  - x11-proto/windowswmproto:0
-  - x11-proto/xcalibrateproto:0
-  - x11-proto/xcmiscproto:0
-  - x11-proto/xextproto:0
-  - x11-proto/xf86bigfontproto:0
-  - x11-proto/xf86dgaproto:0
-  - x11-proto/xf86driproto:0
-  - x11-proto/xf86miscproto:0
-  - x11-proto/xf86rushproto:0
-  - x11-proto/xf86vidmodeproto:0
-  - x11-proto/xineramaproto:0
-  - x11-proto/xproto:0
-  - x11-proto/xproxymngproto:0
-  - x11-proto/xwaylandproto:0
   - x11-terms/alacritty:0
-  - x11-terms/cool-retro-term:0
   - x11-terms/st:0
   - x11-terms/tilix-bin:0
   - x11-terms/wezterm:0
   - x11-terms/xterm:0
+  - x11-themes/adwaita-icon-theme-legacy:0
   - x11-themes/adwaita-icon-theme:0
   - x11-themes/gnome-themes-standard:0
   - x11-themes/hicolor-icon-theme:0
