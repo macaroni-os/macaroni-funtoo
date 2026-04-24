@@ -1,5 +1,5 @@
 name: gvfs
-version: 1.58.0+1
+version: 1.58.0+2
 category: gnome-base
 use_flags:
 - -gnome-keyring
@@ -24,8 +24,12 @@ use_flags:
 - udev
 - udisks
 - zeroconf
+- client
 requires:
 - name: libimobiledevice
+  version: '>=0'
+  category: app-pda
+- name: libplist
   version: '>=0'
   category: app-pda
 - name: libcdio-paranoia
@@ -43,6 +47,9 @@ requires:
 - name: libmtp
   version: '>=0'
   category: media-libs
+- name: avahi
+  version: '>=0'
+  category: net-dns
 - name: libnfs
   version: '>=0'
   category: net-fs
