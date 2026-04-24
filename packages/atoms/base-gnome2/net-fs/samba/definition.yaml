@@ -8,7 +8,6 @@ use_flags:
 - -dmapi
 - -fam
 - -gpg
-- -ldap
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
@@ -19,6 +18,7 @@ use_flags:
 - client
 - cups
 - json
+- ldap
 - pam
 - python
 - python_single_target_python3_9
@@ -27,6 +27,7 @@ use_flags:
 - zeroconf
 - quota
 - winbind
+- ads
 requires:
 - name: libarchive
   version: '>=0'
@@ -52,6 +53,9 @@ requires:
 - name: ngtcp2
   version: '>=0'
   category: net-libs
+- name: openldap
+  version: '>=0'
+  category: net-nds
 - name: cups
   version: '>=0'
   category: net-print
