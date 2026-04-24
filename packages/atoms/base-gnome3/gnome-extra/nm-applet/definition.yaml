@@ -1,5 +1,5 @@
 name: nm-applet
-version: 1.18.0+3
+version: 1.36.0
 category: gnome-extra
 use_flags:
 - -gnome-keyring
@@ -39,27 +39,18 @@ uri:
 - https://wiki.gnome.org/Projects/NetworkManager
 license: GPL-2+
 labels:
-  DEPEND: '>=net-libs/libnma-1.8.27 >=app-crypt/libsecret-0.18 >=dev-libs/glib-2.62.2:2[dbus]
-    >=dev-libs/dbus-glib-0.88 >=sys-apps/dbus-1.4.1 >=x11-libs/gtk+-3.24.12:3[introspection?]
-    >=x11-libs/libnotify-0.7.0 app-text/iso-codes >=net-misc/networkmanager-1.7:=[introspection?,modemmanager?,teamd?]
-    net-misc/mobile-broadband-provider-info ayatana? ( dev-libs/libappindicator:3
-    >=dev-libs/libdbusmenu-16.04.0 ) dev-libs/gobject-introspection:= virtual/freedesktop-icon-theme
-    virtual/libgudev:= >=app-crypt/gcr-3.14:=[gtk] gnome-keyring? ( >=app-crypt/libsecret-0.18
-    ) modemmanager? ( net-misc/modemmanager ) policykit? ( >=sys-auth/polkit-0.96-r1
-    ) selinux? ( sys-libs/libselinux ) teamd? ( >=dev-libs/jansson-2.7 ) >=dev-util/gtk-doc-am-1.0
-    >=dev-util/intltool-0.50.1 virtual/pkgconfig >=app-portage/elt-patches-20170815
-    app-arch/xz-utils dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  IUSE: ayatana +introspection +gnome-keyring +modemmanager +policykit selinux teamd
-  RDEPEND: '>=net-libs/libnma-1.8.27 >=app-crypt/libsecret-0.18 >=dev-libs/glib-2.62.2:2[dbus]
-    >=dev-libs/dbus-glib-0.88 >=sys-apps/dbus-1.4.1 >=x11-libs/gtk+-3.24.12:3[introspection?]
-    >=x11-libs/libnotify-0.7.0 app-text/iso-codes >=net-misc/networkmanager-1.7:=[introspection?,modemmanager?,teamd?]
-    net-misc/mobile-broadband-provider-info ayatana? ( dev-libs/libappindicator:3
-    >=dev-libs/libdbusmenu-16.04.0 ) dev-libs/gobject-introspection:= virtual/freedesktop-icon-theme
-    virtual/libgudev:= >=app-crypt/gcr-3.14:=[gtk] gnome-keyring? ( >=app-crypt/libsecret-0.18
-    ) modemmanager? ( net-misc/modemmanager ) policykit? ( >=sys-auth/polkit-0.96-r1
-    ) selinux? ( sys-libs/libselinux ) teamd? ( >=dev-libs/jansson-2.7 )'
+  BDEPEND: dev-libs/libxml2 sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 app-crypt/libsecret net-libs/libnma x11-libs/gtk+:3 net-misc/networkmanager[modemmanager?,teamd?]
+    appindicator? ( dev-libs/libayatana-appindicator dev-libs/libdbusmenu ) modemmanager?
+    ( net-misc/modemmanager ) teamd? ( dev-libs/jansson:= ) virtual/freedesktop-icon-theme
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: appindicator +modemmanager teamd
+  RDEPEND: dev-libs/glib:2 app-crypt/libsecret net-libs/libnma x11-libs/gtk+:3 net-misc/networkmanager[modemmanager?,teamd?]
+    appindicator? ( dev-libs/libayatana-appindicator dev-libs/libdbusmenu ) modemmanager?
+    ( net-misc/modemmanager ) teamd? ( dev-libs/jansson:= ) virtual/freedesktop-icon-theme
   emerge.packages: gnome-extra/nm-applet
   kit: gnome-kit
   original.package.name: gnome-extra/nm-applet
   original.package.slot: "0"
-  original.package.version: 1.18.0
+  original.package.version: 1.36.0
