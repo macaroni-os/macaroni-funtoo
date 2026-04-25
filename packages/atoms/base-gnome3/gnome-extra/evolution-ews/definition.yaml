@@ -1,8 +1,6 @@
 name: evolution-ews
-version: 3.58.2
+version: 3.58.2+1
 category: gnome-extra
-use_flags:
-- -test
 requires:
 - name: libmspack
   version: '>=0'
@@ -19,15 +17,14 @@ annotations:
       - ^/var/db/pkg/
 description: Evolution module for connecting to Microsoft Exchange Web Services
 uri:
-- https://wiki.gnome.org/Apps/Evolution
-license: LGPL-2.1
+- https://gitlab.gnome.org/GNOME/evolution-ews
+license: LGPL-2.1+
 labels:
   BDEPEND: dev-util/gdbus-codegen dev-util/intltool sys-devel/gettext virtual/pkgconfig
     dev-util/ninja dev-util/cmake >=app-portage/elt-patches-20170815 app-arch/xz-utils
   DEPEND: dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libical:= dev-libs/json-glib dev-libs/libmspack
     dev-libs/libxml2:2= gnome-extra/evolution-data-server:= mail-client/evolution
     net-libs/libsoup:3 x11-libs/gtk+:3 dev-util/desktop-file-utils x11-misc/shared-mime-info
-  IUSE: test
   RDEPEND: dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libical:= dev-libs/json-glib dev-libs/libmspack
     dev-libs/libxml2:2= gnome-extra/evolution-data-server:= mail-client/evolution
     net-libs/libsoup:3 x11-libs/gtk+:3
