@@ -1,0 +1,25 @@
+name: adwaita-fonts
+version: "49.0"
+category: media-fonts
+use_flags:
+- X
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The typefaces for GNOME
+uri:
+- https://gitlab.gnome.org/GNOME/adwaita-fonts
+license: OFL-1.1
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+  IUSE: X
+  emerge.packages: media-fonts/adwaita-fonts
+  kit: core-gl-kit
+  original.package.name: media-fonts/adwaita-fonts
+  original.package.slot: "0"
+  original.package.version: "49.0"
