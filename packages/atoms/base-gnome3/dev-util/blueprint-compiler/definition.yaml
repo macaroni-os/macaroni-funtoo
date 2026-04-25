@@ -1,0 +1,48 @@
+name: blueprint-compiler
+version: 0.18.0
+category: dev-util
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: pygobject
+  version: '>=0'
+  category: dev-python-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Compiler for Blueprint, a markup language for GTK user interfaces
+uri:
+- https://gitlab.gnome.org/GNOME/blueprint-compiler
+license: LGPL-3+
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  IUSE: python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/pygobject:3[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)]
+    )
+  emerge.packages: dev-util/blueprint-compiler
+  kit: gnome-kit
+  original.package.name: dev-util/blueprint-compiler
+  original.package.slot: "0"
+  original.package.version: 0.18.0
