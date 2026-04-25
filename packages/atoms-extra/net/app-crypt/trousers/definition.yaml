@@ -1,5 +1,5 @@
 name: trousers
-version: 0.3.14+1
+version: 0.3.14+2
 category: app-crypt
 use_flags:
 - -libressl
@@ -23,9 +23,8 @@ uri:
 - http://trousers.sf.net
 license: CPL-1.0 GPL-2
 labels:
-  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4 virtual/pkgconfig
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
   DEPEND: '>=dev-libs/glib-2 !libressl? ( >=dev-libs/openssl-0.9.7:0= ) libressl?
     ( dev-libs/libressl:0= ) sys-apps/shadow'
   IUSE: doc libressl selinux kernel_linux
