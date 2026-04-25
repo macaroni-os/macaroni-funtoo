@@ -1,5 +1,5 @@
 name: nginx
-version: 1.26.2+2
+version: 1.26.2+3
 category: www-servers
 use_flags:
 - -arm
@@ -50,19 +50,20 @@ annotations:
 description: Robust, small and high performance http and reverse proxy server
 uri:
 - http://nginx.org
-license: BSD-2 nginx_modules_external_slowfs_cache? ( BSD-2 ) nginx_modules_external_echo?
-  ( BSD-2 ) nginx_modules_external_dav_ext? ( BSD-2 ) nginx_modules_external_modsecurity?
-  ( Apache-2.0 ) nginx_modules_external_sticky? ( BSD-2 ) nginx_modules_external_upstream_check?
-  ( BSD-2 ) nginx_modules_external_upload_progress? ( BSD-2 ) nginx_modules_external_headers_more?
-  ( BSD ) nginx_modules_external_rtmp? ( BSD-2 ) nginx_modules_external_concat? (
-  BSD-2 ) nginx_modules_external_brotli? ( BSD-2 ) nginx_modules_external_naxsi? (
-  GPL-2+ ) nginx_modules_external_encrypted_session? ( BSD-2 ) nginx_modules_external_auth_pam?
-  ( BSD-2 ) nginx_modules_external_metrics? ( BSD-2 ) nginx_modules_external_lua?
-  ( BSD-2 ) nginx_modules_external_push? ( MIT ) nginx_modules_external_ajp? ( BSD-2
-  ) nginx_modules_external_accept_language? ( BSD-2 ) nginx_modules_external_ndk?
-  ( BSD ) nginx_modules_external_cache_purge? ( BSD-2 ) nginx_modules_external_fancyindex?
+license: BSD-2 nginx_modules_external_vhost_traffic_status? ( BSD ) nginx_modules_external_brotli?
+  ( BSD-2 ) nginx_modules_external_push? ( MIT ) nginx_modules_external_concat? (
+  BSD-2 ) nginx_modules_external_auth_pam? ( BSD-2 ) nginx_modules_external_ndk? (
+  BSD ) nginx_modules_external_echo? ( BSD-2 ) nginx_modules_external_modsecurity?
+  ( Apache-2.0 ) nginx_modules_external_headers_more? ( BSD ) nginx_modules_external_naxsi?
+  ( GPL-3+ ) nginx_modules_external_metrics? ( BSD-2 ) nginx_modules_external_fancyindex?
+  ( BSD-2 ) nginx_modules_external_sticky? ( BSD-2 ) nginx_modules_external_slowfs_cache?
+  ( BSD-2 ) nginx_modules_external_cache_purge? ( BSD-2 ) nginx_modules_external_rtmp?
+  ( BSD-2 ) nginx_modules_external_encrypted_session? ( BSD-2 ) nginx_modules_external_ajp?
+  ( BSD-2 ) nginx_modules_external_upstream_check? ( BSD-2 ) nginx_modules_external_lua?
   ( BSD-2 ) nginx_modules_external_push_stream? ( GPL-3 ) nginx_modules_external_mogilefs?
-  ( BSD )
+  ( BSD ) nginx_modules_external_dav_ext? ( BSD-2 ) nginx_modules_external_upload_progress?
+  ( BSD-2 ) nginx_modules_external_njs? ( as-is ) nginx_modules_external_accept_language?
+  ( BSD-2 )
 labels:
   DEPEND: '!www-server/nginx:0 google_perftools? ( dev-util/google-perftools ) http-cache?
     ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:= ) ) pcre?
