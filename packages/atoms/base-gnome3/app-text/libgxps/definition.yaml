@@ -1,0 +1,53 @@
+name: libgxps
+version: 0.3.2+1
+category: app-text
+use_flags:
+- introspection
+- jpeg
+- lcms
+- tiff
+requires:
+- name: libarchive
+  version: '>=0'
+  category: app-arch
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for handling and rendering XPS documents
+uri:
+- https://gitlab.gnome.org/GNOME/libgxps
+license: LGPL-2.1+
+labels:
+  BDEPEND: dev-libs/libxslt dev-util/gtk-doc-am virtual/pkgconfig >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: app-arch/libarchive dev-libs/glib:2 media-libs/freetype:2 media-libs/libpng
+    x11-libs/cairo introspection? ( dev-libs/gobject-introspection:= ) jpeg? ( virtual/jpeg:0
+    ) lcms? ( media-libs/lcms:2 ) tiff? ( media-libs/tiff:0[zlib] ) app-text/docbook-xsl-stylesheets
+  IUSE: +introspection jpeg lcms tiff
+  RDEPEND: app-arch/libarchive dev-libs/glib:2 media-libs/freetype:2 media-libs/libpng
+    x11-libs/cairo introspection? ( dev-libs/gobject-introspection:= ) jpeg? ( virtual/jpeg:0
+    ) lcms? ( media-libs/lcms:2 ) tiff? ( media-libs/tiff:0[zlib] )
+  emerge.packages: app-text/libgxps
+  kit: text-kit
+  original.package.name: app-text/libgxps
+  original.package.slot: "0"
+  original.package.version: 0.3.2
