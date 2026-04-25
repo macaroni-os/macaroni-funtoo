@@ -1,5 +1,5 @@
 name: wavemon
-version: 0.8.0+1
+version: 0.8.0+2
 category: net-wireless
 use_flags:
 - caps
@@ -26,8 +26,8 @@ uri:
 license: GPL-3
 labels:
   DEPEND: dev-libs/libnl:3 sys-libs/ncurses:0= caps? ( sys-libs/libcap ) virtual/pkgconfig
-    >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16
-    >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+    >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4
   IUSE: caps
   RDEPEND: dev-libs/libnl:3 sys-libs/ncurses:0= caps? ( sys-libs/libcap )
   emerge.packages: net-wireless/wavemon
