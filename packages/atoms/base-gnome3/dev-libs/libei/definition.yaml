@@ -1,0 +1,40 @@
+name: libei
+version: 1.5.0
+category: dev-libs
+use_flags:
+- -systemd
+- elogind
+requires:
+- name: libevdev
+  version: '>=0'
+  category: dev-libs
+- name: elogind
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for Emulated Input, primarily aimed at the Wayland stack
+uri:
+- https://gitlab.freedesktop.org/libinput/libei
+license: MIT
+labels:
+  BDEPEND: virtual/pkgconfig || ( ( dev-lang/python:3.8 dev-python/jinja[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/jinja[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/jinja[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ( dev-lang/python:3.10 dev-python/jinja[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/libevdev systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind
+    )
+  IUSE: +elogind systemd
+  RDEPEND: dev-libs/libevdev systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind
+    )
+  emerge.packages: dev-libs/libei
+  kit: xorg-kit
+  original.package.name: dev-libs/libei
+  original.package.slot: "0"
+  original.package.version: 1.5.0
