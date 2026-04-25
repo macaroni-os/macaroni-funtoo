@@ -1,30 +1,34 @@
 name: gnome-control-center
-version: "48.6"
+version: 48.6+1
 category: gnome-base-2
 use_flags:
-- -libinput
+- -kerberos
 - -systemd
+- bluetooth
+- cups
 - elogind
+- gnome-online-accounts
 - ibus
-- v4l
+- input_devices_wacom
+- networkmanager
 - wayland
 requires:
+- name: openrc-settingsd
+  version: '>=0'
+  category: app-admin
+- name: system-config-printer
+  version: '>=0'
+  category: app-admin
 - name: ibus
   version: '>=0'
   category: app-i18n
-- name: libhandy
+- name: libinput
   version: '>=0'
-  category: dev-libs-0.0.13
+  category: dev-libs
 - name: libpwquality
   version: '>=0'
   category: dev-libs
-- name: libwacom
-  version: '>=0'
-  category: dev-libs
 - name: gnome-settings-daemon
-  version: '>=0'
-  category: gnome-base
-- name: libgnomekbd
   version: '>=0'
   category: gnome-base
 - name: libgtop
@@ -33,48 +37,30 @@ requires:
 - name: gnome-color-manager
   version: '>=0'
   category: gnome-extra
-- name: nm-applet
+- name: tecla
   version: '>=0'
   category: gnome-extra
-- name: sedgwick-ave-display
-  version: '>=0'
-  category: media-fonts
-- name: grilo
-  version: '>=0'
-  category: media-libs-0.3
-- name: gsound
-  version: '>=0'
-  category: media-libs
-- name: cheese
-  version: '>=0'
-  category: media-video
 - name: samba
   version: '>=0'
   category: net-fs
 - name: gnome-online-accounts
   version: '>=0'
   category: net-libs
-- name: libsoup
+- name: gnutls
   version: '>=0'
-  category: net-libs-2.4
-- name: cups-pk-helper
+  category: net-libs
+- name: libnma
   version: '>=0'
-  category: net-print
+  category: net-libs
 - name: gnome-bluetooth
   version: '>=0'
-  category: net-wireless-2
+  category: net-wireless-3
 - name: accountsservice
-  version: '>=0'
-  category: sys-apps
-- name: bolt
   version: '>=0'
   category: sys-apps
 - name: udisks
   version: '>=0'
   category: sys-fs-2
-- name: xmodmap
-  version: '>=0'
-  category: x11-apps
 - name: adwaita-icon-theme
   version: '>=0'
   category: x11-themes
@@ -87,8 +73,8 @@ annotations:
       - ^/var/db/pkg/
 description: GNOME's main interface to configure various aspects of the desktop
 uri:
-- https://git.gnome.org/browse/gnome-control-center/
-license: GPL-2+
+- https://apps.gnome.org/Settings
+license: GPL-2+ CC-BY-SA-2.5
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) dev-libs/libxslt app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.2
