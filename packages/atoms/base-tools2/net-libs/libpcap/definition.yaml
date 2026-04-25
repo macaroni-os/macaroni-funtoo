@@ -1,5 +1,5 @@
 name: libpcap
-version: 1.10.5
+version: 1.10.5+1
 category: net-libs
 use_flags:
 - -bluetooth
@@ -20,8 +20,6 @@ annotations:
       portage:
       - ^/var/db/pkg/
 description: A system-independent library for user-level network packet capture
-uri:
-- ""
 license: BSD
 labels:
   BDEPEND: sys-devel/flex virtual/yacc dbus? ( virtual/pkgconfig ) >=app-portage/elt-patches-20170815
@@ -34,7 +32,7 @@ labels:
     dev-libs/libnl:3 ) remote? ( virtual/libcrypt:= ) rdma? ( sys-cluster/rdma-core
     ) usb? ( virtual/libusb:1 )
   emerge.packages: net-libs/libpcap
-  kit: core-kit
+  kit: net-kit
   original.package.name: net-libs/libpcap
   original.package.slot: "0"
   original.package.version: 1.10.5
