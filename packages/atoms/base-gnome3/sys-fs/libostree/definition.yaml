@@ -1,0 +1,77 @@
+name: libostree
+version: "2025.7"
+category: sys-fs
+use_flags:
+- -doc
+- -man
+- avahi
+- curl
+- gnutls
+- introspection
+- libmount
+- openssl
+- sodium
+- soup
+requires:
+- name: libarchive
+  version: '>=0'
+  category: app-arch
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libsodium
+  version: '>=0'
+  category: dev-libs
+- name: avahi
+  version: '>=0'
+  category: net-dns
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-3
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: fuse
+  version: '>=0'
+  category: sys-fs-3
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Operating system and container binary deployment and upgrades
+uri:
+- https://ostreedev.github.io/ostree/
+license: NOASSERTION
+labels:
+  BDEPEND: virtual/pkgconfig sys-fs/e2fsprogs sys-devel/bison >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    virtual/pkgconfig
+  DEPEND: dev-libs/glib:2 app-arch/xz-utils app-arch/libarchive sys-libs/zlib sys-fs/fuse:3=
+    avahi? ( net-dns/avahi ) curl? ( net-misc/curl ) gnutls? ( net-libs/gnutls ) openssl?
+    ( dev-libs/openssl ) sodium? ( dev-libs/libsodium ) soup? ( net-libs/libsoup:3
+    ) libmount? ( sys-apps/util-linux ) curl? ( net-libs/libsoup:3 ) introspection?
+    ( dev-libs/gobject-introspection ) doc? ( dev-util/gtk-doc ) man? ( dev-libs/libxslt
+    )
+  IUSE: avahi curl dracut gnutls +gpg +http2 introspection doc +libmount man openssl
+    systemd sodium +soup
+  RDEPEND: dev-libs/glib:2 app-arch/xz-utils app-arch/libarchive sys-libs/zlib sys-fs/fuse:3=
+    avahi? ( net-dns/avahi ) curl? ( net-misc/curl ) gnutls? ( net-libs/gnutls ) openssl?
+    ( dev-libs/openssl ) sodium? ( dev-libs/libsodium ) soup? ( net-libs/libsoup:3
+    ) libmount? ( sys-apps/util-linux ) virtual/tmpfiles
+  emerge.packages: sys-fs/libostree
+  kit: core-server-kit
+  original.package.name: sys-fs/libostree
+  original.package.slot: "0"
+  original.package.version: "2025.7"
