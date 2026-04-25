@@ -1,0 +1,46 @@
+name: xdg-desktop-portal-gnome
+version: "49.0"
+category: sys-apps
+use_flags:
+- wayland
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: gnome-desktop
+  version: '>=0'
+  category: gnome-base
+- name: xdg-desktop-portal-gtk
+  version: '>=0'
+  category: sys-apps
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+uri:
+- https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig wayland? ( dev-util/wayland-scanner
+    ) >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 virtual/pkgconfig
+  DEPEND: dev-libs/glib:2 >=gnome-base/gsettings-desktop-schemas-49 gnome-base/gnome-desktop
+    x11-libs/libadwaita media-libs/fontconfig sys-apps/dbus sys-apps/xdg-desktop-portal
+    sys-apps/xdg-desktop-portal-gtk x11-libs/gtk:4[wayland?,X?] wayland? ( dev-libs/wayland
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: wayland X
+  RDEPEND: dev-libs/glib:2 >=gnome-base/gsettings-desktop-schemas-49 gnome-base/gnome-desktop
+    x11-libs/libadwaita media-libs/fontconfig sys-apps/dbus sys-apps/xdg-desktop-portal
+    sys-apps/xdg-desktop-portal-gtk x11-libs/gtk:4[wayland?,X?] wayland? ( dev-libs/wayland
+    )
+  emerge.packages: sys-apps/xdg-desktop-portal-gnome
+  kit: gnome-kit
+  original.package.name: sys-apps/xdg-desktop-portal-gnome
+  original.package.slot: "0"
+  original.package.version: "49.0"
