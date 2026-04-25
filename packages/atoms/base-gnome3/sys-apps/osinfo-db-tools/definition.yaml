@@ -1,0 +1,39 @@
+name: osinfo-db-tools
+version: 1.12.0
+category: sys-apps
+requires:
+- name: libarchive
+  version: '>=0'
+  category: app-arch
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
+- name: libsoup
+  version: '>=0'
+  category: net-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools for managing the osinfo database
+uri:
+- https://libosinfo.org/
+license: GPL-2+
+labels:
+  BDEPEND: virtual/pkgconfig sys-devel/gettext dev-lang/perl >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 dev-libs/json-glib app-arch/libarchive:= net-libs/libsoup:3
+    dev-libs/libxml2:=
+  RDEPEND: dev-libs/glib:2 dev-libs/json-glib app-arch/libarchive:= net-libs/libsoup:3
+    dev-libs/libxml2:=
+  emerge.packages: sys-apps/osinfo-db-tools
+  kit: dev-kit
+  original.package.name: sys-apps/osinfo-db-tools
+  original.package.slot: "0"
+  original.package.version: 1.12.0
