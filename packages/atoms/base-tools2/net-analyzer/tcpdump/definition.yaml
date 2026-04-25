@@ -1,5 +1,5 @@
 name: tcpdump
-version: 4.99.5
+version: 4.99.5+1
 category: net-analyzer
 use_flags:
 - -libressl
@@ -26,7 +26,8 @@ annotations:
       - ^/var/db/pkg/
 description: A Tool for network monitoring and data acquisition
 uri:
-- http://www.tcpdump.org/ https://github.com/the-tcpdump-group/tcpdump
+- http://www.tcpdump.org/
+- https://github.com/the-tcpdump-group/tcpdump
 license: BSD
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
@@ -40,7 +41,7 @@ labels:
     ) ssl? ( !libressl? ( >=dev-libs/openssl-0.9.6m:0= ) libressl? ( dev-libs/libressl:=
     ) )
   emerge.packages: net-analyzer/tcpdump
-  kit: core-server-kit
+  kit: net-kit
   original.package.name: net-analyzer/tcpdump
   original.package.slot: "0"
   original.package.version: 4.99.5
