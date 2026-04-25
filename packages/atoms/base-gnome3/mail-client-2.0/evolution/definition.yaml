@@ -1,16 +1,18 @@
 name: evolution
-version: 3.58.2
+version: 3.58.2+1
 category: mail-client-2.0
 use_flags:
+- -gtk-doc
 - -highlight
 - -ldap
+- archive
 - bogofilter
-- crypt
 - geolocation
+- libnotify
 - spamassassin
 - spell
 - ssl
-- weather
+- ytnef
 requires:
 - name: gnome-autoar
   version: '>=0'
@@ -20,7 +22,7 @@ requires:
   category: app-text
 - name: gnome-desktop
   version: '>=0'
-  category: gnome-base-3
+  category: gnome-base
 - name: evolution-data-server
   version: '>=0'
   category: gnome-extra
@@ -33,15 +35,12 @@ requires:
 - name: libchamplain
   version: '>=0'
   category: media-libs-0.12
-- name: webkit-gtk
+- name: ytnef
   version: '>=0'
-  category: net-libs-4
-- name: libcryptui
+  category: net-mail
+- name: libnotify
   version: '>=0'
   category: x11-libs
-- name: mx
-  version: '>=0'
-  category: x11-libs-1.0
 - name: pinentry-gnome
   version: '>=0'
   category: app-crypt
@@ -54,7 +53,8 @@ annotations:
       - ^/var/db/pkg/
 description: Integrated mail, addressbook and calendaring functionality
 uri:
-- https://wiki.gnome.org/Apps/Evolution
+- https://gitlab.gnome.org/GNOME/evolution/-/wikis/home
+- https://gitlab.gnome.org/GNOME/evolution
 license: '|| ( LGPL-2 LGPL-3 ) CC-BY-SA-3.0 FDL-1.3+ OPENLDAP'
 labels:
   BDEPEND: app-text/docbook-xml-dtd:4.1.2 dev-util/gdbus-codegen dev-util/itstool
