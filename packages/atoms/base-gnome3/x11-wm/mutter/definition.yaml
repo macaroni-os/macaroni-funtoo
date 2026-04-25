@@ -1,19 +1,27 @@
 name: mutter
-version: "48.7"
+version: 48.7+1
 category: x11-wm
 use_flags:
-- -test
-- gles2
+- -gtk-doc
+- -sysprof
+- -systemd
+- X
+- bash-completion
+- elogind
+- gnome
 - input_devices_wacom
 - introspection
-- prefix
-- profiler
-- remote-desktop
+- screencast
 - udev
+- video_cards_nvidia
 - wayland
+- xwayland
 - elogind
 requires:
-- name: atk
+- name: at-spi2-core
+  version: '>=0'
+  category: app-accessibility-2
+- name: libei
   version: '>=0'
   category: dev-libs
 - name: libinput
@@ -22,25 +30,31 @@ requires:
 - name: sysprof
   version: '>=0'
   category: dev-util
-- name: gnome-desktop
-  version: '>=0'
-  category: gnome-base-3
 - name: gnome-settings-daemon
   version: '>=0'
   category: gnome-base
-- name: zenity
+- name: libdisplay-info
   version: '>=0'
-  category: gnome-extra
-- name: graphene
+  category: media-libs
+- name: mesa
   version: '>=0'
   category: media-libs
 - name: pipewire
   version: '>=0'
   category: media-video
+- name: xwayland
+  version: '>=0'
+  category: x11-base
 - name: libSM
   version: '>=0'
   category: x11-libs
-- name: libdrm
+- name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libXrandr
+  version: '>=0'
+  category: x11-libs
+- name: libxkbfile
   version: '>=0'
   category: x11-libs
 - name: startup-notification
@@ -53,9 +67,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: GNOME 3 compositing window manager based on Clutter
+description: GNOME compositing window manager based on Clutter
 uri:
-- https://gitlab.gnome.org/GNOME/mutter
+- https://mutter.gnome.org
 license: GPL-2+
 labels:
   BDEPEND: dev-util/wayland-scanner dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig
