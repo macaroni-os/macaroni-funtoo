@@ -1,80 +1,54 @@
 name: gnome-shell
-version: "48.7"
+version: 48.7+1
 category: gnome-base
 use_flags:
-- -nsplugin
-- -python_targets_python3_10
-- -python_targets_python3_7
-- -python_targets_python3_8
+- -gtk-doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
 - -systemd
-- bluetooth
 - elogind
+- ibus
 - networkmanager
-- python_targets_python3_9
+- pipewire
+- python_single_target_python3_9
 requires:
-- name: caribou
+- name: at-spi2-core
   version: '>=0'
-  category: app-accessibility
-- name: gnome-autoar
-  version: '>=0'
-  category: app-arch
+  category: app-accessibility-2
 - name: ibus
   version: '>=0'
   category: app-i18n
-- name: sassc
-  version: '>=0'
-  category: dev-lang
-- name: gjs
-  version: '>=0'
-  category: dev-libs
-- name: libcroco
-  version: '>=0'
-  category: dev-libs-0.6
-- name: meson
-  version: '>=0'
-  category: dev-util
 - name: gnome-session
   version: '>=0'
   category: gnome-base
-- name: evolution-data-server
+- name: librsvg
   version: '>=0'
-  category: gnome-extra
-- name: nm-applet
-  version: '>=0'
-  category: gnome-extra
-- name: croscorefonts
+  category: gnome-base-2
+- name: adwaita-fonts
   version: '>=0'
   category: media-fonts
-- name: dejavu
+- name: graphene
   version: '>=0'
-  category: media-fonts
-- name: source-pro
+  category: media-libs
+- name: mobile-broadband-provider-info
   version: '>=0'
-  category: media-fonts
-- name: symbola
-  version: '>=0'
-  category: media-fonts
-- name: unifont
-  version: '>=0'
-  category: media-fonts
-- name: telepathy-logger
-  version: '>=0'
-  category: net-im
-- name: gnome-bluetooth
-  version: '>=0'
-  category: net-wireless-2
+  category: net-misc
 - name: accountsservice
   version: '>=0'
   category: sys-apps
-- name: mesa-progs
+- name: xdg-desktop-portal-gnome
   version: '>=0'
-  category: x11-apps
+  category: sys-apps
+- name: timezone-data
+  version: '>=0'
+  category: sys-libs
 - name: xdg-utils
   version: '>=0'
   category: x11-misc
-- name: mutter
+- name: adwaita-icon-theme
   version: '>=0'
-  category: x11-wm
+  category: x11-themes
 annotations:
   subsets:
     rules:
@@ -82,10 +56,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Provides core UI functions for the GNOME 3 desktop
+description: Provides core UI functions for the GNOME desktop
 uri:
-- https://wiki.gnome.org/Projects/GnomeShell
-license: GPL-2+ LGPL-2+
+- https://gitlab.gnome.org/GNOME/gnome-shell
+license: GPL2-2+ LGPL-2+
 labels:
   BDEPEND: app-admin/macaronictl dev-util/meson dev-libs/libxslt dev-util/gdbus-codegen
     gtk-doc? ( dev-uti/gtk-doc dev-util/gi-docgen app-text/docbook-xml-dtd:4.5 ) sys-devel/gettext
