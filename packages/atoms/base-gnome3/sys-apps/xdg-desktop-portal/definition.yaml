@@ -1,0 +1,50 @@
+name: xdg-desktop-portal
+version: 1.20.3
+category: sys-apps
+use_flags:
+- -systemd
+- flatpak
+- geolocation
+- seccomp
+- udev
+requires:
+- name: geoclue
+  version: '>=0'
+  category: app-misc-2.0
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
+- name: pipewire
+  version: '>=0'
+  category: media-video
+- name: flatpak
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Desktop integration portal
+uri:
+- https://flatpak.github.io/xdg-desktop-portal/
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-util/gdbus-codegen dev-python/docutils sys-devel/gettext virtual/pkgconfig
+    >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig
+  DEPEND: dev-libs/glib:2 dev-libs/json-glib media-video/pipewire:= sys-fs/fuse:3=
+    x11-libs/gdk-pixbuf geolocation? ( app-misc/geoclue:2.0 ) flatpak? ( sys-apps/flatpak
+    ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd ) udev? ( dev-libs/libgudev
+    ) sys-apps/dbus
+  IUSE: geolocation flatpak seccomp systemd udev
+  RDEPEND: dev-libs/glib:2 dev-libs/json-glib media-video/pipewire:= sys-fs/fuse:3=
+    x11-libs/gdk-pixbuf geolocation? ( app-misc/geoclue:2.0 ) flatpak? ( sys-apps/flatpak
+    ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd ) udev? ( dev-libs/libgudev
+    ) sys-apps/dbus
+  emerge.packages: sys-apps/xdg-desktop-portal
+  kit: desktop-kit
+  original.package.name: sys-apps/xdg-desktop-portal
+  original.package.slot: "0"
+  original.package.version: 1.20.3
