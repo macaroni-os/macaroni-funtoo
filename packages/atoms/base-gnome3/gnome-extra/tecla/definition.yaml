@@ -1,0 +1,30 @@
+name: tecla
+version: "49.0"
+category: gnome-extra
+requires:
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tecla is a keyboard layout viewer
+uri:
+- https://gitlab.gnome.org/GNOME/tecla
+license: GPL-2+
+labels:
+  BDEPEND: dev-libs/glib sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 >=app-portage/elt-patches-20170815 app-arch/xz-utils
+  DEPEND: x11-libs/gtk:4[introspection,wayland?] x11-libs/libadwaita x11-libs/libxkbcommon
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: wayland
+  RDEPEND: x11-libs/gtk:4[introspection,wayland?] x11-libs/libadwaita x11-libs/libxkbcommon
+  emerge.packages: gnome-extra/tecla
+  kit: gnome-kit
+  original.package.name: gnome-extra/tecla
+  original.package.slot: "0"
+  original.package.version: "49.0"
