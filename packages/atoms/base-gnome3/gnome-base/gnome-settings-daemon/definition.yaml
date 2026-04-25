@@ -1,27 +1,38 @@
 name: gnome-settings-daemon
-version: "48.1"
+version: 48.1+1
 category: gnome-base
 use_flags:
-- -test
+- -systemd
+- colord
 - cups
+- elogind
+- input_devices_wacom
+- modemmanager
 - networkmanager
-- prefix
 - smartcard
-- udev
 - wayland
 requires:
+- name: gcr
+  version: '>=0'
+  category: app-crypt-4
 - name: geoclue
   version: '>=0'
   category: app-misc-2.0
 - name: libgweather
   version: '>=0'
-  category: dev-libs-2
-- name: librsvg
+  category: dev-libs-4
+- name: libwacom
   version: '>=0'
-  category: gnome-base-2
-- name: cantarell
+  category: dev-libs
+- name: wayland
   version: '>=0'
-  category: media-fonts
+  category: dev-libs
+- name: gnome-desktop
+  version: '>=0'
+  category: gnome-base
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
 - name: libcanberra
   version: '>=0'
   category: media-libs
@@ -34,18 +45,9 @@ requires:
 - name: upower
   version: '>=0'
   category: sys-power
-- name: xf86-input-wacom
-  version: '>=0'
-  category: x11-drivers
-- name: libnotify
+- name: libXi
   version: '>=0'
   category: x11-libs
-- name: libxkbfile
-  version: '>=0'
-  category: x11-libs
-- name: xkeyboard-config
-  version: '>=0'
-  category: x11-misc
 annotations:
   subsets:
     rules:
@@ -55,8 +57,8 @@ annotations:
       - ^/var/db/pkg/
 description: Gnome Settings Daemon
 uri:
-- https://git.gnome.org/browse/gnome-settings-daemon
-license: GPL-2+
+- https://gitlab.gnome.org/GNOME/gnome-settings-daemon
+license: GPL-2+ LGPL-2+
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2 virtual/pkgconfig'
