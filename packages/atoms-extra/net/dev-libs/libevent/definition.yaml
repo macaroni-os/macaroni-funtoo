@@ -1,5 +1,5 @@
 name: libevent
-version: 2.1.12+1
+version: 2.1.12+2
 category: dev-libs
 use_flags:
 - -libressl
@@ -18,7 +18,8 @@ annotations:
 description: Library to execute a function when a specific event occurs on a file
   descriptor
 uri:
-- http://libevent.org/ https://github.com/libevent/libevent/
+- http://libevent.org/
+- https://github.com/libevent/libevent/
 license: BSD
 labels:
   DEPEND: ssl? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0=[-mgorny(-)] ) libressl?
@@ -28,7 +29,7 @@ labels:
   RDEPEND: ssl? ( !libressl? ( >=dev-libs/openssl-1.0.1h-r2:0=[-mgorny(-)] ) libressl?
     ( dev-libs/libressl:0=[-mgorny(-)] ) ) !<=dev-libs/9libs-1.0
   emerge.packages: dev-libs/libevent
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: dev-libs/libevent
   original.package.slot: "0"
   original.package.version: 2.1.12
