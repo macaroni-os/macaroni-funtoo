@@ -1,18 +1,18 @@
 name: dbus
-version: 1.16.2
+version: 1.16.2+1
 category: sys-apps
 use_flags:
 - -X
-- -doc
 - -elogind
-- -prefix
-- -selinux
 - -systemd
-- -test
+- -valgrind
 requires:
 - name: expat
   version: '>=0'
   category: dev-libs
+- name: tmpfiles
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -23,7 +23,7 @@ annotations:
 description: A message bus system, a simple way for applications to talk to each other
 uri:
 - https://dbus.freedesktop.org/
-license: '|| ( AFL-2.1 GPL-2 )'
+license: '|| ( AFL-2.1 GPL-2+ ) Apache-2.0 BSD GPL-2+ LGPL-2.1+ MIT tcltk'
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) app-text/xmlto app-text/docbook-xml-dtd:4.4 sys-devel/autoconf-archive virtual/pkgconfig
