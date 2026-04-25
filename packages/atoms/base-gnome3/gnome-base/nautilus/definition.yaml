@@ -1,39 +1,24 @@
 name: nautilus
-version: "49.3"
+version: 49.3+1
 category: gnome-base
 use_flags:
-- -packagekit
-- -selinux
-- -test
-- exif
+- -doc
+- cloudproviders
 - introspection
-- prefix
 requires:
 - name: gnome-autoar
   version: '>=0'
   category: app-arch
-- name: tracker
+- name: localsearch
   version: '>=0'
   category: app-misc
-- name: meson
+- name: libportal
   version: '>=0'
-  category: dev-util
-- name: dconf
-  version: '>=0'
-  category: gnome-base
+  category: dev-libs
 - name: gnome-desktop
   version: '>=0'
-  category: gnome-base-3
-- name: gexiv2
-  version: '>=0'
-  category: media-libs
-- name: libexif
-  version: '>=0'
-  category: media-libs
-- name: libXext
-  version: '>=0'
-  category: x11-libs
-- name: libXrender
+  category: gnome-base
+- name: libadwaita
   version: '>=0'
   category: x11-libs
 annotations:
@@ -43,10 +28,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A file manager for the GNOME desktop
+description: Default file manager for the GNOME desktop
 uri:
-- https://wiki.gnome.org/Apps/Nautilus
-license: GPL-2+ LGPL-2+ FDL-1.1
+- https://apps.gnome.org/Nautilus/
+license: GPL-3+ LGPL-2.1+
 labels:
   BDEPEND: dev-util/gdbus-codegen doc? ( app-text/docbook-xml-dtd:4.1.2 dev-util/gi-docgen
     ) sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
