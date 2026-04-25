@@ -1,16 +1,16 @@
 name: evolution-data-server
-version: 3.58.2
+version: 3.58.2+1
 category: gnome-extra
 use_flags:
 - -kerberos
 - -ldap
-- -test
 - berkdb
 - gnome-online-accounts
 - google
 - gtk
 - introspection
-- prefix
+- oauth-gtk3
+- oauth-gtk4
 - vala
 - weather
 requires:
@@ -19,7 +19,7 @@ requires:
   category: dev-libs
 - name: libgweather
   version: '>=0'
-  category: dev-libs-2
+  category: dev-libs-4
 - name: libical
   version: '>=0'
   category: dev-libs
@@ -29,9 +29,12 @@ requires:
 - name: libcanberra
   version: '>=0'
   category: media-libs
-- name: libsoup
+- name: webkit-gtk
   version: '>=0'
-  category: net-libs-2.4
+  category: net-libs-4
+- name: webkit-gtk
+  version: '>=0'
+  category: net-libs-6
 annotations:
   subsets:
     rules:
