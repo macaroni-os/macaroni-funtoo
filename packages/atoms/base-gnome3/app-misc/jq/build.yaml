@@ -1,4 +1,6 @@
 prelude:
+- >-
+  anise rm app-misc/jq-bin -y
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
