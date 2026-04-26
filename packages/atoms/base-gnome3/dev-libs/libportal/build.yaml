@@ -1,4 +1,10 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/net-kit/dev-libs/libportal &&
+  rm libportal-0.9.1.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/net-kit/658303f4bb17854046d9840a7158d24cc376e5a3/dev-libs/libportal/libportal-0.9.1.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
