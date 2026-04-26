@@ -1,0 +1,84 @@
+name: zig
+version: 0.16.0
+category: dev-lang
+use_flags:
+- llvm_targets_AArch64
+- llvm_targets_AMDGPU
+- llvm_targets_ARM
+- llvm_targets_AVR
+- llvm_targets_BPF
+- llvm_targets_Hexagon
+- llvm_targets_Lanai
+- llvm_targets_LoongArch
+- llvm_targets_MSP430
+- llvm_targets_Mips
+- llvm_targets_NVPTX
+- llvm_targets_PowerPC
+- llvm_targets_RISCV
+- llvm_targets_SPIRV
+- llvm_targets_Sparc
+- llvm_targets_SystemZ
+- llvm_targets_VE
+- llvm_targets_WebAssembly
+- llvm_targets_X86
+- llvm_targets_XCore
+requires:
+- name: lld
+  version: '>=0'
+  category: sys-devel-20
+conflicts:
+- name: zig-bin
+  version: '>=0'
+  category: dev-lang
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: General-purpose programming language for robust, optimal, and reusable
+  software
+uri:
+- https://ziglang.org/
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: llvm_targets_AArch64? ( sys-devel/llvm[llvm_targets_AArch64] ) llvm_targets_AMDGPU?
+    ( sys-devel/llvm[llvm_targets_AMDGPU] ) llvm_targets_ARM? ( sys-devel/llvm[llvm_targets_ARM]
+    ) llvm_targets_AVR? ( sys-devel/llvm[llvm_targets_AVR] ) llvm_targets_BPF? ( sys-devel/llvm[llvm_targets_BPF]
+    ) llvm_targets_Hexagon? ( sys-devel/llvm[llvm_targets_Hexagon] ) llvm_targets_Lanai?
+    ( sys-devel/llvm[llvm_targets_Lanai] ) llvm_targets_Mips? ( sys-devel/llvm[llvm_targets_Mips]
+    ) llvm_targets_MSP430? ( sys-devel/llvm[llvm_targets_MSP430] ) llvm_targets_NVPTX?
+    ( sys-devel/llvm[llvm_targets_NVPTX] ) llvm_targets_PowerPC? ( sys-devel/llvm[llvm_targets_PowerPC]
+    ) llvm_targets_RISCV? ( sys-devel/llvm[llvm_targets_RISCV] ) llvm_targets_SystemZ?
+    ( sys-devel/llvm[llvm_targets_SystemZ] ) llvm_targets_Sparc? ( sys-devel/llvm[llvm_targets_Sparc]
+    ) llvm_targets_SPIRV? ( sys-devel/llvm[llvm_targets_SPIRV] ) llvm_targets_VE?
+    ( sys-devel/llvm[llvm_targets_VE] ) llvm_targets_WebAssembly? ( sys-devel/llvm[llvm_targets_WebAssembly]
+    ) llvm_targets_X86? ( sys-devel/llvm[llvm_targets_X86] ) llvm_targets_XCore? (
+    sys-devel/llvm[llvm_targets_XCore] ) llvm_targets_LoongArch? ( sys-devel/llvm[llvm_targets_LoongArch]
+    ) sys-devel/clang sys-devel/lld sys-devel/llvm !dev-lang/zig-bin
+  IUSE: +clang +llvm_targets_AArch64 +llvm_targets_AMDGPU +llvm_targets_ARM +llvm_targets_AVR
+    +llvm_targets_BPF +llvm_targets_Hexagon +llvm_targets_Lanai +llvm_targets_Mips
+    +llvm_targets_MSP430 +llvm_targets_NVPTX +llvm_targets_PowerPC +llvm_targets_RISCV
+    +llvm_targets_SystemZ +llvm_targets_Sparc +llvm_targets_SPIRV +llvm_targets_VE
+    +llvm_targets_WebAssembly +llvm_targets_X86 +llvm_targets_XCore +llvm_targets_LoongArch
+  RDEPEND: llvm_targets_AArch64? ( sys-devel/llvm[llvm_targets_AArch64] ) llvm_targets_AMDGPU?
+    ( sys-devel/llvm[llvm_targets_AMDGPU] ) llvm_targets_ARM? ( sys-devel/llvm[llvm_targets_ARM]
+    ) llvm_targets_AVR? ( sys-devel/llvm[llvm_targets_AVR] ) llvm_targets_BPF? ( sys-devel/llvm[llvm_targets_BPF]
+    ) llvm_targets_Hexagon? ( sys-devel/llvm[llvm_targets_Hexagon] ) llvm_targets_Lanai?
+    ( sys-devel/llvm[llvm_targets_Lanai] ) llvm_targets_Mips? ( sys-devel/llvm[llvm_targets_Mips]
+    ) llvm_targets_MSP430? ( sys-devel/llvm[llvm_targets_MSP430] ) llvm_targets_NVPTX?
+    ( sys-devel/llvm[llvm_targets_NVPTX] ) llvm_targets_PowerPC? ( sys-devel/llvm[llvm_targets_PowerPC]
+    ) llvm_targets_RISCV? ( sys-devel/llvm[llvm_targets_RISCV] ) llvm_targets_SystemZ?
+    ( sys-devel/llvm[llvm_targets_SystemZ] ) llvm_targets_Sparc? ( sys-devel/llvm[llvm_targets_Sparc]
+    ) llvm_targets_SPIRV? ( sys-devel/llvm[llvm_targets_SPIRV] ) llvm_targets_VE?
+    ( sys-devel/llvm[llvm_targets_VE] ) llvm_targets_WebAssembly? ( sys-devel/llvm[llvm_targets_WebAssembly]
+    ) llvm_targets_X86? ( sys-devel/llvm[llvm_targets_X86] ) llvm_targets_XCore? (
+    sys-devel/llvm[llvm_targets_XCore] ) llvm_targets_LoongArch? ( sys-devel/llvm[llvm_targets_LoongArch]
+    ) sys-devel/clang sys-devel/lld sys-devel/llvm !dev-lang/zig-bin
+  emerge.packages: dev-lang/zig
+  kit: lang-kit
+  original.package.name: dev-lang/zig
+  original.package.slot: "0"
+  original.package.version: 0.16.0
