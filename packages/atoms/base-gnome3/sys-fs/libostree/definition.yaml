@@ -1,5 +1,5 @@
 name: libostree
-version: "2025.7"
+version: 2025.7+1
 category: sys-fs
 use_flags:
 - -doc
@@ -12,6 +12,8 @@ use_flags:
 - openssl
 - sodium
 - soup
+- http
+- http2
 requires:
 - name: libarchive
   version: '>=0'
@@ -43,6 +45,10 @@ requires:
 - name: tmpfiles
   version: '>=0'
   category: virtual
+provides:
+- name: ostree
+  version: "2025.7"
+  category: dev-util
 annotations:
   subsets:
     rules:
