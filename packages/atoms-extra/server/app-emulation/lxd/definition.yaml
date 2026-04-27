@@ -1,8 +1,6 @@
 name: lxd
-version: "6.7"
+version: 6.7+1
 category: app-emulation
-use_flags:
-- nls
 requires:
 - name: lxc
   version: '>=0'
@@ -10,7 +8,7 @@ requires:
 - name: tcl
   version: '>=0'
   category: dev-lang
-- name: libuv
+- name: dqlite
   version: '>=0'
   category: dev-libs
 - name: xdelta
@@ -20,6 +18,9 @@ requires:
   version: '>=0'
   category: net-dns
 - name: ebtables
+  version: '>=0'
+  category: net-firewall
+- name: nftables
   version: '>=0'
   category: net-firewall
 - name: iproute2
@@ -41,10 +42,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Fast, dense and secure container management
+description: Powerful system container and virtual machine manager from Canonical
 uri:
-- https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd
-license: Apache-2.0 BSD BSD-2 LGPL-3 MIT MPL-2.0
+- https://github.com/canonical/lxd
+- https://canonical.com/lxd
+license: AGPL-3 Apache-2.0 BSD BSD-2 LGPL-3 MIT MPL-2.0
 labels:
   BDEPEND: dev-lang/go sys-kernel/linux-headers >=app-portage/elt-patches-20170815
     || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
