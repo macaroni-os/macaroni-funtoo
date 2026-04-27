@@ -1,5 +1,5 @@
 name: docker
-version: 24.0.6+2
+version: 29.4.0
 category: app-emulation
 use_flags:
 - -apparmor
@@ -60,20 +60,18 @@ uri:
 - https://www.docker.com/
 license: Apache-2.0
 labels:
-  BDEPEND: '>=dev-lang/go-1.19.12 dev-go/go-md2man virtual/pkgconfig >=dev-lang/go-1.10
-    virtual/pkgconfig virtual/pkgconfig'
-  DEPEND: '>=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1
-    ) device-mapper? ( >=sys-fs/lvm2-2.02.89[thin] ) seccomp? ( >=sys-libs/libseccomp-2.2.1
-    ) sys-apps/shadow'
-  IUSE: apparmor btrfs +container-init device-mapper overlay seccomp kernel_linux
-  RDEPEND: '>=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1
-    ) device-mapper? ( >=sys-fs/lvm2-2.02.89[thin] ) seccomp? ( >=sys-libs/libseccomp-2.2.1
-    ) >=net-firewall/iptables-1.4 sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9
-    dev-libs/libltdl >=app-emulation/containerd-1.7.1[apparmor?,btrfs?,device-mapper?,seccomp?]
-    !app-emulation/docker-proxy container-init? ( >=sys-process/tini-0.19.0[static]
-    )'
+  BDEPEND: dev-go/go-md2man virtual/pkgconfig >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
+    virtual/pkgconfig
+  DEPEND: dev-db/sqlite:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs
+    ) seccomp? ( sys-libs/libseccomp ) net-firewall/nftables:= sys-apps/shadow
+  IUSE: apparmor btrfs +container-init +overlay2 seccomp systemd
+  RDEPEND: dev-db/sqlite:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs
+    ) seccomp? ( sys-libs/libseccomp ) net-firewall/nftables:= sys-process/procps
+    dev-vcs/git app-arch/xz-utils app-emulation/containerd[apparmor?,btrfs?,seccomp?]
+    app-emulation/runc[apparmor?,seccomp?] container-init? ( sys-process/tini[static]
+    )
   emerge.packages: app-emulation/docker
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: app-emulation/docker
   original.package.slot: "0"
-  original.package.version: 24.0.6
+  original.package.version: 29.4.0
