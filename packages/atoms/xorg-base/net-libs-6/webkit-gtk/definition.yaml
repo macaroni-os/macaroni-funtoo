@@ -1,9 +1,8 @@
 name: webkit-gtk
-version: 2.50.4
+version: 2.50.4+1
 category: net-libs-6
 use_flags:
 - -seccomp
-- -spell
 - -systemd
 - X
 - avif
@@ -13,6 +12,7 @@ use_flags:
 - jpegxl
 - keyring
 - lcms
+- spell
 - wayland
 requires:
 - name: at-spi2-core
@@ -21,6 +21,9 @@ requires:
 - name: libsecret
   version: '>=0'
   category: app-crypt
+- name: enchant
+  version: '>=0'
+  category: app-text-2
 - name: hyphen
   version: '>=0'
   category: dev-libs
@@ -39,6 +42,9 @@ requires:
 - name: gst-plugins-base
   version: '>=0'
   category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
 - name: libavif
   version: '>=0'
   category: media-libs
