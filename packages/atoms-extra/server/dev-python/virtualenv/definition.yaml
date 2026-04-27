@@ -1,5 +1,5 @@
 name: virtualenv
-version: 21.2.4
+version: 21.2.4+1
 category: dev-python
 use_flags:
 - -python_targets_python3_10
@@ -14,10 +14,7 @@ requires:
 - name: distlib
   version: '>=0'
   category: dev-python
-- name: filelock
-  version: '>=0'
-  category: dev-python
-- name: platformdirs
+- name: python-discovery
   version: '>=0'
   category: dev-python
 annotations:
@@ -29,7 +26,7 @@ annotations:
       - ^/var/db/pkg/
 description: Virtual Python Environment builder
 uri:
-- https://pypi.org/project/virtualenv/
+- https://github.com/pypa/virtualenv
 license: MIT
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
