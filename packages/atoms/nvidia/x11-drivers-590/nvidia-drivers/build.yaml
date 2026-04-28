@@ -1,4 +1,10 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/core-gl-kit/x11-drivers/nvidia-drivers &&
+  rm Manifest &&
+  wget https://raw.githubusercontent.com/macaroni-os/core-gl-kit/refs/heads/mark-iii/x11-drivers/nvidia-drivers/Manifest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
