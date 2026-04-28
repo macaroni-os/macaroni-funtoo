@@ -3,12 +3,10 @@ packages:
   keep_luet_db: "true"
   rootfs:
   - app-admin/anise
-  - app-admin/macaronictl-thin
+  - app-admin/macaronictl
   - app-admin/whip
   - app-admin/entities
-  - system/entities
   - app-misc/yq-go
-  - app-misc/yq
   - app-misc/jq
 
   - macaroni/live-setup
@@ -26,8 +24,22 @@ packages:
 
   - virtual-entities/base
 
-  - www-client/firefox
-  - gnome-base/gnome
+  - www-client/firefox-bin
+
+  # gnome-shell
+  - gnome-shell
+  - gdm
+  - gnome-base/gnome-desktop
+  - gnome-session
+  - gnome-control-center
+  - gnome-power-manager
+  - xdg-desktop-portal-gnome
+  - gnome-terminal
+  - gnome-backgrounds
+  - gnome-bluetooth
+  - gnome-weather
+  - gnome-tweaks
+  - gnome-system-monitor
 
   - vim
   - vim-core
@@ -57,7 +69,6 @@ packages:
   - sys-apps/ethtool
   - sys-apps/less
   - sys-apps/which
-  - sys-apps/diffutils
   - net-wireless/wpa_supplicant
   - net-wireless/wireless-regdb
   - sys-fs/eudev
@@ -161,10 +172,10 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/mark
-  - repository/macaroni-phoenix
-  - repository/macaroni-commons
-  - repository/macaroni-security
+  - repository/mark-dev
+  - repository/macaroni-phoenix-dev
+  - repository/macaroni-commons-dev
+#  - repository/macaroni-security
 
 initramfs:
   kernel_file: "bzImage"
