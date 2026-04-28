@@ -1,5 +1,5 @@
 name: gdm
-version: 49.2+1
+version: 49.2+2
 category: gnome-base
 use_flags:
 - -accessibility
@@ -10,13 +10,21 @@ use_flags:
 - elogind
 - plymouth
 - tcpd
+- bluetooth-sound
 - wayland
-- elogind
+- udev
+- networkmanager
 requires:
+- name: libgudev
+  version: '>=0'
+  category: dev-libs
 - name: dconf
   version: '>=0'
   category: gnome-base
 - name: gnome-shell
+  version: '>=0'
+  category: gnome-base
+- name: gsettings-desktop-schemas
   version: '>=0'
   category: gnome-base
 - name: keyutils
