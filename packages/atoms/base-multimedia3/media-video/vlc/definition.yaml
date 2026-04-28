@@ -1,5 +1,5 @@
 name: vlc
-version: 3.0.23
+version: 3.0.23+1
 category: media-video
 use_flags:
 - -aom
@@ -20,6 +20,7 @@ use_flags:
 - -live
 - -lua
 - -projectm
+- -qt5
 - -rdp
 - -samba
 - -sdl-image
@@ -27,7 +28,6 @@ use_flags:
 - -sid
 - -soxr
 - -taglib
-- -test
 - -tremor
 - -zvbi
 - X
@@ -67,9 +67,7 @@ use_flags:
 - ogg
 - opus
 - png
-- prefix
 - pulseaudio
-- qt5
 - sftp
 - skins
 - speex
@@ -90,25 +88,12 @@ use_flags:
 - wayland
 - x264
 - x265
-- x86
 - xml
 - zeroconf
 requires:
 - name: libarchive
   version: '>=0'
   category: app-arch
-- name: lirc
-  version: '>=0'
-  category: app-misc
-- name: qtcore
-  version: '>=0'
-  category: dev-qt-5
-- name: qtsvg
-  version: '>=0'
-  category: dev-qt-5
-- name: qtx11extras
-  version: '>=0'
-  category: dev-qt-5
 - name: dejavu
   version: '>=0'
   category: media-fonts
@@ -187,9 +172,6 @@ requires:
 - name: srt
   version: '>=0'
   category: net-libs
-- name: dbus
-  version: '>=0'
-  category: sys-apps
 - name: libavc1394
   version: '>=0'
   category: sys-libs
@@ -209,6 +191,9 @@ requires:
   version: '>=0'
   category: x11-libs
 - name: xcb-util
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-keysyms
   version: '>=0'
   category: x11-libs
 annotations:
