@@ -1,4 +1,9 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/gnome-kit/gnome-base/gnome-control-center/ &&
+  sed -e '/meson_use X/d' gnome-control-center-48.6.ebuild  -i &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
