@@ -655,11 +655,6 @@ artefacts:
         -e lxc
 
 - tree: packages/atoms-extra/server
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: app-emulation
-          name: lxc
   uses:
     disabled:
     - apparmor
@@ -827,6 +822,7 @@ artefacts:
       - python_single_target_python3_9
   packages:
     - dev-libs/gobject-introspection
+    - dev-libs/gobject-introspection-common
     - dev-python/virtualenv
 
 - tree: packages/atoms-extra/server
