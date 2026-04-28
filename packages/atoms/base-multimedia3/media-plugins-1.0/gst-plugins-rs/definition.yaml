@@ -1,0 +1,46 @@
+name: gst-plugins-rs
+version: 0.15.1
+category: media-plugins-1.0
+use_flags:
+- dav1d
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: dav1d
+  version: '>=0'
+  category: media-libs
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: gstreamer
+  version: '>=0'
+  category: media-libs-1.0
+- name: gtk
+  version: '>=0'
+  category: x11-libs-4
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GStreamer plugins written in Rust
+uri:
+- https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
+labels:
+  BDEPEND: '>=virtual/rust-1.37.0 >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
+  DEPEND: dev-libs/glib x11-libs/gtk:4 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    media-libs/freetype dav1d? ( media-libs/dav1d )
+  IUSE: +dav1d debug
+  RDEPEND: dev-libs/glib x11-libs/gtk:4 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0
+    media-libs/freetype dav1d? ( media-libs/dav1d )
+  emerge.packages: media-plugins/gst-plugins-rs:1.0
+  kit: media-kit
+  original.package.name: media-plugins/gst-plugins-rs
+  original.package.slot: "1.0"
+  original.package.version: 0.15.1
