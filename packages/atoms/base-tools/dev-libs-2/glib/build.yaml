@@ -1,4 +1,11 @@
 prelude:
+# Fixing introspection stuff before compile the rest..
+- >-
+  USE="-introspection" emerge glib -t -pv &&
+  USE="-introspection" emerge glib -j &&
+  USE="-introspection" emerge gobject-introspection -t -pv &&
+  USE="-introspection" emerge gobject-introspection -j
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
