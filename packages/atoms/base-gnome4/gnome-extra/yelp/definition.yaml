@@ -1,5 +1,5 @@
 name: yelp
-version: 3.36.1+1
+version: "49.0"
 category: gnome-extra
 requires:
 - name: bzip2
@@ -35,19 +35,16 @@ uri:
 - https://wiki.gnome.org/Apps/Yelp
 license: GPL-2+
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 app-arch/xz-utils'
-  DEPEND: app-arch/bzip2:= >=app-arch/xz-utils-4.9:= dev-db/sqlite:3= >=dev-libs/glib-2.62.2:2
-    >=dev-libs/libxml2-2.6.5:2 >=dev-libs/libxslt-1.1.4 >=gnome-extra/yelp-xsl-3.32.0
-    >=net-libs/webkit-gtk-2.19.2:4 >=x11-libs/gtk+-3.24.12:3 x11-themes/adwaita-icon-theme
-    dev-libs/appstream-glib >=dev-util/gtk-doc-am-1.13 >=dev-util/intltool-0.41.0
-    dev-util/itstool >=sys-devel/gettext-0.17 virtual/pkgconfig dev-util/desktop-file-utils
-    x11-misc/shared-mime-info
-  RDEPEND: app-arch/bzip2:= >=app-arch/xz-utils-4.9:= dev-db/sqlite:3= >=dev-libs/glib-2.62.2:2
-    >=dev-libs/libxml2-2.6.5:2 >=dev-libs/libxslt-1.1.4 >=gnome-extra/yelp-xsl-3.32.0
-    >=net-libs/webkit-gtk-2.19.2:4 >=x11-libs/gtk+-3.24.12:3 x11-themes/adwaita-icon-theme
+  BDEPEND: dev-util/itstool sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 x11-libs/gtk:4 x11-libs/libadwaita dev-libs/libxml2 dev-libs/libxslt
+    dev-db/sqlite:3 net-libs/webkit-gtk:6 >=gnome-extra/yelp-xsl-42.3 app-arch/xz-utils:=
+    app-arch/bzip2:= dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: dev-libs/glib:2 x11-libs/gtk:4 x11-libs/libadwaita dev-libs/libxml2 dev-libs/libxslt
+    dev-db/sqlite:3 net-libs/webkit-gtk:6 >=gnome-extra/yelp-xsl-42.3 app-arch/xz-utils:=
+    app-arch/bzip2:=
   emerge.packages: gnome-extra/yelp
   kit: gnome-kit
   original.package.name: gnome-extra/yelp
   original.package.slot: "0"
-  original.package.version: 3.36.1
+  original.package.version: "49.0"
