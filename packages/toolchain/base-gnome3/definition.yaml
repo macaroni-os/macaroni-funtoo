@@ -3,6 +3,9 @@ name: base-gnome3
 version: "1"
 description: "Virtual package to install portage meta data of the base-gnome3 packages"
 requires:
+  - name: system-config-printer
+    category: app-admin
+    version: '>=0'
   - name: pax
     category: app-arch
     version: '>=0'
@@ -12,7 +15,25 @@ requires:
   - name: jq
     category: app-misc
     version: '>=0'
+  - name: localsearch
+    category: app-misc
+    version: '>=0'
+  - name: tinysparql
+    category: app-misc
+    version: '>=0'
+  - name: cmark
+    category: app-text
+    version: '>=0'
+  - name: djvu
+    category: app-text
+    version: '>=0'
   - name: gspell
+    category: app-text
+    version: '>=0'
+  - name: libgxps
+    category: app-text
+    version: '>=0'
+  - name: libspelling
     category: app-text
     version: '>=0'
   - name: libappindicator
@@ -21,7 +42,22 @@ requires:
   - name: libindicator
     category: dev-libs-3
     version: '>=0'
+  - name: ayatana-ido
+    category: dev-libs
+    version: '>=0'
   - name: geoip
+    category: dev-libs
+    version: '>=0'
+  - name: libayatana-appindicator
+    category: dev-libs
+    version: '>=0'
+  - name: libayatana-indicator
+    category: dev-libs
+    version: '>=0'
+  - name: libei
+    category: dev-libs
+    version: '>=0'
+  - name: libportal
     category: dev-libs
     version: '>=0'
   - name: qqwing
@@ -51,6 +87,9 @@ requires:
   - name: Geo-IP
     category: dev-perl
     version: '>=0'
+  - name: MIME-tools
+    category: dev-perl
+    version: '>=0'
   - name: Mail-DKIM
     category: dev-perl
     version: '>=0'
@@ -72,7 +111,19 @@ requires:
   - name: NetAddr-IP
     category: dev-perl
     version: '>=0'
+  - name: argcomplete
+    category: dev-python
+    version: '>=0'
+  - name: pycups
+    category: dev-python
+    version: '>=0'
+  - name: blueprint-compiler
+    category: dev-util
+    version: '>=0'
   - name: netsurf-buildsystem
+    category: dev-util
+    version: '>=0'
+  - name: xdg-dbus-proxy
     category: dev-util
     version: '>=0'
   - name: gnome-control-center
@@ -111,7 +162,13 @@ requires:
   - name: gnome-shell-extension-dynamic-panel-transparency
     category: gnome-extra
     version: '>=0'
+  - name: libgsf
+    category: gnome-extra
+    version: '>=0'
   - name: nm-applet
+    category: gnome-extra
+    version: '>=0'
+  - name: tecla
     category: gnome-extra
     version: '>=0'
   - name: evolution
@@ -123,6 +180,15 @@ requires:
   - name: spamassassin
     category: mail-filter
     version: '>=0'
+  - name: adwaita-fonts
+    category: media-fonts
+    version: '>=0'
+  - name: imagemagick
+    category: media-gfx
+    version: '>=0'
+  - name: potrace
+    category: media-gfx
+    version: '>=0'
   - name: libchamplain
     category: media-libs-0.12
     version: '>=0'
@@ -132,17 +198,32 @@ requires:
   - name: musicbrainz
     category: media-libs-5
     version: '>=0'
+  - name: exempi
+    category: media-libs
+    version: '>=0'
   - name: gexiv2
+    category: media-libs
+    version: '>=0'
+  - name: jbigkit
     category: media-libs
     version: '>=0'
   - name: libdiscid
     category: media-libs
     version: '>=0'
+  - name: libiptcdata
+    category: media-libs
+    version: '>=0'
   - name: libnsgif
+    category: media-libs
+    version: '>=0'
+  - name: libwmf
     category: media-libs
     version: '>=0'
   - name: neon
     category: net-libs
+    version: '>=0'
+  - name: ytnef
+    category: net-mail
     version: '>=0'
   - name: netkit-fingerd
     category: net-misc
@@ -150,8 +231,32 @@ requires:
   - name: gsl
     category: sci-libs
     version: '>=0'
+  - name: flatpak
+    category: sys-apps
+    version: '>=0'
   - name: mlocate
     category: sys-apps
+    version: '>=0'
+  - name: osinfo-db
+    category: sys-apps
+    version: '>=0'
+  - name: osinfo-db-tools
+    category: sys-apps
+    version: '>=0'
+  - name: xdg-desktop-portal
+    category: sys-apps
+    version: '>=0'
+  - name: xdg-desktop-portal-gnome
+    category: sys-apps
+    version: '>=0'
+  - name: xdg-desktop-portal-gtk
+    category: sys-apps
+    version: '>=0'
+  - name: libostree
+    category: sys-fs
+    version: '>=0'
+  - name: libosinfo
+    category: sys-libs
     version: '>=0'
   - name: notification-daemon
     category: virtual
@@ -170,6 +275,9 @@ requires:
     version: '>=0'
   - name: mx
     category: x11-libs-1.0
+    version: '>=0'
+  - name: gtksourceview
+    category: x11-libs-5
     version: '>=0'
   - name: icon-naming-utils
     category: x11-misc
