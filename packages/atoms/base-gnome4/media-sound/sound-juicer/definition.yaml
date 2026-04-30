@@ -1,5 +1,5 @@
 name: sound-juicer
-version: 3.24.0+1
+version: 3.40.0
 category: media-sound
 use_flags:
 - -test
@@ -35,22 +35,19 @@ uri:
 - https://wiki.gnome.org/Apps/SoundJuicer
 license: GPL-2+
 labels:
-  DEPEND: app-text/iso-codes >=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3
-    media-libs/libcanberra[gtk3] >=app-cdr/brasero-2.90 sys-apps/dbus gnome-base/gsettings-desktop-schemas
-    >=media-libs/libdiscid-0.4.0 >=media-libs/musicbrainz-5.0.1:5= media-libs/gstreamer:1.0
-    media-libs/gst-plugins-base:1.0[vorbis?] flac? ( media-plugins/gst-plugins-flac:1.0
-    ) app-text/yelp-tools dev-libs/appstream-glib >=sys-devel/gettext-0.19.6 virtual/pkgconfig
-    test? ( ~app-text/docbook-xml-dtd-4.3 ) >=app-portage/elt-patches-20170815 app-arch/xz-utils
+  BDEPEND: app-text/iso-codes app-text/docbook-xml-dtd:4.3 dev-libs/appstream-glib
+    dev-util/itstool sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2[dbus] x11-libs/gtk+:3 gnome-base/gsettings-desktop-schemas
+    app-cdr/brasero media-plugins/gst-plugins-meta:1.0[cdda,flac?] gnome-base/gvfs[cdda,udev]
+    media-libs/libcanberra media-libs/musicbrainz:= media-libs/libdiscid sys-apps/dbus
     dev-util/desktop-file-utils x11-misc/shared-mime-info
-  IUSE: debug flac test vorbis
-  RDEPEND: app-text/iso-codes >=dev-libs/glib-2.62.2:2[dbus] >=x11-libs/gtk+-3.24.12:3
-    media-libs/libcanberra[gtk3] >=app-cdr/brasero-2.90 sys-apps/dbus gnome-base/gsettings-desktop-schemas
-    >=media-libs/libdiscid-0.4.0 >=media-libs/musicbrainz-5.0.1:5= media-libs/gstreamer:1.0
-    media-libs/gst-plugins-base:1.0[vorbis?] flac? ( media-plugins/gst-plugins-flac:1.0
-    ) gnome-base/gvfs[cdda,udev] || ( media-plugins/gst-plugins-cdparanoia:1.0 media-plugins/gst-plugins-cdio:1.0
-    ) media-plugins/gst-plugins-meta:1.0
+  IUSE: flac vorbis
+  RDEPEND: dev-libs/glib:2[dbus] x11-libs/gtk+:3 gnome-base/gsettings-desktop-schemas
+    app-cdr/brasero media-plugins/gst-plugins-meta:1.0[cdda,flac?] gnome-base/gvfs[cdda,udev]
+    media-libs/libcanberra media-libs/musicbrainz:= media-libs/libdiscid sys-apps/dbus
   emerge.packages: media-sound/sound-juicer
   kit: media-kit
   original.package.name: media-sound/sound-juicer
   original.package.slot: "0"
-  original.package.version: 3.24.0
+  original.package.version: 3.40.0
