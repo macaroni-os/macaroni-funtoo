@@ -1,5 +1,5 @@
 name: gnome-disk-utility
-version: 3.36.3+1
+version: "46.1"
 category: sys-apps
 use_flags:
 - -systemd
@@ -45,22 +45,20 @@ uri:
 - https://git.gnome.org/browse/gnome-disk-utility
 license: GPL-2+
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2'
-  DEPEND: '>=app-arch/xz-utils-5.0.5 >=app-crypt/libsecret-0.7 >=dev-libs/glib-2.62.2:2[dbus]
-    dev-libs/libpwquality >=media-libs/libcanberra-0.1[gtk3] >=media-libs/libdvdread-4.2.0
-    >=sys-fs/udisks-2.7.6:2 >=x11-libs/gtk+-3.24.12:3 >=x11-libs/libnotify-0.7:= systemd?
-    ( >=sys-apps/systemd-209:0= ) !systemd? ( >=sys-auth/elogind-239.3:0= ) >=dev-util/intltool-0.50.2
-    dev-libs/appstream-glib dev-libs/libxslt virtual/pkgconfig dev-util/desktop-file-utils
-    x11-misc/shared-mime-info'
-  IUSE: fat gnome systemd
-  RDEPEND: '>=app-arch/xz-utils-5.0.5 >=app-crypt/libsecret-0.7 >=dev-libs/glib-2.62.2:2[dbus]
-    dev-libs/libpwquality >=media-libs/libcanberra-0.1[gtk3] >=media-libs/libdvdread-4.2.0
-    >=sys-fs/udisks-2.7.6:2 >=x11-libs/gtk+-3.24.12:3 >=x11-libs/libnotify-0.7:= systemd?
-    ( >=sys-apps/systemd-209:0= ) !systemd? ( >=sys-auth/elogind-239.3:0= ) x11-themes/adwaita-icon-theme
-    fat? ( sys-fs/dosfstools ) gnome? ( >=gnome-base/gnome-settings-daemon-3.8 )'
+  BDEPEND: dev-libs/libxml2 app-text/docbook-xsl-stylesheets dev-libs/libxslt sys-devel/gettext
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2
+  DEPEND: media-libs/libdvdread:= dev-libs/glib:2 x11-libs/gtk+:3 media-libs/libcanberra[gtk3]
+    dev-libs/libhandy app-arch/xz-utils app-crypt/libsecret dev-libs/libpwquality
+    sys-fs/udisks elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd:= ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: fat elogind gnome systemd
+  RDEPEND: media-libs/libdvdread:= dev-libs/glib:2 x11-libs/gtk+:3 media-libs/libcanberra[gtk3]
+    dev-libs/libhandy app-arch/xz-utils app-crypt/libsecret dev-libs/libpwquality
+    sys-fs/udisks elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd:= ) x11-themes/adwaita-icon-theme
+    fat? ( sys-fs/dosfstools ) gnome? ( gnome-base/gnome-settings-daemon )
   emerge.packages: sys-apps/gnome-disk-utility
   kit: gnome-kit
   original.package.name: sys-apps/gnome-disk-utility
   original.package.slot: "0"
-  original.package.version: 3.36.3
+  original.package.version: "46.1"
