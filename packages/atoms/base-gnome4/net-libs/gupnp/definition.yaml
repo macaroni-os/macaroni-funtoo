@@ -1,5 +1,5 @@
 name: gupnp
-version: 1.0.3+7
+version: 1.0.3+8
 category: net-libs
 use_flags:
 - -connman
@@ -14,7 +14,7 @@ use_flags:
 requires:
 - name: gssdp
   version: '>=0'
-  category: net-libs-1.2
+  category: net-libs-1.6
 - name: gssdp
   version: '>=0'
   category: net-libs
@@ -37,12 +37,12 @@ labels:
     ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[xml] >=dev-lang/python-exec-2:=[python_targets_python2_7]
     ) >=net-libs/gssdp-0.14.15:0=[introspection?,-mgorny(-)] >=net-libs/libsoup-2.48.0:2.4[introspection?,-mgorny(-)]
     >=dev-libs/glib-2.62.2:2[-mgorny(-)] >=dev-libs/libxml2-2.9.1-r4[-mgorny(-)] >=sys-apps/util-linux-2.24.1-r3[-mgorny(-)]
-    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= || ( dev-lang/vala:0.54[vapigen(+)]
-    dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
-    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
-    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) connman? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)]
-    ) networkmanager? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)] ) !net-libs/gupnp-vala
-    >=dev-util/gtk-doc-am-1.14 sys-devel/gettext >=virtual/pkgconfig-0-r1[-mgorny(-)]
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= || ( dev-lang/vala:0.56[vapigen(+)]
+    dev-lang/vala:0.54[vapigen(+)] dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)]
+    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
+    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
+    ) ) connman? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)] ) networkmanager? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)]
+    ) !net-libs/gupnp-vala >=dev-util/gtk-doc-am-1.14 sys-devel/gettext >=virtual/pkgconfig-0-r1[-mgorny(-)]
     >=app-portage/elt-patches-20170815 app-arch/xz-utils dev-util/desktop-file-utils
     x11-misc/shared-mime-info
   IUSE: connman +introspection kernel_linux networkmanager abi_x86_32 abi_x86_64 abi_x86_x32
@@ -57,11 +57,12 @@ labels:
     ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7[xml] >=dev-lang/python-exec-2:=[python_targets_python2_7]
     ) >=net-libs/gssdp-0.14.15:0=[introspection?,-mgorny(-)] >=net-libs/libsoup-2.48.0:2.4[introspection?,-mgorny(-)]
     >=dev-libs/glib-2.62.2:2[-mgorny(-)] >=dev-libs/libxml2-2.9.1-r4[-mgorny(-)] >=sys-apps/util-linux-2.24.1-r3[-mgorny(-)]
-    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= || ( dev-lang/vala:0.54[vapigen(+)]
-    dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
-    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
-    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) connman? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)]
-    ) networkmanager? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)] ) !net-libs/gupnp-vala
+    introspection? ( >=dev-libs/gobject-introspection-1.62.0:= || ( dev-lang/vala:0.56[vapigen(+)]
+    dev-lang/vala:0.54[vapigen(+)] dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)]
+    dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)]
+    dev-lang/vala:0.42[vapigen(+)] dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)]
+    ) ) connman? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)] ) networkmanager? ( >=dev-libs/glib-2.62.2:2[-mgorny(-)]
+    ) !net-libs/gupnp-vala
   emerge.packages: net-libs/gupnp:0
   kit: gnome-kit
   original.package.name: net-libs/gupnp
