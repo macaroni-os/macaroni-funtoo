@@ -1,7 +1,8 @@
 name: eog
-version: "47.0"
+version: 47.0+1
 category: media-gfx-1
 use_flags:
+- -gtk-doc
 - -lcms
 - exif
 - introspection
@@ -9,24 +10,27 @@ use_flags:
 - svg
 - xmp
 requires:
-- name: libpeas
+- name: libhandy
   version: '>=0'
   category: dev-libs
+- name: libpeas
+  version: '>=0'
+  category: dev-libs-2
 - name: gnome-desktop
   version: '>=0'
-  category: gnome-base-3
+  category: gnome-base
 - name: librsvg
   version: '>=0'
   category: gnome-base-2
 - name: exempi
   version: '>=0'
-  category: media-libs-2
+  category: media-libs
 - name: libexif
   version: '>=0'
   category: media-libs
-- name: jpeg
+- name: libX11
   version: '>=0'
-  category: virtual
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -36,7 +40,7 @@ annotations:
       - ^/var/db/pkg/
 description: The Eye of GNOME image viewer
 uri:
-- https://wiki.gnome.org/Apps/EyeOfGnome
+- https://gitlab.gnome.org/GNOME/eog
 license: GPL-2+
 labels:
   BDEPEND: gtk-doc? ( dev-util/gi-docgen app-text/docbook-xml-dtd:4.1.2 ) dev-util/itstool
