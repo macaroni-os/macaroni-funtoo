@@ -1,33 +1,34 @@
 name: seahorse
-version: 47.0.1
+version: 47.0.1+1
 category: app-crypt
 use_flags:
+- -ldap
 - zeroconf
 requires:
 - name: gcr
   version: '>=0'
-  category: app-crypt
+  category: app-crypt-4
 - name: gpgme
   version: '>=0'
   category: app-crypt-1
-- name: libsecret
+- name: libhandy
   version: '>=0'
-  category: app-crypt
+  category: dev-libs
 - name: libpwquality
   version: '>=0'
   category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
 - name: avahi
   version: '>=0'
   category: net-dns
 - name: libsoup
   version: '>=0'
-  category: net-libs-2.4
+  category: net-libs-3
 - name: openssh
   version: '>=0'
   category: net-misc
-- name: openldap
-  version: '>=0'
-  category: net-nds
 annotations:
   subsets:
     rules:
@@ -35,9 +36,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A GNOME application for managing encryption keys
+description: Manage your passwords and encryption keys
 uri:
-- https://wiki.gnome.org/Apps/Seahorse
+- https://gitlab.gnome.org/GNOME/seahorse
 license: GPL-2+ FDL-1.1+
 labels:
   BDEPEND: '|| ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
