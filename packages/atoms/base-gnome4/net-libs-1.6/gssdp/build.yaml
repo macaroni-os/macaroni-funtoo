@@ -1,4 +1,7 @@
 prelude:
+# Temprary workaround until mark-issues#660 is done
+- >-
+  emerge --unmerge --nodeps net-libs/gssdp:0
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
