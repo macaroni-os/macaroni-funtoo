@@ -1,15 +1,15 @@
 name: papers
-version: 49.4+1
+version: 49.4+2
 category: app-text
 use_flags:
 - -doc
 - -gnome-keyring
+- -sysprof
 - comics
 - djvu
 - introspection
 - nautilus
 - spell
-- sysprof
 - tiff
 requires:
 - name: libarchive
@@ -24,9 +24,6 @@ requires:
 - name: poppler
   version: '>=0'
   category: app-text
-- name: sysprof
-  version: '>=0'
-  category: dev-util
 - name: nautilus
   version: '>=0'
   category: gnome-base
@@ -39,6 +36,9 @@ requires:
 - name: gdk-pixbuf
   version: '>=0'
   category: x11-libs-2
+- name: pango
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
