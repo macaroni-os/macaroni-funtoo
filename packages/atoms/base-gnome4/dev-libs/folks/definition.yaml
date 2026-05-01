@@ -1,19 +1,12 @@
 name: folks
-version: 0.15.9
+version: 0.15.9+1
 category: dev-libs
 use_flags:
-- -test
-- -tracker
-- -zeitgeist
 - bluetooth
 - eds
-- prefix
-- telepathy
+- utils
 - utils
 requires:
-- name: vala
-  version: '>=0'
-  category: dev-lang-0.56
 - name: libgee
   version: '>=0'
   category: dev-libs-0.8
@@ -23,9 +16,6 @@ requires:
 - name: evolution-data-server
   version: '>=0'
   category: gnome-extra
-- name: telepathy-mission-control
-  version: '>=0'
-  category: net-im
 - name: bluez
   version: '>=0'
   category: net-wireless
@@ -38,7 +28,7 @@ annotations:
       - ^/var/db/pkg/
 description: Library for aggregating people from multiple sources
 uri:
-- https://wiki.gnome.org/Projects/Folks
+- https://gitlab.gnome.org/GNOME/folks
 license: LGPL-2.1+
 labels:
   BDEPEND: sys-devel/gettext virtual/pkgconfig || ( dev-lang/vala:0.56 dev-lang/vala:0.54
