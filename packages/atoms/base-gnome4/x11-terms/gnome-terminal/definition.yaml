@@ -1,10 +1,16 @@
 name: gnome-terminal
-version: 3.58.1
+version: 3.58.1+1
 category: x11-terms
 use_flags:
 - gnome-shell
 - nautilus
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libhandy
+  version: '>=0'
+  category: dev-libs
 - name: gnome-shell
   version: '>=0'
   category: gnome-base
@@ -14,12 +20,6 @@ requires:
 - name: nautilus
   version: '>=0'
   category: gnome-base
-- name: util-linux
-  version: '>=0'
-  category: sys-apps
-- name: gtk+
-  version: '>=0'
-  category: x11-libs-3
 - name: vte
   version: '>=0'
   category: x11-libs-2.91
@@ -30,10 +30,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: The Gnome Terminal
+description: A terminal emulator for GNOME
 uri:
-- https://wiki.gnome.org/Apps/Terminal/
-license: GPL-3+
+- https://gitlab.gnome.org/GNOME/gnome-terminal
+license: GPL-3+ GPL-3 CC-BY-SA-3.0 FDL-1.3
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) dev-libs/libxml2 dev-libs/libxslt dev-util/gdbus-codegen dev-util/itstool sys-devel/gettext
