@@ -1,50 +1,17 @@
 name: brasero
-version: 3.12.3
+version: 3.12.3+1
 category: app-cdr
 use_flags:
-- -packagekit
-- -test
-- css
+- -tracker
 - introspection
 - libburn
 - nautilus
 - playlist
-- tracker
 - mp3
 requires:
-- name: libburn
-  version: '>=0'
-  category: dev-libs
-- name: libisofs
-  version: '>=0'
-  category: dev-libs
-- name: libxml2
-  version: '>=0'
-  category: dev-libs-2
-- name: totem-pl-parser
-  version: '>=0'
-  category: dev-libs
-- name: nautilus
-  version: '>=0'
-  category: gnome-base
-- name: gst-plugins-good
-  version: '>=0'
-  category: media-libs-1.0
-- name: libcanberra
-  version: '>=0'
-  category: media-libs
-- name: libdvdcss
-  version: '>=0'
-  category: media-libs-1.2
 - name: gst-plugins-meta
   version: '>=0'
   category: media-plugins-1.0
-- name: libSM
-  version: '>=0'
-  category: x11-libs
-- name: libnotify
-  version: '>=0'
-  category: x11-libs
 - name: hicolor-icon-theme
   version: '>=0'
   category: x11-themes
@@ -57,7 +24,7 @@ annotations:
       - ^/var/db/pkg/
 description: CD/DVD burning application for the GNOME desktop
 uri:
-- https://wiki.gnome.org/Apps/Brasero
+- https://gitlab.gnome.org/GNOME/brasero
 license: GPL-2+ CC-BY-SA-3.0
 labels:
   BDEPEND: dev-util/intltool dev-util/itstool dev-util/gtk-doc-am sys-devel/gettext
