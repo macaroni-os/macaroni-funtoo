@@ -1,5 +1,5 @@
 name: gcr
-version: 3.41.2
+version: 3.41.2+1
 category: app-crypt
 use_flags:
 - -prefix
@@ -51,7 +51,7 @@ labels:
   RDEPEND: dev-libs/glib:2 dev-libs/libgcrypt:0= app-crypt/p11-kit app-crypt/libsecret
     systemd? ( sys-apps/systemd:= ) gtk? ( x11-libs/gtk+:3[introspection?] ) sys-apps/dbus
     introspection? ( dev-libs/gobject-introspection:= )
-  emerge.packages: app-crypt/gcr
+  emerge.packages: app-crypt/gcr:0
   kit: security-kit
   original.package.name: app-crypt/gcr
   original.package.slot: "0"
