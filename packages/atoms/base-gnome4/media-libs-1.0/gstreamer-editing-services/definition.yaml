@@ -1,16 +1,23 @@
 name: gstreamer-editing-services
-version: 1.26.10
+version: 1.26.10+1
 category: media-libs-1.0
 use_flags:
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
+- bash-completion
 - introspection
 - python_targets_python3_9
 requires:
+- name: bash-completion
+  version: '>=0'
+  category: app-shells
 - name: libxml2
   version: '>=0'
   category: dev-libs-2
+- name: gst-plugins-bad
+  version: '>=0'
+  category: media-libs-1.0
 - name: gst-plugins-base
   version: '>=0'
   category: media-libs-1.0
