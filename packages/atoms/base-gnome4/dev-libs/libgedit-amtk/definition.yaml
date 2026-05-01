@@ -1,0 +1,41 @@
+name: libgedit-amtk
+version: 5.9.0
+category: dev-libs
+use_flags:
+- -gtk-doc
+- introspection
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+conflicts:
+- name: amtk
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Actions, Menus and Toolbars Kit for GTK applications
+uri:
+- https://gitlab.gnome.org/World/gedit/libgedit-amtk
+license: LGPL-2.1+
+labels:
+  BDEPEND: gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) sys-devel/gettext
+    virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: '!x11-libs/amtk dev-libs/glib:2 x11-libs/gtk+:3[introspection?] introspection?
+    ( dev-libs/gobject-introspection:= )'
+  IUSE: +introspection gtk-doc
+  RDEPEND: '!x11-libs/amtk dev-libs/glib:2 x11-libs/gtk+:3[introspection?] introspection?
+    ( dev-libs/gobject-introspection:= )'
+  emerge.packages: dev-libs/libgedit-amtk
+  kit: gnome-kit
+  original.package.name: dev-libs/libgedit-amtk
+  original.package.slot: "0"
+  original.package.version: 5.9.0
