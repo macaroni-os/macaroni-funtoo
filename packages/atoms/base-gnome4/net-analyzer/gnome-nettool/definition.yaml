@@ -1,10 +1,10 @@
 name: gnome-nettool
-version: "42.0"
+version: 42.0+1
 category: net-analyzer
-use_flags:
-- -userland_BSD
-- userland_GNU
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: libgtop
   version: '>=0'
   category: gnome-base-2
@@ -23,12 +23,6 @@ requires:
 - name: whois
   version: '>=0'
   category: net-misc
-- name: cairo
-  version: '>=0'
-  category: x11-libs
-- name: gdk-pixbuf
-  version: '>=0'
-  category: x11-libs-2
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -41,7 +35,7 @@ annotations:
       - ^/var/db/pkg/
 description: Graphical front-ends to various networking command-line
 uri:
-- https://git.gnome.org/browse/gnome-nettool/
+- https://gitlab.gnome.org/GNOME/gnome-nettool
 license: GPL-2
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
@@ -49,7 +43,6 @@ labels:
     app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2'
   DEPEND: x11-libs/gtk+:3 dev-libs/glib:2 gnome-base/libgtop:= dev-util/desktop-file-utils
     x11-misc/shared-mime-info
-  IUSE: debug debug
   RDEPEND: x11-libs/gtk+:3 dev-libs/glib:2 gnome-base/libgtop:= || ( net-misc/iputils
     net-analyzer/tcptraceroute net-analyzer/traceroute ) net-analyzer/nmap net-dns/bind-tools
     net-misc/netkit-fingerd net-misc/whois
