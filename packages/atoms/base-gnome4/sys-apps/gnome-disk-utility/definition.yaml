@@ -1,8 +1,9 @@
 name: gnome-disk-utility
-version: "46.1"
+version: 46.1+1
 category: sys-apps
 use_flags:
 - -systemd
+- elogind
 - fat
 - gnome
 requires:
@@ -12,6 +13,9 @@ requires:
 - name: libsecret
   version: '>=0'
   category: app-crypt
+- name: libhandy
+  version: '>=0'
+  category: dev-libs
 - name: libpwquality
   version: '>=0'
   category: dev-libs
@@ -42,7 +46,7 @@ annotations:
       - ^/var/db/pkg/
 description: Disk Utility for GNOME using udisks
 uri:
-- https://git.gnome.org/browse/gnome-disk-utility
+- https://apps.gnome.org/en/DiskUtility/
 license: GPL-2+
 labels:
   BDEPEND: dev-libs/libxml2 app-text/docbook-xsl-stylesheets dev-libs/libxslt sys-devel/gettext
