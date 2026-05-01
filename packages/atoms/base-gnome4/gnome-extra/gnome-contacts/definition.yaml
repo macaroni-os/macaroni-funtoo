@@ -1,27 +1,24 @@
 name: gnome-contacts
-version: "49.0"
+version: 49.0+1
 category: gnome-extra
 use_flags:
-- v4l
+- gnome-online-accounts
 requires:
 - name: folks
   version: '>=0'
   category: dev-libs
-- name: libhandy
+- name: libportal
   version: '>=0'
-  category: dev-libs-0.0.13
-- name: libchamplain
+  category: dev-libs
+- name: qrencode
   version: '>=0'
-  category: media-libs-0.12
-- name: cheese
+  category: media-gfx
+- name: gstreamer
   version: '>=0'
-  category: media-video
+  category: media-libs-1.0
 - name: gnome-online-accounts
   version: '>=0'
   category: net-libs
-- name: geocode-glib
-  version: '>=0'
-  category: sci-geosciences
 annotations:
   subsets:
     rules:
@@ -31,7 +28,7 @@ annotations:
       - ^/var/db/pkg/
 description: GNOME contact management application
 uri:
-- https://wiki.gnome.org/Design/Apps/Contacts
+- https://apps.gnome.org/Contacts/
 license: GPL-2+
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
