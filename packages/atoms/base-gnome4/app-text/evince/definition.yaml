@@ -1,19 +1,22 @@
 name: evince
-version: "48.1"
+version: 48.1+1
 category: app-text
 use_flags:
-- -gnome-keyring
-- -t1lib
+- -gtk-doc
 - djvu
 - dvi
 - gnome
 - gstreamer
 - introspection
-- nautilus
+- keyring
 - postscript
+- spell
 - tiff
 - xps
 requires:
+- name: libsecret
+  version: '>=0'
+  category: app-crypt
 - name: djvu
   version: '>=0'
   category: app-text
@@ -29,30 +32,30 @@ requires:
 - name: poppler
   version: '>=0'
   category: app-text
-- name: atk
-  version: '>=0'
-  category: dev-libs
 - name: kpathsea
   version: '>=0'
   category: dev-libs
-- name: libxml2
+- name: libhandy
   version: '>=0'
-  category: dev-libs-2
+  category: dev-libs
+- name: gnome-desktop
+  version: '>=0'
+  category: gnome-base
 - name: gvfs
   version: '>=0'
   category: gnome-base
-- name: nautilus
+- name: librsvg
   version: '>=0'
-  category: gnome-base
+  category: gnome-base-2
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
 - name: gst-plugins-good
   version: '>=0'
   category: media-libs-1.0
-- name: tex-base
+- name: gstreamer
   version: '>=0'
-  category: virtual
-- name: adwaita-icon-theme
-  version: '>=0'
-  category: x11-themes
+  category: media-libs-1.0
 annotations:
   subsets:
     rules:
@@ -62,7 +65,7 @@ annotations:
       - ^/var/db/pkg/
 description: Simple document viewer for GNOME
 uri:
-- https://wiki.gnome.org/Apps/Evince
+- https://apps.gnome.org/Evince/
 license: GPL-2+ CC-BY-SA-3.0
 labels:
   BDEPEND: gtk-doc? ( dev-util/gi-docgen app-text/docbook-xml:4.3 ) dev-libs/appstream-glib
