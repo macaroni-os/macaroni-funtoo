@@ -1,45 +1,38 @@
 name: totem
-version: "43.2"
+version: 43.2+1
 category: media-video
 use_flags:
+- -gtk-doc
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- cdr
-- introspection
-- lirc
-- nautilus
 - python
 - python_single_target_python3_9
-- vala
 requires:
-- name: lirc
+- name: libhandy
   version: '>=0'
-  category: app-misc
+  category: dev-libs
 - name: libpeas
+  version: '>=0'
+  category: dev-libs-2
+- name: libportal
   version: '>=0'
   category: dev-libs
 - name: dbus-python
   version: '>=0'
   category: dev-python
-- name: pyxdg
-  version: '>=0'
-  category: dev-python
-- name: nautilus
+- name: gnome-desktop
   version: '>=0'
   category: gnome-base
-- name: clutter-gst
+- name: gst-plugins-base
   version: '>=0'
-  category: media-libs-3.0
-- name: clutter-gtk
+  category: media-libs-1.0
+- name: gst-plugins-good
   version: '>=0'
   category: media-libs-1.0
 - name: grilo-plugins
   version: '>=0'
   category: media-plugins-0.3
-- name: gst-plugins-meta
-  version: '>=0'
-  category: media-plugins-1.0
 - name: adwaita-icon-theme
   version: '>=0'
   category: x11-themes
@@ -50,9 +43,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Media player for GNOME
+description: Legacy Media player for GNOME
 uri:
-- https://wiki.gnome.org/Apps/Videos
+- https://apps.gnome.org/Totem/
 license: GPL-2+ LGPL-2+
 labels:
   BDEPEND: dev-lang/perl gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.5
