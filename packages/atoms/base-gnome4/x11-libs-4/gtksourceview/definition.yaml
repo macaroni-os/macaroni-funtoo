@@ -1,13 +1,15 @@
 name: gtksourceview
-version: 4.8.4
+version: 4.8.4+1
 category: x11-libs-4
 use_flags:
 - -glade
-- -test
+- -gtk-doc
 - introspection
-- prefix
 - vala
 requires:
+- name: fribidi
+  version: '>=0'
+  category: dev-libs
 - name: gobject-introspection
   version: '>=0'
   category: dev-libs
@@ -27,7 +29,7 @@ annotations:
 description: A text widget implementing syntax highlighting and other features
 uri:
 - https://wiki.gnome.org/Projects/GtkSourceView
-license: GPL-2+ LGPL-2.1+
+license: LGPL-2.1+
 labels:
   BDEPEND: gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) sys-devel/gettext
     virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56[vapigen(+)] dev-lang/vala:0.54[vapigen(+)]
