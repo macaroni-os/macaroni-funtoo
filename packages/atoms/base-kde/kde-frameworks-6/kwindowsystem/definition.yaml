@@ -1,0 +1,40 @@
+name: kwindowsystem
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- X
+- wayland
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+- name: libXfixes
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-keysyms
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing access to properties and features of the window manager
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,wayland?,X?] X? ( x11-libs/libX11 x11-libs/libXfixes
+    x11-libs/libxcb x11-libs/xcb-util-keysyms ) X? ( x11-base/xorg-proto ) wayland?
+    ( dev-libs/plasma-wayland-protocols >=dev-libs/wayland-protocols-1.21 )
+  IUSE: wayland X
+  RDEPEND: virtual/kde-seed[gui,declarative,wayland?,X?] X? ( x11-libs/libX11 x11-libs/libXfixes
+    x11-libs/libxcb x11-libs/xcb-util-keysyms )
+  emerge.packages: kde-frameworks/kwindowsystem:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kwindowsystem
+  original.package.slot: "6"
+  original.package.version: 6.22.0
