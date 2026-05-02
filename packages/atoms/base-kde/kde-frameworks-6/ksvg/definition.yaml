@@ -1,0 +1,40 @@
+name: ksvg
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcolorscheme
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kirigami
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Components for handling SVGs
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/karchive:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/kirigami:6
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/karchive:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/kirigami:6
+  emerge.packages: kde-frameworks/ksvg:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/ksvg
+  original.package.slot: "6"
+  original.package.version: 6.22.0
