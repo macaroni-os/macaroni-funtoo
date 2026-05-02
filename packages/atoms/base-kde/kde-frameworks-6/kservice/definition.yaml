@@ -1,0 +1,37 @@
+name: kservice
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- -man
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Advanced plugin and service introspection
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: man? ( kde-frameworks/kdoctools:6 ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+  IUSE: +man
+  RDEPEND: virtual/kde-seed kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6
+  emerge.packages: kde-frameworks/kservice:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kservice
+  original.package.slot: "6"
+  original.package.version: 6.22.0
