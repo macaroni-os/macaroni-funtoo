@@ -1,0 +1,30 @@
+name: knotifications
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for notifying the user of an event
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 media-libs/libcanberra
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 media-libs/libcanberra
+  emerge.packages: kde-frameworks/knotifications:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/knotifications
+  original.package.slot: "6"
+  original.package.version: 6.22.0
