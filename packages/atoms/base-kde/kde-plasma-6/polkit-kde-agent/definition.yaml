@@ -1,0 +1,45 @@
+name: polkit-kde-agent
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: qt5compat
+  version: '>=0'
+  category: dev-qt-6
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+- name: polkit-qt
+  version: '>=0'
+  category: sys-auth
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PolKit agent module for KDE Plasma
+uri:
+- https://kde.org/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] dev-qt/qt5compat:6[qml] kde-frameworks/kirigami:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/knotifications:6 kde-frameworks/kwindowsystem:6[X]
+    kde-plasma/libplasma:6 >=sys-auth/polkit-qt-0.175[qt6(+)]
+  RDEPEND: virtual/kde-seed[gui,declarative] dev-qt/qt5compat:6[qml] kde-frameworks/kirigami:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/knotifications:6 kde-frameworks/kwindowsystem:6[X]
+    kde-plasma/libplasma:6 >=sys-auth/polkit-qt-0.175[qt6(+)]
+  emerge.packages: kde-plasma/polkit-kde-agent:6
+  kit: kde-kit
+  original.package.name: kde-plasma/polkit-kde-agent
+  original.package.slot: "6"
+  original.package.version: 6.5.5
