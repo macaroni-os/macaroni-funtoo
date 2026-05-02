@@ -1,0 +1,42 @@
+name: ki18n
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: iso-codes
+  version: '>=0'
+  category: app-text
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework based on Gettext for internationalizing user interface text
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) sys-devel/gettext virtual/libintl dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative] app-text/iso-codes
+  IUSE: python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: virtual/kde-seed[declarative] app-text/iso-codes
+  emerge.packages: kde-frameworks/ki18n:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/ki18n
+  original.package.slot: "6"
+  original.package.version: 6.22.0
