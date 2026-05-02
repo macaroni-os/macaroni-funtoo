@@ -8,7 +8,6 @@ packages:
   - app-admin/entities
   #- system/luet-geaaru-testing
   - app-misc/yq-go
-  - app-misc/yq
   - app-misc/jq
 
   - macaroni/live-setup-gnome
@@ -26,9 +25,23 @@ packages:
   - virtual-entities/base
   - pinentry-gnome
 
-  #- www-client/firefox-bin
-  - www-client/firefox
-  - gnome-base/gnome
+  - www-client/firefox-bin
+  #- www-client/firefox
+  #- gnome-base/gnome
+  # gnome-shell
+  - gnome-shell
+  - gdm
+  - gnome-base/gnome-desktop
+  - gnome-session
+  - gnome-control-center
+  - gnome-power-manager
+  - xdg-desktop-portal-gnome
+  - gnome-terminal
+  - gnome-backgrounds
+  - gnome-bluetooth
+  - gnome-weather
+  - gnome-tweaks
+  - gnome-system-monitor
 
   - sys-apps/gentoo-functions
 
@@ -117,7 +130,7 @@ packages:
   - media-fonts/encodings
 
   # gjs-console, gjs (libmozjs-68)
-  - dev-lang-68/spidermonkey
+  - spidermonkey
   # gnome-system-monitor, etc
   - dev-libs-2/libsigc++
   - dev-cpp-1/cairomm
@@ -145,7 +158,7 @@ packages:
   - x11-libs/xcb-util-image
   - x11-libs/xcb-util-renderutil
 
-  - dev-qt-5/qtwayland
+  #- dev-qt-5/qtwayland
   #- x11-wm/twm
   #- x11-terms/xterm
   - sys-libs/libutempter
@@ -182,9 +195,9 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/mark
-  - repository/macaroni-phoenix
-  - repository/macaroni-commons
+  - repository/mark-dev
+  - repository/macaroni-phoenix-dev
+  - repository/macaroni-commons-dev
   #- repository/macaroni-security
 
 initramfs:
