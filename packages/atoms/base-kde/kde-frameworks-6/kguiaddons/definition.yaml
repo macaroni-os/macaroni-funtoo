@@ -1,0 +1,40 @@
+name: kguiaddons
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- X
+- wayland
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing assorted high-level user interface components
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: wayland? ( dev-util/wayland-scanner ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,wayland?,X?] X? ( x11-libs/libX11 x11-libs/libxcb
+    ) wayland? ( dev-libs/wayland >=dev-libs/plasma-wayland-protocols-1.15.0 >=dev-libs/wayland-protocols-1.39
+    ) X? ( x11-base/xorg-proto )
+  IUSE: dbus wayland X
+  RDEPEND: virtual/kde-seed[gui,declarative,wayland?,X?] X? ( x11-libs/libX11 x11-libs/libxcb
+    )
+  emerge.packages: kde-frameworks/kguiaddons:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kguiaddons
+  original.package.slot: "6"
+  original.package.version: 6.22.0
