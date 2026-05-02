@@ -1,0 +1,56 @@
+name: libplasma
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- -gles2-only
+requires:
+- name: kglobalaccel
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kpackage
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ksvg
+  version: '>=0'
+  category: kde-frameworks-6
+- name: plasma-activities
+  version: '>=0'
+  category: kde-plasma-6
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plasma library and runtime components based upon KF6 and Qt6
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,X,svg,declarative,gles2-only?,wayland?] kde-frameworks/karchive:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6[qml] kde-frameworks/kcoreaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kirigami:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/ksvg:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6[X] kde-plasma/plasma-activities:6 media-libs/libglvnd
+    x11-libs/libX11 x11-libs/libxcb !gles2-only? ( media-libs/libglvnd[X] )
+  IUSE: gles2-only wayland
+  RDEPEND: virtual/kde-seed[gui,X,svg,declarative,gles2-only?,wayland?] kde-frameworks/karchive:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6[qml] kde-frameworks/kcoreaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kirigami:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/ksvg:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6[X] kde-plasma/plasma-activities:6 media-libs/libglvnd
+    x11-libs/libX11 x11-libs/libxcb !gles2-only? ( media-libs/libglvnd[X] )
+  emerge.packages: kde-plasma/libplasma:6
+  kit: kde-kit
+  original.package.name: kde-plasma/libplasma
+  original.package.slot: "6"
+  original.package.version: 6.5.5
