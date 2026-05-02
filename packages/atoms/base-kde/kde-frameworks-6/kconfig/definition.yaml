@@ -1,0 +1,36 @@
+name: kconfig
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- dbus
+- qml
+requires:
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for reading and writing configuration
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] dbus? ( sys-apps/dbus ) qml? ( dev-qt/qtdeclarative:6
+    )
+  IUSE: dbus qml
+  RDEPEND: virtual/kde-seed[gui] dbus? ( sys-apps/dbus ) qml? ( dev-qt/qtdeclarative:6
+    )
+  emerge.packages: kde-frameworks/kconfig:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kconfig
+  original.package.slot: "6"
+  original.package.version: 6.22.0
