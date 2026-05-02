@@ -1,0 +1,28 @@
+name: kglobalaccel
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework to handle global shortcuts
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,X?]
+  IUSE: X
+  RDEPEND: virtual/kde-seed[gui,X?]
+  emerge.packages: kde-frameworks/kglobalaccel:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kglobalaccel
+  original.package.slot: "6"
+  original.package.version: 6.22.0
