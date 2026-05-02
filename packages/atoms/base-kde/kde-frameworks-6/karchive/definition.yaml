@@ -1,0 +1,43 @@
+name: karchive
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- crypt
+- zstd
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for reading, creation, and manipulation of various archive
+  formats
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] zstd? ( virtual/pkgconfig ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed app-arch/bzip2 app-arch/xz-utils sys-libs/zlib crypt? (
+    dev-libs/openssl:= ) zstd? ( app-arch/zstd:= )
+  IUSE: crypt +zstd
+  RDEPEND: virtual/kde-seed app-arch/bzip2 app-arch/xz-utils sys-libs/zlib crypt?
+    ( dev-libs/openssl:= ) zstd? ( app-arch/zstd:= )
+  emerge.packages: kde-frameworks/karchive:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/karchive
+  original.package.slot: "6"
+  original.package.version: 6.22.0
