@@ -1,0 +1,35 @@
+name: extra-cmake-modules
+version: 6.22.0
+category: kde-frameworks
+use_flags:
+- -doc
+requires:
+- name: libarchive
+  version: '>=0'
+  category: app-arch
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Extra modules and scripts for CMake
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: doc? ( || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
+    dev-lang/python:3.10 ) || ( ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/sphinx[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) dev-qt/qttools:6[assistant] ) dev-util/ninja dev-util/cmake
+  DEPEND: app-arch/libarchive[bzip2] !kde-frameworks/extra-cmake-modules:5
+  IUSE: doc
+  RDEPEND: app-arch/libarchive[bzip2] !kde-frameworks/extra-cmake-modules:5
+  emerge.packages: kde-frameworks/extra-cmake-modules
+  kit: kde-kit
+  original.package.name: kde-frameworks/extra-cmake-modules
+  original.package.slot: "0"
+  original.package.version: 6.22.0
