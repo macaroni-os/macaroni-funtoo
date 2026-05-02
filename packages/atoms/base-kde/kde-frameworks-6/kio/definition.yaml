@@ -1,0 +1,89 @@
+name: kio
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- acl
+- handbook
+- kwallet
+requires:
+- name: kauth
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kbookmarks
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdoctools
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemviews
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kjobwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ktextwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-6
+- name: solid
+  version: '>=0'
+  category: kde-frameworks-6
+- name: attr
+  version: '>=0'
+  category: sys-apps
+- name: switcheroo-control
+  version: '>=0'
+  category: sys-power
+- name: acl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing transparent file and data management
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative,gui,libproxy,wayland?,X?] sys-power/switcheroo-control
+    kde-frameworks/kauth:6 kde-frameworks/kbookmarks:6 kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knotifications:6 kde-frameworks/kservice:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[wayland?,X?]
+    kde-frameworks/solid:6 acl? ( sys-apps/attr virtual/acl ) handbook? ( dev-libs/libxml2:=
+    dev-libs/libxslt kde-frameworks/karchive:6 kde-frameworks/kdoctools:6 ) kwallet?
+    ( kde-frameworks/kwallet:6 )
+  IUSE: acl handbook +kwallet wayland X
+  RDEPEND: virtual/kde-seed[declarative,gui,libproxy,wayland?,X?] sys-power/switcheroo-control
+    kde-frameworks/kauth:6 kde-frameworks/kbookmarks:6 kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knotifications:6 kde-frameworks/kservice:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[wayland?,X?]
+    kde-frameworks/solid:6 acl? ( sys-apps/attr virtual/acl ) handbook? ( dev-libs/libxml2:=
+    dev-libs/libxslt kde-frameworks/karchive:6 kde-frameworks/kdoctools:6 ) kwallet?
+    ( kde-frameworks/kwallet:6 )
+  emerge.packages: kde-frameworks/kio:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kio
+  original.package.slot: "6"
+  original.package.version: 6.22.0
