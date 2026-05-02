@@ -1,0 +1,35 @@
+name: kcolorscheme
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for downloading and sharing additional application data
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 kde-frameworks/ki18n:6
+    kde-frameworks/kguiaddons:6
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 kde-frameworks/ki18n:6
+    kde-frameworks/kguiaddons:6
+  emerge.packages: kde-frameworks/kcolorscheme:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kcolorscheme
+  original.package.slot: "6"
+  original.package.version: 6.22.0
