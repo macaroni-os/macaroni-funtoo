@@ -1,0 +1,34 @@
+name: plasma-activities
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Core components for KDE Activities System
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,sql] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    dev-libs/boost
+  RDEPEND: virtual/kde-seed[gui,declarative,sql] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    dev-libs/boost
+  emerge.packages: kde-plasma/plasma-activities:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-activities
+  original.package.slot: "6"
+  original.package.version: 6.5.5
