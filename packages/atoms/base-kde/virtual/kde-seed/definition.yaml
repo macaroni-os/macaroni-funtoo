@@ -1,0 +1,52 @@
+name: kde-seed
+version: "6.22"
+category: virtual
+use_flags:
+- declarative
+- multimedia
+- svg
+- wayland
+requires:
+- name: wayland
+  version: '>=0'
+  category: dev-libs
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Meta package for KDE installation
+labels:
+  BDEPEND: kde-frameworks/extra-cmake-modules:*
+  DEPEND: '!kde-frameworks/baloo:5 !kde-frameworks/breeze-icons:5 !kde-frameworks/extra-cmake-modules:5
+    !kde-frameworks/kguiaddons:5 !kde-frameworks/kirigami:5 !kde-frameworks/kquickcharts:5
+    !kde-frameworks/kuserfeedback:5 !kde-frameworks/kio-trash-desktop-file:5 !kde-frameworks/kio:5
+    !kde-plasma/libplasma:5 !kde-plasma/libkworkspace:5 !kde-plasma/kdeplasma-addons:5
+    !kde-plasma/kwin:5 !kde-plasma/plasma-workspace:5 !kde-plasma/plasma-desktop:5
+    !kde-plasma/xdg-desktop-portal-kde:5 !kde-plasma/print-manager:5 !kde-apps/ffmpegthumbs:5
+    !kde-apps/ffmpegthumbs-common !kde-apps/kdesdk-thumbnailers:5 !kde-apps/kio-extras-kf5:5
+    !kde-apps/kio-extras:5 !kde-apps/libkgapi:5 >=dev-qt/qtbase-6.10:6[wayland?,X?,gui?,libproxy?,libinput?,sql?,gles2-only?,vulkan?,cups?]
+    declarative? ( dev-qt/qtdeclarative:6 ) svg? ( dev-qt/qtsvg:6 ) multimedia? (
+    dev-qt/qtmultimedia:6 ) wayland? ( dev-libs/wayland ) dev-util/desktop-file-utils'
+  IUSE: wayland X declarative gui svg sql libproxy multimedia gles2-only vulkan libinput
+    cups
+  RDEPEND: '!kde-frameworks/baloo:5 !kde-frameworks/breeze-icons:5 !kde-frameworks/extra-cmake-modules:5
+    !kde-frameworks/kguiaddons:5 !kde-frameworks/kirigami:5 !kde-frameworks/kquickcharts:5
+    !kde-frameworks/kuserfeedback:5 !kde-frameworks/kio-trash-desktop-file:5 !kde-frameworks/kio:5
+    !kde-plasma/libplasma:5 !kde-plasma/libkworkspace:5 !kde-plasma/kdeplasma-addons:5
+    !kde-plasma/kwin:5 !kde-plasma/plasma-workspace:5 !kde-plasma/plasma-desktop:5
+    !kde-plasma/xdg-desktop-portal-kde:5 !kde-plasma/print-manager:5 !kde-apps/ffmpegthumbs:5
+    !kde-apps/ffmpegthumbs-common !kde-apps/kdesdk-thumbnailers:5 !kde-apps/kio-extras-kf5:5
+    !kde-apps/kio-extras:5 !kde-apps/libkgapi:5 >=dev-qt/qtbase-6.10:6[wayland?,X?,gui?,libproxy?,libinput?,sql?,gles2-only?,vulkan?,cups?]
+    declarative? ( dev-qt/qtdeclarative:6 ) svg? ( dev-qt/qtsvg:6 ) multimedia? (
+    dev-qt/qtmultimedia:6 ) wayland? ( dev-libs/wayland )'
+  emerge.packages: virtual/kde-seed
+  kit: kde-kit
+  original.package.name: virtual/kde-seed
+  original.package.slot: "0"
+  original.package.version: "6.22"
