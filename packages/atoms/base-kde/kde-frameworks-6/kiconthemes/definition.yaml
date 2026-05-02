@@ -1,0 +1,40 @@
+name: kiconthemes
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: breeze-icons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcolorscheme
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for icon theming and configuration
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/breeze-icons:6 kde-frameworks/karchive:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6 kde-frameworks/ki18n:6
+    kde-frameworks/kwidgetsaddons:6
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/breeze-icons:6 kde-frameworks/karchive:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6 kde-frameworks/ki18n:6
+    kde-frameworks/kwidgetsaddons:6
+  emerge.packages: kde-frameworks/kiconthemes:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kiconthemes
+  original.package.slot: "6"
+  original.package.version: 6.22.0
