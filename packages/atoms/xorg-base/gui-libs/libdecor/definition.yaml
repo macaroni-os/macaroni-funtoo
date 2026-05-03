@@ -1,0 +1,44 @@
+name: libdecor
+version: 0.2.5
+category: gui-libs
+use_flags:
+- dbus
+- examples
+- gtk
+requires:
+- name: libglvnd
+  version: '>=0'
+  category: media-libs
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A client-side decorations library for Wayland clients
+uri:
+- https://gitlab.freedesktop.org/libdecor/libdecor
+license: MIT
+labels:
+  BDEPEND: dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/wayland x11-libs/pango x11-libs/cairo dbus? ( sys-apps/dbus ) gtk?
+    ( x11-libs/gtk+:3 ) examples? ( media-libs/libglvnd x11-libs/libxkbcommon ) dev-libs/wayland-protocols
+  IUSE: +dbus +gtk examples
+  RDEPEND: dev-libs/wayland x11-libs/pango x11-libs/cairo dbus? ( sys-apps/dbus )
+    gtk? ( x11-libs/gtk+:3 ) examples? ( media-libs/libglvnd x11-libs/libxkbcommon
+    )
+  emerge.packages: gui-libs/libdecor
+  kit: core-gl-kit
+  original.package.name: gui-libs/libdecor
+  original.package.slot: "0"
+  original.package.version: 0.2.5
