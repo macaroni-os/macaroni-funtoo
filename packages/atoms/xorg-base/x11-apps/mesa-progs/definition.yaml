@@ -1,9 +1,17 @@
 name: mesa-progs
-version: 9.0.0
+version: 9.0.0+1
 category: x11-apps
 use_flags:
+- X
+- vulkan
+- wayland
 - egl
+- gles2
+- vulkan
 requires:
+- name: libdecor
+  version: '>=0'
+  category: gui-libs
 - name: mesa
   version: '>=0'
   category: media-libs
@@ -11,6 +19,9 @@ requires:
   version: '>=0'
   category: virtual
 - name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
   version: '>=0'
   category: x11-libs
 annotations:
