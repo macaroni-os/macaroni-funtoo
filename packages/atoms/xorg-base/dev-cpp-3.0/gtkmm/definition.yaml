@@ -1,0 +1,46 @@
+name: gtkmm
+version: 3.24.10
+category: dev-cpp-3.0
+use_flags:
+- -gtk-doc
+requires:
+- name: atkmm
+  version: '>=0'
+  category: dev-cpp-2.36
+- name: glibmm
+  version: '>=0'
+  category: dev-cpp-2
+- name: pangomm
+  version: '>=0'
+  category: dev-cpp-1.4
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ interface for GTK+
+uri:
+- https://gtkmm.gnome.org/en/index.html
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig gtk-doc? ( app-doc/doxygen[dot] dev-lang/perl dev-libs/libxslt
+    ) || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-cpp/atkmm:0 dev-cpp/glibmm:2 x11-libs/gtk+:3[wayland?,X=] dev-cpp/cairomm:1
+    dev-cpp/pangomm:1.4 x11-libs/gdk-pixbuf media-libs/libepoxy
+  IUSE: gtk-doc wayland X
+  RDEPEND: dev-cpp/atkmm:0 dev-cpp/glibmm:2 x11-libs/gtk+:3[wayland?,X=] dev-cpp/cairomm:1
+    dev-cpp/pangomm:1.4 x11-libs/gdk-pixbuf media-libs/libepoxy
+  emerge.packages: dev-cpp/gtkmm:3.0
+  kit: gnome-kit
+  original.package.name: dev-cpp/gtkmm
+  original.package.slot: "3.0"
+  original.package.version: 3.24.10-r1
