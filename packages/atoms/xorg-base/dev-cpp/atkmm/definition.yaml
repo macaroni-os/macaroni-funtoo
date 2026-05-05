@@ -1,0 +1,35 @@
+name: atkmm
+version: 2.28.4
+category: dev-cpp
+use_flags:
+- -gtk-doc
+requires:
+- name: glibmm
+  version: '>=0'
+  category: dev-cpp-2
+- name: atk
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ interface for the ATK library
+uri:
+- https://gtkmm.gnome.org/en/index.html
+license: LGPL-2.1+
+labels:
+  BDEPEND: virtual/pkgconfig gtk-doc? ( dev-cpp/mm-common app-doc/doxygen[dot] dev-libs/libxslt
+    ) || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-cpp/glibmm:2[gtk-doc?] >=dev-libs/atk-2.58.0 dev-libs/libsigc++
+  IUSE: gtk-doc
+  RDEPEND: dev-cpp/glibmm:2[gtk-doc?] >=dev-libs/atk-2.58.0 dev-libs/libsigc++
+  emerge.packages: dev-cpp/atkmm
+  kit: gnome-kit
+  original.package.name: dev-cpp/atkmm
+  original.package.slot: "0"
+  original.package.version: 2.28.4
