@@ -1,0 +1,38 @@
+name: kded
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- -man
+requires:
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Central daemon of KDE workspaces
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: man? ( kde-frameworks/kdoctools:6 ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6[dbus] kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kservice:6
+  IUSE: +man
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6[dbus] kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kservice:6
+  emerge.packages: kde-frameworks/kded:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kded
+  original.package.slot: "6"
+  original.package.version: 6.22.0
