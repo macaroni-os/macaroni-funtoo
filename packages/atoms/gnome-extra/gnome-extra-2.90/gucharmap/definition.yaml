@@ -1,17 +1,23 @@
 name: gucharmap
-version: 17.0.1
+version: 17.0.1+1
 category: gnome-extra-2.90
 use_flags:
-- -test
+- -gtk-doc
 - introspection
 - vala
 requires:
 - name: unicode-data
   version: '>=0'
   category: app-i18n
-- name: gobject-introspection
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: libpcre2
   version: '>=0'
   category: dev-libs
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -25,7 +31,7 @@ annotations:
 description: Unicode character map viewer and library
 uri:
 - https://wiki.gnome.org/Apps/Gucharmap
-license: GPL-3
+license: GPL-3+
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
     ) app-text/docbook-xml-dtd:4.1.2 dev-util/itstool sys-devel/gettext virtual/pkgconfig
