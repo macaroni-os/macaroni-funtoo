@@ -1,24 +1,25 @@
 name: bijiben
-version: "40.2"
+version: 40.2+1
 category: app-misc
-use_flags:
-- -zeitgeist
 requires:
-- name: tracker
+- name: tinysparql
   version: '>=0'
   category: app-misc
 - name: glib
   version: '>=0'
   category: dev-libs-2
-- name: libxml2
+- name: libhandy
   version: '>=0'
-  category: dev-libs-2
+  category: dev-libs
 - name: evolution-data-server
   version: '>=0'
   category: gnome-extra
 - name: gnome-online-accounts
   version: '>=0'
   category: net-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
 annotations:
   subsets:
     rules:
@@ -28,7 +29,7 @@ annotations:
       - ^/var/db/pkg/
 description: Note editor designed to remain simple to use
 uri:
-- https://wiki.gnome.org/Apps/Bijiben
+- https://gitlab.gnome.org/GNOME/bijiben
 license: GPL-3+
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
@@ -39,7 +40,6 @@ labels:
     dev-libs/json-glib gnome-extra/evolution-data-server:= dev-libs/libhandy:= dev-libs/libxml2
     net-misc/curl sys-apps/util-linux net-libs/webkit-gtk:4 dev-util/desktop-file-utils
     x11-misc/shared-mime-info
-  IUSE: zeitgeist
   RDEPEND: app-misc/tinysparql:= dev-libs/glib:2 net-libs/gnome-online-accounts:=
     x11-libs/gtk+:3 dev-libs/json-glib gnome-extra/evolution-data-server:= dev-libs/libhandy:=
     dev-libs/libxml2 net-misc/curl sys-apps/util-linux net-libs/webkit-gtk:4
