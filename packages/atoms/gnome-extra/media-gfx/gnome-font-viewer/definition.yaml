@@ -1,19 +1,19 @@
 name: gnome-font-viewer
-version: "49.0"
+version: 49.0+1
 category: media-gfx
 requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
-- name: gnome-desktop
-  version: '>=0'
-  category: gnome-base-3
 - name: fontconfig
   version: '>=0'
   category: media-libs-1.0
 - name: harfbuzz
   version: '>=0'
   category: media-libs
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -21,9 +21,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Font viewer for GNOME
+description: Font viewer utility for GNOME
 uri:
-- https://git.gnome.org/browse/gnome-font-viewer
+- https://apps.gnome.org/FontViewer/
 license: GPL-2+ LGPL-2.1+
 labels:
   BDEPEND: dev-libs/appstream-glib dev-libs/libxml2 sys-devel/gettext virtual/pkgconfig
