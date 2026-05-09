@@ -1,5 +1,5 @@
 name: dconf-editor
-version: 3.36.7+1
+version: "49.0"
 category: gnome-base
 requires:
 - name: appstream-glib
@@ -20,15 +20,15 @@ uri:
 - https://git.gnome.org/browse/dconf-editor
 license: LGPL-2.1+
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2'
-  DEPEND: dev-libs/appstream-glib >=dev-libs/glib-2.62.2:2 >=gnome-base/dconf-0.31.2
-    >=x11-libs/gtk+-3.24.12:3 >=dev-util/intltool-0.50 sys-devel/gettext virtual/pkgconfig
+  BDEPEND: '|| ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
+    dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40
+    dev-lang/vala:0.36 ) dev-libs/libxml2 sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.48.2
+    >=dev-util/ninja-1.7.2 >=app-portage/elt-patches-20170815 app-arch/xz-utils'
+  DEPEND: gnome-base/dconf dev-libs/glib:2 x11-libs/gtk+:3 dev-libs/libhandy[vala]
     dev-util/desktop-file-utils x11-misc/shared-mime-info
-  RDEPEND: dev-libs/appstream-glib >=dev-libs/glib-2.62.2:2 >=gnome-base/dconf-0.31.2
-    >=x11-libs/gtk+-3.24.12:3 !<gnome-base/dconf-0.22[X]
+  RDEPEND: gnome-base/dconf dev-libs/glib:2 x11-libs/gtk+:3 dev-libs/libhandy[vala]
   emerge.packages: gnome-base/dconf-editor
   kit: gnome-kit
   original.package.name: gnome-base/dconf-editor
   original.package.slot: "0"
-  original.package.version: 3.36.7
+  original.package.version: "49.0"
