@@ -1,5 +1,5 @@
 name: bijiben
-version: 3.36.3+1
+version: "40.2"
 category: app-misc
 use_flags:
 - -zeitgeist
@@ -31,20 +31,20 @@ uri:
 - https://wiki.gnome.org/Apps/Bijiben
 license: GPL-3+
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) dev-libs/appstream-glib dev-util/gdbus-codegen dev-util/itstool sys-devel/gettext
+    virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
     >=dev-util/ninja-1.7.2'
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3 >=gnome-extra/evolution-data-server-3.13.90:=
-    >=net-libs/webkit-gtk-2.10.0:4 >=net-libs/gnome-online-accounts-3.36 dev-libs/libxml2
-    >=app-misc/tracker-2:= sys-apps/util-linux zeitgeist? ( gnome-extra/zeitgeist
-    ) app-text/yelp-tools dev-libs/appstream-glib dev-util/gdbus-codegen >=dev-util/intltool-0.50.1
-    sys-devel/gettext virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  DEPEND: app-misc/tinysparql:= dev-libs/glib:2 net-libs/gnome-online-accounts:= x11-libs/gtk+:3
+    dev-libs/json-glib gnome-extra/evolution-data-server:= dev-libs/libhandy:= dev-libs/libxml2
+    net-misc/curl sys-apps/util-linux net-libs/webkit-gtk:4 dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
   IUSE: zeitgeist
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=x11-libs/gtk+-3.24.12:3 >=gnome-extra/evolution-data-server-3.13.90:=
-    >=net-libs/webkit-gtk-2.10.0:4 >=net-libs/gnome-online-accounts-3.36 dev-libs/libxml2
-    >=app-misc/tracker-2:= sys-apps/util-linux zeitgeist? ( gnome-extra/zeitgeist
-    )'
+  RDEPEND: app-misc/tinysparql:= dev-libs/glib:2 net-libs/gnome-online-accounts:=
+    x11-libs/gtk+:3 dev-libs/json-glib gnome-extra/evolution-data-server:= dev-libs/libhandy:=
+    dev-libs/libxml2 net-misc/curl sys-apps/util-linux net-libs/webkit-gtk:4
   emerge.packages: app-misc/bijiben
   kit: gnome-kit
   original.package.name: app-misc/bijiben
   original.package.slot: "0"
-  original.package.version: 3.36.3
+  original.package.version: "40.2"
