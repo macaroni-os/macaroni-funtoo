@@ -1,25 +1,19 @@
 name: gnome-sound-recorder
-version: "42.0"
+version: 42.0+1
 category: media-sound
 requires:
 - name: gjs
   version: '>=0'
   category: dev-libs
-- name: gst-plugins-bad
-  version: '>=0'
-  category: media-libs-1.0
-- name: gst-plugins-flac
-  version: '>=0'
-  category: media-plugins-1.0
-- name: gst-plugins-pulse
+- name: gst-plugins-meta
   version: '>=0'
   category: media-plugins-1.0
 - name: gdk-pixbuf
   version: '>=0'
   category: x11-libs-2
-- name: gtk+
+- name: libadwaita
   version: '>=0'
-  category: x11-libs-3
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -27,9 +21,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Simple sound recorder
-uri:
-- https://wiki.gnome.org/Design/Apps/SoundRecorder
+description: A simple, modern sound recorder for GNOME
 license: GPL-2+
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
