@@ -1,16 +1,19 @@
 name: gnome-photos
-version: "44.0"
+version: 44.0+1
 category: media-gfx
 use_flags:
-- -test
-- flickr
-- prefix
 - upnp-av
 requires:
-- name: tracker-miners
+- name: localsearch
   version: '>=0'
   category: app-misc
 - name: libdazzle
+  version: '>=0'
+  category: dev-libs
+- name: libhandy
+  version: '>=0'
+  category: dev-libs
+- name: libportal
   version: '>=0'
   category: dev-libs
 - name: gsettings-desktop-schemas
@@ -19,9 +22,9 @@ requires:
 - name: gegl
   version: '>=0'
   category: media-libs-0.4
-- name: gnome-online-miners
+- name: gnome-online-accounts
   version: '>=0'
-  category: net-misc
+  category: net-libs
 - name: geocode-glib
   version: '>=0'
   category: sci-geosciences
@@ -34,7 +37,7 @@ annotations:
       - ^/var/db/pkg/
 description: Access, organize and share your photos on GNOME
 uri:
-- https://wiki.gnome.org/Apps/Photos
+- https://gitlab.gnome.org/Archive/gnome-photos
 license: GPL-3+ LGPL-2+ CC0-1.0
 labels:
   BDEPEND: dev-libs/appstream-glib dev-libs/libxslt app-text/docbook-xsl-stylesheets
