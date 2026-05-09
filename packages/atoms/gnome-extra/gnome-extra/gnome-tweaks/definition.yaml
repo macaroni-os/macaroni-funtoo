@@ -1,5 +1,5 @@
 name: gnome-tweaks
-version: "49.0"
+version: 49.0+1
 category: gnome-extra
 use_flags:
 - -python_single_target_python3_10
@@ -7,30 +7,30 @@ use_flags:
 - -python_single_target_python3_8
 - python_single_target_python3_9
 requires:
-- name: python
+- name: libgudev
   version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
+  category: dev-libs
 - name: pygobject
   version: '>=0'
   category: dev-python-3
-- name: gnome-settings-daemon
-  version: '>=0'
-  category: gnome-base
 - name: gnome-shell
   version: '>=0'
   category: gnome-base
-- name: nautilus
+- name: libadwaita
   version: '>=0'
-  category: gnome-base
-- name: libsoup
+  category: x11-libs
+- name: libnotify
   version: '>=0'
-  category: net-libs-2.4
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
+- name: sound-theme-freedesktop
+  version: '>=0'
+  category: x11-themes
+- name: mutter
+  version: '>=0'
+  category: x11-wm
 annotations:
   subsets:
     rules:
@@ -38,10 +38,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Tool to customize GNOME 3 options
+description: Customize advanced GNOME options
 uri:
-- https://wiki.gnome.org/action/show/Apps/GnomeTweakTool
-license: GPL-2+
+- https://gitlab.gnome.org/GNOME/gnome-tweaks
+license: GPL-3+ CC0-1.0
 labels:
   BDEPEND: sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
     app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
