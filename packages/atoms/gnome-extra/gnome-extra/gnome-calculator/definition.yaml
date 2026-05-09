@@ -1,10 +1,9 @@
 name: gnome-calculator
-version: "49.2"
+version: 49.2+1
 category: gnome-extra
+use_flags:
+- introspection
 requires:
-- name: glib
-  version: '>=0'
-  category: dev-libs-2
 - name: libgee
   version: '>=0'
   category: dev-libs-0.8
@@ -13,10 +12,13 @@ requires:
   category: dev-libs
 - name: libsoup
   version: '>=0'
-  category: net-libs-2.4
+  category: net-libs-3
 - name: gtksourceview
   version: '>=0'
-  category: x11-libs-4
+  category: x11-libs-5
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -26,7 +28,7 @@ annotations:
       - ^/var/db/pkg/
 description: A calculator application for GNOME
 uri:
-- https://wiki.gnome.org/Apps/Calculator
+- https://apps.gnome.org/Calculator/
 license: GPL-3+
 labels:
   BDEPEND: dev-libs/appstream-glib dev-util/blueprint-compiler dev-util/itstool sys-devel/gettext
