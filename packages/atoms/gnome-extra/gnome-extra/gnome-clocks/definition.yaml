@@ -1,5 +1,5 @@
 name: gnome-clocks
-version: "49.0"
+version: 49.0+1
 category: gnome-extra
 requires:
 - name: geoclue
@@ -10,16 +10,13 @@ requires:
   category: dev-libs-2
 - name: libgweather
   version: '>=0'
-  category: dev-libs-2
-- name: libhandy
-  version: '>=0'
-  category: dev-libs-0.0.13
+  category: dev-libs-4
 - name: gnome-desktop
   version: '>=0'
-  category: gnome-base-3
-- name: gsound
+  category: gnome-base
+- name: libadwaita
   version: '>=0'
-  category: media-libs
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -29,7 +26,7 @@ annotations:
       - ^/var/db/pkg/
 description: Clocks application for GNOME
 uri:
-- https://wiki.gnome.org/Apps/Clocks
+- https://apps.gnome.org/Clocks/
 license: GPL-2+
 labels:
   BDEPEND: dev-libs/libxml2 dev-util/itstool sys-devel/gettext virtual/pkgconfig ||
