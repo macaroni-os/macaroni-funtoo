@@ -1,43 +1,25 @@
 name: sushi
-version: "46.0"
+version: 46.0+1
 category: gnome-extra
 use_flags:
-- office
+- papers
 - wayland
 requires:
-- name: unoconv
-  version: '>=0'
-  category: app-office
 - name: evince
+  version: '>=0'
+  category: app-text
+- name: papers
   version: '>=0'
   category: app-text
 - name: gjs
   version: '>=0'
   category: dev-libs
-- name: clutter-gst
-  version: '>=0'
-  category: media-libs-3.0
-- name: clutter-gtk
-  version: '>=0'
-  category: media-libs-1.0
 - name: freetype
   version: '>=0'
   category: media-libs-2
-- name: gst-plugins-base
+- name: harfbuzz
   version: '>=0'
-  category: media-libs-1.0
-- name: musicbrainz
-  version: '>=0'
-  category: media-libs-5
-- name: webkit-gtk
-  version: '>=0'
-  category: net-libs-4
-- name: gdk-pixbuf
-  version: '>=0'
-  category: x11-libs-2
-- name: gtksourceview
-  version: '>=0'
-  category: x11-libs-3.0
+  category: media-libs
 - name: gtksourceview
   version: '>=0'
   category: x11-libs-4
@@ -50,7 +32,7 @@ annotations:
       - ^/var/db/pkg/
 description: A quick previewer for Nautilus, the GNOME file manager
 uri:
-- https://git.gnome.org/browse/sushi
+- https://gitlab.gnome.org/GNOME/sushi
 license: GPL-2+
 labels:
   BDEPEND: sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
