@@ -1,5 +1,5 @@
 name: gnome-system-monitor
-version: 3.36.1+1
+version: "49.1"
 category: gnome-extra
 use_flags:
 - -systemd
@@ -32,20 +32,16 @@ uri:
 - https://help.gnome.org/users/gnome-system-monitor/
 license: GPL-2
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2'
-  DEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/libgtop-2.39.91 >=x11-libs/gtk+-3.24.12:3[X(+)]
-    >=dev-cpp/gtkmm-3.3.18:3.0 >=dev-cpp/glibmm-2.62.0 >=dev-cpp/atkmm-2.25.1 >=dev-libs/libxml2-2.0:2
-    >=gnome-base/librsvg-2.35:2 systemd? ( >=sys-apps/systemd-44:0= ) X? ( >=x11-libs/libwnck-2.91.0:3
-    ) app-text/yelp-tools >=dev-util/intltool-0.41.0 virtual/pkgconfig dev-util/desktop-file-utils
-    x11-misc/shared-mime-info'
-  IUSE: systemd X
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 >=gnome-base/libgtop-2.39.91 >=x11-libs/gtk+-3.24.12:3[X(+)]
-    >=dev-cpp/gtkmm-3.3.18:3.0 >=dev-cpp/glibmm-2.62.0 >=dev-cpp/atkmm-2.25.1 >=dev-libs/libxml2-2.0:2
-    >=gnome-base/librsvg-2.35:2 systemd? ( >=sys-apps/systemd-44:0= ) X? ( >=x11-libs/libwnck-2.91.0:3
-    )'
+  BDEPEND: dev-cpp/catch dev-util/itstool sys-devel/gettext virtual/pkgconfig sys-auth/polkit
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-cpp/glibmm:2.68 dev-cpp/gtkmm:4.0 dev-libs/glib:2 x11-libs/gtk:4 gnome-base/libgtop:=
+    x11-libs/libadwaita gnome-base/librsvg systemd? ( sys-apps/systemd:= ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: systemd
+  RDEPEND: dev-cpp/glibmm:2.68 dev-cpp/gtkmm:4.0 dev-libs/glib:2 x11-libs/gtk:4 gnome-base/libgtop:=
+    x11-libs/libadwaita gnome-base/librsvg systemd? ( sys-apps/systemd:= )
   emerge.packages: gnome-extra/gnome-system-monitor
   kit: gnome-kit
   original.package.name: gnome-extra/gnome-system-monitor
   original.package.slot: "0"
-  original.package.version: 3.36.1
+  original.package.version: "49.1"
