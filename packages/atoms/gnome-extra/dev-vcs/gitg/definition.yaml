@@ -1,5 +1,5 @@
 name: gitg
-version: "44"
+version: 44+1
 category: dev-vcs
 use_flags:
 - -glade
@@ -9,12 +9,18 @@ use_flags:
 - python
 - python_targets_python3_9
 requires:
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
 - name: libsecret
   version: '>=0'
   category: app-crypt
-- name: gtkspell
+- name: gspell
   version: '>=0'
-  category: app-text-3
+  category: app-text
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
 - name: libdazzle
   version: '>=0'
   category: dev-libs
@@ -24,18 +30,18 @@ requires:
 - name: libgit2-glib
   version: '>=0'
   category: dev-libs
-- name: libpeas
+- name: libhandy
   version: '>=0'
   category: dev-libs
+- name: libpeas
+  version: '>=0'
+  category: dev-libs-2
 - name: gsettings-desktop-schemas
   version: '>=0'
   category: gnome-base
-- name: libsoup
-  version: '>=0'
-  category: net-libs-2.4
 - name: gtksourceview
   version: '>=0'
-  category: x11-libs-3.0
+  category: x11-libs-4
 - name: adwaita-icon-theme
   version: '>=0'
   category: x11-themes
@@ -48,7 +54,7 @@ annotations:
       - ^/var/db/pkg/
 description: git repository viewer for GNOME
 uri:
-- https://wiki.gnome.org/Apps/Gitg
+- https://gitlab.gnome.org/GNOME/gitg
 license: GPL-2+
 labels:
   BDEPEND: sys-devel/gettext virtual/pkgconfig || ( dev-lang/vala:0.56 dev-lang/vala:0.54
