@@ -1,0 +1,42 @@
+name: endeavour
+version: "43.0"
+category: gnome-extra
+use_flags:
+- introspection
+requires:
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: libpeas
+  version: '>=0'
+  category: dev-libs-2
+- name: evolution-data-server
+  version: '>=0'
+  category: gnome-extra
+- name: gnome-online-accounts
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Personal task manager
+license: GPL-3+
+labels:
+  BDEPEND: dev-libs/libxml2 sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+  DEPEND: dev-libs/glib:2 x11-libs/gtk:4[introspection?] x11-libs/libadwaita net-libs/gnome-online-accounts:=
+    dev-libs/libpeas gnome-extra/evolution-data-server:=[gtk] introspection? ( dev-libs/gobject-introspection:=
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +introspection
+  RDEPEND: dev-libs/glib:2 x11-libs/gtk:4[introspection?] x11-libs/libadwaita net-libs/gnome-online-accounts:=
+    dev-libs/libpeas gnome-extra/evolution-data-server:=[gtk] introspection? ( dev-libs/gobject-introspection:=
+    )
+  emerge.packages: gnome-extra/endeavour
+  kit: gnome-kit
+  original.package.name: gnome-extra/endeavour
+  original.package.slot: "0"
+  original.package.version: "43.0"
