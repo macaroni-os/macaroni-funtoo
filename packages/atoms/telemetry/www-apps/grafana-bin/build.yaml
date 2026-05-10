@@ -1,4 +1,10 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/core-server-kit/www-apps/grafana-bin &&
+  sed -i -e '/grafana-cli/d' -e '/grafana-server/d' grafana-bin-13.0.1.ebuild &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
