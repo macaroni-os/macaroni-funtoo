@@ -1,4 +1,8 @@
 prelude:
+# Temporary fix untl mark-issues#674 and a regen of the anise specs is done
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  USE="vala networkmanager" emerge net-libs/gupnp:1.2 --nodeps
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
