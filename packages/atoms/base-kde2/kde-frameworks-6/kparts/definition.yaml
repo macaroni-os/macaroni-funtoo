@@ -1,0 +1,34 @@
+name: kparts
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing elaborate user-interface components
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-frameworks/kparts:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kparts
+  original.package.slot: "6"
+  original.package.version: 6.22.0
