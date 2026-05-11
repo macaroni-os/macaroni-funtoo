@@ -1,31 +1,33 @@
 name: sddm
-version: 0.19.0+3
+version: 0.21.0
 category: x11-misc
 use_flags:
-- -consolekit
+- -qt5
 - -systemd
-- -test
 - elogind
 - pam
 requires:
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
 - name: qtdeclarative
   version: '>=0'
-  category: dev-qt-5
-- name: qtgui
-  version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 - name: elogind
   version: '>=0'
   category: sys-auth
 - name: pam
   version: '>=0'
   category: sys-libs
-- name: xorg-server
+- name: upower
   version: '>=0'
-  category: x11-base
+  category: sys-power
 - name: libxcb
   version: '>=0'
   category: x11-libs
+- name: xcb
+  version: '>=0'
+  category: x11-misc
 annotations:
   subsets:
     rules:
@@ -33,26 +35,24 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Simple Desktop Display Manager
+description: QML based X11 and Wayland display manager
 uri:
 - https://github.com/sddm/sddm
-license: GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain
+license: GPL-2.0
 labels:
-  DEPEND: '>=dev-qt/qtcore-5.9.4:5 >=dev-qt/qtdbus-5.9.4:5 >=dev-qt/qtdeclarative-5.9.4:5
-    >=dev-qt/qtgui-5.9.4:5 >=dev-qt/qtnetwork-5.9.4:5 >=x11-base/xorg-server-1.15.1
-    x11-libs/libxcb[xkb] consolekit? ( >=sys-auth/consolekit-0.9.4 ) elogind? ( sys-auth/elogind
-    ) pam? ( sys-libs/pam ) systemd? ( sys-apps/systemd:= ) !systemd? ( sys-power/upower
-    ) dev-python/docutils >=dev-qt/linguist-tools-5.9.4:5 kde-frameworks/extra-cmake-modules
-    virtual/pkgconfig test? ( >=dev-qt/qttest-5.9.4:5 ) sys-devel/make >=dev-util/cmake-3.9.6
-    virtual/pkgconfig sys-apps/shadow'
-  IUSE: consolekit elogind +pam systemd test
-  RDEPEND: '>=dev-qt/qtcore-5.9.4:5 >=dev-qt/qtdbus-5.9.4:5 >=dev-qt/qtdeclarative-5.9.4:5
-    >=dev-qt/qtgui-5.9.4:5 >=dev-qt/qtnetwork-5.9.4:5 >=x11-base/xorg-server-1.15.1
-    x11-libs/libxcb[xkb] consolekit? ( >=sys-auth/consolekit-0.9.4 ) elogind? ( sys-auth/elogind
-    ) pam? ( sys-libs/pam ) systemd? ( sys-apps/systemd:= ) !systemd? ( sys-power/upower
-    ) x11-misc/xcb'
+  BDEPEND: virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.9.6 virtual/pkgconfig
+  DEPEND: qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5
+    dev-qt/qtnetwork:5 ) !qt5? ( dev-qt/qtbase:6[gui] dev-qt/qtdeclarative:6 ) sys-libs/pam
+    x11-libs/libXau x11-libs/libxcb:= elogind? ( sys-auth/elogind ) pam? ( sys-libs/pam
+    ) systemd? ( sys-apps/systemd:= ) !systemd? ( sys-power/upower ) dev-python/docutils
+    kde-frameworks/extra-cmake-modules qt5? ( dev-qt/linguist-tools:5 ) sys-apps/shadow
+  IUSE: elogind +pam systemd qt5
+  RDEPEND: qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5
+    dev-qt/qtnetwork:5 ) !qt5? ( dev-qt/qtbase:6[gui] dev-qt/qtdeclarative:6 ) sys-libs/pam
+    x11-libs/libXau x11-libs/libxcb:= elogind? ( sys-auth/elogind ) pam? ( sys-libs/pam
+    ) systemd? ( sys-apps/systemd:= ) !systemd? ( sys-power/upower ) x11-misc/xcb
   emerge.packages: x11-misc/sddm
   kit: desktop-kit
   original.package.name: x11-misc/sddm
   original.package.slot: "0"
-  original.package.version: 0.19.0-r2
+  original.package.version: 0.21.0
