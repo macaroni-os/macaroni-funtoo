@@ -1,0 +1,45 @@
+name: kcmutils
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework to work with KDE System Settings modules
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6
+  emerge.packages: kde-frameworks/kcmutils:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kcmutils
+  original.package.slot: "6"
+  original.package.version: 6.22.0
