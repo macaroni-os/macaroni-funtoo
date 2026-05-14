@@ -1,0 +1,42 @@
+name: krunner
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for providing different actions given a string query
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,wayland?] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kitemmodels:6 kde-frameworks/kwindowsystem:6[wayland?]
+  IUSE: wayland
+  RDEPEND: virtual/kde-seed[gui,wayland?] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kitemmodels:6 kde-frameworks/kwindowsystem:6[wayland?]
+  emerge.packages: kde-frameworks/krunner:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/krunner
+  original.package.slot: "6"
+  original.package.version: 6.22.0
