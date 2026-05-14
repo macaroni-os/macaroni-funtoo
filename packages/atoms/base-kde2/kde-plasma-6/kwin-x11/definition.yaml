@@ -1,0 +1,111 @@
+name: kwin-x11
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- accessibility
+- lock
+- shortcuts
+requires:
+- name: qt5compat
+  version: '>=0'
+  category: dev-qt-6
+- name: qtsensors
+  version: '>=0'
+  category: dev-qt-6
+- name: qtshadertools
+  version: '>=0'
+  category: dev-qt-6
+- name: kauth
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: aurorae
+  version: '>=0'
+  category: kde-plasma-6
+- name: breeze
+  version: '>=0'
+  category: kde-plasma-6
+- name: kglobalacceld
+  version: '>=0'
+  category: kde-plasma-6
+- name: kscreenlocker
+  version: '>=0'
+  category: kde-plasma-6
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libdisplay-info
+  version: '>=0'
+  category: media-libs
+- name: libepoxy
+  version: '>=0'
+  category: media-libs
+- name: hwdata
+  version: '>=0'
+  category: sys-apps
+- name: xorg-server
+  version: '>=0'
+  category: x11-base
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-cursor
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Flexible, composited Window Manager for windowing systems on Linux
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gles2-only?,declarative,svg,gui,X] dev-qt/qt5compat:6[qml]
+    dev-qt/qtsensors:6 dev-qt/qtshadertools:6 dev-qt/qttools:6 kde-frameworks/kirigami:6
+    kde-frameworks/kitemmodels:6 kde-frameworks/kauth:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6[qml] kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kdeclarative:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kidletime:6= kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/kservice:6 kde-frameworks/ksvg:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6=[X] kde-frameworks/kxmlgui:6 kde-plasma/breeze:6
+    kde-plasma/kdecoration:6 kde-plasma/plasma-activities:6 kde-plasma/aurorae:6 kde-plasma/libplasma:6
+    sys-apps/hwdata media-libs/fontconfig media-libs/freetype media-libs/lcms:2 media-libs/libcanberra
+    media-libs/libdisplay-info:= media-libs/libepoxy media-libs/libglvnd media-libs/mesa[X]
+    virtual/libudev:= x11-base/xorg-server x11-libs/libX11 x11-libs/libXi x11-libs/libdrm
+    x11-libs/libxcb:= x11-libs/libxkbcommon x11-libs/xcb-util-cursor x11-libs/xcb-util-image
+    x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm accessibility? ( media-libs/libqaccessibilityclient:6
+    ) lock? ( kde-plasma/kscreenlocker:6 ) shortcuts? ( kde-plasma/kglobalacceld:6
+    ) x11-base/xorg-proto dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: accessibility gles2-only lock +shortcuts systemd
+  RDEPEND: virtual/kde-seed[gles2-only?,declarative,svg,gui,X] dev-qt/qt5compat:6[qml]
+    dev-qt/qtsensors:6 dev-qt/qtshadertools:6 dev-qt/qttools:6 kde-frameworks/kirigami:6
+    kde-frameworks/kitemmodels:6 kde-frameworks/kauth:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6[qml] kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kdeclarative:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kidletime:6= kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/kservice:6 kde-frameworks/ksvg:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6=[X] kde-frameworks/kxmlgui:6 kde-plasma/breeze:6
+    kde-plasma/kdecoration:6 kde-plasma/plasma-activities:6 kde-plasma/aurorae:6 kde-plasma/libplasma:6
+    sys-apps/hwdata media-libs/fontconfig media-libs/freetype media-libs/lcms:2 media-libs/libcanberra
+    media-libs/libdisplay-info:= media-libs/libepoxy media-libs/libglvnd media-libs/mesa[X]
+    virtual/libudev:= x11-base/xorg-server x11-libs/libX11 x11-libs/libXi x11-libs/libdrm
+    x11-libs/libxcb:= x11-libs/libxkbcommon x11-libs/xcb-util-cursor x11-libs/xcb-util-image
+    x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm accessibility? ( media-libs/libqaccessibilityclient:6
+    ) lock? ( kde-plasma/kscreenlocker:6 ) shortcuts? ( kde-plasma/kglobalacceld:6
+    )
+  emerge.packages: kde-plasma/kwin-x11:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kwin-x11
+  original.package.slot: "6"
+  original.package.version: 6.5.5
