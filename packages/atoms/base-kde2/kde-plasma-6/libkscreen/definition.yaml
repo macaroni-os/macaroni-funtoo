@@ -1,0 +1,33 @@
+name: libkscreen
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- wayland
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plasma screen management library
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: kde-frameworks/kconfig:6 dev-qt/qttools:6[linguist] wayland? ( dev-libs/plasma-wayland-protocols
+    dev-util/wayland-scanner ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,wayland?] x11-libs/libxcb:=
+  IUSE: wayland
+  RDEPEND: virtual/kde-seed[gui,wayland?] x11-libs/libxcb:=
+  emerge.packages: kde-plasma/libkscreen:6
+  kit: kde-kit
+  original.package.name: kde-plasma/libkscreen
+  original.package.slot: "6"
+  original.package.version: 6.5.5
