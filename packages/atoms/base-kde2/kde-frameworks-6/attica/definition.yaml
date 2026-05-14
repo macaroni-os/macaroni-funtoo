@@ -1,0 +1,27 @@
+name: attica
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing access to Open Collaboration Services
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed
+  RDEPEND: virtual/kde-seed
+  emerge.packages: kde-frameworks/attica:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/attica
+  original.package.slot: "6"
+  original.package.version: 6.22.0
