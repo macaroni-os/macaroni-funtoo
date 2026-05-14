@@ -1,0 +1,41 @@
+name: aurorae
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: qttools
+  version: '>=0'
+  category: dev-qt-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ksvg
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdecoration
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Themeable window decoration for KWin
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] dev-qt/qttools:6 kde-frameworks/kirigami:6
+    kde-frameworks/ksvg:6 kde-frameworks/kcmutils:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/knewstuff:6
+    kde-frameworks/kpackage:6 kde-plasma/kdecoration:6
+  RDEPEND: virtual/kde-seed[gui,declarative] dev-qt/qttools:6 kde-frameworks/kirigami:6
+    kde-frameworks/ksvg:6 kde-frameworks/kcmutils:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/knewstuff:6
+    kde-frameworks/kpackage:6 kde-plasma/kdecoration:6
+  emerge.packages: kde-plasma/aurorae:6
+  kit: kde-kit
+  original.package.name: kde-plasma/aurorae
+  original.package.slot: "6"
+  original.package.version: 6.5.5
