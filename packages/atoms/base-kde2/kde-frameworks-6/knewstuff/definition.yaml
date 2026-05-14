@@ -1,0 +1,51 @@
+name: knewstuff
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- opds
+requires:
+- name: attica
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kirigami
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kpackage
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: syndication
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for downloading and sharing additional application data
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kcmutils:6 kde-frameworks/kirigami:6
+    kde-frameworks/attica:6 kde-frameworks/karchive:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kpackage:6 kde-frameworks/kwidgetsaddons:6
+    opds? ( kde-frameworks/syndication:6 )
+  IUSE: opds
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kcmutils:6 kde-frameworks/kirigami:6
+    kde-frameworks/attica:6 kde-frameworks/karchive:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kpackage:6 kde-frameworks/kwidgetsaddons:6
+    opds? ( kde-frameworks/syndication:6 )
+  emerge.packages: kde-frameworks/knewstuff:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/knewstuff
+  original.package.slot: "6"
+  original.package.version: 6.22.0
