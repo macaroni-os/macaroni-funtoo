@@ -1,0 +1,31 @@
+name: layer-shell-qt
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- wayland
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt component to allow applications to make use of Wayland wl-layer-shell
+  protocol
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: wayland? ( >=dev-libs/wayland-protocols-1.16 dev-util/wayland-scanner )
+    dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,wayland?]
+  IUSE: wayland
+  RDEPEND: virtual/kde-seed[gui,wayland?]
+  emerge.packages: kde-plasma/layer-shell-qt:6
+  kit: kde-kit
+  original.package.name: kde-plasma/layer-shell-qt
+  original.package.slot: "6"
+  original.package.version: 6.5.5
