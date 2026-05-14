@@ -1,0 +1,28 @@
+name: kstatusnotifieritem
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Implementation of Status Notifier Items
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,X?] kde-frameworks/kwindowsystem:6[X?]
+  IUSE: X
+  RDEPEND: virtual/kde-seed[gui,X?] kde-frameworks/kwindowsystem:6[X?]
+  emerge.packages: kde-frameworks/kstatusnotifieritem:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kstatusnotifieritem
+  original.package.slot: "6"
+  original.package.version: 6.22.0
