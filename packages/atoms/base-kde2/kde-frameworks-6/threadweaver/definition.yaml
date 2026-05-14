@@ -1,0 +1,27 @@
+name: threadweaver
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for managing threads using job and queue-based interfaces
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed
+  RDEPEND: virtual/kde-seed
+  emerge.packages: kde-frameworks/threadweaver:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/threadweaver
+  original.package.slot: "6"
+  original.package.version: 6.22.0
