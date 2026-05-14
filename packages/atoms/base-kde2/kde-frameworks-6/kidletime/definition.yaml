@@ -1,0 +1,41 @@
+name: kidletime
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- X
+- wayland
+- xscreensaver
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+- name: libXScrnSaver
+  version: '>=0'
+  category: x11-libs
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for detection and notification of device idle time
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,wayland?,X?] X? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libXext
+    ) xscreensaver? ( x11-libs/libXScrnSaver ) wayland? ( >=dev-libs/plasma-wayland-protocols-1.11.1
+    >=dev-libs/wayland-protocols-1.27:0 )
+  IUSE: wayland X xscreensaver
+  RDEPEND: virtual/kde-seed[gui,wayland?,X?] X? ( x11-libs/libX11 x11-libs/libxcb
+    x11-libs/libXext ) xscreensaver? ( x11-libs/libXScrnSaver )
+  emerge.packages: kde-frameworks/kidletime:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kidletime
+  original.package.slot: "6"
+  original.package.version: 6.22.0
