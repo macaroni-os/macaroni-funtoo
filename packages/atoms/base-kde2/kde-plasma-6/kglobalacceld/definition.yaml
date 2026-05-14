@@ -1,0 +1,41 @@
+name: kglobalacceld
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Daemon providing Global Keyboard Shortcut (Accelerator) functionality
+uri:
+- https://invent.kde.org/plasma/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kservice:6 kde-frameworks/kwindowsystem:6
+    kde-frameworks/kxmlgui:6 dev-util/desktop-file-utils x11-misc/shared-mime-info
+    dev-util/desktop-file-utils dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kservice:6 kde-frameworks/kwindowsystem:6
+    kde-frameworks/kxmlgui:6
+  emerge.packages: kde-plasma/kglobalacceld:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kglobalacceld
+  original.package.slot: "6"
+  original.package.version: 6.5.5
