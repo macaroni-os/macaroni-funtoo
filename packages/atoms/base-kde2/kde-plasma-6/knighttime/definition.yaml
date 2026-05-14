@@ -1,0 +1,43 @@
+name: knighttime
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: qtpositioning
+  version: '>=0'
+  category: dev-qt-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kholidays
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Helpers for scheduling the dark-light cycle
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] dev-qt/qtpositioning:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kholidays:6 kde-frameworks/ki18n:6
+  RDEPEND: virtual/kde-seed[gui] dev-qt/qtpositioning:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kholidays:6 kde-frameworks/ki18n:6
+  emerge.packages: kde-plasma/knighttime:6
+  kit: kde-kit
+  original.package.name: kde-plasma/knighttime
+  original.package.slot: "6"
+  original.package.version: 6.5.5
