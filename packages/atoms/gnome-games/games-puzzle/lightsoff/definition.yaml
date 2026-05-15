@@ -1,19 +1,13 @@
 name: lightsoff
-version: "48.1"
+version: 48.1+1
 category: games-puzzle
 requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
-- name: librsvg
+- name: libadwaita
   version: '>=0'
-  category: gnome-base-2
-- name: clutter-gtk
-  version: '>=0'
-  category: media-libs-1.0
-- name: gsound
-  version: '>=0'
-  category: media-libs
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -23,7 +17,7 @@ annotations:
       - ^/var/db/pkg/
 description: Turn off all the lights
 uri:
-- https://wiki.gnome.org/Apps/Lightsoff
+- https://gitlab.gnome.org/GNOME/lightsoff
 license: GPL-2+ CC-BY-SA-3.0
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
