@@ -1,7 +1,7 @@
 prelude:
 # We have poppler splitted. Ignoring this check
 - >-
-  sed -e 's|app-text/poppler\[qt6\(-\)\]|app-text/poppler|g' -i
+  sed -e 's|app-text/poppler\[qt6(\-)\]|app-text/poppler|g' -i
   /var/git/meta-repo/kits/kde-kit/kde-frameworks/kfilemetadata/kfilemetadata-{{ ( index .Values.labels "original.package.version" ) }}.ebuild
 
 - |-
