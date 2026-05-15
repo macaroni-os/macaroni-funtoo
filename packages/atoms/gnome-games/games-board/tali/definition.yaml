@@ -1,16 +1,10 @@
 name: tali
-version: "40.9"
+version: 40.9+1
 category: games-board
 requires:
-- name: glib
+- name: libgnome-games-support
   version: '>=0'
-  category: dev-libs-2
-- name: librsvg
-  version: '>=0'
-  category: gnome-base-2
-- name: gtk+
-  version: '>=0'
-  category: x11-libs-3
+  category: dev-libs-1
 annotations:
   subsets:
     rules:
@@ -20,7 +14,7 @@ annotations:
       - ^/var/db/pkg/
 description: Beat the odds in a poker-style dice game
 uri:
-- https://wiki.gnome.org/Apps/Tali
+- https://gitlab.gnome.org/GNOME/tali
 license: GPL-2+ FDL-1.1+
 labels:
   BDEPEND: dev-util/itstool dev-libs/appstream-glib sys-devel/gettext virtual/pkgconfig
