@@ -1,5 +1,5 @@
 name: gnome-taquin
-version: 3.38.1+1
+version: 3.38.1+2
 category: games-puzzle
 requires:
 - name: glib
@@ -11,6 +11,9 @@ requires:
 - name: gsound
   version: '>=0'
   category: media-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
 annotations:
   subsets:
     rules:
@@ -20,8 +23,8 @@ annotations:
       - ^/var/db/pkg/
 description: Move tiles so that they reach their places
 uri:
-- https://wiki.gnome.org/Apps/Taquin
-license: GPL-3+ CC-BY-SA-3.0 CC-BY-SA-4.0
+- https://gitlab.gnome.org/GNOME/gnome-taquin
+license: LGPL-2.1+
 labels:
   BDEPEND: dev-libs/libxml2 dev-util/itstool sys-devel/gettext virtual/pkgconfig ||
     ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
