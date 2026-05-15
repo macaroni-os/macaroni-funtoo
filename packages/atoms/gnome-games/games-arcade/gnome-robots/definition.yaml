@@ -1,5 +1,5 @@
 name: gnome-robots
-version: 3.36.1+1
+version: "41.2"
 category: games-arcade
 requires:
 - name: libgnome-games-support
@@ -23,16 +23,16 @@ uri:
 - https://wiki.gnome.org/Apps/Robots
 license: GPL-3+ CC-BY-SA-3.0
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2
-    >=dev-util/ninja-1.7.2'
-  DEPEND: '>=dev-libs/glib-2.62.2:2 dev-libs/libgnome-games-support:1 >=gnome-base/librsvg-2.36.2:2
-    media-libs/gsound >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/gtk+-3.24.12:3
-    app-text/yelp-tools dev-libs/appstream-glib >=dev-util/intltool-0.50 sys-devel/gettext
-    virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info'
-  RDEPEND: '>=dev-libs/glib-2.62.2:2 dev-libs/libgnome-games-support:1 >=gnome-base/librsvg-2.36.2:2
-    media-libs/gsound >=media-libs/libcanberra-0.26[gtk3] >=x11-libs/gtk+-3.24.12:3'
+  BDEPEND: dev-libs/appstream-glib dev-util/itstool sys-devel/gettext virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+    >=virtual/rust-1.37.0
+  DEPEND: dev-libs/libgee:= dev-libs/glib:2 dev-libs/libgnome-games-support:1= media-libs/gsound
+    x11-libs/gtk+:3 gnome-base/librsvg dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug
+  RDEPEND: dev-libs/libgee:= dev-libs/glib:2 dev-libs/libgnome-games-support:1= media-libs/gsound
+    x11-libs/gtk+:3 gnome-base/librsvg
   emerge.packages: games-arcade/gnome-robots
   kit: gnome-kit
   original.package.name: games-arcade/gnome-robots
   original.package.slot: "0"
-  original.package.version: 3.36.1
+  original.package.version: "41.2"
