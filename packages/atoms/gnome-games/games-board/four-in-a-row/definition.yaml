@@ -1,5 +1,5 @@
 name: four-in-a-row
-version: 3.38.1
+version: 3.38.1+1
 category: games-board
 requires:
 - name: glib
@@ -11,6 +11,9 @@ requires:
 - name: gsound
   version: '>=0'
   category: media-libs
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
 annotations:
   subsets:
     rules:
@@ -20,7 +23,7 @@ annotations:
       - ^/var/db/pkg/
 description: Make lines of the same color to win
 uri:
-- https://wiki.gnome.org/Apps/Four-in-a-row
+- https://gitlab.gnome.org/GNOME/four-in-a-row
 license: GPL-3+ CC-BY-SA-3.0
 labels:
   BDEPEND: dev-libs/appstream-glib dev-util/itstool sys-devel/gettext virtual/pkgconfig
