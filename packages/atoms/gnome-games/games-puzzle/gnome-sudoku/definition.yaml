@@ -1,25 +1,28 @@
 name: gnome-sudoku
-version: "49.3"
+version: 49.3+1
 category: games-puzzle
 requires:
 - name: glib
   version: '>=0'
   category: dev-libs-2
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
 - name: libgee
   version: '>=0'
   category: dev-libs-0.8
 - name: qqwing
   version: '>=0'
   category: dev-libs
-- name: gsound
-  version: '>=0'
-  category: media-libs
 - name: gdk-pixbuf
   version: '>=0'
   category: x11-libs-2
-- name: gtk+
+- name: libadwaita
   version: '>=0'
-  category: x11-libs-3
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -29,7 +32,7 @@ annotations:
       - ^/var/db/pkg/
 description: Test your logic skills in this number grid puzzle
 uri:
-- https://wiki.gnome.org/Apps/Sudoku
+- https://gitlab.gnome.org/GNOME/gnome-sudoku
 license: GPL-3+ CC-BY-SA-3.0
 labels:
   BDEPEND: '|| ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
