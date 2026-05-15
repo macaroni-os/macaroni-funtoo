@@ -1,22 +1,19 @@
 name: quadrapassel
-version: 49.2.3
+version: 49.2.3+1
 category: games-puzzle
 requires:
-- name: glib
+- name: libgnome-games-support
   version: '>=0'
   category: dev-libs-2
 - name: libmanette
   version: '>=0'
   category: dev-libs
-- name: librsvg
-  version: '>=0'
-  category: gnome-base-2
-- name: clutter-gtk
-  version: '>=0'
-  category: media-libs-1.0
 - name: gsound
   version: '>=0'
   category: media-libs
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -26,7 +23,7 @@ annotations:
       - ^/var/db/pkg/
 description: Fit falling blocks together
 uri:
-- https://wiki.gnome.org/Apps/Quadrapassel
+- https://gitlab.gnome.org/GNOME/quadrapassel
 license: GPL-2+ CC-BY-SA-3.0
 labels:
   BDEPEND: dev-libs/appstream-glib dev-util/itstool sys-devel/gettext virtual/pkgconfig
