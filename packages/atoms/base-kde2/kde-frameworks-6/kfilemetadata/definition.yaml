@@ -1,0 +1,68 @@
+name: kfilemetadata
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- epub
+- exif
+- ffmpeg
+- mobi
+- pdf
+- taglib
+requires:
+- name: ebook-tools
+  version: '>=0'
+  category: app-text
+- name: poppler
+  version: '>=0'
+  category: app-text
+- name: kdegraphics-mobipocket
+  version: '>=0'
+  category: kde-apps-6
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcodecs
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: exiv2
+  version: '>=0'
+  category: media-gfx
+- name: taglib
+  version: '>=0'
+  category: media-libs
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for extracting file metadata
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/karchive:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 epub? ( app-text/ebook-tools
+    ) exif? ( media-gfx/exiv2:= ) ffmpeg? ( media-video/ffmpeg:= ) mobi? ( kde-apps/kdegraphics-mobipocket:6
+    ) pdf? ( app-text/poppler[qt6(-)] ) taglib? ( media-libs/taglib:= ) sys-apps/attr
+  IUSE: epub exif ffmpeg mobi pdf taglib
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/karchive:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 epub? ( app-text/ebook-tools
+    ) exif? ( media-gfx/exiv2:= ) ffmpeg? ( media-video/ffmpeg:= ) mobi? ( kde-apps/kdegraphics-mobipocket:6
+    ) pdf? ( app-text/poppler[qt6(-)] ) taglib? ( media-libs/taglib:= )
+  emerge.packages: kde-frameworks/kfilemetadata:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kfilemetadata
+  original.package.slot: "6"
+  original.package.version: 6.22.0
