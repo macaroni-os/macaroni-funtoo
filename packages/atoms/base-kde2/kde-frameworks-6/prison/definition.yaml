@@ -1,0 +1,41 @@
+name: prison
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- qml
+requires:
+- name: qtdeclarative
+  version: '>=0'
+  category: dev-qt-6
+- name: qrencode
+  version: '>=0'
+  category: media-gfx
+- name: libdmtx
+  version: '>=0'
+  category: media-libs
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: QRCode and data matrix barcode library
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,multimedia] media-gfx/qrencode:= media-libs/libdmtx
+    qml? ( dev-qt/qtdeclarative:6 )
+  IUSE: qml
+  RDEPEND: virtual/kde-seed[gui,multimedia] media-gfx/qrencode:= media-libs/libdmtx
+    qml? ( dev-qt/qtdeclarative:6 )
+  emerge.packages: kde-frameworks/prison:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/prison
+  original.package.slot: "6"
+  original.package.version: 6.22.0
