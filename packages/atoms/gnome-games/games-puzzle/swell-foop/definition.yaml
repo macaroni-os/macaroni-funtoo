@@ -1,13 +1,13 @@
 name: swell-foop
-version: "48.1"
+version: 48.1+1
 category: games-puzzle
 requires:
-- name: glib
+- name: libgnome-games-support
   version: '>=0'
   category: dev-libs-2
-- name: clutter-gtk
+- name: libadwaita
   version: '>=0'
-  category: media-libs-1.0
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -17,7 +17,7 @@ annotations:
       - ^/var/db/pkg/
 description: Clear the screen by removing groups of colored and shaped tiles
 uri:
-- https://wiki.gnome.org/Apps/Swell%20Foop
+- https://gitlab.gnome.org/GNOME/swell-foop
 license: GPL-2+ FDL-1.1+
 labels:
   BDEPEND: dev-libs/appstream dev-util/itstool sys-devel/gettext virtual/pkgconfig
