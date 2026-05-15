@@ -1,13 +1,13 @@
 name: gnome-mines
-version: 49.0.1
+version: 49.0.1+1
 category: games-board
 requires:
 - name: libgnome-games-support
   version: '>=0'
-  category: dev-libs-1
-- name: librsvg
+  category: dev-libs-2
+- name: libadwaita
   version: '>=0'
-  category: gnome-base-2
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -17,7 +17,7 @@ annotations:
       - ^/var/db/pkg/
 description: Clear hidden mines from a minefield
 uri:
-- https://wiki.gnome.org/Apps/Mines
+- https://gitlab.gnome.org/GNOME/gnome-mines
 license: GPL-3+ CC-BY-SA-3.0
 labels:
   BDEPEND: '|| ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
