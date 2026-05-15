@@ -1,13 +1,13 @@
 name: gnome2048
-version: 3.38.2
+version: 3.38.2+1
 category: games-puzzle
 requires:
 - name: libgnome-games-support
   version: '>=0'
   category: dev-libs-1
-- name: clutter-gtk
+- name: clutter-gst
   version: '>=0'
-  category: media-libs-1.0
+  category: media-libs-3.0
 annotations:
   subsets:
     rules:
@@ -17,7 +17,7 @@ annotations:
       - ^/var/db/pkg/
 description: Move the tiles until you obtain the 2048 tile
 uri:
-- https://wiki.gnome.org/Apps/2048
+- https://gitlab.gnome.org/GNOME/gnome-2048
 license: GPL-3+
 labels:
   BDEPEND: dev-libs/libxml2 dev-util/itstool sys-devel/gettext virtual/pkgconfig ||
