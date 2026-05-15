@@ -1,16 +1,19 @@
 name: gnome-nibbles
-version: 4.4.2
+version: 4.4.2+1
 category: games-arcade
 requires:
 - name: libgnome-games-support
   version: '>=0'
-  category: dev-libs-1
-- name: clutter-gtk
-  version: '>=0'
-  category: media-libs-1.0
+  category: dev-libs-2
 - name: gsound
   version: '>=0'
   category: media-libs
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -18,9 +21,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Nibbles clone for Gnome
+description: Nibbles clone for GNOME
 uri:
-- https://wiki.gnome.org/Apps/Nibbles
+- https://gitlab.gnome.org/GNOME/gnome-nibbles
 license: GPL-3+ CC-BY-SA-3.0
 labels:
   BDEPEND: dev-util/itstool sys-devel/gettext virtual/pkgconfig || ( dev-lang/vala:0.56
