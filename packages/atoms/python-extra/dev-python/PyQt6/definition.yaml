@@ -1,0 +1,112 @@
+name: PyQt6
+version: 6.10.2
+category: dev-python
+use_flags:
+- -python_targets_python3_10
+- -python_targets_python3_7
+- -python_targets_python3_8
+- -speech
+- bluetooth
+- multimedia
+- pdf
+- positioning
+- python_targets_python3_9
+- quick3d
+- remoteobjects
+- sensors
+- serialport
+- sql
+- statemachine
+- webchannel
+- websockets
+requires:
+- name: PyQt6-sip
+  version: '>=0'
+  category: dev-python
+- name: dbus-python
+  version: '>=0'
+  category: dev-python
+- name: sip
+  version: '>=0'
+  category: dev-python
+- name: qtconnectivity
+  version: '>=0'
+  category: dev-qt-6
+- name: qtlocation
+  version: '>=0'
+  category: dev-qt-6
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-6
+- name: qtscxml
+  version: '>=0'
+  category: dev-qt-6
+- name: qtsensors
+  version: '>=0'
+  category: dev-qt-6
+- name: qtserialport
+  version: '>=0'
+  category: dev-qt-6
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-6
+- name: qtwebsockets
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Python bindings for the Qt cross platform application toolkit
+uri:
+- https://www.riverbankcomputing.com/software/pyqt/
+- https://pypi.org/project/PyQt6
+license: GPL-3
+labels:
+  BDEPEND: dev-python/PyQt6-sip[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/PyQt-builder[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/PyQt-builder[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/sip[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/gpep517-6[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/sip-6.5.0-r1[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  DEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/dbus-python[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/sip[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-qt/qtbase:6[-gles2-only,gui] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 dev-qt/qttools:6[assistant]
+    bluetooth? ( dev-qt/qtconnectivity:6 ) multimedia? ( dev-qt/qtmultimedia:6 ) pdf?
+    ( dev-qt/qtwebengine:6 ) positioning? ( dev-qt/qtlocation:6 ) quick3d? ( dev-qt/qtquick3d:6
+    ) remoteobjects? ( dev-qt/qtremoteobjects:6 ) sensors? ( dev-qt/qtsensors:6 )
+    serialport? ( dev-qt/qtserialport:6 ) speech? ( dev-qt/qtspeech:6 ) sql? ( dev-qt/qtbase:6[sql]
+    ) statemachine? ( dev-qt/qtscxml:6 ) webchannel? ( dev-qt/qtwebchannel:6 ) websockets?
+    ( dev-qt/qtwebsockets:6 )
+  IUSE: bluetooth debug multimedia pdf positioning quick3d remoteobjects sensors serialport
+    speech sql statemachine webchannel websockets python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/dbus-python[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/sip[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-qt/qtbase:6[-gles2-only,gui] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 dev-qt/qttools:6[assistant]
+    bluetooth? ( dev-qt/qtconnectivity:6 ) multimedia? ( dev-qt/qtmultimedia:6 ) pdf?
+    ( dev-qt/qtwebengine:6 ) positioning? ( dev-qt/qtlocation:6 ) quick3d? ( dev-qt/qtquick3d:6
+    ) remoteobjects? ( dev-qt/qtremoteobjects:6 ) sensors? ( dev-qt/qtsensors:6 )
+    serialport? ( dev-qt/qtserialport:6 ) speech? ( dev-qt/qtspeech:6 ) sql? ( dev-qt/qtbase:6[sql]
+    ) statemachine? ( dev-qt/qtscxml:6 ) webchannel? ( dev-qt/qtwebchannel:6 ) websockets?
+    ( dev-qt/qtwebsockets:6 ) dev-python/PyQt6-sip:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+  emerge.packages: dev-python/PyQt6
+  kit: qt-kit
+  original.package.name: dev-python/PyQt6
+  original.package.slot: "0"
+  original.package.version: 6.10.2
