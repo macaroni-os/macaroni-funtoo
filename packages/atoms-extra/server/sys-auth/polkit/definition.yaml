@@ -1,9 +1,7 @@
 name: polkit
-version: 126+1
+version: 126+2
 category: sys-auth
 use_flags:
-- -selinux
-- -spidermonkey
 - elogind
 - introspection
 - pam
@@ -30,10 +28,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Policy framework for controlling privileges for system-wide services
+description: polkit (formerly PolicyKit) is a toolkit for defining and handling authorizations.
+  It is used for allowing unprivileged processes to speak to privileged processes.
 uri:
-- https://www.freedesktop.org/wiki/Software/polkit https://gitlab.freedesktop.org/polkit/polkit
-license: LGPL-2
+- https://github.com/polkit-org/polkit
+license: LGPL2+
 labels:
   BDEPEND: app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xsl-stylesheets dev-libs/gobject-introspection-common
     dev-libs/libxslt sys-devel/gettext virtual/pkgconfig introspection? ( dev-libs/gobject-introspection
