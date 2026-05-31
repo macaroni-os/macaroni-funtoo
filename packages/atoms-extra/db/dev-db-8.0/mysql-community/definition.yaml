@@ -1,5 +1,5 @@
 name: mysql-community
-version: 8.0.42
+version: 8.0.45
 category: dev-db-8.0
 use_flags:
 - -cjk
@@ -55,23 +55,20 @@ uri:
 license: GPL-2
 labels:
   BDEPEND: sys-devel/make dev-util/cmake
-  DEPEND: '>=app-arch/lz4-0_p131:= app-arch/zstd:= sys-libs/ncurses:0= >=sys-libs/zlib-1.2.3:0=
-    >=dev-libs/openssl-1.0.0:0= server? ( dev-libs/icu:= dev-libs/libevent:=[ssl,threads]
-    >=dev-libs/protobuf-3.8:= net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc?
-    ( dev-libs/jemalloc:0= ) kernel_linux? ( dev-libs/libaio:0= sys-process/procps:0=
-    ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:0= ) ) sys-devel/gcc
-    virtual/yacc server? ( net-libs/rpcsvc-proto ) sys-apps/shadow'
-  IUSE: cjk cracklib debug jemalloc latin1 numa +perl profiling router selinux +server
-    tcmalloc kernel_linux
-  RDEPEND: '>=app-arch/lz4-0_p131:= app-arch/zstd:= sys-libs/ncurses:0= >=sys-libs/zlib-1.2.3:0=
-    >=dev-libs/openssl-1.0.0:0= server? ( dev-libs/icu:= dev-libs/libevent:=[ssl,threads]
-    >=dev-libs/protobuf-3.8:= net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc?
-    ( dev-libs/jemalloc:0= ) kernel_linux? ( dev-libs/libaio:0= sys-process/procps:0=
-    ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:0= ) ) !dev-db/mariadb
-    !dev-db/mariadb-galera !dev-db/percona-server !dev-db/mysql-cluster selinux? (
-    sec-policy/selinux-mysql ) !prefix? ( dev-db/mysql-init-scripts )'
+  DEPEND: app-arch/lz4:= app-arch/zstd:= sys-libs/ncurses:= sys-libs/zlib:= dev-libs/openssl:=
+    server? ( dev-libs/icu:= dev-libs/libevent:=[ssl,threads] dev-libs/protobuf:=
+    net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc? ( dev-libs/jemalloc:=
+    ) dev-libs/libaio:= sys-process/procps:= numa? ( sys-process/numactl ) tcmalloc?
+    ( dev-util/google-perftools:= ) ) sys-devel/gcc virtual/yacc server? ( net-libs/rpcsvc-proto
+    ) sys-apps/shadow
+  IUSE: cjk cracklib debug jemalloc latin1 numa +perl profiling router +server tcmalloc
+  RDEPEND: app-arch/lz4:= app-arch/zstd:= sys-libs/ncurses:= sys-libs/zlib:= dev-libs/openssl:=
+    server? ( dev-libs/icu:= dev-libs/libevent:=[ssl,threads] dev-libs/protobuf:=
+    net-libs/libtirpc:= cjk? ( app-text/mecab:= ) jemalloc? ( dev-libs/jemalloc:=
+    ) dev-libs/libaio:= sys-process/procps:= numa? ( sys-process/numactl ) tcmalloc?
+    ( dev-util/google-perftools:= ) ) !dev-db/mariadb dev-db/mysql-init-scripts
   emerge.packages: dev-db/mysql-community:8.0
   kit: core-server-kit
   original.package.name: dev-db/mysql-community
   original.package.slot: "8.0"
-  original.package.version: 8.0.42
+  original.package.version: 8.0.45
