@@ -196,6 +196,11 @@ artefacts:
         -e mysql
 
 - tree: packages/atoms-extra/db
+  mutations:
+    provides:
+      - category: dev-db-6
+        name: mariadb
+        version: 10.6.27
   uses:
     enabled:
       - backup
@@ -210,6 +215,8 @@ artefacts:
       - server
       - xml
       - columnstore
+      - sst-mariabackup
+      - sst-rsync
     disabled:
       - bindist
       - debug
