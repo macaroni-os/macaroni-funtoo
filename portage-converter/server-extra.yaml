@@ -240,7 +240,6 @@ artefacts:
       - test
   packages:
     - sys-kernel/dummy-sources
-    - dev-util/glib-utils
 
 - tree: packages/atoms-extra/server
   uses:
@@ -617,6 +616,13 @@ artefacts:
     - static-libs
   packages:
   - dev-libs/hiredis
+
+- tree: packages/atoms-extra/server
+  uses:
+    disabled:
+      - ldap
+  packages:
+    - dev-db/mysql-connector-c
 
 - tree: packages/atoms-extra/server
   mutations:
