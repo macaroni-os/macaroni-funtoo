@@ -1,12 +1,15 @@
 name: mariadb-connector-c
-version: 3.4.8
+version: 3.4.8+1
 category: dev-db
 use_flags:
-- -curl
 - -gnutls
 - -kerberos
-- -ssl
+- curl
+- ssl
 requires:
+- name: curl
+  version: '>=0'
+  category: net-misc
 - name: zlib
   version: '>=0'
   category: sys-libs
