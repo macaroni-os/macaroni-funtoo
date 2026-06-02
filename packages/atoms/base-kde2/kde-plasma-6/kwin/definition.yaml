@@ -1,17 +1,14 @@
 name: kwin
-version: 6.5.5+2
+version: 6.5.5+3
 category: kde-plasma-6
 use_flags:
-- -accessibility
 - X
+- accessibility
 - filecaps
 - lock
 - screencast
 - shortcuts
 requires:
-- name: libei
-  version: '>=0'
-  category: dev-libs
 - name: libinput
   version: '>=0'
   category: dev-libs
@@ -52,6 +49,9 @@ requires:
   version: '>=0'
   category: media-libs-2
 - name: libdisplay-info
+  version: '>=0'
+  category: media-libs
+- name: libqaccessibilityclient
   version: '>=0'
   category: media-libs
 - name: pipewire
@@ -108,8 +108,8 @@ labels:
     media-libs/libepoxy media-libs/libglvnd media-libs/mesa[wayland] virtual/libudev:=
     x11-base/xwayland >=x11-libs/libdrm-2.4.118 >=x11-libs/libxcb-1.10:= >=x11-libs/libxcvt-0.1.1
     >=x11-libs/libxkbcommon-1.5.0 x11-libs/xcb-util-cursor x11-libs/xcb-util-wm accessibility?
-    ( media-libs/libqaccessibilityclient:6 ) lock? ( kde-plasma/kscreenlocker:6 )
-    screencast? ( >=media-video/pipewire-1.2.0:= ) shortcuts? ( kde-plasma/kglobalacceld:6
+    ( media-libs/libqaccessibilityclient[qt6] ) lock? ( kde-plasma/kscreenlocker:6
+    ) screencast? ( >=media-video/pipewire-1.2.0:= ) shortcuts? ( kde-plasma/kglobalacceld:6
     ) X? ( x11-libs/libX11 x11-libs/libXi x11-libs/libXres x11-libs/xcb-util-keysyms
     ) filecaps? ( sys-libs/libcap ) dev-util/desktop-file-utils x11-misc/shared-mime-info
   IUSE: accessibility gles2-only lock screencast +shortcuts systemd X +filecaps
@@ -129,8 +129,8 @@ labels:
     media-libs/libepoxy media-libs/libglvnd media-libs/mesa[wayland] virtual/libudev:=
     x11-base/xwayland >=x11-libs/libdrm-2.4.118 >=x11-libs/libxcb-1.10:= >=x11-libs/libxcvt-0.1.1
     >=x11-libs/libxkbcommon-1.5.0 x11-libs/xcb-util-cursor x11-libs/xcb-util-wm accessibility?
-    ( media-libs/libqaccessibilityclient:6 ) lock? ( kde-plasma/kscreenlocker:6 )
-    screencast? ( >=media-video/pipewire-1.2.0:= ) shortcuts? ( kde-plasma/kglobalacceld:6
+    ( media-libs/libqaccessibilityclient[qt6] ) lock? ( kde-plasma/kscreenlocker:6
+    ) screencast? ( >=media-video/pipewire-1.2.0:= ) shortcuts? ( kde-plasma/kglobalacceld:6
     ) X? ( x11-libs/libX11 x11-libs/libXi x11-libs/libXres x11-libs/xcb-util-keysyms
     )
   emerge.packages: kde-plasma/kwin:6
