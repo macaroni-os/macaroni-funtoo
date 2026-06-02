@@ -1,0 +1,33 @@
+name: libqaccessibilityclient
+version: 0.6.0
+category: media-libs
+use_flags:
+- -qt5
+- qt6
+requires:
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Accessibilty tools helper library, used e.g. by screen readers
+uri:
+- https://invent.kde.org/libraries/libqaccessibilityclient
+license: LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: qt5? ( dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui]
+    )
+  IUSE: qt5 +qt6
+  RDEPEND: qt5? ( dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui]
+    )
+  emerge.packages: media-libs/libqaccessibilityclient
+  kit: kde-kit
+  original.package.name: media-libs/libqaccessibilityclient
+  original.package.slot: "0"
+  original.package.version: 0.6.0
