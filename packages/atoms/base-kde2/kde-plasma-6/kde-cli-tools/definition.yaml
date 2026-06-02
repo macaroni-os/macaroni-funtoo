@@ -1,8 +1,6 @@
 name: kde-cli-tools
-version: 6.5.5+1
+version: 6.5.5+2
 category: kde-plasma-6
-use_flags:
-- -kdesu
 requires:
 - name: kparts
   version: '>=0'
@@ -19,11 +17,11 @@ uri:
 - https://invent.kde.org/plasma/
 labels:
   BDEPEND: kde-frameworks/kcmutils:6 dev-util/ninja dev-util/cmake
-  DEPEND: virtual/kde-seed[gui,svg,X?] kdesu? ( >=kde-plasma/kdesu-gui-6.5.5 ) kde-frameworks/kcoreaddons:6
-    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6
-  IUSE: kdesu X
-  RDEPEND: virtual/kde-seed[gui,svg,X?] kdesu? ( >=kde-plasma/kdesu-gui-6.5.5 ) kde-frameworks/kcoreaddons:6
-    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6
+  DEPEND: virtual/kde-seed[gui,svg,X?] kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6
+  IUSE: X
+  RDEPEND: virtual/kde-seed[gui,svg,X?] kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6
   emerge.packages: kde-plasma/kde-cli-tools:6
   kit: kde-kit
   original.package.name: kde-plasma/kde-cli-tools
