@@ -1,4 +1,10 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/core-server-kit/dev-db/mysql-community &&
+  rm mysql-community-8.0.45.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/core-server-kit/refs/heads/mark-xl/dev-db/mysql-community/mysql-community-8.0.45.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
