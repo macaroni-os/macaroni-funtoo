@@ -1,4 +1,10 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/core-server-kit/app-emulation/lxd &&
+  rm lxd-6.8.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/core-server-kit/refs/heads/mark-iii/app-emulation/lxd/lxd-6.8.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
