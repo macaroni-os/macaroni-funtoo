@@ -1,13 +1,10 @@
 name: mysql-community
-version: 8.0.45+1
+version: 8.0.45+2
 category: dev-db-8.0
 use_flags:
 - -cjk
 - -jemalloc
 - -numa
-- -prefix
-- -selinux
-- kernel_linux
 - server
 - tcmalloc
 - router
@@ -42,6 +39,10 @@ requires:
 - name: procps
   version: '>=0'
   category: sys-process
+conflicts:
+- name: mariadb
+  version: '>=0'
+  category: dev-db
 annotations:
   subsets:
     rules:
