@@ -1,5 +1,5 @@
 name: libcdr
-version: 0.1.7+1
+version: 0.1.8
 category: media-libs
 use_flags:
 - -doc
@@ -26,13 +26,13 @@ uri:
 - https://wiki.documentfoundation.org/DLP/Libraries/libcdr
 license: MPL-2.0
 labels:
-  BDEPEND: sys-devel/libtool virtual/pkgconfig doc? ( app-doc/doxygen ) test? ( dev-util/cppunit
-    )
-  DEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/lcms:2 sys-libs/zlib dev-libs/boost
-  IUSE: doc static-libs test
-  RDEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/lcms:2 sys-libs/zlib
+  BDEPEND: sys-devel/libtool virtual/pkgconfig doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/lcms sys-libs/zlib dev-libs/boost
+  IUSE: doc
+  RDEPEND: dev-libs/icu:= dev-libs/librevenge media-libs/lcms sys-libs/zlib
   emerge.packages: media-libs/libcdr
   kit: media-kit
   original.package.name: media-libs/libcdr
   original.package.slot: "0"
-  original.package.version: 0.1.7
+  original.package.version: 0.1.8-r1
