@@ -1,5 +1,5 @@
 name: wireshark
-version: 4.0.10+1
+version: 4.0.10+2
 category: net-analyzer
 use_flags:
 - -bcg729
@@ -12,6 +12,7 @@ use_flags:
 - -lua_single_target_lua5-2
 - -lz4
 - -maxminddb
+- -qt5
 - -sbc
 - -sdjournal
 - -selinux
@@ -28,7 +29,6 @@ use_flags:
 - netlink
 - opus
 - pcap
-- qt5
 - ssl
 - zlib
 - zstd
@@ -43,21 +43,15 @@ requires:
 - name: zstd
   version: '>=0'
   category: app-arch
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: libgcrypt
   version: '>=0'
   category: dev-libs
 - name: libnl
   version: '>=0'
   category: dev-libs-3
-- name: linguist
-  version: '>=0'
-  category: dev-qt-5
-- name: qtconcurrent
-  version: '>=0'
-  category: dev-qt-5
-- name: qtmultimedia
-  version: '>=0'
-  category: dev-qt-5
 - name: opus
   version: '>=0'
   category: media-libs
@@ -79,15 +73,9 @@ requires:
 - name: zlib
   version: '>=0'
   category: sys-libs
-- name: freedesktop-icon-theme
-  version: '>=0'
-  category: virtual
 - name: krb5
   version: '>=0'
   category: virtual
-- name: xdg-utils
-  version: '>=0'
-  category: x11-misc
 annotations:
   subsets:
     rules:
