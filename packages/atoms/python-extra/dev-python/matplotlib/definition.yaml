@@ -1,5 +1,5 @@
 name: matplotlib
-version: 3.6.3+4
+version: 3.6.3+5
 category: dev-python
 use_flags:
 - -doc
@@ -7,6 +7,7 @@ use_flags:
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
+- -qt5
 - -test
 - cairo
 - excel
@@ -14,7 +15,6 @@ use_flags:
 - latex
 - prefix
 - python_targets_python3_9
-- qt5
 - wxwidgets
 requires:
 - name: dvipng
@@ -26,9 +26,6 @@ requires:
 - name: poppler
   version: '>=0'
   category: app-text
-- name: PyQt5
-  version: '>=0'
-  category: dev-python
 - name: cairocffi
   version: '>=0'
   category: dev-python
@@ -124,9 +121,11 @@ labels:
     ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0=[tk?,threads(+)] ) python_targets_python3_7?
     ( dev-lang/python:3.7[tk?,threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[tk?,threads(+)]
     ) python_targets_python3_8? ( dev-lang/python:3.8[tk?,threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
-    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/gpep517-6[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-62.3.3[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    dev-python/wheel[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )'
-  IUSE: cairo doc excel examples gtk3 latex qt5 tk wxwidgets python_targets_python3_10
+  IUSE: cairo doc excel examples gtk3 latex qt5 tk wxwidgets prefix python_targets_python3_10
     python_targets_pypy3 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
     test
   RDEPEND: '>=dev-python/cycler-0.10.0[python_targets_python3_10(-)?,python_targets_pypy3(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_pypy3(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
