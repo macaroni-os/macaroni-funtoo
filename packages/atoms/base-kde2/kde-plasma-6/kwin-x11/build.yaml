@@ -1,4 +1,10 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/kde-kit/kde-plasma/kwin-x11 &&
+  sed -i -e s|media-libs/libqaccessibilityclient:6|media-libs/libqaccessibilityclient|g'
+  kwin-x11-6.5.5.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
