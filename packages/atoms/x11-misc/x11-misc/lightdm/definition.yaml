@@ -1,16 +1,13 @@
 name: lightdm
-version: 1.30.0+1
+version: 1.30.0+2
 category: x11-misc
 use_flags:
+- -qt5
 - audit
 - gnome
 - introspection
-- qt5
 - vala
 requires:
-- name: qtgui
-  version: '>=0'
-  category: dev-qt-5
 - name: accountsservice
   version: '>=0'
   category: sys-apps
@@ -42,10 +39,10 @@ uri:
 license: GPL-3 LGPL-3
 labels:
   BDEPEND: dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext virtual/pkgconfig
-    vala? ( || ( dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 dev-lang/vala:0.48
-    dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36
-    ) ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 )
-    >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+    vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
+    dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40
+    dev-lang/vala:0.36 ) ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
   DEPEND: '>=dev-libs/glib-2.44.0:2 dev-libs/libxml2 virtual/pam x11-libs/libX11 >=x11-libs/libxklavier-5
     audit? ( sys-process/audit ) gnome? ( sys-apps/accountsservice ) introspection?
     ( >=dev-libs/gobject-introspection-1 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5
