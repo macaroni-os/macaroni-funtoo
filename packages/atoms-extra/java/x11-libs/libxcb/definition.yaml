@@ -1,15 +1,7 @@
 name: libxcb
-version: 1.17.0+1
+version: 1.17.0+2
 category: x11-libs
-use_flags:
-- -doc
-- -ppc-aix
-- -test
-- -x86-winnt
 requires:
-- name: libpthread-stubs
-  version: '>=0'
-  category: dev-libs
 - name: libXau
   version: '>=0'
   category: x11-libs
@@ -23,9 +15,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: X C-language Bindings library
+description: X.Org xcb library
 uri:
-- https://xcb.freedesktop.org/
+- https://gitlab.freedesktop.org/xorg/lib/libxcb
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig || ( dev-lang/python:3.8[xml] dev-lang/python:3.9[xml]
