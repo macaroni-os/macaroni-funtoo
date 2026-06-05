@@ -1,16 +1,17 @@
 name: qpdf
-version: 12.3.2
+version: 12.3.2+1
 category: app-text
 use_flags:
-- -perl
-- -test
+- -doc
+- -gnutls
+- -zopfli
 requires:
-- name: zlib
+- name: openssl
   version: '>=0'
-  category: sys-libs
-- name: jpeg
+  category: dev-libs
+- name: libjpeg-turbo
   version: '>=0'
-  category: virtual
+  category: media-libs
 annotations:
   subsets:
     rules:
@@ -21,7 +22,8 @@ annotations:
 description: Command-line tool for structural, content-preserving transformation of
   PDF files
 uri:
-- http://qpdf.sourceforge.net/
+- https://qpdf.sourceforge.io/
+- https://github.com/qpdf/qpdf/
 license: '|| ( Apache-2.0 Artistic-2 )'
 labels:
   BDEPEND: dev-lang/perl doc? ( app-arch/unzip ) dev-util/ninja dev-util/cmake
