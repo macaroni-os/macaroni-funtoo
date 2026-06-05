@@ -1,5 +1,5 @@
 name: lxqt-config
-version: 1.4.0+1
+version: 2.3.2
 category: lxqt-base
 use_flags:
 - monitor
@@ -7,8 +7,11 @@ use_flags:
 requires:
 - name: libkscreen
   version: '>=0'
-  category: kde-plasma-5
+  category: kde-plasma-6
 - name: liblxqt
+  version: '>=0'
+  category: lxqt-base
+- name: lxqt-menu-data
   version: '>=0'
   category: lxqt-base
 - name: zlib
@@ -36,27 +39,24 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: LXQt system configuration control center
+description: Tools to configure LXQt and the underlying operating system
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: GPL-2 GPL-2+ GPL-3 LGPL-2 LGPL-2+ LGPL-2.1+ WTFPL-2
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
-  DEPEND: '>=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5
-    dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 kde-frameworks/kwindowsystem:5
-    =lxqt-base/liblxqt-1.4* sys-libs/zlib:= x11-apps/setxkbmap x11-libs/libxcb:= x11-libs/libX11
-    x11-libs/libXcursor x11-libs/libXfixes monitor? ( kde-plasma/libkscreen:5= ) touchpad?
-    ( virtual/libudev x11-drivers/xf86-input-libinput x11-libs/libXext x11-libs/libXi
-    )'
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/libqtxdg dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 lxqt-base/liblxqt
+    lxqt-base/lxqt-menu-data sys-libs/zlib x11-apps/setxkbmap x11-libs/libxcb x11-libs/libX11
+    x11-libs/libXcursor x11-libs/libXfixes monitor? ( kde-plasma/libkscreen:6 ) touchpad?
+    ( virtual/libudev x11-drivers/xf86-input-libinput x11-libs/libXi ) dev-util/lxqt-build-tools
+    dev-qt/qttools:6[linguist]
   IUSE: +monitor +touchpad
-  RDEPEND: '>=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5
-    dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 kde-frameworks/kwindowsystem:5
-    =lxqt-base/liblxqt-1.4* sys-libs/zlib:= x11-apps/setxkbmap x11-libs/libxcb:= x11-libs/libX11
-    x11-libs/libXcursor x11-libs/libXfixes monitor? ( kde-plasma/libkscreen:5= ) touchpad?
-    ( virtual/libudev x11-drivers/xf86-input-libinput x11-libs/libXext x11-libs/libXi
-    )'
+  RDEPEND: dev-libs/libqtxdg dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 lxqt-base/liblxqt
+    lxqt-base/lxqt-menu-data sys-libs/zlib x11-apps/setxkbmap x11-libs/libxcb x11-libs/libX11
+    x11-libs/libXcursor x11-libs/libXfixes monitor? ( kde-plasma/libkscreen:6 ) touchpad?
+    ( virtual/libudev x11-drivers/xf86-input-libinput x11-libs/libXi )
   emerge.packages: lxqt-base/lxqt-config
   kit: kde-kit
   original.package.name: lxqt-base/lxqt-config
   original.package.slot: "0"
-  original.package.version: 1.4.0
+  original.package.version: 2.3.2
