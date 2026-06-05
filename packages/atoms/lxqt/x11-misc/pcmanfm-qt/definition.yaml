@@ -1,13 +1,10 @@
 name: pcmanfm-qt
-version: 1.4.1+1
+version: 2.3.0
 category: x11-misc
 requires:
-- name: lxqt-menu-data
+- name: layer-shell-qt
   version: '>=0'
-  category: lxqt-base
-- name: eject
-  version: '>=0'
-  category: virtual
+  category: kde-plasma-6
 - name: freedesktop-icon-theme
   version: '>=0'
   category: virtual
@@ -24,20 +21,21 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Qt GUI Tabbed Filemanager
+description: File manager and desktop icon manager (Qt port of PCManFM and libfm)
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: GPL-2 GPL-2+ LGPL-2.1+
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
-  DEPEND: dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
-    dev-qt/qtx11extras:5 =x11-libs/libfm-qt-1.4* x11-libs/libxcb:= x11-misc/xdg-utils
-    virtual/eject virtual/freedesktop-icon-theme
-  RDEPEND: dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5
-    dev-qt/qtx11extras:5 =x11-libs/libfm-qt-1.4* x11-libs/libxcb:= x11-misc/xdg-utils
-    virtual/eject virtual/freedesktop-icon-theme =lxqt-base/lxqt-menu-data-1.4*
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/glib:2 dev-qt/qtbase:6[gui] kde-plasma/layer-shell-qt:6 lxqt-base/lxqt-menu-data
+    sys-apps/util-linux virtual/freedesktop-icon-theme x11-libs/libfm-qt x11-libs/libxcb
+    x11-misc/xdg-utils dev-util/lxqt-build-tools dev-qt/qttools:6[linguist] dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  RDEPEND: dev-libs/glib:2 dev-qt/qtbase:6[gui] kde-plasma/layer-shell-qt:6 lxqt-base/lxqt-menu-data
+    sys-apps/util-linux virtual/freedesktop-icon-theme x11-libs/libfm-qt x11-libs/libxcb
+    x11-misc/xdg-utils
   emerge.packages: x11-misc/pcmanfm-qt
   kit: kde-kit
   original.package.name: x11-misc/pcmanfm-qt
   original.package.slot: "0"
-  original.package.version: 1.4.1
+  original.package.version: 2.3.0-r1
