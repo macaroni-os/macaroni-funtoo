@@ -183,12 +183,7 @@ artefacts:
   packages:
     - media-fonts/encodings
 
-- tree: packages/atoms-extra/xorg
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race8
+- tree: packages/atoms-extra/java
   uses:
     enabled:
       - X
@@ -204,6 +199,15 @@ artefacts:
     - x11-apps/mkfontscale
     - media-fonts/font-util
 
+
+- tree: packages/atoms-extra/java
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: x11-libs
+          name: xtrans
+  packages:
+    - x11-misc/compose-tables
 
 
 - tree: packages/atoms-extra/java
