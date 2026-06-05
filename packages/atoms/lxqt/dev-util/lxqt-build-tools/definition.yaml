@@ -1,10 +1,10 @@
 name: lxqt-build-tools
-version: 0.13.0+1
+version: 2.3.0
 category: dev-util
 requires:
-- name: qtcore
+- name: qtbase
   version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 annotations:
   subsets:
     rules:
@@ -12,16 +12,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: LXQt Build Tools
+description: Various packaging tools and scripts for LXQt applications
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: BSD
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
-  DEPEND: '>=dev-libs/glib-2.50.0 dev-qt/qtcore:5'
-  RDEPEND: '>=dev-libs/glib-2.50.0 dev-qt/qtcore:5'
+  DEPEND: dev-libs/glib:2 dev-qt/qtbase:6
+  RDEPEND: dev-libs/glib:2 dev-qt/qtbase:6
   emerge.packages: dev-util/lxqt-build-tools
   kit: kde-kit
   original.package.name: dev-util/lxqt-build-tools
   original.package.slot: "0"
-  original.package.version: 0.13.0
+  original.package.version: 2.3.0
