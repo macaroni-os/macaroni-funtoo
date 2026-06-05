@@ -1,5 +1,5 @@
 name: qps
-version: 2.8.0+1
+version: 2.12.0
 category: x11-misc
 requires:
 - name: liblxqt
@@ -12,18 +12,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Qt GUI Process Manager
+description: Qt process viewer and manager
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: GPL-2 GPL-2+ LGPL-2.1+ QPL-1.0
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
-  DEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5
-    =lxqt-base/liblxqt-1.4*
-  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5
-    =lxqt-base/liblxqt-1.4*
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6[gui] lxqt-base/liblxqt dev-util/lxqt-build-tools dev-qt/qttools:6[linguist]
+  RDEPEND: dev-qt/qtbase:6[gui] lxqt-base/liblxqt
   emerge.packages: x11-misc/qps
   kit: kde-kit
   original.package.name: x11-misc/qps
   original.package.slot: "0"
-  original.package.version: 2.8.0
+  original.package.version: 2.12.0-r1
