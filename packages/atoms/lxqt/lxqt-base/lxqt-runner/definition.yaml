@@ -1,10 +1,13 @@
 name: lxqt-runner
-version: 1.4.0+1
+version: 2.3.0
 category: lxqt-base
 requires:
 - name: muParser
   version: '>=0'
   category: dev-cpp
+- name: layer-shell-qt
+  version: '>=0'
+  category: kde-plasma-6
 - name: lxqt-globalkeys
   version: '>=0'
   category: lxqt-base
@@ -15,21 +18,19 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: LXQt quick launcher
+description: Tool used to launch programs quickly by typing their names
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: LGPL-2.1 LGPL-2.1+
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools virtual/pkgconfig dev-util/ninja
-    dev-util/cmake
-  DEPEND: dev-cpp/muParser >=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtgui:5
-    dev-qt/qtwidgets:5 dev-qt/qtxml:5 kde-frameworks/kwindowsystem:5 =lxqt-base/liblxqt-1.4*
-    =lxqt-base/lxqt-globalkeys-1.4*
-  RDEPEND: dev-cpp/muParser >=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtgui:5
-    dev-qt/qtwidgets:5 dev-qt/qtxml:5 kde-frameworks/kwindowsystem:5 =lxqt-base/liblxqt-1.4*
-    =lxqt-base/lxqt-globalkeys-1.4*
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-cpp/muParser dev-libs/libqtxdg dev-qt/qtbase:6[gui] kde-frameworks/kwindowsystem:6
+    kde-plasma/layer-shell-qt:6 lxqt-base/liblxqt lxqt-base/lxqt-globalkeys dev-util/lxqt-build-tools
+    dev-qt/qttools:6[linguist] virtual/pkgconfig
+  RDEPEND: dev-cpp/muParser dev-libs/libqtxdg dev-qt/qtbase:6[gui] kde-frameworks/kwindowsystem:6
+    kde-plasma/layer-shell-qt:6 lxqt-base/liblxqt lxqt-base/lxqt-globalkeys
   emerge.packages: lxqt-base/lxqt-runner
   kit: kde-kit
   original.package.name: lxqt-base/lxqt-runner
   original.package.slot: "0"
-  original.package.version: 1.4.0
+  original.package.version: 2.3.0
