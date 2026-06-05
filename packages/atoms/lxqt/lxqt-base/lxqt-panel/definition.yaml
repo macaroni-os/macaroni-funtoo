@@ -1,5 +1,5 @@
 name: lxqt-panel
-version: 1.4.0
+version: 2.3.3
 category: lxqt-base
 use_flags:
 - alsa
@@ -14,18 +14,15 @@ use_flags:
 - tray
 - volume
 requires:
-- name: libdbusmenu-qt
+- name: qtwayland
   version: '>=0'
-  category: dev-libs
-- name: qtconcurrent
-  version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 - name: solid
   version: '>=0'
-  category: kde-frameworks-5
-- name: menu-cache
+  category: kde-frameworks-6
+- name: layer-shell-qt
   version: '>=0'
-  category: lxde-base
+  category: kde-plasma-6
 - name: libsysstat
   version: '>=0'
   category: lxqt-base
@@ -56,7 +53,10 @@ requires:
 - name: libXrender
   version: '>=0'
   category: x11-libs
-- name: xcb-util
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-image
   version: '>=0'
   category: x11-libs
 annotations:
@@ -66,38 +66,37 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: LXQt desktop panel and plugins
+description: The LXQt desktop panel
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: LGPL-2.1 LGPL-2.1+
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools virtual/pkgconfig dev-util/ninja
-    dev-util/cmake
-  DEPEND: '>=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5
-    dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 kde-frameworks/kwindowsystem:5[X]
-    =lxqt-base/lxqt-menu-data-1.4* lxde-base/menu-cache =lxqt-base/liblxqt-1.4* =lxqt-base/lxqt-globalkeys-1.4*
-    x11-libs/libX11 cpuload? ( sys-libs/libstatgrab ) kbindicator? ( x11-libs/libxkbcommon
-    ) lm_sensors? ( sys-apps/lm_sensors ) mount? ( kde-frameworks/solid:5 ) networkmonitor?
-    ( sys-libs/libstatgrab ) statusnotifier? ( dev-libs/libdbusmenu-qt[qt5(+)] dev-qt/qtconcurrent:5
-    ) sysstat? ( lxqt-base/libsysstat ) tray? ( x11-libs/libxcb:= x11-libs/libXcomposite
-    x11-libs/libXdamage x11-libs/libXrender x11-libs/xcb-util ) volume? ( alsa? (
-    media-libs/alsa-lib ) pulseaudio? ( media-sound/pavucontrol-qt media-sound/pulseaudio
-    ) )'
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/libqtxdg dev-libs/wayland dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 dev-qt/qtwayland:6
+    kde-frameworks/kwindowsystem:6[X] kde-plasma/layer-shell-qt:6 lxqt-base/liblxqt
+    lxqt-base/lxqt-globalkeys lxqt-base/lxqt-menu-data x11-libs/libX11 cpuload? (
+    sys-libs/libstatgrab ) kbindicator? ( x11-libs/libxkbcommon ) lm_sensors? ( sys-apps/lm_sensors
+    ) mount? ( kde-frameworks/solid:6 ) networkmonitor? ( sys-libs/libstatgrab ) statusnotifier?
+    ( dev-libs/libdbusmenu-lxqt dev-qt/qtbase:6 ) sysstat? ( lxqt-base/libsysstat
+    ) tray? ( x11-libs/libxcb:= x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXrender
+    x11-libs/libXtst x11-libs/xcb-util x11-libs/xcb-util-image ) volume? ( alsa? (
+    media-libs/alsa-lib ) pulseaudio? ( media-sound/pulseaudio media-sound/pavucontrol-qt
+    ) ) dev-util/lxqt-build-tools dev-qt/qttools:6[linguist] virtual/pkgconfig
   IUSE: +alsa colorpicker cpuload +desktopswitch +directorymenu dom +kbindicator +mainmenu
     +mount networkmonitor pulseaudio +quicklaunch lm_sensors +showdesktop +spacer
     +statusnotifier sysstat +taskbar tray +volume +worldclock
-  RDEPEND: '>=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5
-    dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 kde-frameworks/kwindowsystem:5[X]
-    =lxqt-base/lxqt-menu-data-1.4* lxde-base/menu-cache =lxqt-base/liblxqt-1.4* =lxqt-base/lxqt-globalkeys-1.4*
-    x11-libs/libX11 cpuload? ( sys-libs/libstatgrab ) kbindicator? ( x11-libs/libxkbcommon
-    ) lm_sensors? ( sys-apps/lm_sensors ) mount? ( kde-frameworks/solid:5 ) networkmonitor?
-    ( sys-libs/libstatgrab ) statusnotifier? ( dev-libs/libdbusmenu-qt[qt5(+)] dev-qt/qtconcurrent:5
-    ) sysstat? ( lxqt-base/libsysstat ) tray? ( x11-libs/libxcb:= x11-libs/libXcomposite
-    x11-libs/libXdamage x11-libs/libXrender x11-libs/xcb-util ) volume? ( alsa? (
-    media-libs/alsa-lib ) pulseaudio? ( media-sound/pavucontrol-qt media-sound/pulseaudio
-    ) )'
+  RDEPEND: dev-libs/libqtxdg dev-libs/wayland dev-qt/qtbase:6[gui] dev-qt/qtsvg:6
+    dev-qt/qtwayland:6 kde-frameworks/kwindowsystem:6[X] kde-plasma/layer-shell-qt:6
+    lxqt-base/liblxqt lxqt-base/lxqt-globalkeys lxqt-base/lxqt-menu-data x11-libs/libX11
+    cpuload? ( sys-libs/libstatgrab ) kbindicator? ( x11-libs/libxkbcommon ) lm_sensors?
+    ( sys-apps/lm_sensors ) mount? ( kde-frameworks/solid:6 ) networkmonitor? ( sys-libs/libstatgrab
+    ) statusnotifier? ( dev-libs/libdbusmenu-lxqt dev-qt/qtbase:6 ) sysstat? ( lxqt-base/libsysstat
+    ) tray? ( x11-libs/libxcb:= x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXrender
+    x11-libs/libXtst x11-libs/xcb-util x11-libs/xcb-util-image ) volume? ( alsa? (
+    media-libs/alsa-lib ) pulseaudio? ( media-sound/pulseaudio media-sound/pavucontrol-qt
+    ) )
   emerge.packages: lxqt-base/lxqt-panel
   kit: kde-kit
   original.package.name: lxqt-base/lxqt-panel
   original.package.slot: "0"
-  original.package.version: 1.4.0
+  original.package.version: 2.3.3
