@@ -68,7 +68,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -109,7 +109,6 @@ artefacts:
     - virtual/perl-Term-ANSIColor
     - virtual/perl-Time-HiRes
     - net-mail/mailbase
-    - dev-db/lmdb
 
 - tree: packages/atoms-extra/db
   mutations:
@@ -196,6 +195,14 @@ artefacts:
         -e mysql
 
 - tree: packages/atoms-extra/db
+  uses:
+    disabled:
+      - gnutls
+      - kerberos
+  packages:
+    - dev-db/mariadb-connector-c
+
+- tree: packages/atoms-extra/db
   mutations:
     provides:
       - category: dev-db-6
@@ -253,11 +260,6 @@ artefacts:
         -e mysql
 
 - tree: packages/atoms-extra/db
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-db
-          name: lmdb
   uses:
     enabled:
       - berkdb
