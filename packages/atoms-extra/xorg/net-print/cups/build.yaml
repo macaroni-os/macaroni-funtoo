@@ -2,7 +2,10 @@ prelude:
 # Avoid to use  to handle PDEPEND and right use flags for ghostscript-gpl
 - >-
   eval 'mkdir /etc/portage/package.use/ -p || true' &&
-  echo "app-text/ghostscript-gpl cups" > /etc/portage/package.use/00-cups.use
+  echo "app-text/ghostscript-gpl cups" > /etc/portage/package.use/00-cups.use &&
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  emerge lynx --nodeps -j
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
