@@ -1,5 +1,5 @@
 name: lxqt-openssh-askpass
-version: 1.4.0+1
+version: 2.3.0
 category: lxqt-base
 requires:
 - name: liblxqt
@@ -12,16 +12,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: LXQt OpenSSH user password prompt tool
+description: GUI to query passwords on behalf of SSH agents.
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: LGPL-2.1 LGPL-2.1+
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
-  DEPEND: dev-qt/qtcore:5 dev-qt/qtwidgets:5 =lxqt-base/liblxqt-1.4*
-  RDEPEND: dev-qt/qtcore:5 dev-qt/qtwidgets:5 =lxqt-base/liblxqt-1.4*
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6 lxqt-base/liblxqt dev-util/lxqt-build-tools dev-qt/qttools:6[linguist]
+  RDEPEND: dev-qt/qtbase:6 lxqt-base/liblxqt
   emerge.packages: lxqt-base/lxqt-openssh-askpass
   kit: kde-kit
   original.package.name: lxqt-base/lxqt-openssh-askpass
   original.package.slot: "0"
-  original.package.version: 1.4.0
+  original.package.version: 2.3.0
