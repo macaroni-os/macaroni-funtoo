@@ -1,16 +1,10 @@
 name: libqtxdg
-version: 3.12.0+2
+version: 4.3.0
 category: dev-libs
-use_flags:
-- -test
-- prefix
 requires:
 - name: qtsvg
   version: '>=0'
-  category: dev-qt-5
-- name: qtxml
-  version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 - name: xdg-utils
   version: '>=0'
   category: x11-misc
@@ -21,20 +15,17 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Qt Implementation of XDG Standards
+description: Qt implementation of freedesktop.org xdg specs
 uri:
-- https://lxqt.github.io/
-license: LGPL-2.1+ Nokia-Qt-LGPL-Exception-1.1
+- https://lxqt-project.org
+license: LGPL-2.1+
 labels:
-  BDEPEND: dev-util/lxqt-build-tools virtual/pkgconfig dev-util/ninja dev-util/cmake
-    test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
-  DEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5= dev-qt/qtsvg:5 dev-qt/qtwidgets:5
-    dev-qt/qtxml:5 x11-misc/xdg-utils test? ( dev-qt/qttest:5 )
-  IUSE: test test
-  RDEPEND: dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5= dev-qt/qtsvg:5 dev-qt/qtwidgets:5
-    dev-qt/qtxml:5 x11-misc/xdg-utils
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/glib:2 dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 x11-misc/xdg-utils dev-util/lxqt-build-tools
+    virtual/pkgconfig
+  RDEPEND: dev-libs/glib:2 dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 x11-misc/xdg-utils
   emerge.packages: dev-libs/libqtxdg
   kit: kde-kit
   original.package.name: dev-libs/libqtxdg
   original.package.slot: "0"
-  original.package.version: 3.12.0
+  original.package.version: 4.3.0
