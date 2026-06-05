@@ -1,8 +1,4 @@
 prelude:
-# Temporory until macaroni-os/mark-issues#411 is done
-- >-
-  rm -rf /var/git/meta-repo/kits/kde-kit/lxqt-base/libsysstat/* &&
-  cp patches/* /var/git/meta-repo/kits/kde-kit/lxqt-base/libsysstat/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \

@@ -1,10 +1,10 @@
 name: libsysstat
-version: 0.4.6+2
+version: 1.1.0
 category: lxqt-base
 requires:
-- name: qtcore
+- name: qtbase
   version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 annotations:
   subsets:
     rules:
@@ -12,16 +12,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Qt GUI for System Statistics
+description: Library used to query system info and statistics
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: GPL-2+ LGPL-2.1+
 labels:
-  BDEPEND: dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
-  DEPEND: dev-qt/qtcore:5
-  RDEPEND: dev-qt/qtcore:5
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6 dev-util/lxqt-build-tools
+  RDEPEND: dev-qt/qtbase:6
   emerge.packages: lxqt-base/libsysstat
   kit: kde-kit
   original.package.name: lxqt-base/libsysstat
   original.package.slot: "0"
-  original.package.version: 0.4.6
+  original.package.version: 1.1.0
