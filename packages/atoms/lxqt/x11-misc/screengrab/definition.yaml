@@ -1,16 +1,28 @@
 name: screengrab
-version: 2.7.0+2
+version: 3.1.0
 category: x11-misc
 requires:
 - name: libqtxdg
   version: '>=0'
   category: dev-libs
-- name: qtnetwork
+- name: wayland
   version: '>=0'
-  category: dev-qt-5
+  category: dev-libs
+- name: qtwayland
+  version: '>=0'
+  category: dev-qt-6
 - name: kwindowsystem
   version: '>=0'
-  category: kde-frameworks-5
+  category: kde-frameworks-6
+- name: layer-shell-qt
+  version: '>=0'
+  category: kde-plasma-6
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -18,20 +30,20 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Qt GUI Screenshot Utility
+description: Crossplatform tool for creating screenshots.
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: GPL-2 GPL-2+ LGPL-2.1+
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/ninja dev-util/cmake
-  DEPEND: '>=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5
-    dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 kde-frameworks/kwindowsystem:5[X]
-    x11-libs/libX11 x11-libs/libxcb x11-libs/libXfixes'
-  RDEPEND: '>=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5
-    dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 kde-frameworks/kwindowsystem:5[X]
-    x11-libs/libX11 x11-libs/libxcb x11-libs/libXfixes'
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/libqtxdg dev-libs/wayland dev-qt/qtbase:6[gui] dev-qt/qtwayland:6
+    kde-frameworks/kwindowsystem:6[X] kde-plasma/layer-shell-qt:6 x11-libs/libX11
+    x11-libs/libxcb dev-util/lxqt-build-tools dev-qt/qttools:6[linguist]
+  RDEPEND: dev-libs/libqtxdg dev-libs/wayland dev-qt/qtbase:6[gui] dev-qt/qtwayland:6
+    kde-frameworks/kwindowsystem:6[X] kde-plasma/layer-shell-qt:6 x11-libs/libX11
+    x11-libs/libxcb
   emerge.packages: x11-misc/screengrab
   kit: kde-kit
   original.package.name: x11-misc/screengrab
   original.package.slot: "0"
-  original.package.version: 2.7.0
+  original.package.version: 3.1.0-r1
