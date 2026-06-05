@@ -1,18 +1,20 @@
 name: doxygen
-version: 1.9.6+1
+version: 1.9.6+2
 category: app-doc
 use_flags:
-- -clang
 - -doc
-- -dot
-- -doxysearch
-- -latex
 - -qt5
-- -sqlite
+- clang
+- dot
+- doxysearch
+- sqlite
 requires:
 - name: ghostscript-gpl
   version: '>=0'
   category: app-text
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
 - name: perl
   version: '>=0'
   category: dev-lang
@@ -31,8 +33,8 @@ uri:
 - https://www.doxygen.nl/
 license: GPL-2
 labels:
-  BDEPEND: sys-devel/bison sys-devel/flex || ( dev-lang/python:3.10[xml(+)] dev-lang/python:3.8[xml(+)]
-    dev-lang/python:3.9[xml(+)] dev-lang/python:3.7[xml(+)] ) dev-util/ninja dev-util/cmake
+  BDEPEND: sys-devel/bison sys-devel/flex || ( dev-lang/python:3.8[xml(+)] dev-lang/python:3.9[xml(+)]
+    dev-lang/python:3.7[xml(+)] dev-lang/python:3.10[xml(+)] ) dev-util/ninja dev-util/cmake
   DEPEND: app-text/ghostscript-gpl dev-lang/perl media-libs/libpng:0= virtual/libiconv
     clang? ( >=sys-devel/clang-10:= ) dot? ( media-gfx/graphviz media-libs/freetype
     ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils
@@ -47,7 +49,7 @@ labels:
     ) doxysearch? ( dev-libs/xapian:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5
     ) sqlite? ( dev-db/sqlite:3 )
   emerge.packages: app-doc/doxygen
-  kit: core-kit
+  kit: text-kit
   original.package.name: app-doc/doxygen
   original.package.slot: "0"
   original.package.version: 1.9.6
