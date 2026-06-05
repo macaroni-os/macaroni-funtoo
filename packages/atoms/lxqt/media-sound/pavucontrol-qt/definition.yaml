@@ -1,13 +1,10 @@
 name: pavucontrol-qt
-version: 1.4.0+1
+version: 2.3.0
 category: media-sound
 requires:
-- name: qtcore
+- name: qtbase
   version: '>=0'
-  category: dev-qt-5
-- name: qtwidgets
-  version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 - name: pulseaudio
   version: '>=0'
   category: media-sound
@@ -18,17 +15,17 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Qt GUI Pulseaudio Mixer
+description: A Pulseaudio mixer in Qt (port of pavucontrol)
 uri:
-- https://lxqt.github.io/
+- https://lxqt.github.io
 license: GPL-2 GPL-2+
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools virtual/pkgconfig dev-util/ninja
-    dev-util/cmake
-  DEPEND: dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtwidgets:5 media-sound/pulseaudio[glib]
-  RDEPEND: dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtwidgets:5 media-sound/pulseaudio[glib]
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/glib:2 dev-qt/qtbase:6[gui] media-sound/pulseaudio[glib] dev-util/lxqt-build-tools
+    dev-qt/qttools:6[linguist] virtual/pkgconfig
+  RDEPEND: dev-libs/glib:2 dev-qt/qtbase:6[gui] media-sound/pulseaudio[glib]
   emerge.packages: media-sound/pavucontrol-qt
   kit: media-kit
   original.package.name: media-sound/pavucontrol-qt
   original.package.slot: "0"
-  original.package.version: 1.4.0
+  original.package.version: 2.3.0
