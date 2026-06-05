@@ -71,7 +71,10 @@ skipped_resolutions:
     - name: oracle-jdk-bin
       category: dev-java
 
-build_template_file: ../templates/build-pkg-uses-subsets2.yaml.tmpl
+    - name: glib-utils
+      category: dev-util
+
+build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -122,13 +125,18 @@ artefacts:
       - nls
       - ipv6
   packages:
-    - x11-proto/xproto
-    - x11-proto/glproto
-    - x11-proto/dri2proto
     - media-libs/jbig2dec
-    - media-libs/lcms:2
     - media-libs/libjpeg-turbo
 
+- tree: packages/atoms-extra/xorg
+  mutations:
+  uses:
+    enabled:
+      - X
+      - nls
+      - ipv6
+  packages:
+    - media-libs/lcms:2
 
 - tree: packages/atoms-extra/xorg
   mutations:
@@ -177,8 +185,20 @@ artefacts:
   packages:
     - dev-libs/atk
     - app-accessibility/at-spi2-core:2
-    - app-accessibility/at-spi2-atk
 
+- tree: packages/atoms-extra/xorg
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race9
+  uses:
+    enabled:
+      - X
+      - nls
+      - introspection
+  packages:
+    - app-accessibility/at-spi2-atk:2
 
 - tree: packages/atoms-extra/xorg
   replacements:
@@ -244,6 +264,7 @@ artefacts:
     - cups
     - dbus
     - unicode
+    - zeroconf
   packages:
   - app-text/ghostscript-gpl
 
@@ -267,7 +288,6 @@ artefacts:
     - static-libs
     - usb
     - xinetd
-    - zeroconf
     - systemd
     enabled:
     - sh
@@ -279,19 +299,13 @@ artefacts:
     - python
     - ssl
     - threads
+    - zeroconf
   packages:
   - net-print/cups
 
 
 - tree: packages/atoms-extra/xorg
   mutations:
-    buildtime_deps:
-      packages:
-        # NOTE: it seems a luet-portage-converter bug.
-        - category: x11-libs
-          name: libXrandr
-        - category: dev-python
-          name: mako
   uses:
     disabled:
     - alternate-path
@@ -405,7 +419,6 @@ artefacts:
     - media-fonts/font-adobe-utopia-type1
     - media-fonts/font-alias
     - x11-apps/bdftopcf
-    - media-fonts/liberation-fonts
 
 
 - tree: packages/atoms-extra/xorg
@@ -432,6 +445,11 @@ artefacts:
       - tiff
   packages:
     - app-text/poppler
+
+- tree: packages/atoms-extra/xorg
+  packages:
+    - app-doc/xmltoman
+    - app-doc/doxygen
 
 include_layers:
 - layers/macaroni-funtoo-race9.yaml
@@ -606,6 +624,7 @@ reposcan_disabled_use_flags:
   - heif
 
   #- X
+  - qt5
 
   # Disabled for mesa lib
   - vulkan-overlay
