@@ -1,9 +1,9 @@
 name: lxqt-menu-data
-version: 1.4.1+1
+version: 2.3.0
 category: lxqt-base
 provides:
 - name: lxmenu-data
-  version: 1.4.1
+  version: 2.3.0
   category: lxde-base
 annotations:
   subsets:
@@ -12,16 +12,15 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: LXQt Menu Files and Translations for Menu Categories
+description: Menu files for LXQt Panel, Configuration Center and PCManFM-Qt/libfm-qt
 uri:
-- https://lxqt-project.org/
+- https://lxqt-project.org
 license: LGPL-2.1
 labels:
-  BDEPEND: dev-util/lxqt-build-tools >=dev-qt/linguist-tools-5.15:5 dev-util/ninja
-    dev-util/cmake
-  RDEPEND: '!<lxqt-base/lxqt-config-1.4 !<lxqt-base/lxqt-panel-1.4'
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-util/lxqt-build-tools dev-qt/qttools:6[linguist]
   emerge.packages: lxqt-base/lxqt-menu-data
   kit: kde-kit
   original.package.name: lxqt-base/lxqt-menu-data
   original.package.slot: "0"
-  original.package.version: 1.4.1
+  original.package.version: 2.3.0
