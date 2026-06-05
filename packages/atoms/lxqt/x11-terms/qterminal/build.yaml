@@ -1,4 +1,9 @@
 prelude:
+# Temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/kde-kit/x11-terms/qterminal &&
+  sed -e 's|cmake xdg|cmake|g' qterminal-2.3.0.ebuild -i &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
