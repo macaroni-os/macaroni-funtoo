@@ -1,5 +1,5 @@
 name: lxqt-session
-version: 1.4.0+1
+version: 2.3.0
 category: lxqt-base
 use_flags:
 - udev
@@ -7,9 +7,15 @@ requires:
 - name: qtxdg-tools
   version: '>=0'
   category: app-misc
+- name: layer-shell-qt
+  version: '>=0'
+  category: kde-plasma-6
 - name: liblxqt
   version: '>=0'
   category: lxqt-base
+- name: procps
+  version: '>=0'
+  category: sys-process
 - name: libudev
   version: '>=0'
   category: virtual
@@ -23,23 +29,21 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: LXQt Session Manager
+description: The LXQt session manager
 uri:
-- https://lxqt.github.io/
+- https://lxqt-project.org
 license: LGPL-2.1 LGPL-2.1+
 labels:
-  BDEPEND: dev-qt/linguist-tools:5 dev-util/lxqt-build-tools dev-util/ninja dev-util/cmake
-  DEPEND: '>=app-misc/qtxdg-tools-3.12.0 >=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5
-    dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 kde-frameworks/kwindowsystem:5[X]
-    =lxqt-base/liblxqt-1.4* x11-libs/libX11 x11-misc/xdg-user-dirs udev? ( virtual/libudev
-    )'
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: app-misc/qtxdg-tools dev-libs/libqtxdg dev-qt/qtbase:6[gui] kde-frameworks/kwindowsystem:6[X]
+    kde-plasma/layer-shell-qt:6 lxqt-base/liblxqt sys-process/procps x11-libs/libX11
+    x11-misc/xdg-user-dirs udev? ( virtual/libudev ) dev-util/lxqt-build-tools dev-qt/qttools:6[linguist]
   IUSE: +udev
-  RDEPEND: '>=app-misc/qtxdg-tools-3.12.0 >=dev-libs/libqtxdg-3.12.0 dev-qt/qtcore:5
-    dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 kde-frameworks/kwindowsystem:5[X]
-    =lxqt-base/liblxqt-1.4* x11-libs/libX11 x11-misc/xdg-user-dirs udev? ( virtual/libudev
-    )'
+  RDEPEND: app-misc/qtxdg-tools dev-libs/libqtxdg dev-qt/qtbase:6[gui] kde-frameworks/kwindowsystem:6[X]
+    kde-plasma/layer-shell-qt:6 lxqt-base/liblxqt sys-process/procps x11-libs/libX11
+    x11-misc/xdg-user-dirs udev? ( virtual/libudev )
   emerge.packages: lxqt-base/lxqt-session
   kit: kde-kit
   original.package.name: lxqt-base/lxqt-session
   original.package.slot: "0"
-  original.package.version: 1.4.0
+  original.package.version: 2.3.0
