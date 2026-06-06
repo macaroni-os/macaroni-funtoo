@@ -1,0 +1,78 @@
+name: libksysguard
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- X
+- webengine
+requires:
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-6
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kconfigwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kglobalaccel
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kiconthemes
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libpcap
+  version: '>=0'
+  category: net-libs
+- name: lm_sensors
+  version: '>=0'
+  category: sys-apps
+- name: libcap
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXres
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Task management and system monitoring library
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,X?] kde-frameworks/kauth:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/kio:6 kde-frameworks/knewstuff:6 kde-frameworks/kpackage:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X?]
+    net-libs/libpcap sys-libs/libcap sys-libs/zlib virtual/libudev:= sys-apps/lm_sensors:=
+    webengine? ( dev-qt/qtwebengine:6 ) X? ( x11-libs/libX11 x11-libs/libXres )
+  IUSE: webengine X
+  RDEPEND: virtual/kde-seed[gui,declarative,X?] kde-frameworks/kauth:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/kio:6 kde-frameworks/knewstuff:6 kde-frameworks/kpackage:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X?]
+    net-libs/libpcap sys-libs/libcap sys-libs/zlib virtual/libudev:= sys-apps/lm_sensors:=
+    webengine? ( dev-qt/qtwebengine:6 ) X? ( x11-libs/libX11 x11-libs/libXres )
+  emerge.packages: kde-plasma/libksysguard:6
+  kit: kde-kit
+  original.package.name: kde-plasma/libksysguard
+  original.package.slot: "6"
+  original.package.version: 6.5.5
