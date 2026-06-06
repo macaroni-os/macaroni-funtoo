@@ -1,0 +1,79 @@
+name: plasma-integration
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- -qt5
+- wayland
+requires:
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: qqc2-desktop-style
+  version: '>=0'
+  category: kde-frameworks-6
+- name: breeze
+  version: '>=0'
+  category: kde-plasma-6
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: xcb-util-cursor
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt Platform Theme integration plugins for the Plasma workspaces
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative,gui,wayland?,X] kde-frameworks/qqc2-desktop-style:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[wayland?,X]
+    kde-frameworks/kxmlgui:6 kde-plasma/breeze:6 media-libs/fontconfig media-libs/freetype
+    x11-libs/libX11 x11-libs/libxcb x11-libs/xcb-util-cursor qt5? ( >=dev-qt/qtdbus-5.15.12:5
+    >=dev-qt/qtgui-5.15.12:5[X] >=dev-qt/qtquickcontrols2-5.15.12:5 >=dev-qt/qtwidgets-5.15.12:5
+    >=dev-qt/qtx11extras-5.15.12:5 >=kde-frameworks/kcolorscheme-5.115.0:5 >=kde-frameworks/kconfig-5.115.0:5
+    >=kde-frameworks/kconfigwidgets-5.115.0:5 >=kde-frameworks/kcoreaddons-5.115.0:5
+    >=kde-frameworks/kguiaddons-5.115.0:5 >=kde-frameworks/ki18n-5.115.0:5 >=kde-frameworks/kiconthemes-5.115.0:5
+    >=kde-frameworks/kio-5.115.0:5 >=kde-frameworks/knotifications-5.115.0:5 >=kde-frameworks/kwidgetsaddons-5.115.0:5
+    >=kde-frameworks/kwindowsystem-5.115.0:5[X] >=kde-frameworks/kxmlgui-5.115.0:5
+    >=kde-plasma/breeze-6.5.5:5[-kf6compat(-)] wayland? ( >=dev-qt/qtwayland-5.15.12:5
+    ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: qt5 wayland
+  RDEPEND: virtual/kde-seed[declarative,gui,wayland?,X] kde-frameworks/qqc2-desktop-style:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[wayland?,X]
+    kde-frameworks/kxmlgui:6 kde-plasma/breeze:6 media-libs/fontconfig media-libs/freetype
+    x11-libs/libX11 x11-libs/libxcb x11-libs/xcb-util-cursor qt5? ( >=dev-qt/qtdbus-5.15.12:5
+    >=dev-qt/qtgui-5.15.12:5[X] >=dev-qt/qtquickcontrols2-5.15.12:5 >=dev-qt/qtwidgets-5.15.12:5
+    >=dev-qt/qtx11extras-5.15.12:5 >=kde-frameworks/kcolorscheme-5.115.0:5 >=kde-frameworks/kconfig-5.115.0:5
+    >=kde-frameworks/kconfigwidgets-5.115.0:5 >=kde-frameworks/kcoreaddons-5.115.0:5
+    >=kde-frameworks/kguiaddons-5.115.0:5 >=kde-frameworks/ki18n-5.115.0:5 >=kde-frameworks/kiconthemes-5.115.0:5
+    >=kde-frameworks/kio-5.115.0:5 >=kde-frameworks/knotifications-5.115.0:5 >=kde-frameworks/kwidgetsaddons-5.115.0:5
+    >=kde-frameworks/kwindowsystem-5.115.0:5[X] >=kde-frameworks/kxmlgui-5.115.0:5
+    >=kde-plasma/breeze-6.5.5:5[-kf6compat(-)] wayland? ( >=dev-qt/qtwayland-5.15.12:5
+    ) )
+  emerge.packages: kde-plasma/plasma-integration:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-integration
+  original.package.slot: "6"
+  original.package.version: 6.5.5
