@@ -1,0 +1,38 @@
+name: kcontacts
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kcodecs
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Address book API based on KDE Frameworks
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+  emerge.packages: kde-frameworks/kcontacts:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kcontacts
+  original.package.slot: "6"
+  original.package.version: 6.22.0
