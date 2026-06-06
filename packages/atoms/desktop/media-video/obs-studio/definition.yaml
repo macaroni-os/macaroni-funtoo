@@ -1,11 +1,10 @@
 name: obs-studio
-version: 29.1.3+2
+version: 29.1.3+3
 category: media-video
 use_flags:
 - -browser
 - -fdk
 - -lua
-- -qt6
 - alsa
 - jack
 - lua_single_target_luajit
@@ -13,6 +12,7 @@ use_flags:
 - pulseaudio
 - python
 - python_single_target_python3_9
+- qt6
 - speex
 - ssl
 - truetype
@@ -33,16 +33,13 @@ requires:
 - name: jansson
   version: '>=0'
   category: dev-libs
-- name: qtnetwork
+- name: qtsvg
   version: '>=0'
-  category: dev-qt-5
-- name: qtquickcontrols
-  version: '>=0'
-  category: dev-qt-5
-- name: qtxml
-  version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 - name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: libglvnd
   version: '>=0'
   category: media-libs
 - name: pipewire
@@ -61,6 +58,9 @@ requires:
   version: '>=0'
   category: sys-apps
 - name: libXcomposite
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
   version: '>=0'
   category: x11-libs
 annotations:
