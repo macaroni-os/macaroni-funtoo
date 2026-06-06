@@ -1,5 +1,5 @@
 name: gitlab-runner-bin
-version: 18.0.2
+version: 19.0.1
 category: dev-util
 use_flags:
 - -systemd
@@ -20,11 +20,11 @@ uri:
 license: MIT
 labels:
   BDEPEND: virtual/pkgconfig
-  DEPEND: systemd? ( sys-apps/systemd ) sys-apps/shadow
+  DEPEND: sys-apps/shadow
   IUSE: systemd
-  RDEPEND: virtual/tmpfiles
+  RDEPEND: systemd? ( sys-apps/systemd ) !dev-util/gitlab-runner virtual/tmpfiles
   emerge.packages: dev-util/gitlab-runner-bin
   kit: core-server-kit
   original.package.name: dev-util/gitlab-runner-bin
   original.package.slot: "0"
-  original.package.version: 18.0.2
+  original.package.version: 19.0.1
