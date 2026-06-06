@@ -1,0 +1,45 @@
+name: baloo
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: lmdb
+  version: '>=0'
+  category: dev-db
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kfilemetadata
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kidletime
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework for searching and managing metadata
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative] >=dev-db/lmdb-0.9.17 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kfilemetadata:6 kde-frameworks/ki18n:6 kde-frameworks/kidletime:6
+    kde-frameworks/kio:6 kde-frameworks/solid:6
+  RDEPEND: virtual/kde-seed[declarative] >=dev-db/lmdb-0.9.17 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kfilemetadata:6 kde-frameworks/ki18n:6 kde-frameworks/kidletime:6
+    kde-frameworks/kio:6 kde-frameworks/solid:6
+  emerge.packages: kde-frameworks/baloo:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/baloo
+  original.package.slot: "6"
+  original.package.version: 6.22.0
