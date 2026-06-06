@@ -1,0 +1,45 @@
+name: kactivitymanagerd
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: boost
+  version: '>=0'
+  category: dev-libs
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: System service to manage user's activities, track the usage patterns
+  etc.
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,sql] dev-qt/qtbase:6[sqlite] kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kservice:6
+    kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6 dev-libs/boost
+  RDEPEND: virtual/kde-seed[gui,sql] dev-qt/qtbase:6[sqlite] kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kservice:6
+    kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6 dev-libs/boost
+  emerge.packages: kde-plasma/kactivitymanagerd:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kactivitymanagerd
+  original.package.slot: "6"
+  original.package.version: 6.5.5
