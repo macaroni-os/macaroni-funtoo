@@ -1,0 +1,37 @@
+name: kpeople
+version: 6.22.0
+category: kde-frameworks-6
+requires:
+- name: kcontacts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemviews
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE contact person abstraction library
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,sql] kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kwidgetsaddons:6
+  RDEPEND: virtual/kde-seed[gui,declarative,sql] kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kwidgetsaddons:6
+  emerge.packages: kde-frameworks/kpeople:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kpeople
+  original.package.slot: "6"
+  original.package.version: 6.22.0
