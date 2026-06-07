@@ -248,6 +248,15 @@ artefacts:
     - app-eselect/fontconfig
 
 - tree: packages/atoms-extra/java
+  uses:
+    disabled:
+      - brotli
+      - harfbuzz
+      - utils
+  packages:
+    - media-libs/freetype:2
+
+- tree: packages/atoms-extra/java
   mutations:
     buildtime_deps:
       packages:
