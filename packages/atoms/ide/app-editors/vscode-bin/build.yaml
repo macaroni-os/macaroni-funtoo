@@ -1,6 +1,12 @@
 prelude:
 - >-
   anise repo update && anise upgrade -y && anise cleanup
+# temporary
+- >-
+  cd /var/git/meta-repo/kits/dev-kit/app-editors/vscode-bin &&
+  rm vscode-bin-1.122.1.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/dev-kit/refs/heads/mark-iii/app-editors/vscode-bin/vscode-bin-1.122.1.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
