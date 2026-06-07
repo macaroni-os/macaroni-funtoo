@@ -2,6 +2,12 @@ prelude:
 - >-
   eval 'mkdir -p /etc/portage/package.license' &&
   echo "www-client/vivaldi Vivaldi" > /etc/portage/package.license/99-browser-vivaldi.license
+# Temporary
+- >-
+  cd /var/git/meta-repo/kits/browser-kit/www-client/vivaldi/ &&
+  rm vivaldi-8.0.4033.34.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/browser-kit/refs/heads/mark-iii/www-client/vivaldi/vivaldi-8.0.4033.34.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
