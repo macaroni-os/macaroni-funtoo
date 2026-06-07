@@ -303,9 +303,30 @@ artefacts:
   packages:
   - net-print/cups
 
+- tree: packages/atoms-extra/xorg
+  uses:
+    disabled:
+      - qt5
+      - mono
+      - introspection
+      - howl-compat
+      - gtk
+      - doc
+      - bookmarks
+      - autoipd
+      # dbus-python is not available in mark-xl atm
+      # disable python
+      - python
+  packages:
+    - net-dns/avahi
 
 - tree: packages/atoms-extra/xorg
   mutations:
+    buildtime_deps:
+      packages:
+        # an anise-portage-converter bug to fix
+        - category: dev-python
+          name: mako
   uses:
     disabled:
     - alternate-path
@@ -447,6 +468,10 @@ artefacts:
     - app-text/poppler
 
 - tree: packages/atoms-extra/xorg
+  uses:
+    disabled:
+      - clang
+      - doxysearch
   packages:
     - app-doc/xmltoman
     - app-doc/doxygen
