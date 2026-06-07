@@ -2,6 +2,12 @@ prelude:
 - >-
   eval 'mkdir -p /etc/portage/package.license' &&
   echo "www-client/opera OPERA-2014" > /etc/portage/package.license/00-opera.license
+# temporary
+- >-
+  cd /var/git/meta-repo/kits/browser-kit/www-client/opera &&
+  rm opera-125.0.5729.49.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/browser-kit/refs/heads/mark-iii/www-client/opera/opera-125.0.5729.49.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
