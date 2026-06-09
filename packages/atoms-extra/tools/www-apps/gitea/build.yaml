@@ -3,6 +3,10 @@ prelude:
 - >-
   wget -O /usr/bin/pnpm https://github.com/pnpm/pnpm/releases/download/v10.26.1/pnpm-linuxstatic-x64 &&
   chmod a+x /usr/bin/pnpm
+# Disable pam support until new glibc is in the tree
+- >-
+  sed -i -e 's|pam sqlite|sqlite|g'
+  /var/git/meta-repo/kits/net-kit/www-apps/gitea/gitea-1.26.1.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
