@@ -1,4 +1,11 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/dev-kit/dev-util/pycharm-professional &&
+  rm pycharm-professional-2026.1.2.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/dev-kit/refs/heads/mark-iii/dev-util/pycharm-professional/pycharm-professional-2026.1.2.ebuild &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
