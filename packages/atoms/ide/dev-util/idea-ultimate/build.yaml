@@ -1,4 +1,11 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/dev-kit/dev-util/idea-ultimate &&
+  rm idea-ultimate-2026.1.2.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/dev-kit/refs/heads/mark-iii/dev-util/idea-ultimate/idea-ultimate-2026.1.2.ebuild &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
