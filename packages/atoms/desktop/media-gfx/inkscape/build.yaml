@@ -1,7 +1,8 @@
 prelude:
-# Forcing MARK ebuild
 - >-
-  rm /var/git/extra-kits/geaaru-kit/media-gfx/inkscape/inkscape-1.3.2.ebuild
+  anise repo update &&
+  anise upgrade -y &&
+  anise cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
