@@ -34,13 +34,14 @@ steps:
   anise repo update
 - anise install virtual-entities/base --force
 - >-
+  anise upgrade --force &&
   anise install --force
   system/luet-devkit
   app-misc/yq-go
   app-misc/jq
   app-admin/macaronictl
   dev-util/pkgs-checker
-  kernel/macaroni-lts-sources &&
+  kernel-6.1/macaroni-sources &&
   eselect kernel set 1 &&
   anise cleanup
 
@@ -60,6 +61,7 @@ steps:
   toolchain/base-xorg2
   toolchain/fonts
   toolchain/base-gtk
+  toolchain/base-media
   toolchain/base-gtk2
   toolchain/base-editors
   toolchain/xorg-base
@@ -67,7 +69,7 @@ steps:
   toolchain/base-lang
   toolchain/base-fs
   toolchain/db
-  toolchain/base-qt
+  toolchain/base-qt6
   toolchain/base-audio
   toolchain/base-video
   toolchain/base-multimedia
@@ -76,11 +78,10 @@ steps:
   toolchain/base-multimedia2
   toolchain/boot
   toolchain/shells
-  toolchain/base-qt2
+  toolchain/qt6
   toolchain/base-gnome
   toolchain/base-gnome2
   toolchain/portage-tools
-  toolchain/qt6
   toolchain/base-gnome3
   toolchain/release
   toolchain/base-net2
@@ -107,7 +108,6 @@ steps:
   toolchain/devtools
   toolchain/base-text2
   &&
-  anise cleanup &&
   /usr/bin/gcc-config 1 &&
   eselect gcc set 1 &&
   mkdir -p /var/lib/portage &&
@@ -115,11 +115,11 @@ steps:
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   anise miner ri libxml2 &&
+  anise cleanup --purge-repos &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   whip h eclass_db.db_fix_so perl.postinst &&
-  whip h qt5.qconfig_gen &&
   whip h sgml.update_catalog &&
   eselect rust set 1 &&
   eselect ruby set 1 &&
