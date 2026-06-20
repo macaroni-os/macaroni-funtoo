@@ -10,7 +10,7 @@ export ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 DESTINATION?=$(ROOT_DIR)/build
 COMPRESSION?=zstd
 export TREE?=$(ROOT_DIR)/packages
-REPO_CACHE?=quay.io/geaaru/funtoo-amd64-cache
+REPO_CACHE?=quay.io/geaaru/macaroni-eagle-amd64-cache
 export REPO_CACHE
 BUILD_ARGS?=--pull --no-spinner
 GENIDX_ARGS?=--only-upper-level --compress=false
@@ -77,22 +77,14 @@ create-repo: genidx
 serve-repo:
 	LUET_NOLOCK=true $(LUET) serve-repo --port 8000 --dir $(DESTINATION)
 
-auto-bump:
-	TREE_DIR=$(ROOT_DIR) $(LUET) autobump-github
-
-autobump: auto-bump
-
 repository:
 	mkdir -p $(ROOT_DIR)/repository
 
-repository/mottainai:
-	git clone -b master --single-branch https://github.com/MottainaiCI/repo-stable $(ROOT_DIR)/repository/mottainai
-
-repository/geaaru:
-	git clone -b master --single-branch https://github.com/geaaru/luet-specs $(ROOT_DIR)/repository/geaaru
+repository/mark:
+	git clone -b phoenix --single-branch https://github.com/macaroni-os/mark-repo $(ROOT_DIR)/repository/mark
 
 repository/macaroni-commons:
-	git clone -b master --single-branch https://github.com/funtoo/macaroni-commons $(ROOT_DIR)/repository/macaroni-commons
+	git clone -b master --single-branch https://github.com/macaroni-os/macaroni-commons $(ROOT_DIR)/repository/macaroni-commons
 
-validate: repository repository/mottainai repository/geaaru repository/macaroni-commons
+validate: repository repository/mark repository/macaroni-commons
 	$(LUET) tree validate --tree $(ROOT_DIR)/repository --tree $(TREE) $(VALIDATE_OPTIONS)
