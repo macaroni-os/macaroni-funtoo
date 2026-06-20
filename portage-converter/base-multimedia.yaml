@@ -139,8 +139,11 @@ artefacts:
   - media-libs/soxr
   - dev-python/pyrsistent
   - media-sound/wavpack
-  - app-accessibility/flite
   - media-video/rtmpdump
+
+- tree: packages/atoms/base-multimedia
+  packages:
+  - app-accessibility/flite
 
 - tree: packages/atoms/base-multimedia
   uses:
@@ -342,43 +345,6 @@ artefacts:
 - tree: packages/atoms/base-multimedia
   uses:
     disabled:
-      - static-libs
-      - debug
-      - sh
-      - nios2
-      - doc
-      - examples
-      - test
-      - minimal
-      # Avoid cycle with qtmultimedia, ffmpeg.
-      - ieee1394
-      - libsamplerate
-      - sndfile
-  packages:
-    - media-sound/jack2:2
-
-- tree: packages/atoms/base-multimedia
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: media-sound-2
-          name: jack2
-  uses:
-    disabled:
-      - static-libs
-      - debug
-      - sh
-      - nios2
-      - doc
-      - examples
-      - test
-      - minimal
-  packages:
-    - virtual/jack
-
-- tree: packages/atoms/base-multimedia
-  uses:
-    disabled:
       - doc
       - plugins
   packages:
@@ -400,33 +366,6 @@ artefacts:
     - media-libs/lilv
 
 - tree: packages/atoms/base-multimedia
-  mutations:
-    uses:
-      - -alsa-plugin
-  uses:
-    disabled:
-      - static-libs
-      - debug
-      - sh
-      - nios2
-      - doc
-      - examples
-      - test
-      - minimal
-      - aptx
-      - fftw
-      - ldac
-      - lirc
-      - ofono-headset
-      - systemd
-      - valgrind
-      # PDEPEND related to alsa-plugins[pulseaudio]
-      # that could be skipped.
-      - alsa-plugin
-  packages:
-    - media-sound/pulseaudio
-
-- tree: packages/atoms/base-multimedia
   uses:
     disabled:
       - static-libs
@@ -439,6 +378,7 @@ artefacts:
       - valgrind
       - sdl
       - portaudio
+      - qt5
   packages:
     - media-libs/openal
 
@@ -474,24 +414,6 @@ artefacts:
       - examples
       - test
       - doc
-      - custom-cflags
-      - fbcon
-      - libcaca
-      - tslib
-  packages:
-    - media-libs/libsdl
-
-- tree: packages/atoms/base-multimedia
-  uses:
-    disabled:
-      - static-libs
-      - debug
-      - sh
-      - nios2
-      - doc
-      - examples
-      - test
-      - doc
       - fcitx
       - gles1
       - haptic
@@ -502,6 +424,10 @@ artefacts:
   packages:
     - media-libs/libsdl3
 
+- tree: packages/atoms/base-multimedia
+  packages:
+    - dev-python/editables
+    - dev-python/pluggy
 
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
@@ -519,6 +445,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -526,7 +453,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -565,6 +492,7 @@ reposcan_sources:
 - kit_cache/xfce-kit-mark-iii
 - kit_cache/xorg-kit-mark-iii
 - kit_cache/lisp-scheme-kit-mark-iii
+- kit_cache/ai-kit-mark-iii
 
 - kit_cache/geaaru-kit-funtoo
 

@@ -95,18 +95,46 @@ artefacts:
       - test
       - kerberos
   packages:
-    - kde-frameworks/ktextwidgets:5
-    - kde-frameworks/kbookmarks:5
     - media-libs/phonon
     - media-libs/phonon-vlc
-    - media-libs/phonon-gstreamer
-    - kde-frameworks/knotifications:5
-    - kde-frameworks/kwallet:5
-    - kde-frameworks/kio:5
-    - kde-frameworks/kinit:5
-    - kde-frameworks/kded:5
-    - kde-frameworks/kparts:5
-    - app-admin/calamares:5
+    #- media-libs/phonon-gstreamer
+    - kde-frameworks/kparts:6
+    - app-admin/calamares:6
+
+- tree: packages/atoms/base-kde2
+  uses:
+    disabled:
+      - debug
+      - doc
+      - qalculate
+      - gps
+      - static-libs
+      - test
+  packages:
+    - kde-plasma/kde-cli-tools:6
+    - x11-libs/libxcvt
+
+- tree: packages/atoms/base-kde2
+  packages:
+    - sys-apps/hwdata
+    - kde-plasma/kwin:6
+    - kde-plasma/kwin-x11:6
+    - kde-frameworks/syntax-highlighting:6
+    - kde-frameworks/threadweaver:6
+    - kde-frameworks/krunner:6
+    - kde-frameworks/knotifyconfig:6
+    - kde-frameworks/kpty:6
+    - kde-frameworks/prison:6
+    - kde-frameworks/knewstuff:6
+    - kde-frameworks/kfilemetadata:6
+    - kde-frameworks/kitemmodels:6
+    - kde-frameworks/kunitconversion:6
+    - kde-frameworks/kemoticons:6
+    - kde-frameworks/kstatusnotifieritem:6
+
+- tree: packages/atoms/base-kde2
+  packages:
+    - kde-plasma/breeze:6
 
 #- tree: packages/atoms/base-kde2
 #  uses:
@@ -119,7 +147,6 @@ artefacts:
 #    - kde-misc/kdiff3:5
 #    - kde-plasma/breeze:5
 #    - kde-plasma/kactivitymanagerd:5
-#    - kde-plasma/kde-cli-tools:5
 #    - kde-plasma/kscreenlocker:5
 #    - kde-plasma/kwayland-server:5
 
@@ -139,6 +166,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -146,7 +174,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -155,11 +183,11 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
+- ../packages/atoms/qt6
 - ../packages/atoms/base-qt2
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -356,6 +384,8 @@ reposcan_disabled_use_flags:
   - amd64-fbsd
   - ppc
   - ppc64
+
+  - qt5
 
   - userland_BSD
 reposcan_disabled_keywords:

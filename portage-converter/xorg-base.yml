@@ -88,9 +88,55 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+    - aqua
+    - gtk-doc
+    - seccomp
+    - systemd
+  packages:
+  - net-libs/webkit-gtk:4
+  - net-libs/webkit-gtk:6
+  - dev-util/glade
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - debug
+      - doc
+      - static-libs
+      - ftdi
+      - inputlirc
+      - systemd
+      - int-quality
+  packages:
+    - media-libs/portaudio
+    - app-misc/lirc
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    runtime_deps:
+      ignore:
+        # Avoid dep cycles
+        - category: media-libs-1.0
+          name: gst-plugins-bad
+  uses:
+    disabled:
+      - aqua
+      - broadway
+      - examples
+      - gtk-doc
+      - sysprof
+      - jack
+  packages:
+    - x11-libs/gtk:4
+
+- tree: packages/atoms/xorg-base
   mutations:
     uses:
       - egl
+      - gles2
+      - vulkan
   uses:
     disabled:
     - nios2
@@ -172,7 +218,6 @@ artefacts:
 
   - x11-drivers/xf86-input-evdev
   - x11-drivers/xf86-input-libinput
-  - x11-drivers/xf86-input-mouse
   - x11-drivers/xf86-input-synaptics
   - x11-drivers/xf86-input-vmmouse
   - x11-drivers/xf86-input-wacom
@@ -204,7 +249,8 @@ artefacts:
     - introspection
     - vala
   packages:
-  - app-crypt/gcr
+  - app-crypt/gcr:0
+  - app-crypt/gcr:4
 
 - tree: packages/atoms/xorg-base
   mutations:
@@ -224,6 +270,7 @@ artefacts:
     - dev-libs/tinyxml
     - x11-misc/util-macros
     - x11-misc/xbitmaps:0
+    - virtual/jack
 
 - tree: packages/atoms/xorg-base
   mutations:
@@ -261,20 +308,22 @@ artefacts:
     uses:
       - xnest
       - suid
+      - xvfb
+      - xcsecurity
   uses:
     disabled:
     - debug
     - dmx
     - doc
     - libressl
-    - minimal
     - nios2
     - selinux
     - sh
     - static-libs
     - unwind
-    - xcsecurity
+    - minimal
     enabled:
+    - xcsecurity
     # We need elogind for GDM
     - elogind
     - xvfb
@@ -301,6 +350,8 @@ artefacts:
 
 - tree: packages/atoms/xorg-base
   mutations:
+    uses:
+      - xcsecurity
     conflicts:
       - category: x11-bae
         name: xorg-server
@@ -343,8 +394,6 @@ artefacts:
   # Needed for qt stuff
   - dev-libs/double-conversion
 
-  - dev-libs/libsigc++:2
-  - dev-libs/libsigc++:3
 
 - tree: packages/atoms/xorg-base
   mutations:
@@ -377,15 +426,7 @@ artefacts:
       ignore:
         - category: dev-libs-2
           name: libsigc++
-    buildtime_deps:
-      ignore:
-        - category: dev-libs-2
-          name: libsigc++
   mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-libs-3
-          name: libsigc++
     runtime_deps:
       packages:
         - category: dev-libs-3
@@ -430,6 +471,31 @@ artefacts:
     - media-libs/libuninameslist
 
 - tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - doc
+      - gtk-doc
+  packages:
+    - dev-cpp/atkmm:0
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    uses:
+      - X
+      - wayland
+    buildtime_deps:
+      packages:
+        - category: dev-cpp
+          name: atkmm
+  packages:
+    - dev-cpp/gtkmm:3.0
+
+- tree: packages/atoms/xorg-base
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-cpp-3.0
+          name: gtkmm
   uses:
     disabled:
     - debug
@@ -552,10 +618,10 @@ artefacts:
     - video_cards_voodoo
     - video_cards_radeonsi
     - video_cards_gallium-radeonsi
+    - input_devices_mouse
     enabled:
     - input_devices_evdev
     - input_devices_keyboard
-    - input_devices_mouse
     - input_devices_synaptics
     - input_devices_vmmouse
     - video_cards_amdgpu
@@ -601,6 +667,79 @@ artefacts:
     uninstall:
       - /usr/bin/gpu-configurator nvidia gbmlib --disable-driver --purge || true
 
+- tree: packages/atoms/xorg-base
+  mutations:
+    uses:
+      - -alsa-plugin
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - minimal
+      - aptx
+      - fftw
+      - ldac
+      #- lirc
+      - ofono-headset
+      - systemd
+      - valgrind
+      # PDEPEND related to alsa-plugins[pulseaudio]
+      # that could be skipped.
+      - alsa-plugin
+  packages:
+    - media-sound/pulseaudio
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - static-libs
+      - debug
+      - sh
+      - nios2
+      - doc
+      - examples
+      - test
+      - doc
+      - custom-cflags
+      - fbcon
+      - libcaca
+      - tslib
+  packages:
+    - media-libs/libsdl
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - libass
+      - test
+      - static-libs
+      - doc
+      - examples
+      - sdlgfx
+  packages:
+    - media-video/mjpegtools
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - doc
+      - opus
+  packages:
+    - media-sound/jack2:2
+    - x11-apps/xsm
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - doc
+  packages:
+    - dev-libs/libinput
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
@@ -617,6 +756,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -711,7 +851,7 @@ reposcan_disabled_use_flags:
   - kernel_Winnt
   - kernel_FreeBSD
   - man
-  - minimal
+  #- minimal
   # Cryptographic library for embedded systems
   - mbedtls
   - modules

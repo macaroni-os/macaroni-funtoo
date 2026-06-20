@@ -224,6 +224,43 @@ artefacts:
     - dev-lang/go,go1.23
 
 
+- tree: packages/atoms/base-lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  custom_path: dev-lang/go/1.24
+  conditions:
+    - '<dev-lang/go-1.25'
+    - '>=dev-lang/go-1.24.0'
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.24
+
+- tree: packages/atoms/base-lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  custom_path: dev-lang/go/1.25
+  conditions:
+    - '<dev-lang/go-1.26'
+    - '>=dev-lang/go-1.25.0'
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.25
+
+
 # ----------------------------
 # Nodejs stuff
 # ----------------------------
@@ -500,6 +537,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base

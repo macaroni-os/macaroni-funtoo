@@ -89,32 +89,10 @@ artefacts:
 
 
 - tree: packages/atoms/base-kde3
-  uses:
-    disabled:
-      - debug
-      - doc
-      - qalculate
-      - gps
-      - static-libs
-      - test
-  packages:
-    - kde-plasma/kde-cli-tools:5
-    - x11-libs/libxcvt
-
-- tree: packages/atoms/base-kde3
   mutations:
     uses:
       # Quiet emerge for kitemmodels
       - qml
-    buildtime_deps:
-      packages:
-        - category: kde-plasma-5
-          name: layer-shell-qt
-        - category: kde-plasma-5
-          name: breeze
-        # TODO: move this to xorg race
-        - category: x11-libs
-          name: libxcvt
   uses:
     disabled:
       - debug
@@ -125,7 +103,6 @@ artefacts:
       - test
   packages:
     - sys-apps/hwdata
-    - kde-plasma/kwin:5
 
 - tree: packages/atoms/base-kde3
   uses:
@@ -137,35 +114,24 @@ artefacts:
       - static-libs
       - test
   packages:
-    - kde-frameworks/syntax-highlighting:5
-    - kde-frameworks/threadweaver:5
-    - kde-misc/kdiff3:5
-    - kde-plasma/kactivitymanagerd:5
-    - kde-plasma/kwayland-server:5
-    - kde-frameworks/baloo:5
-    - kde-frameworks/kactivities-stats:5
-    - kde-frameworks/kdnssd:5
-    - kde-frameworks/kemoticons:5
-    - kde-frameworks/kfilemetadata:5
-    - kde-frameworks/kholidays:5
-    - kde-frameworks/kitemmodels:5
-    - kde-frameworks/knewstuff:5
-    - kde-frameworks/knotifyconfig:5
-    - kde-frameworks/kpeople:5
-    - kde-frameworks/kpty:5
-    - kde-frameworks/kquickcharts:5
-    - kde-frameworks/krunner:5
-    - kde-frameworks/ktexteditor:5
-    - kde-frameworks/kunitconversion:5
-    - kde-frameworks/prison:5
-    - kde-frameworks/frameworkintegration:5
-    - kde-plasma/kdecoration:5
-    - kde-plasma/layer-shell-qt:5
-    - kde-plasma/libksysguard:5
-    - kde-plasma/libkworkspace:5
-    - kde-frameworks/kirigami:5
-    - kde-plasma/milou:5
-    - kde-plasma/plasma-integration:5
+    - kde-frameworks/ktexteditor:6
+
+    # not autogen and requires qt5
+    #- kde-plasma/kwayland-integration:6
+
+    - kde-plasma/kactivitymanagerd:6
+    - kde-frameworks/baloo:6
+    - kde-frameworks/kactivities-stats:6
+    - kde-frameworks/kdnssd:6
+    - kde-frameworks/kholidays:6
+    - kde-frameworks/kpeople:6
+    - kde-frameworks/kquickcharts:6
+    - kde-plasma/kdecoration:6
+    - kde-plasma/libksysguard:6
+    - kde-plasma/libkworkspace:6
+    - kde-frameworks/kirigami:6
+    - kde-plasma/milou:6
+    - kde-plasma/plasma-integration:6
       #- kde-plasma/plasma-workspace:5
 
     - dev-libs/appstream
@@ -183,15 +149,10 @@ artefacts:
       - static-libs
       - test
   packages:
-    - kde-frameworks/plasma:5
+    - kde-frameworks/plasma:6
 
 - tree: packages/atoms/base-kde3
   mutations:
-    buildtime_deps:
-      # This must be a DEPEND
-      packages:
-        - category: kde-frameworks-5
-          name: kirigami
     uses:
       # Quiet emerge for kitemmodels
       - qml
@@ -204,14 +165,10 @@ artefacts:
       - static-libs
       - test
   packages:
-    - kde-plasma/breeze:5
+    - kde-plasma/breeze:6
 
 - tree: packages/atoms/base-kde3
   mutations:
-    buildtime_deps:
-      packages:
-        - category: kde-plasma-5
-          name: layer-shell-qt
     uses:
       # Quiet emerge for kitemmodels
       - qml
@@ -224,7 +181,7 @@ artefacts:
       - static-libs
       - test
   packages:
-    - kde-plasma/kscreenlocker:5
+    - kde-plasma/kscreenlocker:6
 
 - tree: packages/atoms/base-kde3
   uses:
@@ -241,7 +198,7 @@ artefacts:
   packages:
     - sci-visualization/gnuplot
 
-- tree: packages/atoms/nvidia
+- tree: packages/atoms/base-kde3
   mutations:
     buildtime_deps:
       packages:
@@ -249,6 +206,10 @@ artefacts:
           name: macaroni-funtoo-race17
   packages:
     - sci-libs/libcerf
+
+- tree: packages/atoms/base-kde3
+  packages:
+    - media-libs/zxing-cpp
 
 include_layers:
 - layers/macaroni-funtoo-race17.yaml
@@ -266,6 +227,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -273,7 +235,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -282,11 +244,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -487,6 +448,8 @@ reposcan_disabled_use_flags:
   - libproxy
   - java
   - ruby
+
+  - qt5
 
   - x86-fbsd
   - x64-macos

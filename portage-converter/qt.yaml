@@ -87,7 +87,7 @@ global_annotations:
 
 artefacts:
 
-- tree: packages/atoms/base-qt
+- tree: packages/atoms/base-qt6
   mutations:
     uses:
       - networkmanager
@@ -104,7 +104,7 @@ artefacts:
   packages:
   - net-misc/connman
 
-- tree: packages/atoms/base-qt
+- tree: packages/atoms/base-qt6
   uses:
     disabled:
     - gconf
@@ -122,6 +122,7 @@ artefacts:
     - gtk
     - gtk2
     - gtk3
+    - gtk4
     - gui
     - libnotify
     - introspection
@@ -133,7 +134,7 @@ artefacts:
   packages:
   - app-i18n/ibus
 
-- tree: packages/atoms/base-qt
+- tree: packages/atoms/base-qt6
   mutations:
     buildtime_deps:
       packages:
@@ -150,7 +151,7 @@ artefacts:
   packages:
     - app-i18n/unicode-emoji
 
-- tree: packages/atoms/base-qt
+- tree: packages/atoms/base-qt6
   uses:
     disabled:
     - examples
@@ -160,11 +161,10 @@ artefacts:
     - old-kernel
     - debug
   packages:
-    - app-text/iso-codes
     - app-i18n/unicode-cldr
     - app-i18n/unicode-data
 
-- tree: packages/atoms/base-qt
+- tree: packages/atoms/base-qt6
   mutations:
     runtime_deps:
       packages:
@@ -190,309 +190,7 @@ artefacts:
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e geoclue
 
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race9
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-  packages:
-    - dev-qt/qtchooser
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt
-          name: qtchooser
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-  packages:
-    - dev-qt/qtcore:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtcore
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-  packages:
-    - dev-qt/qtdbus:5
-    - dev-qt/qtxml:5
-    - dev-qt/qtconcurrent:5
-    - dev-qt/qttest:5
-    - dev-qt/qtpaths:5
-
-- tree: packages/atoms/base-qt
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - scripttools
-    - debug
-  packages:
-    - dev-qt/qtscript:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtcore
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - oci8
-    - freetds
-    - odbc
-    - mysql
-    - postgres
-  packages:
-    - dev-qt/qtsql:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtcore
-        - category: net-misc
-          name: connman
-  # sctp use flags seems needed for qtvirtualkeyboard
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - bindist
-    - debug
-    - gssapi
-    - libproxy
-  packages:
-    - dev-qt/qtnetwork:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    uses:
-      - wayland
-      - egl
-      - ibus
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtcore
-        - category: app-i18n
-          name: ibus
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - bindist
-    - debug
-    - eglfs
-    - gles2-only
-    - linuxfs
-    - tslib
-    - tuio
-    - vnc
-  packages:
-    - dev-qt/qtgui:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtcore
-    uses:
-      - vulkan
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - bindist
-    - debug
-    - eglfs
-    - gles2-only
-    - tslib
-    - tuio
-    - vnc
-  packages:
-    - dev-qt/qtdeclarative:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtcore
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - bindist
-    - debug
-    - eglfs
-    - gles2-only
-    - tslib
-    - tuio
-    - vnc
-  packages:
-    - dev-qt/qtwayland:5
-    - dev-qt/qtgraphicaleffects:5
-    - dev-qt/linguist-tools:5
-    - dev-qt/qtopengl:5
-    - dev-qt/qtprintsupport:5
-    - dev-qt/qtquickcontrols:5
-    - dev-qt/qtsensors:5
-    - dev-qt/qtwebchannel:5
-    - dev-qt/qtx11extras:5
-    - dev-qt/qtxmlpatterns:5
-    - dev-qt/qtsvg:5
-    - dev-qt/qtquickcontrols2:5
-    - dev-qt/qttranslations:5
-
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtgui
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - bindist
-    - debug
-    - eglfs
-    - gles2-only
-    - linuxfs
-    - tslib
-    - tuio
-    - vnc
-  packages:
-    - dev-qt/qtwidgets:5
-
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtgui
-        - category: app-misc-2.0
-          name: geoclue
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - bindist
-    - debug
-    - gles2-only
-  packages:
-    - dev-qt/qtpositioning:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtgui
-  uses:
-    disabled:
-    - examples
-    - nios2
-    - sh
-    - test
-    - old-kernel
-    - debug
-    - bindist
-    - debug
-    - eglfs
-    - gles2-only
-    - tslib
-    - tuio
-    - vnc
-  packages:
-    - dev-qt/qtlockedfile
-    - dev-qt/qtnetworkauth:5
-    - dev-qt/qtimageformats:5
-    - dev-qt/qtdiag:5
-    - dev-qt/qtbluetooth:5
-    - dev-qt/qtlocation:5
-    - dev-qt/qthelp:5
-
-- tree: packages/atoms/base-qt
-  mutations:
-    uses:
-      - vulkan
-    buildtime_deps:
-      packages:
-        - category: dev-qt-5
-          name: qtdeclarative
-  uses:
-    disabled:
-      - debug
-      - test
-  packages:
-    - dev-qt/qtcharts:5
-    - dev-qt/qtdatavis3d:5
-
-
-- tree: packages/atoms/base-qt
+- tree: packages/atoms/base-qt6
   packages:
     - app-text/scrollkeeper-dtd:1.0
   finalizer:
@@ -523,15 +221,54 @@ artefacts:
         TARGET_CATALOG=etc/xml/catalog
         whip h xmlcatalog.cat_remove || true
 
-- tree: packages/atoms/base-qt
+- tree: packages/atoms/base-qt6
+  mutations:
+    uses:
+      - wayland
+  uses:
+    disabled:
+      - debug
+      - test
+      - journald
+      - renderdoc
+      - mysql
+      - postgres
   packages:
-    - dev-qt/qtquicktimeline:5
-    - dev-qt/qtscxml:5
-    - dev-qt/qtserialbus:5
-    - dev-qt/qtserialport:5
-    - dev-qt/qtplugininfo:5
-    - dev-qt/pixeltool:5
-    - dev-qt/qdoc:5
+    - dev-qt/qtbase:6
+
+- tree: packages/atoms/base-qt6
+  uses:
+    disabled:
+      - debug
+      - test
+      - journald
+      - renderdoc
+      - mysql
+      - postgres
+  packages:
+    - dev-qt/qt5compat:6
+    - dev-qt/qtcharts:6
+    - dev-qt/qtdeclarative:6
+    - dev-qt/qthttpserver:6
+    - dev-qt/qtimageformats:6
+    - dev-qt/qtlanguageserver:6
+    - dev-qt/qttools:6
+    - dev-qt/qtsvg:6
+    - dev-qt/qtconnectivity:6
+    - dev-qt/qtwayland:6
+    - dev-qt/qtnetworkauth:6
+    - dev-qt/qtscxml:6
+    - dev-qt/qtserialport:6
+    - dev-qt/qtshadertools:6
+    - dev-qt/qtpositioning:6
+    - dev-qt/qtwebsockets:6
+    - dev-qt/qtsensors:6
+    - dev-qt/qtquick3d:6
+    - dev-qt/qtwebchannel:6
+    - dev-qt/qtquicktimeline:6
+    - dev-qt/qttranslations:6
+    - dev-qt/qtlocation:6
+
 
 include_layers:
 - layers/macaroni-funtoo-race9.yaml
@@ -549,6 +286,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -556,7 +294,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 
 # Define the list of the files generated by Funtoo reposcan tool.
 reposcan_sources:
@@ -592,6 +330,7 @@ reposcan_sources:
 - kit_cache/xfce-kit-mark-iii
 - kit_cache/xorg-kit-mark-iii
 - kit_cache/lisp-scheme-kit-mark-iii
+- kit_cache/ai-kit-mark-iii
 
 - kit_cache/geaaru-kit-funtoo
 

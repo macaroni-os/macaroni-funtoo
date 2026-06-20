@@ -72,6 +72,13 @@ skipped_resolutions:
     - name: zfs-kmod
       category: sys-fs
 
+    # Temporary until mark-issues#659 is done
+    - name: gst-plugins-twolame
+      category: media-plugins
+
+    - name: gst-plugins-soup
+      category: media-plugins
+
 build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
@@ -95,9 +102,8 @@ artefacts:
       - consolekit
       - examples
   packages:
-    - gnome-base/gnome-shell-common
     - x11-themes/gnome-backgrounds
-    - gnome-extra/gnome-user-docs
+    - x11-themes/gnome-icon-theme-extras
     - dev-python/dbusmock
 
 - tree: packages/atoms/base-gnome4
@@ -114,7 +120,8 @@ artefacts:
       - lua
       - demos
   packages:
-    - dev-libs/libpeas
+    - dev-libs/libpeas:0
+    - dev-libs/libpeas:2
 
 - tree: packages/atoms/base-gnome4
   mutations:
@@ -189,6 +196,7 @@ artefacts:
       - consolekit
       - examples
       - glade
+      - tracker
   packages:
     - app-cdr/brasero
 
@@ -227,10 +235,8 @@ artefacts:
       - valgrind
       - lcms
   packages:
-    - app-text/djvu
     - app-text/libspectre
     - app-text/libgxps
-    - x11-libs/amtk
     - x11-libs/libwnck
     - gnome-extra/gnome-shell-extensions
 
@@ -280,6 +286,7 @@ artefacts:
       - connman
   packages:
     - net-libs/gupnp:1.2
+    - net-libs/gupnp:1.6
     - net-libs/gupnp:0
 
 - tree: packages/atoms/base-gnome4
@@ -301,13 +308,36 @@ artefacts:
       - accessibility
   packages:
     - gnome-extra/gnome-contacts
-    - media-gfx/eog
-    - gui-libs/tepl
-    - app-editors/gedit
     - net-libs/dleyna-connector-dbus:1.0
     - net-misc/dleyna-server
     - media-plugins/grilo-plugins:0.3
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-libs
+          name: libpeas
+  uses:
+    disabled:
+      - debug
+      - test
+      - doc
+      - static-libs
+      - lcms
+      - nsplugin
+      - t1lib
+      - gnome-keyring
+      - gtk-doc
+      - examples
+      - freebox
+      - thetvdb
+      - extras
+      - accessibility
+  packages:
     - media-video/totem
+    - app-editors/gedit
+    - media-gfx/eog:1
 
 - tree: packages/atoms/base-gnome4
   uses:
@@ -405,37 +435,6 @@ artefacts:
 
 - tree: packages/atoms/base-gnome4
   mutations:
-    uses:
-      # Avoid # required by gnome-base/gnome (argument)
-      # >=dev-libs/folks-0.14.0 eds
-      - eds
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race15
-  uses:
-    disabled:
-      - debug
-      - test
-      - doc
-      - static-libs
-      - lcms
-      - nsplugin
-      - t1lib
-      - gnome-keyring
-      - gtk-doc
-      - examples
-      - freebox
-      - thetvdb
-      - extras
-      - accessibility
-  packages:
-    - gnome-base/gnome
-    - gnome-base/gnome-core-apps:3.0
-    - gnome-base/gnome-core-libs:3.0
-
-- tree: packages/atoms/base-gnome4
-  mutations:
     buildtime_deps:
       packages:
         - category: seed
@@ -443,7 +442,6 @@ artefacts:
   packages:
     # to move on base-latex
     - virtual/tex-base
-    - media-libs/jbigkit
 
 - tree: packages/atoms/base-gnome4
   mutations:
@@ -489,8 +487,6 @@ artefacts:
       packages:
         - category: dev-libs
           name: libpeas
-        - category: dev-libs
-          name: folks
     runtime_deps:
       packages:
         - category: dev-libs
@@ -562,15 +558,13 @@ artefacts:
       - tracker
   packages:
     - net-libs/gtk-vnc
-    - media-plugins/gst-plugins-twolame:1.0
 
 - tree: packages/atoms/base-gnome4
   mutations:
     runtime_deps:
-      packages:
-        - category: media-libs-1.0
-          name: gstreamer-editing-services
-    buildtime_deps:
+      ignore:
+        - category: media-libs
+          name: gst-plugins-twolame
       packages:
         - category: media-libs-1.0
           name: gstreamer-editing-services
@@ -603,38 +597,6 @@ artefacts:
     - dev-python/numpy
     - dev-libs/imath
     - media-libs/openexr
-
-- tree: packages/atoms/base-gnome4
-  mutations:
-    runtime_deps:
-      packages:
-        # Seems missing on ebuild.
-        - category: media-libs
-          name: libraqm
-    uses:
-      # Quiet emerge block message
-      - video_cards_nvidia
-      - video_cards_r600
-      - wayland
-
-      - q32
-      - q8
-  uses:
-    disabled:
-      - fftw
-      - fontconfig
-      - fpx
-      - lqr
-      - static-libs
-      - test
-      - gtk-doc
-      - doc
-      - examples
-      - large-stack
-      - threads
-      - utils
-  packages:
-    - media-gfx/imagemagick
 
 - tree: packages/atoms/base-gnome4
   uses:
@@ -685,7 +647,37 @@ artefacts:
     - net-libs/libgrss
     - sys-apps/osinfo-db
     - sys-libs/libosinfo
-    - app-misc/tracker-miners
+
+- tree: packages/atoms/base-gnome4
+  packages:
+    - app-text/papers
+    - media-libs/libshumate
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    provides:
+      - category: x11-libs
+        name: amtk
+        version: 5.9.0
+    conflicts:
+      - category: x11-libs
+        name: amtk
+        version: '<5.1.0'
+  packages:
+    - dev-libs/libgedit-amtk
+
+- tree: packages/atoms/base-gnome4
+  mutations:
+    provides:
+      - category: gui-libs-4
+        name: tepl
+        version: 6.12.0
+    conflicts:
+      - category: gui-libs-4
+        name: tepl
+        version: '<4.5.0'
+  packages:
+    - dev-libs/libgedit-tepl
 
 include_layers:
 - layers/macaroni-funtoo-race15.yaml
@@ -703,6 +695,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -710,7 +703,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -719,11 +712,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -898,6 +890,11 @@ reposcan_disabled_use_flags:
   # Disabled for mesa lib
   - vulkan-overlay
   - valgrind
+
+  # Deprecated module
+  - tracker
+
+  - sysprof
 
   # Disable fabric stuff
   - ofed

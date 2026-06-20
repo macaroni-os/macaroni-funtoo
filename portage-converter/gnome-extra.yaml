@@ -72,6 +72,13 @@ skipped_resolutions:
     - name: zfs-kmod
       category: sys-fs
 
+    # Hamster dependencies ignored
+    - name: glib-utils
+      category: dev-util
+
+    - name: gconf
+      category: gnome-base
+
 build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
@@ -95,7 +102,8 @@ artefacts:
       - packagekit
       - doc
   packages:
-    - gnome-extra/gnome-getting-started-docs
+    - app-text/libgepub
+    - net-libs/libzapojit
     - dev-cpp/atkmm
     - dev-cpp/pangomm
     - app-text/gtkspell:3
@@ -118,7 +126,6 @@ artefacts:
     - media-libs/babl
     - dev-libs/libmanette
     - dev-libs/libgnome-games-support:1
-    - gnome-extra/gconf-editor
     - gnome-extra/gnome-search-tool
     - gnome-extra/gucharmap
     - media-libs/gegl:0.4
@@ -132,31 +139,16 @@ artefacts:
     - media-gfx/gnome-font-viewer
     - media-gfx/gnome-screenshot
     - media-sound/gnome-sound-recorder
-    - gnome-extra/gnome-user-share
     - gnome-extra/gnome-tweaks
 
 - tree: packages/atoms/gnome-extra
   mutations:
     uses:
-      - wayland
-      - X
-  uses:
-    disabled:
-      - lcms
-      - debug
-      - lensfun
-      - test
-      - umfpack
+      - nautilus
   packages:
-    - dev-cpp/gtkmm:3.0
+    - gnome-extra/gnome-user-share
 
 - tree: packages/atoms/gnome-extra
-  # TODO: issue in the ebuild
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-cpp-3.0
-          name: gtkmm
   uses:
     disabled:
       - libressl
@@ -168,17 +160,6 @@ artefacts:
       - doc
   packages:
     - app-misc/gnote
-
-- tree: packages/atoms/gnome-extra
-  uses:
-    disabled:
-      - libressl
-      - static-libs
-      - debug
-      - test
-      - ldap
-  packages:
-    - gnome-base/gconf:2
 
 - tree: packages/atoms/gnome-extra
   uses:
@@ -258,13 +239,12 @@ artefacts:
   packages:
     - gnome-extra/gnome-calendar
     - gnome-extra/gnome-clocks
-    - gnome-extra/gnome-documents
     - gnome-extra/gnome-recipes
-    - gnome-extra/gnome-todo
     - gnome-extra/mousetweaks
     - gnome-extra/polkit-gnome
     - gui-libs/gtk-layer-shell
     - media-gfx/gnome-photos
+    - gnome-extra/endeavour
 
 
 - tree: packages/atoms/gnome-extra
@@ -294,6 +274,9 @@ artefacts:
     - gnome-extra/gnome-shell-extension-applications-overview-tooltip
     - gnome-extra/gnome-shell-extensions-topicons
     - gnome-extra/gnome-shell-extensions-topicons-plus
+    #- gnome-extra/gnome-shell-extension-dash-to-dock
+    #- gnome-extra/gnome-shell-extension-desktop-icons
+    #- gnome-extra/gnome-shell-extension-transparent-topbar
 
 - tree: packages/atoms/gnome-extra
   uses:
@@ -320,7 +303,6 @@ artefacts:
           name: macaroni-funtoo-race16
   packages:
     - x11-themes/murrine-themes
-    - x11-themes/funtoo-gnome-shell-theme
     - x11-themes/gtk-engines:2
 
 - tree: packages/atoms/gnome-extra
@@ -389,6 +371,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -396,7 +379,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -405,11 +388,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -603,6 +585,10 @@ reposcan_disabled_use_flags:
   - amd64-fbsd
   - ppc
   - ppc64
+
+  - sysprof
+  - tracker
+  - qt5
 
   - userland_BSD
 reposcan_disabled_keywords:

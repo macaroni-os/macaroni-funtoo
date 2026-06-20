@@ -72,6 +72,9 @@ skipped_resolutions:
     - name: zfs-kmod
       category: sys-fs
 
+    - name: usbguard
+      category: sys-apps
+
 build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
@@ -125,6 +128,7 @@ artefacts:
       - api-doc-extra
       - libinput
       - nsplugin
+      - sysprof
   packages:
     - x11-wm/mutter
 
@@ -153,7 +157,6 @@ artefacts:
     disabled:
       - kde
   packages:
-    - virtual/notification-daemon
     - app-eselect/eselect-cblas
     - virtual/perl-Archive-Tar
     - virtual/perl-DB_File
@@ -163,9 +166,32 @@ artefacts:
 
 - tree: packages/atoms/base-gnome3
   mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
     uses:
-      - wayland
+      # quiet portage
       - elogind
+      - X
+      - wayland
+      - xwayland
+      - udev
+      - networkmanager
+  uses:
+    disabled:
+      - kde
+  packages:
+    - virtual/notification-daemon
+
+- tree: packages/atoms/base-gnome3
+  mutations:
+    uses:
+      - bluetooth-sound
+      # Quiet Portage!
+      - wayland
+      - udev
+      - networkmanager
   uses:
     disabled:
       - accessibility
@@ -281,7 +307,6 @@ artefacts:
       - test
       - examples
   packages:
-    - gnome-extra/gnome-shell-extension-dynamic-panel-transparency
     - gnome-extra/gnome-shell-extension-desktop-icons
     - gnome-extra/gnome-shell-extension-dash-to-dock
   finalizer:
@@ -295,6 +320,37 @@ artefacts:
         whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
 
 - tree: packages/atoms/base-gnome3
+  mutations:
+    uses:
+      - gtk
+      - elogind
+      - X
+      - networkmanager
+  uses:
+    disabled:
+      - static-libs
+      - test
+      - examples
+  packages:
+    - gnome-extra/gnome-shell-extension-dynamic-panel-transparency
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        source /etc/profile &&
+        macaronictl env-update &&
+        whip hook gtk.mime_update_db gtk.glib_update_schemas gtk.gtk_update_icons
+
+
+- tree: packages/atoms/base-gnome3
+  mutations:
+    uses:
+      - gtk
+      - elogind
+      - X
+      - networkmanager
   uses:
     disabled:
       - static-libs
@@ -315,6 +371,13 @@ artefacts:
 - tree: packages/atoms/base-gnome3
   uses:
     disabled:
+      - qt5
+  packages:
+    - dev-libs/libportal
+
+- tree: packages/atoms/base-gnome3
+  uses:
+    disabled:
       - static-libs
       - test
       - examples
@@ -331,7 +394,6 @@ artefacts:
     - sys-apps/mlocate
     - x11-misc/icon-naming-utils
     - app-misc/jq
-    - media-libs/exempi
     - media-libs/musicbrainz
     - gnome-base/nautilus
 
@@ -350,6 +412,113 @@ artefacts:
   packages:
     - net-libs/neon
 
+- tree: packages/atoms/base-gnome3
+  packages:
+    - x11-libs/gtksourceview:5
+
+- tree: packages/atoms/base-gnome3
+  mutations:
+    provides:
+      - category: media-libs-2
+        name: exempi
+        version: 2.6.6
+  packages:
+    - media-libs/exempi
+
+- tree: packages/atoms/base-gnome3
+  mutations:
+    runtime_deps:
+      packages:
+        # Seems missing on ebuild.
+        - category: media-libs
+          name: libraqm
+    uses:
+      # Quiet emerge block message
+      - video_cards_nvidia
+      - video_cards_r600
+      - wayland
+
+      - q32
+      - q8
+  uses:
+    disabled:
+      - fftw
+      - fontconfig
+      - fpx
+      - lqr
+      - static-libs
+      - test
+      - gtk-doc
+      - doc
+      - examples
+      - large-stack
+      - threads
+      - utils
+  packages:
+    - media-gfx/imagemagick
+
+- tree: packages/atoms/base-gnome3
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
+  packages:
+    - media-libs/jbigkit
+
+- tree: packages/atoms/base-gnome3
+  packages:
+    - app-text/libspelling
+    - dev-libs-3/libappindicator
+    - dev-libs-3/libindicator
+
+- tree: packages/atoms/base-gnome3
+  uses:
+    disabled:
+      - doc
+      - seccomp
+      - kde
+  packages:
+    # Adding this package because xdg-desktop-* stuff
+    # is here.
+    - sys-apps/flatpak
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e flatpak
+
+- tree: packages/atoms/base-gnome3
+  mutations:
+    uses:
+      - http
+      - http2
+    provides:
+      - category: dev-util
+        name: ostree
+        version: "2025.7"
+  uses:
+    disabled:
+      - doc
+      - selinux
+  packages:
+    - sys-fs/libostree
+
+- tree: packages/atoms/base-gnome3
+  packages:
+    - media-libs/libchamplain:0.12
+    - app-text/papers
+
+
+- tree: packages/atoms/base-gnome3
+  uses:
+    disabled:
+      - cue
+  packages:
+    - app-misc/localsearch
 
 include_layers:
 - layers/macaroni-funtoo-race14.yaml
@@ -367,6 +536,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -374,7 +544,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -383,11 +553,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/macaroni
 
@@ -499,6 +668,7 @@ reposcan_disabled_use_flags:
 
   - debug
 
+  - sysprof
   - systemd
 
   # Disable efl/e17
@@ -555,6 +725,9 @@ reposcan_disabled_use_flags:
   # Disabled for mesa lib
   - vulkan-overlay
   - valgrind
+
+  # qt6 only
+  - qt5
 
   # Disable fabric stuff
   - ofed

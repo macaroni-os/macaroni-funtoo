@@ -117,9 +117,6 @@ artefacts:
     - dev-libs/gjs
     - gnome-base/libgtop:2
     - dev-libs/libgee:0.8
-    - media-plugins/gst-plugins-opus
-    - media-plugins/gst-plugins-v4l2
-    - media-plugins/gst-plugins-vpx
 
 - tree: packages/atoms/base-gnome2
   uses:
@@ -181,6 +178,12 @@ artefacts:
 - tree: packages/atoms/base-gnome2
   uses:
     disabled:
+  packages:
+    - net-libs/libnma
+
+- tree: packages/atoms/base-gnome2
+  uses:
+    disabled:
       - examples
       - static-libs
       - test
@@ -193,15 +196,14 @@ artefacts:
       - libnotify
   packages:
     - x11-libs/libxklavier
-    - gnome-base/gnome-desktop:3
+    - gnome-base/gnome-desktop:0
     - dev-util/glade:3.10
     - app-arch/gnome-autoar
     - gnome-base/libgnomekbd
-    - net-libs/libnma
     - gnome-extra/zenity
     - dev-libs/libdazzle
     - app-accessibility/caribou
-    - dev-libs/libhandy:0.0.13
+    - dev-libs/libhandy:0
 
 - tree: packages/atoms/base-gnome2
   uses:
@@ -227,6 +229,7 @@ artefacts:
     uses:
       - quota
       - winbind
+      - ads
   uses:
     disabled:
       - addc
@@ -331,26 +334,6 @@ artefacts:
     - dev-util/gi-docgen
 
 - tree: packages/atoms/base-gnome2
-  uses:
-    disabled:
-      - examples
-      - static-libs
-      - test
-      - doc
-      - gtk-doc
-      - debug
-      - avif
-      - gamepad
-      - gles2-only
-      - gnome-keyring
-      - lcms
-      - libnotify
-      - seccomp
-      - spell
-  packages:
-    - net-libs/webkit-gtk:4
-
-- tree: packages/atoms/base-gnome2
   mutations:
     uses:
       - vala
@@ -378,6 +361,12 @@ artefacts:
     - dev-libs/libgdata
 
 - tree: packages/atoms/base-gnome2
+  mutations:
+    uses:
+      - client
+      - acl
+      - winbind
+      - ads
   uses:
     disabled:
       - kerberos
@@ -387,7 +376,6 @@ artefacts:
       - gtk-doc
       - static-libs
       - api-doc-extras
-      - ldap
   packages:
     - gnome-base/gvfs
 
@@ -408,7 +396,8 @@ artefacts:
       - nsplugin
   packages:
     - sci-geosciences/geocode-glib
-    - dev-libs/libgweather:2
+    #- dev-libs/libgweather:2
+    - dev-libs/libgweather:4
 #    - gnome-base/gnome-settings-daemon
 #    - gnome-base/gnome-session
 #    - gnome-extra/evolution-data-server
@@ -418,18 +407,6 @@ artefacts:
 #    - gnome-base/gnome-shell
 
 
-#- tree: packages/atoms/base-gnome2
-#  mutations:
-#    buildtime_deps:
-#      packages:
-#        - category: seed
-#          name: macaroni-funtoo-race13
-#  uses:
-#    disabled:
-#      - kde
-#  packages:
-#    - virtual/notification-daemon
-#
 #- tree: packages/atoms/base-gnome2
 #  uses:
 #    disabled:
@@ -457,6 +434,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -464,7 +442,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -473,7 +451,7 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 
@@ -512,6 +490,7 @@ reposcan_sources:
 - kit_cache/xfce-kit-mark-iii
 - kit_cache/xorg-kit-mark-iii
 - kit_cache/lisp-scheme-kit-mark-iii
+- kit_cache/ai-kit-mark-iii
 
 - kit_cache/geaaru-kit-funtoo
 
@@ -583,6 +562,8 @@ reposcan_disabled_use_flags:
   - mbedtls
   - modules
 
+  - sysprof
+
   - debug
 
   - systemd
@@ -597,8 +578,8 @@ reposcan_disabled_use_flags:
   - pptp
 
   # Disable LDAP integration at core level
-  - ldap
-  - openldap
+  #- ldap
+  #- openldap
 
   - verify-sig
 

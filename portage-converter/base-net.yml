@@ -651,11 +651,6 @@ artefacts:
     - dev-libs/newt
 
 - tree: packages/atoms/base-net
-  mutations:
-    runtime_deps:
-      packages:
-        - category: dev-libs
-          name: jansson
   uses:
     disabled:
     - consolekit
@@ -670,8 +665,8 @@ artefacts:
     - sh
     - teamd
     - test
-    - nftables
     enabled:
+    - nftables
     - bluetooth
     - connection-sharing
     - dhcpcd
@@ -1479,6 +1474,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base

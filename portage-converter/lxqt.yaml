@@ -114,13 +114,18 @@ artefacts:
     - dev-util/lxqt-build-tools
     - lxqt-base/lxqt-panel
     - x11-misc/pcmanfm-qt
+    - media-gfx/lximage-qt
+    - x11-libs/qtermwidget
+    - x11-misc/qps
+    - x11-misc/screengrab
+    - x11-terms/qterminal
 
 - tree: packages/atoms/lxqt
   mutations:
     provides:
       - category: lxde-base
         name: lxmenu-data
-        version: "1.4.1"
+        version: "2.3.0"
   packages:
     - lxqt-base/lxqt-menu-data
 
@@ -131,22 +136,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race16
-  uses:
-    disabled:
-      - sddm
-      - lightdm
-  packages:
-    - lxqt-base/lxqt-meta
-
-- tree: packages/atoms/lxqt
-  mutations:
-    uses:
-      - minimal
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race16
+          name: macaroni-funtoo-race17
   uses:
     disabled:
       - sddm
@@ -169,7 +159,7 @@ artefacts:
     - sys-libs/libstatgrab
 
 include_layers:
-- layers/macaroni-funtoo-race16.yaml
+- layers/macaroni-funtoo-race17.yaml
 
 trees:
 - ../packages/seeds
@@ -184,6 +174,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -191,7 +182,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -200,11 +191,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -401,6 +391,8 @@ reposcan_disabled_use_flags:
   - libproxy
   - java
   - ruby
+
+  - qt5
 
   - x86-fbsd
   - x64-macos

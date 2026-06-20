@@ -72,6 +72,9 @@ skipped_resolutions:
     - name: zfs-kmod
       category: sys-fs
 
+    - name: virtualbox-modules
+      category: app-emulation
+
 build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
@@ -368,6 +371,8 @@ artefacts:
       ignore:
         - category: kernel-5.10
           name: virtualbox-modules
+        - category: app-emulation
+          name: virtualbox-modules
   mutations:
     runtime_deps:
       packages:
@@ -377,7 +382,6 @@ artefacts:
     disabled:
     - headless
     - nios2
-    - python_targets_python3_8
     - rdesktop-vrdp
     - sdk
     - sh
@@ -385,6 +389,7 @@ artefacts:
     - chm
     - python_targets_python2_7
     - python_targets_python3_7
+    - python_targets_python3_8
   packages:
   - app-emulation/virtualbox-bin
   finalizer:
@@ -527,6 +532,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -534,7 +540,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -543,11 +549,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -749,6 +754,8 @@ reposcan_disabled_use_flags:
   - amd64-fbsd
   - ppc
   - ppc64
+
+  - qt5
 
   - userland_BSD
 reposcan_disabled_keywords:

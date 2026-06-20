@@ -126,15 +126,6 @@ artefacts:
   mutations:
     buildtime_deps:
       packages:
-        - category: seed
-          name: macaroni-funtoo-race14
-  packages:
-    - app-eselect/eselect-mpg123
-
-- tree: packages/atoms/base-multimedia3
-  mutations:
-    buildtime_deps:
-      packages:
         - category: dev-libs
           name: libusb-compat
   packages:
@@ -157,6 +148,11 @@ artefacts:
     - media-libs/libmpeg2
 
 - tree: packages/atoms/base-multimedia3
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: media-libs
+          name: sdl3-ttf
   uses:
     disabled:
       - debug
@@ -166,6 +162,8 @@ artefacts:
       - inputlirc
       - systemd
       - test
+      # Needs a new version of openh264
+      - openh264
   packages:
     - net-misc/freerdp
 
@@ -213,6 +211,9 @@ artefacts:
       - test
       - tremor
       - zvbi
+      # disable for now
+      - qt5
+      - skins
   packages:
     - media-video/vlc
 
@@ -229,43 +230,9 @@ artefacts:
       - gles2
       - sdlgfx
   packages:
-    - media-plugins/gst-plugins-taglib
-    - media-plugins/gst-plugins-mpeg2dec
-    - media-plugins/gst-plugins-resindvd
-    - media-plugins/gst-plugins-soup
-    - media-plugins/gst-plugins-mpg123
-    - media-plugins/gst-plugins-pulse
     - media-plugins/gst-plugins-vaapi
-    - media-plugins/gst-plugins-wavpack
-    - media-plugins/gst-plugins-x264
-    - media-plugins/gst-plugins-mplex
-    - media-libs/libquicktime
-    - media-video/mjpegtools
-
-- tree: packages/atoms/base-multimedia3
-  mutations:
-    uses:
-      - vorbis
-      - theora
-      - X
-      - alsa
-      - ogg
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race14
-  uses:
-    disabled:
-      - libass
-      - libvisual
-      - test
-      - static-libs
-      - doc
-      - examples
-      - gles2
-      - sdlgfx
-  packages:
-    - media-plugins/gst-plugins-meta:1.0
+    - media-plugins/gst-plugins-libav
+    - media-plugins/gst-plugins-rs
 
 - tree: packages/atoms/base-multimedia3
   uses:
@@ -301,6 +268,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -308,7 +276,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -317,11 +285,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -481,6 +448,8 @@ reposcan_disabled_use_flags:
   - allegro
   - devil
   - dumb
+
+  - qt5
 
   # Disable rados and ceph on core
   - rados

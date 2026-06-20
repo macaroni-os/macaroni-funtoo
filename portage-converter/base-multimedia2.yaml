@@ -131,6 +131,7 @@ artefacts:
       - zvbi
       - mmal
       - video_cards_nvidia
+      - lv2
   packages:
     - media-video/ffmpeg
 
@@ -149,6 +150,9 @@ artefacts:
       - debug
       - libsamplerate
       - speex
+      # Disable ffmpeg until the packages
+      # will be autogen
+      - ffmpeg
   packages:
     - media-plugins/alsa-plugins
 
@@ -218,6 +222,10 @@ artefacts:
     - media-video/pipewire
 
 - tree: packages/atoms/base-multimedia2
+  packages:
+    - media-libs/libdisplay-info
+
+- tree: packages/atoms/base-multimedia2
   uses:
     disabled:
       - debug
@@ -266,33 +274,11 @@ artefacts:
       - static-libs
       - test
       - doc
+      - sidplay
   packages:
     - media-libs/gst-plugins-bad
     - media-libs/gst-plugins-good
     - media-libs/gst-plugins-ugly
-    - media-plugins/gst-plugins-a52dec
-    - media-plugins/gst-plugins-amr
-    - media-plugins/gst-plugins-assrender
-    - media-plugins/gst-plugins-bluez
-    - media-plugins/gst-plugins-cairo
-    - media-plugins/gst-plugins-cdio
-    - media-plugins/gst-plugins-cdparanoia
-    - media-plugins/gst-plugins-chromaprint
-    - media-plugins/gst-plugins-colormanagement
-    - media-plugins/gst-plugins-dash
-    - media-plugins/gst-plugins-dtls
-    - media-plugins/gst-plugins-dts
-    - media-plugins/gst-plugins-dv
-    - media-plugins/gst-plugins-dvb
-    - media-plugins/gst-plugins-dvdread
-    - media-plugins/gst-plugins-faac
-    - media-plugins/gst-plugins-faad
-    - media-plugins/gst-plugins-flac
-    - media-plugins/gst-plugins-gdkpixbuf
-    - media-plugins/gst-plugins-gtk
-    - media-plugins/gst-plugins-hls
-    - media-plugins/gst-plugins-jack
-    - media-plugins/gst-plugins-jpeg
     # gst-plugins-kate for the next race.
     # needs wxpython, webkit-gtk, etc
     #- media-plugins/gst-plugins-kate
@@ -300,8 +286,39 @@ artefacts:
     # gst-plugins-ladspa has missing dep media-libs/liblrdf
     # To fix in funtoo
     #- media-plugins/gst-plugins-ladspa
-    - media-plugins/gst-plugins-lame
     - media-plugins/gst-plugins-libav
+    - media-plugins/gst-plugins-vaapi
+    - media-libs/chromaprint
+
+- tree: packages/atoms/base-multimedia2
+  mutations:
+    uses:
+      - libvisual
+      - vorbis
+      - theora
+      - oss
+      - ogg
+      - mplex
+      - dvdread
+      - mpeg2dec
+      - a52dec
+  uses:
+    disabled:
+      - debug
+      - static-libs
+      - test
+      - doc
+  packages:
+    - media-plugins/gst-plugins-meta
+
+- tree: packages/atoms/base-multimedia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race11
+  packages:
+    - app-eselect/eselect-mpg123
 
 include_layers:
 - layers/macaroni-funtoo-race11.yaml
@@ -319,6 +336,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -326,7 +344,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia

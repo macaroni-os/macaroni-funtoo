@@ -952,7 +952,12 @@ artefacts:
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e avahi-autoipd
 
-
+- tree: packages/atoms/base-gtk
+  uses:
+    disabled:
+      - doc
+  packages:
+    - media-libs/openjpeg:2
 
 include_layers:
 - layers/macaroni-funtoo-race6.yaml

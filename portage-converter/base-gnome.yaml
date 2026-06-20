@@ -239,8 +239,16 @@ artefacts:
     - dev-python/typogrify
     - dev-python/extras
     - dev-python/subunit
-    - sys-libs/tevent
     - sys-libs/tdb
+
+- tree: packages/atoms/base-gnome
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: dev-util
+          name: cmocka
+  packages:
+    - sys-libs/tevent
 
 - tree: packages/atoms/base-gnome
   uses:
@@ -300,6 +308,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -307,7 +316,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -316,7 +325,7 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 
 
@@ -355,6 +364,7 @@ reposcan_sources:
 - kit_cache/xfce-kit-mark-iii
 - kit_cache/xorg-kit-mark-iii
 - kit_cache/lisp-scheme-kit-mark-iii
+- kit_cache/ai-kit-mark-iii
 
 - kit_cache/geaaru-kit-funtoo
 
