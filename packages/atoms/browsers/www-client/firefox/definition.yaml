@@ -1,5 +1,5 @@
 name: firefox
-version: 147.0.4
+version: 147.0.4+1
 category: www-client
 use_flags:
 - -pgo
@@ -7,9 +7,8 @@ use_flags:
 - -sndio
 - -system-av1
 - -system-libvpx
-- -system-png
+- -test
 - -wifi
-- -x86
 - X
 - amd64
 - clang
@@ -25,6 +24,7 @@ use_flags:
 - system-icu
 - system-jpeg
 - system-libevent
+- system-png
 - system-webp
 - wayland
 requires:
@@ -46,7 +46,7 @@ requires:
 - name: alsa-lib
   version: '>=0'
   category: media-libs
-- name: libjpeg-turbo
+- name: mesa
   version: '>=0'
   category: media-libs
 - name: ffmpeg
@@ -89,7 +89,7 @@ annotations:
       - ^/var/db/pkg/
 description: Firefox Web Browser
 uri:
-- https://www.mozilla.com/firefox
+- https://www.mozilla.org/en-US/firefox/
 license: MPL-2.0 GPL-2 LGPL-2.1
 labels:
   BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
