@@ -10,12 +10,14 @@ env:
 - LUET_NOLOCK=true
 prelude:
 - >-
-  anise rm repository/macaroni-terragon -y &&
-  curl https://raw.githubusercontent.com/macaroni-os/anise/refs/heads/macaroni/contrib/config/get_luet_root.sh | sh &&
   anise subsets enable portage devel &&
-  anise install --sync-repos dev-util/mark-devkit app-admin/anise-portage-converter
-  dev-util/pkgs-checker app-misc/yq-go app-misc/yq3-bin app-misc/jq system/luet-devkit &&
-  anise install app-admin/entities --sync-repos && anise upgrade &&
+  anise repo list &&
+  anise repo disable mark macaroni-terragon macaroni-commons &&
+  anise i --sync-repos repository/mark-dev repository/macaroni-commons-dev repository/macaroni-terragon-dev &&
+  anise rm repository/macaroni-terragon repository/mark repository/macaroni-commons -y &&
+  anise install --sync-repos
+  dev-util/pkgs-checker app-misc/yq-go app-misc/jq system/luet-devkit portage app-admin/macaronictl
+  mark-devkit app-admin/anise-portage-converter app-admin/entities --nodeps &&
   anise cleanup &&
   mv kits-versions / &&
   rm -rf /var/git/meta-repo/ &&
