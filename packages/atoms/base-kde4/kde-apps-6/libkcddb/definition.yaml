@@ -1,0 +1,39 @@
+name: libkcddb
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- -musicbrainz
+requires:
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE library for CDDB
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6
+    musicbrainz? ( media-libs/musicbrainz:5 )
+  IUSE: musicbrainz
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6
+    musicbrainz? ( media-libs/musicbrainz:5 )
+  emerge.packages: kde-apps/libkcddb:6
+  kit: kde-kit
+  original.package.name: kde-apps/libkcddb
+  original.package.slot: "6"
+  original.package.version: 25.12.2
