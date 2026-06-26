@@ -1,0 +1,38 @@
+name: qcoro
+version: 0.13.0
+category: dev-libs
+use_flags:
+- examples
+- qml
+- websockets
+requires:
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+- name: qtwebsockets
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: C++ Coroutine Library for Qt5
+uri:
+- https://qcoro.dvratil.cz/
+- https://github.com/danvratil/qcoro
+license: MIT
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6 qml? ( dev-qt/qtbase:6[gui] dev-qt/qtdeclarative:6 ) websockets?
+    ( dev-qt/qtwebsockets:6 ) examples? ( dev-qt/qtbase:6 )
+  IUSE: dbus examples +network qml websockets
+  RDEPEND: dev-qt/qtbase:6 qml? ( dev-qt/qtbase:6[gui] dev-qt/qtdeclarative:6 ) websockets?
+    ( dev-qt/qtwebsockets:6 )
+  emerge.packages: dev-libs/qcoro
+  kit: kde-kit
+  original.package.name: dev-libs/qcoro
+  original.package.slot: "0"
+  original.package.version: 0.13.0
