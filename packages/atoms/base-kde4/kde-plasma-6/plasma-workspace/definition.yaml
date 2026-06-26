@@ -1,0 +1,197 @@
+name: plasma-workspace
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- -systemd
+- X
+- appstream
+- calendar
+- fontconfig
+- ksysguard
+- networkmanager
+- policykit
+- screencast
+- semantic-desktop
+- telemetry
+- wallpaper-metadata
+- wayland
+- x11
+requires:
+- name: appstream
+  version: '>=0'
+  category: dev-libs
+- name: kirigami-addons
+  version: '>=0'
+  category: dev-libs-6
+- name: qtlocation
+  version: '>=0'
+  category: dev-qt-6
+- name: kio-extras
+  version: '>=0'
+  category: kde-apps-6
+- name: baloo
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kholidays
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifyconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kquickcharts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ktexteditor
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kunitconversion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kuserfeedback
+  version: '>=0'
+  category: kde-frameworks-6
+- name: networkmanager-qt
+  version: '>=0'
+  category: kde-frameworks-6
+- name: prison
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kactivitymanagerd
+  version: '>=0'
+  category: kde-plasma-6
+- name: kde-cli-tools
+  version: '>=0'
+  category: kde-plasma-6
+- name: kwin
+  version: '>=0'
+  category: kde-plasma-6
+- name: kwin-x11
+  version: '>=0'
+  category: kde-plasma-6
+- name: libksysguard
+  version: '>=0'
+  category: kde-plasma-6
+- name: milou
+  version: '>=0'
+  category: kde-plasma-6
+- name: plasma-integration
+  version: '>=0'
+  category: kde-plasma-6
+- name: plasma5support
+  version: '>=0'
+  category: kde-plasma-6
+- name: libqalculate
+  version: '>=0'
+  category: sci-libs
+- name: accountsservice
+  version: '>=0'
+  category: sys-apps
+- name: libxcrypt
+  version: '>=0'
+  category: sys-libs
+- name: xmessage
+  version: '>=0'
+  category: x11-apps
+- name: xprop
+  version: '>=0'
+  category: x11-apps
+- name: xrdb
+  version: '>=0'
+  category: x11-apps
+- name: libSM
+  version: '>=0'
+  category: x11-libs
+- name: libXft
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-image
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Plasma workspace
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-libs/qcoro kde-frameworks/kcmutils:6 wayland? ( dev-libs/plasma-wayland-protocols
+    dev-util/wayland-scanner ) virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative,svg,gui,libinput,sql,wayland?,X?] dev-qt/qt5compat:6[qml]
+    dev-qt/qtlocation:6 dev-qt/qtpositioning:6 dev-qt/qtshadertools:6 app-text/iso-codes
+    dev-libs/kirigami-addons:6 dev-qt/qttools:6 kde-apps/kio-extras:6 kde-frameworks/kirigami:6
+    kde-frameworks/kquickcharts:6 kde-plasma/kactivitymanagerd:6 kde-plasma/milou:6
+    kde-plasma/plasma-integration:6 kde-frameworks/karchive:6 kde-frameworks/kauth:6
+    kde-frameworks/kbookmarks:6 kde-frameworks/kcmutils:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdeclarative:6 kde-frameworks/kded:6 kde-frameworks/kglobalaccel:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kpackage:6 kde-frameworks/kparts:6
+    kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/ksvg:6 kde-frameworks/ktexteditor:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kunitconversion:6 kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6[X?] kde-frameworks/kxmlgui:6 kde-frameworks/prison:6[qml]
+    kde-frameworks/solid:6 kde-plasma/breeze:6 kde-plasma/kde-cli-tools:6 kde-plasma/layer-shell-qt:6
+    kde-plasma/libkscreen:6 kde-plasma/libplasma:6 kde-plasma/plasma-activities:6
+    kde-plasma/plasma-activities-stats:6 kde-plasma/plasma5support:6 wayland? ( kde-plasma/kwayland:6
+    kde-plasma/kwin:6 ) x11? ( kde-plasma/kwin-x11:6 ) sys-apps/dbus x11-apps/xmessage
+    x11-apps/xprop x11-apps/xrdb dev-libs/icu:= media-libs/libcanberra >=media-libs/phonon-4.12.0[qt6(+)]
+    sci-libs/libqalculate:= sys-apps/dbus sys-libs/zlib virtual/libudev:= appstream?
+    ( >=dev-libs/appstream-1[qt] ) calendar? ( kde-frameworks/kholidays:6 ) ksysguard?
+    ( kde-plasma/libksysguard:6 ) policykit? ( sys-libs/libxcrypt:= ) networkmanager?
+    ( kde-frameworks/networkmanager-qt:6 ) semantic-desktop? ( kde-frameworks/baloo:6
+    ) systemd? ( sys-apps/systemd:= ) telemetry? ( kde-frameworks/kuserfeedback:6
+    ) wallpaper-metadata? ( kde-apps/libkexiv2:6 ) policykit? ( sys-apps/accountsservice
+    ) screencast? ( >=media-video/pipewire-0.3:* ) X? ( kde-plasma/kscreenlocker:6
+    x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libxcb
+    x11-libs/libXcursor x11-libs/libXfixes x11-libs/libXtst x11-libs/xcb-util fontconfig?
+    ( media-libs/fontconfig x11-libs/libXft x11-libs/xcb-util-image ) ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: appstream +calendar +fontconfig +ksysguard networkmanager +policykit screencast
+    +semantic-desktop systemd telemetry test +wallpaper-metadata +X wayland x11
+  RDEPEND: virtual/kde-seed[declarative,svg,gui,libinput,sql,wayland?,X?] dev-qt/qt5compat:6[qml]
+    dev-qt/qtlocation:6 dev-qt/qtpositioning:6 dev-qt/qtshadertools:6 app-text/iso-codes
+    dev-libs/kirigami-addons:6 dev-qt/qttools:6 kde-apps/kio-extras:6 kde-frameworks/kirigami:6
+    kde-frameworks/kquickcharts:6 kde-plasma/kactivitymanagerd:6 kde-plasma/milou:6
+    kde-plasma/plasma-integration:6 kde-frameworks/karchive:6 kde-frameworks/kauth:6
+    kde-frameworks/kbookmarks:6 kde-frameworks/kcmutils:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdeclarative:6 kde-frameworks/kded:6 kde-frameworks/kglobalaccel:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kpackage:6 kde-frameworks/kparts:6
+    kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/ksvg:6 kde-frameworks/ktexteditor:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kunitconversion:6 kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6[X?] kde-frameworks/kxmlgui:6 kde-frameworks/prison:6[qml]
+    kde-frameworks/solid:6 kde-plasma/breeze:6 kde-plasma/kde-cli-tools:6 kde-plasma/layer-shell-qt:6
+    kde-plasma/libkscreen:6 kde-plasma/libplasma:6 kde-plasma/plasma-activities:6
+    kde-plasma/plasma-activities-stats:6 kde-plasma/plasma5support:6 wayland? ( kde-plasma/kwayland:6
+    kde-plasma/kwin:6 ) x11? ( kde-plasma/kwin-x11:6 ) sys-apps/dbus x11-apps/xmessage
+    x11-apps/xprop x11-apps/xrdb dev-libs/icu:= media-libs/libcanberra >=media-libs/phonon-4.12.0[qt6(+)]
+    sci-libs/libqalculate:= sys-apps/dbus sys-libs/zlib virtual/libudev:= appstream?
+    ( >=dev-libs/appstream-1[qt] ) calendar? ( kde-frameworks/kholidays:6 ) ksysguard?
+    ( kde-plasma/libksysguard:6 ) policykit? ( sys-libs/libxcrypt:= ) networkmanager?
+    ( kde-frameworks/networkmanager-qt:6 ) semantic-desktop? ( kde-frameworks/baloo:6
+    ) systemd? ( sys-apps/systemd:= ) telemetry? ( kde-frameworks/kuserfeedback:6
+    ) wallpaper-metadata? ( kde-apps/libkexiv2:6 ) policykit? ( sys-apps/accountsservice
+    ) screencast? ( >=media-video/pipewire-0.3:* ) X? ( kde-plasma/kscreenlocker:6
+    x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libxcb
+    x11-libs/libXcursor x11-libs/libXfixes x11-libs/libXtst x11-libs/xcb-util fontconfig?
+    ( media-libs/fontconfig x11-libs/libXft x11-libs/xcb-util-image ) )
+  emerge.packages: kde-plasma/plasma-workspace:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-workspace
+  original.package.slot: "6"
+  original.package.version: 6.5.5
