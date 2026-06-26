@@ -9,9 +9,9 @@ prelude:
 # Rebuild boost
 - >-
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t &&
   {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t &&
   {{- end }}
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS}  {{ ( index .Values.labels "emerge.packages" ) }}
