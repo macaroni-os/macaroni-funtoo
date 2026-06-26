@@ -1,5 +1,5 @@
 name: cracklib
-version: 2.9.8+1
+version: 2.9.8+2
 category: sys-libs
 use_flags:
 - -python_targets_python3_10
@@ -26,19 +26,19 @@ uri:
 license: LGPL-2.1
 labels:
   BDEPEND: nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
-  DEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
-    ) zlib? ( >=sys-libs/zlib-1.2.8-r1:= ) nls? ( virtual/libintl ) python? ( dev-python/setuptools[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  DEPEND: python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    ) zlib? ( >=sys-libs/zlib-1.2.8-r1:= ) nls? ( virtual/libintl ) python? ( dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     )
-  IUSE: nls python static-libs zlib python_targets_python3_7 python_targets_python3_9
-    python_targets_python3_8 python_targets_python3_10 +split-usr
-  RDEPEND: python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
-    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_10?
-    ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-),-python_single_target_python3_10(-)]
+  IUSE: nls python static-libs zlib python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8 +split-usr
+  RDEPEND: python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
+    ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
+    ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
     ) zlib? ( >=sys-libs/zlib-1.2.8-r1:= )
   emerge.packages: sys-libs/cracklib
-  kit: core-kit
+  kit: security-kit
   original.package.name: sys-libs/cracklib
   original.package.slot: "0"
   original.package.version: 2.9.8
