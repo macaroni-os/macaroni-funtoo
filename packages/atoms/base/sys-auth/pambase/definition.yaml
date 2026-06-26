@@ -1,5 +1,5 @@
 name: pambase
-version: 20190426+1
+version: 20190426+2
 category: sys-auth
 use_flags:
 - -debug
@@ -25,8 +25,6 @@ annotations:
       portage:
       - ^/var/db/pkg/
 description: PAM base configuration files (virtual)
-uri:
-- ""
 license: GPL-2
 labels:
   IUSE: cracklib debug minimal mktemp nullok pam_krb5 pam_ssh passwdqc securetty selinux
@@ -38,7 +36,7 @@ labels:
     sys-libs/pam[securetty=] ) selinux? ( sys-libs/pam[selinux=] ) sha512? ( sys-libs/pam[sha512=]
     )'
   emerge.packages: sys-auth/pambase
-  kit: core-kit
+  kit: security-kit
   original.package.name: sys-auth/pambase
   original.package.slot: "0"
   original.package.version: "20190426"
