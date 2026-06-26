@@ -1,8 +1,10 @@
 name: shadow
-version: "1"
+version: 1+1
 category: virtual
-use_flags:
-- prefix
+requires:
+- name: shadow
+  version: '>=0'
+  category: sys-apps
 annotations:
   subsets:
     rules:
@@ -11,8 +13,6 @@ annotations:
       portage:
       - ^/var/db/pkg/
 description: Virtual for user account management utilities
-uri:
-- ""
 labels:
   RDEPEND: sys-apps/shadow
   emerge.packages: virtual/shadow
