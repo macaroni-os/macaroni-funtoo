@@ -1,0 +1,35 @@
+name: kuserfeedback
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- -doc
+requires:
+- name: qtcharts
+  version: '>=0'
+  category: dev-qt-6
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework to collect user feedback for applications via telemetry and
+  surveys
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: virtual/yacc sys-devel/flex doc? ( dev-qt/qttools:6[assistant,qdoc,linguist]
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] dev-qt/qtcharts:6
+  IUSE: doc tools
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] dev-qt/qtcharts:6
+  emerge.packages: kde-frameworks/kuserfeedback:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kuserfeedback
+  original.package.slot: "6"
+  original.package.version: 6.22.0
