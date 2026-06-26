@@ -6,13 +6,6 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Temporary until next race
-- >-
-  cd /var/git/meta-repo/kits/core-server-kit/www-apps/grafana-bin &&
-  rm grafana-bin-13.0.1.ebuild &&
-  wget https://raw.githubusercontent.com/macaroni-os/core-server-kit/refs/heads/mark-xl/www-apps/grafana-bin/grafana-bin-13.0.1-r1.ebuild &&
-  cd -
-
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
