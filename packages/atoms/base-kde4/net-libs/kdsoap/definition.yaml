@@ -1,16 +1,13 @@
 name: kdsoap
-version: 1.10.0+1
+version: 2.2.0
 category: net-libs
 requires:
-- name: qtnetwork
+- name: boost
   version: '>=0'
-  category: dev-qt-5
-- name: qtxml
+  category: dev-libs
+- name: qtbase
   version: '>=0'
-  category: dev-qt-5
-- name: breeze-icons
-  version: '>=0'
-  category: kde-frameworks-5
+  category: dev-qt-6
 annotations:
   subsets:
     rules:
@@ -18,21 +15,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Qt-based client-side and server-side SOAP component
+description: A Qt-based client-side and server-side SOAP component
 uri:
 - https://www.kdab.com/development-resources/qt-tools/kd-soap/
 license: GPL-3 AGPL-3
 labels:
-  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6 >=kde-frameworks/extra-cmake-modules-5.57.0:5
-  DEPEND: '>=dev-qt/qtcore-5.11.1:5 >=dev-qt/qtnetwork-5.11.1:5 >=dev-qt/qtxml-5.11.1:5
-    dev-libs/boost dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-qt/qtcore-5.11.1:5
-    dev-util/desktop-file-utils'
-  IUSE: debug
-  RDEPEND: '>=dev-qt/qtcore-5.11.1:5 >=dev-qt/qtnetwork-5.11.1:5 >=dev-qt/qtxml-5.11.1:5
-    >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.57.0:5 kde-frameworks/oxygen-icons:*
-    ) >=dev-qt/qtcore-5.11.1:5'
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6 dev-libs/boost
+  RDEPEND: dev-qt/qtbase:6 dev-libs/boost
   emerge.packages: net-libs/kdsoap
   kit: kde-kit
   original.package.name: net-libs/kdsoap
   original.package.slot: "0"
-  original.package.version: 1.10.0
+  original.package.version: 2.2.0
