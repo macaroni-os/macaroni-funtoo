@@ -1,13 +1,14 @@
 name: libc
-version: "2"
+version: 2+2
 category: virtual
 use_flags:
-- -elibc_Cygwin
-- -elibc_FreeBSD
 - -elibc_musl
 - -elibc_uclibc
 - elibc_glibc
-- prefix-guest
+requires:
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
 annotations:
   subsets:
     rules:
@@ -15,9 +16,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Virtual for the C library
-uri:
-- ""
+description: Virtual for C library
 labels:
   RDEPEND: elibc_glibc? ( sys-libs/glibc ) elibc_musl? ( sys-libs/musl ) elibc_uclibc?
     ( sys-libs/uclibc-ng )
