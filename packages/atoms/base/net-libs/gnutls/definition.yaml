@@ -1,18 +1,18 @@
 name: gnutls
-version: 3.7.11+2
+version: 3.7.11+3
 category: net-libs
 use_flags:
+- -brotli
 - -dane
 - -doc
-- -guile
 - -seccomp
 - -test
 - -test-full
-- -tools
-- -valgrind
+- -zstd
 - idn
 - nls
 - pkcs11
+- zlib
 requires:
 - name: p11-kit
   version: '>=0'
@@ -26,6 +26,9 @@ requires:
 - name: libidn2
   version: '>=0'
   category: net-dns
+- name: zlib
+  version: '>=0'
+  category: sys-libs
 - name: libintl
   version: '>=0'
   category: virtual
@@ -36,15 +39,15 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A TLS 1.2 and SSL 3.0 implementation for the GNU project
+description: A secure communications library implementing the SSL, TLS and DTLS protocols
 uri:
-- http://www.gnutls.org/
+- https://www.gnutls.org/
 license: GPL-3 LGPL-2.1+
 labels:
-  BDEPEND: dev-util/gtk-doc-am >=virtual/pkgconfig-0-r1 doc? ( dev-util/gtk-doc )
+  BDEPEND: '>=virtual/pkgconfig-0-r1 doc? ( dev-util/gtk-doc-am dev-util/gtk-doc )
     nls? ( sys-devel/gettext ) test-full? ( app-crypt/dieharder || ( sys-libs/libfaketime
     >=app-misc/datefudge-1.22 ) dev-libs/softhsm:2[-bindist(-)] net-dialup/ppp net-misc/socat
-    ) >=app-portage/elt-patches-20170815
+    ) >=app-portage/elt-patches-20170815'
   DEPEND: '>=dev-libs/libtasn1-4.9:= dev-libs/libunistring:= >=dev-libs/nettle-3.6:=[gmp]
     >=dev-libs/gmp-5.1.3-r1:= brotli? ( >=app-arch/brotli-1.0.0:= ) dane? ( >=net-dns/unbound-1.4.20:=
     ) nls? ( >=virtual/libintl-0-r1:= ) pkcs11? ( >=app-crypt/p11-kit-0.23.1 ) idn?
@@ -58,7 +61,7 @@ labels:
     ( >=net-dns/libidn2-0.16-r1:= ) zlib? ( sys-libs/zlib ) zstd? ( >=app-arch/zstd-1.3.0:=
     )'
   emerge.packages: net-libs/gnutls
-  kit: core-kit
+  kit: security-kit
   original.package.name: net-libs/gnutls
   original.package.slot: "0"
   original.package.version: 3.7.11
