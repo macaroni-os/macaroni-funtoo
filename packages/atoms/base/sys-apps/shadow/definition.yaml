@@ -1,5 +1,5 @@
 name: shadow
-version: 4.19.4
+version: 4.19.4+1
 category: sys-apps
 use_flags:
 - -audit
@@ -9,9 +9,13 @@ use_flags:
 - cracklib
 - nls
 - pam
+- systemd
 - xattr
 requires:
-- name: acl
+- name: attr
+  version: '>=0'
+  category: sys-apps
+- name: systemd
   version: '>=0'
   category: sys-apps
 - name: pambase
@@ -23,9 +27,6 @@ requires:
 - name: libintl
   version: '>=0'
   category: virtual
-- name: pam
-  version: '>=0'
-  category: virtual
 annotations:
   subsets:
     rules:
@@ -35,7 +36,8 @@ annotations:
       - ^/var/db/pkg/
 description: Utilities to deal with user accounts
 uri:
-- https://github.com/shadow-maint/shadow http://pkg-shadow.alioth.debian.org/
+- https://github.com/shadow-maint/shadow
+- http://pkg-shadow.alioth.debian.org/
 license: BSD GPL-2
 labels:
   BDEPEND: app-arch/xz-utils nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
