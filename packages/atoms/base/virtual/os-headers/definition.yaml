@@ -1,12 +1,10 @@
 name: os-headers
-version: "1"
+version: 1+1
 category: virtual
-use_flags:
-- -elibc_mingw
-- -kernel_Winnt
-- kernel_linux
-- prefix
-- prefix-guest
+requires:
+- name: linux-headers
+  version: '>=0'
+  category: sys-kernel
 annotations:
   subsets:
     rules:
@@ -15,8 +13,6 @@ annotations:
       portage:
       - ^/var/db/pkg/
 description: Virtual for operating system headers
-uri:
-- ""
 labels:
   DEPEND: sys-kernel/linux-headers
   RDEPEND: sys-kernel/linux-headers
