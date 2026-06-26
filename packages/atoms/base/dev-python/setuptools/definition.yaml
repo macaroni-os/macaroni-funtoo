@@ -1,9 +1,7 @@
 name: setuptools
-version: 80.10.2
+version: 80.10.2+1
 category: dev-python
 use_flags:
-- -python_targets_pypy3
-- -python_targets_python2_7
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
@@ -22,10 +20,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Collection of extensions to Distutils
+description: Easily download, build, install, upgrade, and uninstall Python packages
 uri:
-- https://github.com/pypa/setuptools https://pypi.org/project/setuptools/
-license: MIT
+- https://github.com/pypa/setuptools
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
