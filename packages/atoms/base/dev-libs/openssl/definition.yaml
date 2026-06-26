@@ -1,9 +1,8 @@
 name: openssl
-version: 3.0.19
+version: 3.0.19+1
 category: dev-libs
 use_flags:
 - -sctp
-- -test
 - tls-compression
 requires:
 - name: zlib
@@ -16,11 +15,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: full-strength general purpose cryptography library (including SSL and
-  TLS)
+description: TLS/SSL and crypto library
 uri:
-- https://www.openssl.org/
-license: openssl
+- https://github.com/openssl/openssl
+license: Apache-2.0
 labels:
   BDEPEND: '>=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 )'
   DEPEND: '!app-misc/c_rehash tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)]
