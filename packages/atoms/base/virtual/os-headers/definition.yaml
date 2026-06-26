@@ -1,5 +1,5 @@
 name: os-headers
-version: 0+1
+version: "1"
 category: virtual
 use_flags:
 - -elibc_mingw
@@ -18,11 +18,10 @@ description: Virtual for operating system headers
 uri:
 - ""
 labels:
-  RDEPEND: '!prefix-guest? ( || ( kernel_linux? ( sys-kernel/linux-headers:0 ) kernel_Winnt?
-    ( elibc_mingw? ( dev-util/mingw64-runtime ) ) !prefix? ( sys-freebsd/freebsd-lib
-    ) ) ) prefix-guest? ( !sys-kernel/linux-headers !sys-freebsd/freebsd-lib )'
+  DEPEND: sys-kernel/linux-headers
+  RDEPEND: sys-kernel/linux-headers
   emerge.packages: virtual/os-headers
-  kit: core-kit
+  kit: kernel-kit
   original.package.name: virtual/os-headers
   original.package.slot: "0"
-  original.package.version: 0-r1
+  original.package.version: "1"
