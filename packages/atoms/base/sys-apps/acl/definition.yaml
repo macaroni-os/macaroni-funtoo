@@ -1,12 +1,8 @@
 name: acl
-version: 2.3.2+1
+version: 2.3.2+2
 category: sys-apps
 use_flags:
 - nls
-requires:
-- name: attr
-  version: '>=0'
-  category: sys-apps
 annotations:
   subsets:
     rules:
@@ -22,7 +18,6 @@ labels:
   BDEPEND: sys-apps/attr >=app-portage/elt-patches-20170815
   DEPEND: nls? ( sys-devel/gettext )
   IUSE: nls static-libs +split-usr
-  RDEPEND: '>=sys-apps/attr-2.4.47-r1[-mgorny(-)]'
   emerge.packages: sys-apps/acl
   kit: core-kit
   original.package.name: sys-apps/acl
