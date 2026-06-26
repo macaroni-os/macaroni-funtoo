@@ -1,0 +1,26 @@
+name: plasma-activities-stats
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: plasma-activities
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for accessing the usage data collected by the activities system
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[sql] kde-frameworks/kconfig:6 kde-plasma/plasma-activities:6
+  RDEPEND: virtual/kde-seed[sql] kde-frameworks/kconfig:6 kde-plasma/plasma-activities:6
+  emerge.packages: kde-plasma/plasma-activities-stats:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-activities-stats
+  original.package.slot: "6"
+  original.package.version: 6.5.5
