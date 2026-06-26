@@ -1,0 +1,36 @@
+name: plasma5support
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Support components for porting from KF5/Qt5 to KF6/Qt6
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/kservice:6
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/kservice:6
+  emerge.packages: kde-plasma/plasma5support:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma5support
+  original.package.slot: "6"
+  original.package.version: 6.5.5
