@@ -1,5 +1,5 @@
 name: curl
-version: 8.12.1
+version: 8.12.1+1
 category: net-misc
 use_flags:
 - -adns
@@ -10,7 +10,6 @@ use_flags:
 - -ldap
 - -mbedtls
 - -nghttp3
-- -nss
 - -quiche
 - -rtmp
 - -ssh
@@ -20,6 +19,9 @@ use_flags:
 - openssl
 - ssl
 requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: nghttp2
   version: '>=0'
   category: net-libs
