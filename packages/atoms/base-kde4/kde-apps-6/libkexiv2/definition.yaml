@@ -1,0 +1,30 @@
+name: libkexiv2
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: exiv2
+  version: '>=0'
+  category: media-gfx
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Wrapper around exiv2 library
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] >=media-gfx/exiv2-0.25:=[xmp=]
+  IUSE: +xmp
+  RDEPEND: virtual/kde-seed[gui] >=media-gfx/exiv2-0.25:=[xmp=]
+  emerge.packages: kde-apps/libkexiv2:6
+  kit: kde-kit
+  original.package.name: kde-apps/libkexiv2
+  original.package.slot: "6"
+  original.package.version: 25.12.2
