@@ -1,0 +1,37 @@
+name: xdg-desktop-portal-kde
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- wayland
+requires:
+- name: kio-fuse
+  version: '>=0'
+  category: kde-misc-5
+- name: xdg-desktop-portal
+  version: '>=0'
+  category: sys-apps
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Backend implementation for xdg-desktop-portal that is using Qt/KDE Frameworks
+uri:
+- https://invent.kde.org/plasma/
+license: LGPL-2+
+labels:
+  BDEPEND: virtual/pkgconfig wayland? ( dev-libs/plasma-wayland-protocols dev-libs/wayland-protocols
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[wayland?] kde-misc/kio-fuse sys-apps/xdg-desktop-portal
+  IUSE: wayland
+  RDEPEND: virtual/kde-seed[wayland?] kde-misc/kio-fuse sys-apps/xdg-desktop-portal
+  emerge.packages: kde-plasma/xdg-desktop-portal-kde:6
+  kit: kde-kit
+  original.package.name: kde-plasma/xdg-desktop-portal-kde
+  original.package.slot: "6"
+  original.package.version: 6.5.5
