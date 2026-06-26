@@ -1,0 +1,47 @@
+name: kirigami-addons
+version: 1.11.0
+category: dev-libs-6
+requires:
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: qqc2-desktop-style
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Visual end user components for Kirigami-based applications
+uri:
+- https://invent.kde.org/libraries/kirigami-addons
+license: '|| ( GPL-2 GPL-3 LGPL-3 ) LGPL-2.1+'
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6[gui] dev-qt/qtdeclarative:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kconfig:6 kde-frameworks/kglobalaccel:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kirigami:6
+  RDEPEND: dev-qt/qtbase:6[gui] dev-qt/qtdeclarative:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kconfig:6 kde-frameworks/kglobalaccel:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kirigami:6 dev-qt/qtmultimedia:6[qml] kde-frameworks/qqc2-desktop-style:6
+    kde-plasma/libplasma:6
+  emerge.packages: dev-libs/kirigami-addons:6
+  kit: kde-kit
+  original.package.name: dev-libs/kirigami-addons
+  original.package.slot: "6"
+  original.package.version: 1.11.0
