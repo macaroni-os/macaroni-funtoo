@@ -1,5 +1,5 @@
 name: systemd
-version: "254.24"
+version: 254.24+1
 category: sys-apps
 use_flags:
 - -apparmor
@@ -34,6 +34,9 @@ requires:
 - name: lz4
   version: '>=0'
   category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
 - name: libgcrypt
   version: '>=0'
   category: dev-libs
@@ -61,6 +64,9 @@ requires:
 - name: libseccomp
   version: '>=0'
   category: sys-libs
+- name: pam
+  version: '>=0'
+  category: virtual
 - name: gnutls
   version: '>=0'
   category: net-libs
