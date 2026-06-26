@@ -1,8 +1,6 @@
 name: libffi
-version: 3.5.2
+version: 3.5.2+1
 category: dev-libs
-use_flags:
-- -test
 annotations:
   subsets:
     rules:
@@ -10,12 +8,12 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: a portable, high level programming interface to various calling conventions
+description: Portable, high level programming interface to various calling conventions
 uri:
 - https://sourceware.org/libffi/
+- https://github.com/libffi/libffi/
 license: MIT
 labels:
-  BDEPEND: test? ( dev-util/dejagnu )
   IUSE: debug exec-static-trampoline pax_kernel static-libs
   emerge.packages: dev-libs/libffi
   kit: core-kit
