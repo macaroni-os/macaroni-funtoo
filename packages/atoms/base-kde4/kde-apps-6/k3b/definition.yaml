@@ -1,0 +1,107 @@
+name: k3b
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- -lame
+- -mad
+- -webengine
+- dvd
+- ffmpeg
+- flac
+- musepack
+- sndfile
+- sox
+- taglib
+- vcd
+- vorbis
+requires:
+- name: cdrdao
+  version: '>=0'
+  category: app-cdr
+- name: dvd+rw-tools
+  version: '>=0'
+  category: app-cdr
+- name: libburn
+  version: '>=0'
+  category: dev-libs
+- name: libkcddb
+  version: '>=0'
+  category: kde-apps-6
+- name: kfilemetadata
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifyconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libdvdread
+  version: '>=0'
+  category: media-libs
+- name: libsamplerate
+  version: '>=0'
+  category: media-libs
+- name: libsndfile
+  version: '>=0'
+  category: media-libs
+- name: cdparanoia
+  version: '>=0'
+  category: media-sound
+- name: musepack-tools
+  version: '>=0'
+  category: media-sound
+- name: sox
+  version: '>=0'
+  category: media-sound
+- name: vcdimager
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Full-featured burning and ripping application based on KDE Frameworks
+uri:
+- https://apps.kde.org/k3b/
+- https://userbase.kde.org/K3b
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: virtual/kde-seed[gui] app-cdr/cdrdao app-cdr/cdrtools dev-libs/libburn media-sound/cdparanoia
+    dvd? ( >=app-cdr/dvd+rw-tools-7 ) sox? ( media-sound/sox ) vcd? ( media-video/vcdimager
+    ) kde-apps/libkcddb:6 kde-frameworks/karchive:6 kde-frameworks/kauth:6 kde-frameworks/kbookmarks:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kfilemetadata:6[taglib?]
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6 kde-frameworks/knotifyconfig:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 kde-frameworks/solid:6
+    media-libs/libsamplerate dvd? ( media-libs/libdvdread:= ) ffmpeg? ( >=media-video/ffmpeg-4.4.0:0=
+    ) flac? ( >=media-libs/flac-1.2:=[cxx] ) lame? ( media-sound/lame ) mad? ( media-libs/libmad
+    ) musepack? ( >=media-sound/musepack-tools-444 ) sndfile? ( media-libs/libsndfile
+    ) taglib? ( >=media-libs/taglib-1.5:= ) vorbis? ( media-libs/libogg media-libs/libvorbis
+    ) webengine? ( dev-qt/qtwebengine:6 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+    dev-util/desktop-file-utils dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: dvd ffmpeg flac lame mad musepack sndfile sox taglib vcd vorbis webengine
+    debug
+  RDEPEND: virtual/kde-seed[gui] app-cdr/cdrdao app-cdr/cdrtools dev-libs/libburn
+    media-sound/cdparanoia dvd? ( >=app-cdr/dvd+rw-tools-7 ) sox? ( media-sound/sox
+    ) vcd? ( media-video/vcdimager ) kde-apps/libkcddb:6 kde-frameworks/karchive:6
+    kde-frameworks/kauth:6 kde-frameworks/kbookmarks:6 kde-frameworks/kcmutils:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kfilemetadata:6[taglib?] kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-frameworks/solid:6 media-libs/libsamplerate dvd? ( media-libs/libdvdread:=
+    ) ffmpeg? ( >=media-video/ffmpeg-4.4.0:0= ) flac? ( >=media-libs/flac-1.2:=[cxx]
+    ) lame? ( media-sound/lame ) mad? ( media-libs/libmad ) musepack? ( >=media-sound/musepack-tools-444
+    ) sndfile? ( media-libs/libsndfile ) taglib? ( >=media-libs/taglib-1.5:= ) vorbis?
+    ( media-libs/libogg media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:6 )
+  emerge.packages: kde-apps/k3b:6
+  kit: kde-kit
+  original.package.name: kde-apps/k3b
+  original.package.slot: "6"
+  original.package.version: 25.12.2
