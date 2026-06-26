@@ -1,20 +1,11 @@
 name: portage
-version: 4.0.2
+version: 4.0.2+1
 category: sys-apps
 use_flags:
-- -apidoc
 - -build
-- -doc
-- -elibc_glibc
-- -elibc_musl
-- -elibc_uclibc
-- -kernel_linux
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -rsync-verify
-- -selinux
-- -test
 - python_targets_python3_9
 - xattr
 requires:
@@ -36,6 +27,12 @@ requires:
 - name: findutils
   version: '>=0'
   category: sys-apps
+- name: install-xattr
+  version: '>=0'
+  category: sys-apps
+- name: sandbox
+  version: '>=0'
+  category: sys-apps
 - name: tmpfiles
   version: '>=0'
   category: virtual
@@ -49,10 +46,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Portage is the package management and distribution system for Gentoo
+description: MARK Portage Fork
 uri:
-- https://wiki.gentoo.org/wiki/Project:Portage
-license: GPL-2
+- https://github.com/macaroni-os/mark-portage
+license: GPL-2.0
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10[bzip2(+),threads(+)]
     ) python_targets_python3_7? ( dev-lang/python:3.7[bzip2(+),threads(+)] ) python_targets_python3_9?
