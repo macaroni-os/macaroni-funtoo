@@ -1,5 +1,5 @@
 name: libgbinder
-version: 1.1.40+1
+version: 1.1.43
 category: sys-libs
 requires:
 - name: libglibutil
@@ -17,11 +17,12 @@ uri:
 - https://github.com/mer-hybris/libgbinder
 license: BSD-3-Clause
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: sys-libs/libglibutil
   RDEPEND: sys-libs/libglibutil
   emerge.packages: sys-libs/libgbinder
-  kit: geaaru-kit
+  kit: xorg-kit
   original.package.name: sys-libs/libgbinder
   original.package.slot: "0"
-  original.package.version: 1.1.40
+  original.package.version: 1.1.43
