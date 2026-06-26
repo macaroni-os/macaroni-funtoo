@@ -1,5 +1,5 @@
 name: util-linux
-version: 2.40.4+1
+version: 2.40.4+2
 category: sys-apps
 use_flags:
 - -audit
@@ -25,9 +25,6 @@ use_flags:
 - python_targets_python3_9
 - readline
 requires:
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
 - name: libcap-ng
   version: '>=0'
   category: sys-libs
@@ -52,7 +49,7 @@ annotations:
       - ^/var/db/pkg/
 description: Various useful Linux utilities
 uri:
-- https://www.kernel.org/pub/linux/utils/util-linux/ https://github.com/karelzak/util-linux
+- https://www.kernel.org/pub/linux/utils/util-linux/
 license: GPL-2 GPL-3 LGPL-2.1 BSD-4 MIT public-domain
 labels:
   BDEPEND: virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
