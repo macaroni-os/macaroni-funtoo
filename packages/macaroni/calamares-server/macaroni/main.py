@@ -18,10 +18,9 @@ luet_packages2remove = [
     "macaroni/live-setup-gnome",
     "kernel-5.10/macaroni-initramfs",
     "kernel-5.10/virtualbox-guest-additions",
-    "kernel-5.4/virtualbox-guest-additions",
     "system/macaroni-funtoo-calamares",
     "virtual/calamares",
-    "app-admin-5/calamares",
+    "app-admin-6/calamares",
     # designer is a dep of libreoffice
     # that is needed for live ISO
     #"dev-qt-5/designer"
