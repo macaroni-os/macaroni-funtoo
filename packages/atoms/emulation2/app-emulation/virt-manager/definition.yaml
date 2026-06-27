@@ -1,21 +1,20 @@
 name: virt-manager
-version: 5.1.0
+version: 5.1.0+1
 category: app-emulation
 use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- -test
 - gtk
 - policykit
 - python_single_target_python3_9
 requires:
-- name: cdrtools
-  version: '>=0'
-  category: app-cdr
 - name: libvirt-glib
   version: '>=0'
   category: app-emulation
+- name: libisoburn
+  version: '>=0'
+  category: dev-libs
 - name: argcomplete
   version: '>=0'
   category: dev-python
@@ -40,9 +39,6 @@ requires:
 - name: libosinfo
   version: '>=0'
   category: sys-libs
-- name: gtksourceview
-  version: '>=0'
-  category: x11-libs-4
 - name: vte
   version: '>=0'
   category: x11-libs-2.91
@@ -53,11 +49,11 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A graphical tool for administering virtual machines
+description: A graphical tool for administering virtual machines/containers
 uri:
 - https://virt-manager.org
 - https://github.com/virt-manager/virt-manager
-license: GPL-2
+license: GPL-2+
 labels:
   BDEPEND: sys-devel/gettext >=app-portage/elt-patches-20170815 app-arch/xz-utils
     >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
