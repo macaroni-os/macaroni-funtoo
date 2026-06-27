@@ -1,5 +1,5 @@
 name: spice-gtk
-version: 0.42+1
+version: 0.42+2
 category: net-misc
 use_flags:
 - amd64
@@ -11,6 +11,7 @@ use_flags:
 - sasl
 - smartcard
 - usbredir
+- vala
 - webdav
 - x86
 requires:
@@ -23,16 +24,22 @@ requires:
 - name: cyrus-sasl
   version: '>=0'
   category: dev-libs-2
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
 - name: openssl
   version: '>=0'
   category: dev-libs
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
 - name: gst-plugins-good
   version: '>=0'
   category: media-libs-1.0
-- name: libjpeg-turbo
+- name: gstreamer
   version: '>=0'
-  category: media-libs
-- name: opus
+  category: media-libs-1.0
+- name: libjpeg-turbo
   version: '>=0'
   category: media-libs
 - name: phodav
@@ -53,9 +60,6 @@ requires:
 - name: libX11
   version: '>=0'
   category: x11-libs
-- name: libva
-  version: '>=0'
-  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -68,10 +72,12 @@ description: Set of GObject and Gtk objects for connecting to Spice servers and 
 uri:
 - https://www.spice-space.org
 - https://cgit.freedesktop.org/spice/spice-gtk/
-license: LGPL-2.1
 labels:
-  BDEPEND: dev-perl/Text-CSV dev-util/glib-utils sys-devel/gettext virtual/pkgconfig
-    || ( ( dev-lang/python:3.8 dev-python/six[python_targets_python3_8(-),python_single_target_python3_8(+)]
+  BDEPEND: vala? ( || ( dev-lang/vala:0.56[vapigen(+)] dev-lang/vala:0.54[vapigen(+)]
+    dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)]
+    dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] dev-lang/vala:0.42[vapigen(+)]
+    dev-lang/vala:0.40[vapigen(+)] dev-lang/vala:0.36[vapigen(+)] ) ) dev-perl/Text-CSV
+    sys-devel/gettext virtual/pkgconfig || ( ( dev-lang/python:3.8 dev-python/six[python_targets_python3_8(-),python_single_target_python3_8(+)]
     dev-python/pyparsing[python_targets_python3_8(-),python_single_target_python3_8(+)]
     ) ( dev-lang/python:3.9 dev-python/six[python_targets_python3_9(-),python_single_target_python3_9(+)]
     dev-python/pyparsing[python_targets_python3_9(-),python_single_target_python3_9(+)]
@@ -87,19 +93,19 @@ labels:
     app-arch/lz4 ) sasl? ( dev-libs/cyrus-sasl ) smartcard? ( app-emulation/qemu[smartcard]
     ) usbredir? ( sys-apps/hwids sys-apps/usbredir virtual/acl virtual/libusb:1 policykit?
     ( sys-auth/polkit ) ) webdav? ( net-libs/phodav:= net-libs/libsoup:= ) amd64?
-    ( x11-libs/libva:= ) arm64? ( x11-libs/libva:= ) x86? ( x11-libs/libva:= ) app-emulation/spice-protocol:=
-    dev-util/desktop-file-utils x11-misc/shared-mime-info
+    ( x11-libs/libva:= ) arm64? ( x11-libs/libva:= ) x86? ( x11-libs/libva:= ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
   IUSE: +gtk3 +introspection lz4 mjpeg policykit sasl smartcard usbredir wayland webdav
+    vala
   RDEPEND: dev-libs/glib:2 dev-libs/json-glib:0= media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0
     media-libs/gstreamer:1.0[introspection?] media-libs/opus media-libs/libjpeg-turbo:=
     sys-libs/zlib x11-libs/cairo x11-libs/pixman x11-libs/libX11 gtk3? ( x11-libs/gtk+:3[introspection?]
     ) introspection? ( dev-libs/gobject-introspection ) dev-libs/openssl:= lz4? (
     app-arch/lz4 ) sasl? ( dev-libs/cyrus-sasl ) smartcard? ( app-emulation/qemu[smartcard]
     ) usbredir? ( sys-apps/hwids sys-apps/usbredir virtual/acl virtual/libusb:1 policykit?
-    ( sys-auth/polkit ) ) webdav? ( net-libs/phodav:= net-libs/libsoup:= ) amd64?
-    ( x11-libs/libva:= ) arm64? ( x11-libs/libva:= ) x86? ( x11-libs/libva:= )
+    ( sys-auth/polkit ) ) webdav? ( net-libs/phodav:= net-libs/libsoup:= )
   emerge.packages: net-misc/spice-gtk
   kit: net-kit
   original.package.name: net-misc/spice-gtk
   original.package.slot: "0"
-  original.package.version: "0.42"
+  original.package.version: 0.42-r2
