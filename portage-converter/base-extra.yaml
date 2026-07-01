@@ -64,6 +64,18 @@ artefacts:
 - tree: packages/atoms/base-extra
   uses:
     disabled:
+      - gtk-doc
+      - selinux
+      - static-libs
+      - test
+  packages:
+    - dev-libs/glib:2
+    - dev-util/gdbus-codegen
+
+
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
     - cacert
     - nios2
     - sh
@@ -121,7 +133,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-mark-base
   uses:
     disabled:
     - nios2
@@ -147,7 +159,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-mark-base
   uses:
     disabled:
     - nios2
@@ -163,7 +175,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-mark-base
   uses:
     disabled:
     - examples
@@ -239,7 +251,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-mark-base
   uses:
     disabled:
     - nios2
@@ -265,7 +277,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-mark-base
   uses:
     disabled:
     - nios2
@@ -411,7 +423,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-mark-base
   ignore_build_deps: true
   uses:
     disabled:
@@ -446,13 +458,16 @@ artefacts:
   - virtual/perl-Text-ParseWords
   - virtual/perl-podlators
   - virtual/perl-version
+  - app-text/sgml-common
+  - app-text/docbook-xsl-stylesheets
+  - app-text/build-docbook-catalog
 
 - tree: packages/atoms/base-extra
   mutations:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-base
+          name: macaroni-mark-base
   ignore_build_deps: true
   uses:
     disabled:
@@ -490,8 +505,16 @@ artefacts:
   packages:
   - sys-fs/mdadm
 
+- tree: packages/atoms/base-extra
+  uses:
+    disabled:
+      - latex
+  packages:
+    - x11-misc/shared-mime-info
+
+
 include_layers:
-- layers/macaroni-funtoo-base.yaml
+- layers/macaroni-mark-base.yaml
 
 trees:
 - ../packages/seeds
