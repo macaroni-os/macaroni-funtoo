@@ -1,14 +1,17 @@
 layer:
-  name: macaroni-funtoo-base
+  name: macaroni-mark-race1
   category: seed
 packages:
   - app-admin/anise:0
   - app-admin/ego:0
   - app-admin/entities:0
   - app-admin/eselect:0
+  - app-admin/macaronictl:0
   - app-admin/whip:0
   - app-arch/bzip2:0
+  - app-arch/cpio:0
   - app-arch/gzip:0
+  - app-arch/libarchive:0
   - app-arch/lz4:0
   - app-arch/tar:0
   - app-arch/unzip:0
@@ -17,8 +20,10 @@ packages:
   - app-crypt/gnupg:0
   - app-crypt/gpgme:1
   - app-crypt/libb2:0
+  - app-crypt/libmd:0
   - app-crypt/p11-kit:0
   - app-crypt/pinentry:0
+  - app-crypt/rhash:0
   - app-editors/nano:0
   - app-eselect/eselect-python:0
   - app-eselect/eselect-vi:0
@@ -31,6 +36,12 @@ packages:
   - app-portage/elt-patches:0
   - app-portage/portage-utils:0
   - app-shells/bash:0
+  - app-text/build-docbook-catalog:0
+  - app-text/docbook-xml-dtd:4.1.2
+  - app-text/docbook-xml-dtd:4.2
+  - app-text/docbook-xsl-stylesheets:0
+  - app-text/sgml-common:0
+  - app-text/xmlto:0
   - dev-db/sqlite:3
   - dev-lang/perl:0
   - dev-lang/python-exec:2
@@ -41,7 +52,11 @@ packages:
   - dev-libs/glib:2
   - dev-libs/gmp:0
   - dev-libs/icu:0
+  - dev-libs/inih:0
+  - dev-libs/jsoncpp:0
   - dev-libs/libassuan:0
+  - dev-libs/libbpf:0
+  - dev-libs/libbsd:0
   - dev-libs/libffi:0
   - dev-libs/libgcrypt:0
   - dev-libs/libgpg-error:0
@@ -54,27 +69,50 @@ packages:
   - dev-libs/libunistring:0
   - dev-libs/libusb:1
   - dev-libs/libxml2:2
+  - dev-libs/libxslt:0
+  - dev-libs/lzo:2
   - dev-libs/nettle:0
   - dev-libs/npth:0
+  - dev-libs/nspr:0
+  - dev-libs/nss:0
   - dev-libs/openssl:0
+  - dev-libs/popt:0
+  - dev-libs/userspace-rcu:0
+  - dev-perl/Authen-SASL:0
+  - dev-perl/Digest-HMAC:0
+  - dev-perl/Error:0
+  - dev-perl/Locale-gettext:0
+  - dev-perl/Module-Build:0
+  - dev-perl/Pod-Parser:0
   - dev-perl/XML-Parser:0
+  - dev-python/docutils:0
+  - dev-python/flit_core:0
+  - dev-python/gpep517:0
+  - dev-python/installer:0
+  - dev-python/libxml2-python:2
   - dev-python/pyelftools:0
   - dev-python/setuptools:0
+  - dev-python/tomli:0
   - dev-util/b2:0
   - dev-util/gdbus-codegen:0
   - dev-util/gperf:0
   - dev-util/gtk-doc-am:0
   - dev-util/intltool:0
+  - dev-util/maturin:0
+  - dev-util/meson:0
+  - dev-util/ninja:0
   - dev-util/pkgconf:0
   - dev-util/pkgs-checker:0
   - dev-util/re2c:0
   - net-dns/libidn2:0
+  - net-dns/libidn:0
   - net-libs/gnutls:0
   - net-libs/libnsl:0
   - net-libs/libtirpc:0
   - net-libs/nghttp2:0
   - net-misc/curl:0
   - net-misc/wget:0
+  - perl-core/File-Temp:0
   - sys-apps/acl:0
   - sys-apps/attr:0
   - sys-apps/baselayout:0
@@ -87,8 +125,11 @@ packages:
   - sys-apps/gawk:0
   - sys-apps/gentoo-functions:0
   - sys-apps/gentoo-systemd-integration:0
+  - sys-apps/gptfdisk:0
   - sys-apps/grep:0
   - sys-apps/groff:0
+  - sys-apps/help2man:0
+  - sys-apps/hwids:0
   - sys-apps/install-xattr:0
   - sys-apps/kmod:0
   - sys-apps/less:0
@@ -121,11 +162,16 @@ packages:
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
+  - sys-fs/dosfstools:0
+  - sys-fs/e2fsprogs:0
+  - sys-fs/mdadm:0
   - sys-fs/udev-init-scripts:0
+  - sys-fs/xfsprogs:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
+  - sys-libs/e2fsprogs-libs:0
   - sys-libs/gdbm:0
   - sys-libs/glibc:2.2
   - sys-libs/libcap-ng:0
@@ -135,6 +181,7 @@ packages:
   - sys-libs/ncurses:0
   - sys-libs/pam:0
   - sys-libs/readline:0
+  - sys-libs/timezone-data:0
   - sys-libs/zlib:0
   - virtual/acl:0
   - virtual/awk:0
@@ -153,6 +200,34 @@ packages:
   - virtual/package-manager:0
   - virtual/pager:0
   - virtual/pam:0
+  - virtual/perl-CPAN-Meta-YAML:0
+  - virtual/perl-CPAN-Meta:0
+  - virtual/perl-Carp:0
+  - virtual/perl-Data-Dumper:0
+  - virtual/perl-Digest-MD5:0
+  - virtual/perl-Digest-SHA:0
+  - virtual/perl-Encode:0
+  - virtual/perl-Exporter:0
+  - virtual/perl-ExtUtils-CBuilder:0
+  - virtual/perl-ExtUtils-Install:0
+  - virtual/perl-ExtUtils-MakeMaker:0
+  - virtual/perl-ExtUtils-Manifest:0
+  - virtual/perl-ExtUtils-ParseXS:0
+  - virtual/perl-File-Spec:0
+  - virtual/perl-File-Temp:0
+  - virtual/perl-Getopt-Long:0
+  - virtual/perl-IO:0
+  - virtual/perl-JSON-PP:0
+  - virtual/perl-MIME-Base64:0
+  - virtual/perl-Module-Metadata:0
+  - virtual/perl-Parse-CPAN-Meta:0
+  - virtual/perl-Perl-OSType:0
+  - virtual/perl-Pod-Parser:0
+  - virtual/perl-Scalar-List-Utils:0
+  - virtual/perl-Test-Harness:0
+  - virtual/perl-Text-ParseWords:0
+  - virtual/perl-podlators:0
+  - virtual/perl-version:0
   - virtual/pkgconfig:0
   - virtual/service-manager:0
   - virtual/shadow:0
