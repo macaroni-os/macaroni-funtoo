@@ -66,7 +66,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race1
+          name: macaroni-mark-race1
   uses:
     disabled:
     - nios2
@@ -230,7 +230,6 @@ artefacts:
   - dev-python/charset_normalizer
   - dev-python/gpep517
   - dev-python/semantic_version
-  - dev-python/tomli
   - dev-python/typing-extensions
 
 - tree: packages/atoms/base-python
@@ -253,16 +252,6 @@ artefacts:
   - dev-python/setuptools-rust
 
 - tree: packages/atoms/base-python
-  mutations:
-    buildtime_deps:
-      # it uses gpep517 that require tomli
-      packages:
-        - category: dev-python
-          name: gpep517
-        - category: dev-python
-          name: installer
-        - category: dev-python
-          name: tomli
   uses:
     disabled:
     - nios2
@@ -465,7 +454,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race1
+          name: macaroni-mark-race1
   uses:
     disabled:
     - nios2
@@ -559,30 +548,13 @@ artefacts:
   mutations:
     buildtime_deps:
       packages:
-        - name: tomli
-          category: dev-python
         - name: pyparsing
           category: dev-python
   packages:
     - dev-python/hatchling
 
-- tree: packages/atoms/base-python
-  uses:
-    disabled:
-    - nios2
-    - python_targets_python3_10
-    - python_targets_python3_7
-    - python_targets_python3_8
-    - sh
-    enabled:
-    - icu
-    - lzma
-    - python_targets_python3_9
-  packages:
-  - dev-python/libxml2-python
-
 include_layers:
-- layers/macaroni-funtoo-race1.yaml
+- layers/macaroni-mark-race1.yaml
 
 trees:
 - ../packages/seeds
