@@ -82,7 +82,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - nios2
@@ -92,7 +92,6 @@ artefacts:
   - app-eselect/eselect-python
   - app-eselect/eselect-vi
   - app-text/build-docbook-catalog
-  - app-text/docbook-dsssl-stylesheets
   - app-text/manpager
   - app-text/sgml-common
   - virtual/libelf
@@ -116,6 +115,7 @@ artefacts:
     - sh
   packages:
   - dev-util/desktop-file-utils
+  - app-text/docbook-dsssl-stylesheets
 
 - tree: packages/atoms/base-tools
   uses:
@@ -263,7 +263,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - nios2
@@ -318,7 +318,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - nios2
@@ -327,6 +327,9 @@ artefacts:
   packages:
   - app-text/docbook-xsl-stylesheets
   - app-text/docbook-xsl-ns-stylesheets
+
+- tree: packages/atoms/base-tools
+  packages:
   - dev-util/b2
 
 - tree: packages/atoms/base-tools
@@ -466,7 +469,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - minimal
@@ -512,7 +515,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-fumark-race2
   uses:
     disabled:
     - nios2
@@ -823,7 +826,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - l10n_de
@@ -858,7 +861,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - examples
@@ -873,7 +876,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - nios2
@@ -890,7 +893,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race2
+          name: macaroni-mark-race2
   uses:
     disabled:
     - nios2
@@ -1040,11 +1043,6 @@ artefacts:
   - net-misc/ifenslave
 
 - tree: packages/atoms/base-tools
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: app-text
-          name: build-docbook-catalog
   uses:
     disabled:
     - nios2
@@ -1069,7 +1067,7 @@ artefacts:
     - sys-apps/hwloc
 
 include_layers:
-- layers/macaroni-funtoo-race2.yaml
+- layers/macaroni-mark-race2.yaml
 
 trees:
 - ../packages/seeds/
