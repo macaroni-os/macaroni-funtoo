@@ -1,8 +1,6 @@
 name: thin-provisioning-tools
-version: 1.1.0+5
+version: 1.3.1
 category: sys-block
-use_flags:
-- -io-uring
 annotations:
   subsets:
     rules:
@@ -10,17 +8,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A suite of tools for thin provisioning on Linux
 uri:
 - https://github.com/jthornber/thin-provisioning-tools
-license: GPL-3
+license: GPL-3.0
 labels:
-  BDEPEND: virtual/pkgconfig >=virtual/rust-1.75 app-text/asciidoc sys-devel/clang
-    sys-fs/lvm2 >=virtual/rust-1.37.0
-  DEPEND: io-uring? ( !!<=sys-block/thin-provisioning-tools-1.0.14 ) sys-fs/lvm2 !!sys-devel/llvm:0
-  IUSE: io-uring debug
+  BDEPEND: virtual/pkgconfig virtual/rust app-text/asciidoc sys-devel/clang sys-fs/lvm2
+    >=virtual/rust-1.37.0
+  DEPEND: sys-fs/lvm2
+  IUSE: debug io-uring debug
   emerge.packages: sys-block/thin-provisioning-tools
   kit: core-server-kit
   original.package.name: sys-block/thin-provisioning-tools
   original.package.slot: "0"
-  original.package.version: 1.1.0
+  original.package.version: 1.3.1
