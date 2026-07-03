@@ -66,7 +66,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   packages:
     - app-crypt/libmd
 
@@ -78,7 +78,6 @@ artefacts:
     - net-analyzer/tcptraceroute
     - net-analyzer/tcptrace
     - net-wireless/wireless-tools
-    - dev-libs/libbsd
 
 - tree: packages/atoms/net
   uses:
@@ -139,7 +138,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   uses:
     enabled:
       - ipv6
@@ -155,7 +154,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   uses:
     disabled:
       - static
@@ -163,13 +162,6 @@ artefacts:
     - net-analyzer/traceroute
 
 - tree: packages/atoms/net
-  mutations:
-    buildtime_deps:
-      packages:
-        # libdnet requires libbsd but
-        # is not present on DEPEND or BDEPEND
-        - category: dev-libs
-          name: libbsd
   uses:
     enabled:
       - python
@@ -195,7 +187,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   packages:
     - net-libs/http-parser
 
@@ -394,7 +386,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   uses:
     disabled:
       - prefix
@@ -435,7 +427,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   uses:
     disabled:
       - static-libs
@@ -645,7 +637,7 @@ artefacts:
 #    buildtime_deps:
 #      packages:
 #        - category: seed
-#          name: macaroni-funtoo-race4
+#          name: macaroni-mark-race4
 #  uses:
 #    disabled:
 #    - debug
@@ -773,7 +765,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   uses:
     disabled:
       - test
@@ -786,7 +778,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   uses:
     disabled:
     - nios2
@@ -813,11 +805,6 @@ artefacts:
 #  - net-libs/wvstreams
 
 - tree: packages/atoms/net
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
   packages:
     - sys-process/cronbase
   finalizer:
@@ -874,7 +861,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race4
+          name: macaroni-mark-race4
   packages:
     - virtual/cron
 
@@ -1238,11 +1225,6 @@ artefacts:
         -e lighttpd
 
 - tree: packages/atoms/net
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-funtoo-race4
   uses:
     disabled:
     - nios2
@@ -1280,7 +1262,7 @@ artefacts:
   - net-firewall/conntrack-tools
 
 include_layers:
-- layers/macaroni-funtoo-race4.yaml
+- layers/macaroni-mark-race4.yaml
 
 trees:
 - ../packages/seeds/
