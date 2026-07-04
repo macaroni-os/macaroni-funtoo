@@ -3,7 +3,6 @@ env:
 - LUET_YES=true
 - LUET_NOLOCK=true
 - HTTP_TIMEOUT=0
-- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://distfiles.macaronios.org/mark-distfiles https://dl.macaronios.org/repos/distfiles"'
 copy:
   - package:
       category: seed
@@ -21,36 +20,34 @@ steps:
   if [ ! -d /tmp ] ; then mkdir /tmp ; fi &&
   if [ ! -d /var ] ; then mkdir /var ; fi &&
   chmod a+x /var &&
-  chmod a+rwx /tmp
-- luet install virtual-entities/base --force
+  chmod a+rwx /tmp &&
+  anise install virtual-entities/base --force
 - >-
-  luet install --force
+  anise install --force --sync-repos
   system/luet-devkit
   utils/jq
   utils/yq
   app-admin/macaronictl
-  dev-util/pkgs-checker-minimal
+  dev-util/pkgs-checker
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
-  luet repo update &&
-  luet upgrade &&
-  luet install --force
+  anise repo update &&
+  anise upgrade &&
+  anise install --force
   toolchain/base-extra
   toolchain/base-python
   toolchain/base-tools
   toolchain/base-tools2
   toolchain/net
   toolchain/lang
-  &&
-  luet cleanup
 
 # Using steps to trace what files are generated
 # by gcc-config/binutils-config.
 # steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
-  cat /etc/luet/luet.yaml &&
-  luet install virtual/base --nodeps &&
+  anise install virtual/base --nodeps &&
+  anise cleanup --purge-repos &&
   /usr/bin/gcc-config 1 &&
   source /etc/profile &&
   eselect gcc set 1 &&
@@ -66,6 +63,11 @@ steps:
   eval 'mkdir -p /etc/portage/package.mask || true' &&
   echo "sys-apps/systemd-tmpfiles" > /etc/portage/package.mask/00-macaroni.mask &&
   cd / && rm -rf /luetbuild &&
+  cd /var/git/meta-repo/kits/ &&
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  for i in $(ls -1 . ) ; do egencache --jobs=9 --update --repo $i ; done ;
+  cd - &&
+  chown portage:portage -R /var/git/meta-repo &&
   mkdir /layer
 
 package_dir: /layer
