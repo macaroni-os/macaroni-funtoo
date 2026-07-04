@@ -155,7 +155,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race6
+          name: macaroni-mark-race6
   packages:
     - app-text/discount
     - net-misc/ipcalc
@@ -166,7 +166,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race6
+          name: macaroni-mark-race6
   packages:
     - net-misc/sshpass
 
@@ -215,7 +215,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race6
+          name: macaroni-mark-race6
   uses:
     disabled:
       - debug
@@ -346,12 +346,6 @@ artefacts:
     - dev-python/beautifulsoup
 
 - tree: packages/atoms/dev-tools
-  # Needed until macaroni-os/mark-issues#281 is fixed
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: expandvars
   uses:
     enabled:
       - python_targets_python3_9
@@ -374,11 +368,6 @@ artefacts:
     - dev-python/httpcore
 
 - tree: packages/atoms/dev-tools
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-python
-          name: hatch-vcs
   uses:
     enabled:
       - python_targets_python3_9
@@ -469,7 +458,7 @@ artefacts:
     - app-arch/brotli
 
 include_layers:
-- layers/macaroni-funtoo-race6.yaml
+- layers/macaroni-mark-race6.yaml
 
 trees:
 - ../packages/seeds/
