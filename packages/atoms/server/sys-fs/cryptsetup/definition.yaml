@@ -1,5 +1,5 @@
 name: cryptsetup
-version: 2.7.5+2
+version: 2.7.5+3
 category: sys-fs
 use_flags:
 - -doc
@@ -31,9 +31,6 @@ requires:
 - name: lvm2
   version: '>=0'
   category: sys-fs
-- name: tmpfiles
-  version: '>=0'
-  category: virtual
 annotations:
   subsets:
     rules:
@@ -76,7 +73,7 @@ labels:
     ) pwquality? ( dev-libs/libpwquality ) ssh? ( net-libs/libssh ) sys-fs/lvm2 udev?
     ( virtual/libudev:= ) virtual/tmpfiles
   emerge.packages: sys-fs/cryptsetup
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: sys-fs/cryptsetup
   original.package.slot: "0"
   original.package.version: 2.7.5
