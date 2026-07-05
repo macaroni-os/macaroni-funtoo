@@ -1,5 +1,5 @@
 name: logger
-version: 0+1
+version: 0+2
 category: virtual
 requires:
 - name: service-logger
@@ -13,14 +13,12 @@ annotations:
       portage:
       - ^/var/db/pkg/
 description: Virtual for system loggers
-uri:
-- ""
 labels:
   RDEPEND: '|| ( app-admin/metalog app-admin/rsyslog app-admin/socklog app-admin/sysklogd
     app-admin/syslog-ng sys-freebsd/freebsd-usbin sys-apps/busybox[syslog] >=sys-apps/systemd-38
     )'
   emerge.packages: virtual/logger
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: virtual/logger
   original.package.slot: "0"
   original.package.version: 0-r1
