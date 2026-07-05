@@ -1,5 +1,5 @@
 name: linux-sources
-version: 3+1
+version: 3+2
 category: virtual
 use_flags:
 - -firmware
@@ -15,15 +15,13 @@ annotations:
       portage:
       - ^/var/db/pkg/
 description: Virtual for Linux kernel sources
-uri:
-- ""
 labels:
   IUSE: firmware
   RDEPEND: firmware? ( sys-kernel/linux-firmware ) || ( sys-kernel/dummy-sources sys-kernel/debian-sources
     sys-kernel/debian-sources-lts sys-kernel/gentoo-sources sys-kernel/ck-sources
     sys-kernel/vanilla-sources )
   emerge.packages: virtual/linux-sources
-  kit: core-kit
+  kit: kernel-kit
   original.package.name: virtual/linux-sources
   original.package.slot: "0"
   original.package.version: "3"
