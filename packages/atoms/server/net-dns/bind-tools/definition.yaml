@@ -1,5 +1,5 @@
 name: bind-tools
-version: 9.21.15
+version: 9.21.21
 category: net-dns
 use_flags:
 - -gssapi
@@ -8,6 +8,9 @@ use_flags:
 - readline
 - xml
 requires:
+- name: lmdb
+  version: '>=0'
+  category: dev-db
 - name: libuv
   version: '>=0'
   category: dev-libs
@@ -40,15 +43,16 @@ license: Apache-2.0 BSD BSD-2 GPL-2 HPND ISC MPL-2.0
 labels:
   BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
   DEPEND: dev-libs/libuv:= dev-libs/openssl dev-libs/userspace-rcu sys-libs/libcap
-    xml? ( dev-libs/libxml2 ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5 )
-    libedit? ( dev-libs/libedit ) !libedit? ( readline? ( sys-libs/readline:= ) )
+    dev-db/lmdb xml? ( dev-libs/libxml2 ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5
+    ) libedit? ( dev-libs/libedit ) !libedit? ( readline? ( sys-libs/readline:= )
+    )
   IUSE: gssapi idn ipv6 libedit readline xml
   RDEPEND: dev-libs/libuv:= dev-libs/openssl dev-libs/userspace-rcu sys-libs/libcap
-    xml? ( dev-libs/libxml2 ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5 )
-    libedit? ( dev-libs/libedit ) !libedit? ( readline? ( sys-libs/readline:= ) )
-    !<=net-dns/bind-9.18.1-r2
+    dev-db/lmdb xml? ( dev-libs/libxml2 ) idn? ( net-dns/libidn2:= ) gssapi? ( virtual/krb5
+    ) libedit? ( dev-libs/libedit ) !libedit? ( readline? ( sys-libs/readline:= )
+    ) !<=net-dns/bind-9.18.1-r2
   emerge.packages: net-dns/bind-tools
   kit: net-kit
   original.package.name: net-dns/bind-tools
   original.package.slot: "0"
-  original.package.version: 9.21.15
+  original.package.version: 9.21.21
