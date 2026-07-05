@@ -1,5 +1,5 @@
 name: criu
-version: "4.1+1"
+version: 4.1+2
 category: sys-process
 use_flags:
 - -doc
@@ -8,9 +8,13 @@ use_flags:
 - -python_targets_python3_8
 - -selinux
 - -video_cards_amdgpu
+- bpf
 - python_targets_python3_9
 - setproctitle
 requires:
+- name: libbpf
+  version: '>=0'
+  category: dev-libs
 - name: libbsd
   version: '>=0'
   category: dev-libs
@@ -36,8 +40,7 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Checkpoint and Restore in Userspace is a utility to checkpoint/restore
-  Linux tasks
+description: Checkpoint/Restore tool
 uri:
 - https://criu.org/
 license: GPL-2
