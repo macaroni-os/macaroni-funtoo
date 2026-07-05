@@ -1,10 +1,9 @@
 name: wpa_supplicant
-version: 2.11+2
+version: 2.11+3
 category: net-wireless
 use_flags:
 - -eap-sim
 - -kernel_linux
-- -libressl
 - -qt5
 - -selinux
 - dbus
@@ -13,9 +12,9 @@ requires:
 - name: openssl
   version: '>=0'
   category: dev-libs
-- name: libpcap
+- name: dbus
   version: '>=0'
-  category: net-libs
+  category: sys-apps
 - name: readline
   version: '>=0'
   category: sys-libs
