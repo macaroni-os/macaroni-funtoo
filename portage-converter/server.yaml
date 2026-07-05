@@ -150,7 +150,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race7
+          name: macaroni-mark-race7
     runtime_deps:
       packages:
         - category: provides
@@ -175,7 +175,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race7
+          name: macaroni-mark-race7
   uses:
     disabled:
       - test
@@ -191,13 +191,12 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race7
+          name: macaroni-mark-race7
   uses:
     disabled:
       - test
   packages:
     - sys-kernel/dummy-sources
-    - dev-util/glib-utils
 
 - tree: packages/atoms/server
   uses:
@@ -458,11 +457,6 @@ artefacts:
   - sys-fs/lxcfs
 
 - tree: packages/atoms/server
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-go
-          name: go-md2man
   uses:
     disabled:
     - hardened
@@ -525,7 +519,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race7
+          name: macaroni-mark-race7
   uses:
     disabled:
     - nios2
@@ -536,6 +530,16 @@ artefacts:
     - static-libs
   packages:
   - dev-libs/hiredis
+
+- tree: packages/atoms/server
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race7
+  packages:
+    - dev-db/lmdb
+    - dev-libs/gobject-introspection-common
 
 - tree: packages/atoms/server
   mutations:
@@ -575,11 +579,6 @@ artefacts:
         -e lxc
 
 - tree: packages/atoms/server
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: app-emulation
-          name: lxc
   uses:
     disabled:
     - apparmor
@@ -823,7 +822,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race7
+          name: macaroni-mark-race7
   packages:
     - dev-lang/duktape
     - app-crypt/argon2
@@ -854,6 +853,14 @@ artefacts:
 - tree: packages/atoms/server
   packages:
     - app-emulation/docker-buildx
+
+- tree: packages/atoms/server
+  mutations:
+    provides:
+      - category: app-emulation-2
+        name: docker-compose
+        version: "5.1.3"
+  packages:
     - app-emulation/docker-compose
 
 - tree: packages/atoms/server
@@ -916,7 +923,7 @@ artefacts:
     - app-admin/metalog
 
 include_layers:
-- layers/macaroni-funtoo-race7.yaml
+- layers/macaroni-mark-race7.yaml
 
 trees:
 - ../packages/seeds/
