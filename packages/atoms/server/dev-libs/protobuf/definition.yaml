@@ -1,5 +1,5 @@
 name: protobuf
-version: 21.12+1
+version: 21.12+2
 category: dev-libs
 use_flags:
 - -emacs
@@ -18,12 +18,12 @@ annotations:
       - ^/var/db/pkg/
 description: Protocol Buffers - Google's data interchange format
 uri:
-- https://developers.google.com/protocol-buffers/ https://github.com/protocolbuffers/protobuf
+- https://developers.google.com/protocol-buffers/
+- https://github.com/protocolbuffers/protobuf
 license: BSD
 labels:
-  BDEPEND: emacs? ( app-editors/emacs:* ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3
-    || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4
+  BDEPEND: emacs? ( app-editors/emacs:* ) >=app-portage/elt-patches-20170815 || (
+    >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: test? ( >=dev-cpp/gtest-1.9[-mgorny(-)] ) zlib? ( sys-libs/zlib[-mgorny(-)]
     )
   IUSE: emacs examples static-libs test zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32
