@@ -10,9 +10,9 @@ prelude:
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
-  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
+  USE="{{ join " " .Values.use_flags }}" eval 'emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t || true' && \
   {{- else }}
-  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
+  eval 'emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t || true' && \
   {{- end }}
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }} && \
