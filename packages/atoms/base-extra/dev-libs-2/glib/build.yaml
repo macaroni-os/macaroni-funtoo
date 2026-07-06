@@ -2,6 +2,7 @@ prelude:
 # Ensure to correctly build introspection feature
 - >-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  emerge glib -j &&
   emerge dev-libs/gobject-introspection -j
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
