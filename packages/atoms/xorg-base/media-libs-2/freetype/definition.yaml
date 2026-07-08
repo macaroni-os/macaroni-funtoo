@@ -1,17 +1,20 @@
 name: freetype
-version: 2.14.3
+version: 2.14.3+1
 category: media-libs-2
 use_flags:
 - -brotli
-- -bzip2
 - -harfbuzz
-- -png
 - -utils
 - X
+- bzip2
+- png
 requires:
-- name: zlib
+- name: bzip2
   version: '>=0'
-  category: sys-libs
+  category: app-arch
+- name: libpng
+  version: '>=0'
+  category: media-libs
 annotations:
   subsets:
     rules:
