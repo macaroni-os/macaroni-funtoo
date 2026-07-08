@@ -74,7 +74,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race8
+          name: macaroni-mark-race8
   uses:
     enabled:
       - X
@@ -95,7 +95,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race8
+          name: macaroni-mark-race8
   uses:
     enabled:
       - X
@@ -137,8 +137,16 @@ artefacts:
       - libkms
       - valgrind
   packages:
-    - x11-libs/libxcb
     - app-eselect/eselect-fontconfig
+
+- tree: packages/atoms/xorg-base
+  uses:
+    disabled:
+      - static-libs
+      - libkms
+      - valgrind
+  packages:
+    - x11-libs/libxcb
 
 #- tree: packages/atoms/xorg-base
 #  uses:
@@ -231,19 +239,24 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race8
+          name: macaroni-mark-race8
   uses:
     enabled:
       - X
       - nls
       - ipv6
   packages:
-    - x11-proto/xproto
-    - x11-proto/glproto
-    - x11-proto/dri2proto
     - media-libs/jbig2dec
-    - media-libs/libjpeg-turbo
     - dev-libs/libpthread-stubs
+
+- tree: packages/atoms/xorg-base
+  uses:
+    enabled:
+      - X
+      - nls
+      - ipv6
+  packages:
+    - media-libs/libjpeg-turbo
 
 - tree: packages/atoms/xorg-base
   uses:
@@ -308,7 +321,7 @@ artefacts:
 #    - x11-libs/pango
 
 include_layers:
-- layers/macaroni-funtoo-race8.yaml
+- layers/macaroni-mark-race8.yaml
 
 trees:
 - ../packages/seeds/
