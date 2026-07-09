@@ -1,20 +1,10 @@
 name: jasper
-version: 4.0.0+1
+version: 4.2.5
 category: media-libs
 use_flags:
 - -doc
-- jpeg
-- opengl
-requires:
-- name: freeglut
-  version: '>=0'
-  category: media-libs
-- name: jpeg
-  version: '>=0'
-  category: virtual
-- name: libXmu
-  version: '>=0'
-  category: x11-libs
+- -jpeg
+- -opengl
 annotations:
   subsets:
     rules:
@@ -34,7 +24,7 @@ labels:
   RDEPEND: jpeg? ( >=virtual/jpeg-0-r2:0 ) opengl? ( >=virtual/opengl-7.0-r1:0 >=media-libs/freeglut-2.8.1:0
     virtual/glu x11-libs/libXi x11-libs/libXmu )
   emerge.packages: media-libs/jasper
-  kit: media-kit
+  kit: xorg-kit
   original.package.name: media-libs/jasper
   original.package.slot: "0"
-  original.package.version: 4.0.0
+  original.package.version: 4.2.5
