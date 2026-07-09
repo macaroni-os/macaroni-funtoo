@@ -151,7 +151,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race9
+          name: macaroni-mark-race9
   uses:
     disabled:
     - nios2
@@ -229,8 +229,20 @@ artefacts:
     - dev-perl/File-MimeInfo
     - dev-perl/IPC-System-Simple
     - dev-perl/URI
+    - media-libs/jasper
+    - media-libs/freeglut
+    - x11-libs/gdk-pixbuf:2
+    - x11-libs/libICE
+    - x11-libs/libSM
+    - x11-libs/libXmu
+    - x11-libs/libXt
 
 - tree: packages/atoms/xorg-base2
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race9
   uses:
     enabled:
       - X
@@ -238,6 +250,8 @@ artefacts:
       - introspection
   packages:
     - dev-libs/atk
+    - app-accessibility/at-spi2-core:2
+    - app-accessibility/at-spi2-atk:2
 
 - tree: packages/atoms/xorg-base2
   mutations:
@@ -342,7 +356,7 @@ artefacts:
     - media-fonts/liberation-fonts
 
 include_layers:
-- layers/macaroni-funtoo-race9.yaml
+- layers/macaroni-mark-race9.yaml
 
 trees:
 - ../packages/seeds/
