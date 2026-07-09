@@ -1,0 +1,52 @@
+name: at-spi2-core
+version: 2.58.5
+category: app-accessibility-2
+use_flags:
+- -systemd
+- X
+- introspection
+requires:
+- name: at-spi2-atk
+  version: '>=0'
+  category: app-accessibility-2
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: dbus
+  version: '>=0'
+  category: sys-apps
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: D-Bus accessibility specifications and registration daemon
+uri:
+- https://gitlab.gnome.org/GNOME/at-spi2-core
+license: LGPL-2.1+
+labels:
+  BDEPEND: '>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2 virtual/pkgconfig'
+  DEPEND: sys-apps/dbus dev-libs/glib:2 dev-libs/libxml2:2 introspection? ( dev-libs/gobject-introspection:=
+    ) systemd? ( sys-apps/systemd ) X? ( x11-libs/libX11 x11-libs/libXtst x11-libs/libXi
+    ) >=app-accessibility/at-spi2-atk-2.46.0 !<dev-libs/atk-2.58.0
+  IUSE: X dbus-broker gtk-doc +introspection systemd
+  RDEPEND: sys-apps/dbus dev-libs/glib:2 dev-libs/libxml2:2 introspection? ( dev-libs/gobject-introspection:=
+    ) systemd? ( sys-apps/systemd ) X? ( x11-libs/libX11 x11-libs/libXtst x11-libs/libXi
+    ) >=app-accessibility/at-spi2-atk-2.46.0 !<dev-libs/atk-2.58.0 sys-devel/gettext
+    virtual/pkgconfig
+  emerge.packages: app-accessibility/at-spi2-core:2
+  kit: xorg-kit
+  original.package.name: app-accessibility/at-spi2-core
+  original.package.slot: "2"
+  original.package.version: 2.58.5
