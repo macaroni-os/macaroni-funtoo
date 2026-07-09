@@ -1,0 +1,26 @@
+name: libclc
+version: 20.1.8
+category: dev-libs-20
+use_flags:
+- -spirv
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: OpenCL C library
+uri:
+- https://libclc.llvm.org/
+license: Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) sys-devel/clang:20 spirv? ( dev-util/spirv-llvm-translator:20 ) dev-util/ninja
+    dev-util/cmake'
+  IUSE: spirv video_cards_nvidia video_cards_r600 video_cards_radeonsi
+  emerge.packages: dev-libs/libclc:20
+  kit: llvm-kit
+  original.package.name: dev-libs/libclc
+  original.package.slot: "20"
+  original.package.version: 20.1.8
