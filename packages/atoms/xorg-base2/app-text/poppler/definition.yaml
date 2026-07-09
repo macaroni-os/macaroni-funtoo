@@ -1,5 +1,5 @@
 name: poppler
-version: 24.04.0+1
+version: 24.04.0+2
 category: app-text
 use_flags:
 - -cairo
@@ -14,6 +14,9 @@ use_flags:
 - lcms
 - tiff
 requires:
+- name: nss
+  version: '>=0'
+  category: dev-libs
 - name: fontconfig
   version: '>=0'
   category: media-libs-1.0
@@ -32,19 +35,19 @@ uri:
 - https://poppler.freedesktop.org/
 license: GPL-2
 labels:
-  BDEPEND: dev-util/glib-utils virtual/pkgconfig dev-util/ninja dev-util/cmake
-  DEPEND: media-libs/fontconfig media-libs/freetype sys-libs/zlib cairo? ( dev-libs/glib:2
-    x11-libs/cairo introspection? ( dev-libs/gobject-introspection:= ) ) curl? ( net-misc/curl
-    ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( >=media-libs/openjpeg-2.3.0-r1:2= ) lcms?
-    ( media-libs/lcms:2 ) nss? ( >=dev-libs/nss-3.19:0 ) png? ( media-libs/libpng:0=
+  BDEPEND: dev-libs/glib:2 virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/fontconfig media-libs/freetype dev-libs/nss sys-libs/zlib cairo?
+    ( dev-libs/glib:2 x11-libs/cairo introspection? ( dev-libs/gobject-introspection:=
+    ) ) curl? ( net-misc/curl ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( >=media-libs/openjpeg-2.3.0-r1:2=
+    ) lcms? ( media-libs/lcms:2 ) nss? ( >=dev-libs/nss-3.19:0 ) png? ( media-libs/libpng:0=
     ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtxml:5 ) tiff? ( media-libs/tiff:0
     )
   IUSE: boost cairo cjk curl +cxx debug doc +introspection +jpeg +jpeg2k +lcms nss
     png qt5 tiff +utils
-  RDEPEND: media-libs/fontconfig media-libs/freetype sys-libs/zlib cairo? ( dev-libs/glib:2
-    x11-libs/cairo introspection? ( dev-libs/gobject-introspection:= ) ) curl? ( net-misc/curl
-    ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( >=media-libs/openjpeg-2.3.0-r1:2= ) lcms?
-    ( media-libs/lcms:2 ) nss? ( >=dev-libs/nss-3.19:0 ) png? ( media-libs/libpng:0=
+  RDEPEND: media-libs/fontconfig media-libs/freetype dev-libs/nss sys-libs/zlib cairo?
+    ( dev-libs/glib:2 x11-libs/cairo introspection? ( dev-libs/gobject-introspection:=
+    ) ) curl? ( net-misc/curl ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( >=media-libs/openjpeg-2.3.0-r1:2=
+    ) lcms? ( media-libs/lcms:2 ) nss? ( >=dev-libs/nss-3.19:0 ) png? ( media-libs/libpng:0=
     ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtxml:5 ) tiff? ( media-libs/tiff:0
     ) cjk? ( app-text/poppler-data )
   emerge.packages: app-text/poppler
