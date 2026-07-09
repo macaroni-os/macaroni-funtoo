@@ -1,0 +1,29 @@
+name: libXtst
+version: 1.2.5
+category: x11-libs
+requires:
+- name: libXi
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: X.Org Xlib-based client API for the XTEST & RECORD extensions library
+uri:
+- https://gitlab.freedesktop.org/xorg/lib/libXtst
+license: MIT
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: x11-libs/libX11 x11-libs/libXext x11-libs/libXi sys-devel/autoconf sys-devel/automake
+    sys-devel/libtool sys-devel/m4 x11-misc/util-macros media-fonts/font-util x11-base/xorg-proto
+  RDEPEND: x11-libs/libX11 x11-libs/libXext x11-libs/libXi
+  emerge.packages: x11-libs/libXtst
+  kit: xorg-kit
+  original.package.name: x11-libs/libXtst
+  original.package.slot: "0"
+  original.package.version: 1.2.5
