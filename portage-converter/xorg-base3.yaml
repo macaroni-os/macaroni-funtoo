@@ -99,6 +99,17 @@ artefacts:
     - x11-libs/libxkbcommon
     - app-doc/xmltoman
 
+
+- tree: packages/atoms/xorg-base3
+  uses:
+    disabled:
+      - qt5
+      - test
+      - clang
+      - debug
+  packages:
+    - app-doc/doxygen
+
 - tree: packages/atoms/xorg-base3
   uses:
     enabled:
@@ -135,6 +146,7 @@ artefacts:
     - zeroconf
     - systemd
     enabled:
+    - openssl
     - sh
     - X
     - abi_x86_64
@@ -204,7 +216,7 @@ artefacts:
    - x11-misc/xdg-user-dirs
 
 include_layers:
-- layers/macaroni-funtoo-race10.yaml
+- layers/macaroni-mark-race10.yaml
 
 trees:
 - ../packages/seeds/
