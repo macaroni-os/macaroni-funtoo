@@ -1,0 +1,35 @@
+name: libppd
+version: 2.1.1
+category: net-print
+use_flags:
+- -poppler
+- postscript
+requires:
+- name: libcupsfilters
+  version: '>=0'
+  category: net-print
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Legacy library for PPD files, split out of cups-filters
+uri:
+- https://github.com/OpenPrinting/libppd
+license: Apache-2.0
+labels:
+  BDEPEND: '>=sys-devel/gettext-0.18.3 virtual/pkgconfig >=app-portage/elt-patches-20170815'
+  DEPEND: '>=net-print/cups-2 net-print/libcupsfilters !<net-print/cups-filters-2.0.0
+    sys-libs/zlib postscript? ( >=app-text/ghostscript-gpl-9.09[cups] ) poppler? (
+    >=app-text/poppler-0.32[utils] )'
+  IUSE: +postscript +poppler
+  RDEPEND: '>=net-print/cups-2 net-print/libcupsfilters !<net-print/cups-filters-2.0.0
+    sys-libs/zlib postscript? ( >=app-text/ghostscript-gpl-9.09[cups] ) poppler? (
+    >=app-text/poppler-0.32[utils] )'
+  emerge.packages: net-print/libppd
+  kit: net-kit
+  original.package.name: net-print/libppd
+  original.package.slot: "0"
+  original.package.version: 2.1.1
