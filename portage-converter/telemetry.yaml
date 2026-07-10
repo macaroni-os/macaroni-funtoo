@@ -63,11 +63,6 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/telemetry
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-mark-race10
   uses:
     disabled:
       - sasl
@@ -81,7 +76,6 @@ artefacts:
     - app-metrics/mysqld_exporter-bin
     - app-metrics/consul_exporter-bin
     - app-metrics/blackbox_exporter-bin
-    - app-metrics/prometheus-bin
 
 - tree: packages/atoms/telemetry
   uses:
@@ -157,11 +151,6 @@ artefacts:
         -e grafana
 
 - tree: packages/atoms/telemetry
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-mark-race10
   uses:
     disabled:
       - sasl
@@ -182,11 +171,6 @@ artefacts:
         -e prometheus
 
 - tree: packages/atoms/telemetry
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: seed
-          name: macaroni-mark-race10
   packages:
     - app-metrics/alertmanager-bin
   finalizer:
