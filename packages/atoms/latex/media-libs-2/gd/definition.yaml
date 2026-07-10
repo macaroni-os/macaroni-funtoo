@@ -1,17 +1,30 @@
 name: gd
-version: 2.3.3+1
+version: 2.3.3+2
 category: media-libs-2
 use_flags:
-- -avif
-- -fontconfig
 - -heif
-- -jpeg
-- -png
-- -tiff
-- -truetype
-- -webp
-- -xpm
-- -zlib
+- avif
+- fontconfig
+- jpeg
+- png
+- tiff
+- truetype
+- webp
+- xpm
+- zlib
+requires:
+- name: fontconfig
+  version: '>=0'
+  category: media-libs-1.0
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: libXpm
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
@@ -25,9 +38,8 @@ uri:
 - https://libgd.github.io/
 license: gd IJG HPND BSD
 labels:
-  BDEPEND: '>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 ||
-    ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69
-    >=sys-devel/libtool-2.4'
+  BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
   DEPEND: fontconfig? ( >=media-libs/fontconfig-2.10.92 ) jpeg? ( >=virtual/jpeg-0-r2:0=
     ) png? ( >=media-libs/libpng-1.6.10:0= ) tiff? ( media-libs/tiff:0 ) truetype?
     ( >=media-libs/freetype-2.5.0.1 ) webp? ( media-libs/libwebp ) xpm? ( >=x11-libs/libXpm-3.5.10-r1
@@ -41,7 +53,7 @@ labels:
     >=x11-libs/libXt-1.1.4 ) zlib? ( >=sys-libs/zlib-1.2.8-r1 ) heif? ( >=media-libs/libheif-1.12.0[x265]
     ) avif? ( >=media-libs/libavif-0.11.1 )
   emerge.packages: media-libs/gd:2
-  kit: media-kit
+  kit: xorg-kit
   original.package.name: media-libs/gd
   original.package.slot: "2"
   original.package.version: 2.3.3
