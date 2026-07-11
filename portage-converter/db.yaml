@@ -68,6 +68,7 @@ artefacts:
     - dev-python/cheetah3
     - dev-db/mysql-init-scripts
     #- dev-db/influxdb
+    - net-mail/mailbase
 
 #- tree: packages/atoms/db
 #  uses:
@@ -85,12 +86,11 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race11
+          name: macaroni-mark-race11
   packages:
     - dev-libs/snowball-stemmer
     - virtual/perl-Term-ANSIColor
     - virtual/perl-Time-HiRes
-    - net-mail/mailbase
     - dev-db/lmdb
 
 - tree: packages/atoms/db
@@ -220,11 +220,6 @@ artefacts:
 #        -e mysql
 
 - tree: packages/atoms/db
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: dev-db
-          name: lmdb
   uses:
     enabled:
       - berkdb
@@ -356,7 +351,7 @@ artefacts:
 
 
 include_layers:
-- layers/macaroni-funtoo-race11.yaml
+- layers/macaroni-mark-race11.yaml
 
 trees:
 - ../packages/seeds/
