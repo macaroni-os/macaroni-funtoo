@@ -67,20 +67,20 @@ artefacts:
     enabled:
       - json
       - session
-      - php_targets_php8-1
       - php_targets_php8-2
     disabled:
       - examples
       - igbinary
       - sasl
       - test
+      - php_targets_php8-1
   packages:
     - dev-php/pecl-mongodb
       #    - dev-php/pecl-memcached:7
     - dev-php/pecl-mcrypt
 
 include_layers:
-- layers/macaroni-funtoo-race11.yaml
+- layers/macaroni-mark-race11.yaml
 
 trees:
 - ../packages/seeds/
@@ -195,6 +195,7 @@ reposcan_disabled_use_flags:
   - python_targets_python3_10
   - python_targets_pypy3
   - php_targets_php7-4
+  - php_targets_php8-1
   - ruby_targets_ruby25
   - ruby_targets_ruby24
   - ruby_targets_ruby25
