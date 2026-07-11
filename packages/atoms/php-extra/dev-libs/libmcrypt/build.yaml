@@ -1,8 +1,9 @@
 prelude:
-# Temporary patch
+# temporary until next race
 - >-
-  rm -rf /var/git/meta-repo/kits/dev-kit/dev-libs/libmcrypt/ &&
-  cp -rvf libmcrypt /var/git/meta-repo/kits/dev-kit/dev-libs/
+  anise repo update &&
+  anise upgrade -y &&
+  anise cleanup
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
