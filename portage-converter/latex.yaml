@@ -76,6 +76,16 @@ artefacts:
     - app-text/dvipng
     - dev-libs/ptexenc
     - dev-libs/zziplib
+
+- tree: packages/atoms/latex
+  uses:
+    disabled:
+      - sdl
+      # media-libs/libavif not available for enable avif
+      - avif
+      # media-libs/libwebp not available for enable webp
+      - webp
+  packages:
     - media-libs/gd:2
 
 - tree: packages/atoms/latex
