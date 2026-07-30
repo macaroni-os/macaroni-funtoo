@@ -1,5 +1,5 @@
 name: hub
-version: 2.14.2+4
+version: 2.14.2+5
 category: dev-vcs
 requires:
 - name: git
@@ -12,13 +12,13 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Command-line wrapper for git that makes you better at GitHub
+description: A command-line tool that makes git easier to use with GitHub.
 uri:
-- https://github.com/github/hub
+- https://hub.github.com/
 license: MIT
 labels:
-  BDEPEND: sys-apps/groff >=dev-lang/go-1.12 app-arch/unzip
-  RDEPEND: '>=dev-vcs/git-1.7.3'
+  BDEPEND: dev-lang/go sys-apps/groff >=dev-lang/go-1.12 app-arch/unzip
+  RDEPEND: dev-vcs/git
   emerge.packages: dev-vcs/hub
   kit: dev-kit
   original.package.name: dev-vcs/hub
