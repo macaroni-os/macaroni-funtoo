@@ -50,6 +50,9 @@ skipped_resolutions:
     - name: eudev
       category: sys-fs
 
+    - name: nasm
+      category: dev-lang
+
 build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
 
 global_annotations:
@@ -211,11 +214,14 @@ artefacts:
         -e $i ; done
 
 - tree: packages/atoms/tools
+  uses:
+    disabled:
+      - iso
   mutations:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race12
+          name: macaroni-mark-race12
   packages:
     - app-emulation/spice-protocol
     - media-libs/opus
@@ -375,7 +381,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race12
+          name: macaroni-mark-race12
   packages:
     - dev-db/tinycdb
 
@@ -576,7 +582,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race12
+          name: macaroni-mark-race12
   packages:
     - app-admin/makepasswd
     - app-text/tree
@@ -675,7 +681,7 @@ artefacts:
     - net-misc/iperf:3
 
 include_layers:
-- layers/macaroni-funtoo-race12.yaml
+- layers/macaroni-mark-race12.yaml
 
 trees:
 - ../packages/seeds/
