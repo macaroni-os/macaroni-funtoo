@@ -1,5 +1,5 @@
 name: ansible
-version: 9.0.1
+version: 9.0.1+1
 category: app-admin
 use_flags:
 - -python_targets_python3_10
@@ -7,9 +7,30 @@ use_flags:
 - -python_targets_python3_8
 - python_targets_python3_9
 requires:
-- name: ansible-base
+- name: httplib2
   version: '>=0'
-  category: app-admin
+  category: dev-python
+- name: jinja
+  version: '>=0'
+  category: dev-python
+- name: netaddr
+  version: '>=0'
+  category: dev-python
+- name: paramiko
+  version: '>=0'
+  category: dev-python
+- name: pexpect
+  version: '>=0'
+  category: dev-python
+- name: pyyaml
+  version: '>=0'
+  category: dev-python
+- name: sshpass
+  version: '>=0'
+  category: net-misc
+- name: ssh
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -17,9 +38,9 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Model-driven deployment, config management, and command execution framework
+description: Radically simple IT automation
 uri:
-- https://www.ansible.com/
+- https://ansible.com/
 license: GPL-3+
 labels:
   BDEPEND: dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
