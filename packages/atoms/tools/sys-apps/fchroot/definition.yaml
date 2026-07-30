@@ -1,5 +1,5 @@
 name: fchroot
-version: 1.0.2+1
+version: 1.0.2+3
 category: sys-apps
 use_flags:
 - -python_targets_python3_10
@@ -19,7 +19,8 @@ annotations:
       - ^/var/db/pkg/
 description: Funtoo franken-chroot tool.
 uri:
-- https://code.funtoo.org/bitbucket/users/drobbins/repos/fchroot/browse https://pypi.org/project/fchroot/
+- https://code.funtoo.org/bitbucket/users/drobbins/repos/fchroot/browse
+- https://pypi.org/project/fchroot/
 license: Apache-2.0
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
@@ -34,7 +35,7 @@ labels:
     ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
     ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: sys-apps/fchroot
-  kit: core-kit
+  kit: portage-kit
   original.package.name: sys-apps/fchroot
   original.package.slot: "0"
   original.package.version: 1.0.2
