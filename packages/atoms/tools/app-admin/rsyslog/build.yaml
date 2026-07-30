@@ -21,16 +21,15 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
-# Add rsyslog.service no more available on Funtoo package
+# Add rsyslog.service no more available on MARK package
 - >-
   eval 'mkdir -p /pkgdir/{{ .Values.name }}/lib/systemd/system/ || true' &&
   cp rsyslog.service /pkgdir/{{ .Values.name }}/lib/systemd/system/
-
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: liblognorm
+- name: librdkafka
   version: '>=0'
   category: dev-libs
