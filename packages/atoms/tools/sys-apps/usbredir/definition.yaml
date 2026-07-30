@@ -1,7 +1,10 @@
 name: usbredir
-version: 0.13.0+1
+version: 0.13.0+2
 category: sys-apps
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: libusb
   version: '>=0'
   category: virtual-1
@@ -17,11 +20,11 @@ uri:
 license: GPL-2 LGPL-2.1
 labels:
   BDEPEND: virtual/pkgconfig >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
-  DEPEND: virtual/libusb:1
+  DEPEND: virtual/libusb:1 dev-libs/glib:2
   IUSE: static-libs
-  RDEPEND: virtual/libusb:1
+  RDEPEND: virtual/libusb:1 dev-libs/glib:2
   emerge.packages: sys-apps/usbredir
-  kit: core-kit
+  kit: core-server-kit
   original.package.name: sys-apps/usbredir
   original.package.slot: "0"
   original.package.version: 0.13.0
