@@ -1,18 +1,16 @@
 name: unbound
-version: 1.24.1+1
+version: 1.24.1+2
 category: net-dns
 use_flags:
-- -libressl
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
 - -redis
 - -selinux
 - -systemd
-- -test
 - dnscrypt
 - dnstap
-- ecdsa
+- http2
 - python
 - python_single_target_python3_9
 requires:
@@ -34,6 +32,9 @@ requires:
 - name: dnssec-root
   version: '>=0'
   category: net-dns
+- name: nghttp2
+  version: '>=0'
+  category: net-libs
 annotations:
   subsets:
     rules:
@@ -43,7 +44,8 @@ annotations:
       - ^/var/db/pkg/
 description: A validating, recursive and caching DNS resolver
 uri:
-- https://unbound.net/ https://nlnetlabs.nl/projects/unbound/about/
+- https://unbound.net/
+- https://nlnetlabs.nl/projects/unbound/about/
 license: BSD GPL-2
 labels:
   BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
