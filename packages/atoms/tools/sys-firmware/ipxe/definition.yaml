@@ -1,11 +1,8 @@
 name: ipxe
-version: 1.21.1+2
+version: 1.21.1+3
 category: sys-firmware
 use_flags:
-- amd64
-- binary
-- iso
-- x86
+- -iso
 annotations:
   subsets:
     rules:
@@ -18,10 +15,9 @@ uri:
 - https://ipxe.org/
 license: GPL-2
 labels:
-  BDEPEND: '!binary? ( amd64? ( app-arch/xz-utils dev-lang/perl iso? ( app-cdr/cdrtools
-    sys-boot/syslinux ) ) x86? ( app-arch/xz-utils dev-lang/perl iso? ( app-cdr/cdrtools
-    sys-boot/syslinux ) ) )'
-  IUSE: +binary efi ipv6 iso lkrn +qemu undi usb vmware savedconfig
+  DEPEND: app-arch/xz-utils dev-lang/perl iso? ( app-cdr/cdrtools sys-boot/syslinux
+    )
+  IUSE: efi ipv6 iso lkrn +qemu undi usb vmware savedconfig
   emerge.packages: sys-firmware/ipxe
   kit: core-hw-kit
   original.package.name: sys-firmware/ipxe
