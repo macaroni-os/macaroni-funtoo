@@ -1,19 +1,16 @@
 name: gunicorn
-version: 22.0.0+1
+version: 22.0.0+2
 category: www-servers
 use_flags:
-- -doc
-- -python_targets_pypy3
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -test
 - python_targets_python3_9
 requires:
-- name: setproctitle
+- name: packaging
   version: '>=0'
   category: dev-python
-- name: setuptools
+- name: setproctitle
   version: '>=0'
   category: dev-python
 annotations:
@@ -25,8 +22,8 @@ annotations:
       - ^/var/db/pkg/
 description: A WSGI HTTP Server for UNIX
 uri:
-- https://gunicorn.org https://pypi.org/project/gunicorn https://github.com/benoitc/gunicorn
-license: MIT PSF-2 doc? ( BSD )
+- https://pypi.org/project/gunicorn/
+license: MIT PSF-2
 labels:
   BDEPEND: python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_7?
     ( dev-lang/python:3.7 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_8?
