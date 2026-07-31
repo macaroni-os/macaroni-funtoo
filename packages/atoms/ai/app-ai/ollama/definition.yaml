@@ -1,5 +1,5 @@
 name: ollama
-version: 0.13.5
+version: 0.30.10
 category: app-ai
 use_flags:
 - systemd
@@ -16,11 +16,15 @@ uri:
 - https://ollama.com
 license: MIT
 labels:
-  BDEPEND: '>=dev-lang/go-1.24 >=dev-lang/go-1.12 app-arch/unzip dev-util/ninja dev-util/cmake'
-  DEPEND: sys-apps/shadow
-  IUSE: systemd
+  BDEPEND: '>=dev-lang/go-1.24 clang? ( sys-devel/clang ) >=dev-lang/go-1.12 app-arch/unzip
+    dev-util/ninja dev-util/cmake'
+  DEPEND: vulkan? ( media-libs/vulkan-loader media-libs/shaderc ) cuda? ( dev-util/nvidia-cuda-toolkit
+    ) sys-apps/shadow
+  IUSE: systemd clang cuda vulkan
+  RDEPEND: vulkan? ( media-libs/vulkan-loader media-libs/shaderc ) cuda? ( dev-util/nvidia-cuda-toolkit
+    )
   emerge.packages: app-ai/ollama
   kit: ai-kit
   original.package.name: app-ai/ollama
   original.package.slot: "0"
-  original.package.version: 0.13.5
+  original.package.version: 0.30.10
