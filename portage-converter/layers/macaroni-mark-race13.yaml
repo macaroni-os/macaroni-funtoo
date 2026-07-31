@@ -1,5 +1,5 @@
 layer:
-  name: macaroni-funtoo-race13
+  name: macaroni-mark-race13
   category: seed
 packages:
   - app-accessibility/at-spi2-atk:2
@@ -15,6 +15,7 @@ packages:
   - app-admin/entities:0
   - app-admin/eselect:0
   - app-admin/logrotate:0
+  - app-admin/macaronictl:0
   - app-admin/makepasswd:0
   - app-admin/metalog:0
   - app-admin/mongo-tools:0
@@ -55,7 +56,7 @@ packages:
   - app-emulation/containerd:0
   - app-emulation/docker-buildx:2
   - app-emulation/docker-cli:0
-  - app-emulation/docker-compose:2
+  - app-emulation/docker-compose:0
   - app-emulation/docker-registry:0
   - app-emulation/docker:0
   - app-emulation/incus:0
@@ -139,7 +140,6 @@ packages:
   - dev-db/mysql-connector-c:0
   - dev-db/mysql-init-scripts:0
   - dev-db/postgresql:13
-  - dev-db/postgresql:14
   - dev-db/postgresql:16
   - dev-db/redis:0
   - dev-db/sqlite:3
@@ -156,12 +156,12 @@ packages:
   - dev-java/oracle-jdk-bin:21
   - dev-lang/duktape:0
   - dev-lang/erlang:0
+  - dev-lang/fpc:0
   - dev-lang/go:0
+  - dev-lang/lazarus:0
   - dev-lang/lua:0
   - dev-lang/orc:0
   - dev-lang/perl:0
-  - dev-lang/php:7.4
-  - dev-lang/php:8.1
   - dev-lang/php:8.2
   - dev-lang/python-exec:2
   - dev-lang/python:3.9
@@ -178,6 +178,7 @@ packages:
   - dev-libs/boost:0
   - dev-libs/check:0
   - dev-libs/cyrus-sasl:2
+  - dev-libs/dqlite:0
   - dev-libs/elfutils:0
   - dev-libs/expat:0
   - dev-libs/ffcall:0
@@ -204,6 +205,7 @@ packages:
   - dev-libs/libbsd:0
   - dev-libs/libbson:0
   - dev-libs/libburn:0
+  - dev-libs/libclc:20
   - dev-libs/libdaemon:0
   - dev-libs/libdnet:0
   - dev-libs/libedit:0
@@ -252,7 +254,6 @@ packages:
   - dev-libs/nss:0
   - dev-libs/oniguruma:0
   - dev-libs/openssl:0
-  - dev-libs/ossp-uuid:0
   - dev-libs/popt:0
   - dev-libs/protobuf-c:0
   - dev-libs/protobuf:0
@@ -427,14 +428,16 @@ packages:
   - dev-python/jsonpointer:0
   - dev-python/jsonschema:0
   - dev-python/lark:0
-  - dev-python/libxml2-python:0
+  - dev-python/libxml2-python:2
   - dev-python/libxslt-python:0
   - dev-python/linecache2:0
   - dev-python/lxml:0
   - dev-python/m2r:0
   - dev-python/mako:0
+  - dev-python/markdown-it-py:0
   - dev-python/markdown:0
   - dev-python/markupsafe:0
+  - dev-python/mdurl:0
   - dev-python/meson-python:0
   - dev-python/mistune:0
   - dev-python/msgpack:0
@@ -488,6 +491,8 @@ packages:
   - dev-python/pyrsistent:0
   - dev-python/pyserial:0
   - dev-python/python-dateutil:0
+  - dev-python/python-discovery:0
+  - dev-python/python-magic:0
   - dev-python/python-memcached:0
   - dev-python/python-mimeparse:0
   - dev-python/python-sqlparse:0
@@ -527,7 +532,6 @@ packages:
   - dev-python/sphinxcontrib-serializinghtml:0
   - dev-python/sqlalchemy-migrate:0
   - dev-python/sqlalchemy:0
-  - dev-python/subpop:0
   - dev-python/tempita:0
   - dev-python/terminaltables:0
   - dev-python/toml:0
@@ -609,7 +613,6 @@ packages:
   - dev-util/desktop-file-utils:0
   - dev-util/gdbus-codegen:0
   - dev-util/github-cli:0
-  - dev-util/glib-utils:0
   - dev-util/google-perftools:0
   - dev-util/gperf:0
   - dev-util/gtk-doc-am:0
@@ -636,6 +639,7 @@ packages:
   - dev-vcs/hub:0
   - dev-vcs/python-gitlab:0
   - gnome-extra/yelp-xsl:0
+  - mail-mta/nullmailer:0
   - mail-mta/postfix:0
   - media-fonts/encodings:0
   - media-fonts/font-adobe-100dpi:0
@@ -670,6 +674,7 @@ packages:
   - media-libs/opus:0
   - media-libs/tiff:0
   - net-analyzer/arpwatch:0
+  - net-analyzer/fail2ban:0
   - net-analyzer/hping:0
   - net-analyzer/macchanger:0
   - net-analyzer/net-snmp:0
@@ -682,10 +687,14 @@ packages:
   - net-analyzer/tcptrace:0
   - net-analyzer/tcptraceroute:0
   - net-analyzer/traceroute:0
+  - net-dialup/freeradius:0
   - net-dialup/lrzsz:0
   - net-dialup/minicom:0
   - net-dialup/ppp:0
   - net-dns/avahi:0
+  - net-dns/bind-tools:0
+  - net-dns/bind:0
+  - net-dns/coredns:0
   - net-dns/dnsmasq:0
   - net-dns/dnssec-root:0
   - net-dns/libidn2:0
@@ -730,6 +739,7 @@ packages:
   - net-mail/mailbase:0
   - net-misc/bridge-utils:0
   - net-misc/chrony:0
+  - net-misc/cni-plugins:0
   - net-misc/curl:0
   - net-misc/dhcp:0
   - net-misc/dhcpcd:0
@@ -760,7 +770,10 @@ packages:
   - net-p2p/rtorrent:0
   - net-print/cups-filters:0
   - net-print/cups:0
+  - net-print/libcupsfilters:0
+  - net-print/libppd:0
   - net-proxy/cntlm:0
+  - net-proxy/haproxy:0
   - net-vpn/openconnect:0
   - net-vpn/openfortivpn:0
   - net-vpn/openvpn:0
@@ -812,7 +825,6 @@ packages:
   - sys-apps/man-db:0
   - sys-apps/man-pages-posix:0
   - sys-apps/man-pages:0
-  - sys-apps/metatools:0
   - sys-apps/net-tools:0
   - sys-apps/pciutils:0
   - sys-apps/pcsc-lite:0
@@ -831,9 +843,12 @@ packages:
   - sys-auth/google-authenticator:0
   - sys-auth/pambase:0
   - sys-auth/polkit:0
+  - sys-block/parted:0
   - sys-block/thin-provisioning-tools:0
+  - sys-cluster/glusterfs:0
   - sys-cluster/keepalived:0
   - sys-cluster/kubectl:0
+  - sys-cluster/singularity:0
   - sys-devel/autoconf-archive:0
   - sys-devel/autoconf-wrapper:0
   - sys-devel/autoconf:2.69
@@ -845,8 +860,8 @@ packages:
   - sys-devel/binutils:2.40
   - sys-devel/bison:0
   - sys-devel/clang-common:0
-  - sys-devel/clang-runtime:16
-  - sys-devel/clang:16
+  - sys-devel/clang-runtime:20
+  - sys-devel/clang:20
   - sys-devel/flex:0
   - sys-devel/gcc-config:0
   - sys-devel/gcc:12.3.0
@@ -855,7 +870,7 @@ packages:
   - sys-devel/gnuconfig:0
   - sys-devel/libtool:2
   - sys-devel/llvm-common:0
-  - sys-devel/llvm:16
+  - sys-devel/llvm:20
   - sys-devel/m4:0
   - sys-devel/make:0
   - sys-devel/patch:0
@@ -864,6 +879,7 @@ packages:
   - sys-firmware/seabios-bin:0
   - sys-firmware/sgabios:0
   - sys-fs/btrfs-progs:0
+  - sys-fs/cryptsetup:0
   - sys-fs/dosfstools:0
   - sys-fs/e2fsprogs:0
   - sys-fs/fuse-common:0
@@ -877,10 +893,11 @@ packages:
   - sys-fs/squashfs-tools:0
   - sys-fs/udev-init-scripts:0
   - sys-fs/xfsprogs:0
+  - sys-kernel/dummy-sources:0
   - sys-kernel/linux-headers:0
   - sys-libs/binutils-libs:0
-  - sys-libs/compiler-rt-sanitizers:16
-  - sys-libs/compiler-rt:16
+  - sys-libs/compiler-rt-sanitizers:20
+  - sys-libs/compiler-rt:20
   - sys-libs/cracklib:0
   - sys-libs/db:18.1
   - sys-libs/db:5.3
@@ -888,6 +905,7 @@ packages:
   - sys-libs/gdbm:0
   - sys-libs/glibc:2.2
   - sys-libs/gpm:0
+  - sys-libs/libapparmor:0
   - sys-libs/libcap-ng:0
   - sys-libs/libcap:0
   - sys-libs/libcxx:0
@@ -900,10 +918,12 @@ packages:
   - sys-libs/ncurses:0
   - sys-libs/pam:0
   - sys-libs/readline:0
+  - sys-libs/talloc:0
   - sys-libs/timezone-data:0
   - sys-libs/zlib:0
   - sys-power/cpupower:0
   - sys-power/iasl:0
+  - sys-process/criu:0
   - sys-process/cronbase:0
   - sys-process/cronie:0
   - sys-process/htop:0
@@ -911,6 +931,8 @@ packages:
   - sys-process/lsof:0
   - sys-process/numactl:0
   - sys-process/procps:0
+  - sys-process/procs:0
+  - sys-process/psmisc:0
   - sys-process/tini:0
   - virtual/acl:0
   - virtual/awk:0
@@ -934,9 +956,11 @@ packages:
   - virtual/libintl:0
   - virtual/libudev:0
   - virtual/libusb:1
+  - virtual/linux-sources:0
   - virtual/logger:0
   - virtual/man:0
   - virtual/modutils:0
+  - virtual/mta:0
   - virtual/opengl:0
   - virtual/os-headers:0
   - virtual/package-manager:0
@@ -996,6 +1020,7 @@ packages:
   - virtual/yacc:0
   - www-client/w3m:0
   - www-servers/apache:2
+  - www-servers/caddy:0
   - www-servers/gunicorn:0
   - www-servers/lighttpd:0
   - www-servers/nginx:0
@@ -1022,6 +1047,7 @@ packages:
   - x11-libs/libXft:0
   - x11-libs/libXi:0
   - x11-libs/libXmu:0
+  - x11-libs/libXpm:0
   - x11-libs/libXrandr:0
   - x11-libs/libXrender:0
   - x11-libs/libXt:0
@@ -1039,9 +1065,7 @@ packages:
   - x11-misc/compose-tables:0
   - x11-misc/imake:0
   - x11-misc/shared-mime-info:0
+  - x11-misc/util-macros:0
   - x11-misc/xdg-user-dirs:0
   - x11-misc/xdg-utils:0
   - x11-misc/xorg-cf-files:0
-  - x11-proto/dri2proto:0
-  - x11-proto/glproto:0
-  - x11-proto/xproto:0
