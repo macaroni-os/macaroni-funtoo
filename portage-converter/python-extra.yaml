@@ -67,7 +67,7 @@ artefacts:
     buildtime_deps:
       packages:
         - category: seed
-          name: macaroni-funtoo-race12
+          name: macaroni-mark-race12
   packages:
     - virtual/blas
     - virtual/cblas
@@ -109,6 +109,8 @@ artefacts:
     - dev-python/aws-crt-python
     - dev-python/distro
     - dev-python/pyproject-metadata
+    - dev-python/lark
+    - dev-python/tomlkit
 
 - tree: packages/atoms/python-extra
   uses:
@@ -197,7 +199,7 @@ artefacts:
     - dev-python/falcon
 
 include_layers:
-- layers/macaroni-funtoo-race12.yaml
+- layers/macaroni-mark-race12.yaml
 
 trees:
 - ../packages/seeds/
@@ -225,6 +227,7 @@ trees:
 - ../packages/atoms/latex-extra/
 - ../packages/atoms/java/
 - ../packages/atoms/php-extra/
+- ../packages/atoms/tools/
 - ../packages/atoms/python-extra/
 
 
