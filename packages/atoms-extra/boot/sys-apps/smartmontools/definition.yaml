@@ -1,0 +1,44 @@
+name: smartmontools
+version: "7.5"
+category: sys-apps
+use_flags:
+- -selinux
+- caps
+- daemon
+- static
+- update-drivedb
+requires:
+- name: gnupg
+  version: '>=0'
+  category: app-crypt
+- name: libcap-ng
+  version: '>=0'
+  category: sys-libs
+- name: mailx
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tools to monitor storage systems to provide advanced warning of disk
+  degradation
+uri:
+- https://www.smartmontools.org
+license: GPL-2
+labels:
+  DEPEND: caps? ( static? ( sys-libs/libcap-ng:=[static-libs] ) !static? ( sys-libs/libcap-ng:=
+    ) ) selinux? ( sys-libs/libselinux:= )
+  IUSE: caps +daemon selinux static +update-drivedb
+  RDEPEND: caps? ( static? ( sys-libs/libcap-ng:=[static-libs] ) !static? ( sys-libs/libcap-ng:=
+    ) ) selinux? ( sys-libs/libselinux:= ) daemon? ( virtual/mailx ) selinux? ( sec-policy/selinux-smartmon
+    ) update-drivedb? ( app-crypt/gnupg || ( net-misc/curl net-misc/wget www-client/lynx
+    dev-vcs/subversion ) )
+  emerge.packages: sys-apps/smartmontools
+  kit: core-hw-kit
+  original.package.name: sys-apps/smartmontools
+  original.package.slot: "0"
+  original.package.version: "7.5"
