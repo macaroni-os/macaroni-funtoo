@@ -372,6 +372,7 @@ artefacts:
   - virtual/glu
   - virtual/opengl
   - virtual/dracut-mark
+  - virtual/mailx
   - media-libs/libogg
 
 - tree: packages/atoms-extra/boot
@@ -386,6 +387,21 @@ artefacts:
       - sssd
   packages:
     - app-admin/sudo
+
+- tree: packages/atoms-extra/boot
+  uses:
+    disabled:
+      - test-suite
+      - prefix
+      - libressl
+  packages:
+    - sys-fs/zfs
+
+- tree: packages/atoms-extra/boot
+  packages:
+    - sys-boot/os-prober
+    - sys-apps/lm_sensors
+    - sys-apps/smartmontools
 
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
