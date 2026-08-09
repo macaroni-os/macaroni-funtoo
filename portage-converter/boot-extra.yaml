@@ -322,7 +322,6 @@ artefacts:
     - grub_platforms_xen
     - grub_platforms_xen-32
     - grub_platforms_xen-pvh
-    - libzfs
     - nios2
     - sh
     - test
@@ -339,6 +338,7 @@ artefacts:
     - themes
     - truetype
     - sdl
+    - libzfs
   packages:
   - sys-boot/grub:2
 
@@ -373,6 +373,19 @@ artefacts:
   - virtual/opengl
   - virtual/dracut-mark
   - media-libs/libogg
+
+- tree: packages/atoms-extra/boot
+  uses:
+    disabled:
+      - gcrypt
+      - ldap
+      - offensive
+      - sasl
+      - selinux
+      - skey
+      - sssd
+  packages:
+    - app-admin/sudo
 
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
