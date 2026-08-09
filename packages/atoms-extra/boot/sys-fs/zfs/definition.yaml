@@ -1,21 +1,27 @@
 name: zfs
-version: 2.3.0
+version: 2.3.0+1
 category: sys-fs
 use_flags:
 - -kernel-builtin
 - -libressl
 - -minimal
-- -pam
 - -prefix
-- -python
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -python_targets_python3_9
-- -rootfs
 - -test-suite
 - nls
+- pam
+- python
+- python_targets_python3_9
+- rootfs
 requires:
+- name: cpio
+  version: '>=0'
+  category: app-arch
+- name: pax-utils
+  version: '>=0'
+  category: app-misc
 - name: openssl
   version: '>=0'
   category: dev-libs
@@ -25,13 +31,13 @@ requires:
 - name: util-linux
   version: '>=0'
   category: sys-apps
-- name: zfs-kmod
-  version: '>=0'
-  category: sys-fs
 - name: awk
   version: '>=0'
   category: virtual
 - name: libudev
+  version: '>=0'
+  category: virtual
+- name: python-cffi
   version: '>=0'
   category: virtual
 - name: udev
