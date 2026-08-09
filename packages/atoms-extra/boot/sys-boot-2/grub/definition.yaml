@@ -1,10 +1,9 @@
 name: grub
-version: 2.12+5
+version: 2.12+6
 category: sys-boot-2
 use_flags:
 - -grub_platforms_efi-32
 - -kernel_linux
-- -libzfs
 - -ppc
 - -ppc64
 - -test
@@ -12,6 +11,7 @@ use_flags:
 - fonts
 - grub_platforms_efi-64
 - grub_platforms_emu
+- libzfs
 - mount
 - nls
 - sdl
@@ -31,6 +31,9 @@ requires:
   version: '>=0'
   category: sys-fs
 - name: fuse
+  version: '>=0'
+  category: sys-fs
+- name: zfs
   version: '>=0'
   category: sys-fs
 provides:
