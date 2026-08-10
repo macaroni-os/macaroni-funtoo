@@ -398,10 +398,24 @@ artefacts:
     - sys-fs/zfs
 
 - tree: packages/atoms-extra/boot
+  uses:
+    disabled:
+      - static
   packages:
     - sys-boot/os-prober
     - sys-apps/lm_sensors
     - sys-apps/smartmontools
+
+- tree: packages/atoms-extra/boot
+  uses:
+    disabled:
+      - ldap
+      - kyotocabinet
+      - sasl
+      - servers
+      - tokyocabinet
+  packages:
+    - net-mail/mailutils
 
 include_layers:
 - layers/macaroni-funtoo-race10.yaml
@@ -500,6 +514,7 @@ reposcan_disabled_use_flags:
   - gles2-only
   - python_single_target_python2_7
   - python_single_target_python3_6
+  - python_single_target_python3_7
   - python_single_target_python3_8
   - python_single_target_python3_10
   # I disable pypy support atm
