@@ -124,22 +124,22 @@ artefacts:
       - libressl
   packages:
     - kde-plasma/kde-gtk-config
-    - kde-plasma/kwallet-pam:5
-    - kde-apps/kaccounts-integration:5
-    - kde-apps/kaccounts-providers:5
-    - kde-apps/libkcompactdisc:5
-    - kde-apps/libkgapi:5
-    - kde-apps/okular:5
-    - net-irc/konversation:5
-    - kde-misc/skanlite:5
-    - kde-misc/kio-gdrive:5
-    - kde-frameworks/kjs:5
-    - kde-frameworks/kcalendarcore:5
-    - kde-frameworks/khtml:5
-    - kde-apps/yakuake:5
-    - kde-apps/thumbnailers:5
-    - kde-apps/svgpart:5
-    - kde-apps/print-manager:5
+    - kde-plasma/kwallet-pam:6
+    - kde-apps/kaccounts-integration:6
+    - kde-apps/kaccounts-providers:6
+    - kde-apps/libkcompactdisc:6
+    - kde-apps/libkgapi:6
+    - kde-apps/okular:6
+    - net-irc/konversation:6
+    - kde-misc/skanlite:6
+    - kde-misc/kio-gdrive:6
+    - kde-frameworks/kjs:6
+    - kde-frameworks/kcalendarcore:6
+    - kde-frameworks/khtml:6
+    - kde-apps/yakuake:6
+    - kde-apps/thumbnailers:6
+    - kde-apps/svgpart:6
+    - kde-apps/print-manager:6
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -150,14 +150,14 @@ artefacts:
       - libressl
       - scim
   packages:
-    - kde-plasma/plasma-desktop:5
+    - kde-plasma/plasma-desktop:6
 
 - tree: packages/atoms/base-kde5
   mutations:
     uses:
       - xmp
   packages:
-    - kde-apps/libkexiv2:5
+    - kde-apps/libkexiv2:6
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -166,7 +166,7 @@ artefacts:
       - test
       - teamd
   packages:
-    - kde-plasma/plasma-nm:5
+    - kde-plasma/plasma-nm:6
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -176,31 +176,20 @@ artefacts:
       - selinux
       - flashexporter
   packages:
-    - kde-apps/kdenetwork-filesharing:5
-    - kde-apps/kdf:5
-    - kde-apps/kdialog:5
-    - kde-apps/keditbookmarks:5
-    - kde-apps/kfind:5
-    - kde-apps/kgpg:5
-    - kde-apps/killbots:5
-    - kde-apps/kipi-plugins:5
-    - kde-apps/kmag:5
-    - kde-apps/kmousetool:5
-    - kde-apps/kmouth:5
-    - kde-apps/konsole:5
+    - kde-apps/kdenetwork-filesharing:6
+    - kde-apps/kdf:6
+    - kde-apps/kdialog:6
+    - kde-apps/keditbookmarks:6
+    - kde-apps/kfind:6
+    - kde-apps/kgpg:6
+    - kde-apps/killbots:6
+    - kde-apps/kipi-plugins:6
+    - kde-apps/kmag:6
+    - kde-apps/kmousetool:6
+    - kde-apps/kmouth:6
+    - kde-apps/konsole:6
     - kde-apps/kwalletmanager
-    - kde-apps/kwrite:5
-
-# TODO: move this on base-qt*
-- tree: packages/atoms/base-kde5
-  uses:
-    disabled:
-      - debug
-      - test
-      # NOTE: it requires flite-2 that is not available in Funtoo. To fix.
-  packages:
-    - dev-qt/qtspeech:5
-
+    - kde-apps/kwrite:6
 
 - tree: packages/atoms/base-kde5
   mutations:
@@ -212,14 +201,14 @@ artefacts:
       - test
       - mariadb
   packages:
-    - kde-apps/akonadi:5
+    - kde-apps/akonadi:6
 
 - tree: packages/atoms/base-kde5
   packages:
-    - kde-apps/ksanecore:5
-    - kde-apps/libksane:5
-    - net-libs/libktorrent:5
-    - net-p2p/ktorrent:5
+    - kde-apps/ksanecore:6
+    - kde-apps/libksane:6
+    - net-libs/libktorrent:6
+    - net-p2p/ktorrent:6
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -231,7 +220,7 @@ artefacts:
     - app-admin/system-config-printer
     - dev-python/pycups
     - dev-libs/qtkeychain
-    - dev-libs/ktextaddons:5
+    - dev-libs/ktextaddons:6
 
 - tree: packages/atoms/base-kde5
   mutations:
@@ -267,6 +256,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -274,7 +264,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -283,11 +273,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -512,6 +501,8 @@ reposcan_disabled_use_flags:
   - amd64-fbsd
   - ppc
   - ppc64
+
+  - qt5
 
   - userland_BSD
 reposcan_disabled_keywords:
