@@ -88,6 +88,16 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/base-kde4
+  packages:
+    - x11-misc/xdotool
+
+- tree: packages/atoms/base-kde4
+  mutations:
+    buildtime_deps:
+      packages:
+        # Temporary until next race
+        - category: x11-misc
+          name: xdotool
   uses:
     disabled:
       - debug
@@ -98,6 +108,17 @@ artefacts:
       - test
   packages:
       - kde-plasma/plasma-workspace:6
+
+- tree: packages/atoms/base-kde4
+  uses:
+    disabled:
+      - debug
+      - doc
+      - qalculate
+      - gps
+      - static-libs
+      - test
+  packages:
       - kde-frameworks/networkmanager-qt
 
 - tree: packages/atoms/base-kde4
@@ -120,13 +141,6 @@ artefacts:
       - vorbis
   packages:
     - kde-apps/k3b
-
-- tree: packages/atoms/base-kde4
-  uses:
-    disabled:
-      - xml
-  packages:
-    - media-video/transcode
 
 - tree: packages/atoms/base-kde4
   uses:
