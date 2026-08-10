@@ -1,4 +1,9 @@
 prelude:
+# Temporary until next race
+- >-
+  anise repo update &&
+  anise upgrade -y &&
+  anise cleanup --purge-repos
 - >-
   eval 'eselect blas set 1 || true' &&
   eval 'eselect cblas set 2 || true' &&
