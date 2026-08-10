@@ -1,22 +1,20 @@
 image: macaronios/phoenix-dev-minimal-devel:latest-amd64
 prelude:
 - >-
-  luet repo update &&
-  luet install -y --force
+  anise repo update &&
+  anise install -y --force
   system/luet-devkit
-  utils/jq
-  utils/yq
-  dev-util/pkgs-checker-minimal
+  app-misc/jq-bin
+  app-misc/yq4-bin
+  dev-util/pkgs-checker
   app-admin/macaronictl
+  app-admin/whip
+  app-admin/entities
+  sys-apps/whip-catalog
   pinentry make git
   toolchain/base
   toolchain/base-extra
   toolchain/meta-repo
-  toolchain/meta-geaaru-kit
-  system/entities
-  app-admin/whip
-  whip-profiles/macaroni
-  macaroni/whip-catalog
   macaroni/entities-catalog
   qtgui
   qtdbus
@@ -34,7 +32,7 @@ prelude:
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
-  luet cleanup --purge-repos
+  anise cleanup --purge-repos
 steps:
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
