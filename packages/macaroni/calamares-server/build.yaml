@@ -1,5 +1,10 @@
-image: "macaronios/funtoo-minimal:latest-amd64"
+image: "macaronios/terragon-minimal:latest-amd64"
 steps:
+- >-
+  anise repo update &&
+  anise i -y wget tar gzip ca-certificates &&
+  anise cleanup --purge-repos
+
 # Modules
 - >-
   mkdir -p /{{.Values.name}}/etc/calamares/ &&
