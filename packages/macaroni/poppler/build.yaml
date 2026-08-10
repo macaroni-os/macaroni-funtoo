@@ -4,7 +4,7 @@ prelude:
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
-  USE="-curl cxx -introspection jpeg tiff -jpeg2k lcms qt5 cairo utils" emerge app-text/poppler -j ${JOBS}
+  USE="-curl cxx -introspection jpeg tiff -jpeg2k lcms qt6 cairo utils" emerge app-text/poppler -j ${JOBS}
 - >-
   export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" &&
   export LUET_PORTAGE_IGNORE_TAR_WARNING=1 &&
@@ -23,13 +23,13 @@ includes:
 - /usr$
 - /usr/include$
 - /usr/include/poppler$
-- /usr/include/poppler/qt5$
-- /usr/include/poppler/qt5/.*
+- /usr/include/poppler/qt6$
+- /usr/include/poppler/qt6/.*
 - /usr/lib64$
-- /usr/lib64/libpoppler-qt5.so
-- /usr/lib64/libpoppler-qt5.so.*
+- /usr/lib64/libpoppler-qt6.so
+- /usr/lib64/libpoppler-qt6.so.*
 - /usr/lib64/pkgconfig$
-- /usr/lib64/pkgconfig/poppler-qt5.pc
+- /usr/lib64/pkgconfig/poppler-qt6.pc
 {{ end }}
 requires:
 # TODO: move this to race with efl to reduce compilation tasks.
