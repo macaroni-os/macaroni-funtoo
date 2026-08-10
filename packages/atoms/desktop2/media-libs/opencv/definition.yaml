@@ -1,38 +1,37 @@
 name: opencv
-version: 4.14.0
+version: 4.14.0+1
 category: media-libs
 use_flags:
-- -cuda
+- -avif
+- -contribhdf
+- -contribovis
+- -doc
 - -eigen
-- -gdal
-- -gflags
-- -glog
 - -gphoto2
 - -ieee1394
-- -libav
+- -jasper
 - -opencl
 - -openexr
 - -python_targets_python3_10
 - -python_targets_python3_7
 - -python_targets_python3_8
-- -qt5
-- -tesseract
-- -threads
-- -vtk
-- -xine
-- contrib
+- -qt6
+- -tbb
+- contribfreetype
 - ffmpeg
 - gstreamer
-- gtk
+- gtk3
 - jpeg
+- jpeg2k
 - lapack
-- opengl
 - png
 - python
 - python_targets_python3_9
-- tiff
+- quirc
 - v4l
 - vaapi
+- vulkan
+- wayland
 - webp
 requires:
 - name: glib
@@ -44,24 +43,27 @@ requires:
 - name: numpy
   version: '>=0'
   category: dev-python
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
 - name: gst-plugins-base
   version: '>=0'
   category: media-libs-1.0
-- name: tiff
+- name: gstreamer
+  version: '>=0'
+  category: media-libs-1.0
+- name: harfbuzz
+  version: '>=0'
+  category: media-libs
+- name: libjpeg-turbo
+  version: '>=0'
+  category: media-libs
+- name: quirc
   version: '>=0'
   category: media-libs
 - name: ffmpeg
   version: '>=0'
   category: media-video
-- name: hdf5
-  version: '>=0'
-  category: sci-libs
-- name: glu
-  version: '>=0'
-  category: virtual
-- name: opengl
-  version: '>=0'
-  category: virtual
 - name: gtk+
   version: '>=0'
   category: x11-libs-3
@@ -75,11 +77,10 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A collection of algorithms and sample code for various computer vision
-  problems
+description: Open Source Computer Vision Library
 uri:
 - https://opencv.org
-license: BSD
+license: Apache-2.0
 labels:
   BDEPEND: dev-util/patchelf virtual/pkgconfig doc? ( app-text/doxygen[dot] python?
     ( dev-python/beatifulsoup4[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
