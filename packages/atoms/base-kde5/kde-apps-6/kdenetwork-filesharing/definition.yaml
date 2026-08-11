@@ -1,0 +1,45 @@
+name: kdenetwork-filesharing
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: qcoro
+  version: '>=0'
+  category: dev-libs
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kirigami
+  version: '>=0'
+  category: kde-frameworks-6
+- name: samba
+  version: '>=0'
+  category: net-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Samba filesharing plugin for file properties
+uri:
+- https://apps.kde.org/kdenetwork_filesharing/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] dev-libs/qcoro kde-frameworks/kirigami:6
+    kde-frameworks/kauth:6 kde-frameworks/kcompletion:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 net-fs/samba
+  RDEPEND: virtual/kde-seed[gui,declarative] dev-libs/qcoro kde-frameworks/kirigami:6
+    kde-frameworks/kauth:6 kde-frameworks/kcompletion:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 net-fs/samba
+  emerge.packages: kde-apps/kdenetwork-filesharing:6
+  kit: kde-kit
+  original.package.name: kde-apps/kdenetwork-filesharing
+  original.package.slot: "6"
+  original.package.version: 25.12.2
