@@ -1,0 +1,59 @@
+name: ark
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- zip
+requires:
+- name: libarchive
+  version: '>=0'
+  category: app-arch
+- name: libzip
+  version: '>=0'
+  category: dev-libs
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kfilemetadata
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kpty
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: File archiver by KDE
+uri:
+- https://apps.kde.org/ark/
+labels:
+  BDEPEND: sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] >=app-arch/libarchive-3.5.3:=[bzip2,lzma] kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kfilemetadata:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/kparts:6
+    kde-frameworks/kpty:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6 kde-frameworks/kiconthemes:6
+    sys-libs/zlib zip? ( >=dev-libs/libzip-1.6.0:= ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: zip
+  RDEPEND: virtual/kde-seed[gui] >=app-arch/libarchive-3.5.3:=[bzip2,lzma] kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kfilemetadata:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/kparts:6
+    kde-frameworks/kpty:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6 kde-frameworks/kiconthemes:6
+    sys-libs/zlib zip? ( >=dev-libs/libzip-1.6.0:= )
+  emerge.packages: kde-apps/ark:6
+  kit: kde-kit
+  original.package.name: kde-apps/ark
+  original.package.slot: "6"
+  original.package.version: 25.12.2
