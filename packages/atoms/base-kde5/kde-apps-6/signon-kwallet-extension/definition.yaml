@@ -1,0 +1,29 @@
+name: signon-kwallet-extension
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-6
+- name: signond
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KWallet extension for signond
+uri:
+- https://accounts-sso.gitlab.io/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: kde-frameworks/kwallet:6 >=net-libs/signond-8.61-r100[qt6(+)]
+  RDEPEND: kde-frameworks/kwallet:6 >=net-libs/signond-8.61-r100[qt6(+)]
+  emerge.packages: kde-apps/signon-kwallet-extension:6
+  kit: kde-kit
+  original.package.name: kde-apps/signon-kwallet-extension
+  original.package.slot: "6"
+  original.package.version: 25.12.2-r1
