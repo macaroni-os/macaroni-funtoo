@@ -1,0 +1,65 @@
+name: dolphin
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- semantic-desktop
+- telemetry
+requires:
+- name: baloo-widgets
+  version: '>=0'
+  category: kde-apps-6
+- name: kio-extras
+  version: '>=0'
+  category: kde-apps-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kuserfeedback
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plasma filemanager focusing on usability
+uri:
+- https://apps.kde.org/dolphin/
+- https://userbase.kde.org/Dolphin
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: virtual/kde-seed[gui,X,multimedia] kde-apps/kio-extras:6 kde-frameworks/kbookmarks:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kfilemetadata:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6= kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/kparts:6 kde-frameworks/kservice:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    kde-frameworks/solid:6 semantic-desktop? ( kde-apps/baloo-widgets:6 kde-frameworks/baloo:6
+    ) telemetry? ( kde-frameworks/kuserfeedback:6 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+    dev-util/desktop-file-utils dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: semantic-desktop telemetry test debug
+  RDEPEND: virtual/kde-seed[gui,X,multimedia] kde-apps/kio-extras:6 kde-frameworks/kbookmarks:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kfilemetadata:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6= kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/kparts:6 kde-frameworks/kservice:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    kde-frameworks/solid:6 semantic-desktop? ( kde-apps/baloo-widgets:6 kde-frameworks/baloo:6
+    ) telemetry? ( kde-frameworks/kuserfeedback:6 )
+  emerge.packages: kde-apps/dolphin:6
+  kit: kde-kit
+  original.package.name: kde-apps/dolphin
+  original.package.slot: "6"
+  original.package.version: 25.12.2
