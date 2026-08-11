@@ -1,0 +1,80 @@
+name: plasma-nm
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- openconnect
+requires:
+- name: qca
+  version: '>=0'
+  category: app-crypt-2
+- name: qcoro
+  version: '>=0'
+  category: dev-libs
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-6
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kquickcharts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: modemmanager-qt
+  version: '>=0'
+  category: kde-frameworks-6
+- name: networkmanager-qt
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+- name: networkmanager-openconnect
+  version: '>=0'
+  category: net-vpn
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Plasma applet for NetworkManager
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kdeclarative:6 kde-frameworks/kirigami:6
+    kde-frameworks/kquickcharts:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/knotifications:6
+    kde-frameworks/kservice:6 kde-frameworks/ksvg:6 kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6 kde-frameworks/modemmanager-qt:6
+    kde-frameworks/networkmanager-qt:6[teamd=] kde-frameworks/solid:6 kde-plasma/libplasma:6
+    net-misc/mobile-broadband-provider-info net-misc/networkmanager[teamd=] >=app-crypt/qca-2.3.7:2[qt6(+)]
+    dev-libs/qcoro[dbus] openconnect? ( dev-qt/qtwebengine:6 net-vpn/networkmanager-openconnect
+    net-vpn/openconnect:= )
+  IUSE: openconnect teamd
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kdeclarative:6 kde-frameworks/kirigami:6
+    kde-frameworks/kquickcharts:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/knotifications:6
+    kde-frameworks/kservice:6 kde-frameworks/ksvg:6 kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6 kde-frameworks/modemmanager-qt:6
+    kde-frameworks/networkmanager-qt:6[teamd=] kde-frameworks/solid:6 kde-plasma/libplasma:6
+    net-misc/mobile-broadband-provider-info net-misc/networkmanager[teamd=] >=app-crypt/qca-2.3.7:2[qt6(+)]
+    dev-libs/qcoro[dbus] openconnect? ( dev-qt/qtwebengine:6 net-vpn/networkmanager-openconnect
+    net-vpn/openconnect:= )
+  emerge.packages: kde-plasma/plasma-nm:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-nm
+  original.package.slot: "6"
+  original.package.version: 6.5.5
