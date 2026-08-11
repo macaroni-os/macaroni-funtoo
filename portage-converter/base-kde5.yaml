@@ -95,7 +95,7 @@ artefacts:
     - static-libs
     - test
   packages:
-    - kde-apps/ark
+    - kde-apps/ark:6
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -107,13 +107,13 @@ artefacts:
     - fits
     - test
   packages:
-    - kde-apps/dolphin
-    - kde-apps/ffmpegthumbs
-    - kde-apps/gwenview
-    - kde-apps/kamera
-    - kde-apps/kcalc
-    - kde-apps/kcharselect
-    - kde-apps/kcolorchooser
+    - kde-apps/dolphin:6
+    - kde-apps/ffmpegthumbs:6
+#    - kde-apps/gwenview:6
+    - kde-apps/kamera:6
+    - kde-apps/kcalc:6
+    - kde-apps/kcharselect:6
+    - kde-apps/kcolorchooser:6
 
 - tree: packages/atoms/base-kde5
   uses:
@@ -126,12 +126,12 @@ artefacts:
     - kde-plasma/kde-gtk-config
     - kde-plasma/kwallet-pam:6
     - kde-apps/kaccounts-integration:6
-    - kde-apps/kaccounts-providers:6
+#    - kde-apps/kaccounts-providers:6
     - kde-apps/libkcompactdisc:6
     - kde-apps/libkgapi:6
     - kde-apps/okular:6
     - net-irc/konversation:6
-    - kde-misc/skanlite:6
+    #- kde-misc/skanlite:6
     - kde-misc/kio-gdrive:6
     - kde-frameworks/kjs:6
     - kde-frameworks/kcalendarcore:6
@@ -141,17 +141,17 @@ artefacts:
     - kde-apps/svgpart:6
     - kde-apps/print-manager:6
 
-- tree: packages/atoms/base-kde5
-  uses:
-    disabled:
-      - debug
-      - test
-      - doc
-      - libressl
-      - scim
-  packages:
-    - kde-plasma/plasma-desktop:6
-
+#- tree: packages/atoms/base-kde5
+#  uses:
+#    disabled:
+#      - debug
+#      - test
+#      - doc
+#      - libressl
+#      - scim
+#  packages:
+#    - kde-plasma/plasma-desktop:6
+#
 - tree: packages/atoms/base-kde5
   mutations:
     uses:
@@ -181,14 +181,14 @@ artefacts:
     - kde-apps/kdialog:6
     - kde-apps/keditbookmarks:6
     - kde-apps/kfind:6
-    - kde-apps/kgpg:6
+#    - kde-apps/kgpg:6
     - kde-apps/killbots:6
     - kde-apps/kipi-plugins:6
     - kde-apps/kmag:6
     - kde-apps/kmousetool:6
     - kde-apps/kmouth:6
     - kde-apps/konsole:6
-    - kde-apps/kwalletmanager
+#    - kde-apps/kwalletmanager
     - kde-apps/kwrite:6
 
 - tree: packages/atoms/base-kde5
@@ -202,14 +202,14 @@ artefacts:
       - mariadb
   packages:
     - kde-apps/akonadi:6
-
+#
 - tree: packages/atoms/base-kde5
   packages:
     - kde-apps/ksanecore:6
     - kde-apps/libksane:6
-    - net-libs/libktorrent:6
+#    - net-libs/libktorrent:6
     - net-p2p/ktorrent:6
-
+#
 - tree: packages/atoms/base-kde5
   uses:
     disabled:
@@ -219,9 +219,9 @@ artefacts:
   packages:
     - app-admin/system-config-printer
     - dev-python/pycups
-    - dev-libs/qtkeychain
-    - dev-libs/ktextaddons:6
-
+#    - dev-libs/qtkeychain
+#    - dev-libs/ktextaddons:6
+#
 - tree: packages/atoms/base-kde5
   mutations:
     buildtime_deps:
@@ -235,10 +235,13 @@ artefacts:
       - debug
   packages:
     - dev-libs/chmlib
+    - net-libs/signond
+    - net-libs/accounts-qt
 
 - tree: packages/atoms/base-kde5
   packages:
     - sys-apps/xdg-desktop-portal-gtk
+    - x11-misc/xsettingsd
 
 include_layers:
 - layers/macaroni-funtoo-race19.yaml
