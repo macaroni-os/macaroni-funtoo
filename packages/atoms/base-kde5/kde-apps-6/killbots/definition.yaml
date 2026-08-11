@@ -1,0 +1,32 @@
+name: killbots
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: libkdegames
+  version: '>=0'
+  category: kde-apps-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Kill the bots or they kill you!
+uri:
+- https://apps.kde.org/killbots/
+labels:
+  BDEPEND: app-arch/gzip dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-apps/libkdegames:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] kde-apps/libkdegames:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/killbots:6
+  kit: kde-kit
+  original.package.name: kde-apps/killbots
+  original.package.slot: "6"
+  original.package.version: 25.12.2
