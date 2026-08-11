@@ -1,0 +1,41 @@
+name: keditbookmarks
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Bookmarks editor based on KDE Frameworks
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kbookmarks:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+  IUSE: +man
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kbookmarks:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/keditbookmarks:6
+  kit: kde-kit
+  original.package.name: kde-apps/keditbookmarks
+  original.package.slot: "6"
+  original.package.version: 25.12.2
