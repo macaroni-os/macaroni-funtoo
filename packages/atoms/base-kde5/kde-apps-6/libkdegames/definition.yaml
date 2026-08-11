@@ -1,0 +1,65 @@
+name: libkdegames
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kbookmarks
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdnssd
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kjobwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ktextwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libsndfile
+  version: '>=0'
+  category: media-libs
+- name: openal
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Base library common to many KDE games
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/karchive:6 kde-frameworks/kbookmarks:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kdnssd:6 kde-frameworks/kglobalaccel:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kitemviews:6 kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kxmlgui:6 media-libs/libsndfile media-libs/openal
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/karchive:6 kde-frameworks/kbookmarks:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kdnssd:6 kde-frameworks/kglobalaccel:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kitemviews:6 kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kxmlgui:6 media-libs/libsndfile media-libs/openal
+  emerge.packages: kde-apps/libkdegames:6
+  kit: kde-kit
+  original.package.name: kde-apps/libkdegames
+  original.package.slot: "6"
+  original.package.version: 25.12.2
