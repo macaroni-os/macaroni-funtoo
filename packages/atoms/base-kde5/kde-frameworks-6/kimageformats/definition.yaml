@@ -1,0 +1,57 @@
+name: kimageformats
+version: 6.22.0
+category: kde-frameworks-6
+use_flags:
+- -heif
+- avif
+- eps
+- jpeg2k
+- jpegxl
+- openexr
+- raw
+requires:
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libavif
+  version: '>=0'
+  category: media-libs
+- name: libjxl
+  version: '>=0'
+  category: media-libs
+- name: libraw
+  version: '>=0'
+  category: media-libs
+- name: openjpeg
+  version: '>=0'
+  category: media-libs-2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Framework providing additional format plugins for Qt's image I/O system
+uri:
+- https://invent.kde.org/frameworks/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/karchive:6 avif? ( >=media-libs/libavif-0.8.2:=
+    ) eps? ( dev-qt/qtbase:6 ) heif? ( >=media-libs/libheif-1.19.7:= ) jpeg2k? ( media-libs/openjpeg:=
+    ) jpegxl? ( >=media-libs/libjxl-0.9.4:= ) openexr? ( >=media-libs/openexr-3:=
+    ) raw? ( media-libs/libraw:= )
+  IUSE: avif eps heif jpeg2k jpegxl openexr raw
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/karchive:6 avif? ( >=media-libs/libavif-0.8.2:=
+    ) eps? ( dev-qt/qtbase:6 ) heif? ( >=media-libs/libheif-1.19.7:= ) jpeg2k? ( media-libs/openjpeg:=
+    ) jpegxl? ( >=media-libs/libjxl-0.9.4:= ) openexr? ( >=media-libs/openexr-3:=
+    ) raw? ( media-libs/libraw:= )
+  emerge.packages: kde-frameworks/kimageformats:6
+  kit: kde-kit
+  original.package.name: kde-frameworks/kimageformats
+  original.package.slot: "6"
+  original.package.version: 6.22.0
