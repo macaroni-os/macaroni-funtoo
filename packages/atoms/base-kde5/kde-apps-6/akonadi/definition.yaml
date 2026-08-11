@@ -1,0 +1,62 @@
+name: akonadi
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- webengine
+- xml
+- tools
+requires:
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: kaccounts-integration
+  version: '>=0'
+  category: kde-apps-6
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Storage service for PIM data and libraries for PIM apps
+uri:
+- https://community.kde.org/KDE_PIM/akonadi
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: virtual/kde-seed[gui,sql,declarative] kde-apps/akonadi-config kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    webengine? ( kde-apps/kaccounts-integration:6 >=net-libs/accounts-qt-1.17 ) xml?
+    ( dev-libs/libxml2:= ) app-arch/xz-utils dev-libs/libxslt dev-util/desktop-file-utils
+    x11-misc/shared-mime-info dev-util/desktop-file-utils x11-misc/shared-mime-info
+    dev-util/desktop-file-utils
+  IUSE: tools +webengine xml debug
+  RDEPEND: virtual/kde-seed[gui,sql,declarative] kde-apps/akonadi-config kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    webengine? ( kde-apps/kaccounts-integration:6 >=net-libs/accounts-qt-1.17 ) xml?
+    ( dev-libs/libxml2:= ) app-arch/xz-utils dev-libs/libxslt
+  emerge.packages: kde-apps/akonadi:6
+  kit: kde-kit
+  original.package.name: kde-apps/akonadi
+  original.package.slot: "6"
+  original.package.version: 25.12.2
