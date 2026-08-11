@@ -1,0 +1,47 @@
+name: kmag
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- keyboardfocus
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libqaccessibilityclient
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE screen magnifier
+uri:
+- https://apps.kde.org/kmag/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 keyboardfocus? ( media-libs/libqaccessibilityclient[qt6]
+    )
+  IUSE: keyboardfocus
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 keyboardfocus? ( media-libs/libqaccessibilityclient[qt6]
+    )
+  emerge.packages: kde-apps/kmag:6
+  kit: kde-kit
+  original.package.name: kde-apps/kmag
+  original.package.slot: "6"
+  original.package.version: 25.12.2
