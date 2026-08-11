@@ -1,0 +1,43 @@
+name: kdf
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE free disk space utility
+uri:
+- https://apps.kde.org/kdf/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/kdf:6
+  kit: kde-kit
+  original.package.name: kde-apps/kdf
+  original.package.slot: "6"
+  original.package.version: 25.12.2
