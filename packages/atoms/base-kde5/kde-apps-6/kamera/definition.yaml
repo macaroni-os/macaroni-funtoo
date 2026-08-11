@@ -1,0 +1,42 @@
+name: kamera
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libgphoto2
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plasma integration for gphoto2 cameras
+uri:
+- https://apps.kde.org/kamera/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kxmlgui:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kwidgetsaddons:6 >=media-libs/libgphoto2-2.5.0:=
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kxmlgui:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kwidgetsaddons:6 >=media-libs/libgphoto2-2.5.0:=
+  emerge.packages: kde-apps/kamera:6
+  kit: kde-kit
+  original.package.name: kde-apps/kamera
+  original.package.slot: "6"
+  original.package.version: 25.12.2
