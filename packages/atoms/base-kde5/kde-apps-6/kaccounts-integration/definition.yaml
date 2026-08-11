@@ -1,0 +1,46 @@
+name: kaccounts-integration
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: signon-kwallet-extension
+  version: '>=0'
+  category: kde-apps-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: accounts-qt
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Administer web accounts for the sites and services across the Plasma
+  desktop
+uri:
+- https://community.kde.org/KTp
+labels:
+  BDEPEND: sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-apps/signon-kwallet-extension:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kwallet:6 >=net-libs/accounts-qt-1.17 >=net-libs/signond-8.61
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-apps/signon-kwallet-extension:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kwallet:6 >=net-libs/accounts-qt-1.17 >=net-libs/signond-8.61
+  emerge.packages: kde-apps/kaccounts-integration:6
+  kit: kde-kit
+  original.package.name: kde-apps/kaccounts-integration
+  original.package.slot: "6"
+  original.package.version: 25.12.2
