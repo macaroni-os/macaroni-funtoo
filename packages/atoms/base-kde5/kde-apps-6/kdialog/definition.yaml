@@ -1,0 +1,52 @@
+name: kdialog
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- X
+requires:
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kiconthemes
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Can be used to show nice dialog boxes from shell scripts
+uri:
+- https://develop.kde.org/docs/administration/kdialog/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6
+    X? ( x11-libs/libX11 )
+  IUSE: X
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6
+    X? ( x11-libs/libX11 )
+  emerge.packages: kde-apps/kdialog:6
+  kit: kde-kit
+  original.package.name: kde-apps/kdialog
+  original.package.slot: "6"
+  original.package.version: 25.12.2
