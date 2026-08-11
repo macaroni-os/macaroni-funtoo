@@ -1,0 +1,35 @@
+name: kwallet-pam
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: libgcrypt
+  version: '>=0'
+  category: dev-libs
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-6
+- name: socat
+  version: '>=0'
+  category: net-misc
+- name: pam
+  version: '>=0'
+  category: sys-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KWallet PAM module for unlock KDE Wallet on login
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed net-misc/socat dev-libs/libgcrypt:= sys-libs/pam kde-frameworks/kwallet:6
+  RDEPEND: virtual/kde-seed net-misc/socat dev-libs/libgcrypt:= sys-libs/pam kde-frameworks/kwallet:6
+  emerge.packages: kde-plasma/kwallet-pam:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kwallet-pam
+  original.package.slot: "6"
+  original.package.version: 6.5.5
