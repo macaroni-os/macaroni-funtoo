@@ -1,0 +1,44 @@
+name: kcharselect
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kbookmarks
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE character selection utility
+uri:
+- https://apps.kde.org/kcharselect/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kbookmarks:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kbookmarks:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/kcharselect:6
+  kit: kde-kit
+  original.package.name: kde-apps/kcharselect
+  original.package.slot: "6"
+  original.package.version: 25.12.2
