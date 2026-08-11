@@ -1,0 +1,40 @@
+name: libkcompactdisc
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- alsa
+requires:
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: solid
+  version: '>=0'
+  category: kde-frameworks-6
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: phonon
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for playing & ripping CDs
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed kde-frameworks/ki18n:6 kde-frameworks/solid:6 >=media-libs/phonon-4.12.0[qt6(+)]
+    alsa? ( media-libs/alsa-lib )
+  IUSE: alsa
+  RDEPEND: virtual/kde-seed kde-frameworks/ki18n:6 kde-frameworks/solid:6 >=media-libs/phonon-4.12.0[qt6(+)]
+    alsa? ( media-libs/alsa-lib )
+  emerge.packages: kde-apps/libkcompactdisc:6
+  kit: kde-kit
+  original.package.name: kde-apps/libkcompactdisc
+  original.package.slot: "6"
+  original.package.version: 25.12.2
