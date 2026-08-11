@@ -1,0 +1,31 @@
+name: svgpart
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Kpart for viewing SVGs
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,svg] kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kparts:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui,svg] kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kparts:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/svgpart:6
+  kit: kde-kit
+  original.package.name: kde-apps/svgpart
+  original.package.slot: "6"
+  original.package.version: 25.12.2
