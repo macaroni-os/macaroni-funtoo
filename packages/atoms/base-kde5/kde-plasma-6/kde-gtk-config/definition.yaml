@@ -1,0 +1,52 @@
+name: kde-gtk-config
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: kconfigwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdeclarative
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GTK+ theme configuration for KDE Plasma desktop
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/glib:2 virtual/kde-seed[gui,declarative,svg] kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdeclarative:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kirigami:6 kde-frameworks/knewstuff:6 kde-frameworks/kservice:6
+    kde-frameworks/kwindowsystem:6 x11-libs/gtk+:3[X]
+  RDEPEND: dev-libs/glib:2 virtual/kde-seed[gui,declarative,svg] kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdeclarative:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kirigami:6 kde-frameworks/knewstuff:6 kde-frameworks/kservice:6
+    kde-frameworks/kwindowsystem:6 x11-libs/gtk+:3[X]
+  emerge.packages: kde-plasma/kde-gtk-config:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kde-gtk-config
+  original.package.slot: "6"
+  original.package.version: 6.5.5
