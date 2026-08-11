@@ -1,0 +1,37 @@
+name: libkgapi
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
+- name: kcalendarcore
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcontacts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for accessing Google calendar and contact resources
+uri:
+- https://api.kde.org/kdepim/libkgapi/html/index.html
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] dev-libs/cyrus-sasl:2 kde-frameworks/kcalendarcore:6
+    kde-frameworks/kcontacts:6 kde-frameworks/kwallet:6
+  RDEPEND: virtual/kde-seed[gui] dev-libs/cyrus-sasl:2 kde-frameworks/kcalendarcore:6
+    kde-frameworks/kcontacts:6 kde-frameworks/kwallet:6
+  emerge.packages: kde-apps/libkgapi:6
+  kit: kde-kit
+  original.package.name: kde-apps/libkgapi
+  original.package.slot: "6"
+  original.package.version: 25.12.2
