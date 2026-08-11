@@ -1,0 +1,53 @@
+name: kmousetool
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE program that clicks the mouse for you
+uri:
+- https://apps.kde.org/kmousetool/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,multimedia] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X]
+    kde-frameworks/kxmlgui:6 x11-libs/libX11 x11-libs/libXtst
+  RDEPEND: virtual/kde-seed[gui,multimedia] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X]
+    kde-frameworks/kxmlgui:6 x11-libs/libX11 x11-libs/libXtst
+  emerge.packages: kde-apps/kmousetool:6
+  kit: kde-kit
+  original.package.name: kde-apps/kmousetool
+  original.package.slot: "6"
+  original.package.version: 25.12.2
