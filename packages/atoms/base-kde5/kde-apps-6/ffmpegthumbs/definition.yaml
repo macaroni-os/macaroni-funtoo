@@ -1,0 +1,37 @@
+name: ffmpegthumbs
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: FFmpeg based thumbnail generator for video files
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kio:6 kde-frameworks/kcoreaddons:6
+    media-video/ffmpeg:=
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kio:6 kde-frameworks/kcoreaddons:6
+    media-video/ffmpeg:=
+  emerge.packages: kde-apps/ffmpegthumbs:6
+  kit: kde-kit
+  original.package.name: kde-apps/ffmpegthumbs
+  original.package.slot: "6"
+  original.package.version: 25.12.2
