@@ -1,0 +1,38 @@
+name: qtkeychain
+version: 0.17.0
+category: dev-libs
+use_flags:
+- -qt5
+- keyring
+- qt6
+requires:
+- name: libsecret
+  version: '>=0'
+  category: app-crypt
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt API for storing passwords securely
+uri:
+- https://github.com/frankosterfeld/qtkeychain
+license: BSD
+labels:
+  BDEPEND: keyring? ( virtual/pkgconfig ) qt5? ( dev-qt/linguist-tools:5 ) qt6? (
+    dev-qt/qttools:6[linguist] ) dev-util/ninja dev-util/cmake
+  DEPEND: keyring? ( app-crypt/libsecret ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5
+    ) qt6? ( dev-qt/qtbase:6 )
+  IUSE: +keyring qt5 +qt6
+  RDEPEND: keyring? ( app-crypt/libsecret ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5
+    ) qt6? ( dev-qt/qtbase:6 )
+  emerge.packages: dev-libs/qtkeychain
+  kit: qt-kit
+  original.package.name: dev-libs/qtkeychain
+  original.package.slot: "0"
+  original.package.version: 0.17.0
