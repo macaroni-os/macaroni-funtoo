@@ -1,0 +1,33 @@
+name: kidentitymanagement
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kirigami-addons
+  version: '>=0'
+  category: dev-libs-6
+- name: kpimtextedit
+  version: '>=0'
+  category: kde-apps-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for managing identitites
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] >=dev-libs/kirigami-addons-1.0:6 >=dev-libs/ktextaddons-1.6.0:6
+    kde-apps/kpimtextedit:6= kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui,declarative] >=dev-libs/kirigami-addons-1.0:6 >=dev-libs/ktextaddons-1.6.0:6
+    kde-apps/kpimtextedit:6= kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/kidentitymanagement:6
+  kit: kde-kit
+  original.package.name: kde-apps/kidentitymanagement
+  original.package.slot: "6"
+  original.package.version: 25.12.2
