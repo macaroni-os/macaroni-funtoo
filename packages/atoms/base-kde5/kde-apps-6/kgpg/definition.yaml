@@ -1,0 +1,47 @@
+name: kgpg
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: gnupg
+  version: '>=0'
+  category: app-crypt
+- name: akonadi-contacts
+  version: '>=0'
+  category: kde-apps-6
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Frontend for GnuPG, a powerful encryption utility by KDE
+uri:
+- https://apps.kde.org/kgpg/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-apps/akonadi:6= kde-apps/akonadi-contacts:6= kde-frameworks/karchive:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6
+    kde-frameworks/kxmlgui:6 app-crypt/gnupg
+  RDEPEND: virtual/kde-seed[gui] kde-apps/akonadi:6= kde-apps/akonadi-contacts:6=
+    kde-frameworks/karchive:6 kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6
+    kde-frameworks/kxmlgui:6 app-crypt/gnupg
+  emerge.packages: kde-apps/kgpg:6
+  kit: kde-kit
+  original.package.name: kde-apps/kgpg
+  original.package.slot: "6"
+  original.package.version: 25.12.2
