@@ -1,0 +1,43 @@
+name: akonadi-contacts
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: akonadi-mime
+  version: '>=0'
+  category: kde-apps-6
+- name: kidentitymanagement
+  version: '>=0'
+  category: kde-apps-6
+- name: libkleo
+  version: '>=0'
+  category: kde-apps-6
+- name: kcontacts
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for akonadi contact integration
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] >=dev-cpp/gpgmepp-1.23.2:= >=dev-libs/qgpgme-1.23.2:=
+    kde-apps/akonadi:6= kde-apps/akonadi-mime:6= kde-apps/kidentitymanagement:6= kde-apps/kmime:6=
+    kde-apps/libkleo:6= kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] >=dev-cpp/gpgmepp-1.23.2:= >=dev-libs/qgpgme-1.23.2:=
+    kde-apps/akonadi:6= kde-apps/akonadi-mime:6= kde-apps/kidentitymanagement:6= kde-apps/kmime:6=
+    kde-apps/libkleo:6= kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/akonadi-contacts:6
+  kit: kde-kit
+  original.package.name: kde-apps/akonadi-contacts
+  original.package.slot: "6"
+  original.package.version: 25.12.2
