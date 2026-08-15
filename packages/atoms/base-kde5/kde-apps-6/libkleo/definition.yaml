@@ -1,10 +1,10 @@
 name: libkleo
-version: 25.12.2
+version: 25.12.2+1
 category: kde-apps-6
 requires:
-- name: libgpg-error
+- name: gpgmepp
   version: '>=0'
-  category: dev-libs
+  category: app-crypt
 - name: kcompletion
   version: '>=0'
   category: kde-frameworks-6
@@ -29,12 +29,12 @@ uri:
 - https://invent.kde.org/
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
-  DEPEND: virtual/kde-seed[gui] dev-cpp/gpgmepp:= dev-libs/qgpgme:= >=dev-libs/libgpg-error-1.36
+  DEPEND: virtual/kde-seed[gui] app-crypt/gpgmepp:= dev-libs/qgpgme:= >=dev-libs/libgpg-error-1.36
     kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6
     kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
     kde-frameworks/ki18n:6 kde-frameworks/kitemmodels:6 kde-frameworks/kwidgetsaddons:6
     kde-frameworks/kwindowsystem:6
-  RDEPEND: virtual/kde-seed[gui] dev-cpp/gpgmepp:= dev-libs/qgpgme:= >=dev-libs/libgpg-error-1.36
+  RDEPEND: virtual/kde-seed[gui] app-crypt/gpgmepp:= dev-libs/qgpgme:= >=dev-libs/libgpg-error-1.36
     kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6
     kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
     kde-frameworks/ki18n:6 kde-frameworks/kitemmodels:6 kde-frameworks/kwidgetsaddons:6
