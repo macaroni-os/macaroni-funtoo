@@ -31,7 +31,7 @@ RUN [ \
   "sys-apps/iproute2", \
   "virtual/base", \
   "virtual-entities/base", \
-  "app-admin/macaronictl-thin" ]
+  "app-admin/macaronictl" ]
 
 SHELL ["/bin/bash", "-c"]
 
