@@ -1,0 +1,30 @@
+name: gpgmepp
+version: 2.1.0
+category: app-crypt
+requires:
+- name: gpgme
+  version: '>=0'
+  category: app-crypt-1
+- name: libgpg-error
+  version: '>=0'
+  category: dev-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: GPGME++ - C++ bindings/wrapper for GPGME
+uri:
+- https://www.gnupg.org/related_software/gpgme/
+license: GPL-2 LGPL-2.1
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: '>=app-crypt/gpgme-2.1.0:= >=dev-libs/libgpg-error-1.47'
+  RDEPEND: '>=app-crypt/gpgme-2.1.0:= >=dev-libs/libgpg-error-1.47'
+  emerge.packages: app-crypt/gpgmepp
+  kit: security-kit
+  original.package.name: app-crypt/gpgmepp
+  original.package.slot: "0"
+  original.package.version: 2.1.0
