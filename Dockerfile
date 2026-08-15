@@ -1,7 +1,7 @@
 FROM alpine
 RUN mkdir /eagle-minimal/etc/ /eagle-minimal/etc/anise -p && \
   cd /eagle-minimal/etc/ && ln -s anise luet
-ADD conf/luet.yaml.docker.devel /eagle-minimal/etc/anise/anise.yaml
+ADD conf/luet.yaml.docker /eagle-minimal/etc/anise/anise.yaml
 FROM macaronios/luet:latest-amd64
 
 COPY --from=0 /eagle-minimal/ /
