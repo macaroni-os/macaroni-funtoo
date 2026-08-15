@@ -1,0 +1,30 @@
+name: ksanecore
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: sane-backends
+  version: '>=0'
+  category: media-gfx
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt-based interface for SANE library to control scanner hardware
+uri:
+- https://invent.kde.org/libraries/ksanecore
+license: '|| ( LGPL-2.1 LGPL-3 )'
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/ki18n:6 media-gfx/sane-backends
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/ki18n:6 media-gfx/sane-backends
+  emerge.packages: kde-apps/ksanecore:6
+  kit: kde-kit
+  original.package.name: kde-apps/ksanecore
+  original.package.slot: "6"
+  original.package.version: 25.12.2
