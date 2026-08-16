@@ -1,13 +1,13 @@
 name: akonadi
-version: 25.12.2+2
+version: 25.12.2+3
 category: kde-apps-6
 use_flags:
+- -mysql
+- -postgres
 - sqlite
 - webengine
 - xml
 - tools
-- -mysql
-- -postgres
 requires:
 - name: xz-utils
   version: '>=0'
@@ -15,6 +15,9 @@ requires:
 - name: sqlite
   version: '>=0'
   category: dev-db-3
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
 - name: kaccounts-integration
   version: '>=0'
   category: kde-apps-6
