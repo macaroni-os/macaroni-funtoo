@@ -1,0 +1,41 @@
+name: grantleetheme
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ktexttemplate
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for Grantlee plugins
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/knewstuff:6 kde-frameworks/ktexttemplate:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/knewstuff:6 kde-frameworks/ktexttemplate:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/grantleetheme:6
+  kit: kde-kit
+  original.package.name: kde-apps/grantleetheme
+  original.package.slot: "6"
+  original.package.version: 25.12.2
