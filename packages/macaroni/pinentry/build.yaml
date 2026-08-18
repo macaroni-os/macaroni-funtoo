@@ -2,6 +2,7 @@ image: macaronios/phoenix-dev-minimal-devel:latest-amd64
 prelude:
 - >-
   anise repo update &&
+  anise upgrade -y &&
   anise install -y --force
   system/luet-devkit
   app-misc/jq-bin
@@ -16,15 +17,18 @@ prelude:
   toolchain/base-extra
   toolchain/meta-repo
   macaroni/entities-catalog
-  qtgui
-  qtdbus
-  qtcore
-  qtprintsupport
+  qtbase
+  gnome-keyring
+  kde-frameworks-6/kguiaddons
+  kde-frameworks-6/kwindowsystem
+  libgpg-error
+  libgcrypt
   app-crypt-4/gcr
   app-crypt/gcr
   vala
   libsecret
   efl
+  wayland
   eselect-pinentry
   gcc-config &&
   mkdir /tmp/ && chmod a+rwx /tmp &&
@@ -40,7 +44,7 @@ steps:
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
-  USE="lua caps gnome-keyring -luajit gtk qt5 efl" emerge pinentry -j ${JOBS}
+  USE="lua caps gnome-keyring gtk qt6 efl wayland X" emerge pinentry -j ${JOBS}
 - >-
   export LUET_PORTAGE_CACHE_PACKAGES="/var/cache/portage/packages" &&
   export LUET_PORTAGE_IGNORE_TAR_WARNING=1 &&
@@ -58,7 +62,7 @@ includes:
 - /usr$
 - /usr/bin$
 {{ if eq .Values.name "pinentry-qt" }}
-- /usr/bin/pinentry-qt5
+- /usr/bin/pinentry-qt6
 - /usr/bin/pinentry-qt
 {{ end }}
 {{ if eq .Values.name "pinentry-gnome" }}
