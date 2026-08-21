@@ -1,0 +1,55 @@
+name: libktorrent
+version: 25.12.2
+category: net-libs-6
+use_flags:
+- xfs
+requires:
+- name: qca
+  version: '>=0'
+  category: app-crypt-2
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: xfsprogs
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: BitTorrent library based on KDE Frameworks
+uri:
+- https://apps.kde.org/en/ktorrent
+- https://userbase.kde.org/KTorrent
+license: GPL-2+
+labels:
+  BDEPEND: sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: app-crypt/qca:2 dev-libs/gmp:= dev-libs/openssl:= dev-libs/libgcrypt:= dev-qt/qtbase:6
+    kde-frameworks/karchive:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/solid:6
+    xfs? ( sys-fs/xfsprogs ) dev-libs/boost
+  IUSE: xfs
+  RDEPEND: app-crypt/qca:2 dev-libs/gmp:= dev-libs/openssl:= dev-libs/libgcrypt:=
+    dev-qt/qtbase:6 kde-frameworks/karchive:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/solid:6
+    xfs? ( sys-fs/xfsprogs )
+  emerge.packages: net-libs/libktorrent:6
+  kit: kde-kit
+  original.package.name: net-libs/libktorrent
+  original.package.slot: "6"
+  original.package.version: 25.12.2
