@@ -1,0 +1,97 @@
+name: gwenview
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- -fits
+- X
+- activities
+- mpris
+- raw
+- semantic-desktop
+- share
+- wayland
+requires:
+- name: qtimageformats
+  version: '>=0'
+  category: dev-qt-6
+- name: libkdcraw
+  version: '>=0'
+  category: kde-apps-6
+- name: baloo
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kimageformats
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: purpose
+  version: '>=0'
+  category: kde-frameworks-6
+- name: plasma-activities
+  version: '>=0'
+  category: kde-plasma-6
+- name: kimageannotator
+  version: '>=0'
+  category: media-libs
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Image viewer by KDE
+uri:
+- https://apps.kde.org/gwenview/
+- https://userbase.kde.org/Gwenview
+labels:
+  BDEPEND: wayland? ( dev-util/wayland-scanner ) dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,multimedia,svg,wayland?,X?] dev-qt/qtimageformats:6
+    kde-frameworks/kimageformats:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knotifications:6 kde-frameworks/kparts:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-frameworks/solid:6 media-gfx/exiv2:= >=media-libs/kcolorpicker-0.3.1 >=media-libs/kimageannotator-0.7.1
+    media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/tiff:=
+    activities? ( kde-plasma/plasma-activities:6 ) fits? ( sci-libs/cfitsio ) mpris?
+    ( dev-qt/qtbase:6 ) raw? ( kde-apps/libkdcraw:6 ) semantic-desktop? ( kde-frameworks/baloo:6
+    kde-frameworks/kfilemetadata:6 ) share? ( kde-frameworks/purpose:6 ) X? ( x11-libs/libX11
+    )
+  IUSE: activities fits +mpris raw semantic-desktop share X wayland
+  RDEPEND: virtual/kde-seed[gui,multimedia,svg,wayland?,X?] dev-qt/qtimageformats:6
+    kde-frameworks/kimageformats:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knotifications:6 kde-frameworks/kparts:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-frameworks/solid:6 media-gfx/exiv2:= >=media-libs/kcolorpicker-0.3.1 >=media-libs/kimageannotator-0.7.1
+    media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/tiff:=
+    activities? ( kde-plasma/plasma-activities:6 ) fits? ( sci-libs/cfitsio ) mpris?
+    ( dev-qt/qtbase:6 ) raw? ( kde-apps/libkdcraw:6 ) semantic-desktop? ( kde-frameworks/baloo:6
+    kde-frameworks/kfilemetadata:6 ) share? ( kde-frameworks/purpose:6 ) X? ( x11-libs/libX11
+    )
+  emerge.packages: kde-apps/gwenview:6
+  kit: kde-kit
+  original.package.name: kde-apps/gwenview
+  original.package.slot: "6"
+  original.package.version: 25.12.2
