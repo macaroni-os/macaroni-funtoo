@@ -1,0 +1,26 @@
+name: signon-oauth2
+version: 0.25+2
+category: net-libs
+requires:
+- name: signond
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: OAuth2 plugin for Signon daemon
+uri:
+- https://gitlab.com/nicolasfella/signon-plugin-oauth2
+license: LGPL-2.1
+labels:
+  DEPEND: dev-qt/qtbase:6 net-libs/signond
+  RDEPEND: dev-qt/qtbase:6 net-libs/signond
+  emerge.packages: net-libs/signon-oauth2
+  kit: net-kit
+  original.package.name: net-libs/signon-oauth2
+  original.package.slot: "0"
+  original.package.version: 0.25_p20231015
