@@ -1,0 +1,29 @@
+name: libkdcraw
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: libraw
+  version: '>=0'
+  category: media-libs
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Digital camera raw image library wrapper
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] >=media-libs/libraw-0.16:=
+  RDEPEND: virtual/kde-seed[gui] >=media-libs/libraw-0.16:=
+  emerge.packages: kde-apps/libkdcraw:6
+  kit: kde-kit
+  original.package.name: kde-apps/libkdcraw
+  original.package.slot: "6"
+  original.package.version: 25.12.2
