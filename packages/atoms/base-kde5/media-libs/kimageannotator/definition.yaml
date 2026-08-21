@@ -1,0 +1,33 @@
+name: kimageannotator
+version: 0.7.2
+category: media-libs
+requires:
+- name: qtsvg
+  version: '>=0'
+  category: dev-qt-6
+- name: kcolorpicker
+  version: '>=0'
+  category: media-libs
+- name: libX11
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Tool for annotating images
+uri:
+- https://github.com/ksnip/kImageAnnotator
+license: LGPL-3+
+labels:
+  BDEPEND: dev-qt/qttools:6 dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 media-libs/kcolorpicker x11-libs/libX11
+  RDEPEND: dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 media-libs/kcolorpicker x11-libs/libX11
+  emerge.packages: media-libs/kimageannotator
+  kit: kde-kit
+  original.package.name: media-libs/kimageannotator
+  original.package.slot: "0"
+  original.package.version: 0.7.2
