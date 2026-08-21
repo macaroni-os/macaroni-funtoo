@@ -1,0 +1,46 @@
+name: skanlite
+version: 25.12.2
+category: kde-misc-6
+requires:
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+- name: libksane
+  version: '>=0'
+  category: kde-apps-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple image scanning application based on libksane and KDE Frameworks
+uri:
+- https://apps.kde.org/skanlite/
+license: '|| ( GPL-2 GPL-3 )'
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6[gui] kde-apps/libksane:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: dev-qt/qtbase:6[gui] kde-apps/libksane:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-misc/skanlite:6
+  kit: kde-kit
+  original.package.name: kde-misc/skanlite
+  original.package.slot: "6"
+  original.package.version: 25.12.2
