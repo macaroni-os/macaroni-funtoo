@@ -1,7 +1,7 @@
 prelude:
 # We have poppler splitted. Ignoring this check
 - >-
-  sed -e 's|app-text/poppler\[nss,qt6\]|app-text/poppler|g' -i
+  sed -e 's|>=app-text/poppler-24.10.0\[nss,qt6\]|app-text/poppler|g' -i
   /var/git/meta-repo/kits/kde-kit/kde-apps/okular/okular-{{ ( index .Values.labels "original.package.version" ) }}.ebuild &&
   anise repo update &&
   anise i -y poppler-qt &&
