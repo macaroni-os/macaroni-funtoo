@@ -1,0 +1,39 @@
+name: kaccounts-providers
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kaccounts-integration
+  version: '>=0'
+  category: kde-apps-6
+- name: kpackage
+  version: '>=0'
+  category: kde-frameworks-6
+- name: signon-oauth2
+  version: '>=0'
+  category: net-libs
+- name: signon-ui
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE accounts providers
+uri:
+- https://community.kde.org/KTp
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] dev-qt/qtwebengine:6[qml] >=net-libs/signon-oauth2-0.25
+    >=net-libs/signon-ui-0.15_p20231016 kde-apps/kaccounts-integration:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kpackage:6
+  RDEPEND: virtual/kde-seed[gui,declarative] dev-qt/qtwebengine:6[qml] >=net-libs/signon-oauth2-0.25
+    >=net-libs/signon-ui-0.15_p20231016 kde-apps/kaccounts-integration:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kpackage:6
+  emerge.packages: kde-apps/kaccounts-providers:6
+  kit: kde-kit
+  original.package.name: kde-apps/kaccounts-providers
+  original.package.slot: "6"
+  original.package.version: 25.12.2
