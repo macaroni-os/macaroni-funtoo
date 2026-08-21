@@ -154,6 +154,15 @@ artefacts:
     - sys-apps/xdg-desktop-portal
     - dev-util/xdg-dbus-proxy
 
+- tree: packages/atoms/base-kde4
+  mutations:
+    uses:
+      - dbus
+  uses:
+    disabled:
+      - examples
+  packages:
+    - dev-libs/qcoro
 
 include_layers:
 - layers/macaroni-funtoo-race18.yaml
