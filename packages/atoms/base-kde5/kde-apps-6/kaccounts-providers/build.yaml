@@ -1,4 +1,8 @@
 prelude:
+- >-
+  sed -i -e 's|dev-qt/qtwebengine:6\[qml\]|dev-qt/qtwebengine:6|g'
+  /var/git/meta-repo/kits/kde-kit/kde-apps/kaccounts-providers/kaccounts-providers-25.12.2.ebuild
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
