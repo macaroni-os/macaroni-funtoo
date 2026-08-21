@@ -1,0 +1,88 @@
+name: ktorrent
+version: 25.12.2
+category: net-p2p-6
+use_flags:
+- infowidget
+- ipfilter
+- mediaplayer
+- rss
+- stats
+- upnp
+- webengine
+- zeroconf
+requires:
+- name: unzip
+  version: '>=0'
+  category: app-arch
+- name: geoip
+  version: '>=0'
+  category: dev-libs
+- name: qtmultimedia
+  version: '>=0'
+  category: dev-qt-6
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-6
+- name: kio-extras
+  version: '>=0'
+  category: kde-apps-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifyconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kplotting
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: syndication
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libktorrent
+  version: '>=0'
+  category: net-libs-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Powerful BitTorrent client based on KDE Frameworks
+uri:
+- https://apps.kde.org/en/ktorrent
+license: GPL-2
+labels:
+  BDEPEND: sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: dev-qt/qtbase:6[gui] kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kparts:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    net-libs/libktorrent:6 infowidget? ( dev-libs/geoip ) ipfilter? ( kde-frameworks/karchive:6
+    ) mediaplayer? ( dev-qt/qtmultimedia:6 media-libs/taglib:= ) rss? ( dev-qt/qtwebengine:6
+    kde-frameworks/syndication:6 ) stats? ( kde-frameworks/kplotting:6 ) upnp? ( kde-frameworks/kcompletion:6
+    ) webengine? ( dev-qt/qtwebengine:6 ) zeroconf? ( kde-frameworks/kdnssd:6 ) dev-libs/boost
+  IUSE: +bwscheduler +downloadorder +infowidget +ipfilter +logviewer +magnetgenerator
+    +mediaplayer rss +scanfolder +shutdown +stats +upnp +webengine +zeroconf
+  RDEPEND: dev-qt/qtbase:6[gui] kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kparts:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    net-libs/libktorrent:6 infowidget? ( dev-libs/geoip ) ipfilter? ( kde-frameworks/karchive:6
+    ) mediaplayer? ( dev-qt/qtmultimedia:6 media-libs/taglib:= ) rss? ( dev-qt/qtwebengine:6
+    kde-frameworks/syndication:6 ) stats? ( kde-frameworks/kplotting:6 ) upnp? ( kde-frameworks/kcompletion:6
+    ) webengine? ( dev-qt/qtwebengine:6 ) zeroconf? ( kde-frameworks/kdnssd:6 ) ipfilter?
+    ( app-arch/bzip2 app-arch/unzip kde-apps/kio-extras:6 kde-frameworks/ktextwidgets:6
+    )
+  emerge.packages: net-p2p/ktorrent:6
+  kit: kde-kit
+  original.package.name: net-p2p/ktorrent
+  original.package.slot: "6"
+  original.package.version: 25.12.2
