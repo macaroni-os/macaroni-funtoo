@@ -1,0 +1,126 @@
+name: plasma-desktop
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- -scim
+- ibus
+- input_devices_wacom
+- screencast
+- sdl
+- semantic-desktop
+- wayland
+- webengine
+- x11
+requires:
+- name: libwacom
+  version: '>=0'
+  category: dev-libs
+- name: kaccounts-integration
+  version: '>=0'
+  category: kde-apps-6
+- name: kded
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: krunner
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kpipewire
+  version: '>=0'
+  category: kde-plasma-6
+- name: oxygen
+  version: '>=0'
+  category: kde-plasma-6
+- name: plasma-activities-stats
+  version: '>=0'
+  category: kde-plasma-6
+- name: plasma-workspace
+  version: '>=0'
+  category: kde-plasma-6
+- name: noto-emoji
+  version: '>=0'
+  category: media-fonts
+- name: libsdl2
+  version: '>=0'
+  category: media-libs
+- name: signon-oauth2
+  version: '>=0'
+  category: net-libs
+- name: setxkbmap
+  version: '>=0'
+  category: x11-apps
+- name: libxkbfile
+  version: '>=0'
+  category: x11-libs
+- name: xdg-user-dirs
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Plasma desktop
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/intltool kde-frameworks/kcmutils:6 virtual/pkgconfig x11-base/xorg-server
+    x11-drivers/xf86-input-libinput wayland? ( dev-util/wayland-scanner ) dev-util/ninja
+    dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative,gui,sql,wayland?] dev-qt/qt5compat:6[qml] dev-libs/kirigami-addons:6
+    kde-frameworks/kirigami:6 kde-frameworks/qqc2-desktop-style:6 kde-plasma/oxygen:6
+    kde-frameworks/attica:6 kde-frameworks/karchive:6 kde-frameworks/kauth:6 kde-frameworks/kbookmarks:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kcodecs:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kded:6 kde-frameworks/kglobalaccel:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kitemviews:6
+    kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kpackage:6 kde-frameworks/kparts:6
+    kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/ksvg:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6 kde-frameworks/solid:6
+    kde-frameworks/sonnet:6 kde-plasma/libksysguard:6 kde-plasma/libplasma:6 kde-plasma/plasma-activities:6
+    kde-plasma/plasma-activities-stats:6 kde-plasma/plasma-workspace:6[screencast?,X]
+    kde-plasma/plasma5support:6 media-fonts/noto-emoji sys-apps/util-linux x11-apps/setxkbmap
+    x11-misc/xdg-user-dirs screencast? ( kde-plasma/kpipewire:6 ) webengine? ( >=net-libs/signon-oauth2-0.25_p20210102[qt6(+)]
+    ) media-libs/libcanberra x11-libs/libX11 x11-libs/libxcb x11-libs/libXcursor x11-libs/libXi
+    x11-libs/libxkbcommon x11-libs/libxkbfile ibus? ( app-i18n/ibus dev-libs/glib:2
+    x11-libs/xcb-util-keysyms ) input_devices_wacom? ( dev-libs/libwacom:= ) wayland?
+    ( kde-plasma/kwin:6 dev-libs/wayland ) x11? ( kde-plasma/kwin-x11:6 ) scim? (
+    app-i18n/scim ) sdl? ( media-libs/libsdl2[joystick] ) semantic-desktop? ( kde-frameworks/baloo:6
+    ) webengine? ( kde-apps/kaccounts-integration:6 >=net-libs/accounts-qt-1.17[qt6(+)]
+    ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: ibus input_devices_wacom scim screencast sdl +semantic-desktop webengine wayland
+    x11
+  RDEPEND: virtual/kde-seed[declarative,gui,sql,wayland?] dev-qt/qt5compat:6[qml]
+    dev-libs/kirigami-addons:6 kde-frameworks/kirigami:6 kde-frameworks/qqc2-desktop-style:6
+    kde-plasma/oxygen:6 kde-frameworks/attica:6 kde-frameworks/karchive:6 kde-frameworks/kauth:6
+    kde-frameworks/kbookmarks:6 kde-frameworks/kcmutils:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kded:6 kde-frameworks/kglobalaccel:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/kitemviews:6 kde-frameworks/kjobwidgets:6 kde-frameworks/knewstuff:6
+    kde-frameworks/knotifications:6 kde-frameworks/knotifyconfig:6 kde-frameworks/kpackage:6
+    kde-frameworks/kparts:6 kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/ksvg:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6
+    kde-frameworks/solid:6 kde-frameworks/sonnet:6 kde-plasma/libksysguard:6 kde-plasma/libplasma:6
+    kde-plasma/plasma-activities:6 kde-plasma/plasma-activities-stats:6 kde-plasma/plasma-workspace:6[screencast?,X]
+    kde-plasma/plasma5support:6 media-fonts/noto-emoji sys-apps/util-linux x11-apps/setxkbmap
+    x11-misc/xdg-user-dirs screencast? ( kde-plasma/kpipewire:6 ) webengine? ( >=net-libs/signon-oauth2-0.25_p20210102[qt6(+)]
+    ) media-libs/libcanberra x11-libs/libX11 x11-libs/libxcb x11-libs/libXcursor x11-libs/libXi
+    x11-libs/libxkbcommon x11-libs/libxkbfile ibus? ( app-i18n/ibus dev-libs/glib:2
+    x11-libs/xcb-util-keysyms ) input_devices_wacom? ( dev-libs/libwacom:= ) wayland?
+    ( kde-plasma/kwin:6 dev-libs/wayland ) x11? ( kde-plasma/kwin-x11:6 ) scim? (
+    app-i18n/scim ) sdl? ( media-libs/libsdl2[joystick] ) semantic-desktop? ( kde-frameworks/baloo:6
+    ) webengine? ( kde-apps/kaccounts-integration:6 >=net-libs/accounts-qt-1.17[qt6(+)]
+    )
+  emerge.packages: kde-plasma/plasma-desktop:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-desktop
+  original.package.slot: "6"
+  original.package.version: 6.5.5
