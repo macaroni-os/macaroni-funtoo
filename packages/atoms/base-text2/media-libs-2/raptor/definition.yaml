@@ -1,5 +1,5 @@
 name: raptor
-version: 2.0.15+1
+version: 2.0.16
 category: media-libs-2
 use_flags:
 - -json
@@ -24,15 +24,15 @@ uri:
 - http://librdf.org/raptor/
 license: Apache-2.0 GPL-2 LGPL-2.1
 labels:
-  BDEPEND: '>=sys-devel/bison-3 >=sys-devel/flex-2.5.36 virtual/pkgconfig >=app-portage/elt-patches-20170815
-    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  BDEPEND: sys-devel/bison sys-devel/flex virtual/pkgconfig >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
   DEPEND: dev-libs/libxml2 dev-libs/libxslt curl? ( net-misc/curl ) json? ( dev-libs/yajl
-    ) unicode? ( dev-libs/icu:= )
-  IUSE: +curl debug json static-libs unicode
+    ) !media-libs/raptor:0
+  IUSE: +curl debug json static-libs
   RDEPEND: dev-libs/libxml2 dev-libs/libxslt curl? ( net-misc/curl ) json? ( dev-libs/yajl
-    ) unicode? ( dev-libs/icu:= ) !media-libs/raptor:0
+    ) !media-libs/raptor:0
   emerge.packages: media-libs/raptor:2
   kit: media-kit
   original.package.name: media-libs/raptor
   original.package.slot: "2"
-  original.package.version: 2.0.15-r3
+  original.package.version: 2.0.16
