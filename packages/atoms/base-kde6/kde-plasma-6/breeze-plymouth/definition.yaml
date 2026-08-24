@@ -1,0 +1,26 @@
+name: breeze-plymouth
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: plymouth
+  version: '>=0'
+  category: sys-boot
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Breeze theme for Plymouth
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: sys-boot/plymouth
+  RDEPEND: sys-boot/plymouth
+  emerge.packages: kde-plasma/breeze-plymouth:6
+  kit: kde-kit
+  original.package.name: kde-plasma/breeze-plymouth
+  original.package.slot: "6"
+  original.package.version: 6.5.5
