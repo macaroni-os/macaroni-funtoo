@@ -1,0 +1,85 @@
+name: krfb
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- wayland
+requires:
+- name: kcompletion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdnssd
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kpipewire
+  version: '>=0'
+  category: kde-plasma-6
+- name: kwayland
+  version: '>=0'
+  category: kde-plasma-6
+- name: libvncserver
+  version: '>=0'
+  category: net-libs
+- name: xdg-desktop-portal
+  version: '>=0'
+  category: sys-apps
+- name: libXtst
+  version: '>=0'
+  category: x11-libs
+- name: libxcb
+  version: '>=0'
+  category: x11-libs
+- name: xcb-util-image
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: VNC-compatible server to share Plasma desktops
+uri:
+- https://apps.kde.org/krfb/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,X,wayland?] wayland? ( sys-apps/xdg-desktop-portal[screencast(+)]
+    ) kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdnssd:6 kde-frameworks/ki18n:6 kde-frameworks/knotifications:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6 >=net-libs/libvncserver-0.9.9
+    x11-libs/libX11 x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image wayland?
+    ( kde-plasma/kpipewire:6 kde-plasma/kwayland:6 >=media-video/pipewire-0.3 )
+  IUSE: wayland
+  RDEPEND: virtual/kde-seed[gui,X,wayland?] wayland? ( sys-apps/xdg-desktop-portal[screencast(+)]
+    ) kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdnssd:6 kde-frameworks/ki18n:6 kde-frameworks/knotifications:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6 >=net-libs/libvncserver-0.9.9
+    x11-libs/libX11 x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image wayland?
+    ( kde-plasma/kpipewire:6 kde-plasma/kwayland:6 >=media-video/pipewire-0.3 )
+  emerge.packages: kde-apps/krfb:6
+  kit: kde-kit
+  original.package.name: kde-apps/krfb
+  original.package.slot: "6"
+  original.package.version: 25.12.2
