@@ -1,0 +1,40 @@
+name: kldap
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: qtkeychain
+  version: '>=0'
+  category: dev-libs
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: openldap
+  version: '>=0'
+  category: net-nds
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for interacting with LDAP servers
+uri:
+- https://api.kde.org/kdepim/kldap/html/index.html
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] dev-libs/cyrus-sasl >=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 net-nds/openldap:=
+  RDEPEND: virtual/kde-seed[gui] dev-libs/cyrus-sasl >=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 net-nds/openldap:=
+  emerge.packages: kde-apps/kldap:6
+  kit: kde-kit
+  original.package.name: kde-apps/kldap
+  original.package.slot: "6"
+  original.package.version: 25.12.2
