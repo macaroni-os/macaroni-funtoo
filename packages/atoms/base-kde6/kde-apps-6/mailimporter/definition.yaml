@@ -1,0 +1,33 @@
+name: mailimporter
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: akonadi-mime
+  version: '>=0'
+  category: kde-apps-6
+- name: pimcommon
+  version: '>=0'
+  category: kde-apps-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library to import mail from various sources
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-apps/akonadi:6= kde-apps/akonadi-mime:6= kde-apps/kmime:6=
+    kde-apps/pimcommon:6= kde-frameworks/karchive:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6
+  RDEPEND: virtual/kde-seed[gui] kde-apps/akonadi:6= kde-apps/akonadi-mime:6= kde-apps/kmime:6=
+    kde-apps/pimcommon:6= kde-frameworks/karchive:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6
+  emerge.packages: kde-apps/mailimporter:6
+  kit: kde-kit
+  original.package.name: kde-apps/mailimporter
+  original.package.slot: "6"
+  original.package.version: 25.12.2
