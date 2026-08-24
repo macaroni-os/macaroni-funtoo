@@ -1,0 +1,25 @@
+name: breeze-gtk
+version: 6.5.5
+category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Official GTK+ port of Plasma's Breeze widget style
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) dev-lang/sassc || ( ( dev-lang/python:3.8 dev-python/pycairo[python_targets_python3_8(-),python_single_target_python3_8(+)]
+    ) ( dev-lang/python:3.9 dev-python/pycairo[python_targets_python3_9(-),python_single_target_python3_9(+)]
+    ) ( dev-lang/python:3.7 dev-python/pycairo[python_targets_python3_7(-),python_single_target_python3_7(+)]
+    ) ( dev-lang/python:3.10 dev-python/pycairo[python_targets_python3_10(-),python_single_target_python3_10(+)]
+    ) ) kde-plasma/breeze:6 dev-util/ninja dev-util/cmake'
+  emerge.packages: kde-plasma/breeze-gtk:6
+  kit: kde-kit
+  original.package.name: kde-plasma/breeze-gtk
+  original.package.slot: "6"
+  original.package.version: 6.5.5
