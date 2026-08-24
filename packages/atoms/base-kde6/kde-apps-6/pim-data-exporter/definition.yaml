@@ -1,0 +1,58 @@
+name: pim-data-exporter
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- telemetry
+requires:
+- name: kidentitymanagement
+  version: '>=0'
+  category: kde-apps-6
+- name: mailcommon
+  version: '>=0'
+  category: kde-apps-6
+- name: kcalendarcore
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kuserfeedback
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Assistant to backup and archive PIM data and configuration
+uri:
+- https://apps.kde.org/pimdataexporter/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] >=dev-libs/ktextaddons-1.6.0:6 kde-apps/akonadi:6=
+    kde-apps/kidentitymanagement:6= kde-apps/kmailtransport:6= kde-apps/kmime:6= kde-apps/libkdepim:6=
+    kde-apps/mailcommon:6= kde-apps/pimcommon:6= kde-frameworks/karchive:6 kde-frameworks/kcalendarcore:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/knotifications:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    telemetry? ( kde-frameworks/kuserfeedback:6 )
+  IUSE: telemetry
+  RDEPEND: virtual/kde-seed[gui] >=dev-libs/ktextaddons-1.6.0:6 kde-apps/akonadi:6=
+    kde-apps/kidentitymanagement:6= kde-apps/kmailtransport:6= kde-apps/kmime:6= kde-apps/libkdepim:6=
+    kde-apps/mailcommon:6= kde-apps/pimcommon:6= kde-frameworks/karchive:6 kde-frameworks/kcalendarcore:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/knotifications:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    telemetry? ( kde-frameworks/kuserfeedback:6 )
+  emerge.packages: kde-apps/pim-data-exporter:6
+  kit: kde-kit
+  original.package.name: kde-apps/pim-data-exporter
+  original.package.slot: "6"
+  original.package.version: 25.12.2
