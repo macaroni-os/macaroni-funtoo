@@ -1,5 +1,5 @@
 name: pinentry
-version: 1.2.1+4
+version: 1.3.3
 category: app-crypt
 use_flags:
 - -efl
@@ -29,18 +29,19 @@ uri:
 - https://gnupg.org/aegypten2
 license: GPL-2
 labels:
-  BDEPEND: '>=sys-devel/gettext-0.24.0 virtual/pkgconfig >=app-portage/elt-patches-20170815
-    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
-  DEPEND: dev-libs/libassuan dev-libs/libgcrypt dev-libs/libgpg-error efl? ( dev-libs/efl[X]
-    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5?
-    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
-  IUSE: caps efl emacs gnome-keyring gtk ncurses qt5
-  RDEPEND: dev-libs/libassuan dev-libs/libgcrypt dev-libs/libgpg-error efl? ( dev-libs/efl[X]
-    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5?
-    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) gtk? ( app-crypt/gcr:0[gtk]
-    )
+  BDEPEND: sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815
+    || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: dev-libs/libassuan:= dev-libs/libgcrypt dev-libs/libgpg-error efl? ( dev-libs/efl[X]
+    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt6?
+    ( dev-qt/qtbase:6 wayland? ( kde-frameworks/kguiaddons:6 kde-frameworks/kwindowsystem:6
+    ) )
+  IUSE: efl gnome-keyring gtk ncurses qt6 wayland X
+  RDEPEND: dev-libs/libassuan:= dev-libs/libgcrypt dev-libs/libgpg-error efl? ( dev-libs/efl[X]
+    ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt6?
+    ( dev-qt/qtbase:6 wayland? ( kde-frameworks/kguiaddons:6 kde-frameworks/kwindowsystem:6
+    ) ) gtk? ( app-crypt/gcr:4 gnome-base/gnome-keyring )
   emerge.packages: app-crypt/pinentry
   kit: security-kit
   original.package.name: app-crypt/pinentry
   original.package.slot: "0"
-  original.package.version: 1.2.1-r1
+  original.package.version: 1.3.3
