@@ -1,0 +1,51 @@
+name: plasma-systemmonitor
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kirigami-addons
+  version: '>=0'
+  category: dev-libs-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kquickcharts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ksystemstats
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Monitor system sensors, process information and other system resources
+uri:
+- https://apps.kde.org/plasma-systemmonitor/
+license: '|| ( GPL-3 GPL-2 )'
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] >=dev-libs/kirigami-addons-1.1.0:6 kde-frameworks/kirigami:6
+    kde-frameworks/kitemmodels:6 kde-frameworks/kquickcharts:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/knewstuff:6 kde-frameworks/kpackage:6
+    kde-frameworks/kservice:6 kde-frameworks/kwindowsystem:6 kde-plasma/ksystemstats:6
+    kde-plasma/libksysguard:6
+  RDEPEND: virtual/kde-seed[gui,declarative] >=dev-libs/kirigami-addons-1.1.0:6 kde-frameworks/kirigami:6
+    kde-frameworks/kitemmodels:6 kde-frameworks/kquickcharts:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/knewstuff:6 kde-frameworks/kpackage:6
+    kde-frameworks/kservice:6 kde-frameworks/kwindowsystem:6 kde-plasma/ksystemstats:6
+    kde-plasma/libksysguard:6
+  emerge.packages: kde-plasma/plasma-systemmonitor:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-systemmonitor
+  original.package.slot: "6"
+  original.package.version: 6.5.5
