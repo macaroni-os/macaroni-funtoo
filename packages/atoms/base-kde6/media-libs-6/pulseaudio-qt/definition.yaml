@@ -1,0 +1,34 @@
+name: pulseaudio-qt
+version: 1.7.0
+category: media-libs-6
+use_flags:
+- -doc
+requires:
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt bindings for pulseaudio
+uri:
+- https://invent.kde.org/libraries/pulseaudio-qt
+license: LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig doc? ( >=dev-qt/qttools-6.6.2:6[assistant] >=kde-frameworks/kdoctools-6.3.0:6
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: '>=dev-qt/qtbase-6.6.2:6[gui] media-sound/pulseaudio[glib]'
+  IUSE: doc
+  RDEPEND: '>=dev-qt/qtbase-6.6.2:6[gui] media-sound/pulseaudio[glib]'
+  emerge.packages: media-libs/pulseaudio-qt:6
+  kit: kde-kit
+  original.package.name: media-libs/pulseaudio-qt
+  original.package.slot: "6"
+  original.package.version: 1.7.0
