@@ -1,0 +1,36 @@
+name: qgpgme
+version: 2.2.0
+category: app-crypt
+use_flags:
+- -qt5
+- qt6
+requires:
+- name: gpgmepp
+  version: '>=0'
+  category: app-crypt
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Qt API bindings/wrapper for GPGME
+uri:
+- https://www.gnupg.org/related_software/gpgme/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: '>=app-crypt/gpgme-2.1.0:= >=app-crypt/gpgmepp-2.1.0 >=dev-libs/libgpg-error-1.47
+    qt5? ( >=dev-qt/qtcore-5.15.0:5 ) qt6? ( >=dev-qt/qtbase-6.5.0:6 )'
+  IUSE: qt5 +qt6
+  RDEPEND: '>=app-crypt/gpgme-2.1.0:= >=app-crypt/gpgmepp-2.1.0 >=dev-libs/libgpg-error-1.47
+    qt5? ( >=dev-qt/qtcore-5.15.0:5 ) qt6? ( >=dev-qt/qtbase-6.5.0:6 )'
+  emerge.packages: app-crypt/qgpgme
+  kit: security-kit
+  original.package.name: app-crypt/qgpgme
+  original.package.slot: "0"
+  original.package.version: 2.2.0
