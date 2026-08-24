@@ -1,0 +1,34 @@
+name: kontactinterface
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for embedding KParts in a Kontact component
+uri:
+- https://api.kde.org/kdepim/kontactinterface/html/index.html
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,X] kde-frameworks/kcoreaddons:6 kde-frameworks/kio:6
+    kde-frameworks/kparts:6 kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui,X] kde-frameworks/kcoreaddons:6 kde-frameworks/kio:6
+    kde-frameworks/kparts:6 kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/kontactinterface:6
+  kit: kde-kit
+  original.package.name: kde-apps/kontactinterface
+  original.package.slot: "6"
+  original.package.version: 25.12.2
