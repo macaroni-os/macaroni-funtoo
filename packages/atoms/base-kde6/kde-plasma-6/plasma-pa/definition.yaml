@@ -1,0 +1,61 @@
+name: plasma-pa
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdeclarative
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+- name: libcanberra
+  version: '>=0'
+  category: media-libs
+- name: pulseaudio-qt
+  version: '>=0'
+  category: media-libs-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plasma applet for audio volume management using PulseAudio
+uri:
+- https://invent.kde.org/plasma/
+license: GPL-2
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kirigami:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdeclarative:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/ksvg:6 x11-themes/sound-theme-freedesktop
+    dev-libs/glib:2 kde-plasma/libplasma:6 media-libs/pulseaudio-qt:6 media-libs/libcanberra
+    media-sound/pulseaudio
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kirigami:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kdeclarative:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/kstatusnotifieritem:6 kde-frameworks/ksvg:6 x11-themes/sound-theme-freedesktop
+    dev-libs/glib:2 kde-plasma/libplasma:6 media-libs/pulseaudio-qt:6 media-libs/libcanberra
+    media-sound/pulseaudio
+  emerge.packages: kde-plasma/plasma-pa:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-pa
+  original.package.slot: "6"
+  original.package.version: 6.5.5
