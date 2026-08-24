@@ -1,0 +1,42 @@
+name: kcron
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kirigami-addons
+  version: '>=0'
+  category: dev-libs-6
+- name: kauth
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kconfigwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: cron
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Task Scheduler
+uri:
+- https://apps.kde.org/kcron/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] virtual/cron dev-libs/kirigami-addons:6
+    kde-frameworks/kauth:6 kde-frameworks/kcmutils:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kwidgetsaddons:6
+  RDEPEND: virtual/kde-seed[gui,declarative] virtual/cron dev-libs/kirigami-addons:6
+    kde-frameworks/kauth:6 kde-frameworks/kcmutils:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kwidgetsaddons:6
+  emerge.packages: kde-apps/kcron:6
+  kit: kde-kit
+  original.package.name: kde-apps/kcron
+  original.package.slot: "6"
+  original.package.version: 25.12.2
