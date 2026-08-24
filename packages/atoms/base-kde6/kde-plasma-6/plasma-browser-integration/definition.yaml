@@ -1,0 +1,53 @@
+name: plasma-browser-integration
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kfilemetadata
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: krunner
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: purpose
+  version: '>=0'
+  category: kde-frameworks-6
+- name: plasma-activities
+  version: '>=0'
+  category: kde-plasma-6
+- name: plasma-workspace
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Integrate Chrome/Firefox better into Plasma through browser extensions
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kfilemetadata:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/knotifications:6
+    kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/purpose:6 kde-plasma/plasma-activities:6 kde-plasma/plasma-workspace:6
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kfilemetadata:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/knotifications:6
+    kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/purpose:6 kde-plasma/plasma-activities:6 kde-plasma/plasma-workspace:6
+  emerge.packages: kde-plasma/plasma-browser-integration:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-browser-integration
+  original.package.slot: "6"
+  original.package.version: 6.5.5
