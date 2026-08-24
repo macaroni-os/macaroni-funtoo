@@ -1,0 +1,52 @@
+name: knights
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- speech
+requires:
+- name: qtspeech
+  version: '>=0'
+  category: dev-qt-6
+- name: gnuchess
+  version: '>=0'
+  category: games-board
+- name: libkdegames
+  version: '>=0'
+  category: kde-apps-6
+- name: kplotting
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple chess board based on KDE Frameworks
+uri:
+- https://apps.kde.org/knights/
+labels:
+  BDEPEND: app-arch/gzip dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,svg] || ( games-board/gnuchess games-board/crafty games-board/stockfish
+    games-board/sjeng ) kde-apps/libkdegames:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kplotting:6
+    kde-frameworks/ksvg:6 kde-frameworks/ktextwidgets:6 kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 kde-plasma/libplasma:6 speech? ( dev-qt/qtspeech:6 )
+  IUSE: speech
+  RDEPEND: virtual/kde-seed[gui,svg] || ( games-board/gnuchess games-board/crafty
+    games-board/stockfish games-board/sjeng ) kde-apps/libkdegames:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kplotting:6 kde-frameworks/ksvg:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-plasma/libplasma:6 speech? ( dev-qt/qtspeech:6 )
+  emerge.packages: kde-apps/knights:6
+  kit: kde-kit
+  original.package.name: kde-apps/knights
+  original.package.slot: "6"
+  original.package.version: 25.12.2
