@@ -1,0 +1,50 @@
+name: eventviews
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kdiagram
+  version: '>=0'
+  category: dev-libs-6
+- name: calendarsupport
+  version: '>=0'
+  category: kde-apps-6
+- name: libkdepim
+  version: '>=0'
+  category: kde-apps-6
+- name: kcontacts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Calendar viewer for KDE PIM
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] dev-libs/kdiagram:6 dev-libs/libical kde-apps/akonadi:6=
+    kde-apps/akonadi-calendar:6= kde-apps/calendarsupport:6= kde-apps/kcalutils:6=
+    kde-apps/kmime:6= kde-apps/libkdepim:6= kde-frameworks/kcalendarcore:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/kholidays:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kitemmodels:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+  RDEPEND: virtual/kde-seed[gui] dev-libs/kdiagram:6 dev-libs/libical kde-apps/akonadi:6=
+    kde-apps/akonadi-calendar:6= kde-apps/calendarsupport:6= kde-apps/kcalutils:6=
+    kde-apps/kmime:6= kde-apps/libkdepim:6= kde-frameworks/kcalendarcore:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/kholidays:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kitemmodels:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+  emerge.packages: kde-apps/eventviews:6
+  kit: kde-kit
+  original.package.name: kde-apps/eventviews
+  original.package.slot: "6"
+  original.package.version: 25.12.2
