@@ -1,0 +1,44 @@
+name: kubrick
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: libkdegames
+  version: '>=0'
+  category: kde-apps-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: glu
+  version: '>=0'
+  category: virtual
+- name: opengl
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Game based on the Rubik's Cube
+uri:
+- https://apps.kde.org/kubrick/
+labels:
+  BDEPEND: app-arch/gzip dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,svg] kde-apps/libkdegames:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 virtual/glu virtual/opengl
+  RDEPEND: virtual/kde-seed[gui,svg] kde-apps/libkdegames:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 virtual/glu virtual/opengl
+  emerge.packages: kde-apps/kubrick:6
+  kit: kde-kit
+  original.package.name: kde-apps/kubrick
+  original.package.slot: "6"
+  original.package.version: 25.12.2
