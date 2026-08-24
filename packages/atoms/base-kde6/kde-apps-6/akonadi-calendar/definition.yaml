@@ -1,0 +1,43 @@
+name: akonadi-calendar
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kcalutils
+  version: '>=0'
+  category: kde-apps-6
+- name: messagelib
+  version: '>=0'
+  category: kde-apps-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for akonadi calendar integration
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] >=app-crypt/gpgmepp-1.23.2:= >=app-crypt/qgpgme-1.23.2:=
+    kde-apps/akonadi:6= kde-apps/akonadi-contacts:6= kde-apps/akonadi-mime:6= kde-apps/kcalutils:6=
+    kde-apps/kidentitymanagement:6= kde-apps/kmailtransport:6= kde-apps/kmime:6= kde-apps/libkleo:6=
+    kde-apps/messagelib:6= kde-frameworks/kcalendarcore:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] >=app-crypt/gpgmepp-1.23.2:= >=app-crypt/qgpgme-1.23.2:=
+    kde-apps/akonadi:6= kde-apps/akonadi-contacts:6= kde-apps/akonadi-mime:6= kde-apps/kcalutils:6=
+    kde-apps/kidentitymanagement:6= kde-apps/kmailtransport:6= kde-apps/kmime:6= kde-apps/libkleo:6=
+    kde-apps/messagelib:6= kde-frameworks/kcalendarcore:6 kde-frameworks/kcodecs:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/akonadi-calendar:6
+  kit: kde-kit
+  original.package.name: kde-apps/akonadi-calendar
+  original.package.slot: "6"
+  original.package.version: 25.12.2
