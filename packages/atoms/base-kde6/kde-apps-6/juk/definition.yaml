@@ -1,0 +1,51 @@
+name: juk
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: taglib
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Jukebox and music manager by KDE
+uri:
+- https://apps.kde.org/juk/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: virtual/kde-seed[gui,multimedia,svg] kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kstatusnotifieritem:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6
+    kde-frameworks/kxmlgui:6 >=media-libs/taglib-1.6:= dev-util/desktop-file-utils
+    x11-misc/shared-mime-info dev-util/desktop-file-utils x11-misc/shared-mime-info
+    dev-util/desktop-file-utils
+  IUSE: debug
+  RDEPEND: virtual/kde-seed[gui,multimedia,svg] kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kstatusnotifieritem:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6
+    kde-frameworks/kxmlgui:6 >=media-libs/taglib-1.6:=
+  emerge.packages: kde-apps/juk:6
+  kit: kde-kit
+  original.package.name: kde-apps/juk
+  original.package.slot: "6"
+  original.package.version: 25.12.2
