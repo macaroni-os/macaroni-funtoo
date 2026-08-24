@@ -1,0 +1,37 @@
+name: libkeduvocdocument
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for reading/writing KVTML
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed kde-frameworks/karchive:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6
+  RDEPEND: virtual/kde-seed kde-frameworks/karchive:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6
+  emerge.packages: kde-apps/libkeduvocdocument:6
+  kit: kde-kit
+  original.package.name: kde-apps/libkeduvocdocument
+  original.package.slot: "6"
+  original.package.version: 25.12.2
