@@ -128,7 +128,7 @@ artefacts:
     - kde-plasma/plasma-disks:6
     - kde-plasma/plasma-browser-integration:6
     - kde-plasma/kwrited:6
-    - kde-plasma/kwayland-integration:6
+ #   - kde-plasma/kwayland-integration:6
     - kde-plasma/ksshaskpass:6
     - kde-plasma/kscreen:6
     - kde-plasma/kmenuedit:6
@@ -376,6 +376,17 @@ artefacts:
     - app-text/aha
     # need qt6 support
     #- dev-libs/quazip
+
+- tree: packages/atoms/base-kde6
+  uses:
+    disabled:
+      - debug
+      - static-libs
+      - test
+      - doc
+      - farstream
+  packages:
+    - kde-apps/cantor:6
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
