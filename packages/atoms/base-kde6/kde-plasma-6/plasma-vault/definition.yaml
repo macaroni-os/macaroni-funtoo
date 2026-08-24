@@ -1,0 +1,53 @@
+name: plasma-vault
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- networkmanager
+requires:
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: networkmanager-qt
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libksysguard
+  version: '>=0'
+  category: kde-plasma-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+- name: cryfs
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plasma applet and services for creating encrypted vaults
+uri:
+- https://invent.kde.org/plasma/
+license: LGPL-3
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] || ( >=app-crypt/gocryptfs-1.8 >=sys-fs/cryfs-0.9.9
+    >=sys-fs/encfs-1.9.2 ) kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-plasma/libksysguard:6 kde-plasma/libplasma:6 kde-plasma/plasma-activities:6
+    networkmanager? ( kde-frameworks/networkmanager-qt:6 ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: networkmanager
+  RDEPEND: virtual/kde-seed[gui,declarative] || ( >=app-crypt/gocryptfs-1.8 >=sys-fs/cryfs-0.9.9
+    >=sys-fs/encfs-1.9.2 ) kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-plasma/libksysguard:6 kde-plasma/libplasma:6 kde-plasma/plasma-activities:6
+    networkmanager? ( kde-frameworks/networkmanager-qt:6 )
+  emerge.packages: kde-plasma/plasma-vault:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-vault
+  original.package.slot: "6"
+  original.package.version: 6.5.5
