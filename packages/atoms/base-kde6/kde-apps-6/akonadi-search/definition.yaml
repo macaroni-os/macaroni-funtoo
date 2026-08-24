@@ -1,0 +1,54 @@
+name: akonadi-search
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- webengine
+requires:
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-6
+- name: akonadi-mime
+  version: '>=0'
+  category: kde-apps-6
+- name: kcalutils
+  version: '>=0'
+  category: kde-apps-6
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcontacts
+  version: '>=0'
+  category: kde-frameworks-6
+- name: krunner
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Libraries and daemons to implement searching in Akonadi
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/krunner:6 kde-apps/akonadi:6= kde-apps/akonadi-mime:6=
+    kde-apps/kcalutils:6= kde-apps/kidentitymanagement:6= kde-apps/kmime:6= kde-frameworks/kcalendarcore:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/krunner:6
+    kde-frameworks/ktextwidgets:6 webengine? ( dev-qt/qtwebengine:6 )
+  IUSE: +webengine
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/krunner:6 kde-apps/akonadi:6= kde-apps/akonadi-mime:6=
+    kde-apps/kcalutils:6= kde-apps/kidentitymanagement:6= kde-apps/kmime:6= kde-frameworks/kcalendarcore:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/krunner:6
+    kde-frameworks/ktextwidgets:6 webengine? ( dev-qt/qtwebengine:6 )
+  emerge.packages: kde-apps/akonadi-search:6
+  kit: kde-kit
+  original.package.name: kde-apps/akonadi-search
+  original.package.slot: "6"
+  original.package.version: 25.12.2
