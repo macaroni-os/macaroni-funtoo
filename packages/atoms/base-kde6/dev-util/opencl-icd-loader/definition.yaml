@@ -1,6 +1,10 @@
 name: opencl-icd-loader
-version: 2024.10.24+2
+version: 2025.07.22+6
 category: dev-util
+conflicts:
+- name: ocl-icd
+  version: '>=0'
+  category: dev-libs
 annotations:
   subsets:
     rules:
@@ -8,17 +12,16 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Official Khronos OpenCL ICD Loader
+description: The OpenCL ICD Loader project.
 uri:
 - https://github.com/KhronosGroup/OpenCL-ICD-Loader
 license: Apache-2.0
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
-  DEPEND: '!dev-libs/ocl-icd >=dev-util/opencl-headers-2024.10.24'
-  IUSE: test
+  DEPEND: '>=dev-util/opencl-headers-2025.07.22'
   RDEPEND: '!dev-libs/ocl-icd'
   emerge.packages: dev-util/opencl-icd-loader
   kit: core-gl-kit
   original.package.name: dev-util/opencl-icd-loader
   original.package.slot: "0"
-  original.package.version: 2024.10.24
+  original.package.version: 2025.07.22
