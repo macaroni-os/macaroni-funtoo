@@ -1,0 +1,108 @@
+name: R
+version: 4.5.0
+category: dev-lang
+use_flags:
+- -doc
+- -java
+- -test
+- X
+- cairo
+- icu
+- jpeg
+- lapack
+- perl
+- png
+- readline
+- tiff
+- tk
+requires:
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+- name: ghostscript-gpl
+  version: '>=0'
+  category: app-text
+- name: perl
+  version: '>=0'
+  category: dev-lang
+- name: tk
+  version: '>=0'
+  category: dev-lang
+- name: icu
+  version: '>=0'
+  category: dev-libs
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: tiff
+  version: '>=0'
+  category: media-libs
+- name: libtirpc
+  version: '>=0'
+  category: net-libs
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: coreutils
+  version: '>=0'
+  category: sys-apps
+- name: blas
+  version: '>=0'
+  category: virtual
+- name: fortran
+  version: '>=0'
+  category: virtual
+- name: lapack
+  version: '>=0'
+  category: virtual
+- name: cairo
+  version: '>=0'
+  category: x11-libs
+- name: libXmu
+  version: '>=0'
+  category: x11-libs
+- name: pango
+  version: '>=0'
+  category: x11-libs
+- name: xdg-utils
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Language and environment for statistical computing and graphics
+uri:
+- https://www.r-project.org/
+license: '|| ( GPL-2 GPL-3 ) LGPL-2.1'
+labels:
+  BDEPEND: virtual/pkgconfig doc? ( virtual/latex-base dev-texlive/texlive-fontsrecommended
+    ) test? ( virtual/latex-base ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: app-arch/bzip2:0= app-arch/xz-utils:0= app-text/ghostscript-gpl dev-libs/libpcre2:=
+    net-libs/libtirpc net-misc/curl virtual/blas:0 || ( sys-apps/coreutils app-misc/realpath
+    ) cairo? ( x11-libs/cairo:0=[X=] x11-libs/pango:0= ) icu? ( dev-libs/icu:= ) jpeg?
+    ( virtual/jpeg:0 ) lapack? ( virtual/lapack:0 ) perl? ( dev-lang/perl ) png? (
+    media-libs/libpng:0= ) readline? ( sys-libs/readline:0= ) tiff? ( media-libs/tiff:0=
+    ) tk? ( dev-lang/tk:0= ) X? ( x11-libs/libXmu:0= x11-libs/libXt x11-misc/xdg-utils
+    ) virtual/fortran
+  IUSE: cairo doc icu java jpeg +lapack lto minimal nls openmp perl png prefix profile
+    readline static-libs test tiff tk X
+  RDEPEND: app-arch/bzip2:0= app-arch/xz-utils:0= app-text/ghostscript-gpl dev-libs/libpcre2:=
+    net-libs/libtirpc net-misc/curl virtual/blas:0 || ( sys-apps/coreutils app-misc/realpath
+    ) cairo? ( x11-libs/cairo:0=[X=] x11-libs/pango:0= ) icu? ( dev-libs/icu:= ) jpeg?
+    ( virtual/jpeg:0 ) lapack? ( virtual/lapack:0 ) perl? ( dev-lang/perl ) png? (
+    media-libs/libpng:0= ) readline? ( sys-libs/readline:0= ) tiff? ( media-libs/tiff:0=
+    ) tk? ( dev-lang/tk:0= ) X? ( x11-libs/libXmu:0= x11-libs/libXt x11-misc/xdg-utils
+    ) sys-libs/zlib:0[minizip] java? ( >=virtual/jre-1.8:* ) virtual/fortran
+  emerge.packages: dev-lang/R
+  kit: lang-kit
+  original.package.name: dev-lang/R
+  original.package.slot: "0"
+  original.package.version: 4.5.0
