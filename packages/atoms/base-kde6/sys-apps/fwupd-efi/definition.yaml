@@ -1,6 +1,11 @@
 name: fwupd-efi
-version: 1.7+1
+version: "1.8"
 category: sys-apps
+use_flags:
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
 annotations:
   subsets:
     rules:
@@ -26,9 +31,8 @@ labels:
   IUSE: python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
     python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
     python_targets_python3_9 python_targets_python3_8
-  RDEPEND: '!<sys-apps/fwupd-1.6.0'
   emerge.packages: sys-apps/fwupd-efi
   kit: core-hw-kit
   original.package.name: sys-apps/fwupd-efi
   original.package.slot: "0"
-  original.package.version: 1.7-r1
+  original.package.version: "1.8"
