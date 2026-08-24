@@ -1,0 +1,40 @@
+name: ksshaskpass
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwallet
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: openssh
+  version: '>=0'
+  category: net-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Implementation of ssh-askpass with KDE Wallet integration
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] net-misc/openssh kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+  RDEPEND: virtual/kde-seed[gui] net-misc/openssh kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kwallet:6 kde-frameworks/kwidgetsaddons:6
+  emerge.packages: kde-plasma/ksshaskpass:6
+  kit: kde-kit
+  original.package.name: kde-plasma/ksshaskpass
+  original.package.slot: "6"
+  original.package.version: 6.5.5
