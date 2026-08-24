@@ -1,0 +1,76 @@
+name: cantor
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- R
+- analitza
+- julia
+- lua
+- postscript
+- python
+- qalculate
+requires:
+- name: libspectre
+  version: '>=0'
+  category: app-text
+- name: R
+  version: '>=0'
+  category: dev-lang
+- name: matplotlib
+  version: '>=0'
+  category: dev-python
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-6
+- name: analitza
+  version: '>=0'
+  category: kde-apps-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kpty
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ktexteditor
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libqalculate
+  version: '>=0'
+  category: sci-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Frontend to mathematical software
+uri:
+- https://apps.kde.org/cantor/
+labels:
+  BDEPEND: sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,cups,svg] dev-qt/qtwebengine:6 julia? ( dev-lang/julia
+    ) postscript? ( app-text/libspectre ) kde-frameworks/karchive:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6
+    kde-frameworks/knewstuff:6 kde-frameworks/kparts:6 kde-frameworks/kpty:6 kde-frameworks/ktexteditor:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-frameworks/syntax-highlighting:6 analitza? ( kde-apps/analitza:6 ) lua? (
+    dev-lang/luajit:2 ) qalculate? ( sci-libs/libqalculate:= ) python? ( >=dev-python/python3-12
+    dev-python/matplotlib dev-python/numpy ) R? ( dev-lang/R ) dev-util/desktop-file-utils
+    x11-misc/shared-mime-info
+  IUSE: analitza julia lua postscript python qalculate R
+  RDEPEND: virtual/kde-seed[gui,cups,svg] dev-qt/qtwebengine:6 julia? ( dev-lang/julia
+    ) postscript? ( app-text/libspectre ) kde-frameworks/karchive:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6
+    kde-frameworks/knewstuff:6 kde-frameworks/kparts:6 kde-frameworks/kpty:6 kde-frameworks/ktexteditor:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-frameworks/syntax-highlighting:6 analitza? ( kde-apps/analitza:6 ) lua? (
+    dev-lang/luajit:2 ) qalculate? ( sci-libs/libqalculate:= ) python? ( >=dev-python/python3-12
+    dev-python/matplotlib dev-python/numpy ) R? ( dev-lang/R )
+  emerge.packages: kde-apps/cantor:6
+  kit: kde-kit
+  original.package.name: kde-apps/cantor
+  original.package.slot: "6"
+  original.package.version: 25.12.2
