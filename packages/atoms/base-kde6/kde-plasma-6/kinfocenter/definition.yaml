@@ -1,0 +1,44 @@
+name: kinfocenter
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- -gles2-only
+- usb
+requires:
+- name: qttools
+  version: '>=0'
+  category: dev-qt-6
+- name: systemsettings
+  version: '>=0'
+  category: kde-plasma-6
+- name: libusb
+  version: '>=0'
+  category: virtual-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utility providing information about the computer hardware
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative,gui,gles2-only?,vulkan?] dev-qt/qttools:6 kde-plasma/systemsettings:6
+    kde-frameworks/kirigami:6 kde-frameworks/kauth:6 kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kservice:6
+    kde-frameworks/solid:6 virtual/libudev:= gles2-only? ( media-libs/mesa ) usb?
+    ( virtual/libusb:1 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: gles2-only usb vulkan
+  RDEPEND: virtual/kde-seed[declarative,gui,gles2-only?,vulkan?] dev-qt/qttools:6
+    kde-plasma/systemsettings:6 kde-frameworks/kirigami:6 kde-frameworks/kauth:6 kde-frameworks/kcmutils:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kservice:6 kde-frameworks/solid:6 virtual/libudev:= gles2-only?
+    ( media-libs/mesa ) usb? ( virtual/libusb:1 )
+  emerge.packages: kde-plasma/kinfocenter:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kinfocenter
+  original.package.slot: "6"
+  original.package.version: 6.5.5
