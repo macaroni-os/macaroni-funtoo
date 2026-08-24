@@ -1,0 +1,37 @@
+name: kompare
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: libkomparediff2
+  version: '>=0'
+  category: kde-apps-6
+- name: ktexteditor
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Graphical File Differences Tool
+uri:
+- https://apps.kde.org/kompare/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-apps/libkomparediff2:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6
+    kde-frameworks/ktexteditor:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] kde-apps/libkomparediff2:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/kparts:6 kde-frameworks/kservice:6
+    kde-frameworks/ktexteditor:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/kompare:6
+  kit: kde-kit
+  original.package.name: kde-apps/kompare
+  original.package.slot: "6"
+  original.package.version: 25.12.2
