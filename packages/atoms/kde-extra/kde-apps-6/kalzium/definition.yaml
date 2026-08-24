@@ -1,0 +1,54 @@
+name: kalzium
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- solver
+requires:
+- name: qt5compat
+  version: '>=0'
+  category: dev-qt-6
+- name: qtscxml
+  version: '>=0'
+  category: dev-qt-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kplotting
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kunitconversion
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Periodic table of the elements
+uri:
+- https://apps.kde.org/kalzium/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] dev-qt/qt5compat:6 dev-qt/qtscxml:6
+    sci-chemistry/chemical-mime-data kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/kplotting:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kunitconversion:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 solver? ( dev-ml/facile:=[ocamlopt] )
+  IUSE: solver
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] dev-qt/qt5compat:6 dev-qt/qtscxml:6
+    sci-chemistry/chemical-mime-data kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/kplotting:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kunitconversion:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 solver? ( dev-ml/facile:=[ocamlopt] )
+  emerge.packages: kde-apps/kalzium:6
+  kit: kde-kit
+  original.package.name: kde-apps/kalzium
+  original.package.slot: "6"
+  original.package.version: 25.12.2
