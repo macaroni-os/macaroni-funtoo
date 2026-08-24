@@ -1,0 +1,36 @@
+name: bovo
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: libkdegames
+  version: '>=0'
+  category: kde-apps-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Five-in-a-row Board Game
+uri:
+- https://apps.kde.org/bovo/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,svg] kde-apps/libkdegames:6= kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui,svg] kde-apps/libkdegames:6= kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/bovo:6
+  kit: kde-kit
+  original.package.name: kde-apps/bovo
+  original.package.slot: "6"
+  original.package.version: 25.12.2
