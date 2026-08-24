@@ -1,0 +1,47 @@
+name: sweeper
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kbookmarks
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ktextwidgets
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: plasma-activities-stats
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Privacy settings widget to clean unwanted traces on the system
+uri:
+- https://apps.kde.org/sweeper/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kbookmarks:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 kde-plasma/plasma-activities-stats:6
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kbookmarks:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 kde-plasma/plasma-activities-stats:6
+  emerge.packages: kde-apps/sweeper:6
+  kit: kde-kit
+  original.package.name: kde-apps/sweeper
+  original.package.slot: "6"
+  original.package.version: 25.12.2
