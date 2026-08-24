@@ -1,0 +1,38 @@
+name: ksystemstats
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- networkmanager
+requires:
+- name: networkmanager-qt
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libksysguard
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Plugin based system monitoring daemon
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative] kde-frameworks/kauth:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kservice:6 kde-frameworks/solid:6 kde-plasma/libksysguard:6 sys-libs/libcap
+    virtual/libudev:= networkmanager? ( kde-frameworks/networkmanager-qt:6 )
+  IUSE: networkmanager
+  RDEPEND: virtual/kde-seed[declarative] kde-frameworks/kauth:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/kservice:6 kde-frameworks/solid:6 kde-plasma/libksysguard:6 sys-libs/libcap
+    virtual/libudev:= networkmanager? ( kde-frameworks/networkmanager-qt:6 )
+  emerge.packages: kde-plasma/ksystemstats:6
+  kit: kde-kit
+  original.package.name: kde-plasma/ksystemstats
+  original.package.slot: "6"
+  original.package.version: 6.5.5
