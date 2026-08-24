@@ -1,0 +1,47 @@
+name: ksystemlog
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- -systemd
+- audit
+requires:
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: audit
+  version: '>=0'
+  category: sys-process
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: System log viewer by KDE
+uri:
+- https://apps.kde.org/ksystemlog/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/karchive:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    audit? ( sys-process/audit ) systemd? ( sys-apps/systemd:= )
+  IUSE: audit kdesu systemd
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/karchive:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6
+    kde-frameworks/ktextwidgets:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    audit? ( sys-process/audit ) systemd? ( sys-apps/systemd:= )
+  emerge.packages: kde-apps/ksystemlog:6
+  kit: kde-kit
+  original.package.name: kde-apps/ksystemlog
+  original.package.slot: "6"
+  original.package.version: 25.12.2
