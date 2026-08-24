@@ -1,0 +1,46 @@
+name: kolourpaint
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- scanner
+requires:
+- name: libksane
+  version: '>=0'
+  category: kde-apps-6
+- name: kguiaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Paint Program by KDE
+uri:
+- https://apps.kde.org/kolourpaint/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/kservice:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 scanner? ( kde-apps/libksane:6
+    )
+  IUSE: scanner
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kguiaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6 kde-frameworks/kservice:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 scanner? ( kde-apps/libksane:6
+    )
+  emerge.packages: kde-apps/kolourpaint:6
+  kit: kde-kit
+  original.package.name: kde-apps/kolourpaint
+  original.package.slot: "6"
+  original.package.version: 25.12.2
