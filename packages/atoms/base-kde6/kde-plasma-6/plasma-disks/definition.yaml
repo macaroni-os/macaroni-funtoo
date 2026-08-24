@@ -1,0 +1,45 @@
+name: plasma-disks
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kauth
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-6
+- name: solid
+  version: '>=0'
+  category: kde-frameworks-6
+- name: smartmontools
+  version: '>=0'
+  category: sys-apps
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Monitors S.M.A.R.T. capable devices for imminent failure
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: sys-apps/smartmontools virtual/kde-seed[gui,declarative] kde-frameworks/kauth:6[policykit]
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/solid:6
+  RDEPEND: sys-apps/smartmontools virtual/kde-seed[gui,declarative] kde-frameworks/kauth:6[policykit]
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/solid:6
+  emerge.packages: kde-plasma/plasma-disks:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-disks
+  original.package.slot: "6"
+  original.package.version: 6.5.5
