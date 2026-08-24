@@ -1,0 +1,37 @@
+name: ksmtp
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Job-based library to send email through an SMTP server
+uri:
+- https://api.kde.org/kdepim/ksmtp/html/index.html
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed dev-libs/cyrus-sasl kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6
+  RDEPEND: virtual/kde-seed dev-libs/cyrus-sasl kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kio:6
+  emerge.packages: kde-apps/ksmtp:6
+  kit: kde-kit
+  original.package.name: kde-apps/ksmtp
+  original.package.slot: "6"
+  original.package.version: 25.12.2
