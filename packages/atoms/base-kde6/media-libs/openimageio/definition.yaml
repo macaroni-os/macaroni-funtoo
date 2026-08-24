@@ -1,5 +1,5 @@
 name: openimageio
-version: 3.0.4.0+1
+version: 3.0.4.0+2
 category: media-libs
 use_flags:
 - -doc
@@ -8,6 +8,7 @@ use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
+- -qt5
 - X
 - dicom
 - ffmpeg
@@ -18,7 +19,6 @@ use_flags:
 - openvdb
 - python
 - python_single_target_python3_9
-- qt5
 - raw
 - truetype
 requires:
@@ -31,18 +31,9 @@ requires:
 - name: pugixml
   version: '>=0'
   category: dev-libs
-- name: qtcore
-  version: '>=0'
-  category: dev-qt-5
-- name: qtopengl
-  version: '>=0'
-  category: dev-qt-5
 - name: openvdb
   version: '>=0'
   category: media-gfx
-- name: freetype
-  version: '>=0'
-  category: media-libs-2
 - name: glew
   version: '>=0'
   category: media-libs
