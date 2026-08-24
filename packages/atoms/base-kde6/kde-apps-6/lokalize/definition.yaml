@@ -1,0 +1,40 @@
+name: lokalize
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kparts
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Localization tool for KDE software and other free and open source software
+uri:
+- https://apps.kde.org/lokalize/
+- https://l10n.kde.org/tools/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,sql] >=app-text/hunspell-1.2.8:= kde-frameworks/kcompletion:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6
+    kde-frameworks/knotifications:6 kde-frameworks/kparts:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 kde-frameworks/sonnet:6
+  RDEPEND: virtual/kde-seed[gui,sql] >=app-text/hunspell-1.2.8:= kde-frameworks/kcompletion:6
+    kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kitemviews:6
+    kde-frameworks/knotifications:6 kde-frameworks/kparts:6 kde-frameworks/ktextwidgets:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 kde-frameworks/sonnet:6
+  emerge.packages: kde-apps/lokalize:6
+  kit: kde-kit
+  original.package.name: kde-apps/lokalize
+  original.package.slot: "6"
+  original.package.version: 25.12.2
