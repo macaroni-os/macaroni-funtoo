@@ -1,0 +1,34 @@
+name: minuet
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kcrash
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: fluidsynth
+  version: '>=0'
+  category: media-sound
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Music Education software by KDE
+uri:
+- https://minuet.kde.org/
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 media-sound/fluidsynth:=
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/ki18n:6 media-sound/fluidsynth:=
+  emerge.packages: kde-apps/minuet:6
+  kit: kde-kit
+  original.package.name: kde-apps/minuet
+  original.package.slot: "6"
+  original.package.version: 25.12.2
