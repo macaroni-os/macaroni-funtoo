@@ -1,0 +1,38 @@
+name: mbox-importer
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kidentitymanagement
+  version: '>=0'
+  category: kde-apps-6
+- name: mailcommon
+  version: '>=0'
+  category: kde-apps-6
+- name: kservice
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Import mbox email archives from various sources into Akonadi
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-apps/akonadi:6= kde-apps/kidentitymanagement:6=
+    kde-apps/mailcommon:6= kde-apps/mailimporter:6= kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+  RDEPEND: virtual/kde-seed[gui] kde-apps/akonadi:6= kde-apps/kidentitymanagement:6=
+    kde-apps/mailcommon:6= kde-apps/mailimporter:6= kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+  emerge.packages: kde-apps/mbox-importer:6
+  kit: kde-kit
+  original.package.name: kde-apps/mbox-importer
+  original.package.slot: "6"
+  original.package.version: 25.12.2
