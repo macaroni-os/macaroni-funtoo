@@ -1,0 +1,36 @@
+name: grantlee-editor
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: messagelib
+  version: '>=0'
+  category: kde-apps-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Utilities and tools to manage themes in KDE PIM applications
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] dev-qt/qtwebengine:6 >=dev-libs/ktextaddons-1.6.0:6
+    kde-apps/akonadi-contacts:6= kde-apps/grantleetheme:6= kde-apps/kmime:6= kde-apps/messagelib:6=
+    kde-apps/pimcommon:6= kde-frameworks/karchive:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/syntax-highlighting:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  RDEPEND: virtual/kde-seed[gui] dev-qt/qtwebengine:6 >=dev-libs/ktextaddons-1.6.0:6
+    kde-apps/akonadi-contacts:6= kde-apps/grantleetheme:6= kde-apps/kmime:6= kde-apps/messagelib:6=
+    kde-apps/pimcommon:6= kde-frameworks/karchive:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcontacts:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+    kde-frameworks/syntax-highlighting:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+  emerge.packages: kde-apps/grantlee-editor:6
+  kit: kde-kit
+  original.package.name: kde-apps/grantlee-editor
+  original.package.slot: "6"
+  original.package.version: 25.12.2
