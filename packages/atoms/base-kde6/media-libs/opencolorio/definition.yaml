@@ -1,5 +1,5 @@
 name: opencolorio
-version: 2.3.0+3
+version: 2.3.0+4
 category: media-libs
 use_flags:
 - -doc
@@ -7,6 +7,9 @@ use_flags:
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
+- -test
+- apps
+- prefix
 - python
 - python_single_target_python3_9
 requires:
@@ -16,21 +19,21 @@ requires:
 - name: yaml-cpp
   version: '>=0'
   category: dev-cpp
-- name: python
-  version: '>=0'
-  category: dev-lang-3.9
-- name: python-exec
-  version: '>=0'
-  category: dev-lang-2
-- name: imath
-  version: '>=0'
-  category: dev-libs
-- name: tinyxml
-  version: '>=0'
-  category: dev-libs
 - name: pybind11
   version: '>=0'
   category: dev-python
+- name: lcms
+  version: '>=0'
+  category: media-libs-2
+- name: openexr
+  version: '>=0'
+  category: media-libs
+- name: minizip-ng
+  version: '>=0'
+  category: sys-libs
+- name: zlib
+  version: '>=0'
+  category: sys-libs
 annotations:
   subsets:
     rules:
@@ -38,36 +41,59 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: A color management framework for visual effects and animation.
+description: Color management framework for visual effects and animation
 uri:
+- https://opencolorio.org
 - https://github.com/AcademySoftwareFoundation/OpenColorIO
 license: BSD
 labels:
-  BDEPEND: '>=dev-util/cmake-3.16.2-r1 virtual/pkgconfig doc? ( python_single_target_python3_10?
-    ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/testresources[python_targets_python3_10(-)]
-    ) python_single_target_python3_7? ( dev-python/sphinx[python_targets_python3_7(-)]
+  BDEPEND: virtual/pkgconfig doc? ( app-doc/doxygen python_single_target_python3_10?
+    ( dev-python/breathe[python_targets_python3_10(-)] dev-python/recommonmark[python_targets_python3_10(-)]
+    dev-python/six[python_targets_python3_10(-)] dev-python/sphinx[python_targets_python3_10(-)]
+    dev-python/sphinx-press-theme[python_targets_python3_10(-)] dev-python/sphinx-tabs[python_targets_python3_10(-)]
+    dev-python/testresources[python_targets_python3_10(-)] ) python_single_target_python3_7?
+    ( dev-python/breathe[python_targets_python3_7(-)] dev-python/recommonmark[python_targets_python3_7(-)]
+    dev-python/six[python_targets_python3_7(-)] dev-python/sphinx[python_targets_python3_7(-)]
+    dev-python/sphinx-press-theme[python_targets_python3_7(-)] dev-python/sphinx-tabs[python_targets_python3_7(-)]
     dev-python/testresources[python_targets_python3_7(-)] ) python_single_target_python3_9?
-    ( dev-python/sphinx[python_targets_python3_9(-)] dev-python/testresources[python_targets_python3_9(-)]
-    ) python_single_target_python3_8? ( dev-python/sphinx[python_targets_python3_8(-)]
-    dev-python/testresources[python_targets_python3_8(-)] ) ) dev-util/ninja dev-util/cmake'
-  DEPEND: dev-cpp/pystring dev-python/pybind11 dev-libs/imath dev-cpp/yaml-cpp:= dev-libs/tinyxml
-    opengl? ( media-libs/lcms:2 >=media-libs/openimageio-2.2.13.0 media-libs/glew:=
-    media-libs/freeglut virtual/opengl ) >=dev-libs/imath-3:= python? ( python_single_target_python3_10?
-    ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
-    python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
-    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
-    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
-    ) )
-  IUSE: cpu_flags_x86_sse2 doc opengl python static-libs python_single_target_python3_10
-    python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
-    python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: dev-cpp/pystring dev-python/pybind11 dev-libs/imath dev-cpp/yaml-cpp:=
-    dev-libs/tinyxml opengl? ( media-libs/lcms:2 >=media-libs/openimageio-2.2.13.0
-    media-libs/glew:= media-libs/freeglut virtual/opengl ) >=dev-libs/imath-3:= python?
+    ( dev-python/breathe[python_targets_python3_9(-)] dev-python/recommonmark[python_targets_python3_9(-)]
+    dev-python/six[python_targets_python3_9(-)] dev-python/sphinx[python_targets_python3_9(-)]
+    dev-python/sphinx-press-theme[python_targets_python3_9(-)] dev-python/sphinx-tabs[python_targets_python3_9(-)]
+    dev-python/testresources[python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-python/breathe[python_targets_python3_8(-)] dev-python/recommonmark[python_targets_python3_8(-)]
+    dev-python/six[python_targets_python3_8(-)] dev-python/sphinx[python_targets_python3_8(-)]
+    dev-python/sphinx-press-theme[python_targets_python3_8(-)] dev-python/sphinx-tabs[python_targets_python3_8(-)]
+    dev-python/testresources[python_targets_python3_8(-)] ) ) opengl? ( media-libs/freeglut
+    media-libs/glew:= media-libs/libglvnd ) dev-util/ninja dev-util/cmake test? (
+    !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+  DEPEND: dev-cpp/pystring >=dev-cpp/yaml-cpp-0.7.0:= dev-libs/expat >=dev-libs/imath-3.1.5:=
+    sys-libs/minizip-ng sys-libs/zlib apps? ( media-libs/lcms:2 >=media-libs/openexr-3.1.5:=
+    ) opengl? ( media-libs/freeglut media-libs/glew:= media-libs/libglvnd ) python?
     ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
     ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/pybind11[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-python/pybind11[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/pybind11[python_targets_python3_8(-)]
+    ) )
+  IUSE: apps cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_f16c
+    cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2
+    cpu_flags_x86_ssse3 doc opengl python test python_single_target_python3_10 python_single_target_python3_7
+    python_single_target_python3_9 python_single_target_python3_8 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8 test
+  RDEPEND: dev-cpp/pystring >=dev-cpp/yaml-cpp-0.7.0:= dev-libs/expat >=dev-libs/imath-3.1.5:=
+    sys-libs/minizip-ng sys-libs/zlib apps? ( media-libs/lcms:2 >=media-libs/openexr-3.1.5:=
+    ) opengl? ( media-libs/freeglut media-libs/glew:= media-libs/libglvnd ) python?
+    ( python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( dev-python/pybind11[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-python/pybind11[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( dev-python/pybind11[python_targets_python3_8(-)]
     ) )
   emerge.packages: media-libs/opencolorio
   kit: media-kit
