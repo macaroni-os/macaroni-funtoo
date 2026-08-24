@@ -1,5 +1,5 @@
 name: rhythmbox
-version: 3.4.6+1
+version: 3.4.6
 category: media-sound
 use_flags:
 - -cdr
@@ -21,27 +21,60 @@ use_flags:
 - udev
 - upnp-av
 requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
+- name: gobject-introspection
+  version: '>=0'
+  category: dev-libs
+- name: json-glib
+  version: '>=0'
+  category: dev-libs
 - name: libgudev
   version: '>=0'
   category: dev-libs
 - name: libpeas
   version: '>=0'
+  category: dev-libs-2
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: totem-pl-parser
+  version: '>=0'
   category: dev-libs
 - name: pygobject
   version: '>=0'
   category: dev-python-3
+- name: grilo
+  version: '>=0'
+  category: media-libs-0.3
+- name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: gstreamer
+  version: '>=0'
+  category: media-libs-1.0
 - name: libmtp
   version: '>=0'
   category: media-libs
 - name: grilo-plugins
   version: '>=0'
   category: media-plugins-0.3
-- name: gst-plugins-cdparanoia
-  version: '>=0'
-  category: media-plugins-1.0
 - name: gst-plugins-meta
   version: '>=0'
   category: media-plugins-1.0
+- name: libdmapsharing
+  version: '>=0'
+  category: net-libs-3.0
+- name: libsoup
+  version: '>=0'
+  category: net-libs-2.4
 - name: dbus
   version: '>=0'
   category: sys-apps
@@ -51,7 +84,16 @@ requires:
 - name: cairo
   version: '>=0'
   category: x11-libs
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
 - name: libnotify
+  version: '>=0'
+  category: x11-libs
+- name: pango
   version: '>=0'
   category: x11-libs
 - name: adwaita-icon-theme
