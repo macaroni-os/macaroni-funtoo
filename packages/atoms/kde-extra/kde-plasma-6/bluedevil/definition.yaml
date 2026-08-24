@@ -1,0 +1,44 @@
+name: bluedevil
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: bluez-qt
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwindowsystem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Bluetooth stack for KDE Plasma
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/bluez-qt:6 kde-frameworks/kcmutils:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kirigami:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/ksvg:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X] kde-plasma/libplasma:6
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/bluez-qt:6 kde-frameworks/kcmutils:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/kirigami:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/knotifications:6 kde-frameworks/kservice:6 kde-frameworks/ksvg:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X] kde-plasma/libplasma:6
+  emerge.packages: kde-plasma/bluedevil:6
+  kit: kde-kit
+  original.package.name: kde-plasma/bluedevil
+  original.package.slot: "6"
+  original.package.version: 6.5.5
