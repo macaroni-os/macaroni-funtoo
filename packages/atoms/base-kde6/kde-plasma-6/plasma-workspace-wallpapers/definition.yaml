@@ -1,0 +1,27 @@
+name: plasma-workspace-wallpapers
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Wallpapers for the Plasma workspace
+uri:
+- https://invent.kde.org/plasma/
+license: GPL-2
+labels:
+  BDEPEND: kde-frameworks/extra-cmake-modules dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed
+  RDEPEND: virtual/kde-seed
+  emerge.packages: kde-plasma/plasma-workspace-wallpapers:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-workspace-wallpapers
+  original.package.slot: "6"
+  original.package.version: 6.5.5
