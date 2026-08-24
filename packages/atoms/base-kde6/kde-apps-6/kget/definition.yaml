@@ -1,0 +1,67 @@
+name: kget
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- bittorrent
+- gpg
+- mms
+- sqlite
+requires:
+- name: qgpgme
+  version: '>=0'
+  category: app-crypt
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifyconfig
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libmms
+  version: '>=0'
+  category: media-libs
+- name: libktorrent
+  version: '>=0'
+  category: net-libs-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Advanced download manager by KDE
+uri:
+- https://apps.kde.org/kget/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,sql] kde-frameworks/kcmutils:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwallet:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    bittorrent? ( net-libs/libktorrent:6 ) gpg? ( app-crypt/gpgmepp:= app-crypt/qgpgme:=
+    ) mms? ( media-libs/libmms ) sqlite? ( dev-db/sqlite:3 )
+  IUSE: bittorrent gpg mms sqlite
+  RDEPEND: virtual/kde-seed[gui,sql] kde-frameworks/kcmutils:6 kde-frameworks/kcompletion:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemviews:6 kde-frameworks/knotifications:6
+    kde-frameworks/knotifyconfig:6 kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwallet:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
+    bittorrent? ( net-libs/libktorrent:6 ) gpg? ( app-crypt/gpgmepp:= app-crypt/qgpgme:=
+    ) mms? ( media-libs/libmms ) sqlite? ( dev-db/sqlite:3 )
+  emerge.packages: kde-apps/kget:6
+  kit: kde-kit
+  original.package.name: kde-apps/kget
+  original.package.slot: "6"
+  original.package.version: 25.12.2
