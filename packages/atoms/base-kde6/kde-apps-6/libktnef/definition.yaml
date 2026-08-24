@@ -1,0 +1,31 @@
+name: libktnef
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: kcalutils
+  version: '>=0'
+  category: kde-apps-6
+- name: kcontacts
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for handling TNEF data
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed kde-apps/kcalutils:6= kde-frameworks/kcalendarcore:6 kde-frameworks/kcontacts:6
+    kde-frameworks/ki18n:6
+  RDEPEND: virtual/kde-seed kde-apps/kcalutils:6= kde-frameworks/kcalendarcore:6 kde-frameworks/kcontacts:6
+    kde-frameworks/ki18n:6
+  emerge.packages: kde-apps/libktnef:6
+  kit: kde-kit
+  original.package.name: kde-apps/libktnef
+  original.package.slot: "6"
+  original.package.version: 25.12.2
