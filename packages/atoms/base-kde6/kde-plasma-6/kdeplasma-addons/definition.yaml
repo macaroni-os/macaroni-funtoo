@@ -1,0 +1,63 @@
+name: kdeplasma-addons
+version: 6.5.5
+category: kde-plasma-6
+use_flags:
+- share
+- webengine
+requires:
+- name: qt5compat
+  version: '>=0'
+  category: dev-qt-6
+- name: qtwebengine
+  version: '>=0'
+  category: dev-qt-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: krunner
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: purpose
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+- name: plasma-workspace
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Extra Plasma applets and engines
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] dev-qt/qt5compat:6[qml] kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kholidays:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/kunitconversion:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/kirigami:6 kde-frameworks/kquickcharts:6
+    kde-plasma/libplasma:6 kde-plasma/plasma-workspace:6 kde-plasma/plasma5support:6
+    share? ( kde-frameworks/purpose:6 ) webengine? ( dev-qt/qtwebengine:6 )
+  IUSE: share webengine
+  RDEPEND: virtual/kde-seed[gui,declarative] dev-qt/qt5compat:6[qml] kde-frameworks/kconfig:6
+    kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kholidays:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/knewstuff:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/krunner:6 kde-frameworks/kservice:6 kde-frameworks/kunitconversion:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/kirigami:6 kde-frameworks/kquickcharts:6
+    kde-plasma/libplasma:6 kde-plasma/plasma-workspace:6 kde-plasma/plasma5support:6
+    share? ( kde-frameworks/purpose:6 ) webengine? ( dev-qt/qtwebengine:6 )
+  emerge.packages: kde-plasma/kdeplasma-addons:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kdeplasma-addons
+  original.package.slot: "6"
+  original.package.version: 6.5.5
