@@ -1,4 +1,8 @@
 prelude:
+# temporary until next race
+- >-
+  sed -i -e 's|>=net-misc/freerdp-2.10:3|net-misc/freerdp|g'
+  /var/git/meta-repo/kits/kde-kit/kde-apps/krdc/krdc-25.12.2.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
