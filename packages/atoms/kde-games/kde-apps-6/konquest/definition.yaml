@@ -1,0 +1,41 @@
+name: konquest
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: qtscxml
+  version: '>=0'
+  category: dev-qt-6
+- name: libkdegames
+  version: '>=0'
+  category: kde-apps-6
+- name: kcolorscheme
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Galactic Strategy KDE Game
+uri:
+- https://apps.kde.org/konquest/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,svg] dev-qt/qtscxml:6 kde-apps/libkdegames:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/kwidgetsaddons:6
+  RDEPEND: virtual/kde-seed[gui,svg] dev-qt/qtscxml:6 kde-apps/libkdegames:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/kwidgetsaddons:6
+  emerge.packages: kde-apps/konquest:6
+  kit: kde-kit
+  original.package.name: kde-apps/konquest
+  original.package.slot: "6"
+  original.package.version: 25.12.2
