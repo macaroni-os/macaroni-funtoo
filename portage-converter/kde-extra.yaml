@@ -87,10 +87,6 @@ global_annotations:
 
 artefacts:
 
-#    - kde-apps/cantor:5
-#    - kde-apps/kalzium:5
-
-
 - tree: packages/atoms/kde-extra
   uses:
     disabled:
@@ -100,16 +96,10 @@ artefacts:
       - doc
       - farstream
   packages:
-    - kde-misc/kdeconnect:5
-    - kde-apps/ktp-send-file:5
-    - kde-apps/ktp-desktop-applets:5
-    - kde-apps/ktp-contact-runner:5
-    - kde-apps/ktp-contact-list:5
-    - kde-apps/ktp-auth-handler:5
-    - kde-apps/ktp-filetransfer-handler:5
-    - kde-apps/ktp-common-internals:5
-    - media-sound/elisa:5
-    - kde-plasma/bluedevil:5
+    - kde-apps/kalzium:6
+    - kde-misc/kdeconnect:6
+    - media-sound/elisa:6
+    - kde-plasma/bluedevil:6
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
@@ -127,6 +117,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -134,7 +125,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -143,11 +134,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -374,6 +364,9 @@ reposcan_disabled_use_flags:
   - ppc64
 
   - userland_BSD
+
+  - qt5
+
 reposcan_disabled_keywords:
   #- ~amd64
   - -*
