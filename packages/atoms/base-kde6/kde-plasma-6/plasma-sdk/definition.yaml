@@ -1,0 +1,52 @@
+name: plasma-sdk
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: qt5compat
+  version: '>=0'
+  category: dev-qt-6
+- name: kiconthemes
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ktexteditor
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+- name: plasma5support
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Useful applications for Plasma development
+uri:
+- https://invent.kde.org/plasma/
+license: GPL-2
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative] dev-qt/qt5compat:6[qml] kde-frameworks/karchive:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/kpackage:6 kde-frameworks/ksvg:6 kde-frameworks/ktexteditor:6 kde-frameworks/kwidgetsaddons:6
+    kde-plasma/libplasma:6 kde-plasma/plasma5support:6 kde-frameworks/kirigami:6
+  RDEPEND: virtual/kde-seed[gui,declarative] dev-qt/qt5compat:6[qml] kde-frameworks/karchive:6
+    kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6
+    kde-frameworks/kpackage:6 kde-frameworks/ksvg:6 kde-frameworks/ktexteditor:6 kde-frameworks/kwidgetsaddons:6
+    kde-plasma/libplasma:6 kde-plasma/plasma5support:6 kde-frameworks/kirigami:6
+  emerge.packages: kde-plasma/plasma-sdk:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plasma-sdk
+  original.package.slot: "6"
+  original.package.version: 6.5.5
