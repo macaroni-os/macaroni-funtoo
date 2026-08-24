@@ -1,0 +1,43 @@
+name: kscreen
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdbusaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: libkscreen
+  version: '>=0'
+  category: kde-plasma-6
+- name: libplasma
+  version: '>=0'
+  category: kde-plasma-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Plasma screen management
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/kirigami:6 kde-frameworks/kcmutils:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/ksvg:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-plasma/libkscreen:6 kde-plasma/libplasma:6 x11-libs/libxcb
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] kde-frameworks/kirigami:6 kde-frameworks/kcmutils:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/kdbusaddons:6 kde-frameworks/kglobalaccel:6 kde-frameworks/ki18n:6
+    kde-frameworks/ksvg:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6
+    kde-plasma/libkscreen:6 kde-plasma/libplasma:6 x11-libs/libxcb
+  emerge.packages: kde-plasma/kscreen:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kscreen
+  original.package.slot: "6"
+  original.package.version: 6.5.5
