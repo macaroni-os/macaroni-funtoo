@@ -1,0 +1,32 @@
+name: analitza
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- eigen
+requires:
+- name: eigen
+  version: '>=0'
+  category: dev-cpp-3
+- name: kde-seed
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE library for mathematical features
+uri:
+- https://invent.kde.org/
+labels:
+  BDEPEND: dev-qt/qttools:6[linguist] dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui,declarative,svg] eigen? ( dev-cpp/eigen:3 )
+  IUSE: eigen
+  RDEPEND: virtual/kde-seed[gui,declarative,svg] eigen? ( dev-cpp/eigen:3 )
+  emerge.packages: kde-apps/analitza:6
+  kit: kde-kit
+  original.package.name: kde-apps/analitza
+  original.package.slot: "6"
+  original.package.version: 25.12.2
