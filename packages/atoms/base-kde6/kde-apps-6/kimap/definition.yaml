@@ -1,0 +1,40 @@
+name: kimap
+version: 25.12.2
+category: kde-apps-6
+requires:
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
+- name: kmime
+  version: '>=0'
+  category: kde-apps-6
+- name: kcoreaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: ki18n
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Library for interacting with IMAP servers
+uri:
+- https://api.kde.org/kdepim/kimap/html/index.html
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] dev-libs/cyrus-sasl kde-apps/kmime:6= kde-frameworks/kcodecs:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+  RDEPEND: virtual/kde-seed[gui] dev-libs/cyrus-sasl kde-apps/kmime:6= kde-frameworks/kcodecs:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6
+  emerge.packages: kde-apps/kimap:6
+  kit: kde-kit
+  original.package.name: kde-apps/kimap
+  original.package.slot: "6"
+  original.package.version: 25.12.2
