@@ -1,0 +1,44 @@
+name: plymouth-kcm
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: karchive
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knewstuff
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kwidgetsaddons
+  version: '>=0'
+  category: kde-frameworks-6
+- name: plymouth
+  version: '>=0'
+  category: sys-boot
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE Plasma control module for Plymouth
+uri:
+- https://invent.kde.org/plasma/plymouth-kcm
+license: GPL-2+
+labels:
+  BDEPEND: kde-frameworks/kcmutils:6 dev-util/ninja >=dev-util/cmake-3.9.6
+  DEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kcmutils:6 kde-frameworks/kirigami:6
+    kde-frameworks/karchive:6 kde-frameworks/kauth:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/knewstuff:6 kde-frameworks/kwidgetsaddons:6
+    sys-boot/plymouth dev-util/desktop-file-utils x11-misc/shared-mime-info dev-util/desktop-file-utils
+    dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: debug
+  RDEPEND: virtual/kde-seed[gui,declarative] kde-frameworks/kcmutils:6 kde-frameworks/kirigami:6
+    kde-frameworks/karchive:6 kde-frameworks/kauth:6 kde-frameworks/kconfig:6 kde-frameworks/kcoreaddons:6
+    kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/knewstuff:6 kde-frameworks/kwidgetsaddons:6
+    sys-boot/plymouth
+  emerge.packages: kde-plasma/plymouth-kcm:6
+  kit: kde-kit
+  original.package.name: kde-plasma/plymouth-kcm
+  original.package.slot: "6"
+  original.package.version: 6.5.5
