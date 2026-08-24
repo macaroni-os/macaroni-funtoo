@@ -1,0 +1,60 @@
+name: kaddressbook
+version: 25.12.2
+category: kde-apps-6
+use_flags:
+- activities
+- telemetry
+requires:
+- name: grantleetheme
+  version: '>=0'
+  category: kde-apps-6
+- name: kontactinterface
+  version: '>=0'
+  category: kde-apps-6
+- name: libgravatar
+  version: '>=0'
+  category: kde-apps-6
+- name: pimcommon
+  version: '>=0'
+  category: kde-apps-6
+- name: kuserfeedback
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Address book application based on KDE Frameworks
+uri:
+- https://apps.kde.org/kaddressbook/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] =kde-apps/kdepim-runtime*:6 kde-apps/akonadi:6= kde-apps/akonadi-contacts:6=
+    kde-apps/akonadi-search:6= kde-apps/grantleetheme:6= kde-apps/kldap:6= kde-apps/kontactinterface:6=
+    kde-apps/libgravatar:6= kde-apps/libkdepim:6= kde-apps/pimcommon:6= kde-frameworks/kcmutils:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kcompletion:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/kparts:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 activities? ( kde-plasma/plasma-activities:6 ) telemetry?
+    ( kde-frameworks/kuserfeedback:6 )
+  IUSE: activities telemetry
+  RDEPEND: virtual/kde-seed[gui] =kde-apps/kdepim-runtime*:6 kde-apps/akonadi:6= kde-apps/akonadi-contacts:6=
+    kde-apps/akonadi-search:6= kde-apps/grantleetheme:6= kde-apps/kldap:6= kde-apps/kontactinterface:6=
+    kde-apps/libgravatar:6= kde-apps/libkdepim:6= kde-apps/pimcommon:6= kde-frameworks/kcmutils:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kcompletion:6 kde-frameworks/kcolorscheme:6
+    kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcontacts:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kjobwidgets:6
+    kde-frameworks/kparts:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 activities? ( kde-plasma/plasma-activities:6 ) telemetry?
+    ( kde-frameworks/kuserfeedback:6 )
+  emerge.packages: kde-apps/kaddressbook:6
+  kit: kde-kit
+  original.package.name: kde-apps/kaddressbook
+  original.package.slot: "6"
+  original.package.version: 25.12.2
