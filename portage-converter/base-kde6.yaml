@@ -95,7 +95,7 @@ artefacts:
       - selinux
       - flashexporter
   packages:
-    - kde-apps/konsolekalendar
+    - kde-apps/konsolekalendar:6
 
 
 - tree: packages/atoms/base-kde6
@@ -105,7 +105,7 @@ artefacts:
         - category: seed
           name: macaroni-funtoo-race20
   packages:
-    - kde-apps/kdeadmin-meta:5
+    - kde-apps/kdeadmin-meta:6
     - app-crypt/paperkey
 
 - tree: packages/atoms/base-kde6
@@ -114,72 +114,70 @@ artefacts:
       - debug
       - test
   packages:
-    - kde-apps/grantlee-editor:5
-    - kde-apps/kcron:5
-    - kde-plasma/systemsettings:5
-    - kde-plasma/sddm-kcm:5
-    - kde-apps/kaddressbook:5
-    - kde-plasma/plymouth-kcm:5
-    - kde-plasma/plasma-workspace-wallpapers:5
-    - kde-plasma/plasma-vault:5
-    - kde-plasma/plasma-systemmonitor:5
-    - kde-plasma/plasma-sdk:5
-    - kde-plasma/plasma-pa:5
-    - kde-plasma/plasma-disks:5
-    - kde-plasma/plasma-browser-integration:5
-    - kde-plasma/kwrited:5
-    - kde-plasma/kwayland-integration:5
-    - kde-plasma/ksshaskpass:5
-    - kde-plasma/kscreen:5
-    - kde-plasma/kmenuedit:5
-    - kde-plasma/kinfocenter:5
-    - kde-plasma/khotkeys:5
-    - kde-plasma/kgamma:5
-    - kde-plasma/kdeplasma-addons:5
-    - kde-plasma/drkonqi:5
-    - kde-plasma/discover:5
-    - kde-plasma/breeze-plymouth:5
-    - kde-plasma/breeze-gtk:5
-    - kde-plasma/breeze-grub:5
+    - kde-apps/grantlee-editor:6
+    - kde-apps/kcron:6
+    - kde-plasma/systemsettings:6
+    - kde-plasma/sddm-kcm:6
+    - kde-apps/kaddressbook:6
+    - kde-plasma/plymouth-kcm:6
+    - kde-plasma/plasma-workspace-wallpapers:6
+    - kde-plasma/plasma-vault:6
+    - kde-plasma/plasma-systemmonitor:6
+    - kde-plasma/plasma-sdk:6
+    - kde-plasma/plasma-pa:6
+    - kde-plasma/plasma-disks:6
+    - kde-plasma/plasma-browser-integration:6
+    - kde-plasma/kwrited:6
+    - kde-plasma/kwayland-integration:6
+    - kde-plasma/ksshaskpass:6
+    - kde-plasma/kscreen:6
+    - kde-plasma/kmenuedit:6
+    - kde-plasma/kinfocenter:6
+    - kde-plasma/khotkeys:6
+    - kde-plasma/kgamma:6
+    - kde-plasma/kdeplasma-addons:6
+    # drkonqi needs sys-apps/systemd. We need to check if
+    # we can use libelogin-systemd package.
+    #- kde-plasma/drkonqi:6
+    - kde-plasma/discover:6
+    - kde-plasma/breeze-plymouth:6
+    - kde-plasma/breeze-gtk:6
+    - kde-plasma/breeze-grub:6
 
-    - kde-apps/sweeper:5
-    - kde-apps/svgpart:5
-    - kde-apps/spectacle:5
-    - kde-apps/pim-sieve-editor:5
-    - kde-apps/pim-data-exporter:5
-    - kde-apps/parley:5
-    - kde-apps/ktimer:5
-    - kde-apps/kteatime:5
-    - kde-apps/ksystemlog:5
-    - kde-apps/korganizer:5
-    - kde-apps/kontact:5
-    - kde-apps/kompare:5
-    - kde-apps/kolourpaint:5
-    - kde-apps/knotes:5
-    - kde-apps/kbackup:5
-    - kde-apps/kalarm:5
-    - kde-apps/kamera:5
-    - kde-apps/kalgebra:5
-    - kde-apps/kleopatra:5
-    - kde-apps/lokalize:5
-    - kde-apps/mbox-importer:5
-    - kde-apps/mailimporter:5
-    - kde-apps/ksmtp:5
-    - kde-apps/krfb:5
-    - kde-apps/kmix:5
-    - kde-apps/kmail:5
-    - kde-apps/kgpg:5
-    - kde-apps/kget:5
-    - kde-apps/filelight:5
-    - kde-apps/eventviews:5
-    - kde-apps/dragon:5
-    - kde-apps/dolphin-plugins-git:5
-    # Ebuild broken. TODO: Investigate.
-    #- kde-apps/kjots:5
-    - kde-plasma/ksystemstats:5
+    - kde-apps/sweeper:6
+    - kde-apps/svgpart:6
+    - kde-apps/spectacle:6
+    - kde-apps/pim-sieve-editor:6
+    - kde-apps/pim-data-exporter:6
+    - kde-apps/parley:6
+    - kde-apps/ktimer:6
+    - kde-apps/kteatime:6
+    - kde-apps/ksystemlog:6
+    - kde-apps/korganizer:6
+    - kde-apps/kontact:6
+    - kde-apps/kompare:6
+    - kde-apps/kolourpaint:6
+    - kde-apps/kbackup:6
+    - kde-apps/kalarm:6
+    - kde-apps/kamera:6
+    - kde-apps/kalgebra:6
+    - kde-apps/kleopatra:6
+    - kde-apps/lokalize:6
+    - kde-apps/mbox-importer:6
+    - kde-apps/mailimporter:6
+    - kde-apps/ksmtp:6
+    - kde-apps/krfb:6
+    - kde-apps/kmix:6
+    - kde-apps/kmail:6
+    - kde-apps/kget:6
+    - kde-apps/filelight:6
+    - kde-apps/eventviews:6
+    - kde-apps/dragon:6
+    - kde-apps/dolphin-plugins-git:6
+    - kde-plasma/ksystemstats:6
 
-    - kde-apps/juk:5
-    - kde-apps/krdc:5
+    - kde-apps/juk:6
+    - kde-apps/krdc:6
 - tree: packages/atoms/base-kde6
   packages:
     - dev-libs/hidapi
@@ -197,7 +195,7 @@ artefacts:
       - debug
       - test
   packages:
-    - kde-plasma/powerdevil:5
+    - kde-plasma/powerdevil:6
 
 - tree: packages/atoms/base-kde6
   uses:
@@ -217,7 +215,7 @@ artefacts:
       - debug
       - test
   packages:
-    - kde-apps/akonadi-mime:5
+    - kde-apps/akonadi-mime:6
 
 - tree: packages/atoms/base-kde6
   mutations:
@@ -233,15 +231,7 @@ artefacts:
     - sys-apps/fwupd-efi
 
 - tree: packages/atoms/base-kde6
-  packages:
-    - net-libs/libmbim
-
-- tree: packages/atoms/base-kde6
   mutations:
-    buildtime_deps:
-      packages:
-        - category: net-libs
-          name: libmbim
     runtime_deps:
       packages:
         - category: net-libs
@@ -255,9 +245,9 @@ artefacts:
   packages:
     - sys-apps/fwupd
 
-- tree: packages/atoms/base-kde6
-  packages:
-    - kde-misc/latte-dock
+#- tree: packages/atoms/base-kde6
+#  packages:
+#    - kde-misc/latte-dock
 
 - tree: packages/atoms/base-kde6
   mutations:
@@ -351,7 +341,7 @@ artefacts:
       # need library not available. TODO: add this library.
       - jpegxl
   packages:
-    - media-gfx/krita:5
+    - media-gfx/krita:6
 
 - tree: packages/atoms/base-kde6
   uses:
@@ -365,17 +355,11 @@ artefacts:
     - dev-python/utidylib
 
 - tree: packages/atoms/base-kde6
-  mutations:
-    runtime_deps:
-      packages:
-        # We have splitted packages
-        - category: app-crypt-1
-          name: gpgme-qt
   uses:
     disabled:
       - text
   packages:
-    - kde-apps/messagelib:5
+    - kde-apps/messagelib:6
 
 - tree: packages/atoms/base-kde6
   packages:
@@ -390,6 +374,8 @@ artefacts:
           name: macaroni-funtoo-race20
   packages:
     - app-text/aha
+    # need qt6 support
+    #- dev-libs/quazip
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
@@ -407,6 +393,7 @@ trees:
 - ../packages/atoms/base-xorg2
 - ../packages/atoms/fonts
 - ../packages/atoms/base-gtk
+- ../packages/atoms/base-media
 - ../packages/atoms/base-gtk2
 - ../packages/atoms/base-editors
 - ../packages/atoms/xorg-base
@@ -414,7 +401,7 @@ trees:
 - ../packages/atoms/base-lang
 - ../packages/atoms/base-fs
 - ../packages/atoms/db
-- ../packages/atoms/base-qt
+- ../packages/atoms/base-qt6
 - ../packages/atoms/base-audio
 - ../packages/atoms/base-video
 - ../packages/atoms/base-multimedia
@@ -423,11 +410,10 @@ trees:
 - ../packages/atoms/base-multimedia2
 - ../packages/atoms/boot
 - ../packages/atoms/shells
-- ../packages/atoms/base-qt2
+- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome
 - ../packages/atoms/base-gnome2
 - ../packages/atoms/portage-tools
-- ../packages/atoms/qt6
 - ../packages/atoms/base-gnome3
 - ../packages/atoms/base-net2
 - ../packages/atoms/nvidia
@@ -654,6 +640,9 @@ reposcan_disabled_use_flags:
   - ppc64
 
   - userland_BSD
+
+  - qt5
+
 reposcan_disabled_keywords:
   #- ~amd64
   - -*
