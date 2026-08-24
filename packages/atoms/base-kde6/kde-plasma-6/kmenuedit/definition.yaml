@@ -1,0 +1,36 @@
+name: kmenuedit
+version: 6.5.5
+category: kde-plasma-6
+requires:
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: sonnet
+  version: '>=0'
+  category: kde-frameworks-6
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: KDE menu editor
+uri:
+- https://invent.kde.org/plasma/
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[gui] kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/sonnet:6
+  RDEPEND: virtual/kde-seed[gui] kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kservice:6 kde-frameworks/kwidgetsaddons:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/sonnet:6
+  emerge.packages: kde-plasma/kmenuedit:6
+  kit: kde-kit
+  original.package.name: kde-plasma/kmenuedit
+  original.package.slot: "6"
+  original.package.version: 6.5.5
