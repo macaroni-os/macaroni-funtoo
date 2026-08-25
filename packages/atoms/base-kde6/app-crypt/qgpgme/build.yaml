@@ -2,9 +2,8 @@ prelude:
 # temporary until next race
 - >-
   anise repo update &&
-  anise rm --nodeps app-crypt-1/gpgme &&
-  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
-  emerge gpgme gpgmepp -j
+  anise upgrade -y &&
+  anise cleanup --purge-repos
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
