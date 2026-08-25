@@ -1,6 +1,9 @@
 prelude:
 # Temporary until next race
 - >-
+  anise repo update &&
+  anise upgrade -y &&
+  anise cleanup --purge-repos &&
   sed -i -e 's|dev-lbis|dev-libs|g'
   /var/git/meta-repo/kits/gnome-kit/dev-util/sysprof/sysprof-49.0.ebuild
 - |-
