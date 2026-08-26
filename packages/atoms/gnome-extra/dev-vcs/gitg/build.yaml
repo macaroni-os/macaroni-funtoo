@@ -1,4 +1,9 @@
 prelude:
+# temporary until next race
+- >-
+  export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  USE="vala" emerge dev-libs/libpeas:0 --nodeps -j
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
