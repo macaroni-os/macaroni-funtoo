@@ -1,0 +1,29 @@
+name: chemical-mime-data
+version: 0.1.95_pre20171122
+category: sci-chemistry
+requires:
+- name: shared-mime-info
+  version: '>=0'
+  category: x11-misc
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A collection of data files to add support for chemical MIME types
+uri:
+- https://github.com/dleidert/chemical-mime
+license: LGPL-2.1
+labels:
+  BDEPEND: dev-libs/libxslt dev-util/intltool dev-util/desktop-file-utils virtual/pkgconfig
+    >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71
+    >=sys-devel/libtool-2.4
+  DEPEND: x11-misc/shared-mime-info dev-util/desktop-file-utils x11-misc/shared-mime-info
+  RDEPEND: x11-misc/shared-mime-info
+  emerge.packages: sci-chemistry/chemical-mime-data
+  kit: science-kit
+  original.package.name: sci-chemistry/chemical-mime-data
+  original.package.slot: "0"
+  original.package.version: 0.1.95_pre20171122
