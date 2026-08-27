@@ -1,15 +1,15 @@
 name: gnome-software
-version: "49.2"
+version: 49.2+1
 category: gnome-extra
 use_flags:
+- -sysprof
 - firmware
 - flatpak
-- sysprof
 - udev
 requires:
-- name: sysprof
+- name: json-glib
   version: '>=0'
-  category: dev-util
+  category: dev-libs
 - name: gsettings-desktop-schemas
   version: '>=0'
   category: gnome-base
@@ -22,6 +22,9 @@ requires:
 - name: gdk-pixbuf
   version: '>=0'
   category: x11-libs-2
+- name: libadwaita
+  version: '>=0'
+  category: x11-libs
 annotations:
   subsets:
     rules:
