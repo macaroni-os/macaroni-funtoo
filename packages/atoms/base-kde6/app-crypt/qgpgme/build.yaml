@@ -3,7 +3,9 @@ prelude:
 - >-
   anise repo update &&
   anise upgrade -y &&
-  anise cleanup --purge-repos
+  anise rm --nodeps app-crypt/gpgmepp &&
+  anise i app-crypt/gpgmepp --nodeps &&
+  anise cleanup --purge-repos &&
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
