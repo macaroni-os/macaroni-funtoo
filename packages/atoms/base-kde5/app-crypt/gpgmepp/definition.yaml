@@ -15,6 +15,12 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
+# Avoid that this package is installed before
+# the upgrade of gpgme that contains common files
+conflicts:
+- name: gpgme
+  version: '<=1.81.0'
+  category: app-crypt-1
 description: GPGME++ - C++ bindings/wrapper for GPGME
 uri:
 - https://www.gnupg.org/related_software/gpgme/
