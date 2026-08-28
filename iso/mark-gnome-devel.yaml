@@ -123,7 +123,9 @@ packages:
   - x11-apps/xrandr
 
   # Package to add on virtual/xorg-base
-  - x11-drivers/xf86-video-vmware
+  # xf86-video-vmware generates Segfaults on
+  # Virtualbox. It seems better modesetting.
+  #- x11-drivers/xf86-video-vmware
   - x11-drivers/xf86-video-nouveau
   - x11-drivers/xf86-video-fbdev
   - x11-drivers/xf86-video-ati
