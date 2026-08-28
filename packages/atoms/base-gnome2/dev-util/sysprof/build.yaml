@@ -3,9 +3,7 @@ prelude:
 - >-
   anise repo update &&
   anise upgrade -y &&
-  anise cleanup --purge-repos &&
-  sed -i -e 's|dev-lbis|dev-libs|g'
-  /var/git/meta-repo/kits/gnome-kit/dev-util/sysprof/sysprof-49.0.ebuild
+  anise cleanup --purge-repos
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
