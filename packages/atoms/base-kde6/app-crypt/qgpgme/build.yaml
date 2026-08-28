@@ -5,7 +5,7 @@ prelude:
   anise upgrade -y &&
   anise rm --nodeps app-crypt/gpgmepp &&
   anise i app-crypt/gpgmepp --nodeps &&
-  anise cleanup --purge-repos &&
+  anise cleanup --purge-repos
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
