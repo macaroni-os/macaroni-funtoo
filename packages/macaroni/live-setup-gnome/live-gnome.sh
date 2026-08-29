@@ -26,7 +26,7 @@ ENABLED_SERVICES=(
   # this off.
   "metalog"
   "NetworkManager"
-  "xdm"
+  #"xdm"
   "virtualbox-guest-additions"
   "zram-init"
   # This is needed to correctly
