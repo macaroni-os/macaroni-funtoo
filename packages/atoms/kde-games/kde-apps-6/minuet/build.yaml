@@ -1,4 +1,10 @@
 prelude:
+# temporary
+- >-
+  anise repo update &&
+  anise upgrade -y &&
+  anise i -y fluidsynth &&
+  anise cleanup --purge-repos
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
