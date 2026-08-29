@@ -2,17 +2,12 @@ packages:
 
   keep_luet_db: "true"
   rootfs:
-  #- system/entities
   - app-admin/anise
-  - app-admin/macaronictl-thin
+  - app-admin/macaronictl
   - app-admin/whip
   - app-admin/entities
-  #- system/luet-geaaru-testing
   - app-misc/yq-go
-  - app-misc/yq
   - app-misc/jq
-  #- utils/yq
-  #- utils/jq
 
   - macaroni/live-setup-gnome
   - macaroni/pageant
@@ -31,7 +26,40 @@ packages:
   - pinentry-gnome
 
   - www-client/firefox
-  - gnome-base/gnome
+  #- www-client/firefox-bin
+  #- gnome-base/gnome
+  # gnome-shell
+  - gnome-shell
+  - gdm
+  - gnome-base/gnome-desktop
+  - gnome-session
+  - gnome-control-center
+  - gnome-power-manager
+  - xdg-desktop-portal-gnome
+  - gnome-terminal
+  - gnome-backgrounds
+  - net-wireless-3/gnome-bluetooth
+  - gnome-weather
+  - gnome-tweaks
+  - gnome-system-monitor
+
+  - gst-plugins-bad
+  - net-libs-1.0/rest
+  - evolution-data-server
+  - libdazzle
+  - app-crypt/gcr
+
+  - media-fonts/font-adobe-100dpi
+  - media-fonts/font-adobe-75dpi
+  - media-fonts/font-adobe-utopia-100dpi
+  - media-fonts/font-adobe-utopia-75dpi
+  - media-fonts/font-bh-100dpi
+  - media-fonts/font-bh-75dpi
+  - media-fonts/font-bh-lucidatypewriter-100dpi
+  - media-fonts/font-bh-lucidatypewriter-75dpi
+  - media-fonts/font-bitstream-100dpi
+  - media-fonts/font-bitstream-75dpi
+  - media-fonts/sedgwick-ave-display
 
   - sys-apps/gentoo-functions
 
@@ -60,12 +88,14 @@ packages:
   - sys-apps/iproute2
   - sys-apps/corenetwork
   - net-misc/dhcpcd
+  - net-libs/libmnl
 
   - gnome-extra/polkit-gnome
   - sys-process/procps
   - sys-process/htop
   - sys-apps/ethtool
   - sys-apps/less
+  - sys-apps/which
   - net-wireless/wpa_supplicant
   - net-wireless/wireless-regdb
   - sys-fs/eudev
@@ -93,8 +123,12 @@ packages:
   - x11-apps/setxkbmap
   - x11-apps/xrandr
 
+  - metalog
+
   # Package to add on virtual/xorg-base
-  - x11-drivers/xf86-video-vmware
+  # xf86-video-vmware generates Segfaults on
+  # Virtualbox. It seems better modesetting.
+  #- x11-drivers/xf86-video-vmware
   - x11-drivers/xf86-video-nouveau
   - x11-drivers/xf86-video-fbdev
   - x11-drivers/xf86-video-ati
@@ -117,14 +151,21 @@ packages:
   # Needed for the font cache generation
   - media-fonts/encodings
 
+  - app-crypt-2/qca
+  - dev-cpp-2.36/atkmm
+  - dev-cpp/atkmm
+  - dev-cpp-3.0/gtkmm
+  - dev-cpp-4.0/gtkmm
+
   # gjs-console, gjs (libmozjs-68)
-  - dev-lang-68/spidermonkey
+  - spidermonkey
   # gnome-system-monitor, etc
   - dev-libs-2/libsigc++
   - dev-cpp-1/cairomm
   - dev-cpp/cairomm
   # grub
   - sys-fs-3/fuse
+  - sys-fs/fuse
   # Apache
   - dev-libs-1/apr-util
   # kadmind
@@ -135,6 +176,10 @@ packages:
   - x11-libs-2/gtk+
   # slapacl, slapcat, etc.
   - sys-libs-5.3/db
+  # dlyena-server-service
+  - net-libs-1.2/gupnp
+  # miss dep of gexiv2, exiv2
+  - dev-libs/inih
 
   # calamares plugin requires these packages
   - x11-libs/xcb-util-wm
@@ -183,7 +228,7 @@ packages:
   - net-dialup/wvdial
 
   - app-emulation/docker
-  - app-emulation/lxd
+  - app-emulation/incus
   - app-emulation/lxd-compose
   - app-emulation/qemu
   - sys-apps/fchroot
