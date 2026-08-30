@@ -5,9 +5,9 @@ prelude:
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
   {{- if .Values.use_flags }}
-  eval 'USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t || true' && \
+  USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
   {{- else }}
-  eval 'emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t || true' && \
+  emerge -j ${JOBS} {{ ( index .Values.labels "emerge.packages" ) }} -pv -t && \
   {{- end }}
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge -j ${JOBS} --nodeps {{ ( index .Values.labels "emerge.packages" ) }} && \
@@ -26,6 +26,6 @@ excludes:
 - ^/var/cache/portage/
 - ^/var/git/
 requires:
-- name: ddcutil
+- name: shtab
   version: '>=0'
-  category: app-misc
+  category: dev-python
