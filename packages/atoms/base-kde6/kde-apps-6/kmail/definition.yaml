@@ -1,10 +1,16 @@
 name: kmail
-version: 25.12.2+1
+version: 25.12.2+2
 category: kde-apps-6
 use_flags:
 - activities
 - telemetry
 requires:
+- name: kdepim-runtime
+  version: '>=0'
+  category: kde-apps-6
+- name: kmail-account-wizard
+  version: '>=0'
+  category: kde-apps-6
 - name: kontactinterface
   version: '>=0'
   category: kde-apps-6
@@ -17,9 +23,6 @@ requires:
 - name: mailcommon
   version: '>=0'
   category: kde-apps-6
-- name: knotifyconfig
-  version: '>=0'
-  category: kde-frameworks-6
 - name: kstatusnotifieritem
   version: '>=0'
   category: kde-frameworks-6
@@ -39,7 +42,7 @@ uri:
 labels:
   BDEPEND: dev-libs/libxslt dev-util/ninja dev-util/cmake
   DEPEND: virtual/kde-seed[gui] dev-qt/qtwebengine:6 >=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
-    =kde-apps/kdepim-runtime*:6 =kde-apps/kmail-account-wizard*:6 app-crypt/gpgmepp:=
+    kde-apps/kdepim-runtime:6 kde-apps/kmail-account-wizard:6 app-crypt/gpgmepp:=
     app-crypt/qgpgme:= >=dev-libs/ktextaddons-1.6.0:6[speech?] >=dev-libs/libgpg-error-1.36
     kde-apps/akonadi:6= kde-apps/akonadi-contacts:6= kde-apps/akonadi-mime:6= kde-apps/akonadi-search:6=
     kde-apps/kcalutils:6= kde-apps/kidentitymanagement:6= kde-apps/kldap:6= kde-apps/kmailtransport:6=
@@ -58,7 +61,7 @@ labels:
     ) telemetry? ( kde-frameworks/kuserfeedback:6 )
   IUSE: activities speech telemetry
   RDEPEND: virtual/kde-seed[gui] dev-qt/qtwebengine:6 >=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
-    =kde-apps/kdepim-runtime*:6 =kde-apps/kmail-account-wizard*:6 app-crypt/gpgmepp:=
+    kde-apps/kdepim-runtime:6 kde-apps/kmail-account-wizard:6 app-crypt/gpgmepp:=
     app-crypt/qgpgme:= >=dev-libs/ktextaddons-1.6.0:6[speech?] >=dev-libs/libgpg-error-1.36
     kde-apps/akonadi:6= kde-apps/akonadi-contacts:6= kde-apps/akonadi-mime:6= kde-apps/akonadi-search:6=
     kde-apps/kcalutils:6= kde-apps/kidentitymanagement:6= kde-apps/kldap:6= kde-apps/kmailtransport:6=
