@@ -1,5 +1,5 @@
 name: krdc
-version: 25.12.2+1
+version: 25.12.2+2
 category: kde-apps-6
 use_flags:
 - activities
@@ -31,6 +31,9 @@ requires:
 - name: libvncserver
   version: '>=0'
   category: net-libs
+- name: freerdp
+  version: '>=0'
+  category: net-misc
 annotations:
   subsets:
     rules:
@@ -49,7 +52,7 @@ labels:
     kde-frameworks/kiconthemes:6 kde-frameworks/knotifications:6 kde-frameworks/knotifyconfig:6
     kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwallet:6
     kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
-    activities? ( kde-plasma/plasma-activities:6 ) rdp? ( kde-frameworks/kio:6 >=net-misc/freerdp-2.10:3
+    activities? ( kde-plasma/plasma-activities:6 ) rdp? ( kde-frameworks/kio:6 net-misc/freerdp
     ) ssh? ( net-libs/libssh:= ) vnc? ( >=net-libs/libvncserver-0.9.15 )
   IUSE: activities +rdp +ssh +vnc wayland
   RDEPEND: virtual/kde-seed[gui,wayland?] kde-frameworks/kbookmarks:6 kde-frameworks/kcmutils:6
@@ -58,7 +61,7 @@ labels:
     kde-frameworks/kiconthemes:6 kde-frameworks/knotifications:6 kde-frameworks/knotifyconfig:6
     kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6 kde-frameworks/kwallet:6
     kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/kxmlgui:6
-    activities? ( kde-plasma/plasma-activities:6 ) rdp? ( kde-frameworks/kio:6 >=net-misc/freerdp-2.10:3
+    activities? ( kde-plasma/plasma-activities:6 ) rdp? ( kde-frameworks/kio:6 net-misc/freerdp
     ) ssh? ( net-libs/libssh:= ) vnc? ( >=net-libs/libvncserver-0.9.15 )
   emerge.packages: kde-apps/krdc:6
   kit: kde-kit
