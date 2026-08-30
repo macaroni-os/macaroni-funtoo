@@ -1,16 +1,38 @@
-/* background color of the side panel */
-#sidebarApp {
-    background-color: #2A2C31;
+/* Sidebar background */
+#sidebarApp,
+SidebarView,
+QListView {
+  background-color: #EFEFEF;
+  color: #222222;
+  border: none;
 }
 
-/* color of the text for the menu elements */
-SidebarView {
-    background-color: #2A2C31;
-    color: #FFFFFF;
+/* list entry rule */
+SidebarView::item,
+QListView::item {
+  background-color: #EFEFEF;
+  color: #222222;
+  padding: 10px 15px; /* Aumenta lo spazio sopra/sotto e ai lati */
+  min-height: 24px;   /* Garantisce un'altezza adeguata al rettangolo * /
 }
 
-/* State selected/active */
-SidebarView::item:selected {
-    background-color: #292F34;
-    color: #FFFFFF;
+/* selected module / enabled */
+SidebarView::item:selected,
+QListView::item:selected {
+  background-color: #C59200;
+  color: #FFFFFF;
+}
+
+/* Buttons (About, Debug) */
+#sidebarApp QPushButton,
+#sidebarApp QToolButton,
+#sidebarApp QLabel {
+  color: #222222;
+  background-color: transparent;
+  border: none;
+}
+
+#sidebarApp QPushButton:hover,
+#sidebarApp QToolButton:hover {
+  color: #C59200;
 }
