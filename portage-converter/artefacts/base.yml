@@ -546,6 +546,14 @@ artefacts:
     - zlib
   packages:
   - sys-libs/cracklib
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        whip h cracklib.generate-dictionary || true
+
 #- tree: packages/atoms/base
 #  uses:
 #    disabled:
