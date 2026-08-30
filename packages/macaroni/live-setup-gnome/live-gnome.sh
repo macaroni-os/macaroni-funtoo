@@ -56,10 +56,11 @@ HOOKS=(
   "gtk.postinst"
 )
 GNOME_SHELL_EXTS=(
-  "dash-to-dock"
-  "desktop-icons"
-  "dynamic-panel-transparency"
-  "compiz-windows-effect"
+# We need to review these list
+#  "dash-to-dock"
+#  "desktop-icons"
+#  "dynamic-panel-transparency"
+ # "compiz-windows-effect"
 )
 
 source ${EROOT}/var/lib/macaroni/live-core.sh
