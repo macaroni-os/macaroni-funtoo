@@ -1,0 +1,34 @@
+name: Class-Method-Modifiers
+version: 2.120.0
+category: dev-perl
+use_flags:
+- -test
+requires:
+- name: perl-Carp
+  version: '>=0'
+  category: virtual
+- name: perl-Exporter
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: provides Moose-like method modifiers
+uri:
+- https://metacpan.org/release/Class-Method-Modifiers
+license: '|| ( Artistic GPL-1+ )'
+labels:
+  DEPEND: virtual/perl-Carp virtual/perl-Exporter >=virtual/perl-ExtUtils-MakeMaker-6.36
+    test? ( >=virtual/perl-CPAN-Meta-2.120.900 dev-perl/Test-Fatal dev-perl/Test-Requires
+    >=virtual/perl-Test-Simple-0.880.0 virtual/perl-if ) dev-lang/perl:=
+  IUSE: test
+  RDEPEND: virtual/perl-Carp virtual/perl-Exporter dev-lang/perl:=
+  emerge.packages: dev-perl/Class-Method-Modifiers
+  kit: perl-kit
+  original.package.name: dev-perl/Class-Method-Modifiers
+  original.package.slot: "0"
+  original.package.version: 2.120.0
