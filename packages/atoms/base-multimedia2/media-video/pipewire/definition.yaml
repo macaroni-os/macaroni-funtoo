@@ -1,5 +1,5 @@
 name: pipewire
-version: 1.5.84+1
+version: 1.5.84+2
 category: media-video
 use_flags:
 - -doc
@@ -16,7 +16,12 @@ use_flags:
 - ssl
 - v4l
 - zeroconf
+- elogind
+- flatpak
 requires:
+- name: glib
+  version: '>=0'
+  category: dev-libs-2
 - name: openssl
   version: '>=0'
   category: dev-libs
@@ -24,6 +29,9 @@ requires:
   version: '>=0'
   category: media-libs
 - name: gst-plugins-base
+  version: '>=0'
+  category: media-libs-1.0
+- name: gstreamer
   version: '>=0'
   category: media-libs-1.0
 - name: libcanberra
@@ -72,7 +80,7 @@ annotations:
 description: Multimedia processing graphs
 uri:
 - http://pipewire.org/
-license: MIT LGPL-2.1+ GPL-2
+license: NOASSERTION
 labels:
   BDEPEND: virtual/pkgconfig || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7
     dev-lang/python:3.10 ) || ( ( dev-lang/python:3.8 dev-python/docutils[python_targets_python3_8(-),python_single_target_python3_8(+)]
