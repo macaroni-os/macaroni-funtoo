@@ -1,5 +1,5 @@
 name: cantor
-version: 25.12.2
+version: 25.12.2+1
 category: kde-apps-6
 use_flags:
 - R
@@ -14,6 +14,9 @@ requires:
   version: '>=0'
   category: app-text
 - name: R
+  version: '>=0'
+  category: dev-lang
+- name: julia-bin
   version: '>=0'
   category: dev-lang
 - name: matplotlib
@@ -49,7 +52,7 @@ uri:
 - https://apps.kde.org/cantor/
 labels:
   BDEPEND: sys-devel/gettext dev-util/ninja dev-util/cmake
-  DEPEND: virtual/kde-seed[gui,cups,svg] dev-qt/qtwebengine:6 julia? ( dev-lang/julia
+  DEPEND: virtual/kde-seed[gui,cups,svg] dev-qt/qtwebengine:6 julia? ( dev-lang/julia-bin
     ) postscript? ( app-text/libspectre ) kde-frameworks/karchive:6 kde-frameworks/kcompletion:6
     kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
     kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6
@@ -60,7 +63,7 @@ labels:
     dev-python/matplotlib dev-python/numpy ) R? ( dev-lang/R ) dev-util/desktop-file-utils
     x11-misc/shared-mime-info
   IUSE: analitza julia lua postscript python qalculate R
-  RDEPEND: virtual/kde-seed[gui,cups,svg] dev-qt/qtwebengine:6 julia? ( dev-lang/julia
+  RDEPEND: virtual/kde-seed[gui,cups,svg] dev-qt/qtwebengine:6 julia? ( dev-lang/julia-bin
     ) postscript? ( app-text/libspectre ) kde-frameworks/karchive:6 kde-frameworks/kcompletion:6
     kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6
     kde-frameworks/kcrash:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6
