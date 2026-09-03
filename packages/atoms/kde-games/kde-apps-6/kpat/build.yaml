@@ -1,4 +1,10 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/kde-kit/kde-apps/kpat &&
+  rm kpat-25.12.2.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/kde-kit/322d56b228c11f7b084e860733651aac931f8573/kde-apps/kpat/kpat-25.12.2.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
