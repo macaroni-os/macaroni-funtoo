@@ -3,6 +3,10 @@ prelude:
 - >-
   sed -e '/dev-python\/python/d' -i
   /var/git/meta-repo/kits/kde-kit/kde-apps/cantor/cantor-25.12.2.ebuild
+- >-
+  anise repo update &&
+  anise i -y poppler-qt &&
+  anise cleanup --purge-repos
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
