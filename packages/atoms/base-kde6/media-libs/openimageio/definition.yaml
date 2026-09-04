@@ -1,24 +1,21 @@
 name: openimageio
-version: 3.1.17.0
+version: 3.1.17.0+1
 category: media-libs
 use_flags:
-- -doc
-- -field3d
-- -ptex
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
-- -qt5
 - X
 - dicom
 - ffmpeg
 - gif
 - jpeg2k
+- jpegxl
 - opencv
-- opengl
 - openvdb
 - python
 - python_single_target_python3_9
+- qt6
 - raw
 - truetype
 requires:
@@ -31,13 +28,16 @@ requires:
 - name: pugixml
   version: '>=0'
   category: dev-libs
+- name: qtbase
+  version: '>=0'
+  category: dev-qt-6
 - name: openvdb
   version: '>=0'
   category: media-gfx
-- name: glew
+- name: libheif
   version: '>=0'
   category: media-libs
-- name: libheif
+- name: libjxl
   version: '>=0'
   category: media-libs
 - name: libraw
@@ -49,9 +49,15 @@ requires:
 - name: opencv
   version: '>=0'
   category: media-libs
+- name: openjph
+  version: '>=0'
+  category: media-libs
 - name: dcmtk
   version: '>=0'
   category: sci-libs
+- name: opengl
+  version: '>=0'
+  category: virtual
 annotations:
   subsets:
     rules:
@@ -61,9 +67,9 @@ annotations:
       - ^/var/db/pkg/
 description: A library for reading and writing images
 uri:
-- https://sites.google.com/site/openimageio/
-- https://github.com/OpenImageIO
-license: BSD
+- https://openimageio.org/
+- https://github.com/AcademySoftwareFoundation/OpenImageIO
+license: Apache-2.0 BSD
 labels:
   BDEPEND: dev-util/ninja dev-util/cmake
   DEPEND: '>=dev-cpp/robin-map-1.2.0 >=dev-libs/imath-3.1:= >=dev-libs/libfmt-7:=
