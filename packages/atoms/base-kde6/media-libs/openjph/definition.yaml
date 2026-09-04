@@ -1,0 +1,30 @@
+name: openjph
+version: 0.31.0
+category: media-libs
+use_flags:
+- tiff
+requires:
+- name: tiff
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)
+uri:
+- https://github.com/aous72/OpenJPH
+license: BSD-2-Clause
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: tiff? ( media-libs/tiff:0= )
+  IUSE: +tiff
+  RDEPEND: tiff? ( media-libs/tiff:0= )
+  emerge.packages: media-libs/openjph
+  kit: media-kit
+  original.package.name: media-libs/openjph
+  original.package.slot: "0"
+  original.package.version: 0.31.0
