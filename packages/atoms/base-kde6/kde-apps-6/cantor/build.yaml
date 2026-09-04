@@ -1,4 +1,8 @@
 prelude:
+# temporary until next race
+- >-
+  sed -e '/dev-python\/python/d' -i
+  /var/git/meta-repo/kits/kde-kit/kde-apps/cantor/cantor-25.12.2.ebuild
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
