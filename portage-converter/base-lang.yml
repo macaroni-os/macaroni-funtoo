@@ -173,6 +173,7 @@ artefacts:
 # ----------------------------
 
 - tree: packages/atoms/base-lang
+  custom_path: dev-lang/go
   mutations:
     uses:
       - amd64
@@ -265,6 +266,7 @@ artefacts:
 # Nodejs stuff
 # ----------------------------
 - tree: packages/atoms/base-lang
+  custom_path: net-libs/nodejs
   mutations:
     buildtime_deps:
       packages:
@@ -291,6 +293,38 @@ artefacts:
     - system-ssl
   packages:
   - net-libs/nodejs
+
+- tree: packages/atoms/base-lang
+  custom_path: net-libs/nodejs/22
+  conditions:
+    - '<net-libs/nodejs-23'
+    - '>=net-libs/nodejs-22'
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race8
+  uses:
+    disabled:
+    - debug
+    - doc
+    - lto
+    - nios2
+    - pax-kernel
+    - sh
+    - systemtap
+    - test
+    enabled:
+    - cpu_flags_x86_sse2
+    - icu
+    - inspector
+    - npm
+    - snapshot
+    - ssl
+    - system-icu
+    - system-ssl
+  packages:
+  - net-libs/nodejs,nodejs22
 
 - tree: packages/atoms/base-lang
   custom_path: net-libs/nodejs/20
