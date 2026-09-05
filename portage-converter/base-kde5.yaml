@@ -262,6 +262,15 @@ artefacts:
     - x11-misc/xsettingsd
     - media-libs/kcolorpicker
 
+- tree: packages/atoms/base-kde5
+  mutations:
+    conflicts:
+      - category: app-crypt-1
+        name: gpgme
+        version: '<=1.81.0'
+  packages:
+    - app-crypt/gpgmepp
+
 include_layers:
 - layers/macaroni-funtoo-race19.yaml
 
