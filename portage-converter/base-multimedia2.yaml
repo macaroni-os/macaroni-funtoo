@@ -201,10 +201,9 @@ artefacts:
 
 - tree: packages/atoms/base-multimedia2
   mutations:
-    buildtime_deps:
-      packages:
-        - category: media-libs
-          name: libldac
+    uses:
+      - elogind
+      - flatpak
   uses:
     disabled:
       - debug
@@ -243,6 +242,10 @@ artefacts:
     - media-video/wireplumber
 
 - tree: packages/atoms/base-multimedia2
+  mutations:
+    uses:
+      # required by kalarm
+      - libmpv
   uses:
     disabled:
       - debug
@@ -394,6 +397,9 @@ reposcan_requires_slot: true
 
 reposcan_contraints:
   packages:
+
+    - <media-video/pipewire-1.6
+
     - dev-lang/python:3.9
     - sys-devel/gcc:12.3.0
     - sys-devel/llvm:20
