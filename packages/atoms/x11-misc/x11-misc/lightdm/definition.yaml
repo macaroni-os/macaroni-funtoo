@@ -1,5 +1,5 @@
 name: lightdm
-version: 1.30.0+2
+version: 1.33.0
 category: x11-misc
 use_flags:
 - -qt5
@@ -38,22 +38,22 @@ uri:
 - https://github.com/CanonicalLtd/lightdm
 license: GPL-3 LGPL-3
 labels:
-  BDEPEND: dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext virtual/pkgconfig
-    vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50
-    dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40
-    dev-lang/vala:0.36 ) ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
-  DEPEND: '>=dev-libs/glib-2.44.0:2 dev-libs/libxml2 virtual/pam x11-libs/libX11 >=x11-libs/libxklavier-5
-    audit? ( sys-process/audit ) gnome? ( sys-apps/accountsservice ) introspection?
-    ( >=dev-libs/gobject-introspection-1 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5
-    dev-qt/qtgui:5 ) gnome? ( gnome-base/gnome-common ) sys-apps/shadow'
-  IUSE: audit +gnome +gtk +introspection non_root qt5 vala
-  RDEPEND: '>=dev-libs/glib-2.44.0:2 dev-libs/libxml2 virtual/pam x11-libs/libX11
-    >=x11-libs/libxklavier-5 audit? ( sys-process/audit ) gnome? ( sys-apps/accountsservice
+  BDEPEND: app-text/yelp-tools dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext
+    virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52
+    dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42
+    dev-lang/vala:0.40 dev-lang/vala:0.36 ) ) >=app-portage/elt-patches-20170815 ||
+    ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+    virtual/pkgconfig
+  DEPEND: '>=dev-libs/glib-2.44.0:2 dev-libs/libgcrypt dev-libs/libxml2:2 virtual/pam
+    x11-libs/libX11 x11-libs/libXdmcp x11-libs/libxcb >=x11-libs/libxklavier-5 audit?
+    ( sys-process/audit ) gnome? ( gnome-base/gnome-common sys-apps/accountsservice
     ) introspection? ( >=dev-libs/gobject-introspection-1 ) qt5? ( dev-qt/qtcore:5
-    dev-qt/qtdbus:5 dev-qt/qtgui:5 ) >=sys-auth/pambase-20101024-r2'
+    dev-qt/qtdbus:5 dev-qt/qtgui:5 ) qt6? ( dev-qt/qtbase:6[gui] ) sys-apps/shadow'
+  IUSE: +X audit elogind +gnome +gtk +introspection non_root qt5 +qt6 systemd vala
+  RDEPEND: '>=sys-auth/pambase-20101024-r2 elogind? ( sys-auth/elogind[pam] ) X? (
+    x11-base/xorg-server )'
   emerge.packages: x11-misc/lightdm
   kit: desktop-kit
   original.package.name: x11-misc/lightdm
   original.package.slot: "0"
-  original.package.version: 1.30.0
+  original.package.version: 1.33.0
