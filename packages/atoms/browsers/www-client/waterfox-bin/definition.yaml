@@ -1,0 +1,65 @@
+name: waterfox-bin
+version: 6.7.1.1
+category: www-client
+use_flags:
+- -geckodriver
+- -selinux
+- alsa
+- ffmpeg
+- pulseaudio
+requires:
+- name: atk
+  version: '>=0'
+  category: dev-libs
+- name: dbus-glib
+  version: '>=0'
+  category: dev-libs
+- name: pulseaudio
+  version: '>=0'
+  category: media-sound
+- name: ffmpeg
+  version: '>=0'
+  category: media-video
+- name: freedesktop-icon-theme
+  version: '>=0'
+  category: virtual
+- name: gdk-pixbuf
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-2
+- name: gtk+
+  version: '>=0'
+  category: x11-libs-3
+- name: libXfixes
+  version: '>=0'
+  category: x11-libs
+annotations:
+  desktop_browser: true
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Waterfox Web Browser Precompiled (stable)
+uri:
+- https://www.waterfox.net/
+license: MPL-2.0 GPL-2 LGPL-2.1
+labels:
+  DEPEND: app-arch/unzip alsa? ( !pulseaudio? ( dev-util/patchelf media-sound/apulse
+    ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: amd64 +alsa +ffmpeg geckodriver +pulseaudio selinux
+  RDEPEND: dev-libs/atk sys-apps/dbus dev-libs/dbus-glib dev-libs/glib:2 media-libs/fontconfig
+    media-libs/freetype x11-libs/cairo[X] x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/gtk+:3
+    x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes
+    x11-libs/libXrender x11-libs/libXt x11-libs/pango virtual/freedesktop-icon-theme
+    alsa? ( !pulseaudio? ( media-sound/apulse ) ) geckodriver? ( www-apps/geckodriver
+    ) pulseaudio? ( media-sound/pulseaudio ) ffmpeg? ( media-video/ffmpeg ) selinux?
+    ( sec-policy/selinux-mozilla )
+  emerge.packages: www-client/waterfox-bin
+  kit: browser-kit
+  original.package.name: www-client/waterfox-bin
+  original.package.slot: "0"
+  original.package.version: 6.7.1.1
