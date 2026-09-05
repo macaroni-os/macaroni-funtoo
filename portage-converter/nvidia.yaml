@@ -82,7 +82,7 @@ skipped_resolutions:
     - name: autoconf
       category: sys-devel
 
-build_template_file: ../templates/build-pkg-uses-subsets3.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets-version.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -135,6 +135,45 @@ artefacts:
 - tree: packages/atoms/nvidia
   packages:
     - sys-kernel/linux-firmware
+
+- tree: packages/atoms/nvidia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
+  custom_path: dev-util/nvidia-cuda-toolkit/11
+  conditions:
+    - '<dev-util/nvidia-cuda-toolkit-12'
+    - '>=dev-util/nvidia-cuda-toolkit-11'
+  packages:
+    - dev-util/nvidia-cuda-toolkit,11
+
+- tree: packages/atoms/nvidia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
+  custom_path: dev-util/nvidia-cuda-toolkit/12
+  conditions:
+    - '<dev-util/nvidia-cuda-toolkit-13'
+    - '>=dev-util/nvidia-cuda-toolkit-12'
+  packages:
+    - dev-util/nvidia-cuda-toolkit,12
+
+- tree: packages/atoms/nvidia
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race14
+  custom_path: dev-util/nvidia-cuda-toolkit/13
+  conditions:
+    - '<dev-util/nvidia-cuda-toolkit-14'
+    - '>=dev-util/nvidia-cuda-toolkit-12'
+  packages:
+    - dev-util/nvidia-cuda-toolkit,13
 
 - tree: packages/atoms/nvidia
   mutations:
