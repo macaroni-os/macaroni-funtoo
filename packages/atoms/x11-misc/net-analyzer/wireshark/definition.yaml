@@ -1,5 +1,5 @@
 name: wireshark
-version: 4.0.10+2
+version: 4.6.8
 category: net-analyzer
 use_flags:
 - -bcg729
@@ -88,44 +88,38 @@ uri:
 - https://www.wireshark.org/
 license: GPL-2
 labels:
-  BDEPEND: dev-lang/perl sys-devel/bison sys-devel/flex virtual/pkgconfig doc? ( app-doc/doxygen
-    app-text/asciidoctor ) qt5? ( dev-qt/linguist-tools:5 ) test? ( dev-python/pytest
-    dev-python/pytest-xdist ) dev-util/ninja dev-util/cmake
-  DEPEND: '>=dev-libs/glib-2.50:2 >=net-dns/c-ares-1.13 dev-libs/libgcrypt:0 bcg729?
-    ( media-libs/bcg729 ) brotli? ( app-arch/brotli:= ) ciscodump? ( >=net-libs/libssh-0.6
-    ) filecaps? ( sys-libs/libcap ) http2? ( net-libs/nghttp2:= ) ilbc? ( media-libs/libilbc
-    ) kerberos? ( virtual/krb5 ) libxml2? ( dev-libs/libxml2 ) lua? ( lua_single_target_lua5-1?
-    ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lua/lua:5.2 ) ) lz4? ( app-arch/lz4:=
-    ) maxminddb? ( dev-libs/libmaxminddb:= ) minizip? ( sys-libs/zlib[minizip] ) netlink?
-    ( dev-libs/libnl:3 ) opus? ( media-libs/opus ) pcap? ( net-libs/libpcap ) qt5?
-    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/linguist:5 dev-qt/qtprintsupport:5 dev-qt/qtmultimedia:5
-    dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtconcurrent:5 x11-misc/xdg-utils
-    ) sbc? ( media-libs/sbc ) sdjournal? ( sys-apps/systemd ) smi? ( net-libs/libsmi
-    ) snappy? ( app-arch/snappy ) spandsp? ( media-libs/spandsp ) sshdump? ( >=net-libs/libssh-0.6
-    ) ssl? ( net-libs/gnutls:= ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) ||
-    ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
-    ) filecaps? ( sys-libs/libcap ) sys-apps/shadow'
-  IUSE: prefix-guest androiddump -bcg729 brotli +capinfos +captype ciscodump +dftest
-    -doc dpauxmon +dumpcap +editcap http2 -ilbc kerberos libxml2 lto lua lz4 maxminddb
-    +mergecap +minizip +netlink opus +plugins +pcap +qt5 +randpkt +randpktdump +reordercap
-    sbc selinux +sharkd smi snappy -spandsp sshdump ssl -sdjournal -test +text2pcap
-    tfshark +tshark +udpdump zlib +zstd tfshark -plugin-ifdemo +filecaps lua_single_target_lua5-1
-    lua_single_target_lua5-2
-  RDEPEND: '>=dev-libs/glib-2.50:2 >=net-dns/c-ares-1.13 dev-libs/libgcrypt:0 bcg729?
-    ( media-libs/bcg729 ) brotli? ( app-arch/brotli:= ) ciscodump? ( >=net-libs/libssh-0.6
-    ) filecaps? ( sys-libs/libcap ) http2? ( net-libs/nghttp2:= ) ilbc? ( media-libs/libilbc
-    ) kerberos? ( virtual/krb5 ) libxml2? ( dev-libs/libxml2 ) lua? ( lua_single_target_lua5-1?
-    ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lua/lua:5.2 ) ) lz4? ( app-arch/lz4:=
-    ) maxminddb? ( dev-libs/libmaxminddb:= ) minizip? ( sys-libs/zlib[minizip] ) netlink?
-    ( dev-libs/libnl:3 ) opus? ( media-libs/opus ) pcap? ( net-libs/libpcap ) qt5?
-    ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/linguist:5 dev-qt/qtprintsupport:5 dev-qt/qtmultimedia:5
-    dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtconcurrent:5 x11-misc/xdg-utils
-    ) sbc? ( media-libs/sbc ) sdjournal? ( sys-apps/systemd ) smi? ( net-libs/libsmi
-    ) snappy? ( app-arch/snappy ) spandsp? ( media-libs/spandsp ) sshdump? ( >=net-libs/libssh-0.6
-    ) ssl? ( net-libs/gnutls:= ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) qt5?
-    ( virtual/freedesktop-icon-theme ) selinux? ( sec-policy/selinux-wireshark )'
+  BDEPEND: '|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10
+    ) dev-lang/perl sys-devel/flex sys-devel/gettext virtual/pkgconfig doc? ( app-doc/doxygen
+    app-text/asciidoctor dev-libs/libxslt ) gui? ( dev-qt/qttools:6[linguist] ) dev-util/ninja
+    dev-util/cmake'
+  DEPEND: '>=dev-libs/glib-2.50.0:2 dev-libs/libpcre2:= dev-libs/libxml2:= >=dev-libs/libgcrypt-1.8.0:=
+    >=net-dns/c-ares-1.13.0:= media-libs/speexdsp brotli? ( app-arch/brotli:= ) ciscodump?
+    ( >=net-libs/libssh-0.6:= ) filecaps? ( sys-libs/libcap ) gui? ( dev-qt/qtbase:6[gui]
+    dev-qt/qt5compat:6 dev-qt/qtmultimedia:6 virtual/freedesktop-icon-theme x11-misc/xdg-utils
+    ) http2? ( >=net-libs/nghttp2-1.11.0:= ) kerberos? ( virtual/krb5 ) lua? ( dev-lua/lua:5.3
+    ) lz4? ( app-arch/lz4:= ) maxminddb? ( dev-libs/libmaxminddb:= ) minizip? ( sys-libs/zlib[minizip]
+    ) netlink? ( dev-libs/libnl:3 ) opus? ( media-libs/opus ) pcap? ( net-libs/libpcap
+    ) sbc? ( media-libs/sbc ) snappy? ( app-arch/snappy:= ) sshdump? ( >=net-libs/libssh-0.6:=
+    ) ssl? ( >=net-libs/gnutls-3.5.8:=[pkcs11?] ) wifi? ( >=net-libs/libssh-0.6:=
+    ) xxhash? ( dev-libs/xxhash ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:=
+    ) filecaps? ( sys-libs/libcap ) sys-apps/shadow dev-util/desktop-file-utils x11-misc/shared-mime-info'
+  IUSE: androiddump brotli +capinfos +captype ciscodump +dftest doc dpauxmon +dumpcap
+    +editcap +gui http2 kerberos lto lua lz4 maxminddb +mergecap +minizip +netlink
+    opus pkcs11 +plugins +pcap +randpkt +randpktdump +reordercap sbc +sharkd snappy
+    sshdump ssl +text2pcap +tshark +udpdump wifi xxhash zlib +zstd +filecaps
+  RDEPEND: '>=dev-libs/glib-2.50.0:2 dev-libs/libpcre2:= dev-libs/libxml2:= >=dev-libs/libgcrypt-1.8.0:=
+    >=net-dns/c-ares-1.13.0:= media-libs/speexdsp brotli? ( app-arch/brotli:= ) ciscodump?
+    ( >=net-libs/libssh-0.6:= ) filecaps? ( sys-libs/libcap ) gui? ( dev-qt/qtbase:6[gui]
+    dev-qt/qt5compat:6 dev-qt/qtmultimedia:6 virtual/freedesktop-icon-theme x11-misc/xdg-utils
+    ) http2? ( >=net-libs/nghttp2-1.11.0:= ) kerberos? ( virtual/krb5 ) lua? ( dev-lua/lua:5.3
+    ) lz4? ( app-arch/lz4:= ) maxminddb? ( dev-libs/libmaxminddb:= ) minizip? ( sys-libs/zlib[minizip]
+    ) netlink? ( dev-libs/libnl:3 ) opus? ( media-libs/opus ) pcap? ( net-libs/libpcap
+    ) sbc? ( media-libs/sbc ) snappy? ( app-arch/snappy:= ) sshdump? ( >=net-libs/libssh-0.6:=
+    ) ssl? ( >=net-libs/gnutls-3.5.8:=[pkcs11?] ) wifi? ( >=net-libs/libssh-0.6:=
+    ) xxhash? ( dev-libs/xxhash ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:=
+    )'
   emerge.packages: net-analyzer/wireshark
   kit: net-kit
   original.package.name: net-analyzer/wireshark
   original.package.slot: "0"
-  original.package.version: 4.0.10
+  original.package.version: 4.6.8
