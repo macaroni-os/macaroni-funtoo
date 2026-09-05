@@ -131,6 +131,13 @@ artefacts:
       - sysprof
   packages:
     - x11-wm/mutter
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        whip h gtk.postinst || true
 
 - tree: packages/atoms/base-gnome3
   uses:
@@ -207,9 +214,14 @@ artefacts:
       - "-c"
     install:
       - >-
-        entities merge --specs-dir /usr/share/macaroni/entities/
-        -e gdm || true
-      - eval 'mkdir /var/lib/gdm -p || true' && eval 'chown gdm:gdm /var/lib/gdm || true'
+        eval 'entities merge --specs-dir /usr/share/macaroni/entities/ -e gdm || true' &&
+        eval 'entities merge --specs-dir /usr/share/macaroni/entities/ -e gdm-greeter || true'
+      - >-
+        eval 'mkdir /var/lib/gdm -p || true' &&
+        eval 'chown gdm:gdm /var/lib/gdm || true'
+      - >-
+        eval 'mkdir /var/lib/gdm-greeter -p || true' &&
+        eval 'chown gdm-greeter:gdm /var/lib/gdm-greeter || true'
 
 - tree: packages/atoms/base-gnome3
   mutations:
