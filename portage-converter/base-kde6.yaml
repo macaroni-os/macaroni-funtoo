@@ -374,8 +374,9 @@ artefacts:
           name: macaroni-funtoo-race20
   packages:
     - app-text/aha
+    - dev-lang/julia-bin
     # need qt6 support
-    #- dev-libs/quazip
+    - dev-libs/quazip
 
 - tree: packages/atoms/base-kde6
   uses:
@@ -385,8 +386,29 @@ artefacts:
       - test
       - doc
       - farstream
+      - lua
   packages:
     - kde-apps/cantor:6
+
+- tree: packages/atoms/base-kde6
+  mutations:
+    uses:
+      - enc265
+      - tools
+  uses:
+    disabled:
+      - debug
+  packages:
+    - media-libs/libde265
+
+- tree: packages/atoms/base-kde6
+  uses:
+    disabled:
+      - gtk-doc
+      - man
+      - zsh-completion
+  packages:
+    - sys-power/power-profiles-daemon
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
