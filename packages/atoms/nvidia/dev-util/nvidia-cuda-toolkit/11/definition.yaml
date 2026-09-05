@@ -1,0 +1,24 @@
+name: nvidia-cuda-toolkit
+version: 11.8.0
+category: dev-util
+use_flags:
+- clang
+- examples
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: NVIDIA CUDA Toolkit (compiler and friends)
+license: NVIDIA-CUDA
+labels:
+  BDEPEND: clang? ( sys-devel/clang ) sys-process/numactl examples? ( media-libs/freeglut
+    media-libs/glu )
+  IUSE: amd64 arm64 clang examples
+  emerge.packages: dev-util/nvidia-cuda-toolkit
+  kit: core-gl-kit
+  original.package.name: dev-util/nvidia-cuda-toolkit
+  original.package.slot: "0"
+  original.package.version: 11.8.0
