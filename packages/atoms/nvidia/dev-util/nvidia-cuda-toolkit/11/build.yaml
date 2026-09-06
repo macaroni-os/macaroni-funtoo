@@ -1,4 +1,8 @@
 prelude:
+- >-
+  eval 'mkdir -p /etc/portage/package.license || true' &&
+  echo "dev-util/nvidia-cuda-toolkit NVIDIA-CUDA" > /etc/portage/package.license/00-nvidia.license
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
