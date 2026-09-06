@@ -1,0 +1,13 @@
+diff --git a/src/modules/users/SetPasswordJob.cpp b/src/modules/users/SetPasswordJob.cpp
+index ad1cebc..9318b5a 100644
+--- a/src/modules/users/SetPasswordJob.cpp
++++ b/src/modules/users/SetPasswordJob.cpp
+@@ -96,7 +96,7 @@ SetPasswordJob::exec()
+ #ifdef HAVE_CRYPT_GENSALT
+     salt = crypt_gensalt( NULL, 0, NULL, 0 );
+ #else
+-    salt = make_salt( 16 );
++    salt = QStringLiteral("$6$") + make_salt(16) + QStringLiteral("$");
+ #endif
+ 
+     QString encrypted = QString::fromLatin1( crypt( m_newPassword.toUtf8(), salt.toUtf8() ) );
