@@ -21,12 +21,9 @@ anise_packages2remove = [
     "kernel-5.10/macaroni-initramfs",
     "kernel-5.10/virtualbox-guest-additions",
     "kernel-6.1/virtualbox-guest-additions",
-    "system/macaroni-funtoo-calamares",
+    "system/phoenix-desktop-calamares",
     "virtual/calamares",
-    "app-admin-5/calamares",
-    # designer is a dep of libreoffice
-    # that is needed for live ISO
-    #"dev-qt-5/designer"
+    "app-admin-6/calamares",
 ]
 
 
