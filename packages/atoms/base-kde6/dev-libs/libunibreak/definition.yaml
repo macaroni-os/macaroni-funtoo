@@ -1,0 +1,26 @@
+name: libunibreak
+version: "7.0"
+category: dev-libs
+use_flags:
+- -doc
+- -man
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The libunibreak library
+uri:
+- https://github.com/adah1972/libunibreak
+- http://vimgadgets.sourceforge.net/libunibreak/
+license: Zlib
+labels:
+  BDEPEND: doc? ( app-doc/doxygen ) man? ( app-doc/doxygen )
+  IUSE: doc +man static-libs
+  emerge.packages: dev-libs/libunibreak
+  kit: media-kit
+  original.package.name: dev-libs/libunibreak
+  original.package.slot: "0"
+  original.package.version: "7.0"
