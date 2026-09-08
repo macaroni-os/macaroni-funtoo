@@ -1,7 +1,4 @@
 prelude:
-# temporary until next race
-- >-
-  cp -vfr files/ /var/git/meta-repo/kits/media-kit/media-libs/opencolorio/
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
@@ -24,17 +21,14 @@ prelude:
   eval 'rm -rf /pkgdir/ || true' && mkdir -p /pkgdir/{{ .Values.name }} && \
   luet-portage --dir /pkgdir/{{ .Values.name }} {{ ( index .Values.labels "emerge.packages" ) }} && \
   eval 'rm -v /var/cache/distfiles/* ${LUET_PORTAGE_CACHE_PACKAGES}/* || true'
-# Fix broken cmake file
-- >-
-  sed -i -e 's|find_dependency(ZLIB 1.3.*|find_dependency(ZLIB 1.3)|g' /usr/lib64/cmake/OpenColorIO/OpenColorIOConfig.cmake &&
-  sed -i -e 's|find_dependency(ZLIB 1.3.*|find_dependency(ZLIB 1.3)|g' /pkgdir/{{ .Values.name }}/usr/lib64/cmake/OpenColorIO/OpenColorIOConfig.cmake
-
+- sed -i -e 's|find_dependency(ZLIB 1.3.*|find_dependency(ZLIB 1.3)|g' /usr/lib64/cmake/OpenColorIO/OpenColorIOConfig.cmake
+  && sed -i -e 's|find_dependency(ZLIB 1.3.*|find_dependency(ZLIB 1.3)|g' /pkgdir/{{
+  .Values.name }}/usr/lib64/cmake/OpenColorIO/OpenColorIOConfig.cmake
 package_dir: /pkgdir/{{ .Values.name }}
 excludes:
 - ^/var/cache/portage/
 - ^/var/git/
-
 requires:
-- name: openjph
+- name: zug
   version: '>=0'
-  category: media-libs
+  category: dev-libs
