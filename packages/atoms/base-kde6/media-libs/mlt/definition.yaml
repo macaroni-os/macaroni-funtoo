@@ -1,0 +1,76 @@
+name: mlt
+version: 7.40.0
+category: media-libs
+use_flags:
+- ffmpeg
+- frei0r
+- gdk
+- jack
+- opencv
+- qt6
+- rtaudio
+- sdl
+- sox
+- vorbis
+requires:
+- name: libxml2
+  version: '>=0'
+  category: dev-libs-2
+- name: qtsvg
+  version: '>=0'
+  category: dev-qt-6
+- name: alsa-lib
+  version: '>=0'
+  category: media-libs
+- name: libexif
+  version: '>=0'
+  category: media-libs
+- name: libsamplerate
+  version: '>=0'
+  category: media-libs
+- name: lilv
+  version: '>=0'
+  category: media-libs
+- name: opencv
+  version: '>=0'
+  category: media-libs
+- name: sox
+  version: '>=0'
+  category: media-sound
+- name: pango
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: MLT Multimedia Framework
+uri:
+- https://www.mltframework.org
+- https://github.com/mltframework/mlt
+license: LGPL-2.1
+labels:
+  BDEPEND: virtual/pkgconfig dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/glib:2= dev-libs/libxml2:2 media-libs/libsamplerate sci-libs/fftw:3.0=
+    ffmpeg? ( media-video/ffmpeg:= ) frei0r? ( media-plugins/frei0r-plugins ) gdk?
+    ( media-libs/fontconfig:1.0 media-libs/libexif x11-libs/gdk-pixbuf:2 x11-libs/pango
+    ) jack? ( media-libs/ladspa-sdk media-libs/lilv virtual/jack ) opencv? ( media-libs/opencv:=
+    ) qt6? ( dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 media-libs/libexif ) rtaudio? ( media-libs/alsa-lib
+    media-sound/pulseaudio ) sdl? ( media-libs/libsdl2 ) sox? ( media-sound/sox )
+    vorbis? ( media-libs/libogg media-libs/libvorbis )
+  IUSE: +ffmpeg frei0r gdk jack opencv qt6 rtaudio +sdl sox +vorbis
+  RDEPEND: dev-libs/glib:2= dev-libs/libxml2:2 media-libs/libsamplerate sci-libs/fftw:3.0=
+    ffmpeg? ( media-video/ffmpeg:= ) frei0r? ( media-plugins/frei0r-plugins ) gdk?
+    ( media-libs/fontconfig:1.0 media-libs/libexif x11-libs/gdk-pixbuf:2 x11-libs/pango
+    ) jack? ( media-libs/ladspa-sdk media-libs/lilv virtual/jack ) opencv? ( media-libs/opencv:=
+    ) qt6? ( dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 media-libs/libexif ) rtaudio? ( media-libs/alsa-lib
+    media-sound/pulseaudio ) sdl? ( media-libs/libsdl2 ) sox? ( media-sound/sox )
+    vorbis? ( media-libs/libogg media-libs/libvorbis )
+  emerge.packages: media-libs/mlt
+  kit: media-kit
+  original.package.name: media-libs/mlt
+  original.package.slot: "0"
+  original.package.version: 7.40.0
