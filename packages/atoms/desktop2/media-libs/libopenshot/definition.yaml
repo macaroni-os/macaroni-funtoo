@@ -1,31 +1,36 @@
 name: libopenshot
-version: 0.3.3+1
+version: 1.0.0
 category: media-libs
 use_flags:
 - -doc
 - -python_single_target_python3_10
 - -python_single_target_python3_7
 - -python_single_target_python3_8
+- babl
 - imagemagick
 - opencv
+- pipewire
 - python
 - python_single_target_python3_9
 requires:
+- name: python
+  version: '>=0'
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 - name: jsoncpp
   version: '>=0'
   category: dev-libs
-- name: qtcore
+- name: qtsvg
   version: '>=0'
-  category: dev-qt-5
-- name: qtgui
-  version: '>=0'
-  category: dev-qt-5
-- name: qtmultimedia
-  version: '>=0'
-  category: dev-qt-5
+  category: dev-qt-6
 - name: imagemagick
   version: '>=0'
   category: media-gfx
+- name: babl
+  version: '>=0'
+  category: media-libs
 - name: libopenshot-audio
   version: '>=0'
   category: media-libs
@@ -35,6 +40,9 @@ requires:
 - name: cppzmq
   version: '>=0'
   category: net-libs
+- name: xdg-desktop-portal
+  version: '>=0'
+  category: sys-apps
 annotations:
   subsets:
     rules:
@@ -42,35 +50,40 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Video editing library used by OpenShot
+description: OpenShot Video Library (libopenshot) is a free, open-source project dedicated
+  to delivering high quality video editing, animation, and playback solutions to the
+  world. API currently supports C++, Python, and Ruby.
 uri:
-- https://www.openshot.org/
-license: GPL-3+
+- http://www.openshot.org
+license: LGPL-3.0
 labels:
-  BDEPEND: doc? ( app-doc/doxygen ) python? ( dev-lang/swig ) dev-util/ninja dev-util/cmake
-  DEPEND: dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets]
-    >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis]
-    net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
-    ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib] ) python? ( python_single_target_python3_10?
+  BDEPEND: virtual/pkgconfig doc? ( app-doc/doxygen ) python? ( >=dev-lang/swig-3.0
+    ) dev-util/ninja dev-util/cmake
+  DEPEND: dev-libs/jsoncpp:0= dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 >=media-libs/libopenshot-audio-1.0.0:0=
+    media-video/ffmpeg:0[encode,x264,xvid,vpx,mp3,theora,vorbis] net-libs/cppzmq net-libs/zeromq
+    babl? ( media-libs/babl ) imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) opencv?
+    ( >=media-libs/opencv-4.5.2:=[contrib] dev-libs/protobuf:= ) pipewire? ( dev-libs/glib:2
+    media-video/pipewire sys-apps/xdg-desktop-portal ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
     python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
     ) )
-  IUSE: doc examples +imagemagick +opencv +python python_single_target_python3_10
+  IUSE: babl doc examples +imagemagick +opencv +pipewire +python python_single_target_python3_10
     python_single_target_python3_7 python_single_target_python3_9 python_single_target_python3_8
     python_targets_python3_10 python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
-  RDEPEND: dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5
-    dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis]
-    net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx]
-    ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib] ) python? ( python_single_target_python3_10?
+  RDEPEND: dev-libs/jsoncpp:0= dev-qt/qtbase:6[gui] dev-qt/qtsvg:6 >=media-libs/libopenshot-audio-1.0.0:0=
+    media-video/ffmpeg:0[encode,x264,xvid,vpx,mp3,theora,vorbis] net-libs/cppzmq net-libs/zeromq
+    babl? ( media-libs/babl ) imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) opencv?
+    ( >=media-libs/opencv-4.5.2:=[contrib] dev-libs/protobuf:= ) pipewire? ( dev-libs/glib:2
+    media-video/pipewire sys-apps/xdg-desktop-portal ) python? ( python_single_target_python3_10?
     ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
     python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7]
     ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9]
     ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8]
     ) )
   emerge.packages: media-libs/libopenshot
-  kit: geaaru-kit
+  kit: media-kit
   original.package.name: media-libs/libopenshot
   original.package.slot: "0"
-  original.package.version: 0.3.3
+  original.package.version: 1.0.0
