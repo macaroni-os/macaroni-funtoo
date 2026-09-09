@@ -1,5 +1,5 @@
 name: libopenshot-audio
-version: 0.3.3+1
+version: 1.0.0
 category: media-libs
 requires:
 - name: alsa-lib
@@ -32,13 +32,12 @@ uri:
 - https://www.openshot.org/
 license: GPL-3+
 labels:
-  BDEPEND: dev-util/ninja dev-util/cmake
-  DEPEND: media-libs/alsa-lib media-libs/freetype sys-libs/zlib x11-libs/libX11 x11-libs/libXcursor
-    x11-libs/libXext x11-libs/libXinerama x11-libs/libXrandr
-  RDEPEND: media-libs/alsa-lib media-libs/freetype sys-libs/zlib x11-libs/libX11 x11-libs/libXcursor
-    x11-libs/libXext x11-libs/libXinerama x11-libs/libXrandr
+  BDEPEND: doc? ( app-doc/doxygen ) dev-util/ninja dev-util/cmake
+  DEPEND: media-libs/alsa-lib sys-libs/zlib
+  IUSE: doc
+  RDEPEND: media-libs/alsa-lib sys-libs/zlib
   emerge.packages: media-libs/libopenshot-audio
-  kit: geaaru-kit
+  kit: media-kit
   original.package.name: media-libs/libopenshot-audio
   original.package.slot: "0"
-  original.package.version: 0.3.3
+  original.package.version: 1.0.0
