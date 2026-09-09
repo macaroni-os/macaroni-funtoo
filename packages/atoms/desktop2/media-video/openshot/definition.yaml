@@ -1,0 +1,95 @@
+name: openshot
+version: 4.0.0
+category: media-video
+use_flags:
+- -doc
+- -python_single_target_python3_10
+- -python_single_target_python3_7
+- -python_single_target_python3_8
+- python_single_target_python3_9
+requires:
+- name: PyQt6
+  version: '>=0'
+  category: dev-python
+- name: defusedxml
+  version: '>=0'
+  category: dev-python
+- name: numpy
+  version: '>=0'
+  category: dev-python
+- name: pillow
+  version: '>=0'
+  category: dev-python
+- name: pyzmq
+  version: '>=0'
+  category: dev-python
+- name: requests
+  version: '>=0'
+  category: dev-python
+- name: libopenshot
+  version: '>=0'
+  category: media-libs
+conflicts:
+- name: openshot
+  version: <4.0.0
+  category: media-video-1
+provides:
+- name: openshot
+  version: 4.0.0
+  category: media-video-1
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: OpenShot Video Editor is an award-winning free and open-source video
+  editor for Linux, Mac, and Windows, and is dedicated to delivering high quality
+  video editing and animation solutions to the world.
+uri:
+- http://www.openshot.org
+license: GPL-3+
+labels:
+  BDEPEND: python_single_target_python3_10? ( doc? ( dev-python/sphinx[python_targets_python3_10(-)]
+    ) ) python_single_target_python3_7? ( doc? ( dev-python/sphinx[python_targets_python3_7(-)]
+    ) ) python_single_target_python3_9? ( doc? ( dev-python/sphinx[python_targets_python3_9(-)]
+    ) ) python_single_target_python3_8? ( doc? ( dev-python/sphinx[python_targets_python3_8(-)]
+    ) ) python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    ) python_single_target_python3_10? ( >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)]
+    ) python_single_target_python3_7? ( >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( >=dev-python/setuptools-42.0.2[python_targets_python3_9(-)]
+    ) python_single_target_python3_8? ( >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)]
+    )
+  DEPEND: dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: doc python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
+    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
+    python_targets_python3_9 python_targets_python3_8
+  RDEPEND: python_single_target_python3_10? ( dev-python/defusedxml[python_targets_python3_10(-)]
+    dev-python/numpy[python_targets_python3_10(-)] dev-python/pillow[python_targets_python3_10(-)]
+    dev-python/pyzmq[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)]
+    dev-python/PyQt6[statemachine,python_targets_python3_10(-)] ) python_single_target_python3_7?
+    ( dev-python/defusedxml[python_targets_python3_7(-)] dev-python/numpy[python_targets_python3_7(-)]
+    dev-python/pillow[python_targets_python3_7(-)] dev-python/pyzmq[python_targets_python3_7(-)]
+    dev-python/requests[python_targets_python3_7(-)] dev-python/PyQt6[statemachine,python_targets_python3_7(-)]
+    ) python_single_target_python3_9? ( dev-python/defusedxml[python_targets_python3_9(-)]
+    dev-python/numpy[python_targets_python3_9(-)] dev-python/pillow[python_targets_python3_9(-)]
+    dev-python/pyzmq[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)]
+    dev-python/PyQt6[statemachine,python_targets_python3_9(-)] ) python_single_target_python3_8?
+    ( dev-python/defusedxml[python_targets_python3_8(-)] dev-python/numpy[python_targets_python3_8(-)]
+    dev-python/pillow[python_targets_python3_8(-)] dev-python/pyzmq[python_targets_python3_8(-)]
+    dev-python/requests[python_targets_python3_8(-)] dev-python/PyQt6[statemachine,python_targets_python3_8(-)]
+    ) >=media-libs/libopenshot-1.0.0:0=[python,python_single_target_python3_10(-)?,python_single_target_python3_7(-)?,python_single_target_python3_9(-)?,python_single_target_python3_8(-)?]
+    python_single_target_python3_10? ( dev-lang/python:3.10[xml] >=dev-lang/python-exec-2:=[python_targets_python3_10]
+    ) python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7]
+    ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9]
+    ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8]
+    )
+  emerge.packages: media-video/openshot
+  kit: media-kit
+  original.package.name: media-video/openshot
+  original.package.slot: "0"
+  original.package.version: 4.0.0
