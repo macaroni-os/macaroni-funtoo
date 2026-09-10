@@ -1,5 +1,5 @@
 name: mariadb
-version: 10.6.28
+version: 10.6.28+1
 category: dev-db
 use_flags:
 - -galera
@@ -86,6 +86,10 @@ requires:
 - name: perl-Time-HiRes
   version: '>=0'
   category: virtual
+provides:
+- name: mariadb
+  version: 10.6.28
+  category: dev-db-6
 annotations:
   subsets:
     rules:
