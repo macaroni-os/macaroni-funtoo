@@ -1,0 +1,103 @@
+name: kdeconnect
+version: 25.12.2
+category: kde-misc-6
+use_flags:
+- X
+- bluetooth
+- modemmanager
+- pulseaudio
+requires:
+- name: kirigami-addons
+  version: '>=0'
+  category: dev-libs-6
+- name: kpeoplevcard
+  version: '>=0'
+  category: dev-libs-6
+- name: libei
+  version: '>=0'
+  category: dev-libs
+- name: openssl
+  version: '>=0'
+  category: dev-libs
+- name: qtconnectivity
+  version: '>=0'
+  category: dev-qt-6
+- name: qtwayland
+  version: '>=0'
+  category: dev-qt-6
+- name: kcmutils
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kdeclarative
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kitemmodels
+  version: '>=0'
+  category: kde-frameworks-6
+- name: knotifications
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kstatusnotifieritem
+  version: '>=0'
+  category: kde-frameworks-6
+- name: modemmanager-qt
+  version: '>=0'
+  category: kde-frameworks-6
+- name: pulseaudio-qt
+  version: '>=0'
+  category: media-libs-6
+- name: sshfs
+  version: '>=0'
+  category: net-fs
+- name: libfakekey
+  version: '>=0'
+  category: x11-libs
+- name: libxkbcommon
+  version: '>=0'
+  category: x11-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Adds communication between KDE Plasma and your smartphone
+uri:
+- https://kdeconnect.kde.org/
+- https://apps.kde.org/kdeconnect/
+license: '|| ( GPL-2 GPL-3 ) LGPL-2.1+ BSD-2 CC0-1.0 MIT'
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative,gui,multimedia,svg,wayland] dev-qt/qtmultimedia:6[qml]
+    dev-qt/qtwayland:6 dev-libs/kirigami-addons:6 dev-libs/kpeoplevcard:6 dev-libs/libei
+    dev-libs/libevdev dev-libs/openssl:0= dev-libs/wayland kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6[qml] kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kdeclarative:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kirigami:6 kde-frameworks/kitemmodels:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/kpeople:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/qqc2-desktop-style:6
+    kde-frameworks/solid:6 kde-plasma/libplasma:6 net-fs/sshfs sys-apps/dbus x11-libs/libxkbcommon
+    bluetooth? ( dev-qt/qtconnectivity:6 ) modemmanager? ( kde-frameworks/modemmanager-qt:6
+    ) pulseaudio? ( media-libs/pulseaudio-qt:6 ) X? ( x11-libs/libfakekey x11-libs/libX11
+    x11-libs/libXtst ) dev-libs/wayland-protocols dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +bluetooth modemmanager +pulseaudio X
+  RDEPEND: virtual/kde-seed[declarative,gui,multimedia,svg,wayland] dev-qt/qtmultimedia:6[qml]
+    dev-qt/qtwayland:6 dev-libs/kirigami-addons:6 dev-libs/kpeoplevcard:6 dev-libs/libei
+    dev-libs/libevdev dev-libs/openssl:0= dev-libs/wayland kde-frameworks/kcolorscheme:6
+    kde-frameworks/kcmutils:6 kde-frameworks/kconfig:6[qml] kde-frameworks/kcoreaddons:6
+    kde-frameworks/kcrash:6 kde-frameworks/kdbusaddons:6 kde-frameworks/kdeclarative:6
+    kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6
+    kde-frameworks/kio:6 kde-frameworks/kirigami:6 kde-frameworks/kitemmodels:6 kde-frameworks/knotifications:6
+    kde-frameworks/kpackage:6 kde-frameworks/kpeople:6 kde-frameworks/kservice:6 kde-frameworks/kstatusnotifieritem:6
+    kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6 kde-frameworks/qqc2-desktop-style:6
+    kde-frameworks/solid:6 kde-plasma/libplasma:6 net-fs/sshfs sys-apps/dbus x11-libs/libxkbcommon
+    bluetooth? ( dev-qt/qtconnectivity:6 ) modemmanager? ( kde-frameworks/modemmanager-qt:6
+    ) pulseaudio? ( media-libs/pulseaudio-qt:6 ) X? ( x11-libs/libfakekey x11-libs/libX11
+    x11-libs/libXtst )
+  emerge.packages: kde-misc/kdeconnect:6
+  kit: kde-kit
+  original.package.name: kde-misc/kdeconnect
+  original.package.slot: "6"
+  original.package.version: 25.12.2
