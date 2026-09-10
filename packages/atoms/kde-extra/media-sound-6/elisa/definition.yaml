@@ -1,0 +1,53 @@
+name: elisa
+version: 25.12.2
+category: media-sound-6
+use_flags:
+- mpris
+- vlc
+requires:
+- name: kirigami-addons
+  version: '>=0'
+  category: dev-libs-6
+- name: kfilemetadata
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kio
+  version: '>=0'
+  category: kde-frameworks-6
+- name: kxmlgui
+  version: '>=0'
+  category: kde-frameworks-6
+- name: vlc
+  version: '>=0'
+  category: media-video
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Simple music player by KDE
+uri:
+- https://apps.kde.org/elisa/
+license: LGPL-3+ GPL-3+
+labels:
+  BDEPEND: sys-devel/gettext dev-util/ninja dev-util/cmake
+  DEPEND: virtual/kde-seed[declarative,gui,multimedia,sql,svg] dev-libs/kirigami-addons:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kfilemetadata:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kirigami:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/qqc2-desktop-style:6 mpris? ( kde-frameworks/kdbusaddons:6
+    ) vlc? ( media-video/vlc:= ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+  IUSE: +mpris +vlc
+  RDEPEND: virtual/kde-seed[declarative,gui,multimedia,sql,svg] dev-libs/kirigami-addons:6
+    kde-frameworks/kcodecs:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kconfig:6
+    kde-frameworks/kcoreaddons:6 kde-frameworks/kcrash:6 kde-frameworks/kfilemetadata:6
+    kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kirigami:6
+    kde-frameworks/kxmlgui:6 kde-frameworks/qqc2-desktop-style:6 mpris? ( kde-frameworks/kdbusaddons:6
+    ) vlc? ( media-video/vlc:= )
+  emerge.packages: media-sound/elisa:6
+  kit: kde-kit
+  original.package.name: media-sound/elisa
+  original.package.slot: "6"
+  original.package.version: 25.12.2
