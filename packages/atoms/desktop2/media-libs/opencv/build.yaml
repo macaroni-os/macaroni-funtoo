@@ -4,8 +4,10 @@ prelude:
   anise repo update &&
   anise upgrade -y &&
   anise cleanup --purge-repos &&
-  sed -e 's|media-libs/libva|x11-libs/libva|g' -i
-  /var/git/meta-repo/kits/media-kit/media-libs/opencv/opencv-4.14.0.ebuild
+  cd/var/git/meta-repo/kits/media-kit/media-libs/opencv/ &&
+  wget https://raw.githubusercontent.com/macaroni-os/media-kit/refs/heads/mark-iii/media-libs/opencv/opencv-4.14.0.ebuild &&
+  cd -
+
 - >-
   eval 'eselect blas set 1 || true' &&
   eval 'eselect cblas set 1 || true' &&
