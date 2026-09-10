@@ -228,11 +228,6 @@ artefacts:
     - net-libs/cppzmq
 
 - tree: packages/atoms/desktop2
-  mutations:
-    buildtime_deps:
-      packages:
-        - category: media-libs
-          name: libopenshot-audio
   uses:
     disabled:
       - test
@@ -241,6 +236,15 @@ artefacts:
     - media-libs/libopenshot
 
 - tree: packages/atoms/desktop2
+  mutations:
+    provides:
+      - category: media-video-1
+        name: openshot
+        version: 4.0.0
+    conflicts:
+      - category: media-video-1
+        name: openshot
+        version: '<4.0.0'
   uses:
     disabled:
       - libav
