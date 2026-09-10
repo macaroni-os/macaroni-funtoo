@@ -107,6 +107,7 @@ artefacts:
   packages:
     - kde-apps/kdeadmin-meta:6
     - app-crypt/paperkey
+    - dev-libs/libunibreak
 
 - tree: packages/atoms/base-kde6
   uses:
@@ -341,7 +342,7 @@ artefacts:
       # need library not available. TODO: add this library.
       - jpegxl
   packages:
-    - media-gfx/krita:6
+    - media-gfx/krita
 
 - tree: packages/atoms/base-kde6
   uses:
@@ -409,6 +410,14 @@ artefacts:
       - zsh-completion
   packages:
     - sys-power/power-profiles-daemon
+
+- tree: packages/atoms/base-kde6
+  uses:
+    disabled:
+      - frei0r
+      - jack
+  packages:
+    - media-libs/mlt
 
 include_layers:
 - layers/macaroni-funtoo-race20.yaml
