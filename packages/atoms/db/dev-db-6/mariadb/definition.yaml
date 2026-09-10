@@ -1,9 +1,8 @@
 name: mariadb
-version: 10.6.19
+version: 10.6.19+1
 category: dev-db-6
 use_flags:
 - -bindist
-- -columnstore
 - -galera
 - -innodb-snappy
 - -jdbc
@@ -17,13 +16,12 @@ use_flags:
 - -oqgraph
 - -prefix
 - -selinux
-- -sst-mariabackup
-- -sst-rsync
 - -static
 - -systemtap
 - -tcmalloc
 - -yassl
 - backup
+- columnstore
 - cracklib
 - extraengine
 - innodb-lz4
@@ -32,6 +30,8 @@ use_flags:
 - perl
 - s3
 - server
+- sst-mariabackup
+- sst-rsync
 - xml
 requires:
 - name: libarchive
@@ -40,9 +40,21 @@ requires:
 - name: lz4
   version: '>=0'
   category: app-arch
+- name: snappy
+  version: '>=0'
+  category: app-arch
+- name: xz-utils
+  version: '>=0'
+  category: app-arch
+- name: mariadb-connector-c
+  version: '>=0'
+  category: dev-db
 - name: mysql-init-scripts
   version: '>=0'
   category: dev-db
+- name: boost
+  version: '>=0'
+  category: dev-libs
 - name: libpcre2
   version: '>=0'
   category: dev-libs
