@@ -306,6 +306,11 @@ artefacts:
         -e mysql
 
 - tree: packages/atoms/db
+  mutations:
+    provides:
+      - category: dev-db-6
+        name: mariadb
+        version: 10.6.28
   uses:
     enabled:
       - backup
@@ -346,7 +351,7 @@ artefacts:
       - test
       - yassl
   packages:
-    - dev-db/mariadb:6
+    - dev-db/mariadb
   finalizer:
     shell:
       - "/bin/bash"
