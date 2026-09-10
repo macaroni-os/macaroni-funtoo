@@ -1,4 +1,11 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/dev-kit/dev-db/mysql-connector-c/ &&
+  rm -f Manifest &&
+  wget https://raw.githubusercontent.com/macaroni-os/dev-kit/refs/heads/mark-iii/dev-db/mysql-connector-c/Manifest &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
