@@ -319,9 +319,11 @@ artefacts:
       - server
       - xml
       - s3
-    disabled:
-      # Temprary disable columnstore for issue with GCC 11
+      - kernel-linux
       - columnstore
+      - sst-rsync
+      - sst-mariabackup
+    disabled:
       - bindist
       - debug
       - galera
@@ -338,8 +340,6 @@ artefacts:
       - profiling
       - selinux
       - sphinx
-      - sst-mariabackup
-      - sst-rsync
       - static
       - systemtap
       - tcmalloc
