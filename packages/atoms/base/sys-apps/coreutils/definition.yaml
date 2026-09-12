@@ -1,19 +1,24 @@
 name: coreutils
-version: 9.10+1
+version: "9.11"
 category: sys-apps
 use_flags:
 - -gmp
 - -hostname
 - -kill
-- -selinux
 - -static
-- -test
 - acl
 - caps
 - nls
+- openssl
 - xattr
 requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: acl
+  version: '>=0'
+  category: sys-apps
+- name: attr
   version: '>=0'
   category: sys-apps
 - name: libcap
@@ -49,4 +54,4 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/coreutils
   original.package.slot: "0"
-  original.package.version: "9.10"
+  original.package.version: "9.11"
