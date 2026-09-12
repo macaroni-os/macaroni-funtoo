@@ -1,5 +1,5 @@
 name: linux-headers
-version: 6.9+2
+version: "6.12"
 category: sys-kernel
 annotations:
   subsets:
@@ -8,16 +8,15 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Linux system headers
+description: Virtual for Linux kernel headers
 uri:
-- https://www.kernel.org/
-- https://www.gentoo.org/
+- https://kernel.org
 license: GPL-2
 labels:
-  DEPEND: app-arch/xz-utils dev-lang/perl
-  IUSE: headers-only
+  DEPEND: '!<sys-kernel/linux-headers-6.12'
+  RDEPEND: '!<sys-kernel/linux-headers-6.12'
   emerge.packages: sys-kernel/linux-headers
   kit: kernel-kit
   original.package.name: sys-kernel/linux-headers
   original.package.slot: "0"
-  original.package.version: "6.9"
+  original.package.version: 6.12-r1
