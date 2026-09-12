@@ -1,11 +1,10 @@
 name: gnupg
-version: 2.3.7+2
+version: 2.3.7+3
 category: app-crypt
 use_flags:
 - -doc
 - -ldap
 - -selinux
-- -tofu
 - -tpm
 - -usb
 - -wks-server
@@ -14,6 +13,7 @@ use_flags:
 - readline
 - smartcard
 - ssl
+- tofu
 requires:
 - name: bzip2
   version: '>=0'
@@ -21,6 +21,9 @@ requires:
 - name: pinentry
   version: '>=0'
   category: app-crypt
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
 - name: libksba
   version: '>=0'
   category: dev-libs
@@ -33,9 +36,6 @@ requires:
 - name: curl
   version: '>=0'
   category: net-misc
-- name: readline
-  version: '>=0'
-  category: sys-libs
 annotations:
   subsets:
     rules:
