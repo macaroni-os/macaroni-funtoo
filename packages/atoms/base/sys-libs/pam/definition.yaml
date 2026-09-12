@@ -1,5 +1,5 @@
 name: pam
-version: 1.3.1.20190226+2
+version: 1.3.1.20190226+3
 category: sys-libs
 use_flags:
 - -audit
@@ -39,8 +39,8 @@ labels:
     ) cracklib? ( >=sys-libs/cracklib-2.9.1-r1 ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
     ) nis? ( >=net-libs/libtirpc-0.2.4-r2 ) nls? ( >=virtual/libintl-0-r1 ) filecaps?
     ( sys-libs/libcap )
-  IUSE: audit berkdb +cracklib debug elogind minimal mktemp nis nls +nullok pam_krb5
-    pam_ssh passwdqc +pie securetty selinux +sha512 static-libs +filecaps
+  IUSE: audit berkdb +cracklib debug minimal mktemp nis nls +nullok pam_krb5 pam_ssh
+    passwdqc +pie securetty selinux +sha512 static-libs +filecaps
   RDEPEND: audit? ( >=sys-process/audit-2.2.2 ) berkdb? ( >=sys-libs/db-4.8.30-r1:=
     ) cracklib? ( >=sys-libs/cracklib-2.9.1-r1 ) selinux? ( >=sys-libs/libselinux-2.2.2-r4
     ) nis? ( >=net-libs/libtirpc-0.2.4-r2 ) nls? ( >=virtual/libintl-0-r1 ) !sys-auth/openpam
