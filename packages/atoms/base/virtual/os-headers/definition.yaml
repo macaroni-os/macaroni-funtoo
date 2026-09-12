@@ -1,0 +1,23 @@
+name: os-headers
+version: "2"
+category: virtual
+requires:
+- name: debian-headers
+  version: '>=0'
+  category: sys-kernel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Virtual for operating system headers
+labels:
+  DEPEND: '|| ( sys-kernel/debian-headers sys-kernel/vanilla-headers )'
+  RDEPEND: '|| ( sys-kernel/debian-headers sys-kernel/vanilla-headers )'
+  emerge.packages: virtual/os-headers
+  kit: kernel-kit
+  original.package.name: virtual/os-headers
+  original.package.slot: "0"
+  original.package.version: "2"
