@@ -30,6 +30,9 @@ steps:
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
   ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
 - >-
+  mkdir -p /etc/portage/patches/app-emulation/virtualbox-guest-additions/ &&
+  cp patches/* /etc/portage/patches/app-emulation/virtualbox-guest-additions/ -v
+- >-
   epro list &&
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
