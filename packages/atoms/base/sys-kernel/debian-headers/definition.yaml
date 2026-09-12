@@ -1,0 +1,28 @@
+name: debian-headers
+version: 6.12.101
+category: sys-kernel
+requires:
+- name: linux-headers
+  version: '>=0'
+  category: sys-kernel
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Linux kernel header files with Debian patches
+uri:
+- https://kernel.org
+- https://debian.org/kernel
+license: GPL-2
+labels:
+  BDEPEND: app-arch/xz-utils dev-lang/perl net-misc/rsync !!sys-kernel/vanilla-headers
+  DEPEND: '>=sys-kernel/linux-headers-6.12'
+  RDEPEND: '>=sys-kernel/linux-headers-6.12'
+  emerge.packages: sys-kernel/debian-headers
+  kit: kernel-kit
+  original.package.name: sys-kernel/debian-headers
+  original.package.slot: "0"
+  original.package.version: 6.12.101_p1
