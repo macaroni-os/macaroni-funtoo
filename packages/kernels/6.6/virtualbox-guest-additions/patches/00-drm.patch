@@ -1,0 +1,12 @@
+diff --git a/src/VBox/Additions/linux/drm/vbox_fb.c b/src/VBox/Additions/linux/drm/vbox_fb.c
+--- a/src/VBox/Additions/linux/drm/vbox_fb.c
++++ b/src/VBox/Additions/linux/drm/vbox_fb.c
+@@ -326,7 +326,7 @@
+ 	}
+ 
+ #if RTLNX_VER_MIN(6,2,0) || RTLNX_RHEL_RANGE(8,9, 8,99) || RTLNX_RHEL_RANGE(9,3, 9,99)
+-	info = drm_fb_helper_alloc_info(helper);
++	info = helper->info;
+ #else
+ 	info = drm_fb_helper_alloc_fbi(helper);
+ #endif

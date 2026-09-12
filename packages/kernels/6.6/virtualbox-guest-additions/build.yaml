@@ -28,9 +28,13 @@ steps:
   build-docbook-catalog &&
   anise cleanup &&
   cd /lib/modules/{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} &&
-  ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build
+  ln -s /usr/src/linux-{{ ( index .Values.labels "kernel.version" ) }}-{{ ( index .Values.labels "kernel.suffix" ) }} build &&
+  cd -
 - >-
-  epro list &&
+  mkdir -p /etc/portage/patches/app-emulation/virtualbox-guest-additions/ &&
+  cp patches/* /etc/portage/patches/app-emulation/virtualbox-guest-additions/ -v
+
+- >-
   {{- if .Values.use_flags }}
   USE="{{ join " " .Values.use_flags }}" emerge {{ ( index .Values.labels "emerge.packages" ) }} -pv -t
   {{- else }}
