@@ -1,5 +1,5 @@
 name: cracklib
-version: 2.9.8+4
+version: 2.9.8+5
 category: sys-libs
 use_flags:
 - -python_targets_python3_10
@@ -10,9 +10,12 @@ use_flags:
 - python_targets_python3_9
 - zlib
 requires:
-- name: zlib
+- name: python
   version: '>=0'
-  category: sys-libs
+  category: dev-lang-3.9
+- name: python-exec
+  version: '>=0'
+  category: dev-lang-2
 annotations:
   subsets:
     rules:
