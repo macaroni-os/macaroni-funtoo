@@ -8,24 +8,24 @@ use_flags:
 - -seccomp
 - -test
 - -test-full
-- -zlib
 - -zstd
 - idn
 - nls
 - pkcs11
+- zlib
 requires:
 - name: p11-kit
   version: '>=0'
   category: app-crypt
-- name: libtasn1
-  version: '>=0'
-  category: dev-libs
 - name: nettle
   version: '>=0'
   category: dev-libs
 - name: libidn2
   version: '>=0'
   category: net-dns
+- name: zlib
+  version: '>=0'
+  category: sys-libs
 - name: libintl
   version: '>=0'
   category: virtual
@@ -41,10 +41,10 @@ uri:
 - https://www.gnutls.org/
 license: GPL-3 LGPL-2.1+
 labels:
-  BDEPEND: dev-util/gtk-doc-am >=virtual/pkgconfig-0-r1 doc? ( dev-util/gtk-doc )
+  BDEPEND: '>=virtual/pkgconfig-0-r1 doc? ( dev-util/gtk-doc-am dev-util/gtk-doc )
     nls? ( sys-devel/gettext ) test-full? ( app-crypt/dieharder || ( sys-libs/libfaketime
     >=app-misc/datefudge-1.22 ) dev-libs/softhsm:2[-bindist(-)] net-dialup/ppp net-misc/socat
-    ) >=app-portage/elt-patches-20170815
+    ) >=app-portage/elt-patches-20170815'
   DEPEND: '>=dev-libs/libtasn1-4.9:= dev-libs/libunistring:= >=dev-libs/nettle-3.6:=[gmp]
     >=dev-libs/gmp-5.1.3-r1:= brotli? ( >=app-arch/brotli-1.0.0:= ) dane? ( >=net-dns/unbound-1.4.20:=
     ) nls? ( >=virtual/libintl-0-r1:= ) pkcs11? ( >=app-crypt/p11-kit-0.23.1 ) idn?
