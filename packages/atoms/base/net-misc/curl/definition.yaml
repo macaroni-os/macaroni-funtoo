@@ -1,5 +1,5 @@
 name: curl
-version: 8.12.1+1
+version: 8.12.1+2
 category: net-misc
 use_flags:
 - -adns
@@ -18,14 +18,10 @@ use_flags:
 - http2
 - openssl
 - ssl
-- -curl_ssl_gnutls
-- -curl_ssl_libressl
-- -curl_ssl_mbedtls
-- -curl_ssl_nss
-- -curl_ssl_winssl
-- -metalink
-- curl_ssl_openssl
 requires:
+- name: openssl
+  version: '>=0'
+  category: dev-libs
 - name: nghttp2
   version: '>=0'
   category: net-libs
