@@ -1,13 +1,14 @@
 name: libc
-version: 2+1
+version: "3"
 category: virtual
 use_flags:
-- -elibc_Cygwin
-- -elibc_FreeBSD
 - -elibc_musl
 - -elibc_uclibc
 - elibc_glibc
-- prefix-guest
+requires:
+- name: locale-gen
+  version: '>=0'
+  category: sys-apps
 annotations:
   subsets:
     rules:
@@ -15,12 +16,14 @@ annotations:
       - ^/usr/include/
       portage:
       - ^/var/db/pkg/
-description: Virtual for the C library
+description: Virtual for C library
 labels:
-  RDEPEND: elibc_glibc? ( sys-libs/glibc ) elibc_musl? ( sys-libs/musl ) elibc_uclibc?
-    ( sys-libs/uclibc-ng )
+  DEPEND: elibc_glibc? ( >=sys-libs/glibc-2.41 sys-apps/locale-gen ) elibc_musl? (
+    sys-libs/musl ) elibc_uclibc? ( sys-libs/uclibc-ng )
+  RDEPEND: elibc_glibc? ( >=sys-libs/glibc-2.41 sys-apps/locale-gen ) elibc_musl?
+    ( sys-libs/musl ) elibc_uclibc? ( sys-libs/uclibc-ng )
   emerge.packages: virtual/libc
   kit: core-kit
   original.package.name: virtual/libc
   original.package.slot: "0"
-  original.package.version: "2"
+  original.package.version: "3"
