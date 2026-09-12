@@ -1,10 +1,11 @@
 name: shadow
-version: 4.19.4+1
+version: 4.20.2
 category: sys-apps
 use_flags:
 - -audit
 - -selinux
 - -skey
+- -systemd
 - acl
 - cracklib
 - nls
@@ -12,6 +13,9 @@ use_flags:
 - xattr
 requires:
 - name: acl
+  version: '>=0'
+  category: sys-apps
+- name: attr
   version: '>=0'
   category: sys-apps
 - name: pambase
@@ -54,4 +58,4 @@ labels:
   kit: core-kit
   original.package.name: sys-apps/shadow
   original.package.slot: "0"
-  original.package.version: 4.19.4
+  original.package.version: 4.20.2
