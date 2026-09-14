@@ -36,10 +36,10 @@ packages:
   - xdg-desktop-portal-gnome
   - gnome-terminal
   - gnome-backgrounds
-  - net-wireless-3/gnome-bluetooth
   - gnome-weather
   - gnome-tweaks
   - gnome-system-monitor
+  - net-wireless-3/gnome-bluetooth
 
   - gst-plugins-bad
   - net-libs-1.0/rest
@@ -166,18 +166,6 @@ packages:
   - sys-fs/fuse
   # Apache
   - dev-libs-1/apr-util
-  # kadmind
-  - dev-libs/libverto
-  # thin-tools etc.
-  - dev-libs/libaio
-  # pppgetpass.gtk (libgtk-x11-2.0.so)
-  - x11-libs-2/gtk+
-  # slapacl, slapcat, etc.
-  - sys-libs-5.3/db
-  # dlyena-server-service
-  - net-libs-1.2/gupnp
-  # miss dep of gexiv2, exiv2
-  - dev-libs/inih
 
   # calamares plugin requires these packages
   - x11-libs/xcb-util-wm
@@ -185,7 +173,6 @@ packages:
   - x11-libs/xcb-util-renderutil
   - dev-python/pybind11
 
-  #- dev-qt-5/qtwayland
   #- x11-wm/twm
   #- x11-terms/xterm
   - sys-libs/libutempter
@@ -225,7 +212,7 @@ packages:
 # Repositories packages from repository-index
 repository:
   packages:
-  - repository/mark-dev
+  - repository/mark
   - repository/macaroni-phoenix-dev
   - repository/macaroni-commons-dev
   #- repository/macaroni-security
@@ -235,7 +222,7 @@ initramfs:
   rootfs_file: "Initrd"
 
 overlay: "true"
-image_prefix: "Macaroni-Phoenix-Gnome-Mark-0."
+image_prefix: "Macaroni-Phoenix-Gnome-X11-Mark-0."
 image_date: "true"
 
 overlay_hooks:
