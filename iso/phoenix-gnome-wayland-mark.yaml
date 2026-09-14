@@ -1,0 +1,232 @@
+packages:
+
+  keep_luet_db: "true"
+  rootfs:
+  - app-admin/anise
+  - app-admin/macaronictl
+  - app-admin/whip
+  - app-admin/entities
+  - app-misc/yq-go
+  - app-misc/jq
+
+  - macaroni/live-setup-gnome
+  - macaroni-release/phoenix
+  - macaroni/skel-phoenix
+
+  - sys-apps/lsb-release
+
+  - virtual/sh
+  - virtual/base
+  - virtual/openrc
+  - virtual/gnome
+  - virtual/grub
+
+  - virtual-entities/base
+  - pinentry-gnome
+
+  - www-client/firefox-bin
+  #- www-client/firefox
+  #- gnome-base/gnome
+  - gnome-shell
+  - gdm
+  - gnome-base/gnome-desktop
+  - gnome-session
+  - gnome-control-center
+  - gnome-power-manager
+  - xdg-desktop-portal-gnome
+  - gnome-terminal
+  - gnome-backgrounds
+  - gnome-weather
+  - gnome-tweaks
+  - gnome-system-monitor
+  - net-wireless-3/gnome-bluetooth
+
+  - gst-plugins-bad
+  - net-libs-1.0/rest
+  - evolution-data-server
+  - libdazzle
+  - app-crypt/gcr
+
+  - media-fonts/font-adobe-100dpi
+  - media-fonts/font-adobe-75dpi
+  - media-fonts/font-adobe-utopia-100dpi
+  - media-fonts/font-adobe-utopia-75dpi
+  - media-fonts/font-bh-100dpi
+  - media-fonts/font-bh-75dpi
+  - media-fonts/font-bh-lucidatypewriter-100dpi
+  - media-fonts/font-bh-lucidatypewriter-75dpi
+  - media-fonts/font-bitstream-100dpi
+  - media-fonts/font-bitstream-75dpi
+  - media-fonts/sedgwick-ave-display
+
+  - sys-apps/gentoo-functions
+
+  - vim
+  - vim-core
+  - diffutils
+
+  # kernel stuff
+  - kernel-6.12/macaroni-full
+  - kernel-6.12/macaroni-modules
+  - kernel-6.12/macaroni-initramfs
+  - kernel-6.12/zfs-kmod
+  - kernel-6.12/virtualbox-guest-additions
+  - kernel-6.12/nvidia-565-kernel-modules
+  - kernel-6.12/lkrg
+
+  - app-antivirus/lkrg
+
+  - sys-kernel/linux-firmware
+  - sys-kernel/dracut
+  - sys-fs/mdadm
+
+  - sys-block/zram-init
+
+  - sys-apps/shadow
+  - sys-apps/iproute2
+  - sys-apps/corenetwork
+  - net-misc/dhcpcd
+  - net-libs/libmnl
+
+  - gnome-extra/polkit-gnome
+  - sys-process/procps
+  - sys-process/htop
+  - sys-apps/ethtool
+  - sys-apps/less
+  - sys-apps/which
+  - net-wireless/wpa_supplicant
+  - net-wireless/wireless-regdb
+  - sys-fs/eudev
+  - sys-apps/kbd
+  # NOTE: gnome-photos + deps are needed for nautilus
+  - media-gfx/gnome-photos
+  - media-fonts/noto-emoji
+
+  # needed for /bin/hostname
+  - sys-apps/net-tools
+  # needed for format vfat uefi partition
+  - sys-fs/dosfstools
+  - sys-boot/efibootmgr
+
+  # Add support to multiple filesystem to ISO
+  - sys-fs/btrfs-progs
+  - sys-fs/xfsprogs
+  - sys-fs/zfs
+
+  # Add plymouth
+  - sys-boot/plymouth
+  - sys-boot/plymouth-openrc-plugin
+  - x11-themes/plymouth-macaroni
+
+  - x11-apps/setxkbmap
+  - x11-apps/xrandr
+
+  - metalog
+
+  # Package to add on virtual/xorg-base
+  # xf86-video-vmware generates Segfaults on
+  # Virtualbox. It seems better modesetting.
+  #- x11-drivers/xf86-video-vmware
+  - x11-drivers/xf86-video-nouveau
+  - x11-drivers/xf86-video-fbdev
+  - x11-drivers/xf86-video-ati
+  - x11-drivers/xf86-video-amdgpu
+  - x11-drivers/xf86-video-intel
+  - x11-drivers/xf86-video-vbox
+  - x11-drivers/xf86-video-vesa
+  - x11-base/xorg-drivers
+  - x11-drivers/xf86-input-mouse
+  - x11-drivers/xf86-input-synaptics
+  - x11-drivers/xf86-input-vmmouse
+  - x11-drivers/xf86-input-wacom
+  - x11-drivers/xf86-input-keyboard
+  - x11-drivers/xf86-input-evdev
+  - xwayland
+  - x11-drivers-565/nvidia-drivers
+
+  - net-misc/wget
+
+  # Needed for the font cache generation
+  - media-fonts/encodings
+
+  - app-crypt-2/qca
+  - dev-cpp-2.36/atkmm
+  - dev-cpp/atkmm
+  - dev-cpp-3.0/gtkmm
+  - dev-cpp-4.0/gtkmm
+
+  # gjs-console, gjs (libmozjs-68)
+  - spidermonkey
+  # gnome-system-monitor, etc
+  - dev-libs-2/libsigc++
+  - dev-cpp-1/cairomm
+  - dev-cpp/cairomm
+  # grub
+  - sys-fs-3/fuse
+  - sys-fs/fuse
+  # Apache
+  - dev-libs-1/apr-util
+
+  # calamares plugin requires these packages
+  - x11-libs/xcb-util-wm
+  - x11-libs/xcb-util-image
+  - x11-libs/xcb-util-renderutil
+  - dev-python/pybind11
+
+  #- x11-wm/twm
+  #- x11-terms/xterm
+  - sys-libs/libutempter
+  - sys-apps/which
+
+  # Needed by /usr/lib64/dri/*.so
+  - sys-devel/llvm-common
+  - llvm
+
+  - app-admin/ego
+  - app-portage/gentoolkit
+  - app-portage/elt-patches
+  - app-portage/portage-utils
+  - sys-apps/portage
+  - make
+  - m4
+  - gcc-config
+  - sys-devel-latest/autoconf
+
+  - gnome-extra/gnome-calculator
+  - gnome-extra/gnome-tweaks
+  - gnome-software
+  - flatpak
+  - sys-apps/man-pages
+
+  - openssh
+  - gnome-keyring
+  - seahorse
+
+  uefi:
+  - live/systemd-boot
+  - system/macaroni-live-boot
+  isoimage:
+  - live/syslinux
+  - system/macaroni-live-boot
+
+# Repositories packages from repository-index
+repository:
+  packages:
+  - repository/mark
+  - repository/macaroni-phoenix-dev
+  - repository/macaroni-commons-dev
+  #- repository/macaroni-security
+
+initramfs:
+  kernel_file: "bzImage"
+  rootfs_file: "Initrd"
+
+overlay: "true"
+image_prefix: "Macaroni-Phoenix-Gnome-Wayland-Mark-0."
+image_date: "true"
+
+overlay_hooks:
+  - /var/lib/macaroni/build-iso-hook.sh
+
+luet:
+  config: conf/luet-devel-wayland.yaml
