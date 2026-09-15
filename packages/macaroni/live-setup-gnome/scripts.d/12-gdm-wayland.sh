@@ -6,6 +6,6 @@ setup_gdm_wayland() {
   if [ "${GNOME_WAYLAND_ENABLE}" = "1" ] ; then
     wmode="true"
   fi
-  sed -i -e "/^[[:space:]]*#\?[[:space:]]*WaylandEnable[[:space:]]*=/c\WaylandEnable=$WMODE" \
+  sed -i -e "/^[[:space:]]*#\?[[:space:]]*WaylandEnable[[:space:]]*=/c\WaylandEnable=$wmode" \
     /etc/gdm/custom.conf
 }
