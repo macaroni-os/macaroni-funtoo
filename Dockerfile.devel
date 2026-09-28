@@ -1,21 +1,20 @@
 FROM alpine
-RUN mkdir /terragon-minimal/etc/ /terragon-minimal/etc/anise -p && \
-  cd /terragon-minimal/etc/ && ln -s anise luet
-ADD conf/luet.yaml.docker.devel /terragon-minimal/etc/anise/anise.yaml
-FROM macaronios/luet:latest-amd64
+RUN mkdir /terragon-minimal/etc/ /terragon-minimal/etc/anise -p
+ADD conf/anise.yaml.docker.devel /terragon-minimal/etc/anise/anise.yaml
+FROM macaronios/anise:latest-amd64
 
 COPY --from=0 /terragon-minimal/ /
 ENV USER=root
 
 RUN [ \
-  "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "/usr/bin/anise", "install", "-y", "--force", "--sync-repos", \
   "--cleanup", "--purge-repos", "--config", "/etc/anise/anise.yaml", \
   "repository/mark", \
   "repository/macaroni-commons", \
   "repository/macaroni-terragon"]
 
 RUN [ \
-  "/usr/bin/luet", "install", "-y", "--force", "--sync-repos", \
+  "/usr/bin/anise", "install", "-y", "--force", "--sync-repos", \
   "--purge-repos", "--config", "/etc/anise/anise.yaml", \
   "--skip-config-protect", "--cleanup", \
   "app-admin/entities", \
