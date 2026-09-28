@@ -17,6 +17,6 @@ jobs:
         git fetch --prune --unshallow
     - name: Validate 🔧
       run: |
-        curl https://raw.githubusercontent.com/macaroni-os/anise/macaroni/contrib/config/get_luet_root.sh | sudo sh
-        sudo luet upgrade -y && sudo luet i system/luet-build -y
+        curl https://raw.githubusercontent.com/macaroni-os/anise/refs/heads/geaaru/contrib/config/get_anise_root.sh | sudo sh
+        sudo anise upgrade -y && sudo anise i -y app-admin/anise-build
         make validate
