@@ -4,7 +4,7 @@ CI_ARGS?=
 PACKAGES?=
 
 # Abs path only. It gets copied in chroot in pre-seed stages
-export LUET?=/usr/bin/luet-build
+export ANISE_BUILD?=/usr/bin/anise-build
 export ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 DESTINATION?=$(ROOT_DIR)/build
 COMPRESSION?=zstd
@@ -40,28 +40,28 @@ clean:
 .PHONY: build
 build: clean
 	mkdir -p $(DESTINATION)
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: build-all
 build-all: clean
 	mkdir -p $(DESTINATION)
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: rebuild
 rebuild:
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: rebuild-all
 rebuild-all:
-	$(SUDO) $(LUET) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: genidx
 genidx:
-	$(SUDO) $(LUET) tree genidx $(GENIDX_ARGS) --tree=$(TREE)
+	$(SUDO) $(ANISE_BUILD) tree genidx $(GENIDX_ARGS) --tree=$(TREE)
 
 .PHONY: create-repo
 create-repo: genidx
-	$(SUDO) $(LUET) create-repo --tree "$(TREE)" \
+	$(SUDO) $(ANISE_BUILD) create-repo --tree "$(TREE)" \
     --output $(DESTINATION) \
     --packages $(DESTINATION) \
     --name "$(REPO_NAME)" \
@@ -74,12 +74,7 @@ create-repo: genidx
 
 .PHONY: serve-repo
 serve-repo:
-	LUET_NOLOCK=true $(LUET) serve-repo --port 8000 --dir $(DESTINATION)
-
-auto-bump:
-	TREE_DIR=$(ROOT_DIR) $(LUET) autobump-github
-
-autobump: auto-bump
+	ANISE_NOLOCK=true $(ANISE_BUILD) serve-repo --port 8000 --dir $(DESTINATION)
 
 repository:
 	mkdir -p $(ROOT_DIR)/repository
@@ -90,5 +85,6 @@ repository/mark:
 repository/macaroni-commons:
 	git clone -b master --single-branch https://github.com/macaroni-os/macaroni-commons $(ROOT_DIR)/repository/macaroni-commons
 
-validate: repository repository/mark repository/macaroni-commons
-	$(LUET) tree validate --tree $(ROOT_DIR)/repository --tree $(TREE) $(VALIDATE_OPTIONS)
+validate: repository repository/mark repository/macaroni-commons genidx
+	$(SUDO) $(ANISE_BUILD) tree genidx $(GENIDX_ARGS) -t $(ROOT_DIR)/repository/
+	$(ANISE_BUILD) tree validate --tree $(ROOT_DIR)/repository --tree $(TREE) $(VALIDATE_OPTIONS)
