@@ -1,5 +1,5 @@
 FROM alpine
-RUN mkdir /terragon-minimal/etc/ /terragon-minimal/etc/anise -p &&
+RUN mkdir /terragon-minimal/etc/ /terragon-minimal/etc/anise -p
 ADD conf/anise.yaml.docker /terragon-minimal/etc/anise/anise.yaml
 FROM macaronios/anise:latest-amd64
 
