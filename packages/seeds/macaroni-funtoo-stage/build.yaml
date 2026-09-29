@@ -12,10 +12,9 @@ prelude:
   repository/macaroni-terragon-dev
   repository/macaroni-commons
   repository/mark &&
-  luet repo update --force --config ./anise.yaml &&
-  luet install --force --config ./anise.yaml --skip-finalizers
+  anise repo update --force --config ./anise.yaml &&
+  anise install --force --config ./anise.yaml --skip-finalizers
   app-admin/anise
-  system/luet-geaaru
   toolchain/base
   toolchain/meta-repo
   toolchain/meta-geaaru-kit
@@ -29,7 +28,7 @@ prelude:
   app-misc/yq3-bin
   dev-util/pkgs-checker &&
   anise cleanup --config ./anise.yaml &&
-  mkdir -p /macaroni-terragon/etc/luet &&
+  mkdir -p /macaroni-terragon/etc/anise &&
   /macaroni-terragon/usr/bin/yq4 e '.system.rootfs = "/"' ./anise.yaml -i &&
   cp ./anise.yaml /macaroni-terragon/etc/anise/ &&
   cd /macaroni-terragon/bin &&
