@@ -1,6 +1,7 @@
 FROM alpine
 RUN mkdir /eagle-minimal/etc/ /eagle-minimal/etc/anise -p
 ADD conf/anise.yaml.docker /eagle-minimal/etc/anise/anise.yaml
+ADD conf/macaroni-repo-index.yml /phoenix-minimal/etc/anise/repos.conf.d/
 
 FROM macaronios/anise:latest-amd64
 COPY --from=0 /eagle-minimal/ /
@@ -9,7 +10,9 @@ ENV USER=root
 RUN [ \
   "/usr/bin/anise", "install", "-y", "--force", "--sync-repos", \
   "--cleanup", "--purge-repos", "--config", "/etc/anise/anise.yaml", \
+  "--skip-config-protect", \
   "repository/mark-dev", \
+  "repository/macaroni-repo-index", \
   "repository/macaroni-commons-dev", \
   "repository/macaroni-eagle-dev"]
 
