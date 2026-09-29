@@ -1,7 +1,7 @@
 FROM alpine
 RUN mkdir /phoenix-minimal/etc/ /phoenix-minimal/etc/anise -p
 ADD conf/anise.yaml.docker /phoenix-minimal/etc/anise/anise.yaml
-ADD conf/macaroni-repo-index.yaml /phoenix-minimal/etc/anise/repos.conf.d/
+ADD conf/macaroni-repo-index.yml /phoenix-minimal/etc/anise/repos.conf.d/
 FROM macaronios/anise:latest-amd64
 
 COPY --from=0 /phoenix-minimal/ /
