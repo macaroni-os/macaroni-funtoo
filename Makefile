@@ -38,21 +38,21 @@ clean:
 	$(SUDO) rm -rf build/ *.tar *.metadata.yaml
 
 .PHONY: build
-build: clean
+build: clean genidx
 	mkdir -p $(DESTINATION)
 	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: build-all
-build-all: clean
+build-all: clean genidx
 	mkdir -p $(DESTINATION)
 	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: rebuild
-rebuild:
+rebuild: genidx
 	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: rebuild-all
-rebuild-all:
+rebuild-all: genidx
 	$(SUDO) $(ANISE_BUILD) build $(BUILD_ARGS) --tree=$(TREE) --full --destination $(DESTINATION) --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: genidx
