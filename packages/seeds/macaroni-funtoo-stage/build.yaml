@@ -1,19 +1,19 @@
 image: "alpine"
 prelude:
 - >-
-  export LUET_YES=true &&
-  export LUET_NOLOCK=true &&
-  export LUET_VERSION={{ ( index .Values.labels "luet_version" ) }} &&
+  export ANISE_YES=true &&
+  export ANISE_NOLOCK=true &&
+  export ANISE_VERSION={{ ( index .Values.labels "anise_version" ) }} &&
   apk add wget bash &&
-  mkdir /macaroni-funtoo &&
-  wget https://github.com/geaaru/luet/releases/download/v${LUET_VERSION}-geaaru/luet-v${LUET_VERSION}-geaaru-Linux-x86_64 -O /usr/bin/luet &&
-  chmod a+x /usr/bin/luet &&
-  luet install --force --config ./luet.yaml --sync-repos
+  mkdir /macaroni-terragon &&
+  wget https://github.com/macaroni-os/anise/releases/download/v${ANISE_VERSION}/anise-v${ANISE_VERSION}-linux-x86_64 -O /usr/bin/anise &&
+  chmod a+x /usr/bin/anise &&
+  anise install --force --config ./anise.yaml --sync-repos
   repository/macaroni-terragon-dev
   repository/macaroni-commons
   repository/mark &&
-  luet repo update --force --config ./luet.yaml &&
-  luet install --force --config ./luet.yaml --skip-finalizers
+  luet repo update --force --config ./anise.yaml &&
+  luet install --force --config ./anise.yaml --skip-finalizers
   app-admin/anise
   system/luet-geaaru
   toolchain/base
@@ -28,21 +28,23 @@ prelude:
   app-misc/yq4-bin
   app-misc/yq3-bin
   dev-util/pkgs-checker &&
-  luet cleanup --config ./luet.yaml &&
-  mkdir -p /macaroni-funtoo/etc/luet &&
-  /macaroni-funtoo/usr/bin/yq4 e '.system.rootfs = "/"' ./luet.yaml -i &&
-  cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
-  cd /macaroni-funtoo/bin &&
+  anise cleanup --config ./anise.yaml &&
+  mkdir -p /macaroni-terragon/etc/luet &&
+  /macaroni-terragon/usr/bin/yq4 e '.system.rootfs = "/"' ./anise.yaml -i &&
+  cp ./anise.yaml /macaroni-terragon/etc/anise/ &&
+  cd /macaroni-terragon/bin &&
   ln -s bash sh &&
   cd - &&
-  touch /macaroni-funtoo/etc/passwd &&
-  touch /macaroni-funtoo/etc/shadow &&
-  touch /macaroni-funtoo/etc/group &&
-  touch /macaroni-funtoo/etc/gshadow &&
-  /macaroni-funtoo/usr/bin/entities merge -s /macaroni-funtoo/usr/share/macaroni/entities/ -a
-  --users-file /macaroni-funtoo/etc/passwd
-  --shadow-file /macaroni-funtoo/etc/shadow
-  --groups-file /macaroni-funtoo/etc/group
-  --gshadow-file /macaroni-funtoo/etc/gshadow
+  touch /macaroni-terragon/etc/passwd &&
+  touch /macaroni-terragon/etc/shadow &&
+  touch /macaroni-terragon/etc/group &&
+  touch /macaroni-terragon/etc/gshadow &&
+  /macaroni-terragon/usr/bin/entities merge -s /macaroni-terragon/usr/share/macaroni/entities/ -a
+  --users-file /macaroni-terragon/etc/passwd
+  --shadow-file /macaroni-terragon/etc/shadow
+  --groups-file /macaroni-terragon/etc/group
+  --gshadow-file /macaroni-terragon/etc/gshadow &&
+  mkdir /layer
 # We need to run entities before base image to set users/groups
-# and to avoid errors related with user identification
+# and to avoid errors related with user identificationa
+package_dir: /layer
