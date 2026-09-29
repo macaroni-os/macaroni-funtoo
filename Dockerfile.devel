@@ -1,7 +1,7 @@
 FROM alpine
 RUN mkdir /terragon-minimal/etc/ /terragon-minimal/etc/anise -p
 ADD conf/anise.yaml.docker.devel /terragon-minimal/etc/anise/anise.yaml
-ADD conf/macaroni-repo-index.yml /phoenix-minimal/etc/anise/repos.conf.d/
+ADD conf/macaroni-repo-index.yml /terragon-minimal/etc/anise/repos.conf.d/
 FROM macaronios/anise:latest-amd64
 
 COPY --from=0 /terragon-minimal/ /
