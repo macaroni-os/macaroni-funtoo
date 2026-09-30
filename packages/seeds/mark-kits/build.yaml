@@ -11,7 +11,7 @@ env:
 prelude:
 - >-
   anise subsets enable portage devel &&
-  anise upgrade -y &&
+  anise upgrade -y --sync-repos &&
   anise repo list &&
   anise repo disable mark macaroni-terragon macaroni-commons &&
   anise i -y --sync-repos repository/mark-dev repository/macaroni-commons-dev repository/macaroni-terragon-dev &&
