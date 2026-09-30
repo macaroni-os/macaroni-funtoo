@@ -8,11 +8,11 @@ prelude:
 - apk --no-cache add ca-certificates tar wget xz rsync curl
 - curl https://raw.githubusercontent.com/macaroni-os/anise/refs/heads/geaaru/contrib/config/get_anise_root.sh | sh
 - >-
-  anise install repository/macaroni-distfiles &&
+  anise install -y repository/macaroni-distfiles &&
   anise repo update
 - |
   mkdir /{{ .Values.name }}/etc -p && \
-  anise install =${RELEASE}/stage3-amd64-{{ ( index .Values.labels "distfiles.version" ) }} && anise cleanup && \
+  anise install -y =${RELEASE}/stage3-amd64-{{ ( index .Values.labels "distfiles.version" ) }} && anise cleanup && \
   export BUILDPATH=`pwd` && \
   cd /{{ .Values.name }} && tar xJpf /collections/mark/stage3-${RELEASE}.tar.xz --xattrs --numeric-owner && anise rm ${RELEASE}/stage3-amd64 && anise cleanup && \
   cp ${BUILDPATH}/ego.conf /{{ .Values.name }}/etc/ && \
