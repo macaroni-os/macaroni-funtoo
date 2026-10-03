@@ -1,0 +1,28 @@
+name: libxcrypt
+version: 4.5.2
+category: sys-libs
+requires:
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Extended crypt library for descrypt, md5crypt, bcrypt, and others
+uri:
+- https://github.com/besser82/libxcrypt
+license: LGPL-2.1
+labels:
+  BDEPEND: '!!<sys-apps/man-pages-6.17 >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+  DEPEND: '>=sys-libs/glibc-2.41'
+  RDEPEND: '>=sys-libs/glibc-2.41'
+  emerge.packages: sys-libs/libxcrypt
+  kit: security-kit
+  original.package.name: sys-libs/libxcrypt
+  original.package.slot: "0"
+  original.package.version: 4.5.2
