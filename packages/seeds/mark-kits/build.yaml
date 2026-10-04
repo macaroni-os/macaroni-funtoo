@@ -8,6 +8,7 @@ env:
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 - ANISE_YES=true
 - ANISE_NOLOCK=true
+package_dir: /layer
 prelude:
 - >-
   anise subsets enable portage devel &&
@@ -37,5 +38,6 @@ prelude:
   --concurrency $JOBS
   --generate-reposcan-files --kit-cache-dir /kit-cache/ &&
   cp /kits-versions/kits.yaml /kit-cache/ &&
+  rm -rf /layer &&
   mkdir /layer
 
