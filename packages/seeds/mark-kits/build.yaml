@@ -10,8 +10,10 @@ env:
 - ANISE_NOLOCK=true
 package_dir: /layer
 prelude:
+# temporary install macaroni-repo-index repo file
 - >-
   anise subsets enable portage devel &&
+  anise i --sync-repos repository/macaroni-repo-index -y &&
   anise upgrade -y --sync-repos &&
   anise repo list &&
   anise repo disable mark macaroni-terragon macaroni-commons &&
