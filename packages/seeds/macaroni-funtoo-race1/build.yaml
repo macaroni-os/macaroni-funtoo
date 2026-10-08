@@ -1,7 +1,7 @@
 image: scratch
 env:
-- LUET_YES=true
-- LUET_NOLOCK=true
+- ANISE_YES=true
+- ANISE_NOLOCK=true
 - HTTP_TIMEOUT=0
 - 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://distfiles.macaronios.org/mark-distfiles https://dl.macaronios.org/repos/distfiles"'
 copy:
@@ -9,9 +9,8 @@ copy:
       category: seed
       name: macaroni-funtoo-stage
       version: ">=0"
-    source: "/macaroni-funtoo"
+    source: "/macaroni-terragon"
     destination: "/"
-# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -53,7 +52,7 @@ steps:
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
-  cd / && rm -rf /luetbuild &&
+  cd / && rm -rf /anisebuild &&
   eval 'mkdir -p /var/cache/portage/distfiles || true' &&
   chown portage:portage -R /var/cache/portage/ &&
   mkdir /layer
