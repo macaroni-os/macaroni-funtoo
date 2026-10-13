@@ -10,6 +10,11 @@ prelude:
   anise repo update &&
   anise upgrade -y &&
   anise cleanup
+- >-
+  cd /var/git/meta-repo/kits/net-kit/net-misc/ntp/ &&
+  rm *.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/net-kit/refs/heads/mark-xl/net-misc/ntp/ntp-4.2.8_p18.ebuild &&
+  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
