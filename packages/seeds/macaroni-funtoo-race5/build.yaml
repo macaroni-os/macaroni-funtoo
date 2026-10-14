@@ -1,17 +1,16 @@
 image: scratch
 env:
-- LUET_YES=true
-- LUET_NOLOCK=true
+- ANISE_YES=true
+- ANISE_NOLOCK=true
 - HTTP_TIMEOUT=0
-- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://dl.macaronios.org/repos/distfiles"'
+- 'GENTOO_MIRRORS="https://distfiles.macaronios.org https://distfiles.macaronios.org/mark-distfiles https://dl.macaronios.org/repos/distfiles"'
 copy:
   - package:
       category: seed
       name: macaroni-funtoo-stage
       version: ">=0"
-    source: "/macaroni-funtoo"
+    source: "/macaroni-terragon"
     destination: "/"
-# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -23,7 +22,7 @@ steps:
   if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
   chmod a+rwx /tmp
-- luet install virtual-entities/base --force
+- anise install virtual-entities/base --force
 - >-
   anise repo update &&
   anise upgrade &&
@@ -33,7 +32,7 @@ steps:
   utils/yq
   app-admin/macaronictl
   dev-util/pkgs-checker
-  kernel/macaroni-lts-sources &&
+  kernel-5.10/macaroni-lts-sources &&
   eselect kernel set 1 &&
   anise cleanup
 
@@ -43,7 +42,7 @@ steps:
 # sed -e 's|\[\[ \! -w ${EROOT}.*|# Check dropped for error with docker|g' -i /usr/bin/gcc-config &&
 - >-
   anise miner ri virtual/base virtual/sh &&
-  anise repo update && luet upgrade &&
+  anise repo update && anise upgrade &&
   anise i
   toolchain/base-extra
   toolchain/base-python
@@ -58,14 +57,14 @@ steps:
   epro list &&
   eval 'rm /etc/localtime || true' &&
   ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime &&
-  echo "PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" > /etc/env.d/99python &&
-  echo "PORTAGE_PYTHONPATH=\"/usr/lib64/python3.9/site-packages/\"" >> /etc/env.d/99python &&
   macaronictl env-update &&
   eval 'locale-gen || true' &&
   build-docbook-catalog &&
   whip hook eclass_db.db_fix_so &&
   whip hook perl.postinst &&
-  cd / && rm -rf /luetbuild &&
+  cd / && rm -rf /anisebuild &&
+  eval 'mkdir -p /var/cache/portage/distfiles || true' &&
+  chown portage:portage -R /var/cache/portage/ &&
   mkdir /layer
 
 package_dir: /layer
