@@ -1,5 +1,5 @@
 name: incus
-version: 6.23.0
+version: 7.5.1
 category: app-emulation
 use_flags:
 - nls
@@ -51,13 +51,13 @@ labels:
     >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
   DEPEND: app-arch/xz-utils app-arch/lz4 app-emulation/lxc[apparmor?] dev-lang/tcl
     dev-libs/libuv dev-libs/lzo dev-util/xdelta net-dns/dnsmasq[dhcp,ipv6?] sys-apps/shadow
-  IUSE: apparmor ipv6 nls systemd kernel_linux
+  IUSE: apparmor ipv6 nls systemd
   RDEPEND: app-arch/xz-utils app-arch/lz4 app-emulation/lxc[apparmor?] dev-lang/tcl
     dev-libs/libuv dev-libs/lzo dev-util/xdelta net-dns/dnsmasq[dhcp,ipv6?] net-firewall/ebtables
-    net-firewall/iptables[ipv6?] net-firewall/nftables sys-apps/iproute2[ipv6?] sys-fs/fuse:*
-    sys-fs/lxcfs sys-fs/squashfs-tools[lzma] virtual/acl
+    net-firewall/iptables[ipv6?] net-firewall/nftables[json] sys-apps/iproute2[ipv6?]
+    sys-fs/fuse:* sys-fs/lxcfs sys-fs/squashfs-tools[lzma] virtual/acl
   emerge.packages: app-emulation/incus
   kit: core-server-kit
   original.package.name: app-emulation/incus
   original.package.slot: "0"
-  original.package.version: 6.23.0
+  original.package.version: 7.5.1
