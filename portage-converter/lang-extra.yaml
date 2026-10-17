@@ -269,6 +269,35 @@ artefacts:
     - net-libs/nodejs
 
 - tree: packages/atoms-extra/lang
+  custom_path: net-libs/nodejs/22
+  conditions:
+    - '<net-libs/nodejs-23'
+    - '>=net-libs/nodejs-22'
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  uses:
+    enabled:
+      - icu
+      - inspector
+      - npm
+      - snapshot
+      - ssl
+      - system-icu
+      - system-ssl
+    disabled:
+      - debug
+      - doc
+      - lto
+      - pax-kernel
+      - systemtap
+      - test
+  packages:
+    - net-libs/nodejs,nodejs22
+
+- tree: packages/atoms-extra/lang
   custom_path: net-libs/nodejs/20
   conditions:
     - '<net-libs/nodejs-22'
