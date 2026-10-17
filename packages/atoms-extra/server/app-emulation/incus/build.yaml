@@ -6,12 +6,12 @@ env:
 - LUET_PORTAGE_PKGFILES=1
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
 prelude:
-# Force using the ebuild from geaaru-kit
-- >-
-   rm -rf /var/git/meta-repo/kits/core-kit/app-emulation/incus/
 # temporary patch
 - >-
-  anise miner ri toolchain/meta-geaaru-kit
+  cd /var/git/meta-repo/kits/core-kit/app-emulation/incus/ &&
+  rm incus-7.5.1.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/core-server-kit/refs/heads/mark-xl/app-emulation/incus/incus-7.5.1.ebuild &&
+  cd -
 - |
   eval 'mkdir -p /var/cache/portage/distfiles || true' && \
   chown portage:portage -R /var/cache/portage/ && \
