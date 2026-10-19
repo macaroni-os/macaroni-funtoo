@@ -1,5 +1,5 @@
 name: libcupsfilters
-version: 2.2.0
+version: 2.2.1
 category: net-print
 use_flags:
 - -exif
@@ -13,7 +13,10 @@ requires:
 - name: ghostscript-gpl
   version: '>=0'
   category: app-text
-- name: libjpeg-turbo
+- name: libjxl
+  version: '>=0'
+  category: media-libs
+- name: tiff
   version: '>=0'
   category: media-libs
 - name: cups
@@ -36,15 +39,15 @@ labels:
     !<net-print/cups-filters-2.0.0 exif? ( media-libs/libexif ) dbus? ( sys-apps/dbus
     ) jpeg? ( media-libs/libjpeg-turbo:= ) postscript? ( app-text/ghostscript-gpl[cups]
     ) poppler? ( >=app-text/poppler-0.32:=[cxx] ) png? ( media-libs/libpng:= ) tiff?
-    ( media-libs/tiff:= )'
+    ( media-libs/tiff:= ) media-libs/libjxl dev-libs/pdfio'
   IUSE: dbus exif jpeg +poppler +postscript png tiff
   RDEPEND: '>=app-text/qpdf-8.3.0:= media-libs/fontconfig media-libs/lcms:2 >=net-print/cups-2
     !<net-print/cups-filters-2.0.0 exif? ( media-libs/libexif ) dbus? ( sys-apps/dbus
     ) jpeg? ( media-libs/libjpeg-turbo:= ) postscript? ( app-text/ghostscript-gpl[cups]
     ) poppler? ( >=app-text/poppler-0.32:=[cxx] ) png? ( media-libs/libpng:= ) tiff?
-    ( media-libs/tiff:= )'
+    ( media-libs/tiff:= ) media-libs/libjxl dev-libs/pdfio'
   emerge.packages: net-print/libcupsfilters
   kit: net-kit
   original.package.name: net-print/libcupsfilters
   original.package.slot: "0"
-  original.package.version: 2.2.0
+  original.package.version: 2.2.1
