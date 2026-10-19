@@ -1,4 +1,9 @@
 prelude:
+# temporary until next race
+- >-
+  anise repo update &&
+  anise upgrade -y &&
+  anise cleanup
 - eval 'mkdir /etc/portage/package.use/ -p || true' && echo "app-text/ghostscript-gpl
   cups" > /etc/portage/package.use/00-cups.use && export FEATURES="-sandbox -usersandbox
   -ipc-sandbox -pid-sandbox -network-sandbox" && emerge lynx --nodeps -j
