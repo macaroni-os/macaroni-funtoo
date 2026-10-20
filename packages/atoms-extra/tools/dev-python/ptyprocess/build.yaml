@@ -1,4 +1,10 @@
 prelude:
+# temporary until next race
+- >-
+  cd /var/git/meta-repo/kits/python-modules-kit/dev-python/ptyprocess &&
+  rm *.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/python-modules-kit/4135156076aba4a29077a66eeb4e2a8056c58730/dev-python/ptyprocess/ptyprocess-0.7.0-r1.ebuild &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
