@@ -1,0 +1,29 @@
+name: pdfio
+version: 1.6.5
+category: dev-libs
+use_flags:
+- png
+requires:
+- name: libpng
+  version: '>=0'
+  category: media-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: PDF read/write library
+uri:
+- https://github.com/michaelrsweet/pdfio
+license: Apache-2.0
+labels:
+  DEPEND: sys-libs/zlib png? ( media-libs/libpng )
+  IUSE: png static-libs
+  RDEPEND: sys-libs/zlib png? ( media-libs/libpng )
+  emerge.packages: dev-libs/pdfio
+  kit: text-kit
+  original.package.name: dev-libs/pdfio
+  original.package.slot: "0"
+  original.package.version: 1.6.5
