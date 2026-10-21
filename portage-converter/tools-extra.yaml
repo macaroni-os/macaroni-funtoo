@@ -687,8 +687,13 @@ artefacts:
     - sys-cluster/kubectl
 
 - tree: packages/atoms-extra/tools
+  mutations:
+    provides:
+      - category: net-fs
+        name: minio
+        version: 2026.09.16
   packages:
-    - net-fs/minio
+    - net-fs/silo
   finalizer:
     shell:
       - "/bin/bash"
@@ -696,11 +701,11 @@ artefacts:
     install:
       - >-
         entities merge --specs-dir /usr/share/macaroni/entities/
-        -e minio
+        -e silo
       - >-
         eval 'mkdir -p /var/lib/minio || true' &&
-        eval 'chown minio:minio /var/lib/minio || true' &&
-        eval 'chown minio:minio /var/log/minio || true'
+        eval 'chown silo:silo /var/lib/silo/ || true' &&
+        eval 'chown silo:silo /var/log/silo/ || true'
 
 - tree: packages/atoms-extra/tools
   packages:
