@@ -1,0 +1,7 @@
+shell:
+- /bin/bash
+- -c
+install:
+- entities merge --specs-dir /usr/share/macaroni/entities/ -e silo
+- eval 'mkdir -p /var/lib/minio || true' && eval 'chown silo:silo /var/lib/silo/ ||
+  true' && eval 'chown silo:silo /var/log/silo/ || true'

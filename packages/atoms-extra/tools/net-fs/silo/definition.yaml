@@ -1,0 +1,27 @@
+name: silo
+version: 2026.09.16
+category: net-fs
+provides:
+- name: minio
+  version: 2026.09.16
+  category: net-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: An Amazon S3 compatible object storage server (Pgsty Fork)
+uri:
+- https://github.com/pgsty/silo
+license: AGPL-3.0
+labels:
+  BDEPEND: dev-lang/go >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
+  DEPEND: sys-apps/shadow
+  IUSE: systemd
+  emerge.packages: net-fs/silo
+  kit: net-kit
+  original.package.name: net-fs/silo
+  original.package.slot: "0"
+  original.package.version: 2026.09.16
