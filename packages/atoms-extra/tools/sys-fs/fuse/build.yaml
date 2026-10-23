@@ -1,4 +1,11 @@
 prelude:
+# temporary
+- >-
+  cd /var/git/meta-repo/kits/core-server-kit/sys-fs/fuse/ &&
+  wget https://raw.githubusercontent.com/macaroni-os/core-server-kit/refs/heads/mark-xl/sys-fs/fuse/fuse-2.9.9-r1.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/core-server-kit/refs/heads/mark-xl/sys-fs/fuse/files/conditionally-define-closefrom.patch &&
+  mv conditionally-define-closefrom.patch files/ &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
