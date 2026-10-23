@@ -1,4 +1,23 @@
 prelude:
+- >-
+  anise repo update &&
+  anise upgrade -y &&
+  anise cleanup
+# gitea 1.28 requires pnpm 12 not available on tree
+- >-
+  eval 'curl -fsSL https://get.pnpm.io | sh -' &&
+  mv /root/.local/share/pnpm/ /usr/share &&
+  echo "PATH=/usr/share/pnpm" > /etc/env.d/99pnpm &&
+  ln -s /usr/share/pnpm/bin/pnpm /usr/bin/pnpm &&
+  macaronictl env-update &&
+  source /etc/profile
+# Temporary fix
+- >-
+  cd /var/git/meta-repo/kits/net-kit/www-apps/gitea/ &&
+  rm gitea-28.2.0.ebuild &&
+  wget https://raw.githubusercontent.com/macaroni-os/net-kit/refs/heads/mark-xl/www-apps/gitea/gitea-28.2.0.ebuild &&
+  cd -
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
