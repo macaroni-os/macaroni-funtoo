@@ -1,4 +1,9 @@
 prelude:
+# temporary until next release
+- >-
+  sed -i -e 's|^DISTUTILS_USE_PEP517.*|DISTUTILS_USE_PEP517="setuptools"|g'
+  /var/git/meta-repo/kits/python-modules-kit/dev-python/wcwidth/wcwidth-0.9.1.ebuild
+
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
