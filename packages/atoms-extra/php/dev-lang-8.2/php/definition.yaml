@@ -1,0 +1,204 @@
+name: php
+version: 8.2.35
+category: dev-lang-8.2
+use_flags:
+- -ldap
+- -oci8-instant-client
+- -selinux
+- -xpm
+- acl
+- apache2
+- apparmor
+- argon2
+- berkdb
+- bzip2
+- cdb
+- coverage
+- curl
+- enchant
+- ffi
+- firebird
+- fpm
+- gd
+- gdbm
+- gmp
+- iconv
+- imap
+- intl
+- iodbc
+- kerberos
+- ldap-sasl
+- libedit
+- lmdb
+- mssql
+- nls
+- odbc
+- postgres
+- qdbm
+- readline
+- session-mm
+- snmp
+- sodium
+- spell
+- sqlite
+- ssl
+- tidy
+- tokyocabinet
+- truetype
+- unicode
+- webp
+- xml
+- xslt
+- zip
+- zlib
+requires:
+- name: argon2
+  version: '>=0'
+  category: app-crypt
+- name: eselect-php
+  version: '>=0'
+  category: app-eselect
+- name: aspell
+  version: '>=0'
+  category: app-text
+- name: libiodbc
+  version: '>=0'
+  category: dev-db
+- name: lmdb
+  version: '>=0'
+  category: dev-db
+- name: sqlite
+  version: '>=0'
+  category: dev-db-3
+- name: cyrus-sasl
+  version: '>=0'
+  category: dev-libs-2
+- name: gmp
+  version: '>=0'
+  category: dev-libs
+- name: libedit
+  version: '>=0'
+  category: dev-libs
+- name: libffi
+  version: '>=0'
+  category: dev-libs
+- name: libpcre2
+  version: '>=0'
+  category: dev-libs
+- name: libsodium
+  version: '>=0'
+  category: dev-libs
+- name: libxslt
+  version: '>=0'
+  category: dev-libs
+- name: libzip
+  version: '>=0'
+  category: dev-libs
+- name: oniguruma
+  version: '>=0'
+  category: dev-libs
+- name: freetype
+  version: '>=0'
+  category: media-libs-2
+- name: libpng
+  version: '>=0'
+  category: media-libs
+- name: net-snmp
+  version: '>=0'
+  category: net-analyzer
+- name: curl
+  version: '>=0'
+  category: net-misc
+- name: acl
+  version: '>=0'
+  category: sys-apps
+- name: gettext
+  version: '>=0'
+  category: sys-devel
+- name: db
+  version: '>=0'
+  category: sys-libs-5.3
+- name: gdbm
+  version: '>=0'
+  category: sys-libs
+- name: libapparmor
+  version: '>=0'
+  category: sys-libs
+- name: jpeg
+  version: '>=0'
+  category: virtual
+- name: krb5
+  version: '>=0'
+  category: virtual
+- name: mta
+  version: '>=0'
+  category: virtual
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The PHP language runtime engine
+uri:
+- https://www.php.net/
+license: PHP-3.01 BSD Zend-2.0 bcmath? ( LGPL-2.1+ ) fpm? ( BSD-2 ) gd? ( gd ) unicode?
+  ( BSD-2 LGPL-2.1 )
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 sys-devel/automake
+    >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: '>=app-eselect/eselect-php-0.9.1[apache2?,fpm?] >=dev-libs/libpcre2-10.30[unicode]
+    fpm? ( acl? ( sys-apps/acl ) ) apache2? ( www-servers/apache[apache2_modules_unixd(+),threads=]
+    ) argon2? ( app-crypt/argon2:= ) apparmor? ( sys-libs/libapparmor ) berkdb? (
+    sys-libs/db:5.3 ) bzip2? ( app-arch/bzip2:0= ) cdb? ( || ( dev-db/cdb dev-db/tinycdb
+    ) ) coverage? ( dev-util/lcov ) curl? ( >=net-misc/curl-7.10.5 ) enchant? ( <app-text/enchant-2.0:0
+    ) ffi? ( >=dev-libs/libffi-3.0.11 ) firebird? ( dev-db/firebird ) gd? ( >=virtual/jpeg-0-r3:0
+    media-libs/libpng:0= ) gdbm? ( >=sys-libs/gdbm-1.8.0:0= ) gmp? ( dev-libs/gmp:0=
+    ) iconv? ( virtual/libiconv ) imap? ( >=virtual/imap-c-client-2[kerberos=,ssl=]
+    ) intl? ( dev-libs/icu:= ) kerberos? ( virtual/krb5 ) ldap? ( >=net-nds/openldap-1.2.11
+    ) ldap-sasl? ( dev-libs/cyrus-sasl ) libedit? ( dev-libs/libedit ) lmdb? ( dev-db/lmdb:=
+    ) mssql? ( dev-db/freetds[mssql] ) nls? ( sys-devel/gettext ) oci8-instant-client?
+    ( dev-db/oracle-instantclient-basic ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc?
+    ( >=dev-db/unixODBC-1.8.13 ) ) postgres? ( dev-db/postgresql:* ) qdbm? ( dev-db/qdbm
+    ) readline? ( sys-libs/readline:0= ) session-mm? ( dev-libs/mm ) snmp? ( >=net-analyzer/net-snmp-5.2
+    ) sodium? ( dev-libs/libsodium:= ) spell? ( >=app-text/aspell-0.50 ) sqlite? (
+    >=dev-db/sqlite-3.7.6.3 ) ssl? ( dev-libs/openssl:= ) tidy? ( || ( app-text/tidy-html5
+    app-text/htmltidy ) ) tokyocabinet? ( dev-db/tokyocabinet ) truetype? ( =media-libs/freetype-2*
+    ) unicode? ( dev-libs/oniguruma:= ) webp? ( media-libs/libwebp:0= ) xml? ( >=dev-libs/libxml2-2.7.6
+    ) xpm? ( x11-libs/libXpm ) xslt? ( dev-libs/libxslt ) zip? ( >=dev-libs/libzip-1.2.0:=
+    ) zlib? ( >=sys-libs/zlib-1.2.0.4:0= ) app-arch/xz-utils >=sys-devel/bison-3.0.1'
+  IUSE: embed +cli cgi fpm apache2 phpdbg threads acl apparmor argon2 bcmath berkdb
+    bzip2 calendar cdb cjk coverage +ctype curl debug enchant exif ffi +fileinfo +filter
+    firebird +flatfile ftp gd gdbm gmp +iconv imap inifile intl iodbc ipv6 kerberos
+    ldap ldap-sasl libedit lmdb mhash mssql mysql mysqli nls oci8-instant-client odbc
+    +opcache pcntl pdo +phar +posix postgres qdbm readline selinux +session session-mm
+    sharedmem +simplexml snmp soap sockets sodium spell sqlite ssl sysvipc tidy +tokenizer
+    tokyocabinet truetype unicode webp +xml xmlreader xmlwriter xpm xslt zip zlib
+    -zts
+  RDEPEND: '>=app-eselect/eselect-php-0.9.1[apache2?,fpm?] >=dev-libs/libpcre2-10.30[unicode]
+    fpm? ( acl? ( sys-apps/acl ) ) apache2? ( www-servers/apache[apache2_modules_unixd(+),threads=]
+    ) argon2? ( app-crypt/argon2:= ) apparmor? ( sys-libs/libapparmor ) berkdb? (
+    sys-libs/db:5.3 ) bzip2? ( app-arch/bzip2:0= ) cdb? ( || ( dev-db/cdb dev-db/tinycdb
+    ) ) coverage? ( dev-util/lcov ) curl? ( >=net-misc/curl-7.10.5 ) enchant? ( <app-text/enchant-2.0:0
+    ) ffi? ( >=dev-libs/libffi-3.0.11 ) firebird? ( dev-db/firebird ) gd? ( >=virtual/jpeg-0-r3:0
+    media-libs/libpng:0= ) gdbm? ( >=sys-libs/gdbm-1.8.0:0= ) gmp? ( dev-libs/gmp:0=
+    ) iconv? ( virtual/libiconv ) imap? ( >=virtual/imap-c-client-2[kerberos=,ssl=]
+    ) intl? ( dev-libs/icu:= ) kerberos? ( virtual/krb5 ) ldap? ( >=net-nds/openldap-1.2.11
+    ) ldap-sasl? ( dev-libs/cyrus-sasl ) libedit? ( dev-libs/libedit ) lmdb? ( dev-db/lmdb:=
+    ) mssql? ( dev-db/freetds[mssql] ) nls? ( sys-devel/gettext ) oci8-instant-client?
+    ( dev-db/oracle-instantclient-basic ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc?
+    ( >=dev-db/unixODBC-1.8.13 ) ) postgres? ( dev-db/postgresql:* ) qdbm? ( dev-db/qdbm
+    ) readline? ( sys-libs/readline:0= ) session-mm? ( dev-libs/mm ) snmp? ( >=net-analyzer/net-snmp-5.2
+    ) sodium? ( dev-libs/libsodium:= ) spell? ( >=app-text/aspell-0.50 ) sqlite? (
+    >=dev-db/sqlite-3.7.6.3 ) ssl? ( dev-libs/openssl:= ) tidy? ( || ( app-text/tidy-html5
+    app-text/htmltidy ) ) tokyocabinet? ( dev-db/tokyocabinet ) truetype? ( =media-libs/freetype-2*
+    ) unicode? ( dev-libs/oniguruma:= ) webp? ( media-libs/libwebp:0= ) xml? ( >=dev-libs/libxml2-2.7.6
+    ) xpm? ( x11-libs/libXpm ) xslt? ( dev-libs/libxslt ) zip? ( >=dev-libs/libzip-1.2.0:=
+    ) zlib? ( >=sys-libs/zlib-1.2.0.4:0= ) virtual/mta fpm? ( selinux? ( sec-policy/selinux-phpfpm
+    ) )'
+  emerge.packages: dev-lang/php:8.2
+  kit: lang-kit
+  original.package.name: dev-lang/php
+  original.package.slot: "8.2"
+  original.package.version: 8.2.35
