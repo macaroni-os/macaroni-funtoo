@@ -1,5 +1,5 @@
 name: ollama
-version: 0.30.8
+version: 0.40.11
 category: app-ai
 annotations:
   subsets:
@@ -17,12 +17,14 @@ labels:
   BDEPEND: '>=dev-lang/go-1.24 clang? ( sys-devel/clang ) >=dev-lang/go-1.12 app-arch/unzip
     dev-util/ninja dev-util/cmake'
   DEPEND: vulkan? ( media-libs/vulkan-loader media-libs/shaderc ) cuda? ( dev-util/nvidia-cuda-toolkit
-    ) sys-apps/shadow
-  IUSE: systemd clang cuda vulkan
+    ) nccl? ( dev-util/nvidia-nccl ) sys-apps/shadow
+  IUSE: systemd clang cuda nccl vulkan cuda_sm_50 cuda_sm_52 cuda_sm_60 cuda_sm_61
+    cuda_sm_70 cuda_sm_75 cuda_sm_80 cuda_sm_86 cuda_sm_87 cuda_sm_89 cuda_sm_90 cuda_sm_90a
+    cuda_sm_100 cuda_sm_101 cuda_sm_103 cuda_sm_110 cuda_sm_120 cuda_sm_121
   RDEPEND: vulkan? ( media-libs/vulkan-loader media-libs/shaderc ) cuda? ( dev-util/nvidia-cuda-toolkit
-    )
+    ) nccl? ( dev-util/nvidia-nccl )
   emerge.packages: app-ai/ollama
   kit: ai-kit
   original.package.name: app-ai/ollama
   original.package.slot: "0"
-  original.package.version: 0.30.8
+  original.package.version: 0.40.11
