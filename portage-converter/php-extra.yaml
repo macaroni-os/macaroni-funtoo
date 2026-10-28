@@ -99,10 +99,24 @@ artefacts:
     - app-eselect/eselect-php
 
 - tree: packages/atoms-extra/php
+  mutations:
+    uses:
+      - ldap
+      - soap
   uses:
     disabled:
       - xpm
       - oci8-instant-client
+      - readline
+      - qdbm
+      - coverage
+      - firebird
+      - enchant
+      - session-nm
+      - tokyocabinet
+      - mssql
+      - webp
+      - imap
   packages:
     - dev-lang/php:8.2
     - dev-lang/php:8.3
