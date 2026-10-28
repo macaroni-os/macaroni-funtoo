@@ -1,0 +1,26 @@
+name: opencode-bin
+version: 1.19.4
+category: app-ai
+conflicts:
+- name: opencode
+  version: '>=0'
+  category: app-ai
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: The open source AI coding agent (upstream binary)
+uri:
+- https://opencode.ai
+license: MIT
+labels:
+  IUSE: amd64 arm64
+  RDEPEND: '!app-ai/opencode'
+  emerge.packages: app-ai/opencode-bin
+  kit: ai-kit
+  original.package.name: app-ai/opencode-bin
+  original.package.slot: "0"
+  original.package.version: 1.19.4
