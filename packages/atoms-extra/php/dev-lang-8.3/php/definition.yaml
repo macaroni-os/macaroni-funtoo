@@ -1,10 +1,19 @@
 name: php
-version: 8.3.36
+version: 8.3.36+1
 category: dev-lang-8.3
 use_flags:
+- -coverage
+- -enchant
+- -firebird
+- -imap
 - -ldap
+- -mssql
 - -oci8-instant-client
+- -qdbm
+- -readline
 - -selinux
+- -tokyocabinet
+- -webp
 - -xpm
 - acl
 - apache2
@@ -13,29 +22,22 @@ use_flags:
 - berkdb
 - bzip2
 - cdb
-- coverage
 - curl
-- enchant
 - ffi
-- firebird
 - fpm
 - gd
 - gdbm
 - gmp
 - iconv
-- imap
 - intl
 - iodbc
 - kerberos
 - ldap-sasl
 - libedit
 - lmdb
-- mssql
 - nls
 - odbc
 - postgres
-- qdbm
-- readline
 - session-mm
 - snmp
 - sodium
@@ -43,14 +45,14 @@ use_flags:
 - sqlite
 - ssl
 - tidy
-- tokyocabinet
 - truetype
 - unicode
-- webp
 - xml
 - xslt
 - zip
 - zlib
+- ldap
+- soap
 requires:
 - name: argon2
   version: '>=0'
