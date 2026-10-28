@@ -1,0 +1,45 @@
+name: libzip
+version: 1.11.4
+category: dev-libs
+use_flags:
+- -mbedtls
+- bzip2
+- gnutls
+- lzma
+- ssl
+- zstd
+requires:
+- name: bzip2
+  version: '>=0'
+  category: app-arch
+- name: zstd
+  version: '>=0'
+  category: app-arch
+- name: gnutls
+  version: '>=0'
+  category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A C library for reading, creating, and modifying zip archives.
+uri:
+- https://libzip.org/
+license: BSD
+labels:
+  BDEPEND: dev-util/ninja dev-util/cmake
+  DEPEND: sys-libs/zlib bzip2? ( app-arch/bzip2:= ) lzma? ( app-arch/xz-utils ) ssl?
+    ( gnutls? ( dev-libs/nettle:= net-libs/gnutls:= ) !gnutls? ( mbedtls? ( net-libs/mbedtls:=
+    ) !mbedtls? ( dev-libs/openssl:= ) ) ) zstd? ( app-arch/zstd:= )
+  IUSE: bzip2 gnutls lzma mbedtls ssl tools zstd
+  RDEPEND: sys-libs/zlib bzip2? ( app-arch/bzip2:= ) lzma? ( app-arch/xz-utils ) ssl?
+    ( gnutls? ( dev-libs/nettle:= net-libs/gnutls:= ) !gnutls? ( mbedtls? ( net-libs/mbedtls:=
+    ) !mbedtls? ( dev-libs/openssl:= ) ) ) zstd? ( app-arch/zstd:= )
+  emerge.packages: dev-libs/libzip
+  kit: dev-kit
+  original.package.name: dev-libs/libzip
+  original.package.slot: "0"
+  original.package.version: 1.11.4
