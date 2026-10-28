@@ -25,7 +25,9 @@ steps:
 - anise install virtual-entities/base --force
 - >-
   anise repo update &&
-  anise upgrade &&
+  anise i repository/macaroni-commons-dev &&
+  anise repo disable macaroni-commons &&
+  anise upgrade --sync-repos &&
   anise install --force
   system/luet-devkit
   app-misc/jq
