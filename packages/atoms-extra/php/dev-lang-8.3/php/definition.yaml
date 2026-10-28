@@ -1,17 +1,17 @@
 name: php
-version: 8.3.36+3
+version: 8.3.36+4
 category: dev-lang-8.3
 use_flags:
 - -coverage
 - -enchant
 - -firebird
 - -imap
-- -ldap
 - -mssql
 - -oci8-instant-client
 - -qdbm
 - -readline
 - -selinux
+- -session-mm
 - -tokyocabinet
 - -webp
 - -xpm
@@ -32,13 +32,13 @@ use_flags:
 - intl
 - iodbc
 - kerberos
+- ldap
 - ldap-sasl
 - libedit
 - lmdb
 - nls
 - odbc
 - postgres
-- session-mm
 - snmp
 - sodium
 - spell
@@ -51,9 +51,7 @@ use_flags:
 - xslt
 - zip
 - zlib
-- ldap
 - soap
-- -session-nm
 requires:
 - name: argon2
   version: '>=0'
@@ -67,15 +65,9 @@ requires:
 - name: libiodbc
   version: '>=0'
   category: dev-db
-- name: lmdb
-  version: '>=0'
-  category: dev-db
 - name: sqlite
   version: '>=0'
   category: dev-db-3
-- name: cyrus-sasl
-  version: '>=0'
-  category: dev-libs-2
 - name: gmp
   version: '>=0'
   category: dev-libs
@@ -112,6 +104,9 @@ requires:
 - name: curl
   version: '>=0'
   category: net-misc
+- name: openldap
+  version: '>=0'
+  category: net-nds
 - name: acl
   version: '>=0'
   category: sys-apps
