@@ -1,5 +1,5 @@
 name: llama-cpp
-version: 0.0.9628
+version: 0.7.0
 category: app-ai
 use_flags:
 - -blas
@@ -18,15 +18,17 @@ uri:
 license: MIT
 labels:
   BDEPEND: vulkan? ( dev-util/vulkan-headers ) dev-util/ninja dev-util/cmake
-  DEPEND: cuda? ( dev-util/nvidia-cuda-toolkit dev-util/nvidia-nccl ) vulkan? ( dev-util/vulkan-tools
-    media-libs/vulkan-layers media-libs/vulkan-loader media-libs/shaderc sci-libs/gsl
-    ) blas? ( virtual/blas virtual/lapack )
-  IUSE: static blas cuda vulkan cuda-native
-  RDEPEND: cuda? ( dev-util/nvidia-cuda-toolkit dev-util/nvidia-nccl ) vulkan? ( dev-util/vulkan-tools
-    media-libs/vulkan-layers media-libs/vulkan-loader media-libs/shaderc sci-libs/gsl
-    ) blas? ( virtual/blas virtual/lapack )
+  DEPEND: cuda? ( dev-util/nvidia-cuda-toolkit ) nccl? ( dev-util/nvidia-nccl ) vulkan?
+    ( dev-util/vulkan-tools media-libs/vulkan-layers media-libs/vulkan-loader media-libs/shaderc
+    sci-libs/gsl ) blas? ( virtual/blas virtual/lapack ) !app-ai/llama-cpp:snapshot
+  IUSE: static blas cuda nccl vulkan cuda-native cuda_sm_50 cuda_sm_52 cuda_sm_60
+    cuda_sm_61 cuda_sm_70 cuda_sm_75 cuda_sm_80 cuda_sm_86 cuda_sm_87 cuda_sm_89 cuda_sm_90
+    cuda_sm_90a cuda_sm_100 cuda_sm_101 cuda_sm_103 cuda_sm_110 cuda_sm_120 cuda_sm_121
+  RDEPEND: cuda? ( dev-util/nvidia-cuda-toolkit ) nccl? ( dev-util/nvidia-nccl ) vulkan?
+    ( dev-util/vulkan-tools media-libs/vulkan-layers media-libs/vulkan-loader media-libs/shaderc
+    sci-libs/gsl ) blas? ( virtual/blas virtual/lapack ) !app-ai/llama-cpp:snapshot
   emerge.packages: app-ai/llama-cpp
   kit: ai-kit
   original.package.name: app-ai/llama-cpp
   original.package.slot: "0"
-  original.package.version: 0.0.9628
+  original.package.version: 0.7.0
