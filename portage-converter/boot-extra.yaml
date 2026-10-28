@@ -402,9 +402,20 @@ artefacts:
     disabled:
       - static
   packages:
-    - sys-boot/os-prober
     - sys-apps/lm_sensors
     - sys-apps/smartmontools
+
+- tree: packages/atoms-extra/boot
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race10
+  uses:
+    disabled:
+      - static
+  packages:
+    - sys-boot/os-prober
 
 - tree: packages/atoms-extra/boot
   uses:
