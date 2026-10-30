@@ -1,6 +1,12 @@
 prelude:
 - >-
   eselect postgresql set 13
+# tempororary
+- >-
+  cd /var/git/meta-repo/kits/lang-kit/dev-lang/php/ &&
+  rm Manifest &&
+  wget https://raw.githubusercontent.com/macaroni-os/lang-kit/refs/heads/mark-xl/dev-lang/php/Manifest &&
+  cd -
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
   export JOBS={{ ( index .Values.labels "jobs" ) | default "3" }} && \
