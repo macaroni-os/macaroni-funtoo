@@ -1,5 +1,5 @@
 name: nmap
-version: 7.97+2
+version: "7.993"
 category: net-analyzer
 use_flags:
 - -libressl
@@ -38,21 +38,22 @@ uri:
 license: '|| ( NPSL GPL-2 )'
 labels:
   BDEPEND: '>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
-    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4'
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 python_targets_python3_10?
+    ( dev-lang/python:3.10 ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
+    >=dev-python/setuptools-42.0.2[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]'
   DEPEND: dev-libs/liblinear:= dev-libs/libpcre net-libs/libpcap libssh2? ( net-libs/libssh2[zlib]
-    sys-libs/zlib ) nse? ( sys-libs/zlib ) ssl? ( !libressl? ( dev-libs/openssl:0=
-    ) libressl? ( dev-libs/libressl:= ) ) system-lua? ( lua_single_target_lua5-3?
-    ( dev-lua/lua:5.3[deprecated] ) )
-  IUSE: ipv6 libressl libssh2 ncat nping +nse ssl +system-lua +lua_single_target_lua5-3
-    python_single_target_python3_10 python_single_target_python3_7 python_single_target_python3_9
-    python_single_target_python3_8 python_targets_python3_10 python_targets_python3_7
-    python_targets_python3_9 python_targets_python3_8
+    sys-libs/zlib ) nse? ( sys-libs/zlib ) ssl? ( dev-libs/openssl:= ) system-lua?
+    ( lua_single_target_lua5-3? ( dev-lua/lua:5.3[deprecated] ) )
+  IUSE: ipv6 libssh2 ncat nping +nse ssl +system-lua +lua_single_target_lua5-3 python_targets_python3_10
+    python_targets_python3_7 python_targets_python3_9 python_targets_python3_8
   RDEPEND: dev-libs/liblinear:= dev-libs/libpcre net-libs/libpcap libssh2? ( net-libs/libssh2[zlib]
-    sys-libs/zlib ) nse? ( sys-libs/zlib ) ssl? ( !libressl? ( dev-libs/openssl:0=
-    ) libressl? ( dev-libs/libressl:= ) ) system-lua? ( lua_single_target_lua5-3?
-    ( dev-lua/lua:5.3[deprecated] ) )
+    sys-libs/zlib ) nse? ( sys-libs/zlib ) ssl? ( dev-libs/openssl:= ) system-lua?
+    ( lua_single_target_lua5-3? ( dev-lua/lua:5.3[deprecated] ) ) python_targets_python3_10?
+    ( dev-lang/python:3.10 ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_9?
+    ( dev-lang/python:3.9 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_10(-)?,python_targets_python3_7(-)?,python_targets_python3_9(-)?,python_targets_python3_8(-)?,-python_single_target_python3_10(-),-python_single_target_python3_7(-),-python_single_target_python3_9(-),-python_single_target_python3_8(-)]
   emerge.packages: net-analyzer/nmap
   kit: net-kit
   original.package.name: net-analyzer/nmap
   original.package.slot: "0"
-  original.package.version: "7.97"
+  original.package.version: "7.993"
