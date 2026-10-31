@@ -13,9 +13,9 @@ prelude:
   anise repo update
 - |
   mkdir /{{ .Values.name }}/etc -p && \
-  anise install -y =${RELEASE}/stage3-amd64-{{ ( index .Values.labels "distfiles.version" ) }} && luet cleanup && \
+  anise install -y =${RELEASE}/stage3-amd64-{{ ( index .Values.labels "distfiles.version" ) }} && anise cleanup && \
   export BUILDPATH=`pwd` && \
-  cd /{{ .Values.name }} && tar xJpf /collections/mark/stage3-${RELEASE}.tar.xz --xattrs --numeric-owner && luet rm ${RELEASE}/stage3-amd64 && anise cleanup && \
+  cd /{{ .Values.name }} && tar xJpf /collections/mark/stage3-${RELEASE}.tar.xz --xattrs --numeric-owner && anise rm ${RELEASE}/stage3-amd64 && anise cleanup && \
   cp ${BUILDPATH}/ego.conf /{{ .Values.name }}/etc/ && \
   rm -rf /{{ .Values.name }}/lib64/modules/* && \
   rsync -A -a --delete --numeric-ids --recursive -d -H --one-file-system --xattrs --exclude '/{{ .Values.name }}/*'  --exclude '/etc/resolv.conf'  --exclude '/etc/hostname'  --exclude '/sys/' --exclude '/etc/hosts'  --exclude '/sys/*' --exclude '/proc/*' --exclude '/dev/pts/*' /{{ .Values.name }}/ / && \
