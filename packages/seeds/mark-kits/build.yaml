@@ -6,17 +6,20 @@ env:
 - JOBS=10
 - GIT_HISTORY_ENTRIES=10000
 - FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
-- LUET_YES=true
-- LUET_NOLOCK=true
+- ANISE_YES=true
+- ANISE_NOLOCK=true
+package_dir: /layer
 prelude:
 - >-
   anise subsets enable portage devel &&
+  anise i --sync-repos repository/macaroni-repo-index -y &&
+  anise upgrade -y --sync-repos &&
   anise repo list &&
   anise repo disable mark macaroni-terragon macaroni-commons &&
-  anise i --sync-repos repository/mark-dev repository/macaroni-commons-dev repository/macaroni-terragon-dev &&
+  anise i -y --sync-repos repository/mark-dev repository/macaroni-commons-dev repository/macaroni-terragon-dev &&
   anise rm repository/macaroni-terragon repository/mark repository/macaroni-commons -y &&
-  anise install --sync-repos
-  dev-util/pkgs-checker app-misc/yq-go app-misc/jq system/luet-devkit portage app-admin/macaronictl
+  anise install -y --sync-repos
+  dev-util/pkgs-checker app-misc/yq-go app-misc/jq system/luet-devkit app-admin/macaronictl
   mark-devkit app-admin/anise-portage-converter app-admin/entities --nodeps &&
   anise cleanup &&
   mv kits-versions / &&
@@ -36,6 +39,7 @@ prelude:
   --concurrency $JOBS
   --generate-reposcan-files --kit-cache-dir /kit-cache/ &&
   cp /kits-versions/kits.yaml /kit-cache/ &&
+  rm -rf /layer &&
   mkdir /layer
 
 - >-
