@@ -99,9 +99,12 @@ artefacts:
     - app-eselect/eselect-php
 
 - tree: packages/atoms-extra/php
+  packages:
+    - app-text/tidy-html5
+
+- tree: packages/atoms-extra/php
   mutations:
     uses:
-      - ldap
       - soap
   uses:
     disabled:
@@ -252,7 +255,7 @@ reposcan_disabled_use_flags:
   - pptp
 
   # Disable LDAP integration at core level
-  - ldap
+  #- ldap
   - openldap
 
   - verify-sig
