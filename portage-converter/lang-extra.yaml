@@ -72,7 +72,7 @@ skipped_resolutions:
     - name: jack-audio-connection-kit
       category: media-sound
 
-build_template_file: ../templates/build-pkg-uses-subsets.yaml.tmpl
+build_template_file: ../templates/build-pkg-uses-subsets-version.yaml.tmpl
 
 global_annotations:
   subsets:
@@ -92,12 +92,33 @@ artefacts:
       packages:
         - category: seed
           name: macaroni-funtoo-race5
-  custom_path: dev-lang/go
+  custom_path: dev-lang/go/1.26
   uses:
     enabled:
       - amd64
   packages:
-    - dev-lang/go
+    - dev-lang/go,go1.26
+  conditions:
+    - '<dev-lang/go-1.27'
+    - '>=dev-lang/go-1.26.0'
+
+- tree: packages/atoms-extra/lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  custom_path: dev-lang/go/1.27
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.27
+  conditions:
+    - '<dev-lang/go-1.28'
+    - '>=dev-lang/go-1.27.0'
 
 - tree: packages/atoms-extra/lang
   mutations:
@@ -243,7 +264,10 @@ artefacts:
   - dev-lang/tcl
 
 - tree: packages/atoms-extra/lang
-  custom_path: net-libs/nodejs
+  custom_path: net-libs/nodejs/26
+  conditions:
+    - '<net-libs/nodejs-27'
+    - '>=net-libs/nodejs-26'
   mutations:
     buildtime_deps:
       packages:
@@ -266,7 +290,36 @@ artefacts:
       - systemtap
       - test
   packages:
-    - net-libs/nodejs
+    - net-libs/nodejs,nodejs26
+
+- tree: packages/atoms-extra/lang
+  custom_path: net-libs/nodejs/24
+  conditions:
+    - '<net-libs/nodejs-25'
+    - '>=net-libs/nodejs-24'
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-funtoo-race5
+  uses:
+    enabled:
+      - icu
+      - inspector
+      - npm
+      - snapshot
+      - ssl
+      - system-icu
+      - system-ssl
+    disabled:
+      - debug
+      - doc
+      - lto
+      - pax-kernel
+      - systemtap
+      - test
+  packages:
+    - net-libs/nodejs,nodejs24
 
 - tree: packages/atoms-extra/lang
   custom_path: net-libs/nodejs/22
