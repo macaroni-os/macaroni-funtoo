@@ -1,0 +1,29 @@
+name: tempo
+version: 3.1.1
+category: app-metrics
+conflicts:
+- name: tempo-bin
+  version: '>=0'
+  category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Grafana Tempo distributed tracing backend
+uri:
+- https://grafana.com/oss/tempo/
+- https://github.com/grafana/tempo
+license: AGPL-3
+labels:
+  BDEPEND: dev-lang/go virtual/pkgconfig
+  DEPEND: sys-apps/shadow
+  IUSE: systemd
+  RDEPEND: '!app-metrics/tempo-bin'
+  emerge.packages: app-metrics/tempo
+  kit: core-server-kit
+  original.package.name: app-metrics/tempo
+  original.package.slot: "0"
+  original.package.version: 3.1.1
