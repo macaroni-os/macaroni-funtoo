@@ -1,0 +1,25 @@
+name: loki
+version: 3.7.9
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 'Loki: like Prometheus, but for logs'
+uri:
+- https://grafana.com/oss/loki/
+- https://github.com/grafana/loki
+license: AGPL-3
+labels:
+  BDEPEND: dev-lang/go virtual/pkgconfig
+  DEPEND: sys-apps/shadow
+  IUSE: systemd
+  RDEPEND: '!app-metrics/loki-bin'
+  emerge.packages: app-metrics/loki
+  kit: core-server-kit
+  original.package.name: app-metrics/loki
+  original.package.slot: "0"
+  original.package.version: 3.7.9
