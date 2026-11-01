@@ -209,6 +209,58 @@ artefacts:
         entities merge --specs-dir /usr/share/macaroni/entities/
         -e alertmanager
 
+- tree: packages/atoms-extra/telemetry
+  packages:
+    - app-metrics/loki
+    - app-metrics/loki-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e loki
+
+- tree: packages/atoms-extra/telemetry
+  packages:
+    - app-metrics/tempo
+    - app-metrics/tempo-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e tempo
+
+- tree: packages/atoms-extra/telemetry
+  packages:
+    - app-metrics/mimir
+    - app-metrics/mimir-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e mimir
+
+- tree: packages/atoms-extra/telemetry
+  packages:
+    - app-metrics/alloy
+    - app-metrics/alloy-bin
+  finalizer:
+    shell:
+      - "/bin/bash"
+      - "-c"
+    install:
+      - >-
+        entities merge --specs-dir /usr/share/macaroni/entities/
+        -e alloy
+
 include_layers:
 - layers/macaroni-funtoo-race8.yaml
 
