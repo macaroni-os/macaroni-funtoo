@@ -100,6 +100,18 @@ artefacts:
   packages:
     - app-ai/docker-agent
     - app-ai/docker-model
+    - app-ai/opencode
+    - app-ai/pi
+
+- tree: packages/atoms-extra/ai
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race11
+  packages:
+    - app-ai/opencode-bin
+    - app-ai/pi-bin
 
 include_layers:
 - layers/macaroni-mark-race11.yaml
