@@ -1,0 +1,27 @@
+name: pi-bin
+version: 1.4.0
+category: app-ai
+conflicts:
+- name: pi
+  version: '>=0'
+  category: app-ai
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: 'AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI
+  (upstream binary)'
+uri:
+- https://github.com/earendil-works/pi
+license: MIT
+labels:
+  IUSE: amd64 arm64
+  RDEPEND: '!app-ai/pi'
+  emerge.packages: app-ai/pi-bin
+  kit: ai-kit
+  original.package.name: app-ai/pi-bin
+  original.package.slot: "0"
+  original.package.version: 1.4.0
