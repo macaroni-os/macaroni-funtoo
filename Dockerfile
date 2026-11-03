@@ -40,7 +40,7 @@ SHELL ["/bin/bash", "-c"]
 # the /etc/ld.so.conf.d/05gcc-x86_64-pc-linux-gnu.conf is
 # set correctly in the finalizer
 RUN macaronictl env-update && \
-  anise repo update &&
+  anise repo update && \
   anise miner ri virtual/base && \
   anise rm -y --nodeps virtual-entities/base && \
   anise cleanup --purge-repos
