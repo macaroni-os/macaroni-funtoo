@@ -38,6 +38,7 @@ RUN [ \
 SHELL ["/bin/bash", "-c"]
 
 RUN macaronictl env-update && \
+  anise --sync-repos miner ri virtual/base && \
   anise rm -y --nodeps virtual-entities/base && \
   anise cleanup --purge-repos
 
