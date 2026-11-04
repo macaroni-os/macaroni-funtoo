@@ -39,7 +39,9 @@ SHELL ["/bin/bash", "-c"]
 # The virtual/base reinstall is needed to ensure that
 # the /etc/ld.so.conf.d/05gcc-x86_64-pc-linux-gnu.conf is
 # set correctly in the finalizer
-RUN macaronictl env-update && \
+RUN eval 'mkdir /tmp || true' && \
+  chmod a+rwx /tmp && \
+  macaronictl env-update && \
   anise rm -y --nodeps virtual-entities/base && \
   anise cleanup --purge-repos
 

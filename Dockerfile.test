@@ -36,7 +36,9 @@ RUN [ \
 
 SHELL ["/bin/bash", "-c"]
 
-RUN macaronictl env-update && \
+RUN eval 'mkdir /tmp || true' && \
+  chmod a+rwx /tmp && \
+  macaronictl env-update && \
   anise rm -y --nodeps virtual-entities/base && \
   anise cleanup --purge-repos
 
