@@ -25,20 +25,19 @@ prelude:
   anise cleanup --purge-repos &&
   rm -rf /etc/passwd /etc/group /etc/passwd /etc/shadow &&
   entities merge -s /usr/share/macaroni/entities -a
-#steps:
+steps:
+# Force rebuild of debian-headers until i will
+# check terragon specs. It seems missed /usr/include/linux/limits.h
 - >-
   emerge --unmerge
-  sys-fs/lvm2
   virtual/udev
   virtual/libudev
   virtual/dev-manager
   virtual/service-manager
-  sys-apps/gentoo-systemd-integration
   sys-apps/sysvinit
   sys-fs/eudev
   net-dns/openresolv
   sys-apps/corenetwork
-  sys-apps/opentmpfiles
   virtual/udev
   virtual/tmpfiles
   sys-apps/openrc
@@ -47,10 +46,10 @@ prelude:
   sys-apps/pciutils
   sys-apps/systemd-tmpfiles
   sys-fs/dosfstools
-  app-emulation/open-vm-tools
   &&
   export FEATURES="-collision-protect -sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   unset RELEASE &&
+  emerge --nodeps -j debian-headers &&
   emerge --nodeps -j sys-apps/portage &&
   emerge -1 -t -j $JOBS sys-apps/systemd &&
   emerge -1uDN -t -j $JOBS @system &&
