@@ -6,12 +6,12 @@ general:
 solver:
   implementation: "solverv2"
 system:
-  database_path: "/var/luet/db"
+  database_path: "/var/anise/db"
   database_engine: "boltdb"
-  rootfs: /macaroni-funtoo
-  tmpdir_base: "/var/tmp/luet"
+  rootfs: /macaroni-eagle
+  tmpdir_base: "/var/tmp/anise"
 repos_confdir:
-  - /etc/luet/repos.conf.d
+  - /etc/anise/repos.conf.d
 
 subsets:
   enabled:
@@ -26,4 +26,7 @@ repositories:
   cached: true
   priority: 1
   urls:
+  - "https://dl.macaronios.org/repos/geaaru-repo-index"
+  - "https://macaronios.mirror.garr.it/repos/geaaru-repo-index"
+  - "https://cdn2.macaronios.org/repos/geaaru-repo-index"
   - "https://raw.githubusercontent.com/geaaru/repo-index/gh-pages"

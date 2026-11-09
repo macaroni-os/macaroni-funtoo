@@ -1,32 +1,35 @@
 image: "alpine"
 prelude:
 - >-
-  export LUET_YES=true &&
-  export LUET_NOLOCK=true &&
-  export LUET_VERSION=0.40.1 &&
-  LUET_ARCH=x86_64 &&
+  export ANISE_YES=true &&
+  export ANISE_NOLOCK=true &&
+  export ANISE_VERSION=0.45.4 &&
+  ANISE_ARCH=x86_64 &&
   apk add wget bash &&
-  mkdir /macaroni-funtoo &&
-  wget https://github.com/geaaru/luet/releases/download/v${LUET_VERSION}-geaaru/luet-v${LUET_VERSION}-geaaru-Linux-${LUET_ARCH} -O /usr/bin/luet &&
-  chmod a+x /usr/bin/luet &&
-  luet upgrade --sync-repos  &&
-  luet install --force --config ./luet.yaml --sync-repos
+  mkdir /macaroni-eagle &&
+  wget https://github.com/macaroni-os/anise/releases/download/v${ANISE_VERSION}/anise-v${ANISE_VERSION}-linux-x86_64 -O /usr/bin/anise &&
+  chmod a+x /usr/bin/anise &&
+  anise install --force --config ./anise.yaml --sync-repos
   repository/macaroni-eagle-dev
   repository/macaroni-commons-dev
-  repository/mark-testing
-  repository/mottainai-stable &&
-  luet install --force --config ./luet.yaml --skip-finalizers --sync-repos
+  repository/mark &&
+  anise repo update --force --config ./anise.yaml &&
+  anise install --force --config ./anise.yaml --skip-finalizers
+  app-admin/anise
   toolchain/base
   toolchain/meta-repo
   toolchain/meta-geaaru-kit
-  app-admin/anise
-  app-admin/entities
   app-admin/whip
+  app-admin/entities
   sys-apps/whip-catalog
-  utils/yq &&
-  luet cleanup --config ./luet.yaml &&
-  mkdir -p /macaroni-funtoo/etc/luet &&
-  /macaroni-funtoo/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
+  app-misc/jq-bin
+  macaroni/entities-catalog
+  app-misc/yq4-bin
+  app-misc/yq3-bin
+  dev-util/pkgs-checker &&
+  anise cleanup --config ./anise.yaml &&
+  mkdir -p /macaroni-eagle/etc/luet &&
+  /macaroni-eagle/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
   cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
   cd /macaroni-funtoo/bin &&
   ln -s bash sh &&
