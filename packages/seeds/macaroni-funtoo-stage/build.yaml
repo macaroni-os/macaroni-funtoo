@@ -42,6 +42,8 @@ prelude:
   --users-file /macaroni-eagle/etc/passwd
   --shadow-file /macaroni-eagle/etc/shadow
   --groups-file /macaroni-eagle/etc/group
-  --gshadow-file /macaroni-eagle/etc/gshadow
+  --gshadow-file /macaroni-eagle/etc/gshadow &&
+  mkdir /layer
+package_dir: /layer
 # We need to run entities before base image to set users/groups
 # and to avoid errors related with user identification
