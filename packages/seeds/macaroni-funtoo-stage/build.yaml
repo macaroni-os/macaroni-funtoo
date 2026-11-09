@@ -28,20 +28,20 @@ prelude:
   app-misc/yq3-bin
   dev-util/pkgs-checker &&
   anise cleanup --config ./anise.yaml &&
-  mkdir -p /macaroni-eagle/etc/luet &&
-  /macaroni-eagle/usr/bin/yq w ./luet.yaml system.rootfs "/" -i &&
-  cp ./luet.yaml /macaroni-funtoo/etc/luet/ &&
-  cd /macaroni-funtoo/bin &&
+  mkdir -p /macaroni-eagle/etc/anise &&
+  /macaroni-eagle/usr/bin/yq w ./anise.yaml system.rootfs "/" -i &&
+  cp ./anise.yaml /macaroni-eagle/etc/anise/ &&
+  cd /macaroni-anise/bin &&
   ln -s bash sh &&
   cd - &&
-  touch /macaroni-funtoo/etc/passwd &&
-  touch /macaroni-funtoo/etc/shadow &&
-  touch /macaroni-funtoo/etc/group &&
-  touch /macaroni-funtoo/etc/gshadow &&
-  /macaroni-funtoo/usr/bin/entities merge -s /macaroni-funtoo/usr/share/macaroni/entities/ -a
-  --users-file /macaroni-funtoo/etc/passwd
-  --shadow-file /macaroni-funtoo/etc/shadow
-  --groups-file /macaroni-funtoo/etc/group
-  --gshadow-file /macaroni-funtoo/etc/gshadow
+  touch /macaroni-eagle/etc/passwd &&
+  touch /macaroni-eagle/etc/shadow &&
+  touch /macaroni-eagle/etc/group &&
+  touch /macaroni-eagle/etc/gshadow &&
+  /macaroni-eagle/usr/bin/entities merge -s /macaroni-eagle/usr/share/macaroni/entities/ -a
+  --users-file /macaroni-eagle/etc/passwd
+  --shadow-file /macaroni-eagle/etc/shadow
+  --groups-file /macaroni-eagle/etc/group
+  --gshadow-file /macaroni-eagle/etc/gshadow
 # We need to run entities before base image to set users/groups
 # and to avoid errors related with user identification
