@@ -1,5 +1,5 @@
 name: linux-headers
-version: 6.9+2
+version: "6.12"
 category: sys-kernel
 annotations:
   subsets:
@@ -14,10 +14,11 @@ uri:
 - https://www.gentoo.org/
 license: GPL-2
 labels:
-  DEPEND: app-arch/xz-utils dev-lang/perl
+  DEPEND: '!<sys-kernel/linux-headers-6.12'
   IUSE: headers-only
+  RDEPEND: '!<sys-kernel/linux-headers-6.12'
   emerge.packages: sys-kernel/linux-headers
   kit: kernel-kit
   original.package.name: sys-kernel/linux-headers
   original.package.slot: "0"
-  original.package.version: "6.9"
+  original.package.version: 6.12-r1
