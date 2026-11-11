@@ -1,0 +1,26 @@
+name: codex-bin
+version: 0.167.1
+category: app-ai
+conflicts:
+- name: codex
+  version: '>=0'
+  category: app-ai
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: OpenAI's Codex CLI coding agent (upstream binary)
+uri:
+- https://github.com/openai/codex
+license: Apache-2.0
+labels:
+  IUSE: amd64 arm64
+  RDEPEND: '!app-ai/codex'
+  emerge.packages: app-ai/codex-bin
+  kit: ai-kit
+  original.package.name: app-ai/codex-bin
+  original.package.slot: "0"
+  original.package.version: 0.167.1
