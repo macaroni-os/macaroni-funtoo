@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
-LUET_BUILD=${LUET_BUILD:-luet-build}
+ANISE_BUILD=${ANISE_BUILD:-anise-build}
 
 kits=(
   "base" # mark-base
@@ -40,7 +40,7 @@ kits=(
 for i in ${kits[@]} ; do
 
   # Generate the index of the directory
-  ${LUET_BUILD} tree genidx --only-upper-level --compress=false -t packages/atoms/${i} || {
+  ${ANISE_BUILD} tree genidx --only-upper-level --compress=false -t packages/atoms/${i} || {
     echo "Error on generate indexes for ${i}"
     exit 1
   }
