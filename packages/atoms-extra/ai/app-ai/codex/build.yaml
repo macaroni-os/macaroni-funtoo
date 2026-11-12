@@ -1,3 +1,12 @@
+env:
+# Running emerge of this package on container
+# generates network errors.
+# We try to disable http/2 multiplexing
+# and we increate the timeout secs.
+- "CARGO_HTTP_MULTIPLEXING=false"
+- "CARGO_HTTP_TIMEOUT=120"
+- "CARGO_NET_RETRY=10"
+- "CARGO_HTTP_LOW_SPEED_LIMIT=1"
 prelude:
 - |-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" && \
