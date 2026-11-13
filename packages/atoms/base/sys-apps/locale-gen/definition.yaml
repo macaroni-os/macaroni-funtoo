@@ -1,0 +1,30 @@
+name: locale-gen
+version: "2.23"
+category: sys-apps
+requires:
+- name: bash
+  version: '>=0'
+  category: app-shells
+- name: glibc
+  version: '>=0'
+  category: sys-libs-2.2
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Generate locales based upon the config file /etc/locale.gen
+uri:
+- https://gitweb.gentoo.org/proj/locale-gen.git/
+- https://github.com/gentoo/locale-gen
+license: GPL-2.0
+labels:
+  DEPEND: app-shells/bash >=sys-libs/glibc-2.41
+  RDEPEND: app-shells/bash >=sys-libs/glibc-2.41
+  emerge.packages: sys-apps/locale-gen
+  kit: core-kit
+  original.package.name: sys-apps/locale-gen
+  original.package.slot: "0"
+  original.package.version: "2.23"
