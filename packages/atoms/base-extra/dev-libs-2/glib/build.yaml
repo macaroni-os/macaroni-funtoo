@@ -2,6 +2,7 @@ prelude:
 # Ensure to correctly build introspection feature
 - >-
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
+  emerge app-text/build-docbook-catalog app-text/docbook-xml-simple-dtd -j &&
   emerge glib -j &&
   emerge dev-libs/gobject-introspection -j
 - |-
