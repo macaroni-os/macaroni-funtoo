@@ -63,11 +63,23 @@ global_annotations:
 artefacts:
 
 - tree: packages/atoms/lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race5
+  custom_path: dev-lang/go
   uses:
     enabled:
-      - nls
+      - amd64
   packages:
-    - dev-lang/go
+    - dev-lang/go,go1.27
+  custom_path: dev-lang/go/1.27
+  conditions:
+    - '<dev-lang/go-1.28'
+    - '>=dev-lang/go-1.27.0'
 
 - tree: packages/atoms/lang
   mutations:
@@ -82,7 +94,49 @@ artefacts:
     enabled:
       - amd64
   packages:
-    - dev-lang/go
+    - dev-lang/go,go1.26
+  custom_path: dev-lang/go/1.26
+  conditions:
+    - '<dev-lang/go-1.27'
+    - '>=dev-lang/go-1.26.0'
+
+- tree: packages/atoms/lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race5
+  custom_path: dev-lang/go
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.25
+  custom_path: dev-lang/go/1.25
+  conditions:
+    - '<dev-lang/go-1.26'
+    - '>=dev-lang/go-1.25.0'
+
+- tree: packages/atoms/lang
+  mutations:
+    uses:
+      - amd64
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race5
+  custom_path: dev-lang/go
+  uses:
+    enabled:
+      - amd64
+  packages:
+    - dev-lang/go,go1.24
+  custom_path: dev-lang/go/1.24
+  conditions:
+    - '<dev-lang/go-1.25'
+    - '>=dev-lang/go-1.24.0'
 
 - tree: packages/atoms/lang
   mutations:
@@ -182,12 +236,17 @@ artefacts:
   - dev-tcltk/expect
   - dev-lang/tcl
 
+
 - tree: packages/atoms/lang
   mutations:
     buildtime_deps:
       packages:
         - category: seed
           name: macaroni-mark-race5
+  custom_path: net-libs/nodejs/24
+  conditions:
+    - '<net-libs/nodejs-25'
+    - '>=net-libs/nodejs-24'
   uses:
     enabled:
       - icu
@@ -206,7 +265,37 @@ artefacts:
       - systemtap
       - test
   packages:
-    - net-libs/nodejs
+    - net-libs/nodejs,nodejs24
+
+- tree: packages/atoms/lang
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race5
+  custom_path: net-libs/nodejs/22
+  conditions:
+    - '<net-libs/nodejs-23'
+    - '>=net-libs/nodejs-22'
+  uses:
+    enabled:
+      - icu
+      - inspector
+      - npm
+      - snapshot
+      - ssl
+      - system-icu
+      - system-ssl
+      - cpu_flags_x86_sse2
+    disabled:
+      - debug
+      - doc
+      - lto
+      - pax-kernel
+      - systemtap
+      - test
+  packages:
+    - net-libs/nodejs,nodejs22
 
 - tree: packages/atoms/lang
   custom_path: net-libs/nodejs/20
@@ -484,6 +573,11 @@ artefacts:
       - gtk2
   packages:
     - dev-lang/lazarus
+
+- tree: packages/atoms/lang
+  packages:
+  - dev-lang/bun-bin
+  - net-libs/deno
 
 include_layers:
 - layers/macaroni-mark-race5.yaml
