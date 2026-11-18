@@ -1,0 +1,22 @@
+name: deno
+version: 2.9.8
+category: net-libs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A modern runtime for JavaScript and TypeScript.
+uri:
+- https://deno.com
+license: MIT
+labels:
+  BDEPEND: sys-devel/llvm sys-devel/clang sys-devel/lld dev-util/gn virtual/rust >=virtual/rust-1.37.0
+  IUSE: debug
+  emerge.packages: net-libs/deno
+  kit: lang-kit
+  original.package.name: net-libs/deno
+  original.package.slot: "0"
+  original.package.version: 2.9.8
