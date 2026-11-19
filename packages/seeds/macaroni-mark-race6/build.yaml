@@ -1,16 +1,15 @@
 image: scratch
 env:
-- LUET_YES=true
-- LUET_NOLOCK=true
+- ANISE_YES=true
+- ANISE_NOLOCK=true
 - HTTP_TIMEOUT=0
 copy:
   - package:
       category: seed
       name: macaroni-funtoo-stage
       version: ">=0"
-    source: "/macaroni-funtoo"
+    source: "/macaroni-eagle"
     destination: "/"
-# Set this to prelude when this is fixed: https://github.com/mudler/luet/issues/254
 steps:
 - >-
   if [ ! -e /etc/passwd ] ; then touch /etc/passwd ; fi &&
@@ -19,9 +18,10 @@ steps:
   if [ ! -e /etc/gshadow ] ; then touch /etc/gshadow ; fi &&
   if [ ! -d /tmp ] ; then mkdir /tmp ; fi &&
   if [ ! -d /var ] ; then mkdir /var ; fi &&
+  if [ ! -d /root ] ; then mkdir /root ; fi &&
   chmod a+x /var &&
-  chmod a+rwx /tmp &&
-  anise install virtual-entities/base --force
+  chmod a+rwx /tmp
+- anise install virtual-entities/base --force
 - >-
   anise install --force --sync-repos
   system/luet-devkit
@@ -32,7 +32,7 @@ steps:
   kernel/macaroni-lts-sources &&
   eselect kernel set 1 &&
   anise repo update &&
-  anise upgrade &&
+  anise upgrade -y &&
   anise install --force
   toolchain/base-extra
   toolchain/base-python
@@ -62,7 +62,7 @@ steps:
   build-docbook-catalog &&
   eval 'mkdir -p /etc/portage/package.mask || true' &&
   echo "sys-apps/systemd-tmpfiles" > /etc/portage/package.mask/00-macaroni.mask &&
-  cd / && rm -rf /luetbuild &&
+  cd / && rm -rf /anisebuild &&
   cd /var/git/meta-repo/kits/ &&
   export FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox" &&
   for i in $(ls -1 . ) ; do egencache --jobs=9 --update --repo $i ; done ;
