@@ -1,0 +1,30 @@
+name: mimir-bin
+version: 3.2.4
+category: app-metrics
+conflicts:
+- name: mimir
+  version: '>=0'
+  category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Grafana Mimir horizontally-scalable, highly-available, multi-tenant compatible
+  Prometheus as a Service
+uri:
+- https://grafana.com/oss/mimir/
+- https://github.com/grafana/mimir
+license: AGPL-3
+labels:
+  BDEPEND: virtual/pkgconfig
+  DEPEND: sys-apps/shadow
+  IUSE: amd64 arm64 systemd
+  RDEPEND: '!app-metrics/mimir'
+  emerge.packages: app-metrics/mimir-bin
+  kit: core-server-kit
+  original.package.name: app-metrics/mimir-bin
+  original.package.slot: "0"
+  original.package.version: 3.2.4
