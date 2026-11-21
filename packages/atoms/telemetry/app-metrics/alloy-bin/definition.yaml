@@ -1,0 +1,25 @@
+name: alloy-bin
+version: 1.21.3
+category: app-metrics
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Vendor-agnostic OpenTelemetry Collector distribution with programmable
+  pipelines
+uri:
+- https://grafana.com/oss/alloy/
+- https://github.com/grafana/alloy
+license: Apache-2.0
+labels:
+  BDEPEND: app-arch/unzip virtual/pkgconfig
+  DEPEND: sys-apps/shadow
+  IUSE: amd64 arm64 systemd
+  emerge.packages: app-metrics/alloy-bin
+  kit: core-server-kit
+  original.package.name: app-metrics/alloy-bin
+  original.package.slot: "0"
+  original.package.version: 1.21.3
