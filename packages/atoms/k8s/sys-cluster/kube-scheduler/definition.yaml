@@ -1,0 +1,23 @@
+name: kube-scheduler
+version: 1.37.3
+category: sys-cluster
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Kubernetes scheduler assigning pods to nodes
+uri:
+- https://kubernetes.io
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.21 >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig'
+  DEPEND: '!sys-cluster/kubernetes sys-apps/shadow'
+  IUSE: hardened systemd
+  emerge.packages: sys-cluster/kube-scheduler
+  kit: core-server-kit
+  original.package.name: sys-cluster/kube-scheduler
+  original.package.slot: "0"
+  original.package.version: 1.37.3
