@@ -1,0 +1,21 @@
+name: cilium-cli
+version: 0.20.2
+category: sys-cluster
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: CLI to install, manage and troubleshoot Kubernetes clusters running Cilium
+uri:
+- https://cilium.io
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.21 >=dev-lang/go-1.12 app-arch/unzip'
+  emerge.packages: sys-cluster/cilium-cli
+  kit: core-server-kit
+  original.package.name: sys-cluster/cilium-cli
+  original.package.slot: "0"
+  original.package.version: 0.20.2
