@@ -1,0 +1,23 @@
+name: cilium
+version: 1.20.5
+category: sys-cluster
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: cilium-agent, the eBPF-based networking, observability and security agent
+  for Kubernetes nodes
+uri:
+- https://cilium.io
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.21 >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig'
+  IUSE: systemd
+  emerge.packages: sys-cluster/cilium
+  kit: core-server-kit
+  original.package.name: sys-cluster/cilium
+  original.package.slot: "0"
+  original.package.version: 1.20.5
