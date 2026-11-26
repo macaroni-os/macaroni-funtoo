@@ -1,0 +1,23 @@
+name: crun
+version: 1.30.1
+category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Fast and low-memory footprint OCI container runtime fully written in
+  C
+uri:
+- https://github.com/containers/crun
+license: GPL-2
+labels:
+  BDEPEND: sys-kernel/linux-headers virtual/pkgconfig
+  DEPEND: dev-libs/json-c:= sys-libs/libcap sys-libs/libseccomp
+  emerge.packages: app-emulation/crun
+  kit: core-server-kit
+  original.package.name: app-emulation/crun
+  original.package.slot: "0"
+  original.package.version: 1.30.1
