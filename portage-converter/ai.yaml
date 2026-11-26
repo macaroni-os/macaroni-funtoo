@@ -86,6 +86,30 @@ artefacts:
     - app-ai/docker-agent
     - app-ai/docker-model
 
+- tree: packages/atoms/ai
+  uses:
+    disabled:
+      # disable codex USE because requires gstreamer
+      - voice
+  packages:
+    - app-ai/codex
+    - app-ai/opencode
+    - app-ai/pi
+
+- tree: packages/atoms/ai
+  mutations:
+    buildtime_deps:
+      packages:
+        - category: seed
+          name: macaroni-mark-race13
+  packages:
+    - app-ai/codex-bin
+    - app-ai/claude-code-bin
+    - app-ai/opencode-bin
+    - app-ai/pi-bin
+    - sys-apps/ripgrep-bin
+
+
 include_layers:
 - layers/macaroni-mark-race13.yaml
 
