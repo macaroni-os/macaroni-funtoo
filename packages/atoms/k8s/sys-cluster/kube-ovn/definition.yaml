@@ -1,0 +1,22 @@
+name: kube-ovn
+version: 1.17.1
+category: sys-cluster
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A container networking solution for Kubernetes based on OVN
+uri:
+- https://kube-ovn.io
+license: Apache-2.0
+labels:
+  BDEPEND: dev-lang/go >=dev-lang/go-1.12 app-arch/unzip
+  IUSE: helpers
+  emerge.packages: sys-cluster/kube-ovn
+  kit: core-server-kit
+  original.package.name: sys-cluster/kube-ovn
+  original.package.slot: "0"
+  original.package.version: 1.17.1
