@@ -1,0 +1,23 @@
+name: ovn-kubernetes
+version: 1.4.0
+category: sys-cluster
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Daemons of the OVN-based Kubernetes networking platform (ovnkube master/node,
+  ovnkube-identity)
+uri:
+- https://ovn-kubernetes.io
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.26.0 <dev-lang/go-1.27.0 >=dev-lang/go-1.12 app-arch/unzip'
+  IUSE: helpers
+  emerge.packages: sys-cluster/ovn-kubernetes
+  kit: core-server-kit
+  original.package.name: sys-cluster/ovn-kubernetes
+  original.package.slot: "0"
+  original.package.version: 1.4.0
