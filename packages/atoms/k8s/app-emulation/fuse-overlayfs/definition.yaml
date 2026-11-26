@@ -1,0 +1,23 @@
+name: fuse-overlayfs
+version: "1.18"
+category: app-emulation
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: FUSE implementation for overlayfs
+uri:
+- https://github.com/containers/fuse-overlayfs
+license: GPL-3
+labels:
+  BDEPEND: virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16
+    ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+  DEPEND: sys-fs/fuse:3=
+  emerge.packages: app-emulation/fuse-overlayfs
+  kit: core-server-kit
+  original.package.name: app-emulation/fuse-overlayfs
+  original.package.slot: "0"
+  original.package.version: "1.18"
