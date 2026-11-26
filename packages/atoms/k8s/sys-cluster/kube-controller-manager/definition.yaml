@@ -1,0 +1,23 @@
+name: kube-controller-manager
+version: 1.37.3
+category: sys-cluster
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: Kubernetes controller manager running the control-plane controllers
+uri:
+- https://kubernetes.io
+license: Apache-2.0
+labels:
+  BDEPEND: '>=dev-lang/go-1.21 >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig'
+  DEPEND: '!sys-cluster/kubernetes sys-apps/shadow'
+  IUSE: hardened systemd
+  emerge.packages: sys-cluster/kube-controller-manager
+  kit: core-server-kit
+  original.package.name: sys-cluster/kube-controller-manager
+  original.package.slot: "0"
+  original.package.version: 1.37.3
