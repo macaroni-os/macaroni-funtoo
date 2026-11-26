@@ -1,0 +1,31 @@
+name: netavark
+version: 2.1.0
+category: app-emulation
+requires:
+- name: aardvark-dns
+  version: '>=0'
+  category: app-emulation
+- name: nftables
+  version: '>=0'
+  category: net-firewall
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: A container network stack
+uri:
+- https://github.com/containers/netavark
+license: Apache-2.0
+labels:
+  BDEPEND: dev-libs/protobuf virtual/rust >=virtual/rust-1.37.0
+  DEPEND: '>=app-emulation/aardvark-dns-2.0.0 net-firewall/nftables[json]'
+  IUSE: debug
+  RDEPEND: '>=app-emulation/aardvark-dns-2.0.0 net-firewall/nftables[json]'
+  emerge.packages: app-emulation/netavark
+  kit: core-server-kit
+  original.package.name: app-emulation/netavark
+  original.package.slot: "0"
+  original.package.version: 2.1.0
