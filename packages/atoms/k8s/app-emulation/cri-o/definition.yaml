@@ -1,0 +1,50 @@
+name: cri-o
+version: 1.37.3
+category: app-emulation
+use_flags:
+- -selinux
+- btrfs
+requires:
+- name: runc
+  version: '>=0'
+  category: app-emulation
+- name: conntrack-tools
+  version: '>=0'
+  category: net-firewall
+- name: cni-plugins
+  version: '>=0'
+  category: net-misc
+- name: socat
+  version: '>=0'
+  category: net-misc
+- name: iproute2
+  version: '>=0'
+  category: sys-apps
+- name: btrfs-progs
+  version: '>=0'
+  category: sys-fs
+annotations:
+  subsets:
+    rules:
+      devel:
+      - ^/usr/include/
+      portage:
+      - ^/var/db/pkg/
+description: OCI-based implementation of Kubernetes Container Runtime Interface
+uri:
+- https://cri-o.io/
+license: Apache-2.0
+labels:
+  BDEPEND: dev-lang/go virtual/pkgconfig >=dev-lang/go-1.12 app-arch/unzip
+  DEPEND: app-emulation/runc net-firewall/conntrack-tools net-firewall/iptables net-misc/cni-plugins
+    net-misc/socat sys-apps/iproute2 sys-libs/libseccomp:= btrfs? ( sys-fs/btrfs-progs
+    ) selinux? ( sys-libs/libselinux:= )
+  IUSE: btrfs selinux systemd
+  RDEPEND: app-emulation/runc net-firewall/conntrack-tools net-firewall/iptables net-misc/cni-plugins
+    net-misc/socat sys-apps/iproute2 sys-libs/libseccomp:= btrfs? ( sys-fs/btrfs-progs
+    ) selinux? ( sys-libs/libselinux:= )
+  emerge.packages: app-emulation/cri-o
+  kit: core-server-kit
+  original.package.name: app-emulation/cri-o
+  original.package.slot: "0"
+  original.package.version: 1.37.3
