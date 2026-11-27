@@ -85,19 +85,26 @@ artefacts:
 
 
     # TODO: Move this over version directory to support multiple releases
-    - app-emulation/cri-o
     - sys-cluster/kubectl
     - sys-cluster/kubeadm
-    - sys-cluster/kubelet
-    - sys-cluster/kube-proxy
-    - sys-cluster/kube-apiserver
-    - sys-cluster/kube-controller-manager
-    - sys-cluster/kube-scheduler
     - sys-cluster/cilium-cli
-    - sys-cluster/cilium
     - sys-cluster/kube-ovn
     - sys-cluster/ovn-kubernetes
     - sys-cluster/ovn-k8s-cni-overlay
+
+- tree: packages/atoms/k8s
+  mutations:
+    uses:
+      - systemd
+  packages:
+    - sys-cluster/cilium
+    - sys-cluster/kubelet
+    - sys-cluster/kube-proxy
+    - sys-cluster/kube-scheduler
+    - sys-cluster/kube-apiserver
+    - sys-cluster/kube-controller-manager
+
+    - app-emulation/cri-o
 
 
 include_layers:
