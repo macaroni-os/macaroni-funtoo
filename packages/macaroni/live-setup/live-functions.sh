@@ -13,6 +13,7 @@ kvm lp lpadmin messagebus plugdev polkituser portage pulse pulse-access pulse-rt
 scanner usb users uucp vboxguest vboxusers video wheel"
 LIVE_USER=macaroni
 LIVE_PERSISTENT_HOME_LABEL="live:/home"
+PLYMOUTH_DEFAULT_THEME="${PLYMOUTH_DEFAULT_THEME:-macaroni}"
 
 setup_autologin() {
     # GDM - GNOME
@@ -406,5 +407,5 @@ prepare() {
   ldconfig
 
   # Setup default plymouth theme
-  plymouth-set-default-theme funtoo
+  plymouth-set-default-theme ${PLYMOUTH_DEFAULT_THEME}
 }
